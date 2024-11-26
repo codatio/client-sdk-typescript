@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateSourceAccountRequestBody =
@@ -67,6 +70,26 @@ export namespace CreateSourceAccountRequestBody$ {
   export type Outbound = CreateSourceAccountRequestBody$Outbound;
 }
 
+export function createSourceAccountRequestBodyToJSON(
+  createSourceAccountRequestBody: CreateSourceAccountRequestBody,
+): string {
+  return JSON.stringify(
+    CreateSourceAccountRequestBody$outboundSchema.parse(
+      createSourceAccountRequestBody,
+    ),
+  );
+}
+
+export function createSourceAccountRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSourceAccountRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSourceAccountRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSourceAccountRequestBody' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateSourceAccountRequest$inboundSchema: z.ZodType<
   CreateSourceAccountRequest,
@@ -126,6 +149,24 @@ export namespace CreateSourceAccountRequest$ {
   export type Outbound = CreateSourceAccountRequest$Outbound;
 }
 
+export function createSourceAccountRequestToJSON(
+  createSourceAccountRequest: CreateSourceAccountRequest,
+): string {
+  return JSON.stringify(
+    CreateSourceAccountRequest$outboundSchema.parse(createSourceAccountRequest),
+  );
+}
+
+export function createSourceAccountRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSourceAccountRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSourceAccountRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSourceAccountRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const CreateSourceAccountResponseBody$inboundSchema: z.ZodType<
   CreateSourceAccountResponseBody,
@@ -162,4 +203,24 @@ export namespace CreateSourceAccountResponseBody$ {
   export const outboundSchema = CreateSourceAccountResponseBody$outboundSchema;
   /** @deprecated use `CreateSourceAccountResponseBody$Outbound` instead. */
   export type Outbound = CreateSourceAccountResponseBody$Outbound;
+}
+
+export function createSourceAccountResponseBodyToJSON(
+  createSourceAccountResponseBody: CreateSourceAccountResponseBody,
+): string {
+  return JSON.stringify(
+    CreateSourceAccountResponseBody$outboundSchema.parse(
+      createSourceAccountResponseBody,
+    ),
+  );
+}
+
+export function createSourceAccountResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateSourceAccountResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateSourceAccountResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateSourceAccountResponseBody' from JSON`,
+  );
 }

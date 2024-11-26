@@ -24,7 +24,6 @@ let value: BankFeedMapping = {
       accountNumber: "23203",
     },
   ],
-  feedStartDate: "2022-10-23T00:00:00Z",
 };
 ```
 

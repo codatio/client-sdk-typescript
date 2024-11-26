@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushOptionType,
   PushOptionType$inboundSchema,
@@ -78,4 +81,22 @@ export namespace PushOptionChoice$ {
   export const outboundSchema = PushOptionChoice$outboundSchema;
   /** @deprecated use `PushOptionChoice$Outbound` instead. */
   export type Outbound = PushOptionChoice$Outbound;
+}
+
+export function pushOptionChoiceToJSON(
+  pushOptionChoice: PushOptionChoice,
+): string {
+  return JSON.stringify(
+    PushOptionChoice$outboundSchema.parse(pushOptionChoice),
+  );
+}
+
+export function pushOptionChoiceFromJSON(
+  jsonString: string,
+): SafeParseResult<PushOptionChoice, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PushOptionChoice$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushOptionChoice' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BankAccountOption,
   BankAccountOption$inboundSchema,
@@ -82,4 +85,18 @@ export namespace SyncAsExpenses$ {
   export const outboundSchema = SyncAsExpenses$outboundSchema;
   /** @deprecated use `SyncAsExpenses$Outbound` instead. */
   export type Outbound = SyncAsExpenses$Outbound;
+}
+
+export function syncAsExpensesToJSON(syncAsExpenses: SyncAsExpenses): string {
+  return JSON.stringify(SyncAsExpenses$outboundSchema.parse(syncAsExpenses));
+}
+
+export function syncAsExpensesFromJSON(
+  jsonString: string,
+): SafeParseResult<SyncAsExpenses, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SyncAsExpenses$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SyncAsExpenses' from JSON`,
+  );
 }

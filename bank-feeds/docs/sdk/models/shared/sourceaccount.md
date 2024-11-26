@@ -18,7 +18,6 @@ let value: SourceAccount = {
   balance: new Decimal("0"),
   modifiedDate: "2023-01-09T14:14:14.1057478Z",
   status: "pending",
-  feedStartDate: "2022-10-23T00:00:00Z",
 };
 ```
 

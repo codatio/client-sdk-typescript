@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type SetConfigurationRequest = {
@@ -59,4 +62,22 @@ export namespace SetConfigurationRequest$ {
   export const outboundSchema = SetConfigurationRequest$outboundSchema;
   /** @deprecated use `SetConfigurationRequest$Outbound` instead. */
   export type Outbound = SetConfigurationRequest$Outbound;
+}
+
+export function setConfigurationRequestToJSON(
+  setConfigurationRequest: SetConfigurationRequest,
+): string {
+  return JSON.stringify(
+    SetConfigurationRequest$outboundSchema.parse(setConfigurationRequest),
+  );
+}
+
+export function setConfigurationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<SetConfigurationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SetConfigurationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SetConfigurationRequest' from JSON`,
+  );
 }

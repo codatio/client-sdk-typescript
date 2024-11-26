@@ -5,6 +5,7 @@
 import { companiesCreate } from "../funcs/companiesCreate.js";
 import { companiesDelete } from "../funcs/companiesDelete.js";
 import { companiesGet } from "../funcs/companiesGet.js";
+import { companiesGetAccessToken } from "../funcs/companiesGetAccessToken.js";
 import { companiesList } from "../funcs/companiesList.js";
 import { companiesUpdate } from "../funcs/companiesUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -109,6 +110,23 @@ export class Companies extends ClientSDK {
     options?: RequestOptions,
   ): Promise<shared.Company> {
     return unwrapAsync(companiesUpdate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get company access token
+   *
+   * @remarks
+   * Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+   */
+  async getAccessToken(
+    request: operations.GetCompanyAccessTokenRequest,
+    options?: RequestOptions,
+  ): Promise<shared.CompanyAccessToken> {
+    return unwrapAsync(companiesGetAccessToken(
       this,
       request,
       options,

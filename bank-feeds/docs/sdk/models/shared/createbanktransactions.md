@@ -7,7 +7,7 @@ import { CreateBankTransactions } from "@codat/bank-feeds/sdk/models/shared";
 import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 let value: CreateBankTransactions = {
-  accountId: "Checking 0202",
+  accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   transactions: [
     {
       id: "716422529",

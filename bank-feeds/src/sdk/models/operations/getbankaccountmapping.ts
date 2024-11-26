@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetBankAccountMappingRequest = {
   /**
@@ -52,4 +55,24 @@ export namespace GetBankAccountMappingRequest$ {
   export const outboundSchema = GetBankAccountMappingRequest$outboundSchema;
   /** @deprecated use `GetBankAccountMappingRequest$Outbound` instead. */
   export type Outbound = GetBankAccountMappingRequest$Outbound;
+}
+
+export function getBankAccountMappingRequestToJSON(
+  getBankAccountMappingRequest: GetBankAccountMappingRequest,
+): string {
+  return JSON.stringify(
+    GetBankAccountMappingRequest$outboundSchema.parse(
+      getBankAccountMappingRequest,
+    ),
+  );
+}
+
+export function getBankAccountMappingRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetBankAccountMappingRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetBankAccountMappingRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetBankAccountMappingRequest' from JSON`,
+  );
 }

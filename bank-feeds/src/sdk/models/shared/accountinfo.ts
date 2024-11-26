@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type AccountInfo = {
   /**
@@ -77,4 +80,18 @@ export namespace AccountInfo$ {
   export const outboundSchema = AccountInfo$outboundSchema;
   /** @deprecated use `AccountInfo$Outbound` instead. */
   export type Outbound = AccountInfo$Outbound;
+}
+
+export function accountInfoToJSON(accountInfo: AccountInfo): string {
+  return JSON.stringify(AccountInfo$outboundSchema.parse(accountInfo));
+}
+
+export function accountInfoFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountInfo, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountInfo$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountInfo' from JSON`,
+  );
 }

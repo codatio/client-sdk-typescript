@@ -3,6 +3,7 @@
  */
 
 import { transactionsCreate } from "../funcs/transactionsCreate.js";
+import { transactionsGetCreateModel } from "../funcs/transactionsGetCreateModel.js";
 import { transactionsGetCreateOperation } from "../funcs/transactionsGetCreateOperation.js";
 import { transactionsListCreateOperations } from "../funcs/transactionsListCreateOperations.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -21,13 +22,37 @@ export class Transactions extends ClientSDK {
    *
    * **Integration-specific behaviour**
    *
-   * Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model).
+   * The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
+   * Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
    */
   async create(
     request: operations.CreateBankTransactionsRequest,
     options?: RequestOptions,
   ): Promise<shared.CreateBankTransactionsResponse> {
     return unwrapAsync(transactionsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get create bank transactions model
+   *
+   * @remarks
+   * The *Get create bank account transactions model* endpoint returns the expected data for the request payload when creating [bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) for a given company and integration.
+   *
+   * [Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
+   *
+   * **Integration-specific behaviour**
+   *
+   * See the *response examples* for integration-specific indicative models.
+   */
+  async getCreateModel(
+    request: operations.GetCreateBankTransactionsModelRequest,
+    options?: RequestOptions,
+  ): Promise<shared.PushOption> {
+    return unwrapAsync(transactionsGetCreateModel(
       this,
       request,
       options,

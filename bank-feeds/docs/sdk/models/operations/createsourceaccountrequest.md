@@ -11,24 +11,14 @@ let value: CreateSourceAccountRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestBody: {
     id: "acc-002",
-    accountName: "account-083",
-    accountType: "savings",
-    accountNumber: "23456789",
-    routingInfo: {
-      bankCode: "21001088",
-      type: "bankcode",
-    },
+    accountName: "account-081",
+    accountType: "Credit",
+    accountNumber: "12345670",
+    sortCode: "123456",
     currency: "GBP",
-    balance: new Decimal("400"),
-    accountInfo: {
-      description: "account description 2",
-      nickname: "account 1290",
-      accountOpenDate: "2023-05-23T00:00:00Z",
-      availableBalance: new Decimal("400"),
-    },
-    modifiedDate: "2024-08-02T00:00:00.000Z",
+    balance: new Decimal("99.99"),
+    modifiedDate: "2023-01-09T14:14:14.1057478Z",
     status: "pending",
-    feedStartDate: "2024-05-01T00:00:00Z",
   },
 };
 ```

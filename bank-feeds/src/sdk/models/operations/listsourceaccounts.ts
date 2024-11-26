@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type ListSourceAccountsRequest = {
@@ -62,6 +65,24 @@ export namespace ListSourceAccountsRequest$ {
   export type Outbound = ListSourceAccountsRequest$Outbound;
 }
 
+export function listSourceAccountsRequestToJSON(
+  listSourceAccountsRequest: ListSourceAccountsRequest,
+): string {
+  return JSON.stringify(
+    ListSourceAccountsRequest$outboundSchema.parse(listSourceAccountsRequest),
+  );
+}
+
+export function listSourceAccountsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ListSourceAccountsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListSourceAccountsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListSourceAccountsRequest' from JSON`,
+  );
+}
+
 /** @internal */
 export const ListSourceAccountsResponseBody$inboundSchema: z.ZodType<
   ListSourceAccountsResponseBody,
@@ -98,4 +119,24 @@ export namespace ListSourceAccountsResponseBody$ {
   export const outboundSchema = ListSourceAccountsResponseBody$outboundSchema;
   /** @deprecated use `ListSourceAccountsResponseBody$Outbound` instead. */
   export type Outbound = ListSourceAccountsResponseBody$Outbound;
+}
+
+export function listSourceAccountsResponseBodyToJSON(
+  listSourceAccountsResponseBody: ListSourceAccountsResponseBody,
+): string {
+  return JSON.stringify(
+    ListSourceAccountsResponseBody$outboundSchema.parse(
+      listSourceAccountsResponseBody,
+    ),
+  );
+}
+
+export function listSourceAccountsResponseBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<ListSourceAccountsResponseBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ListSourceAccountsResponseBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ListSourceAccountsResponseBody' from JSON`,
+  );
 }

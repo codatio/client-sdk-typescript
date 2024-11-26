@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteBankFeedCredentialsRequest = {
   /**
@@ -52,4 +55,24 @@ export namespace DeleteBankFeedCredentialsRequest$ {
   export const outboundSchema = DeleteBankFeedCredentialsRequest$outboundSchema;
   /** @deprecated use `DeleteBankFeedCredentialsRequest$Outbound` instead. */
   export type Outbound = DeleteBankFeedCredentialsRequest$Outbound;
+}
+
+export function deleteBankFeedCredentialsRequestToJSON(
+  deleteBankFeedCredentialsRequest: DeleteBankFeedCredentialsRequest,
+): string {
+  return JSON.stringify(
+    DeleteBankFeedCredentialsRequest$outboundSchema.parse(
+      deleteBankFeedCredentialsRequest,
+    ),
+  );
+}
+
+export function deleteBankFeedCredentialsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<DeleteBankFeedCredentialsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DeleteBankFeedCredentialsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DeleteBankFeedCredentialsRequest' from JSON`,
+  );
 }

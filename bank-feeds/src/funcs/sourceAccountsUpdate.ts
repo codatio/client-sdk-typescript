@@ -94,6 +94,9 @@ export async function sourceAccountsUpdate(
   const context = {
     operationID: "update-source-account",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

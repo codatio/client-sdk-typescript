@@ -7,37 +7,149 @@ Provide and manage lists of source bank accounts.
 
 ### Available Operations
 
-* [create](#create) - Create source account
+* [createBatch](#createbatch) - Create source accounts
+* [create](#create) - Create single source account
 * [list](#list) - List source accounts
 * [update](#update) - Update source account
 * [delete](#delete) - Delete source account
 * [generateCredentials](#generatecredentials) - Generate source account credentials
 * [deleteCredentials](#deletecredentials) - Delete all source account credentials
 
+## createBatch
+
+The _Batch create source accounts_ endpoint allows you to create multiple representations of your SMB's bank accounts within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
+
+> ### Versioning
+> If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+
+### Example Usage
+
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.sourceAccounts.createBatch({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    requestBody: [
+      {
+        id: "acc-002",
+        accountName: "account-081",
+        accountType: "Credit",
+        accountNumber: "12345670",
+        sortCode: "123456",
+        currency: "GBP",
+        balance: new Decimal("99.99"),
+        modifiedDate: "2023-01-09T14:14:14.1057478Z",
+        status: "pending",
+      },
+      {
+        id: "acc-003",
+        accountName: "account-095",
+        accountType: "Credit",
+        accountNumber: "12345671",
+        sortCode: "123456",
+        currency: "USD",
+        balance: new Decimal("0"),
+        modifiedDate: "2023-01-09T14:14:14.1057478Z",
+        status: "pending",
+      },
+    ],
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { sourceAccountsCreateBatch } from "@codat/bank-feeds/funcs/sourceAccountsCreateBatch.js";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await sourceAccountsCreateBatch(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    requestBody: [
+      {
+        id: "acc-002",
+        accountName: "account-081",
+        accountType: "Credit",
+        accountNumber: "12345670",
+        sortCode: "123456",
+        currency: "GBP",
+        balance: new Decimal("99.99"),
+        modifiedDate: "2023-01-09T14:14:14.1057478Z",
+        status: "pending",
+      },
+      {
+        id: "acc-003",
+        accountName: "account-095",
+        accountType: "Credit",
+        accountNumber: "12345671",
+        sortCode: "123456",
+        currency: "USD",
+        balance: new Decimal("0"),
+        modifiedDate: "2023-01-09T14:14:14.1057478Z",
+        status: "pending",
+      },
+    ],
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.CreateBatchSourceAccountRequest](../../sdk/models/operations/createbatchsourceaccountrequest.md)                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[operations.CreateBatchSourceAccountResponse](../../sdk/models/operations/createbatchsourceaccountresponse.md)\>**
+
+### Errors
+
+| Error Type                                  | Status Code                                 | Content Type                                |
+| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
+| errors.ErrorMessage                         | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
+| errors.SDKError                             | 4XX, 5XX                                    | \*/\*                                       |
+
 ## create
 
 The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
-
-#### Account mapping variability
-
-The method of mapping the source account to the target account varies depending on the accounting software your company uses.
-
-#### Mapping options:
-
-1. **API Mapping**: Integrate the mapping journey directly into your application for a seamless user experience.
-2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
-3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
-
-### Integration-specific behaviour
-
-| Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
-| --------------------- | ----------- | ---------------- | --------------------------- |
-| Xero                  | ✅          | ✅               |                             |
-| FreeAgent             | ✅          | ✅               |                             |
-| Oracle NetSuite       | ✅          | ✅               |                             |
-| Exact Online (NL)     | ✅          | ✅               |                             |
-| QuickBooks Online     |             |                  | ✅                          |
-| Sage                  |             |                  | ✅                          |
 
 > ### Versioning
 > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
@@ -268,7 +380,7 @@ async function run() {
   const result = await codatBankFeeds.sourceAccounts.update({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    accountId: "7110701885",
     sourceAccount: {
       id: "acc-003",
       accountName: "account-095",
@@ -309,7 +421,7 @@ async function run() {
   const res = await sourceAccountsUpdate(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    accountId: "7110701885",
     sourceAccount: {
       id: "acc-003",
       accountName: "account-095",

@@ -87,6 +87,9 @@ export async function sourceAccountsList(
   const context = {
     operationID: "list-source-accounts",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

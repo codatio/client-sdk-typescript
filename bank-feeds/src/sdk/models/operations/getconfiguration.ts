@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetConfigurationRequest = {
   /**
@@ -45,4 +48,22 @@ export namespace GetConfigurationRequest$ {
   export const outboundSchema = GetConfigurationRequest$outboundSchema;
   /** @deprecated use `GetConfigurationRequest$Outbound` instead. */
   export type Outbound = GetConfigurationRequest$Outbound;
+}
+
+export function getConfigurationRequestToJSON(
+  getConfigurationRequest: GetConfigurationRequest,
+): string {
+  return JSON.stringify(
+    GetConfigurationRequest$outboundSchema.parse(getConfigurationRequest),
+  );
+}
+
+export function getConfigurationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetConfigurationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetConfigurationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetConfigurationRequest' from JSON`,
+  );
 }

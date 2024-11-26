@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Result of generate credentials
@@ -55,4 +58,22 @@ export namespace BankAccountCredentials$ {
   export const outboundSchema = BankAccountCredentials$outboundSchema;
   /** @deprecated use `BankAccountCredentials$Outbound` instead. */
   export type Outbound = BankAccountCredentials$Outbound;
+}
+
+export function bankAccountCredentialsToJSON(
+  bankAccountCredentials: BankAccountCredentials,
+): string {
+  return JSON.stringify(
+    BankAccountCredentials$outboundSchema.parse(bankAccountCredentials),
+  );
+}
+
+export function bankAccountCredentialsFromJSON(
+  jsonString: string,
+): SafeParseResult<BankAccountCredentials, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BankAccountCredentials$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BankAccountCredentials' from JSON`,
+  );
 }

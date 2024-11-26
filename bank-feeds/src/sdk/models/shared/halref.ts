@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type HalRef = {
   /**
@@ -42,4 +45,18 @@ export namespace HalRef$ {
   export const outboundSchema = HalRef$outboundSchema;
   /** @deprecated use `HalRef$Outbound` instead. */
   export type Outbound = HalRef$Outbound;
+}
+
+export function halRefToJSON(halRef: HalRef): string {
+  return JSON.stringify(HalRef$outboundSchema.parse(halRef));
+}
+
+export function halRefFromJSON(
+  jsonString: string,
+): SafeParseResult<HalRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => HalRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'HalRef' from JSON`,
+  );
 }

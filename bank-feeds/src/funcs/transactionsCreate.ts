@@ -33,7 +33,8 @@ import { Result } from "../sdk/types/fp.js";
  *
  * **Integration-specific behaviour**
  *
- * Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bankTransactions-model).
+ * The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
+ * Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
  */
 export async function transactionsCreate(
   client: CodatBankFeedsCore,
@@ -102,6 +103,9 @@ export async function transactionsCreate(
   const context = {
     operationID: "create-bank-transactions",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
     retryConfig: options?.retries
       || client._options.retryConfig

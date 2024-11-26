@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CompanySyncStatus = {
   /**
@@ -112,4 +115,22 @@ export namespace CompanySyncStatus$ {
   export const outboundSchema = CompanySyncStatus$outboundSchema;
   /** @deprecated use `CompanySyncStatus$Outbound` instead. */
   export type Outbound = CompanySyncStatus$Outbound;
+}
+
+export function companySyncStatusToJSON(
+  companySyncStatus: CompanySyncStatus,
+): string {
+  return JSON.stringify(
+    CompanySyncStatus$outboundSchema.parse(companySyncStatus),
+  );
+}
+
+export function companySyncStatusFromJSON(
+  jsonString: string,
+): SafeParseResult<CompanySyncStatus, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CompanySyncStatus$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CompanySyncStatus' from JSON`,
+  );
 }

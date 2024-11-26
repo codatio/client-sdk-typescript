@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UpdateSourceAccountRequest = {
@@ -73,4 +76,22 @@ export namespace UpdateSourceAccountRequest$ {
   export const outboundSchema = UpdateSourceAccountRequest$outboundSchema;
   /** @deprecated use `UpdateSourceAccountRequest$Outbound` instead. */
   export type Outbound = UpdateSourceAccountRequest$Outbound;
+}
+
+export function updateSourceAccountRequestToJSON(
+  updateSourceAccountRequest: UpdateSourceAccountRequest,
+): string {
+  return JSON.stringify(
+    UpdateSourceAccountRequest$outboundSchema.parse(updateSourceAccountRequest),
+  );
+}
+
+export function updateSourceAccountRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateSourceAccountRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UpdateSourceAccountRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateSourceAccountRequest' from JSON`,
+  );
 }
