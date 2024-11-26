@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UploadBillAttachmentRequest = {
@@ -73,4 +76,24 @@ export namespace UploadBillAttachmentRequest$ {
   export const outboundSchema = UploadBillAttachmentRequest$outboundSchema;
   /** @deprecated use `UploadBillAttachmentRequest$Outbound` instead. */
   export type Outbound = UploadBillAttachmentRequest$Outbound;
+}
+
+export function uploadBillAttachmentRequestToJSON(
+  uploadBillAttachmentRequest: UploadBillAttachmentRequest,
+): string {
+  return JSON.stringify(
+    UploadBillAttachmentRequest$outboundSchema.parse(
+      uploadBillAttachmentRequest,
+    ),
+  );
+}
+
+export function uploadBillAttachmentRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UploadBillAttachmentRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UploadBillAttachmentRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UploadBillAttachmentRequest' from JSON`,
+  );
 }

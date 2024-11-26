@@ -10,9 +10,9 @@ let value: CreateBankAccountRequest = {
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   bankAccountPrototype: {
     name: "<value>",
-    accountType: "Unknown",
+    accountType: "Credit",
     accountNumber: "<value>",
-    currency: "GBP",
+    currency: "EUR",
   },
 };
 ```

@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateBillRequest = {
@@ -73,4 +76,22 @@ export namespace CreateBillRequest$ {
   export const outboundSchema = CreateBillRequest$outboundSchema;
   /** @deprecated use `CreateBillRequest$Outbound` instead. */
   export type Outbound = CreateBillRequest$Outbound;
+}
+
+export function createBillRequestToJSON(
+  createBillRequest: CreateBillRequest,
+): string {
+  return JSON.stringify(
+    CreateBillRequest$outboundSchema.parse(createBillRequest),
+  );
+}
+
+export function createBillRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateBillRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateBillRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateBillRequest' from JSON`,
+  );
 }

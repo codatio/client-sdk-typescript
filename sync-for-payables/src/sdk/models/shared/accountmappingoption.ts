@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountStatus,
   AccountStatus$inboundSchema,
@@ -97,4 +100,22 @@ export namespace AccountMappingOption$ {
   export const outboundSchema = AccountMappingOption$outboundSchema;
   /** @deprecated use `AccountMappingOption$Outbound` instead. */
   export type Outbound = AccountMappingOption$Outbound;
+}
+
+export function accountMappingOptionToJSON(
+  accountMappingOption: AccountMappingOption,
+): string {
+  return JSON.stringify(
+    AccountMappingOption$outboundSchema.parse(accountMappingOption),
+  );
+}
+
+export function accountMappingOptionFromJSON(
+  jsonString: string,
+): SafeParseResult<AccountMappingOption, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => AccountMappingOption$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'AccountMappingOption' from JSON`,
+  );
 }

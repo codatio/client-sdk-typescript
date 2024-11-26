@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the tax rate to which the line item is linked.
@@ -48,4 +51,18 @@ export namespace BillTaxRateRef$ {
   export const outboundSchema = BillTaxRateRef$outboundSchema;
   /** @deprecated use `BillTaxRateRef$Outbound` instead. */
   export type Outbound = BillTaxRateRef$Outbound;
+}
+
+export function billTaxRateRefToJSON(billTaxRateRef: BillTaxRateRef): string {
+  return JSON.stringify(BillTaxRateRef$outboundSchema.parse(billTaxRateRef));
+}
+
+export function billTaxRateRefFromJSON(
+  jsonString: string,
+): SafeParseResult<BillTaxRateRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BillTaxRateRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BillTaxRateRef' from JSON`,
+  );
 }

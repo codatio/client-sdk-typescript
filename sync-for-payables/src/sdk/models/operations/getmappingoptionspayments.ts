@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetMappingOptionsPaymentsRequest = {
   /**
@@ -66,4 +69,24 @@ export namespace GetMappingOptionsPaymentsRequest$ {
   export const outboundSchema = GetMappingOptionsPaymentsRequest$outboundSchema;
   /** @deprecated use `GetMappingOptionsPaymentsRequest$Outbound` instead. */
   export type Outbound = GetMappingOptionsPaymentsRequest$Outbound;
+}
+
+export function getMappingOptionsPaymentsRequestToJSON(
+  getMappingOptionsPaymentsRequest: GetMappingOptionsPaymentsRequest,
+): string {
+  return JSON.stringify(
+    GetMappingOptionsPaymentsRequest$outboundSchema.parse(
+      getMappingOptionsPaymentsRequest,
+    ),
+  );
+}
+
+export function getMappingOptionsPaymentsRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetMappingOptionsPaymentsRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetMappingOptionsPaymentsRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetMappingOptionsPaymentsRequest' from JSON`,
+  );
 }

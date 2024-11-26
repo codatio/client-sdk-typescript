@@ -11,9 +11,10 @@ generation:
     requestResponseComponentNamesFeb2024: true
   auth:
     oAuth2ClientCredentialsEnabled: false
+    oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 8.0.0
+  version: 9.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -21,7 +22,9 @@ typescript:
   additionalPackageJSON: {}
   author: Codat
   clientServerStatusCodesAsErrors: true
+  defaultErrorName: SDKError
   description: Streamline your customers' accounts payable workflow.
+  enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
   flatteningOrder: body-first

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountMappingOption,
   AccountMappingOption$inboundSchema,
@@ -71,4 +74,22 @@ export namespace BillMappingOptions$ {
   export const outboundSchema = BillMappingOptions$outboundSchema;
   /** @deprecated use `BillMappingOptions$Outbound` instead. */
   export type Outbound = BillMappingOptions$Outbound;
+}
+
+export function billMappingOptionsToJSON(
+  billMappingOptions: BillMappingOptions,
+): string {
+  return JSON.stringify(
+    BillMappingOptions$outboundSchema.parse(billMappingOptions),
+  );
+}
+
+export function billMappingOptionsFromJSON(
+  jsonString: string,
+): SafeParseResult<BillMappingOptions, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => BillMappingOptions$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'BillMappingOptions' from JSON`,
+  );
 }

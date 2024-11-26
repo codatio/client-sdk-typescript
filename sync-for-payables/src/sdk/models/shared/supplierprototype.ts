@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
   Address$inboundSchema,
@@ -110,4 +113,22 @@ export namespace SupplierPrototype$ {
   export const outboundSchema = SupplierPrototype$outboundSchema;
   /** @deprecated use `SupplierPrototype$Outbound` instead. */
   export type Outbound = SupplierPrototype$Outbound;
+}
+
+export function supplierPrototypeToJSON(
+  supplierPrototype: SupplierPrototype,
+): string {
+  return JSON.stringify(
+    SupplierPrototype$outboundSchema.parse(supplierPrototype),
+  );
+}
+
+export function supplierPrototypeFromJSON(
+  jsonString: string,
+): SafeParseResult<SupplierPrototype, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupplierPrototype$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupplierPrototype' from JSON`,
+  );
 }

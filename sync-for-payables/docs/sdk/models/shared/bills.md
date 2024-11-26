@@ -13,7 +13,7 @@ let value: Bills = {
       },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
-      currency: "EUR",
+      currency: "USD",
       status: "Open",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
     },

@@ -3,8 +3,11 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Status of the tax rate in the accounting software.
@@ -137,4 +140,22 @@ export namespace TaxRateMappingOption$ {
   export const outboundSchema = TaxRateMappingOption$outboundSchema;
   /** @deprecated use `TaxRateMappingOption$Outbound` instead. */
   export type Outbound = TaxRateMappingOption$Outbound;
+}
+
+export function taxRateMappingOptionToJSON(
+  taxRateMappingOption: TaxRateMappingOption,
+): string {
+  return JSON.stringify(
+    TaxRateMappingOption$outboundSchema.parse(taxRateMappingOption),
+  );
+}
+
+export function taxRateMappingOptionFromJSON(
+  jsonString: string,
+): SafeParseResult<TaxRateMappingOption, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => TaxRateMappingOption$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'TaxRateMappingOption' from JSON`,
+  );
 }

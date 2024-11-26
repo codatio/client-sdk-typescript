@@ -17,7 +17,7 @@ export class Companies extends ClientSDK {
    * List companies
    *
    * @remarks
-   * The *List companies* endpoint returns a list of [companies] associated to your instances.
+   * The *List companies* endpoint returns a list of [companies](https://docs.codat.io/sync-for-payables-api#/schemas/Company) associated to your instances.
    *
    * A [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.
    * Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.

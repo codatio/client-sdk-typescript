@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Address,
   Address$inboundSchema,
@@ -128,4 +131,18 @@ export namespace Supplier$ {
   export const outboundSchema = Supplier$outboundSchema;
   /** @deprecated use `Supplier$Outbound` instead. */
   export type Outbound = Supplier$Outbound;
+}
+
+export function supplierToJSON(supplier: Supplier): string {
+  return JSON.stringify(Supplier$outboundSchema.parse(supplier));
+}
+
+export function supplierFromJSON(
+  jsonString: string,
+): SafeParseResult<Supplier, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Supplier$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Supplier' from JSON`,
+  );
 }

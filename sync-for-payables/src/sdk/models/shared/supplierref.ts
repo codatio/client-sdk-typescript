@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Reference to the supplier the record relates to.
@@ -55,4 +58,18 @@ export namespace SupplierRef$ {
   export const outboundSchema = SupplierRef$outboundSchema;
   /** @deprecated use `SupplierRef$Outbound` instead. */
   export type Outbound = SupplierRef$Outbound;
+}
+
+export function supplierRefToJSON(supplierRef: SupplierRef): string {
+  return JSON.stringify(SupplierRef$outboundSchema.parse(supplierRef));
+}
+
+export function supplierRefFromJSON(
+  jsonString: string,
+): SafeParseResult<SupplierRef, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SupplierRef$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SupplierRef' from JSON`,
+  );
 }
