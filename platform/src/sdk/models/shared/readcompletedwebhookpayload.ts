@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CompanyReference,
   CompanyReference$inboundSchema,
@@ -111,6 +114,20 @@ export namespace DataTypes$ {
   export type Outbound = DataTypes$Outbound;
 }
 
+export function dataTypesToJSON(dataTypes: DataTypes): string {
+  return JSON.stringify(DataTypes$outboundSchema.parse(dataTypes));
+}
+
+export function dataTypesFromJSON(
+  jsonString: string,
+): SafeParseResult<DataTypes, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataTypes$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataTypes' from JSON`,
+  );
+}
+
 /** @internal */
 export const ReadCompletedWebhookPayload$inboundSchema: z.ZodType<
   ReadCompletedWebhookPayload,
@@ -151,4 +168,24 @@ export namespace ReadCompletedWebhookPayload$ {
   export const outboundSchema = ReadCompletedWebhookPayload$outboundSchema;
   /** @deprecated use `ReadCompletedWebhookPayload$Outbound` instead. */
   export type Outbound = ReadCompletedWebhookPayload$Outbound;
+}
+
+export function readCompletedWebhookPayloadToJSON(
+  readCompletedWebhookPayload: ReadCompletedWebhookPayload,
+): string {
+  return JSON.stringify(
+    ReadCompletedWebhookPayload$outboundSchema.parse(
+      readCompletedWebhookPayload,
+    ),
+  );
+}
+
+export function readCompletedWebhookPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<ReadCompletedWebhookPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReadCompletedWebhookPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReadCompletedWebhookPayload' from JSON`,
+  );
 }

@@ -3,7 +3,10 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   Status,
   Status$inboundSchema,
@@ -174,4 +177,18 @@ export namespace DataStatus$ {
   export const outboundSchema = DataStatus$outboundSchema;
   /** @deprecated use `DataStatus$Outbound` instead. */
   export type Outbound = DataStatus$Outbound;
+}
+
+export function dataStatusToJSON(dataStatus: DataStatus): string {
+  return JSON.stringify(DataStatus$outboundSchema.parse(dataStatus));
+}
+
+export function dataStatusFromJSON(
+  jsonString: string,
+): SafeParseResult<DataStatus, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataStatus$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataStatus' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetPushOperationRequest = {
   /**
@@ -52,4 +55,22 @@ export namespace GetPushOperationRequest$ {
   export const outboundSchema = GetPushOperationRequest$outboundSchema;
   /** @deprecated use `GetPushOperationRequest$Outbound` instead. */
   export type Outbound = GetPushOperationRequest$Outbound;
+}
+
+export function getPushOperationRequestToJSON(
+  getPushOperationRequest: GetPushOperationRequest,
+): string {
+  return JSON.stringify(
+    GetPushOperationRequest$outboundSchema.parse(getPushOperationRequest),
+  );
+}
+
+export function getPushOperationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetPushOperationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetPushOperationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetPushOperationRequest' from JSON`,
+  );
 }

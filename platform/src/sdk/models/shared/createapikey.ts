@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Details about the newly created API key.
@@ -48,4 +51,18 @@ export namespace CreateApiKey$ {
   export const outboundSchema = CreateApiKey$outboundSchema;
   /** @deprecated use `CreateApiKey$Outbound` instead. */
   export type Outbound = CreateApiKey$Outbound;
+}
+
+export function createApiKeyToJSON(createApiKey: CreateApiKey): string {
+  return JSON.stringify(CreateApiKey$outboundSchema.parse(createApiKey));
+}
+
+export function createApiKeyFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateApiKey, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateApiKey$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateApiKey' from JSON`,
+  );
 }

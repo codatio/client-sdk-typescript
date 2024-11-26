@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ConnectionWebhookPayload,
   ConnectionWebhookPayload$inboundSchema,
@@ -87,4 +90,22 @@ export namespace ConnectionWebhook$ {
   export const outboundSchema = ConnectionWebhook$outboundSchema;
   /** @deprecated use `ConnectionWebhook$Outbound` instead. */
   export type Outbound = ConnectionWebhook$Outbound;
+}
+
+export function connectionWebhookToJSON(
+  connectionWebhook: ConnectionWebhook,
+): string {
+  return JSON.stringify(
+    ConnectionWebhook$outboundSchema.parse(connectionWebhook),
+  );
+}
+
+export function connectionWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<ConnectionWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConnectionWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConnectionWebhook' from JSON`,
+  );
 }

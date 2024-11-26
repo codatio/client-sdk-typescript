@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 /**
@@ -65,4 +68,25 @@ export namespace UpdateProfileSyncSettingsRequestBody$ {
     UpdateProfileSyncSettingsRequestBody$outboundSchema;
   /** @deprecated use `UpdateProfileSyncSettingsRequestBody$Outbound` instead. */
   export type Outbound = UpdateProfileSyncSettingsRequestBody$Outbound;
+}
+
+export function updateProfileSyncSettingsRequestBodyToJSON(
+  updateProfileSyncSettingsRequestBody: UpdateProfileSyncSettingsRequestBody,
+): string {
+  return JSON.stringify(
+    UpdateProfileSyncSettingsRequestBody$outboundSchema.parse(
+      updateProfileSyncSettingsRequestBody,
+    ),
+  );
+}
+
+export function updateProfileSyncSettingsRequestBodyFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateProfileSyncSettingsRequestBody, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UpdateProfileSyncSettingsRequestBody$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateProfileSyncSettingsRequestBody' from JSON`,
+  );
 }

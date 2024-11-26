@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushOperationStatusChangedWebhookData,
   PushOperationStatusChangedWebhookData$inboundSchema,
@@ -135,4 +138,24 @@ export namespace PushOperationStatusChangedWebhook$ {
     PushOperationStatusChangedWebhook$outboundSchema;
   /** @deprecated use `PushOperationStatusChangedWebhook$Outbound` instead. */
   export type Outbound = PushOperationStatusChangedWebhook$Outbound;
+}
+
+export function pushOperationStatusChangedWebhookToJSON(
+  pushOperationStatusChangedWebhook: PushOperationStatusChangedWebhook,
+): string {
+  return JSON.stringify(
+    PushOperationStatusChangedWebhook$outboundSchema.parse(
+      pushOperationStatusChangedWebhook,
+    ),
+  );
+}
+
+export function pushOperationStatusChangedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<PushOperationStatusChangedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => PushOperationStatusChangedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PushOperationStatusChangedWebhook' from JSON`,
+  );
 }

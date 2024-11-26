@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataConnectionStatus,
   DataConnectionStatus$inboundSchema,
@@ -72,4 +75,25 @@ export namespace ConnectionStatusChangedWebhookData$ {
     ConnectionStatusChangedWebhookData$outboundSchema;
   /** @deprecated use `ConnectionStatusChangedWebhookData$Outbound` instead. */
   export type Outbound = ConnectionStatusChangedWebhookData$Outbound;
+}
+
+export function connectionStatusChangedWebhookDataToJSON(
+  connectionStatusChangedWebhookData: ConnectionStatusChangedWebhookData,
+): string {
+  return JSON.stringify(
+    ConnectionStatusChangedWebhookData$outboundSchema.parse(
+      connectionStatusChangedWebhookData,
+    ),
+  );
+}
+
+export function connectionStatusChangedWebhookDataFromJSON(
+  jsonString: string,
+): SafeParseResult<ConnectionStatusChangedWebhookData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ConnectionStatusChangedWebhookData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConnectionStatusChangedWebhookData' from JSON`,
+  );
 }

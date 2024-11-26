@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataSyncCompletedWebhookData,
   DataSyncCompletedWebhookData$inboundSchema,
@@ -134,4 +137,22 @@ export namespace DataSyncCompletedWebhook$ {
   export const outboundSchema = DataSyncCompletedWebhook$outboundSchema;
   /** @deprecated use `DataSyncCompletedWebhook$Outbound` instead. */
   export type Outbound = DataSyncCompletedWebhook$Outbound;
+}
+
+export function dataSyncCompletedWebhookToJSON(
+  dataSyncCompletedWebhook: DataSyncCompletedWebhook,
+): string {
+  return JSON.stringify(
+    DataSyncCompletedWebhook$outboundSchema.parse(dataSyncCompletedWebhook),
+  );
+}
+
+export function dataSyncCompletedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<DataSyncCompletedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataSyncCompletedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataSyncCompletedWebhook' from JSON`,
+  );
 }

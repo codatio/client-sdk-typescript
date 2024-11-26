@@ -8,7 +8,6 @@ Describes support for a given datatype and associated operations
 import { DataTypeFeature } from "@codat/platform/sdk/models/shared";
 
 let value: DataTypeFeature = {
-  dataType: "invoices",
   supportedFeatures: [
     {
       featureType: "Get",

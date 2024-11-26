@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SyncSetting,
   SyncSetting$inboundSchema,
@@ -62,4 +65,18 @@ export namespace SyncSettings$ {
   export const outboundSchema = SyncSettings$outboundSchema;
   /** @deprecated use `SyncSettings$Outbound` instead. */
   export type Outbound = SyncSettings$Outbound;
+}
+
+export function syncSettingsToJSON(syncSettings: SyncSettings): string {
+  return JSON.stringify(SyncSettings$outboundSchema.parse(syncSettings));
+}
+
+export function syncSettingsFromJSON(
+  jsonString: string,
+): SafeParseResult<SyncSettings, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => SyncSettings$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'SyncSettings' from JSON`,
+  );
 }

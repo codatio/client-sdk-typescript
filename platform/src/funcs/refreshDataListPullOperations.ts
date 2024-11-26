@@ -79,12 +79,30 @@ export async function refreshDataListPullOperations(
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
+
   const context = {
     operationID: "list-pull-operations",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
+    retryConfig: options?.retries
+      || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 60000,
+          exponent: 1.5,
+          maxElapsedTime: 3600000,
+        },
+        retryConnectionErrors: true,
+      }
+      || { strategy: "none" },
+    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
   };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
@@ -114,19 +132,8 @@ export async function refreshDataListPullOperations(
       "503",
       "5XX",
     ],
-    retryConfig: options?.retries
-      || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      },
-    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+    retryConfig: context.retryConfig,
+    retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
     return doResult;

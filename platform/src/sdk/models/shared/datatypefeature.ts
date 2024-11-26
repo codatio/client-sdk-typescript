@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -63,4 +66,20 @@ export namespace DataTypeFeature$ {
   export const outboundSchema = DataTypeFeature$outboundSchema;
   /** @deprecated use `DataTypeFeature$Outbound` instead. */
   export type Outbound = DataTypeFeature$Outbound;
+}
+
+export function dataTypeFeatureToJSON(
+  dataTypeFeature: DataTypeFeature,
+): string {
+  return JSON.stringify(DataTypeFeature$outboundSchema.parse(dataTypeFeature));
+}
+
+export function dataTypeFeatureFromJSON(
+  jsonString: string,
+): SafeParseResult<DataTypeFeature, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataTypeFeature$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataTypeFeature' from JSON`,
+  );
 }

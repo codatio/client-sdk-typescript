@@ -3,6 +3,15 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  CompanyReference,
+  CompanyReference$inboundSchema,
+  CompanyReference$Outbound,
+  CompanyReference$outboundSchema,
+} from "./companyreference.js";
 
 export type CompanyDetails = {
   /**
@@ -77,6 +86,11 @@ export type CompanyDetails = {
    * A collection of user-defined key-value pairs that store custom metadata against the company.
    */
   tags?: { [k: string]: string } | undefined;
+  referenceParentCompany?: CompanyReference | undefined;
+  /**
+   * A list of subsidiary companies owned or controlled by this entity. Empty if the company has no children.
+   */
+  referenceSubsidiaryCompanies?: Array<CompanyReference> | undefined;
 };
 
 /** @internal */
@@ -94,6 +108,9 @@ export const CompanyDetails$inboundSchema: z.ZodType<
   createdByUserName: z.nullable(z.string()).optional(),
   products: z.array(z.string()).optional(),
   tags: z.record(z.string()).optional(),
+  referenceParentCompany: CompanyReference$inboundSchema.optional(),
+  referenceSubsidiaryCompanies: z.array(CompanyReference$inboundSchema)
+    .optional(),
 });
 
 /** @internal */
@@ -107,6 +124,8 @@ export type CompanyDetails$Outbound = {
   createdByUserName?: string | null | undefined;
   products?: Array<string> | undefined;
   tags?: { [k: string]: string } | undefined;
+  referenceParentCompany?: CompanyReference$Outbound | undefined;
+  referenceSubsidiaryCompanies?: Array<CompanyReference$Outbound> | undefined;
 };
 
 /** @internal */
@@ -124,6 +143,9 @@ export const CompanyDetails$outboundSchema: z.ZodType<
   createdByUserName: z.nullable(z.string()).optional(),
   products: z.array(z.string()).optional(),
   tags: z.record(z.string()).optional(),
+  referenceParentCompany: CompanyReference$outboundSchema.optional(),
+  referenceSubsidiaryCompanies: z.array(CompanyReference$outboundSchema)
+    .optional(),
 });
 
 /**
@@ -137,4 +159,18 @@ export namespace CompanyDetails$ {
   export const outboundSchema = CompanyDetails$outboundSchema;
   /** @deprecated use `CompanyDetails$Outbound` instead. */
   export type Outbound = CompanyDetails$Outbound;
+}
+
+export function companyDetailsToJSON(companyDetails: CompanyDetails): string {
+  return JSON.stringify(CompanyDetails$outboundSchema.parse(companyDetails));
+}
+
+export function companyDetailsFromJSON(
+  jsonString: string,
+): SafeParseResult<CompanyDetails, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CompanyDetails$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CompanyDetails' from JSON`,
+  );
 }

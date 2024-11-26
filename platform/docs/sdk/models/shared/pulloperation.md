@@ -16,7 +16,6 @@ let value: PullOperation = {
   status: "Initial",
   statusDescription: "Paused until 2022-10-23T00:00:00.000Z",
   requested: "2022-11-14T11:18:37.2798351Z",
-  completed: "2022-10-23T00:00:00Z",
   progress: 10,
   isCompleted: false,
   isErrored: false,

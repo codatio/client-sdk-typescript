@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UnlinkConnectionRequest = {
@@ -68,4 +71,22 @@ export namespace UnlinkConnectionRequest$ {
   export const outboundSchema = UnlinkConnectionRequest$outboundSchema;
   /** @deprecated use `UnlinkConnectionRequest$Outbound` instead. */
   export type Outbound = UnlinkConnectionRequest$Outbound;
+}
+
+export function unlinkConnectionRequestToJSON(
+  unlinkConnectionRequest: UnlinkConnectionRequest,
+): string {
+  return JSON.stringify(
+    UnlinkConnectionRequest$outboundSchema.parse(unlinkConnectionRequest),
+  );
+}
+
+export function unlinkConnectionRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UnlinkConnectionRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => UnlinkConnectionRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UnlinkConnectionRequest' from JSON`,
+  );
 }

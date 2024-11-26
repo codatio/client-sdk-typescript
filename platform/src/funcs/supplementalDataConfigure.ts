@@ -29,7 +29,7 @@ import { Result } from "../sdk/types/fp.js";
  * @remarks
  * The *Configure* endpoint allows you to maintain or change configuration required to return supplemental data for each integration and data type combination.
  *
- * [Supplemental data](https://docs.codat.io/using-the-api/additional-data) is additional data you can include in Codat's standard data types.
+ * [Supplemental data](https://docs.codat.io/using-the-api/supplemental-data/overview) is additional data you can include in Codat's standard data types.
  *
  * **Integration-specific behaviour**
  * See the *examples* for integration-specific frequently requested properties.
@@ -87,12 +87,30 @@ export async function supplementalDataConfigure(
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
+
   const context = {
     operationID: "configure-supplemental-data",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
+    retryConfig: options?.retries
+      || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 60000,
+          exponent: 1.5,
+          maxElapsedTime: 3600000,
+        },
+        retryConnectionErrors: true,
+      }
+      || { strategy: "none" },
+    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
   };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
@@ -110,19 +128,8 @@ export async function supplementalDataConfigure(
   const doResult = await client._do(req, {
     context,
     errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
-    retryConfig: options?.retries
-      || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      },
-    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+    retryConfig: context.retryConfig,
+    retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
     return doResult;

@@ -18,7 +18,6 @@ let value: Profile = {
     "https://bobs-burgers.com",
     "https://bobs-burgers.co.uk",
   ],
-  alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
   confirmCompanyName: true,
 };
 ```

@@ -6,6 +6,7 @@ import { companiesAddProduct } from "../funcs/companiesAddProduct.js";
 import { companiesCreate } from "../funcs/companiesCreate.js";
 import { companiesDelete } from "../funcs/companiesDelete.js";
 import { companiesGet } from "../funcs/companiesGet.js";
+import { companiesGetAccessToken } from "../funcs/companiesGetAccessToken.js";
 import { companiesList } from "../funcs/companiesList.js";
 import { companiesRemoveProduct } from "../funcs/companiesRemoveProduct.js";
 import { companiesUpdate } from "../funcs/companiesUpdate.js";
@@ -19,7 +20,7 @@ export class Companies extends ClientSDK {
    * List companies
    *
    * @remarks
-   * The *List companies* endpoint returns a list of [companies] associated to your instances.
+   * The *List companies* endpoint returns a list of [companies](https://docs.codat.io/platform-api#/schemas/Company) associated to your instances.
    *
    * A [company](https://docs.codat.io/platform-api#/schemas/Company) represents a business sharing access to their data.
    * Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -149,6 +150,23 @@ export class Companies extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(companiesRemoveProduct(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get company access token
+   *
+   * @remarks
+   * Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+   */
+  async getAccessToken(
+    request: operations.GetCompanyAccessTokenRequest,
+    options?: RequestOptions,
+  ): Promise<shared.CompanyAccessToken> {
+    return unwrapAsync(companiesGetAccessToken(
       this,
       request,
       options,

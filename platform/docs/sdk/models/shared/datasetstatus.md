@@ -7,7 +7,7 @@ The current status of the dataset.
 ```typescript
 import { DatasetStatus } from "@codat/platform/sdk/models/shared";
 
-let value: DatasetStatus = "ProcessingError";
+let value: DatasetStatus = "InternalError";
 ```
 
 ## Values

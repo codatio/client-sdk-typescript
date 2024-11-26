@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Describes your Codat client instance
@@ -98,4 +101,18 @@ export namespace Profile$ {
   export const outboundSchema = Profile$outboundSchema;
   /** @deprecated use `Profile$Outbound` instead. */
   export type Outbound = Profile$Outbound;
+}
+
+export function profileToJSON(profile: Profile): string {
+  return JSON.stringify(Profile$outboundSchema.parse(profile));
+}
+
+export function profileFromJSON(
+  jsonString: string,
+): SafeParseResult<Profile, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Profile$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Profile' from JSON`,
+  );
 }

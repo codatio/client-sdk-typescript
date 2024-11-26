@@ -6,31 +6,6 @@
 import { Integrations } from "@codat/platform/sdk/models/shared";
 
 let value: Integrations = {
-  results: [
-    {
-      key: "gbol",
-      logoUrl: "http://example.com",
-      name: "Xero",
-      enabled: true,
-      sourceId: "accounting",
-      sourceType: "Expense",
-      integrationId: "497a18ca-284e-40c0-985d-f72be35d468e",
-      isOfflineConnector: true,
-      isBeta: true,
-      dataProvidedBy: "string",
-      datatypeFeatures: [
-        {
-          dataType: "invoices",
-          supportedFeatures: [
-            {
-              featureType: "GetAsPdf",
-              featureState: "Deprecated",
-            },
-          ],
-        },
-      ],
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

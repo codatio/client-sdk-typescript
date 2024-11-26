@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ReadCompletedWebhookPayload,
   ReadCompletedWebhookPayload$inboundSchema,
@@ -87,4 +90,22 @@ export namespace ReadCompletedWebhook$ {
   export const outboundSchema = ReadCompletedWebhook$outboundSchema;
   /** @deprecated use `ReadCompletedWebhook$Outbound` instead. */
   export type Outbound = ReadCompletedWebhook$Outbound;
+}
+
+export function readCompletedWebhookToJSON(
+  readCompletedWebhook: ReadCompletedWebhook,
+): string {
+  return JSON.stringify(
+    ReadCompletedWebhook$outboundSchema.parse(readCompletedWebhook),
+  );
+}
+
+export function readCompletedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<ReadCompletedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ReadCompletedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ReadCompletedWebhook' from JSON`,
+  );
 }

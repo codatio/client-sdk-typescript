@@ -11,6 +11,7 @@ export * from "./deletecompany.js";
 export * from "./deleteconnection.js";
 export * from "./deletewebhookconsumer.js";
 export * from "./getcompany.js";
+export * from "./getcompanyaccesstoken.js";
 export * from "./getcompanydatastatus.js";
 export * from "./getcompanypushhistory.js";
 export * from "./getconnection.js";

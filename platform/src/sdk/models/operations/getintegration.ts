@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetIntegrationRequest = {
   /**
@@ -45,4 +48,22 @@ export namespace GetIntegrationRequest$ {
   export const outboundSchema = GetIntegrationRequest$outboundSchema;
   /** @deprecated use `GetIntegrationRequest$Outbound` instead. */
   export type Outbound = GetIntegrationRequest$Outbound;
+}
+
+export function getIntegrationRequestToJSON(
+  getIntegrationRequest: GetIntegrationRequest,
+): string {
+  return JSON.stringify(
+    GetIntegrationRequest$outboundSchema.parse(getIntegrationRequest),
+  );
+}
+
+export function getIntegrationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetIntegrationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => GetIntegrationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetIntegrationRequest' from JSON`,
+  );
 }

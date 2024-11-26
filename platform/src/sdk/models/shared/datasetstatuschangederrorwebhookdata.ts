@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -66,4 +69,25 @@ export namespace DatasetStatusChangedErrorWebhookData$ {
     DatasetStatusChangedErrorWebhookData$outboundSchema;
   /** @deprecated use `DatasetStatusChangedErrorWebhookData$Outbound` instead. */
   export type Outbound = DatasetStatusChangedErrorWebhookData$Outbound;
+}
+
+export function datasetStatusChangedErrorWebhookDataToJSON(
+  datasetStatusChangedErrorWebhookData: DatasetStatusChangedErrorWebhookData,
+): string {
+  return JSON.stringify(
+    DatasetStatusChangedErrorWebhookData$outboundSchema.parse(
+      datasetStatusChangedErrorWebhookData,
+    ),
+  );
+}
+
+export function datasetStatusChangedErrorWebhookDataFromJSON(
+  jsonString: string,
+): SafeParseResult<DatasetStatusChangedErrorWebhookData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      DatasetStatusChangedErrorWebhookData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DatasetStatusChangedErrorWebhookData' from JSON`,
+  );
 }

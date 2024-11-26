@@ -27,7 +27,7 @@ import { Result } from "../sdk/types/fp.js";
  * List companies
  *
  * @remarks
- * The *List companies* endpoint returns a list of [companies] associated to your instances.
+ * The *List companies* endpoint returns a list of [companies](https://docs.codat.io/platform-api#/schemas/Company) associated to your instances.
  *
  * A [company](https://docs.codat.io/platform-api#/schemas/Company) represents a business sharing access to their data.
  * Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -76,12 +76,30 @@ export async function companiesList(
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
+
   const context = {
     operationID: "list-companies",
     oAuth2Scopes: [],
+
+    resolvedSecurity: requestSecurity,
+
     securitySource: client._options.authHeader,
+    retryConfig: options?.retries
+      || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 60000,
+          exponent: 1.5,
+          maxElapsedTime: 3600000,
+        },
+        retryConnectionErrors: true,
+      }
+      || { strategy: "none" },
+    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
   };
-  const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
@@ -111,19 +129,8 @@ export async function companiesList(
       "503",
       "5XX",
     ],
-    retryConfig: options?.retries
-      || client._options.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      },
-    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+    retryConfig: context.retryConfig,
+    retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
     return doResult;

@@ -6,8 +6,8 @@
 import { PushOption } from "@codat/platform/sdk/models/shared";
 
 let value: PushOption = {
-  type: "String",
-  displayName: "Raquel88",
+  type: "DateTime",
+  displayName: "Dominique.Windler",
   required: false,
 };
 ```

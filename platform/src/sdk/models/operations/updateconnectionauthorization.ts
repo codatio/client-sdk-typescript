@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UpdateConnectionAuthorizationRequest = {
   /**
@@ -67,4 +70,25 @@ export namespace UpdateConnectionAuthorizationRequest$ {
     UpdateConnectionAuthorizationRequest$outboundSchema;
   /** @deprecated use `UpdateConnectionAuthorizationRequest$Outbound` instead. */
   export type Outbound = UpdateConnectionAuthorizationRequest$Outbound;
+}
+
+export function updateConnectionAuthorizationRequestToJSON(
+  updateConnectionAuthorizationRequest: UpdateConnectionAuthorizationRequest,
+): string {
+  return JSON.stringify(
+    UpdateConnectionAuthorizationRequest$outboundSchema.parse(
+      updateConnectionAuthorizationRequest,
+    ),
+  );
+}
+
+export function updateConnectionAuthorizationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<UpdateConnectionAuthorizationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      UpdateConnectionAuthorizationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'UpdateConnectionAuthorizationRequest' from JSON`,
+  );
 }

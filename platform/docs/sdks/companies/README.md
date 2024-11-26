@@ -14,10 +14,11 @@ Create and manage your SMB users' companies.
 * [update](#update) - Update company
 * [addProduct](#addproduct) - Add product
 * [removeProduct](#removeproduct) - Remove product
+* [getAccessToken](#getaccesstoken) - Get company access token
 
 ## list
 
-﻿The *List companies* endpoint returns a list of [companies] associated to your instances.
+﻿The *List companies* endpoint returns a list of [companies](https://docs.codat.io/platform-api#/schemas/Company) associated to your instances.
 
 A [company](https://docs.codat.io/platform-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
@@ -583,6 +584,84 @@ run();
 ### Response
 
 **Promise\<void\>**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+
+## getAccessToken
+
+Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+
+
+### Example Usage
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.companies.getAccessToken({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { companiesGetAccessToken } from "@codat/platform/funcs/companiesGetAccessToken.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesGetAccessToken(codatPlatform, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetCompanyAccessTokenRequest](../../sdk/models/operations/getcompanyaccesstokenrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.CompanyAccessToken](../../sdk/models/shared/companyaccesstoken.md)\>**
 
 ### Errors
 

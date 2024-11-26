@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
@@ -57,4 +60,24 @@ export namespace DataSyncCompletedWebhookData$ {
   export const outboundSchema = DataSyncCompletedWebhookData$outboundSchema;
   /** @deprecated use `DataSyncCompletedWebhookData$Outbound` instead. */
   export type Outbound = DataSyncCompletedWebhookData$Outbound;
+}
+
+export function dataSyncCompletedWebhookDataToJSON(
+  dataSyncCompletedWebhookData: DataSyncCompletedWebhookData,
+): string {
+  return JSON.stringify(
+    DataSyncCompletedWebhookData$outboundSchema.parse(
+      dataSyncCompletedWebhookData,
+    ),
+  );
+}
+
+export function dataSyncCompletedWebhookDataFromJSON(
+  jsonString: string,
+): SafeParseResult<DataSyncCompletedWebhookData, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataSyncCompletedWebhookData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataSyncCompletedWebhookData' from JSON`,
+  );
 }

@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Success
@@ -49,4 +52,25 @@ export namespace ConnectionManagementAllowedOrigins$ {
     ConnectionManagementAllowedOrigins$outboundSchema;
   /** @deprecated use `ConnectionManagementAllowedOrigins$Outbound` instead. */
   export type Outbound = ConnectionManagementAllowedOrigins$Outbound;
+}
+
+export function connectionManagementAllowedOriginsToJSON(
+  connectionManagementAllowedOrigins: ConnectionManagementAllowedOrigins,
+): string {
+  return JSON.stringify(
+    ConnectionManagementAllowedOrigins$outboundSchema.parse(
+      connectionManagementAllowedOrigins,
+    ),
+  );
+}
+
+export function connectionManagementAllowedOriginsFromJSON(
+  jsonString: string,
+): SafeParseResult<ConnectionManagementAllowedOrigins, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      ConnectionManagementAllowedOrigins$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConnectionManagementAllowedOrigins' from JSON`,
+  );
 }

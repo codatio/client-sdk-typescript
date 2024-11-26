@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ErrorValidation,
   ErrorValidation$inboundSchema,
@@ -11,7 +14,7 @@ import {
 } from "./errorvalidation.js";
 
 /**
- * Your `query` parameter was not correctly formed
+ * Too many requests were made in a given amount of time. Wait a short period and then try again.
  */
 export type ErrorMessage = {
   /**
@@ -96,4 +99,18 @@ export namespace ErrorMessage$ {
   export const outboundSchema = ErrorMessage$outboundSchema;
   /** @deprecated use `ErrorMessage$Outbound` instead. */
   export type Outbound = ErrorMessage$Outbound;
+}
+
+export function errorMessageToJSON(errorMessage: ErrorMessage): string {
+  return JSON.stringify(ErrorMessage$outboundSchema.parse(errorMessage));
+}
+
+export function errorMessageFromJSON(
+  jsonString: string,
+): SafeParseResult<ErrorMessage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ErrorMessage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ErrorMessage' from JSON`,
+  );
 }

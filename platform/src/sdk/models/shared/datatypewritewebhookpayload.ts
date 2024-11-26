@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CompanyReference,
   CompanyReference$inboundSchema,
@@ -153,4 +156,24 @@ export namespace DataTypeWriteWebhookPayload$ {
   export const outboundSchema = DataTypeWriteWebhookPayload$outboundSchema;
   /** @deprecated use `DataTypeWriteWebhookPayload$Outbound` instead. */
   export type Outbound = DataTypeWriteWebhookPayload$Outbound;
+}
+
+export function dataTypeWriteWebhookPayloadToJSON(
+  dataTypeWriteWebhookPayload: DataTypeWriteWebhookPayload,
+): string {
+  return JSON.stringify(
+    DataTypeWriteWebhookPayload$outboundSchema.parse(
+      dataTypeWriteWebhookPayload,
+    ),
+  );
+}
+
+export function dataTypeWriteWebhookPayloadFromJSON(
+  jsonString: string,
+): SafeParseResult<DataTypeWriteWebhookPayload, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataTypeWriteWebhookPayload$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataTypeWriteWebhookPayload' from JSON`,
+  );
 }

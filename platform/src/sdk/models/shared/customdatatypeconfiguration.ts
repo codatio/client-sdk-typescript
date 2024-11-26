@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Client's configuration details for a specific custom data type and platform pair.
@@ -69,4 +72,24 @@ export namespace CustomDataTypeConfiguration$ {
   export const outboundSchema = CustomDataTypeConfiguration$outboundSchema;
   /** @deprecated use `CustomDataTypeConfiguration$Outbound` instead. */
   export type Outbound = CustomDataTypeConfiguration$Outbound;
+}
+
+export function customDataTypeConfigurationToJSON(
+  customDataTypeConfiguration: CustomDataTypeConfiguration,
+): string {
+  return JSON.stringify(
+    CustomDataTypeConfiguration$outboundSchema.parse(
+      customDataTypeConfiguration,
+    ),
+  );
+}
+
+export function customDataTypeConfigurationFromJSON(
+  jsonString: string,
+): SafeParseResult<CustomDataTypeConfiguration, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CustomDataTypeConfiguration$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CustomDataTypeConfiguration' from JSON`,
+  );
 }

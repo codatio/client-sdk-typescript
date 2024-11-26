@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   WebhookNotifier,
   WebhookNotifier$inboundSchema,
@@ -65,4 +68,18 @@ export namespace CreateRule$ {
   export const outboundSchema = CreateRule$outboundSchema;
   /** @deprecated use `CreateRule$Outbound` instead. */
   export type Outbound = CreateRule$Outbound;
+}
+
+export function createRuleToJSON(createRule: CreateRule): string {
+  return JSON.stringify(CreateRule$outboundSchema.parse(createRule));
+}
+
+export function createRuleFromJSON(
+  jsonString: string,
+): SafeParseResult<CreateRule, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => CreateRule$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'CreateRule' from JSON`,
+  );
 }

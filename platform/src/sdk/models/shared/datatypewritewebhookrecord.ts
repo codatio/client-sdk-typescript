@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DataTypeWriteWebhookRecord = {
   /**
@@ -45,4 +48,22 @@ export namespace DataTypeWriteWebhookRecord$ {
   export const outboundSchema = DataTypeWriteWebhookRecord$outboundSchema;
   /** @deprecated use `DataTypeWriteWebhookRecord$Outbound` instead. */
   export type Outbound = DataTypeWriteWebhookRecord$Outbound;
+}
+
+export function dataTypeWriteWebhookRecordToJSON(
+  dataTypeWriteWebhookRecord: DataTypeWriteWebhookRecord,
+): string {
+  return JSON.stringify(
+    DataTypeWriteWebhookRecord$outboundSchema.parse(dataTypeWriteWebhookRecord),
+  );
+}
+
+export function dataTypeWriteWebhookRecordFromJSON(
+  jsonString: string,
+): SafeParseResult<DataTypeWriteWebhookRecord, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => DataTypeWriteWebhookRecord$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'DataTypeWriteWebhookRecord' from JSON`,
+  );
 }

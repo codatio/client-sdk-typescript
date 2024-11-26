@@ -4,7 +4,10 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 /**
@@ -126,4 +129,24 @@ export namespace ConfigureSupplementalDataRequest$ {
   export const outboundSchema = ConfigureSupplementalDataRequest$outboundSchema;
   /** @deprecated use `ConfigureSupplementalDataRequest$Outbound` instead. */
   export type Outbound = ConfigureSupplementalDataRequest$Outbound;
+}
+
+export function configureSupplementalDataRequestToJSON(
+  configureSupplementalDataRequest: ConfigureSupplementalDataRequest,
+): string {
+  return JSON.stringify(
+    ConfigureSupplementalDataRequest$outboundSchema.parse(
+      configureSupplementalDataRequest,
+    ),
+  );
+}
+
+export function configureSupplementalDataRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<ConfigureSupplementalDataRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ConfigureSupplementalDataRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ConfigureSupplementalDataRequest' from JSON`,
+  );
 }

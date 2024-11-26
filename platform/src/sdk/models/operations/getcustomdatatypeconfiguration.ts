@@ -3,6 +3,9 @@
  */
 
 import * as z from "zod";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCustomDataTypeConfigurationRequest = {
   /**
@@ -54,4 +57,25 @@ export namespace GetCustomDataTypeConfigurationRequest$ {
     GetCustomDataTypeConfigurationRequest$outboundSchema;
   /** @deprecated use `GetCustomDataTypeConfigurationRequest$Outbound` instead. */
   export type Outbound = GetCustomDataTypeConfigurationRequest$Outbound;
+}
+
+export function getCustomDataTypeConfigurationRequestToJSON(
+  getCustomDataTypeConfigurationRequest: GetCustomDataTypeConfigurationRequest,
+): string {
+  return JSON.stringify(
+    GetCustomDataTypeConfigurationRequest$outboundSchema.parse(
+      getCustomDataTypeConfigurationRequest,
+    ),
+  );
+}
+
+export function getCustomDataTypeConfigurationRequestFromJSON(
+  jsonString: string,
+): SafeParseResult<GetCustomDataTypeConfigurationRequest, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      GetCustomDataTypeConfigurationRequest$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'GetCustomDataTypeConfigurationRequest' from JSON`,
+  );
 }

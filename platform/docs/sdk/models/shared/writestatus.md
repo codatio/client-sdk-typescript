@@ -7,7 +7,7 @@ The current status of the write request, which is the same as the push operation
 ```typescript
 import { WriteStatus } from "@codat/platform/sdk/models/shared";
 
-let value: WriteStatus = "Pending";
+let value: WriteStatus = "Failed";
 ```
 
 ## Values

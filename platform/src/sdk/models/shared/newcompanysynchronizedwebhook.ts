@@ -4,6 +4,9 @@
 
 import * as z from "zod";
 import { remap as remap$ } from "../../../lib/primitives.js";
+import { safeParse } from "../../../lib/schemas.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Webhook request body to notify that a new company has successfully synchronized at least one dataType for the first time.
@@ -122,4 +125,24 @@ export namespace NewCompanySynchronizedWebhook$ {
   export const outboundSchema = NewCompanySynchronizedWebhook$outboundSchema;
   /** @deprecated use `NewCompanySynchronizedWebhook$Outbound` instead. */
   export type Outbound = NewCompanySynchronizedWebhook$Outbound;
+}
+
+export function newCompanySynchronizedWebhookToJSON(
+  newCompanySynchronizedWebhook: NewCompanySynchronizedWebhook,
+): string {
+  return JSON.stringify(
+    NewCompanySynchronizedWebhook$outboundSchema.parse(
+      newCompanySynchronizedWebhook,
+    ),
+  );
+}
+
+export function newCompanySynchronizedWebhookFromJSON(
+  jsonString: string,
+): SafeParseResult<NewCompanySynchronizedWebhook, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => NewCompanySynchronizedWebhook$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'NewCompanySynchronizedWebhook' from JSON`,
+  );
 }
