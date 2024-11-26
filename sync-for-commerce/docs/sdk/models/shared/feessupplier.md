@@ -1,5 +1,12 @@
 # FeesSupplier
 
+## Example Usage
+
+```typescript
+import { FeesSupplier } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: FeesSupplier = {};
+```
 
 ## Fields
 

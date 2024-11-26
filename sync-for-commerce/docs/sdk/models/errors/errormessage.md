@@ -1,7 +1,14 @@
 # ErrorMessage
 
-Your `query` parameter was not correctly formed
+The request made is not valid.
 
+## Example Usage
+
+```typescript
+import { ErrorMessage } from "@codat/sync-for-commerce/sdk/models/errors";
+
+// No examples available for this model
+```
 
 ## Fields
 

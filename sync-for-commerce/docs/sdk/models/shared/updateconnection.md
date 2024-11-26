@@ -1,5 +1,12 @@
 # UpdateConnection
 
+## Example Usage
+
+```typescript
+import { UpdateConnection } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: UpdateConnection = {};
+```
 
 ## Fields
 

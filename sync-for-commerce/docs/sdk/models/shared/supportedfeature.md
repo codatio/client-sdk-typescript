@@ -1,5 +1,15 @@
 # SupportedFeature
 
+## Example Usage
+
+```typescript
+import { SupportedFeature } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SupportedFeature = {
+  featureType: "Get",
+  featureState: "Release",
+};
+```
 
 ## Fields
 

@@ -2,6 +2,20 @@
 
 Describes support for a given datatype and associated operations
 
+## Example Usage
+
+```typescript
+import { DataTypeFeature } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: DataTypeFeature = {
+  supportedFeatures: [
+    {
+      featureType: "Get",
+      featureState: "Release",
+    },
+  ],
+};
+```
 
 ## Fields
 

@@ -2,6 +2,19 @@
 
 G/L account object for configuration.
 
+## Example Usage
+
+```typescript
+import { AccountConfiguration } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: AccountConfiguration = {
+  accountOptions: [
+    {
+      classification: "Bank Nominal",
+    },
+  ],
+};
+```
 
 ## Fields
 

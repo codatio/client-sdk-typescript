@@ -1,5 +1,15 @@
 # SyncSchedule
 
+## Example Usage
+
+```typescript
+import { SyncSchedule } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SyncSchedule = {
+  startDate: "2022-10-23T00:00:00Z",
+  timeZone: "Europe/London",
+};
+```
 
 ## Fields
 

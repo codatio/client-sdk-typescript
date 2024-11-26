@@ -1,5 +1,12 @@
 # Localization
 
+## Example Usage
+
+```typescript
+import { Localization } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: Localization = {};
+```
 
 ## Fields
 

@@ -1,5 +1,17 @@
 # RequestSyncRequest
 
+## Example Usage
+
+```typescript
+import { RequestSyncRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: RequestSyncRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  syncToLatestArgs: {
+    syncTo: "2022-10-23T00:00:00Z",
+  },
+};
+```
 
 ## Fields
 

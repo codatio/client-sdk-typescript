@@ -1,5 +1,14 @@
 # GetIntegrationBrandingRequest
 
+## Example Usage
+
+```typescript
+import { GetIntegrationBrandingRequest } from "@codat/sync-for-commerce/sdk/models/operations";
+
+let value: GetIntegrationBrandingRequest = {
+  platformKey: "gbol",
+};
+```
 
 ## Fields
 

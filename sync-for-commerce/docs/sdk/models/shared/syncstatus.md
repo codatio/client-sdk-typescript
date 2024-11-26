@@ -2,6 +2,39 @@
 
 The status of syncing for a company and its connections.
 
+## Example Usage
+
+```typescript
+import { SyncStatus } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: SyncStatus = {
+  commerceSyncId: "8d0a044e-b683-4fc9-bd0d-bfb2ca5731b7",
+  syncId: "730dcf2e-3afc-4d83-bb90-9f4b95dddf68",
+  syncStatusCode: 4000,
+  syncStatus: "ValidateError, Pending",
+  errorMessage:
+    "Customer 3b9bf2ed-a618-4af2-80f2-f2b57fddc748 is not in an Active state. (Archived)",
+  syncExceptionMessage:
+    "Customer 3b9bf2ed-a618-4af2-80f2-f2b57fddc748 is not in an Active state. (Archived)",
+  syncUtc: "2022-10-23T00:00:00Z",
+  dataPushed: true,
+  dataConnections: [
+    {
+      id: "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd",
+      integrationId: "bf083d72-62c7-493e-aec9-81b4dbba7e2c",
+      integrationKey: "dfxm",
+      sourceId: "bdd831ce-eebd-4896-89a7-20e5ee8989ee",
+      sourceType: "Banking",
+      platformName: "Basiq",
+      linkUrl:
+        "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start",
+      status: "Linked",
+      lastSync: "2022-10-27T10:22:43.6464237Z",
+      created: "2022-10-27T09:53:29Z",
+    },
+  ],
+};
+```
 
 ## Fields
 

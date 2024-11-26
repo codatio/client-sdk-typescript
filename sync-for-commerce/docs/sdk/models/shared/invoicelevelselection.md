@@ -1,5 +1,12 @@
 # InvoiceLevelSelection
 
+## Example Usage
+
+```typescript
+import { InvoiceLevelSelection } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: InvoiceLevelSelection = {};
+```
 
 ## Fields
 

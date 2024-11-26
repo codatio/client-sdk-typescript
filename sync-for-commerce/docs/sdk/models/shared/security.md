@@ -1,5 +1,14 @@
 # Security
 
+## Example Usage
+
+```typescript
+import { Security } from "@codat/sync-for-commerce/sdk/models/shared";
+
+let value: Security = {
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+};
+```
 
 ## Fields
 
