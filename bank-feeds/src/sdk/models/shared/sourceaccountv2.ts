@@ -24,7 +24,7 @@ import {
 /**
  * The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
  */
-export const AccountType = {
+export const SourceAccountV2AccountType = {
   Checking: "checking",
   Savings: "savings",
   Loan: "loan",
@@ -34,7 +34,9 @@ export const AccountType = {
 /**
  * The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
  */
-export type AccountType = ClosedEnum<typeof AccountType>;
+export type SourceAccountV2AccountType = ClosedEnum<
+  typeof SourceAccountV2AccountType
+>;
 
 /**
  * Status of the source account.
@@ -66,11 +68,15 @@ export type SourceAccountV2 = {
   /**
    * The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
    */
-  accountType: AccountType;
+  accountType: SourceAccountV2AccountType;
   /**
    * The account number.
    */
   accountNumber: string;
+  /**
+   * The sort code.
+   */
+  sortCode?: string | null | undefined;
   /**
    * Routing information for the bank. This does not include account number.
    */
@@ -130,22 +136,24 @@ export type SourceAccountV2 = {
 };
 
 /** @internal */
-export const AccountType$inboundSchema: z.ZodNativeEnum<typeof AccountType> = z
-  .nativeEnum(AccountType);
+export const SourceAccountV2AccountType$inboundSchema: z.ZodNativeEnum<
+  typeof SourceAccountV2AccountType
+> = z.nativeEnum(SourceAccountV2AccountType);
 
 /** @internal */
-export const AccountType$outboundSchema: z.ZodNativeEnum<typeof AccountType> =
-  AccountType$inboundSchema;
+export const SourceAccountV2AccountType$outboundSchema: z.ZodNativeEnum<
+  typeof SourceAccountV2AccountType
+> = SourceAccountV2AccountType$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace AccountType$ {
-  /** @deprecated use `AccountType$inboundSchema` instead. */
-  export const inboundSchema = AccountType$inboundSchema;
-  /** @deprecated use `AccountType$outboundSchema` instead. */
-  export const outboundSchema = AccountType$outboundSchema;
+export namespace SourceAccountV2AccountType$ {
+  /** @deprecated use `SourceAccountV2AccountType$inboundSchema` instead. */
+  export const inboundSchema = SourceAccountV2AccountType$inboundSchema;
+  /** @deprecated use `SourceAccountV2AccountType$outboundSchema` instead. */
+  export const outboundSchema = SourceAccountV2AccountType$outboundSchema;
 }
 
 /** @internal */
@@ -175,8 +183,9 @@ export const SourceAccountV2$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   accountName: z.string(),
-  accountType: AccountType$inboundSchema,
+  accountType: SourceAccountV2AccountType$inboundSchema,
   accountNumber: z.string(),
+  sortCode: z.nullable(z.string()).optional(),
   routingInfo: RoutingInfo$inboundSchema.optional(),
   currency: z.string(),
   balance: z.number().transform(v => new Decimal$(v)),
@@ -192,6 +201,7 @@ export type SourceAccountV2$Outbound = {
   accountName: string;
   accountType: string;
   accountNumber: string;
+  sortCode?: string | null | undefined;
   routingInfo?: RoutingInfo$Outbound | undefined;
   currency: string;
   balance: number;
@@ -209,8 +219,9 @@ export const SourceAccountV2$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   accountName: z.string(),
-  accountType: AccountType$outboundSchema,
+  accountType: SourceAccountV2AccountType$outboundSchema,
   accountNumber: z.string(),
+  sortCode: z.nullable(z.string()).optional(),
   routingInfo: RoutingInfo$outboundSchema.optional(),
   currency: z.string(),
   balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>

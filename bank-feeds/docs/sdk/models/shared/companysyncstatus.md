@@ -9,7 +9,7 @@ let value: CompanySyncStatus = {
   companyId: "d4d73051-ed31-42b6-99f6-d288cd940992",
   syncId: "a6a22aff-a43a-411d-a910-2dae73217cce",
   syncStatusCode: 2000,
-  syncStatus: "Started",
+  syncStatus: "Complete",
   syncUtc: "2022-10-23T00:00:00Z",
 };
 ```

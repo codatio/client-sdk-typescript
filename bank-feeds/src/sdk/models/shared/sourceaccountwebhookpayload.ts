@@ -18,6 +18,16 @@ import {
   SourceAccount$Outbound,
   SourceAccount$outboundSchema,
 } from "./sourceaccount.js";
+import {
+  SourceAccountV2,
+  SourceAccountV2$inboundSchema,
+  SourceAccountV2$Outbound,
+  SourceAccountV2$outboundSchema,
+} from "./sourceaccountv2.js";
+
+export type SourceAccountWebhookPayloadSourceAccount =
+  | SourceAccount
+  | SourceAccountV2;
 
 export type SourceAccountWebhookPayload = {
   referenceCompany?: CompanyReference | undefined;
@@ -29,11 +39,69 @@ export type SourceAccountWebhookPayload = {
    * Unique identifier for a company's data connection.
    */
   connectionId?: string | undefined;
-  /**
-   * The target bank account in a supported accounting software for ingestion into a bank feed.
-   */
-  sourceAccount?: SourceAccount | undefined;
+  sourceAccount?: SourceAccount | SourceAccountV2 | undefined;
 };
+
+/** @internal */
+export const SourceAccountWebhookPayloadSourceAccount$inboundSchema: z.ZodType<
+  SourceAccountWebhookPayloadSourceAccount,
+  z.ZodTypeDef,
+  unknown
+> = z.union([SourceAccount$inboundSchema, SourceAccountV2$inboundSchema]);
+
+/** @internal */
+export type SourceAccountWebhookPayloadSourceAccount$Outbound =
+  | SourceAccount$Outbound
+  | SourceAccountV2$Outbound;
+
+/** @internal */
+export const SourceAccountWebhookPayloadSourceAccount$outboundSchema: z.ZodType<
+  SourceAccountWebhookPayloadSourceAccount$Outbound,
+  z.ZodTypeDef,
+  SourceAccountWebhookPayloadSourceAccount
+> = z.union([SourceAccount$outboundSchema, SourceAccountV2$outboundSchema]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace SourceAccountWebhookPayloadSourceAccount$ {
+  /** @deprecated use `SourceAccountWebhookPayloadSourceAccount$inboundSchema` instead. */
+  export const inboundSchema =
+    SourceAccountWebhookPayloadSourceAccount$inboundSchema;
+  /** @deprecated use `SourceAccountWebhookPayloadSourceAccount$outboundSchema` instead. */
+  export const outboundSchema =
+    SourceAccountWebhookPayloadSourceAccount$outboundSchema;
+  /** @deprecated use `SourceAccountWebhookPayloadSourceAccount$Outbound` instead. */
+  export type Outbound = SourceAccountWebhookPayloadSourceAccount$Outbound;
+}
+
+export function sourceAccountWebhookPayloadSourceAccountToJSON(
+  sourceAccountWebhookPayloadSourceAccount:
+    SourceAccountWebhookPayloadSourceAccount,
+): string {
+  return JSON.stringify(
+    SourceAccountWebhookPayloadSourceAccount$outboundSchema.parse(
+      sourceAccountWebhookPayloadSourceAccount,
+    ),
+  );
+}
+
+export function sourceAccountWebhookPayloadSourceAccountFromJSON(
+  jsonString: string,
+): SafeParseResult<
+  SourceAccountWebhookPayloadSourceAccount,
+  SDKValidationError
+> {
+  return safeParse(
+    jsonString,
+    (x) =>
+      SourceAccountWebhookPayloadSourceAccount$inboundSchema.parse(
+        JSON.parse(x),
+      ),
+    `Failed to parse 'SourceAccountWebhookPayloadSourceAccount' from JSON`,
+  );
+}
 
 /** @internal */
 export const SourceAccountWebhookPayload$inboundSchema: z.ZodType<
@@ -44,7 +112,10 @@ export const SourceAccountWebhookPayload$inboundSchema: z.ZodType<
   referenceCompany: CompanyReference$inboundSchema.optional(),
   companyId: z.string().optional(),
   connectionId: z.string().optional(),
-  sourceAccount: SourceAccount$inboundSchema.optional(),
+  sourceAccount: z.union([
+    SourceAccount$inboundSchema,
+    SourceAccountV2$inboundSchema,
+  ]).optional(),
 });
 
 /** @internal */
@@ -52,7 +123,7 @@ export type SourceAccountWebhookPayload$Outbound = {
   referenceCompany?: CompanyReference$Outbound | undefined;
   companyId?: string | undefined;
   connectionId?: string | undefined;
-  sourceAccount?: SourceAccount$Outbound | undefined;
+  sourceAccount?: SourceAccount$Outbound | SourceAccountV2$Outbound | undefined;
 };
 
 /** @internal */
@@ -64,7 +135,10 @@ export const SourceAccountWebhookPayload$outboundSchema: z.ZodType<
   referenceCompany: CompanyReference$outboundSchema.optional(),
   companyId: z.string().optional(),
   connectionId: z.string().optional(),
-  sourceAccount: SourceAccount$outboundSchema.optional(),
+  sourceAccount: z.union([
+    SourceAccount$outboundSchema,
+    SourceAccountV2$outboundSchema,
+  ]).optional(),
 });
 
 /**

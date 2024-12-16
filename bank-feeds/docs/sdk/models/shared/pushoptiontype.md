@@ -7,7 +7,7 @@ The option type.
 ```typescript
 import { PushOptionType } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: PushOptionType = "File";
+let value: PushOptionType = "Boolean";
 ```
 
 ## Values

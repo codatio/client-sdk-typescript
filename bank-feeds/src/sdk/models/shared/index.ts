@@ -3,6 +3,7 @@
  */
 
 export * from "./accountinfo.js";
+export * from "./accounttype.js";
 export * from "./bankaccountcreateresponse.js";
 export * from "./bankaccountcredentials.js";
 export * from "./bankaccountoption.js";
@@ -59,8 +60,10 @@ export * from "./security.js";
 export * from "./sourceaccount.js";
 export * from "./sourceaccountbatchcreateresponse.js";
 export * from "./sourceaccountbatcherrorresponse.js";
+export * from "./sourceaccountprototype.js";
 export * from "./sourceaccountv2.js";
 export * from "./sourceaccountv2batchcreateresponse.js";
+export * from "./sourceaccountv2prototype.js";
 export * from "./sourceaccountwebhook.js";
 export * from "./sourceaccountwebhookpayload.js";
 export * from "./syncasbankfeeds.js";

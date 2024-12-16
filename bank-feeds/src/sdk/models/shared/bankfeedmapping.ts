@@ -4,6 +4,7 @@
 
 import * as z from "zod";
 import { safeParse } from "../../../lib/schemas.js";
+import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
@@ -32,7 +33,7 @@ export type BankFeedMapping = {
   /**
    * Balance for the source account.
    */
-  sourceBalance?: string | undefined;
+  sourceBalance?: Decimal$ | number | undefined;
   /**
    * The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
    *
@@ -94,7 +95,7 @@ export const BankFeedMapping$inboundSchema: z.ZodType<
   sourceAccountId: z.string().optional(),
   sourceAccountName: z.string().optional(),
   sourceAccountNumber: z.string().optional(),
-  sourceBalance: z.string().optional(),
+  sourceBalance: z.number().transform(v => new Decimal$(v)).optional(),
   sourceCurrency: z.string().optional(),
   targetAccountId: z.nullable(z.string()).optional(),
   targetAccountName: z.string().optional(),
@@ -109,7 +110,7 @@ export type BankFeedMapping$Outbound = {
   sourceAccountId?: string | undefined;
   sourceAccountName?: string | undefined;
   sourceAccountNumber?: string | undefined;
-  sourceBalance?: string | undefined;
+  sourceBalance?: number | undefined;
   sourceCurrency?: string | undefined;
   targetAccountId?: string | null | undefined;
   targetAccountName?: string | undefined;
@@ -127,7 +128,9 @@ export const BankFeedMapping$outboundSchema: z.ZodType<
   sourceAccountId: z.string().optional(),
   sourceAccountName: z.string().optional(),
   sourceAccountNumber: z.string().optional(),
-  sourceBalance: z.string().optional(),
+  sourceBalance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
+    typeof v === "number" ? v : v.toNumber()
+  ).optional(),
   sourceCurrency: z.string().optional(),
   targetAccountId: z.nullable(z.string()).optional(),
   targetAccountName: z.string().optional(),

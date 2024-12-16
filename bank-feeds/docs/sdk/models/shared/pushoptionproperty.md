@@ -6,9 +6,9 @@
 import { PushOptionProperty } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "File",
-  displayName: "Sarah_Schmidt-Koepp",
-  description: "midst furlough continually fooey",
+  type: "MultiPart",
+  displayName: "Marisa6",
+  description: "yet athwart skateboard newsstand farm bourgeoisie ah how",
   required: false,
 };
 ```

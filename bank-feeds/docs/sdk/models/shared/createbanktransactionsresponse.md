@@ -8,7 +8,7 @@ import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 let value: CreateBankTransactionsResponse = {
   data: {
-    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     transactions: [
       {
         id: "716422529",
@@ -32,12 +32,12 @@ let value: CreateBankTransactionsResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "7db4d6e9-ebb8-4fa6-b904-a49624999aa6",
+  pushOperationKey: "c961b7bd-fd05-4b28-a030-c35eb02993e9",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "TimedOut",
-  statusCode: 507,
+  status: "Failed",
+  statusCode: 202,
 };
 ```
 

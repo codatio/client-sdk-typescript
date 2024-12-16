@@ -158,7 +158,6 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -169,25 +168,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
-      id: "acc-002",
-      accountName: "account-083",
-      accountType: "savings",
-      accountNumber: "23456789",
-      routingInfo: {
-        bankCode: "21001088",
-        type: "bankcode",
-      },
-      currency: "GBP",
-      balance: new Decimal("400"),
+      currency: "USD",
+      modifiedDate: "2022-10-23T00:00:00Z",
       accountInfo: {
-        description: "account description 2",
-        nickname: "account 1290",
-        accountOpenDate: "2023-05-23T00:00:00Z",
-        availableBalance: new Decimal("400"),
+        accountOpenDate: "2022-10-23",
       },
-      modifiedDate: "2024-08-02T00:00:00.000Z",
-      status: "pending",
-      feedStartDate: "2024-05-01T00:00:00Z",
     },
   });
 
@@ -205,7 +190,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { sourceAccountsCreate } from "@codat/bank-feeds/funcs/sourceAccountsCreate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -218,25 +202,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
-      id: "acc-002",
-      accountName: "account-083",
-      accountType: "savings",
-      accountNumber: "23456789",
-      routingInfo: {
-        bankCode: "21001088",
-        type: "bankcode",
-      },
-      currency: "GBP",
-      balance: new Decimal("400"),
+      currency: "USD",
+      modifiedDate: "2022-10-23T00:00:00Z",
       accountInfo: {
-        description: "account description 2",
-        nickname: "account 1290",
-        accountOpenDate: "2023-05-23T00:00:00Z",
-        availableBalance: new Decimal("400"),
+        accountOpenDate: "2022-10-23",
       },
-      modifiedDate: "2024-08-02T00:00:00.000Z",
-      status: "pending",
-      feedStartDate: "2024-05-01T00:00:00Z",
     },
   });
 
