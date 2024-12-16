@@ -31,15 +31,8 @@ const value: operations.CreateBatchSourceAccountSourceAccountsResponseBody = [
   {
     sourceAccountId: "12345",
     result: {
-      id: "acc-003",
-      accountName: "account-095",
-      accountType: "Credit",
-      accountNumber: "12345671",
-      sortCode: "123456",
-      currency: "USD",
-      balance: new Decimal("0"),
-      modifiedDate: "2023-01-09T14:14:14.1057478Z",
-      status: "pending",
+      statusCode: "409",
+      error: "A bank account already exists with the same Id",
     },
   },
 ];

@@ -7,7 +7,7 @@ Status of the source account.
 ```typescript
 import { Status } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: Status = "connected";
+let value: Status = "pending";
 ```
 
 ## Values

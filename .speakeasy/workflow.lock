@@ -1,12 +1,12 @@
-speakeasyVersion: 1.447.0
+speakeasyVersion: 1.455.5
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
-        sourceRevisionDigest: sha256:794384f882ec38027d43f5ef6794d221688d9a8bc8834315e5ecda8fdc920aef
-        sourceBlobDigest: sha256:b5233f0bab180b8aae271a0d5ab149316931ec9e84a140e1c073a2025305eb7d
+        sourceRevisionDigest: sha256:cbc4eb9dabc8c45452862cd7e2686bf1c0870becfd6ffe103aa796e48a7f1efd
+        sourceBlobDigest: sha256:d8080d68edd35d878fad42ac6b343ac5c287f2cab63280c281a2adad5ddd117a
         tags:
             - latest
-            - speakeasy-sdk-regen-1732634522
+            - speakeasy-sdk-regen-1734365164
             - 3.0.0
     lending-source:
         sourceNamespace: lending-source
@@ -66,10 +66,10 @@ targets:
     bank-feeds-library:
         source: bank-feeds-source
         sourceNamespace: bank-feeds-source
-        sourceRevisionDigest: sha256:794384f882ec38027d43f5ef6794d221688d9a8bc8834315e5ecda8fdc920aef
-        sourceBlobDigest: sha256:b5233f0bab180b8aae271a0d5ab149316931ec9e84a140e1c073a2025305eb7d
-        codeSamplesNamespace: bank-feeds-source-code-samples
-        codeSamplesRevisionDigest: sha256:292d7c6cf9313dbb735b86d693a9b86446fbc42ffe0c25c6b5ae82f888ee8205
+        sourceRevisionDigest: sha256:cbc4eb9dabc8c45452862cd7e2686bf1c0870becfd6ffe103aa796e48a7f1efd
+        sourceBlobDigest: sha256:d8080d68edd35d878fad42ac6b343ac5c287f2cab63280c281a2adad5ddd117a
+        codeSamplesNamespace: bank-feeds-source-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:0400fc73ae83174bcfa09840185c5736facb444e76ab39131d45dd14ed0f6902
     lending-library:
         source: lending-source
         sourceNamespace: lending-source
@@ -207,7 +207,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/bank-feeds-source-typescript-code-samples
                 blocking: false
         banking-library:
             target: typescript
@@ -246,7 +246,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/lending-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/lending-source-typescript-code-samples
                 blocking: false
         platform-library:
             target: typescript
@@ -257,7 +257,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/platform-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/platform-source-typescript-code-samples
                 blocking: false
         sync-for-commerce-library:
             target: typescript
@@ -268,7 +268,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-commerce-source-typescript-code-samples
                 blocking: false
         sync-for-commerce-version-1-library:
             target: typescript
@@ -286,7 +286,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-expenses-source-typescript-code-samples
                 blocking: false
         sync-for-expenses-version-1-library:
             target: typescript
@@ -304,7 +304,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-source-typescript-code-samples
                 blocking: false
         sync-for-payables-version-1-library:
             target: typescript
@@ -315,7 +315,7 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-version-1-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payables-version-1-source-typescript-code-samples
                 blocking: false
         sync-for-payroll-library:
             target: typescript
@@ -326,5 +326,5 @@ workflow:
                     token: $npm_token
             codeSamples:
                 registry:
-                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payroll-source-code-samples
+                    location: registry.speakeasyapi.dev/codat/codat/sync-for-payroll-source-typescript-code-samples
                 blocking: false

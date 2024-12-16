@@ -6,8 +6,8 @@
 import { PushOption } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: PushOption = {
-  type: "File",
-  displayName: "Junior.Walsh8",
+  type: "String",
+  displayName: "Ona.Mante",
   required: false,
 };
 ```

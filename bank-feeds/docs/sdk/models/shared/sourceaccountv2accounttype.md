@@ -1,13 +1,13 @@
-# AccountType
+# SourceAccountV2AccountType
 
 The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
 
 ## Example Usage
 
 ```typescript
-import { AccountType } from "@codat/bank-feeds/sdk/models/shared";
+import { SourceAccountV2AccountType } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: AccountType = "checking";
+let value: SourceAccountV2AccountType = "checking";
 ```
 
 ## Values

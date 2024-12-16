@@ -1,6 +1,4 @@
-# CreateSourceAccountResponseBody
-
-Success
+# SourceAccountWebhookPayloadSourceAccount
 
 
 ## Supported Types

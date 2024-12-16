@@ -31,6 +31,19 @@ import { Result } from "../sdk/types/fp.js";
  *
  * A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
  * Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+ *
+ * ## Filter by tags
+ *
+ * The *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):
+ *
+ * - equals (`=`)
+ * - not equals (`!=`)
+ * - contains (`~`)
+ *
+ * For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team:
+ * - Foreign key: `uid = {yourCustomerId}`
+ * - Region: `region != uk`
+ * - Owning team and region: `region = uk && owningTeam = invoice-finance`
  */
 export async function companiesList(
   client: CodatBankFeedsCore,
@@ -68,6 +81,7 @@ export async function companiesList(
     "page": payload?.page,
     "pageSize": payload?.pageSize,
     "query": payload?.query,
+    "tags": payload?.tags,
   });
 
   const headers = new Headers({

@@ -7,7 +7,7 @@ The type of routing number.
 ```typescript
 import { Type } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: Type = "clabe";
+let value: Type = "bankcode";
 ```
 
 ## Values

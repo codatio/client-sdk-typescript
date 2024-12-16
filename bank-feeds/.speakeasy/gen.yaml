@@ -14,7 +14,7 @@ generation:
     oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 7.0.0
+  version: 8.0.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -24,6 +24,7 @@ typescript:
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
   description: Set up bank feeds from accounts in your application to supported accounting platforms.
+  enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
   flatteningOrder: body-first
