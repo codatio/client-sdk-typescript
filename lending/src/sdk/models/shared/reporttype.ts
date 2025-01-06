@@ -7,6 +7,7 @@ import { ClosedEnum } from "../../types/enums.js";
 
 export const ReportType = {
   CategorizedBankStatement: "categorizedBankStatement",
+  CreditModel: "creditModel",
 } as const;
 export type ReportType = ClosedEnum<typeof ReportType>;
 

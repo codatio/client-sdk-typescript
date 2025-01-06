@@ -10,23 +10,23 @@ import { CommerceProduct } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CommerceProduct = {
-  id: "EILBDVJVNUAGVKRQ",
-  name: "Hard Drive",
+  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  name: "Windows Installation",
   description: "1tb Western Digital Hard Drive",
-  categorization: "Hardware",
+  categorization: "Software",
   variants: [
     {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "7110701885",
+      id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
       name: "Large Brown Hat",
-      sku: "Coat-Black-Md",
+      sku: "Coat-Red-Lrg",
       barcode: "CSE370",
-      unitOfMeasure: "kg",
-      vatPercentage: new Decimal("0"),
+      unitOfMeasure: "meters",
+      vatPercentage: new Decimal("20"),
       prices: [
         {
-          currency: "EUR",
+          currency: "USD",
         },
       ],
       inventory: {

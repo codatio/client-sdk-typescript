@@ -14,7 +14,7 @@ let value: AccountsReceivableTracking = {
     },
   ],
   isBilledTo: "NotApplicable",
-  isRebilledTo: "Unknown",
+  isRebilledTo: "NotApplicable",
   recordRef: {
     dataType: "accountTransaction",
   },

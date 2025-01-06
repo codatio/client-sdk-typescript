@@ -15,7 +15,7 @@ import { AccountingCustomer } from "@codat/lending/sdk/models/shared";
 let value: AccountingCustomer = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  defaultCurrency: "GBP",
+  defaultCurrency: "EUR",
   contacts: [
     {
       phone: [
@@ -24,11 +24,11 @@ let value: AccountingCustomer = {
           type: "Unknown",
         },
       ],
-      status: "Active",
+      status: "Archived",
       modifiedDate: "2022-10-23T00:00:00Z",
     },
   ],
-  status: "Unknown",
+  status: "Active",
 };
 ```
 

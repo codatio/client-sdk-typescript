@@ -7,7 +7,7 @@ import { GetAccountingInvoiceRequest } from "@codat/lending/sdk/models/operation
 
 let value: GetAccountingInvoiceRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  invoiceId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  invoiceId: "7110701885",
 };
 ```
 

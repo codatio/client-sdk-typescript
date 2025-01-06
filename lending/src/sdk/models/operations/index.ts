@@ -56,6 +56,7 @@ export * from "./getaccountingprofitandloss.js";
 export * from "./getaccountingsupplier.js";
 export * from "./getaccountingsupplierattachment.js";
 export * from "./getaccountingtransfer.js";
+export * from "./getbankaccountmapping.js";
 export * from "./getbankingaccount.js";
 export * from "./getbankingtransaction.js";
 export * from "./getbankingtransactioncategory.js";

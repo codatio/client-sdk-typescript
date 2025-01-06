@@ -40,11 +40,11 @@ let value: AccountingInvoice = {
   issueDate: "2022-10-23T00:00:00Z",
   dueDate: "2022-10-23T00:00:00Z",
   paidOnDate: "2022-10-23T00:00:00Z",
-  currency: "EUR",
+  currency: "GBP",
   lineItems: [
     {
-      unitAmount: new Decimal("2700.08"),
-      quantity: new Decimal("7351.94"),
+      unitAmount: new Decimal("9527.49"),
+      quantity: new Decimal("4471.25"),
       accountRef: {},
       tracking: {
         categoryRefs: [
@@ -53,9 +53,9 @@ let value: AccountingInvoice = {
           },
         ],
         isBilledTo: "Project",
-        isRebilledTo: "Unknown",
+        isRebilledTo: "Project",
         recordRef: {
-          dataType: "accountTransaction",
+          dataType: "invoice",
         },
       },
     },
@@ -64,19 +64,19 @@ let value: AccountingInvoice = {
     {
       payment: {
         accountRef: {},
-        currency: "USD",
+        currency: "EUR",
         paidOnDate: "2022-10-23T00:00:00Z",
       },
       allocation: {
-        currency: "GBP",
+        currency: "EUR",
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     },
   ],
-  totalTaxAmount: new Decimal("4471.25"),
-  totalAmount: new Decimal("8464.09"),
-  amountDue: new Decimal("6994.79"),
-  status: "Draft",
+  totalTaxAmount: new Decimal("8817.35"),
+  totalAmount: new Decimal("6925.32"),
+  amountDue: new Decimal("7252.54"),
+  status: "PartiallyPaid",
 };
 ```
 

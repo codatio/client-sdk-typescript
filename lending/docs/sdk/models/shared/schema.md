@@ -1,24 +1,23 @@
-# ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook
+# Schema
 
 ## Example Usage
 
 ```typescript
-import { ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook } from "@codat/lending/sdk/models/webhooks";
+import { Schema } from "@codat/lending/sdk/models/shared";
 
-let value:
-  ReportCategorizedBankStatementGenerateSuccessfulReportGenerationWebhook = {
-    id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
-    eventType: "reports.categorizedBankStatement.generate.successful",
-    generatedDate: "2022-10-23T00:00:00Z",
-    payload: {
-      id: "a78e2625-7190-4d94-ae3b-071320451026",
-      referenceCompany: {
-        id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        name: "Codat Ltd.",
-        description: "Requested early access to the new financing scheme.",
-      },
+let value: Schema = {
+  id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
+  eventType: "reports.creditModel.generate.successful",
+  generatedDate: "2022-10-23T00:00:00Z",
+  payload: {
+    id: "a78e2625-7190-4d94-ae3b-071320451026",
+    referenceCompany: {
+      id: "8a210b68-6988-11ed-a1eb-0242ac120002",
+      name: "Codat Ltd.",
+      description: "Requested early access to the new financing scheme.",
     },
-  };
+  },
+};
 ```
 
 ## Fields

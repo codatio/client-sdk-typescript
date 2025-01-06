@@ -7,7 +7,7 @@ The type of the weblink.
 ```typescript
 import { Type } from "@codat/lending/sdk/models/shared";
 
-let value: Type = "Social";
+let value: Type = "Website";
 ```
 
 ## Values

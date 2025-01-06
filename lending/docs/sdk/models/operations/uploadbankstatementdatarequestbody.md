@@ -9,12 +9,12 @@
 const value: shared.BankingAccount = {
   id: "<id>",
   name: "<value>",
-  type: "Credit",
+  type: "Unknown",
   balance: {},
   identifiers: {
-    type: "Depository",
+    type: "Other",
   },
-  currency: "Iranian Rial",
+  currency: "Ethiopian Birr",
   institution: {},
 };
 ```

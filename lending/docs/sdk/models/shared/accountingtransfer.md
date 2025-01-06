@@ -13,19 +13,19 @@ let value: AccountingTransfer = {
   date: "2022-10-23T00:00:00Z",
   from: {
     accountRef: {
-      dataType: "invoice",
+      dataType: "accountTransaction",
     },
-    currency: "GBP",
+    currency: "EUR",
   },
   to: {
     accountRef: {
-      dataType: "invoice",
+      dataType: "accountTransaction",
     },
     currency: "GBP",
   },
   depositedRecordRefs: [
     {
-      dataType: "transfer",
+      dataType: "invoice",
     },
   ],
 };

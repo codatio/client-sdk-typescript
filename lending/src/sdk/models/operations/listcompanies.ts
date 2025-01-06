@@ -24,6 +24,10 @@ export type ListCompaniesRequest = {
    * Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).
    */
   orderBy?: string | undefined;
+  /**
+   * Filter companies by tags using the "equals" (=), "not equals" (!=), and "contains" (~) operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying).
+   */
+  tags?: string | undefined;
 };
 
 /** @internal */
@@ -36,6 +40,7 @@ export const ListCompaniesRequest$inboundSchema: z.ZodType<
   pageSize: z.number().int().default(100),
   query: z.string().optional(),
   orderBy: z.string().optional(),
+  tags: z.string().optional(),
 });
 
 /** @internal */
@@ -44,6 +49,7 @@ export type ListCompaniesRequest$Outbound = {
   pageSize: number;
   query?: string | undefined;
   orderBy?: string | undefined;
+  tags?: string | undefined;
 };
 
 /** @internal */
@@ -56,6 +62,7 @@ export const ListCompaniesRequest$outboundSchema: z.ZodType<
   pageSize: z.number().int().default(100),
   query: z.string().optional(),
   orderBy: z.string().optional(),
+  tags: z.string().optional(),
 });
 
 /**

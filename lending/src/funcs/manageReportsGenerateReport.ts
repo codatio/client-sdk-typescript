@@ -112,6 +112,7 @@ export async function manageReportsGenerateReport(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "POST",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
@@ -159,7 +160,7 @@ export async function manageReportsGenerateReport(
     | RequestTimeoutError
     | ConnectionError
   >(
-    M.json(200, shared.ReportOperation$inboundSchema),
+    M.json(202, shared.ReportOperation$inboundSchema),
     M.jsonErr(
       [400, 401, 402, 403, 404, 429, 500, 503],
       errors.ErrorMessage$inboundSchema,

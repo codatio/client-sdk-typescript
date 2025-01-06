@@ -4,6 +4,7 @@
 
 import { loanWritebackSourceAccountsCreate } from "../funcs/loanWritebackSourceAccountsCreate.js";
 import { loanWritebackSourceAccountsCreateMapping } from "../funcs/loanWritebackSourceAccountsCreateMapping.js";
+import { loanWritebackSourceAccountsListMappings } from "../funcs/loanWritebackSourceAccountsListMappings.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
 import * as shared from "./models/shared/index.js";
@@ -24,6 +25,29 @@ export class SourceAccounts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<operations.CreateSourceAccountResponseBody> {
     return unwrapAsync(loanWritebackSourceAccountsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * List bank feed account mappings
+   *
+   * @remarks
+   * The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.
+   *
+   * A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).
+   *
+   * > **For custom builds only**
+   * >
+   * > Only use this endpoint if you are building your own account management UI.
+   */
+  async listMappings(
+    request: operations.GetBankAccountMappingRequest,
+    options?: RequestOptions,
+  ): Promise<Array<shared.BankFeedMapping>> {
+    return unwrapAsync(loanWritebackSourceAccountsListMappings(
       this,
       request,
       options,

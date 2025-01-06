@@ -6,9 +6,9 @@
 import { PushOptionProperty } from "@codat/lending/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "File",
-  displayName: "Jacinto_Feest3",
-  description: "whoa once hence except thoroughly boo",
+  type: "Array",
+  displayName: "Demond.Fritsch1",
+  description: "wombat though fuss um unit grade soap",
   required: false,
 };
 ```

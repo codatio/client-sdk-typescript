@@ -7,7 +7,7 @@ A key for a Codat data type.
 ```typescript
 import { StartUploadSessionRequestDataType } from "@codat/lending/sdk/models/shared";
 
-let value: StartUploadSessionRequestDataType = "banking-transactions";
+let value: StartUploadSessionRequestDataType = "banking-accounts";
 ```
 
 ## Values

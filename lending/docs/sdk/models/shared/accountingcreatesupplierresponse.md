@@ -15,12 +15,12 @@ let value: AccountingCreateSupplierResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "9f0bd85c-178b-4136-99e9-2fd8e8edfe02",
+  pushOperationKey: "8e8edfe0-26f4-42e7-9e2a-71b3000ebea8",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "Pending",
-  statusCode: 504,
+  status: "Failed",
+  statusCode: 226,
 };
 ```
 

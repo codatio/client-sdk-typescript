@@ -10,8 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateSourceAccountRequestBody =
-  | shared.SourceAccount
-  | shared.SourceAccountV2;
+  | shared.SourceAccountPrototype
+  | shared.SourceAccountV2Prototype;
 
 export type CreateSourceAccountRequest = {
   /**
@@ -22,7 +22,10 @@ export type CreateSourceAccountRequest = {
    * Unique identifier for a connection.
    */
   connectionId: string;
-  requestBody?: shared.SourceAccount | shared.SourceAccountV2 | undefined;
+  requestBody?:
+    | shared.SourceAccountPrototype
+    | shared.SourceAccountV2Prototype
+    | undefined;
 };
 
 /**
@@ -38,14 +41,14 @@ export const CreateSourceAccountRequestBody$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.union([
-  shared.SourceAccount$inboundSchema,
-  shared.SourceAccountV2$inboundSchema,
+  shared.SourceAccountPrototype$inboundSchema,
+  shared.SourceAccountV2Prototype$inboundSchema,
 ]);
 
 /** @internal */
 export type CreateSourceAccountRequestBody$Outbound =
-  | shared.SourceAccount$Outbound
-  | shared.SourceAccountV2$Outbound;
+  | shared.SourceAccountPrototype$Outbound
+  | shared.SourceAccountV2Prototype$Outbound;
 
 /** @internal */
 export const CreateSourceAccountRequestBody$outboundSchema: z.ZodType<
@@ -53,8 +56,8 @@ export const CreateSourceAccountRequestBody$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CreateSourceAccountRequestBody
 > = z.union([
-  shared.SourceAccount$outboundSchema,
-  shared.SourceAccountV2$outboundSchema,
+  shared.SourceAccountPrototype$outboundSchema,
+  shared.SourceAccountV2Prototype$outboundSchema,
 ]);
 
 /**
@@ -99,8 +102,8 @@ export const CreateSourceAccountRequest$inboundSchema: z.ZodType<
   companyId: z.string(),
   connectionId: z.string(),
   RequestBody: z.union([
-    shared.SourceAccount$inboundSchema,
-    shared.SourceAccountV2$inboundSchema,
+    shared.SourceAccountPrototype$inboundSchema,
+    shared.SourceAccountV2Prototype$inboundSchema,
   ]).optional(),
 }).transform((v) => {
   return remap$(v, {
@@ -113,8 +116,8 @@ export type CreateSourceAccountRequest$Outbound = {
   companyId: string;
   connectionId: string;
   RequestBody?:
-    | shared.SourceAccount$Outbound
-    | shared.SourceAccountV2$Outbound
+    | shared.SourceAccountPrototype$Outbound
+    | shared.SourceAccountV2Prototype$Outbound
     | undefined;
 };
 
@@ -127,8 +130,8 @@ export const CreateSourceAccountRequest$outboundSchema: z.ZodType<
   companyId: z.string(),
   connectionId: z.string(),
   requestBody: z.union([
-    shared.SourceAccount$outboundSchema,
-    shared.SourceAccountV2$outboundSchema,
+    shared.SourceAccountPrototype$outboundSchema,
+    shared.SourceAccountV2Prototype$outboundSchema,
   ]).optional(),
 }).transform((v) => {
   return remap$(v, {

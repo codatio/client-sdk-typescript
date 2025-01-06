@@ -21,12 +21,12 @@ let value: CommerceTransaction = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   id: "EILBDVJVNUAGVKRQ",
-  totalAmount: new Decimal("194.12"),
-  currency: "USD",
+  totalAmount: new Decimal("0"),
+  currency: "GBP",
   subType: "CardPayment",
   transactionSourceRef: {
-    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-    type: "Unknown",
+    id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    type: "Order",
   },
 };
 ```

@@ -7,7 +7,7 @@ Current journal status.
 ```typescript
 import { JournalStatus } from "@codat/lending/sdk/models/shared";
 
-let value: JournalStatus = "Archived";
+let value: JournalStatus = "Unknown";
 ```
 
 ## Values

@@ -6,6 +6,7 @@
 ### Available Operations
 
 * [create](#create) - Create source account
+* [listMappings](#listmappings) - List bank feed account mappings
 * [createMapping](#createmapping) - Create bank feed account mapping
 
 ## create
@@ -19,7 +20,6 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -30,25 +30,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
-      id: "acc-002",
-      accountName: "account-083",
-      accountType: "savings",
-      accountNumber: "23456789",
-      routingInfo: {
-        bankCode: "21001088",
-        type: "bankcode",
-      },
-      currency: "GBP",
-      balance: new Decimal("400"),
+      currency: "USD",
+      modifiedDate: "2022-10-23T00:00:00Z",
       accountInfo: {
-        description: "account description 2",
-        nickname: "account 1290",
-        accountOpenDate: "2023-05-23T00:00:00Z",
-        availableBalance: new Decimal("400"),
+        accountOpenDate: "2022-10-23",
       },
-      modifiedDate: "2024-08-02T00:00:00.000Z",
-      status: "pending",
-      feedStartDate: "2024-05-01T00:00:00Z",
     },
   });
 
@@ -66,7 +52,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackSourceAccountsCreate } from "@codat/lending/funcs/loanWritebackSourceAccountsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -79,25 +64,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
-      id: "acc-002",
-      accountName: "account-083",
-      accountType: "savings",
-      accountNumber: "23456789",
-      routingInfo: {
-        bankCode: "21001088",
-        type: "bankcode",
-      },
-      currency: "GBP",
-      balance: new Decimal("400"),
+      currency: "USD",
+      modifiedDate: "2022-10-23T00:00:00Z",
       accountInfo: {
-        description: "account description 2",
-        nickname: "account 1290",
-        accountOpenDate: "2023-05-23T00:00:00Z",
-        availableBalance: new Decimal("400"),
+        accountOpenDate: "2022-10-23",
       },
-      modifiedDate: "2024-08-02T00:00:00.000Z",
-      status: "pending",
-      feedStartDate: "2024-05-01T00:00:00Z",
     },
   });
 
@@ -133,6 +104,91 @@ run();
 | -------------------------------------- | -------------------------------------- | -------------------------------------- |
 | errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
 | errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+
+## listMappings
+
+﻿The *List bank accounts* endpoint returns information about a source bank account and any current or potential target mapping accounts.
+
+A bank feed account mapping is a specified link between the source account (provided by the Codat user) and the target account (the end user's account in the underlying software).
+
+> **For custom builds only**
+> 
+> Only use this endpoint if you are building your own account management UI.
+
+### Example Usage
+
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.sourceAccounts.listMappings({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackSourceAccountsListMappings } from "@codat/lending/funcs/loanWritebackSourceAccountsListMappings.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackSourceAccountsListMappings(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  if (!res.ok) {
+    throw res.error;
+  }
+
+  const { value: result } = res;
+
+  // Handle the result
+  console.log(result);
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetBankAccountMappingRequest](../../sdk/models/operations/getbankaccountmappingrequest.md)                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.BankFeedMapping[]](../../models/.md)\>**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## createMapping
 
