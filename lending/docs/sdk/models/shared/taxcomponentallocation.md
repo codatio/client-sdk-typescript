@@ -7,7 +7,7 @@ import { TaxComponentAllocation } from "@codat/lending/sdk/models/shared";
 
 let value: TaxComponentAllocation = {
   taxComponentRef: {
-    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
     name: "<value>",
   },
 };

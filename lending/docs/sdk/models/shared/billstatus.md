@@ -7,7 +7,7 @@ Current state of the bill.
 ```typescript
 import { BillStatus } from "@codat/lending/sdk/models/shared";
 
-let value: BillStatus = "Open";
+let value: BillStatus = "Draft";
 ```
 
 ## Values

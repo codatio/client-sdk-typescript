@@ -7,7 +7,7 @@ The type of the report requested in the query string.
 ```typescript
 import { ExcelReportTypes } from "@codat/lending/sdk/models/shared";
 
-let value: ExcelReportTypes = "enhancedCashFlow";
+let value: ExcelReportTypes = "enhancedInvoices";
 ```
 
 ## Values

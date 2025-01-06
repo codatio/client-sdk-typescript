@@ -26,6 +26,7 @@ export type ReportOperationStatus = ClosedEnum<typeof ReportOperationStatus>;
  */
 export const ReportOperationType = {
   CategorizedBankStatement: "categorizedBankStatement",
+  CreditModel: "creditModel",
 } as const;
 /**
  * The name of the report generated.

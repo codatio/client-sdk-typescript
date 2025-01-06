@@ -14,8 +14,8 @@ let value: CreateDirectCostRequest = {
     currency: "USD",
     lineItems: [
       {
-        unitAmount: new Decimal("680.93"),
-        quantity: new Decimal("9438.51"),
+        unitAmount: new Decimal("2561.14"),
+        quantity: new Decimal("8237.18"),
         accountRef: {},
         tracking: {
           recordRefs: [
@@ -24,7 +24,7 @@ let value: CreateDirectCostRequest = {
             },
           ],
           invoiceTo: {
-            dataType: "transfer",
+            dataType: "journalEntry",
           },
         },
       },
@@ -33,18 +33,18 @@ let value: CreateDirectCostRequest = {
       {
         payment: {
           accountRef: {},
-          currency: "EUR",
+          currency: "GBP",
           paidOnDate: "2022-10-23T00:00:00Z",
         },
         allocation: {
-          currency: "GBP",
+          currency: "EUR",
           allocatedOnDate: "2022-10-23T00:00:00Z",
         },
       },
     ],
-    subTotal: new Decimal("1272.94"),
-    taxAmount: new Decimal("5258.09"),
-    totalAmount: new Decimal("1418.17"),
+    subTotal: new Decimal("7049.48"),
+    taxAmount: new Decimal("4186.37"),
+    totalAmount: new Decimal("53.10"),
   },
 };
 ```

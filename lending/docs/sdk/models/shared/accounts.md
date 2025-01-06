@@ -7,7 +7,7 @@ import { Accounts } from "@codat/lending/sdk/models/shared";
 
 let value: Accounts = {
   sourceRef: {},
-  currency: "USD",
+  currency: "EUR",
 };
 ```
 

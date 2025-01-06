@@ -15,14 +15,14 @@ import { Decimal } from "@codat/lending/sdk/types";
 let value: CommercePayment = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "EILBDVJVNUAGVKRQ",
-  amount: new Decimal("0"),
-  currency: "EUR",
+  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  amount: new Decimal("194.12"),
+  currency: "GBP",
   paymentMethodRef: {
     id: "EILBDVJVNUAGVKRQ",
     name: "AliPay",
   },
-  paymentProvider: "SagePay",
+  paymentProvider: "Amazon Pay",
   dueDate: "2022-10-23T00:00:00Z",
   createdDate: "2022-10-23T00:00:00Z",
 };

@@ -5,7 +5,7 @@
 ```typescript
 import { PeriodUnit } from "@codat/lending/sdk/models/shared";
 
-let value: PeriodUnit = "Day";
+let value: PeriodUnit = "Week";
 ```
 
 ## Values

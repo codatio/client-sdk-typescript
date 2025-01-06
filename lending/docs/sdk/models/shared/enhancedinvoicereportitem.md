@@ -10,7 +10,7 @@ let value: EnhancedInvoiceReportItem = {
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   issueDate: "2022-10-23T00:00:00Z",
   dueDate: "2022-10-23T00:00:00Z",
-  currency: "GBP",
+  currency: "EUR",
   payments: [
     {
       date: "2022-10-23T00:00:00Z",

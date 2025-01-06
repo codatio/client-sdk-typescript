@@ -7,7 +7,7 @@ The status of the account transaction.
 ```typescript
 import { AccountingAccountTransactionStatus } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingAccountTransactionStatus = "Void";
+let value: AccountingAccountTransactionStatus = "Unknown";
 ```
 
 ## Values

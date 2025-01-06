@@ -6,8 +6,8 @@
 import { PhoneNumber } from "@codat/lending/sdk/models/shared";
 
 let value: PhoneNumber = {
-  number: "(877) 492-8687",
-  type: "Fax",
+  number: "+44 25691 154789",
+  type: "Landline",
 };
 ```
 

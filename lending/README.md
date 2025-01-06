@@ -38,19 +38,24 @@ The Lending API is built on top of the latest accounting, commerce, and banking 
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Lending](#lending)
+  * [Endpoints](#endpoints)
+  * [SDK Installation](#sdk-installation)
+  * [Example Usage](#example-usage)
+  * [Requirements](#requirements)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Standalone functions](#standalone-functions)
+  * [File uploads](#file-uploads)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Debugging](#debugging)
+  * [Support](#support)
 
-* [SDK Installation](#sdk-installation)
-* [Requirements](#requirements)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Standalone functions](#standalone-functions)
-* [File uploads](#file-uploads)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -101,20 +106,23 @@ For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
 ```typescript
 import { CodatLending } from "@codat/lending";
 
-const codatLending = new CodatLending({
-  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-});
+const codatLending = new CodatLending();
 
 async function run() {
-  const result = await codatLending.companies.list({
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
+  await codatLending.accountCategoriesUpdated({
+    clientId: "bae71d36-ff47-420a-b4a6-f8c9ddf41140",
+    clientName: "Bank of Dave",
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    dataConnectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    ruleId: "70af3071-65d9-4ec3-b3cb-5283e8d55dac",
+    ruleType: "Account Categories Updated",
+    alertId: "a9367074-b5c3-42c4-9be4-be129f43577e",
+    message:
+      "Account categories updated for company f1c35bdc-1546-41b9-baf4-3f31135af968.",
+    data: {
+      modifiedDate: "2022-10-23",
+    },
   });
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -351,6 +359,7 @@ run();
 #### [loanWriteback.sourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [create](docs/sdks/sourceaccounts/README.md#create) - Create source account
+* [listMappings](docs/sdks/sourceaccounts/README.md#listmappings) - List bank feed account mappings
 * [createMapping](docs/sdks/sourceaccounts/README.md#createmapping) - Create bank feed account mapping
 
 #### [loanWriteback.suppliers](docs/sdks/codatlendingsuppliers/README.md)
@@ -593,6 +602,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`loanWritebackPaymentsGetCreateModel`](docs/sdks/codatlendingloanwritebackpayments/README.md#getcreatemodel) - Get create payment model
 - [`loanWritebackSourceAccountsCreate`](docs/sdks/sourceaccounts/README.md#create) - Create source account
 - [`loanWritebackSourceAccountsCreateMapping`](docs/sdks/sourceaccounts/README.md#createmapping) - Create bank feed account mapping
+- [`loanWritebackSourceAccountsListMappings`](docs/sdks/sourceaccounts/README.md#listmappings) - List bank feed account mappings
 - [`loanWritebackSuppliersCreate`](docs/sdks/codatlendingsuppliers/README.md#create) - Create supplier
 - [`loanWritebackSuppliersGetCreateUpdateModel`](docs/sdks/codatlendingsuppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
 - [`loanWritebackTransfersCreate`](docs/sdks/codatlendingtransfers/README.md#create) - Create transfer
@@ -696,6 +706,7 @@ async function run() {
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   }, {
     retries: {
       strategy: "backoff",
@@ -741,6 +752,7 @@ async function run() {
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
   // Handle the result
@@ -755,24 +767,14 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
-
-If a HTTP request fails, an operation my also throw an error from the `sdk/models/errors/httpclienterrors.ts` module:
-
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
-
-In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `sdk/models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `list` method may throw the following errors:
 
 | Error Type          | Status Code                            | Content Type     |
 | ------------------- | -------------------------------------- | ---------------- |
 | errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
 | errors.SDKError     | 4XX, 5XX                               | \*/\*            |
+
+If the method throws an error and it is not captured by the known errors, it will default to throwing a `SDKError`.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
@@ -793,14 +795,16 @@ async function run() {
       pageSize: 100,
       query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
       orderBy: "-modifiedDate",
+      tags: "region=uk && team=invoice-finance",
     });
 
     // Handle the result
     console.log(result);
   } catch (err) {
     switch (true) {
+      // The server response does not match the expected SDK schema
       case (err instanceof SDKValidationError): {
-        // Validation errors can be pretty-printed
+        // Pretty-print will provide a human-readable multi-line error message
         console.error(err.pretty());
         // Raw value may also be inspected
         console.error(err.rawValue);
@@ -812,6 +816,7 @@ async function run() {
         return;
       }
       default: {
+        // Other errors such as network errors, see HTTPClientErrors for more details
         throw err;
       }
     }
@@ -822,7 +827,17 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+
+In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `sdk/models/errors/httpclienterrors.ts` module:
+
+| HTTP Client Error                                    | Description                                          |
+| ---------------------------------------------------- | ---------------------------------------------------- |
+| RequestAbortedError                                  | HTTP request was aborted by the client               |
+| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
+| ConnectionError                                      | HTTP client was unable to make a request to a server |
+| InvalidRequestError                                  | Any input used to create a request is invalid        |
+| UnexpectedClientError                                | Unrecognised or unexpected error                     |
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -845,6 +860,7 @@ async function run() {
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
   // Handle the result
@@ -930,6 +946,7 @@ async function run() {
     pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
   // Handle the result

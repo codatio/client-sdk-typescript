@@ -17,7 +17,7 @@ Types of payment line links, either:
 ```typescript
 import { PaymentLinkType } from "@codat/lending/sdk/models/shared";
 
-let value: PaymentLinkType = "Other";
+let value: PaymentLinkType = "Unlinked";
 ```
 
 ## Values

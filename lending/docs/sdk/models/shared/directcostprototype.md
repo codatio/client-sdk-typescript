@@ -11,8 +11,8 @@ let value: DirectCostPrototype = {
   currency: "USD",
   lineItems: [
     {
-      unitAmount: new Decimal("5282.34"),
-      quantity: new Decimal("3494.40"),
+      unitAmount: new Decimal("1173.80"),
+      quantity: new Decimal("1598.45"),
       accountRef: {},
       tracking: {
         recordRefs: [
@@ -21,7 +21,7 @@ let value: DirectCostPrototype = {
           },
         ],
         invoiceTo: {
-          dataType: "transfer",
+          dataType: "journalEntry",
         },
       },
     },
@@ -39,9 +39,9 @@ let value: DirectCostPrototype = {
       },
     },
   ],
-  subTotal: new Decimal("3925.69"),
-  taxAmount: new Decimal("8783.72"),
-  totalAmount: new Decimal("6907.85"),
+  subTotal: new Decimal("813.70"),
+  taxAmount: new Decimal("8818.97"),
+  totalAmount: new Decimal("7196.20"),
 };
 ```
 

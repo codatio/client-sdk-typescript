@@ -9,7 +9,7 @@ import { TransferAccount } from "@codat/lending/sdk/models/shared";
 
 let value: TransferAccount = {
   accountRef: {
-    dataType: "journalEntry",
+    dataType: "accountTransaction",
   },
   currency: "USD",
 };

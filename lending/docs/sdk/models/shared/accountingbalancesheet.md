@@ -23,7 +23,7 @@ Our [Enhanced Financials](https://docs.codat.io/lending/features/financial-state
 import { AccountingBalanceSheet } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingBalanceSheet = {
-  currency: "EUR",
+  currency: "GBP",
   reports: [],
   mostRecentAvailableMonth: "2022-10-23T00:00:00Z",
   earliestAvailableMonth: "2022-10-23T00:00:00Z",

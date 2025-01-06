@@ -7,7 +7,7 @@ The type of the address
 ```typescript
 import { AccountingAddressType } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingAddressType = "Unknown";
+let value: AccountingAddressType = "Delivery";
 ```
 
 ## Values

@@ -6,8 +6,8 @@
 import { PushOption } from "@codat/lending/sdk/models/shared";
 
 let value: PushOption = {
-  type: "String",
-  displayName: "Fleta.Denesik92",
+  type: "File",
+  displayName: "Jacinto_Feest3",
   required: false,
 };
 ```

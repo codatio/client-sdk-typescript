@@ -7,8 +7,8 @@ import { DirectCostLineItem } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: DirectCostLineItem = {
-  unitAmount: new Decimal("2703.28"),
-  quantity: new Decimal("1314.83"),
+  unitAmount: new Decimal("2835.19"),
+  quantity: new Decimal("3799.27"),
   accountRef: {},
   tracking: {
     recordRefs: [

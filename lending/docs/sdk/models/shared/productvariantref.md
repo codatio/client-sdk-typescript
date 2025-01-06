@@ -8,7 +8,7 @@ Reference that links the line item to the specific version of product that has b
 import { ProductVariantRef } from "@codat/lending/sdk/models/shared";
 
 let value: ProductVariantRef = {
-  id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  id: "EILBDVJVNUAGVKRQ",
 };
 ```
 

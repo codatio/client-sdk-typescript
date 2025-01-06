@@ -15,12 +15,12 @@ let value: AccountingCreateAccountResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "8458c5ed-0471-45ba-99b3-5ae840b058e1",
+  pushOperationKey: "9b35ae84-0b05-48e1-b605-94319baf0a99",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "Success",
-  statusCode: 202,
+  status: "TimedOut",
+  statusCode: 303,
 };
 ```
 

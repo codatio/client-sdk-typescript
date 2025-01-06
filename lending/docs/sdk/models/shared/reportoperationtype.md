@@ -13,5 +13,5 @@ let value: ReportOperationType = "categorizedBankStatement";
 ## Values
 
 ```typescript
-"categorizedBankStatement"
+"categorizedBankStatement" | "creditModel"
 ```

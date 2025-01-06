@@ -74,6 +74,10 @@ export type SourceAccountV2 = {
    */
   accountNumber: string;
   /**
+   * The sort code.
+   */
+  sortCode?: string | null | undefined;
+  /**
    * Routing information for the bank. This does not include account number.
    */
   routingInfo?: RoutingInfo | undefined;
@@ -183,6 +187,7 @@ export const SourceAccountV2$inboundSchema: z.ZodType<
   accountName: z.string(),
   accountType: SourceAccountV2AccountType$inboundSchema,
   accountNumber: z.string(),
+  sortCode: z.nullable(z.string()).optional(),
   routingInfo: RoutingInfo$inboundSchema.optional(),
   currency: z.string(),
   balance: z.number().transform(v => new Decimal$(v)),
@@ -198,6 +203,7 @@ export type SourceAccountV2$Outbound = {
   accountName: string;
   accountType: string;
   accountNumber: string;
+  sortCode?: string | null | undefined;
   routingInfo?: RoutingInfo$Outbound | undefined;
   currency: string;
   balance: number;
@@ -217,6 +223,7 @@ export const SourceAccountV2$outboundSchema: z.ZodType<
   accountName: z.string(),
   accountType: SourceAccountV2AccountType$outboundSchema,
   accountNumber: z.string(),
+  sortCode: z.nullable(z.string()).optional(),
   routingInfo: RoutingInfo$outboundSchema.optional(),
   currency: z.string(),
   balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>

@@ -7,7 +7,7 @@ Code to identify the underlying transaction.
 ```typescript
 import { TransactionCode } from "@codat/lending/sdk/models/shared";
 
-let value: TransactionCode = "NotSupported";
+let value: TransactionCode = "Transfer";
 ```
 
 ## Values

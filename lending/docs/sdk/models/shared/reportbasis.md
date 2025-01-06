@@ -7,7 +7,7 @@ The basis of a report.
 ```typescript
 import { ReportBasis } from "@codat/lending/sdk/models/shared";
 
-let value: ReportBasis = "Unknown";
+let value: ReportBasis = "Cash";
 ```
 
 ## Values

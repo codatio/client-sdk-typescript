@@ -6,7 +6,7 @@
 import { CommerceRecordRef } from "@codat/lending/sdk/models/shared";
 
 let value: CommerceRecordRef = {
-  id: "7110701885",
+  id: "EILBDVJVNUAGVKRQ",
   type: "<value>",
 };
 ```
