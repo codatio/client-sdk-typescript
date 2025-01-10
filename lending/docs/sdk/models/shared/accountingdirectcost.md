@@ -27,8 +27,8 @@ let value: AccountingDirectCost = {
   currency: "USD",
   lineItems: [
     {
-      unitAmount: new Decimal("8605.51"),
-      quantity: new Decimal("7270.44"),
+      unitAmount: new Decimal("5573.69"),
+      quantity: new Decimal("8605.51"),
       accountRef: {},
       tracking: {
         recordRefs: [
@@ -37,7 +37,7 @@ let value: AccountingDirectCost = {
           },
         ],
         invoiceTo: {
-          dataType: "invoice",
+          dataType: "accountTransaction",
         },
       },
     },
@@ -55,9 +55,9 @@ let value: AccountingDirectCost = {
       },
     },
   ],
-  subTotal: new Decimal("4561.41"),
-  taxAmount: new Decimal("6832.81"),
-  totalAmount: new Decimal("6956.25"),
+  subTotal: new Decimal("2621.18"),
+  taxAmount: new Decimal("4561.41"),
+  totalAmount: new Decimal("6832.81"),
 };
 ```
 

@@ -6,7 +6,7 @@
 import { Allocation } from "@codat/lending/sdk/models/shared";
 
 let value: Allocation = {
-  currency: "USD",
+  currency: "EUR",
   allocatedOnDate: "2022-10-23T00:00:00Z",
 };
 ```

@@ -7,7 +7,7 @@ import { Payment } from "@codat/lending/sdk/models/shared";
 
 let value: Payment = {
   date: "2022-10-23T00:00:00Z",
-  currency: "GBP",
+  currency: "EUR",
   bankingTransactionRefs: [
     {
       date: "2022-10-23T00:00:00Z",

@@ -12,12 +12,12 @@ import { BankingAccount } from "@codat/lending/sdk/models/shared";
 let value: BankingAccount = {
   id: "<id>",
   name: "<value>",
-  type: "Debit",
+  type: "Credit",
   balance: {},
   identifiers: {
-    type: "Investment",
+    type: "Other",
   },
-  currency: "Solomon Islands Dollar",
+  currency: "Metical",
   institution: {},
 };
 ```

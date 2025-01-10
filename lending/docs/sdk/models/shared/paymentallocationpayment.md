@@ -7,7 +7,7 @@ import { PaymentAllocationPayment } from "@codat/lending/sdk/models/shared";
 
 let value: PaymentAllocationPayment = {
   accountRef: {},
-  currency: "GBP",
+  currency: "USD",
   paidOnDate: "2022-10-23T00:00:00Z",
 };
 ```

@@ -7,7 +7,7 @@ Allowed name of the 'dataType'.
 ```typescript
 import { ContactRefDataType } from "@codat/lending/sdk/models/shared";
 
-let value: ContactRefDataType = "suppliers";
+let value: ContactRefDataType = "customers";
 ```
 
 ## Values

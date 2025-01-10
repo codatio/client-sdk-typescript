@@ -29,27 +29,27 @@ let value: AccountingBill = {
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   issueDate: "2022-10-23T00:00:00Z",
   dueDate: "2022-10-23T00:00:00Z",
-  currency: "GBP",
+  currency: "EUR",
   lineItems: [
     {
-      unitAmount: new Decimal("7567.79"),
-      quantity: new Decimal("6360.61"),
+      unitAmount: new Decimal("3277.20"),
+      quantity: new Decimal("7567.79"),
       accountRef: {},
     },
   ],
-  status: "Open",
-  subTotal: new Decimal("1605.39"),
-  taxAmount: new Decimal("7963.91"),
-  totalAmount: new Decimal("9591.67"),
+  status: "Paid",
+  subTotal: new Decimal("2400.20"),
+  taxAmount: new Decimal("1605.39"),
+  totalAmount: new Decimal("7963.91"),
   paymentAllocations: [
     {
       payment: {
         accountRef: {},
-        currency: "USD",
+        currency: "EUR",
         paidOnDate: "2022-10-23T00:00:00Z",
       },
       allocation: {
-        currency: "EUR",
+        currency: "USD",
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     },

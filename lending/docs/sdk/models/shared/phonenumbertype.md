@@ -7,7 +7,7 @@ The type of phone number
 ```typescript
 import { PhoneNumberType } from "@codat/lending/sdk/models/shared";
 
-let value: PhoneNumberType = "Unknown";
+let value: PhoneNumberType = "Landline";
 ```
 
 ## Values

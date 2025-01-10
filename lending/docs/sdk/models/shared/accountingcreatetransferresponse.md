@@ -15,12 +15,12 @@ let value: AccountingCreateTransferResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "575f2159-a6f5-4bad-afec-b521368cf119",
+  pushOperationKey: "2a71b300-0ebe-4a84-9f57-6f25a1974385",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "TimedOut",
-  statusCode: 203,
+  status: "Pending",
+  statusCode: 101,
 };
 ```
 

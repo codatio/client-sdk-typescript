@@ -9,11 +9,11 @@ import { Decimal } from "@codat/lending/sdk/types";
 let value: PaymentRef = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "7110701885",
-  amount: new Decimal("0"),
-  currency: "GBP",
+  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  amount: new Decimal("-283.56"),
+  currency: "EUR",
   type: "Cash",
-  paymentProvider: "Checkout.com",
+  paymentProvider: "Amazon Pay",
   dueDate: "2022-10-23T00:00:00Z",
   createdDate: "2022-10-23T00:00:00Z",
 };

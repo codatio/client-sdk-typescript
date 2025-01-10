@@ -6,7 +6,7 @@
 import { SourceAccountPrototype } from "@codat/lending/sdk/models/shared";
 
 let value: SourceAccountPrototype = {
-  currency: "GBP",
+  currency: "USD",
   modifiedDate: "2022-10-23T00:00:00Z",
 };
 ```

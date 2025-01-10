@@ -62,7 +62,7 @@ export type AccountingCashFlowStatement = {
    *
    * There are only a very small number of edge cases where this currency code is returned by the Codat system.
    */
-  currency: string;
+  currency?: string | undefined;
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -118,7 +118,7 @@ export const AccountingCashFlowStatement$inboundSchema: z.ZodType<
   reports: z.array(CashFlowStatement$inboundSchema),
   reportBasis: ReportBasis$inboundSchema,
   reportInput: ReportInput$inboundSchema,
-  currency: z.string(),
+  currency: z.string().optional(),
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });
@@ -128,7 +128,7 @@ export type AccountingCashFlowStatement$Outbound = {
   reports: Array<CashFlowStatement$Outbound>;
   reportBasis: string;
   reportInput: string;
-  currency: string;
+  currency?: string | undefined;
   mostRecentAvailableMonth?: string | undefined;
   earliestAvailableMonth?: string | undefined;
 };
@@ -142,7 +142,7 @@ export const AccountingCashFlowStatement$outboundSchema: z.ZodType<
   reports: z.array(CashFlowStatement$outboundSchema),
   reportBasis: ReportBasis$outboundSchema,
   reportInput: ReportInput$outboundSchema,
-  currency: z.string(),
+  currency: z.string().optional(),
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });

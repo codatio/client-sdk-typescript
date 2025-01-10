@@ -9,9 +9,9 @@ let value: GetCommerceRefundsReportRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   reportDate: "29-09-2020",
-  periodLength: 322829,
-  numberOfPeriods: 229567,
-  periodUnit: "Month",
+  periodLength: 111496,
+  numberOfPeriods: 458970,
+  periodUnit: "Week",
 };
 ```
 

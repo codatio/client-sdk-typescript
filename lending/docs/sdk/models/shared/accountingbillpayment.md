@@ -157,26 +157,31 @@ import { AccountingBillPayment } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingBillPayment = {
-  totalAmount: new Decimal("2000"),
+  totalAmount: new Decimal("500"),
   date: "2022-10-23T00:00:00Z",
   lines: [
     {
-      amount: new Decimal("1000"),
+      amount: new Decimal("500"),
       links: [
         {
           type: "Bill",
-          id: "x",
+          id: "a",
           amount: new Decimal("-1000"),
         },
-      ],
-    },
-    {
-      amount: new Decimal("1000"),
-      links: [
         {
-          type: "PaymentOnAccount",
-          id: "y",
+          type: "Bill",
+          id: "b",
           amount: new Decimal("-1000"),
+        },
+        {
+          type: "CreditNote",
+          id: "y",
+          amount: new Decimal("750"),
+        },
+        {
+          type: "CreditNote",
+          id: "z",
+          amount: new Decimal("750"),
         },
       ],
     },

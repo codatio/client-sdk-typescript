@@ -144,6 +144,7 @@ export * from "./listreconciledinvoices.js";
 export * from "./listreports.js";
 export * from "./refreshalldatatypes.js";
 export * from "./refreshdatatype.js";
+export * from "./replacecompany.js";
 export * from "./setbankstatementuploadconfiguration.js";
 export * from "./startbankstatementuploadsession.js";
 export * from "./unlinkconnection.js";

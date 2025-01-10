@@ -6,7 +6,7 @@
 import { AgedCurrencyOutstanding } from "@codat/lending/sdk/models/shared";
 
 let value: AgedCurrencyOutstanding = {
-  currency: "USD",
+  currency: "EUR",
   agedOutstandingAmounts: [
     {
       fromDate: "2022-10-23T00:00:00Z",
