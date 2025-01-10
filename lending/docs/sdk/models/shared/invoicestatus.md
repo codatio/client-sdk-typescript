@@ -13,7 +13,7 @@ Current state of the invoice:
 ```typescript
 import { InvoiceStatus } from "@codat/lending/sdk/models/shared";
 
-let value: InvoiceStatus = "Paid";
+let value: InvoiceStatus = "Draft";
 ```
 
 ## Values

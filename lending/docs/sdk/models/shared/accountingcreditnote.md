@@ -18,13 +18,13 @@ import { AccountingCreditNote } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingCreditNote = {
-  totalAmount: new Decimal("9194.83"),
-  totalDiscount: new Decimal("7142.41"),
-  subTotal: new Decimal("9988.47"),
-  totalTaxAmount: new Decimal("1494.48"),
-  discountPercentage: new Decimal("8681.26"),
-  remainingCredit: new Decimal("1624.93"),
-  status: "Paid",
+  totalAmount: new Decimal("1002.27"),
+  totalDiscount: new Decimal("9194.83"),
+  subTotal: new Decimal("7142.41"),
+  totalTaxAmount: new Decimal("9988.47"),
+  discountPercentage: new Decimal("1494.48"),
+  remainingCredit: new Decimal("8681.26"),
+  status: "Unknown",
 };
 ```
 

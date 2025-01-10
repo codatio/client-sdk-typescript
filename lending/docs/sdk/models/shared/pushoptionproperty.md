@@ -6,9 +6,9 @@
 import { PushOptionProperty } from "@codat/lending/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "Array",
-  displayName: "Demond.Fritsch1",
-  description: "wombat though fuss um unit grade soap",
+  type: "Number",
+  displayName: "Anne.Ernser13",
+  description: "once hence except",
   required: false,
 };
 ```

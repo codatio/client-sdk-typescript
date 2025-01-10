@@ -147,6 +147,7 @@ export * from "./companies.js";
 export * from "./company.js";
 export * from "./companyreference.js";
 export * from "./companyrequestbody.js";
+export * from "./companyupdaterequest.js";
 export * from "./connection.js";
 export * from "./connections.js";
 export * from "./contact.js";

@@ -7,7 +7,7 @@ import { GetAccountingBillCreditNoteRequest } from "@codat/lending/sdk/models/op
 
 let value: GetAccountingBillCreditNoteRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  billCreditNoteId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  billCreditNoteId: "7110701885",
 };
 ```
 

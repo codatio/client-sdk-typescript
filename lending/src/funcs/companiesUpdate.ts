@@ -27,10 +27,11 @@ import { Result } from "../sdk/types/fp.js";
  * Update company
  *
  * @remarks
- * Use the *Update company* endpoint to update both the name and description of the company.
+ * Use the *Update company* endpoint to update the name, description, or tags of the company.
+ *
+ * The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.
  *
  * A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
- * Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
  */
 export async function companiesUpdate(
   client: CodatLendingCore,
@@ -58,7 +59,7 @@ export async function companiesUpdate(
     return parsed;
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.CompanyRequestBody, {
+  const body = encodeJSON("body", payload.CompanyUpdateRequest, {
     explode: true,
   });
 
@@ -105,7 +106,7 @@ export async function companiesUpdate(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "PUT",
+    method: "PATCH",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,

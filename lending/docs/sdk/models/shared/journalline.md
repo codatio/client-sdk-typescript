@@ -7,7 +7,7 @@ import { JournalLine } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: JournalLine = {
-  netAmount: new Decimal("2728.22"),
+  netAmount: new Decimal("5876.00"),
   accountRef: {},
   tracking: {
     recordRefs: [

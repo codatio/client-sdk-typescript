@@ -259,6 +259,7 @@ run();
 
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [create](docs/sdks/companies/README.md#create) - Create company
+* [replace](docs/sdks/companies/README.md#replace) - Replace company
 * [update](docs/sdks/companies/README.md#update) - Update company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [get](docs/sdks/companies/README.md#get) - Get company
@@ -560,6 +561,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
 - [`companyInfoGetAccountingProfile`](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
 - [`companyInfoGetCommerceProfile`](docs/sdks/companyinfo/README.md#getcommerceprofile) - Get company commerce profile

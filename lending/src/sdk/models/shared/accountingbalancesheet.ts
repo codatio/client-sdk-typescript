@@ -45,7 +45,7 @@ export type AccountingBalanceSheet = {
    *
    * There are only a very small number of edge cases where this currency code is returned by the Codat system.
    */
-  currency: string;
+  currency?: string | undefined;
   /**
    * An array of balance sheet reports.
    */
@@ -102,7 +102,7 @@ export const AccountingBalanceSheet$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  currency: z.string(),
+  currency: z.string().optional(),
   reports: z.array(BalanceSheet$inboundSchema),
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
@@ -110,7 +110,7 @@ export const AccountingBalanceSheet$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AccountingBalanceSheet$Outbound = {
-  currency: string;
+  currency?: string | undefined;
   reports: Array<BalanceSheet$Outbound>;
   mostRecentAvailableMonth?: string | undefined;
   earliestAvailableMonth?: string | undefined;
@@ -122,7 +122,7 @@ export const AccountingBalanceSheet$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AccountingBalanceSheet
 > = z.object({
-  currency: z.string(),
+  currency: z.string().optional(),
   reports: z.array(BalanceSheet$outboundSchema),
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),

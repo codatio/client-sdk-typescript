@@ -8,20 +8,8 @@ import { UploadBankStatementDataRequest } from "@codat/lending/sdk/models/operat
 let value: UploadBankStatementDataRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  datasetId: "dfc81773-6527-4480-9ed8-df1aff92903f",
-  requestBody: {
-    pageNumber: 1,
-    pageSize: 10,
-    totalResults: 1,
-    links: {
-      self: {
-        href: "/companies/{id}/data/{dataType}",
-      },
-      current: {
-        href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
-      },
-    },
-  },
+  datasetId: "b14fa86c-2fd9-40be-b851-ce1c0f984e4d",
+  requestBody: "<value>",
 };
 ```
 

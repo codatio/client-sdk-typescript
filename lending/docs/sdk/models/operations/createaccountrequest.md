@@ -16,7 +16,7 @@ let value: CreateAccountRequest = {
       "Invoices the business has issued but has not yet collected payment on.",
     fullyQualifiedCategory: "Asset.Current",
     fullyQualifiedName: "Fixed Asset",
-    currency: "GBP",
+    currency: "USD",
     currentBalance: new Decimal("0"),
     type: "Asset",
     status: "Active",

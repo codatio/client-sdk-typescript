@@ -7,7 +7,7 @@ The status of the product variant.
 ```typescript
 import { ProductVariantStatus } from "@codat/lending/sdk/models/shared";
 
-let value: ProductVariantStatus = "Unpublished";
+let value: ProductVariantStatus = "Unknown";
 ```
 
 ## Values

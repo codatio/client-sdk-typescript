@@ -7,7 +7,7 @@ The status of the report generation.
 ```typescript
 import { ReportOperationStatus } from "@codat/lending/sdk/models/shared";
 
-let value: ReportOperationStatus = "Error";
+let value: ReportOperationStatus = "Complete";
 ```
 
 ## Values

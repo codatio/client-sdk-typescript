@@ -8,11 +8,11 @@ import { Contact } from "@codat/lending/sdk/models/shared";
 let value: Contact = {
   phone: [
     {
-      number: "+44 25691 154789",
-      type: "Mobile",
+      number: "01224 658 999",
+      type: "Primary",
     },
   ],
-  status: "Unknown",
+  status: "Active",
   modifiedDate: "2022-10-23T00:00:00Z",
 };
 ```

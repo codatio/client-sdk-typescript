@@ -8,11 +8,11 @@ import { Decimal } from "@codat/lending/sdk/types";
 
 let value: DirectCostPrototype = {
   issueDate: "2022-10-23T00:00:00Z",
-  currency: "USD",
+  currency: "GBP",
   lineItems: [
     {
-      unitAmount: new Decimal("1173.80"),
-      quantity: new Decimal("1598.45"),
+      unitAmount: new Decimal("8562.76"),
+      quantity: new Decimal("1621.20"),
       accountRef: {},
       tracking: {
         recordRefs: [
@@ -21,7 +21,7 @@ let value: DirectCostPrototype = {
           },
         ],
         invoiceTo: {
-          dataType: "journalEntry",
+          dataType: "accountTransaction",
         },
       },
     },
@@ -39,9 +39,9 @@ let value: DirectCostPrototype = {
       },
     },
   ],
-  subTotal: new Decimal("813.70"),
-  taxAmount: new Decimal("8818.97"),
-  totalAmount: new Decimal("7196.20"),
+  subTotal: new Decimal("4329.84"),
+  taxAmount: new Decimal("5282.34"),
+  totalAmount: new Decimal("3494.40"),
 };
 ```
 

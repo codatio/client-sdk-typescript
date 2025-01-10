@@ -26,11 +26,11 @@ let value: AccountingCreateDirectCostResponseAccountingDirectCost = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   issueDate: "2022-10-23T00:00:00Z",
-  currency: "GBP",
+  currency: "USD",
   lineItems: [
     {
-      unitAmount: new Decimal("8671.67"),
-      quantity: new Decimal("291.90"),
+      unitAmount: new Decimal("8571.25"),
+      quantity: new Decimal("1173.16"),
       accountRef: {},
       tracking: {
         recordRefs: [
@@ -39,7 +39,7 @@ let value: AccountingCreateDirectCostResponseAccountingDirectCost = {
           },
         ],
         invoiceTo: {
-          dataType: "accountTransaction",
+          dataType: "invoice",
         },
       },
     },
@@ -52,14 +52,14 @@ let value: AccountingCreateDirectCostResponseAccountingDirectCost = {
         paidOnDate: "2022-10-23T00:00:00Z",
       },
       allocation: {
-        currency: "USD",
+        currency: "EUR",
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     },
   ],
-  subTotal: new Decimal("191.23"),
-  taxAmount: new Decimal("5181.50"),
-  totalAmount: new Decimal("8427.77"),
+  subTotal: new Decimal("7137.67"),
+  taxAmount: new Decimal("6391.87"),
+  totalAmount: new Decimal("3991.61"),
 };
 ```
 

@@ -9,9 +9,9 @@ let value: GetCommerceOrdersReportRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   reportDate: "29-09-2020",
-  periodLength: 213835,
-  numberOfPeriods: 771226,
-  periodUnit: "Day",
+  periodLength: 889448,
+  numberOfPeriods: 220104,
+  periodUnit: "Month",
 };
 ```
 

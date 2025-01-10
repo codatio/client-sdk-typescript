@@ -53,7 +53,7 @@ export type AccountingProfitAndLossReport = {
   /**
    * Base currency of the company in which the profit and loss report is presented.
    */
-  currency: string;
+  currency?: string | undefined;
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -108,7 +108,7 @@ export const AccountingProfitAndLossReport$inboundSchema: z.ZodType<
 > = z.object({
   reports: z.array(ProfitAndLossReport$inboundSchema),
   reportBasis: ReportBasis$inboundSchema,
-  currency: z.string(),
+  currency: z.string().optional(),
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });
@@ -117,7 +117,7 @@ export const AccountingProfitAndLossReport$inboundSchema: z.ZodType<
 export type AccountingProfitAndLossReport$Outbound = {
   reports: Array<ProfitAndLossReport$Outbound>;
   reportBasis: string;
-  currency: string;
+  currency?: string | undefined;
   mostRecentAvailableMonth?: string | undefined;
   earliestAvailableMonth?: string | undefined;
 };
@@ -130,7 +130,7 @@ export const AccountingProfitAndLossReport$outboundSchema: z.ZodType<
 > = z.object({
   reports: z.array(ProfitAndLossReport$outboundSchema),
   reportBasis: ReportBasis$outboundSchema,
-  currency: z.string(),
+  currency: z.string().optional(),
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });

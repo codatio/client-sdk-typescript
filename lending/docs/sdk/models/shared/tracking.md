@@ -12,7 +12,7 @@ let value: Tracking = {
     },
   ],
   invoiceTo: {
-    dataType: "transfer",
+    dataType: "journalEntry",
   },
 };
 ```

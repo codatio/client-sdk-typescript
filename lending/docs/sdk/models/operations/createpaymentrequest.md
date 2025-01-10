@@ -21,7 +21,7 @@ let value: CreatePaymentRequest = {
     date: "2022-10-23T00:00:00Z",
     lines: [
       {
-        amount: new Decimal("9655.17"),
+        amount: new Decimal("1272.94"),
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     ],

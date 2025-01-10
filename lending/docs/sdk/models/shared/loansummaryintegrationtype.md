@@ -7,7 +7,7 @@ The integration type begin referred to.
 ```typescript
 import { LoanSummaryIntegrationType } from "@codat/lending/sdk/models/shared";
 
-let value: LoanSummaryIntegrationType = "Banking";
+let value: LoanSummaryIntegrationType = "Commerce";
 ```
 
 ## Values

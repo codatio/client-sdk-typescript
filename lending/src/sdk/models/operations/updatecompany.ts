@@ -14,7 +14,7 @@ export type UpdateCompanyRequest = {
    * Unique identifier for a company.
    */
   companyId: string;
-  companyRequestBody?: shared.CompanyRequestBody | undefined;
+  companyUpdateRequest?: shared.CompanyUpdateRequest | undefined;
 };
 
 /** @internal */
@@ -24,17 +24,17 @@ export const UpdateCompanyRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   companyId: z.string(),
-  CompanyRequestBody: shared.CompanyRequestBody$inboundSchema.optional(),
+  CompanyUpdateRequest: shared.CompanyUpdateRequest$inboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
-    "CompanyRequestBody": "companyRequestBody",
+    "CompanyUpdateRequest": "companyUpdateRequest",
   });
 });
 
 /** @internal */
 export type UpdateCompanyRequest$Outbound = {
   companyId: string;
-  CompanyRequestBody?: shared.CompanyRequestBody$Outbound | undefined;
+  CompanyUpdateRequest?: shared.CompanyUpdateRequest$Outbound | undefined;
 };
 
 /** @internal */
@@ -44,10 +44,10 @@ export const UpdateCompanyRequest$outboundSchema: z.ZodType<
   UpdateCompanyRequest
 > = z.object({
   companyId: z.string(),
-  companyRequestBody: shared.CompanyRequestBody$outboundSchema.optional(),
+  companyUpdateRequest: shared.CompanyUpdateRequest$outboundSchema.optional(),
 }).transform((v) => {
   return remap$(v, {
-    companyRequestBody: "CompanyRequestBody",
+    companyUpdateRequest: "CompanyUpdateRequest",
   });
 });
 

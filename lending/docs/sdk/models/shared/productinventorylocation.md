@@ -7,7 +7,7 @@ import { ProductInventoryLocation } from "@codat/lending/sdk/models/shared";
 
 let value: ProductInventoryLocation = {
   locationRef: {
-    id: "7110701885",
+    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   },
 };
 ```

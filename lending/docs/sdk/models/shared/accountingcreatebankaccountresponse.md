@@ -15,12 +15,12 @@ let value: AccountingCreateBankAccountResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "adfcbff7-1426-4296-aef8-49e684763845",
+  pushOperationKey: "035dffe4-f31f-43b0-bbe4-65b3274d38fa",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "TimedOut",
-  statusCode: 500,
+  status: "Success",
+  statusCode: 511,
 };
 ```
 

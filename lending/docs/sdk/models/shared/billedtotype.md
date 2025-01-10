@@ -7,7 +7,7 @@ Defines if the invoice or credit note is billed/rebilled to a project or custome
 ```typescript
 import { BilledToType } from "@codat/lending/sdk/models/shared";
 
-let value: BilledToType = "Project";
+let value: BilledToType = "NotApplicable";
 ```
 
 ## Values

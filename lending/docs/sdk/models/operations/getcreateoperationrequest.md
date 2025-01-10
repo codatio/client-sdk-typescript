@@ -7,7 +7,7 @@ import { GetCreateOperationRequest } from "@codat/lending/sdk/models/operations"
 
 let value: GetCreateOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "20f42b14-fa86-4c2f-ad90-be851ce1c0f9",
+  pushOperationKey: "25ab06ad-7f40-474d-834c-b8b600810fd2",
 };
 ```
 

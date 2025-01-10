@@ -7,7 +7,7 @@
 
 ```typescript
 const value: shared.SourceAccountV2Prototype = {
-  currency: "USD",
+  currency: "GBP",
   modifiedDate: "2022-10-23T00:00:00Z",
   accountInfo: {
     accountOpenDate: "2022-10-23",
