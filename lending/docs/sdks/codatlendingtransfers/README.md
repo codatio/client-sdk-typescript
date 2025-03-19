@@ -89,10 +89,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## create
 
@@ -119,8 +120,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountingTransfer: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       description: "test transfers push 20230126 12.08",
       contactRef: {
         id: "80000028-167239230944",
@@ -132,7 +131,6 @@ async function run() {
           id: "80000028-1671794219",
           dataType: "bankAccounts",
         },
-        currency: "USD",
         amount: new Decimal("12"),
       },
       to: {
@@ -140,7 +138,6 @@ async function run() {
           id: "80000004-1671793811",
           dataType: "bankAccounts",
         },
-        currency: "GBP",
         amount: new Decimal("12"),
       },
       status: "Unknown",
@@ -148,11 +145,6 @@ async function run() {
         {
           id: "80000001-1674553252",
           name: "Class 1",
-        },
-      ],
-      depositedRecordRefs: [
-        {
-          dataType: "invoice",
         },
       ],
       metadata: {
@@ -188,8 +180,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountingTransfer: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       description: "test transfers push 20230126 12.08",
       contactRef: {
         id: "80000028-167239230944",
@@ -201,7 +191,6 @@ async function run() {
           id: "80000028-1671794219",
           dataType: "bankAccounts",
         },
-        currency: "USD",
         amount: new Decimal("12"),
       },
       to: {
@@ -209,7 +198,6 @@ async function run() {
           id: "80000004-1671793811",
           dataType: "bankAccounts",
         },
-        currency: "GBP",
         amount: new Decimal("12"),
       },
       status: "Unknown",
@@ -217,11 +205,6 @@ async function run() {
         {
           id: "80000001-1674553252",
           name: "Class 1",
-        },
-      ],
-      depositedRecordRefs: [
-        {
-          dataType: "invoice",
         },
       ],
       metadata: {
@@ -258,7 +241,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

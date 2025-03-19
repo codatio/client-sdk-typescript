@@ -48,7 +48,7 @@ export type CommerceProduct = {
    * can be redeemed in the commerce or POS platform.
    */
   isGiftCard?: boolean | undefined;
-  variants?: Array<ProductVariant> | undefined;
+  variants?: Array<ProductVariant | null> | undefined;
   /**
    * Supplemental data is additional data you can include in our standard data types.
    *
@@ -70,7 +70,7 @@ export const CommerceProduct$inboundSchema: z.ZodType<
   description: z.string().optional(),
   categorization: z.string().optional(),
   isGiftCard: z.boolean().optional(),
-  variants: z.array(ProductVariant$inboundSchema).optional(),
+  variants: z.array(z.nullable(ProductVariant$inboundSchema)).optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
 
@@ -81,7 +81,7 @@ export type CommerceProduct$Outbound = {
   description?: string | undefined;
   categorization?: string | undefined;
   isGiftCard?: boolean | undefined;
-  variants?: Array<ProductVariant$Outbound> | undefined;
+  variants?: Array<ProductVariant$Outbound | null> | undefined;
   supplementalData?: SupplementalData$Outbound | undefined;
 };
 
@@ -96,7 +96,7 @@ export const CommerceProduct$outboundSchema: z.ZodType<
   description: z.string().optional(),
   categorization: z.string().optional(),
   isGiftCard: z.boolean().optional(),
-  variants: z.array(ProductVariant$outboundSchema).optional(),
+  variants: z.array(z.nullable(ProductVariant$outboundSchema)).optional(),
   supplementalData: SupplementalData$outboundSchema.optional(),
 });
 

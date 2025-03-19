@@ -31,8 +31,6 @@ const codatLending = new CodatLendingCore({
 
 async function run() {
   const res = await companiesList(codatLending, {
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",

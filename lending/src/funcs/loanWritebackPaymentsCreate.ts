@@ -5,6 +5,7 @@
 import { CodatLendingCore } from "../core.js";
 import { encodeFormQuery, encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,6 +22,7 @@ import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -35,13 +37,14 @@ import { Result } from "../sdk/types/fp.js";
  *
  * Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
  */
-export async function loanWritebackPaymentsCreate(
+export function loanWritebackPaymentsCreate(
   client: CodatLendingCore,
   request: operations.CreatePaymentRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.AccountingCreatePaymentResponse,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -52,13 +55,41 @@ export async function loanWritebackPaymentsCreate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatLendingCore,
+  request: operations.CreatePaymentRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.AccountingCreatePaymentResponse,
+      | errors.ErrorMessage
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => operations.CreatePaymentRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.AccountingPayment, { explode: true });
@@ -83,16 +114,17 @@ export async function loanWritebackPaymentsCreate(
     "timeoutInMinutes": payload.timeoutInMinutes,
   });
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "create-payment",
     oAuth2Scopes: [],
 
@@ -126,7 +158,7 @@ export async function loanWritebackPaymentsCreate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -148,7 +180,7 @@ export async function loanWritebackPaymentsCreate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -158,6 +190,7 @@ export async function loanWritebackPaymentsCreate(
 
   const [result] = await M.match<
     shared.AccountingCreatePaymentResponse,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -169,14 +202,16 @@ export async function loanWritebackPaymentsCreate(
   >(
     M.json(200, shared.AccountingCreatePaymentResponse$inboundSchema),
     M.jsonErr(
-      [400, 401, 402, 403, 404, 429, 500, 503],
+      [400, 401, 402, 403, 404, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

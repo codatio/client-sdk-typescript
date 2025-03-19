@@ -15,7 +15,7 @@ The type of the platform transaction:
 ```typescript
 import { TransactionType } from "@codat/lending/sdk/models/shared";
 
-let value: TransactionType = "Refund";
+let value: TransactionType = "Payment";
 ```
 
 ## Values

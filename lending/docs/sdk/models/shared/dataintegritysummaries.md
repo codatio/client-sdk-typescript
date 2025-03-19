@@ -9,7 +9,7 @@ let value: DataIntegritySummaries = {
   summaries: [
     {
       byAmount: {
-        currency: "GBP",
+        currency: "USD",
       },
     },
   ],

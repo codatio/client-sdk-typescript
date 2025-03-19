@@ -5,6 +5,7 @@
 import { CodatLendingCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,6 +22,7 @@ import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -31,13 +33,14 @@ import { Result } from "../sdk/types/fp.js";
  *
  * [Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
  */
-export async function accountsReceivableDirectIncomesListAttachments(
+export function accountsReceivableDirectIncomesListAttachments(
   client: CodatLendingCore,
   request: operations.ListAccountingDirectIncomeAttachmentsRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.Attachments,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -48,6 +51,34 @@ export async function accountsReceivableDirectIncomesListAttachments(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatLendingCore,
+  request: operations.ListAccountingDirectIncomeAttachmentsRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.Attachments,
+      | errors.ErrorMessage
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -56,7 +87,7 @@ export async function accountsReceivableDirectIncomesListAttachments(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -80,15 +111,16 @@ export async function accountsReceivableDirectIncomesListAttachments(
     "/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments",
   )(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "list-accounting-direct-income-attachments",
     oAuth2Scopes: [],
 
@@ -121,7 +153,7 @@ export async function accountsReceivableDirectIncomesListAttachments(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -143,7 +175,7 @@ export async function accountsReceivableDirectIncomesListAttachments(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -153,6 +185,7 @@ export async function accountsReceivableDirectIncomesListAttachments(
 
   const [result] = await M.match<
     shared.Attachments,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -164,14 +197,16 @@ export async function accountsReceivableDirectIncomesListAttachments(
   >(
     M.json(200, shared.Attachments$inboundSchema),
     M.jsonErr(
-      [401, 402, 403, 404, 409, 429, 500, 503],
+      [401, 402, 403, 404, 409, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

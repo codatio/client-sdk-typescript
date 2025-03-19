@@ -7,8 +7,8 @@ import { InvoiceLineItem } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: InvoiceLineItem = {
-  unitAmount: new Decimal("6180.15"),
-  quantity: new Decimal("4287.69"),
+  unitAmount: new Decimal("6601.74"),
+  quantity: new Decimal("2900.77"),
   accountRef: {},
   tracking: {
     categoryRefs: [
@@ -16,10 +16,10 @@ let value: InvoiceLineItem = {
         id: "<id>",
       },
     ],
-    isBilledTo: "Unknown",
-    isRebilledTo: "Unknown",
+    isBilledTo: "NotApplicable",
+    isRebilledTo: "NotApplicable",
     recordRef: {
-      dataType: "accountTransaction",
+      dataType: "journalEntry",
     },
   },
 };

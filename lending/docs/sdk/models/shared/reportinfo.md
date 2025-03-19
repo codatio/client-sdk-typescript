@@ -1,6 +1,6 @@
 # ReportInfo
 
-Report additional information, which is specific to Lending API reports.
+Report additional information, which is specific to Lending reports.
 
 ## Example Usage
 

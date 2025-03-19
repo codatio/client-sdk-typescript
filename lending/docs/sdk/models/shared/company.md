@@ -19,6 +19,10 @@ let value: Company = {
   lastSync: "2022-01-01T12:00:00.000Z",
   created: "2022-01-01T12:00:00.000Z",
   createdByUserName: "string",
+  products: [
+    "spend-insights",
+    "lending",
+  ],
   tags: {
     "region": "us",
     "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c",

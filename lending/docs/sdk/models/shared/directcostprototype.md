@@ -11,8 +11,8 @@ let value: DirectCostPrototype = {
   currency: "GBP",
   lineItems: [
     {
-      unitAmount: new Decimal("8562.76"),
-      quantity: new Decimal("1621.20"),
+      unitAmount: new Decimal("4329.84"),
+      quantity: new Decimal("5282.34"),
       accountRef: {},
       tracking: {
         recordRefs: [
@@ -21,7 +21,7 @@ let value: DirectCostPrototype = {
           },
         ],
         invoiceTo: {
-          dataType: "accountTransaction",
+          dataType: "invoice",
         },
       },
     },
@@ -34,14 +34,14 @@ let value: DirectCostPrototype = {
         paidOnDate: "2022-10-23T00:00:00Z",
       },
       allocation: {
-        currency: "GBP",
+        currency: "EUR",
         allocatedOnDate: "2022-10-23T00:00:00Z",
       },
     },
   ],
-  subTotal: new Decimal("4329.84"),
-  taxAmount: new Decimal("5282.34"),
-  totalAmount: new Decimal("3494.40"),
+  subTotal: new Decimal("8956.92"),
+  taxAmount: new Decimal("3925.69"),
+  totalAmount: new Decimal("8783.73"),
 };
 ```
 

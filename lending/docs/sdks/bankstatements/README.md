@@ -91,10 +91,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## setUploadConfiguration
 
@@ -182,10 +183,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## startUploadSession
 
@@ -265,10 +267,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## uploadBankStatementData
 
@@ -289,17 +292,17 @@ async function run() {
   await codatLending.bankStatements.uploadBankStatementData({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    datasetId: "e39deaca-29ee-4c0f-8c9b-4b58f7a91429",
+    datasetId: "f5e39dea-ca29-4eec-80fc-9b4b58f7a914",
     requestBody: {
-      "modifiedDate": "2022-10-23T00:00:00Z",
-      "sourceModifiedDate": "2022-10-23T00:00:00Z",
-      "id": "<id>",
-      "name": "<value>",
-      "type": "Unknown",
-      "identifiers": {
-        "type": "Other",
+      id: "<id>",
+      name: "<value>",
+      type: "Debit",
+      balance: {},
+      identifiers: {
+        type: "Investment",
       },
-      "currency": "Forint",
+      currency: "Burundi Franc",
+      institution: {},
     },
   });
 
@@ -327,17 +330,17 @@ async function run() {
   const res = await bankStatementsUploadBankStatementData(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    datasetId: "e39deaca-29ee-4c0f-8c9b-4b58f7a91429",
+    datasetId: "f5e39dea-ca29-4eec-80fc-9b4b58f7a914",
     requestBody: {
-      "modifiedDate": "2022-10-23T00:00:00Z",
-      "sourceModifiedDate": "2022-10-23T00:00:00Z",
-      "id": "<id>",
-      "name": "<value>",
-      "type": "Unknown",
-      "identifiers": {
-        "type": "Other",
+      id: "<id>",
+      name: "<value>",
+      type: "Debit",
+      balance: {},
+      identifiers: {
+        type: "Investment",
       },
-      "currency": "Forint",
+      currency: "Burundi Franc",
+      institution: {},
     },
   });
 
@@ -368,10 +371,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## endUploadSession
 
@@ -449,7 +453,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

@@ -7,7 +7,7 @@ import { GetAccountingSupplierRequest } from "@codat/lending/sdk/models/operatio
 
 let value: GetAccountingSupplierRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  supplierId: "EILBDVJVNUAGVKRQ",
+  supplierId: "7110701885",
 };
 ```
 

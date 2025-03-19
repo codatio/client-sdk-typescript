@@ -36,7 +36,7 @@ import {
  */
 export type EnhancedCashFlowTransactions = {
   /**
-   * Report additional information, which is specific to Lending API reports.
+   * Report additional information, which is specific to Lending reports.
    */
   reportInfo?: ReportInfo | undefined;
   dataSources?: Array<DataSource> | undefined;

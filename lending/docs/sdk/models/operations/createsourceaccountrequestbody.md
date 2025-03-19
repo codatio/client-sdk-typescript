@@ -7,7 +7,12 @@
 
 ```typescript
 const value: shared.SourceAccountV2Prototype = {
-  currency: "GBP",
+  id: "<id>",
+  accountName: "<value>",
+  accountType: "savings",
+  accountNumber: "<value>",
+  currency: "EUR",
+  balance: new Decimal("5823.2"),
   modifiedDate: "2022-10-23T00:00:00Z",
   accountInfo: {
     accountOpenDate: "2022-10-23",
@@ -19,7 +24,8 @@ const value: shared.SourceAccountV2Prototype = {
 
 ```typescript
 const value: shared.SourceAccountPrototype = {
-  currency: "EUR",
+  id: "<id>",
+  currency: "GBP",
   modifiedDate: "2022-10-23T00:00:00Z",
 };
 ```

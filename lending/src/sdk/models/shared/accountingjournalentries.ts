@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type AccountingJournalEntries = {
-  results?: Array<AccountingJournalEntry> | undefined;
+  results?: Array<AccountingJournalEntry | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const AccountingJournalEntries$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(AccountingJournalEntry$inboundSchema).optional(),
+  results: z.array(z.nullable(AccountingJournalEntry$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const AccountingJournalEntries$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AccountingJournalEntries$Outbound = {
-  results?: Array<AccountingJournalEntry$Outbound> | undefined;
+  results?: Array<AccountingJournalEntry$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,8 @@ export const AccountingJournalEntries$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AccountingJournalEntries
 > = z.object({
-  results: z.array(AccountingJournalEntry$outboundSchema).optional(),
+  results: z.array(z.nullable(AccountingJournalEntry$outboundSchema))
+    .optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

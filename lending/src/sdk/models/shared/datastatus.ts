@@ -95,7 +95,7 @@ export type DataStatus = {
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
-  lastSuccessfulSync: string;
+  lastSuccessfulSync?: string | undefined;
   /**
    * The current status of the dataset.
    */
@@ -136,7 +136,7 @@ export const DataStatus$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   dataType: DataTypes$inboundSchema,
-  lastSuccessfulSync: z.string(),
+  lastSuccessfulSync: z.string().optional(),
   currentStatus: Status$inboundSchema,
   latestSyncId: z.string().optional(),
   latestSuccessfulSyncId: z.string().optional(),
@@ -145,7 +145,7 @@ export const DataStatus$inboundSchema: z.ZodType<
 /** @internal */
 export type DataStatus$Outbound = {
   dataType: string;
-  lastSuccessfulSync: string;
+  lastSuccessfulSync?: string | undefined;
   currentStatus: string;
   latestSyncId?: string | undefined;
   latestSuccessfulSyncId?: string | undefined;
@@ -158,7 +158,7 @@ export const DataStatus$outboundSchema: z.ZodType<
   DataStatus
 > = z.object({
   dataType: DataTypes$outboundSchema,
-  lastSuccessfulSync: z.string(),
+  lastSuccessfulSync: z.string().optional(),
   currentStatus: Status$outboundSchema,
   latestSyncId: z.string().optional(),
   latestSuccessfulSyncId: z.string().optional(),

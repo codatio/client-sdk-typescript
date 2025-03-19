@@ -14,19 +14,19 @@ let value: CreateTransferRequest = {
     date: "2022-10-23T00:00:00Z",
     from: {
       accountRef: {
-        dataType: "invoice",
+        dataType: "transfer",
       },
-      currency: "GBP",
+      currency: "EUR",
     },
     to: {
       accountRef: {
         dataType: "invoice",
       },
-      currency: "USD",
+      currency: "GBP",
     },
     depositedRecordRefs: [
       {
-        dataType: "journalEntry",
+        dataType: "transfer",
       },
     ],
   },

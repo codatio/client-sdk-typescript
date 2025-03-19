@@ -11,9 +11,9 @@ let value: PaymentRef = {
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
   amount: new Decimal("-283.56"),
-  currency: "EUR",
+  currency: "GBP",
   type: "Cash",
-  paymentProvider: "Amazon Pay",
+  paymentProvider: "Checkout.com",
   dueDate: "2022-10-23T00:00:00Z",
   createdDate: "2022-10-23T00:00:00Z",
 };

@@ -9,7 +9,7 @@ For Debit accounts, positive balances are assets, and positive transactions **in
 ```typescript
 import { AccountingBankAccountType } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingBankAccountType = "Unknown";
+let value: AccountingBankAccountType = "Debit";
 ```
 
 ## Values

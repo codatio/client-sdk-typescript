@@ -15,7 +15,6 @@ let value: SourceAccountV2 = {
   accountNumber: "12345670",
   routingInfo: {
     bankCode: "21001088",
-    type: "bankcode",
   },
   currency: "GBP",
   balance: new Decimal("99.99"),

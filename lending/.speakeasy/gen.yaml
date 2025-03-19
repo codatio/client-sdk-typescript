@@ -7,14 +7,16 @@ generation:
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
+    nameResolutionFeb2025: false
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
   telemetryEnabled: true
 typescript:
-  version: 7.2.0
+  version: 7.3.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -24,6 +26,8 @@ typescript:
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
+  enableCustomCodeRegions: false
+  enableMCPServer: true
   enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
@@ -37,6 +41,7 @@ typescript:
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
+  jsonpath: legacy
   maxMethodParams: 0
   methodArguments: infer-optional-args
   moduleFormat: commonjs

@@ -29,19 +29,19 @@ export type SourceAccountV2Prototype = {
   /**
    * Unique ID for the bank account.
    */
-  id?: string | undefined;
+  id: string;
   /**
    * The bank account name.
    */
-  accountName?: string | undefined;
+  accountName: string;
   /**
    * The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
    */
-  accountType?: PropertieAccountType | undefined;
+  accountType: PropertieAccountType;
   /**
    * The account number.
    */
-  accountNumber?: string | undefined;
+  accountNumber: string;
   /**
    * Routing information for the bank. This does not include account number.
    */
@@ -61,11 +61,11 @@ export type SourceAccountV2Prototype = {
    *
    * There are only a very small number of edge cases where this currency code is returned by the Codat system.
    */
-  currency?: string | undefined;
+  currency: string;
   /**
    * The latest balance for the bank account.
    */
-  balance?: Decimal$ | number | undefined;
+  balance: Decimal$ | number;
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -97,28 +97,28 @@ export const SourceAccountV2Prototype$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
-  accountName: z.string().optional(),
-  accountType: PropertieAccountType$inboundSchema.optional(),
-  accountNumber: z.string().optional(),
+  id: z.string(),
+  accountName: z.string(),
+  accountType: PropertieAccountType$inboundSchema,
+  accountNumber: z.string(),
   routingInfo: RoutingInfo$inboundSchema.optional(),
   sortCode: z.nullable(z.string()).optional(),
-  currency: z.string().optional(),
-  balance: z.number().transform(v => new Decimal$(v)).optional(),
+  currency: z.string(),
+  balance: z.number().transform(v => new Decimal$(v)),
   modifiedDate: z.string().optional(),
   accountInfo: z.nullable(AccountInfo$inboundSchema).optional(),
 });
 
 /** @internal */
 export type SourceAccountV2Prototype$Outbound = {
-  id?: string | undefined;
-  accountName?: string | undefined;
-  accountType?: string | undefined;
-  accountNumber?: string | undefined;
+  id: string;
+  accountName: string;
+  accountType: string;
+  accountNumber: string;
   routingInfo?: RoutingInfo$Outbound | undefined;
   sortCode?: string | null | undefined;
-  currency?: string | undefined;
-  balance?: number | undefined;
+  currency: string;
+  balance: number;
   modifiedDate?: string | undefined;
   accountInfo?: AccountInfo$Outbound | null | undefined;
 };
@@ -129,16 +129,16 @@ export const SourceAccountV2Prototype$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SourceAccountV2Prototype
 > = z.object({
-  id: z.string().optional(),
-  accountName: z.string().optional(),
-  accountType: PropertieAccountType$outboundSchema.optional(),
-  accountNumber: z.string().optional(),
+  id: z.string(),
+  accountName: z.string(),
+  accountType: PropertieAccountType$outboundSchema,
+  accountNumber: z.string(),
   routingInfo: RoutingInfo$outboundSchema.optional(),
   sortCode: z.nullable(z.string()).optional(),
-  currency: z.string().optional(),
+  currency: z.string(),
   balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
     typeof v === "number" ? v : v.toNumber()
-  ).optional(),
+  ),
   modifiedDate: z.string().optional(),
   accountInfo: z.nullable(AccountInfo$outboundSchema).optional(),
 });

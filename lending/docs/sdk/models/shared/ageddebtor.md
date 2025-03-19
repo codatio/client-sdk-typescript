@@ -10,7 +10,7 @@ let value: AgedDebtor = {
   customerName: "John Doe",
   agedCurrencyOutstanding: [
     {
-      currency: "GBP",
+      currency: "EUR",
       agedOutstandingAmounts: [
         {
           fromDate: "2022-10-23T00:00:00Z",

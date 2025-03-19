@@ -7,7 +7,7 @@ The type of the address
 ```typescript
 import { CommerceAddressType } from "@codat/lending/sdk/models/shared";
 
-let value: CommerceAddressType = "Inventory";
+let value: CommerceAddressType = "Unknown";
 ```
 
 ## Values

@@ -7,7 +7,7 @@ import { GetAccountingJournalEntryRequest } from "@codat/lending/sdk/models/oper
 
 let value: GetAccountingJournalEntryRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalEntryId: "EILBDVJVNUAGVKRQ",
+  journalEntryId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 ```
 

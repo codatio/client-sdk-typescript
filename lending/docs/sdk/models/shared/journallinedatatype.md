@@ -7,7 +7,7 @@ Allowed name of the 'dataType'.
 ```typescript
 import { JournalLineDataType } from "@codat/lending/sdk/models/shared";
 
-let value: JournalLineDataType = "customers";
+let value: JournalLineDataType = "suppliers";
 ```
 
 ## Values

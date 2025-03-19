@@ -15,9 +15,9 @@ import { Decimal } from "@codat/lending/sdk/types";
 let value: CommercePayment = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "EILBDVJVNUAGVKRQ",
-  amount: new Decimal("194.12"),
-  currency: "GBP",
+  id: "7110701885",
+  amount: new Decimal("-283.56"),
+  currency: "EUR",
   paymentMethodRef: {
     id: "EILBDVJVNUAGVKRQ",
     name: "AliPay",

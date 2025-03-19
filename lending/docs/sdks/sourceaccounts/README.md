@@ -14,12 +14,13 @@
 The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
 
 > ### Versioning
-> If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+> If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
 
 ### Example Usage
 
 ```typescript
 import { CodatLending } from "@codat/lending";
+import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -30,7 +31,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
+      id: "<id>",
+      accountName: "<value>",
+      accountType: "creditCard",
+      accountNumber: "<value>",
       currency: "USD",
+      balance: new Decimal("1343.65"),
       modifiedDate: "2022-10-23T00:00:00Z",
       accountInfo: {
         accountOpenDate: "2022-10-23",
@@ -52,6 +58,7 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackSourceAccountsCreate } from "@codat/lending/funcs/loanWritebackSourceAccountsCreate.js";
+import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -64,7 +71,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
+      id: "<id>",
+      accountName: "<value>",
+      accountType: "creditCard",
+      accountNumber: "<value>",
       currency: "USD",
+      balance: new Decimal("1343.65"),
       modifiedDate: "2022-10-23T00:00:00Z",
       accountInfo: {
         accountOpenDate: "2022-10-23",
@@ -100,10 +112,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## listMappings
 
@@ -185,10 +198,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## createMapping
 
@@ -301,7 +315,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

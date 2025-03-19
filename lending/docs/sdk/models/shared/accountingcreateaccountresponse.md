@@ -15,12 +15,12 @@ let value: AccountingCreateAccountResponse = {
   ],
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "96ef849e-6847-4638-a458-c5ed04715ba9",
+  pushOperationKey: "49e68476-3845-48c5-aed0-4715ba9b35ae",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
   status: "Success",
-  statusCode: 505,
+  statusCode: 101,
 };
 ```
 

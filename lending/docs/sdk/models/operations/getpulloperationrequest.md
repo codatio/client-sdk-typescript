@@ -7,7 +7,7 @@ import { GetPullOperationRequest } from "@codat/lending/sdk/models/operations";
 
 let value: GetPullOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "7997da66-c530-4ee1-9521-e0f1d955c5a8",
+  datasetId: "6c530ee1-521e-40f1-8d95-5c5a87e8db0c",
 };
 ```
 

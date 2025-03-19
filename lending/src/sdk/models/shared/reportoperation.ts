@@ -22,19 +22,20 @@ export const ReportOperationStatus = {
 export type ReportOperationStatus = ClosedEnum<typeof ReportOperationStatus>;
 
 /**
- * The name of the report generated.
+ * The name of the generated report.
  */
 export const ReportOperationType = {
   CategorizedBankStatement: "categorizedBankStatement",
   CreditModel: "creditModel",
+  SpendAnalysis: "spendAnalysis",
 } as const;
 /**
- * The name of the report generated.
+ * The name of the generated report.
  */
 export type ReportOperationType = ClosedEnum<typeof ReportOperationType>;
 
 /**
- * Information about a report generation.
+ * Information about report generation.
  */
 export type ReportOperation = {
   /**
@@ -46,7 +47,7 @@ export type ReportOperation = {
    */
   status?: ReportOperationStatus | undefined;
   /**
-   * The name of the report generated.
+   * The name of the generated report.
    */
   type?: ReportOperationType | undefined;
   /**

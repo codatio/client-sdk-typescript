@@ -14,7 +14,7 @@ import {
 } from "./accountingattachment.js";
 
 export type Attachments = {
-  attachments?: Array<AccountingAttachment> | null | undefined;
+  attachments?: Array<AccountingAttachment | null> | null | undefined;
 };
 
 /** @internal */
@@ -23,13 +23,14 @@ export const Attachments$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  attachments: z.nullable(z.array(AccountingAttachment$inboundSchema))
-    .optional(),
+  attachments: z.nullable(
+    z.array(z.nullable(AccountingAttachment$inboundSchema)),
+  ).optional(),
 });
 
 /** @internal */
 export type Attachments$Outbound = {
-  attachments?: Array<AccountingAttachment$Outbound> | null | undefined;
+  attachments?: Array<AccountingAttachment$Outbound | null> | null | undefined;
 };
 
 /** @internal */
@@ -38,8 +39,9 @@ export const Attachments$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Attachments
 > = z.object({
-  attachments: z.nullable(z.array(AccountingAttachment$outboundSchema))
-    .optional(),
+  attachments: z.nullable(
+    z.array(z.nullable(AccountingAttachment$outboundSchema)),
+  ).optional(),
 });
 
 /**

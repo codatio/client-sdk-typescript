@@ -44,8 +44,8 @@ let value: AccountingCreateAccountResponseAccountingAccount = {
   description:
     "Invoices the business has issued but has not yet collected payment on.",
   fullyQualifiedCategory: "Asset.Current",
-  fullyQualifiedName: "Cash On Hand",
-  currency: "GBP",
+  fullyQualifiedName: "Fixed Asset",
+  currency: "USD",
   currentBalance: new Decimal("0"),
   type: "Asset",
   status: "Active",

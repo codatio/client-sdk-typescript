@@ -7,7 +7,7 @@ The current status of the dataset.
 ```typescript
 import { Status } from "@codat/lending/sdk/models/shared";
 
-let value: Status = "Queued";
+let value: Status = "PermissionsError";
 ```
 
 ## Values

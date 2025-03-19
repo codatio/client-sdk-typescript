@@ -28,7 +28,7 @@ import { AccountingProfitAndLossReport } from "@codat/lending/sdk/models/shared"
 
 let value: AccountingProfitAndLossReport = {
   reports: [],
-  reportBasis: "Unknown",
+  reportBasis: "Accrual",
   mostRecentAvailableMonth: "2022-10-23T00:00:00Z",
   earliestAvailableMonth: "2022-10-23T00:00:00Z",
 };

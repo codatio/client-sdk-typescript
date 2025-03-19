@@ -114,7 +114,7 @@ export type CommerceOrder = {
    */
   totalGratuity?: Decimal$ | number | undefined;
   orderLineItems?: Array<OrderLineItem> | undefined;
-  payments?: Array<PaymentRef> | undefined;
+  payments?: Array<PaymentRef | null> | undefined;
   serviceCharges?: Array<ServiceCharge> | undefined;
   /**
    * Reference to the geographic location where the order was placed.
@@ -175,7 +175,7 @@ export const CommerceOrder$inboundSchema: z.ZodType<
   totalDiscount: z.number().transform(v => new Decimal$(v)).optional(),
   totalGratuity: z.number().transform(v => new Decimal$(v)).optional(),
   orderLineItems: z.array(OrderLineItem$inboundSchema).optional(),
-  payments: z.array(PaymentRef$inboundSchema).optional(),
+  payments: z.array(z.nullable(PaymentRef$inboundSchema)).optional(),
   serviceCharges: z.array(ServiceCharge$inboundSchema).optional(),
   locationRef: LocationRef$inboundSchema.optional(),
   customerRef: CommerceCustomerRef$inboundSchema.optional(),
@@ -198,7 +198,7 @@ export type CommerceOrder$Outbound = {
   totalDiscount?: number | undefined;
   totalGratuity?: number | undefined;
   orderLineItems?: Array<OrderLineItem$Outbound> | undefined;
-  payments?: Array<PaymentRef$Outbound> | undefined;
+  payments?: Array<PaymentRef$Outbound | null> | undefined;
   serviceCharges?: Array<ServiceCharge$Outbound> | undefined;
   locationRef?: LocationRef$Outbound | undefined;
   customerRef?: CommerceCustomerRef$Outbound | undefined;
@@ -235,7 +235,7 @@ export const CommerceOrder$outboundSchema: z.ZodType<
     typeof v === "number" ? v : v.toNumber()
   ).optional(),
   orderLineItems: z.array(OrderLineItem$outboundSchema).optional(),
-  payments: z.array(PaymentRef$outboundSchema).optional(),
+  payments: z.array(z.nullable(PaymentRef$outboundSchema)).optional(),
   serviceCharges: z.array(ServiceCharge$outboundSchema).optional(),
   locationRef: LocationRef$outboundSchema.optional(),
   customerRef: CommerceCustomerRef$outboundSchema.optional(),

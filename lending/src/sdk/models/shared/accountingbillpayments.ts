@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type AccountingBillPayments = {
-  results?: Array<AccountingBillPayment> | undefined;
+  results?: Array<AccountingBillPayment | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const AccountingBillPayments$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(AccountingBillPayment$inboundSchema).optional(),
+  results: z.array(z.nullable(AccountingBillPayment$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const AccountingBillPayments$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AccountingBillPayments$Outbound = {
-  results?: Array<AccountingBillPayment$Outbound> | undefined;
+  results?: Array<AccountingBillPayment$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,7 @@ export const AccountingBillPayments$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AccountingBillPayments
 > = z.object({
-  results: z.array(AccountingBillPayment$outboundSchema).optional(),
+  results: z.array(z.nullable(AccountingBillPayment$outboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

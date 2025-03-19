@@ -51,12 +51,7 @@ let value: CommerceOrder = {
         id: "f9ca9de5-9e31-460d-ac81-368f4e7c8fc0",
         name: "Small Incredible Wooden Soap",
       },
-      discountAllocations: [
-        {
-          name: "Promotional Discount",
-          totalAmount: new Decimal("15.25"),
-        },
-      ],
+      discountAllocations: [],
     },
   ],
   payments: [

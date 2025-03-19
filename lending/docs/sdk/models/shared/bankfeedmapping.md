@@ -9,15 +9,21 @@ import { BankFeedMapping } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: BankFeedMapping = {
-  sourceAccountId: "acc-002",
-  sourceAccountName: "ACME Bank",
-  sourceAccountNumber: "1234-5678",
-  sourceBalance: new Decimal("500"),
-  sourceCurrency: "USD",
-  targetAccountId: "account-081",
-  targetAccountName: "ACME Bank",
-  status: "Success",
-  feedStartDate: "2023-01-09T14:14:14.1057478Z",
+  sourceAccountId: "c53fd75a-dddb-4493-839a-5090b008f625",
+  sourceAccountName: "bank name here",
+  sourceAccountNumber: "5670",
+  sourceBalance: new Decimal("1550"),
+  sourceCurrency: "GBP",
+  status: "pending",
+  targetAccountOptions: [
+    {
+      id: "044096a7-1478-4554-8820-f478caad1b00",
+      name: "account-081",
+      balance: new Decimal("100.99"),
+      sortCode: "602336",
+      accountNumber: "23203",
+    },
+  ],
 };
 ```
 
