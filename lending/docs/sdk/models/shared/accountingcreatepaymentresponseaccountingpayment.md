@@ -697,7 +697,7 @@ let value: AccountingCreatePaymentResponseAccountingPayment = {
   date: "2022-10-23T00:00:00Z",
   lines: [
     {
-      amount: new Decimal("8956.91"),
+      amount: new Decimal("5010.63"),
       allocatedOnDate: "2022-10-23T00:00:00Z",
     },
   ],

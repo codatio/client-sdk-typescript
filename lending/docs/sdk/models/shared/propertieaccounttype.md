@@ -7,7 +7,7 @@ The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
 ```typescript
 import { PropertieAccountType } from "@codat/lending/sdk/models/shared";
 
-let value: PropertieAccountType = "savings";
+let value: PropertieAccountType = "creditCard";
 ```
 
 ## Values

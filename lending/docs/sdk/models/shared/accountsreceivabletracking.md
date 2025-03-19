@@ -13,7 +13,7 @@ let value: AccountsReceivableTracking = {
       id: "<id>",
     },
   ],
-  isBilledTo: "NotApplicable",
+  isBilledTo: "Unknown",
   isRebilledTo: "NotApplicable",
   recordRef: {
     dataType: "accountTransaction",

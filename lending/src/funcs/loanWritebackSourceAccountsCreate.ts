@@ -5,6 +5,7 @@
 import { CodatLendingCore } from "../core.js";
 import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -20,6 +21,7 @@ import * as errors from "../sdk/models/errors/index.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -29,15 +31,16 @@ import { Result } from "../sdk/types/fp.js";
  * The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
  *
  * > ### Versioning
- * > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+ * > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
  */
-export async function loanWritebackSourceAccountsCreate(
+export function loanWritebackSourceAccountsCreate(
   client: CodatLendingCore,
   request: operations.CreateSourceAccountRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     operations.CreateSourceAccountResponseBody,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -48,6 +51,34 @@ export async function loanWritebackSourceAccountsCreate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatLendingCore,
+  request: operations.CreateSourceAccountRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      operations.CreateSourceAccountResponseBody,
+      | errors.ErrorMessage
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -55,7 +86,7 @@ export async function loanWritebackSourceAccountsCreate(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.RequestBody, { explode: true });
@@ -75,16 +106,17 @@ export async function loanWritebackSourceAccountsCreate(
     "/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts",
   )(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "create-source-account",
     oAuth2Scopes: [],
 
@@ -117,7 +149,7 @@ export async function loanWritebackSourceAccountsCreate(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -139,7 +171,7 @@ export async function loanWritebackSourceAccountsCreate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -149,6 +181,7 @@ export async function loanWritebackSourceAccountsCreate(
 
   const [result] = await M.match<
     operations.CreateSourceAccountResponseBody,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -160,14 +193,16 @@ export async function loanWritebackSourceAccountsCreate(
   >(
     M.json(200, operations.CreateSourceAccountResponseBody$inboundSchema),
     M.jsonErr(
-      [400, 401, 402, 403, 404, 429, 500, 503],
+      [400, 401, 402, 403, 404, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

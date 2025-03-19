@@ -7,7 +7,7 @@ The datatype being referred to.
 ```typescript
 import { LoanSummaryRecordRefType } from "@codat/lending/sdk/models/shared";
 
-let value: LoanSummaryRecordRefType = "banking-accounts";
+let value: LoanSummaryRecordRefType = "accounts";
 ```
 
 ## Values

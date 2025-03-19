@@ -7,7 +7,7 @@ The status of the transfer in the account
 ```typescript
 import { AccountingCreateTransferResponseStatus } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingCreateTransferResponseStatus = "Unknown";
+let value: AccountingCreateTransferResponseStatus = "Unreconciled";
 ```
 
 ## Values

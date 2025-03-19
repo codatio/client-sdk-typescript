@@ -7,7 +7,7 @@ import { DataIntegritySummary } from "@codat/lending/sdk/models/shared";
 
 let value: DataIntegritySummary = {
   byAmount: {
-    currency: "USD",
+    currency: "EUR",
   },
 };
 ```

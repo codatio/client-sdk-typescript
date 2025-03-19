@@ -9,7 +9,7 @@ let value: EnhancedCashFlowItem = {
   transactions: [
     {
       date: "2022-10-23T00:00:00Z",
-      currency: "EUR",
+      currency: "GBP",
       transactionCategory: {},
       sourceRef: {},
       accountRef: {},

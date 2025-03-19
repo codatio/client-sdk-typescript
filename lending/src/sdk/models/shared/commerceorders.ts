@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type CommerceOrders = {
-  results?: Array<CommerceOrder> | undefined;
+  results?: Array<CommerceOrder | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const CommerceOrders$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(CommerceOrder$inboundSchema).optional(),
+  results: z.array(z.nullable(CommerceOrder$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const CommerceOrders$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CommerceOrders$Outbound = {
-  results?: Array<CommerceOrder$Outbound> | undefined;
+  results?: Array<CommerceOrder$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,7 @@ export const CommerceOrders$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CommerceOrders
 > = z.object({
-  results: z.array(CommerceOrder$outboundSchema).optional(),
+  results: z.array(z.nullable(CommerceOrder$outboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

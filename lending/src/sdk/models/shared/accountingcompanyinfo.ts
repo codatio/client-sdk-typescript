@@ -128,7 +128,7 @@ export type AccountingCompanyInfo = {
    *
    * For example, for Xero integrations two URLs are returned. These have many potential use cases, such as [deep linking](https://developer.xero.com/documentation/api-guides/deep-link-xero).
    */
-  sourceUrls?: { [k: string]: string } | null | undefined;
+  sourceUrls?: { [k: string]: string | null } | null | undefined;
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -178,7 +178,7 @@ export const AccountingCompanyInfo$inboundSchema: z.ZodType<
   taxNumber: z.nullable(z.string()).optional(),
   financialYearStartDate: z.string().optional(),
   baseCurrency: z.nullable(z.string()).optional(),
-  sourceUrls: z.nullable(z.record(z.string())).optional(),
+  sourceUrls: z.nullable(z.record(z.nullable(z.string()))).optional(),
   createdDate: z.string().optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
@@ -196,7 +196,7 @@ export type AccountingCompanyInfo$Outbound = {
   taxNumber?: string | null | undefined;
   financialYearStartDate?: string | undefined;
   baseCurrency?: string | null | undefined;
-  sourceUrls?: { [k: string]: string } | null | undefined;
+  sourceUrls?: { [k: string]: string | null } | null | undefined;
   createdDate?: string | undefined;
   supplementalData?: SupplementalData$Outbound | undefined;
 };
@@ -218,7 +218,7 @@ export const AccountingCompanyInfo$outboundSchema: z.ZodType<
   taxNumber: z.nullable(z.string()).optional(),
   financialYearStartDate: z.string().optional(),
   baseCurrency: z.nullable(z.string()).optional(),
-  sourceUrls: z.nullable(z.record(z.string())).optional(),
+  sourceUrls: z.nullable(z.record(z.nullable(z.string()))).optional(),
   createdDate: z.string().optional(),
   supplementalData: SupplementalData$outboundSchema.optional(),
 });

@@ -7,7 +7,7 @@ import { BillPaymentLine } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: BillPaymentLine = {
-  amount: new Decimal("9039.84"),
+  amount: new Decimal("9564.06"),
   allocatedOnDate: "2022-10-23T00:00:00Z",
 };
 ```

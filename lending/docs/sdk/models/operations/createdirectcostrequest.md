@@ -14,8 +14,8 @@ let value: CreateDirectCostRequest = {
     currency: "EUR",
     lineItems: [
       {
-        unitAmount: new Decimal("7782.76"),
-        quantity: new Decimal("8483.45"),
+        unitAmount: new Decimal("3499.93"),
+        quantity: new Decimal("2543.82"),
         accountRef: {},
         tracking: {
           recordRefs: [
@@ -42,9 +42,9 @@ let value: CreateDirectCostRequest = {
         },
       },
     ],
-    subTotal: new Decimal("680.93"),
-    taxAmount: new Decimal("9438.51"),
-    totalAmount: new Decimal("9649.25"),
+    subTotal: new Decimal("6267.07"),
+    taxAmount: new Decimal("7275.44"),
+    totalAmount: new Decimal("242.72"),
   },
 };
 ```

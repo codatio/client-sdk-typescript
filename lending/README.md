@@ -7,11 +7,11 @@ Lending helps you make smarter credit decisions on small businesses by enabling 
 <!-- Start Summary [summary] -->
 ## Summary
 
-Lending API: Our Lending API helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.
+Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.
 
-The Lending API is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.
+The Lending solution is built on top of the latest accounting, commerce, and banking data, providing you with the most important data points you need to get a full picture of SMB creditworthiness and make a comprehensive assessment of your customers.
 
-[Explore product](https://docs.codat.io/lending/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+[Explore solution](https://docs.codat.io/lending/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 <!-- Start Codat Tags Table -->
 ## Endpoints
@@ -88,6 +88,91 @@ yarn add @codat/lending zod
 
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
+```
+
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server from npm.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "CodatLending": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@codat/lending",
+        "--",
+        "mcp", "start",
+        "--auth-header", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Create a `.cursor/mcp.json` file in your project root with the following content:
+
+```json
+{
+  "mcpServers": {
+    "CodatLending": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@codat/lending",
+        "--",
+        "mcp", "start",
+        "--auth-header", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
+```
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @codat/lending -- mcp start --help
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -704,8 +789,6 @@ const codatLending = new CodatLending({
 
 async function run() {
   const result = await codatLending.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",
@@ -750,8 +833,6 @@ const codatLending = new CodatLending({
 
 async function run() {
   const result = await codatLending.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",
@@ -771,10 +852,11 @@ run();
 
 Some methods specify known errors which can be thrown. All the known errors are enumerated in the `sdk/models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `list` method may throw the following errors:
 
-| Error Type          | Status Code                            | Content Type     |
-| ------------------- | -------------------------------------- | ---------------- |
-| errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
-| errors.SDKError     | 4XX, 5XX                               | \*/\*            |
+| Error Type          | Status Code                  | Content Type     |
+| ------------------- | ---------------------------- | ---------------- |
+| errors.ErrorMessage | 400, 401, 402, 403, 404, 429 | application/json |
+| errors.ErrorMessage | 500, 503                     | application/json |
+| errors.SDKError     | 4XX, 5XX                     | \*/\*            |
 
 If the method throws an error and it is not captured by the known errors, it will default to throwing a `SDKError`.
 
@@ -793,8 +875,6 @@ async function run() {
   let result;
   try {
     result = await codatLending.companies.list({
-      page: 1,
-      pageSize: 100,
       query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
       orderBy: "-modifiedDate",
       tags: "region=uk && team=invoice-finance",
@@ -810,6 +890,11 @@ async function run() {
         console.error(err.pretty());
         // Raw value may also be inspected
         console.error(err.rawValue);
+        return;
+      }
+      case (err instanceof ErrorMessage): {
+        // Handle err.data$: ErrorMessageData
+        console.error(err);
         return;
       }
       case (err instanceof ErrorMessage): {
@@ -847,7 +932,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -858,8 +943,6 @@ const codatLending = new CodatLending({
 
 async function run() {
   const result = await codatLending.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",
@@ -944,8 +1027,6 @@ const codatLending = new CodatLending({
 
 async function run() {
   const result = await codatLending.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",

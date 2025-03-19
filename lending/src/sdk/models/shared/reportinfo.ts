@@ -8,7 +8,7 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
- * Report additional information, which is specific to Lending API reports.
+ * Report additional information, which is specific to Lending reports.
  */
 export type ReportInfo = {
   /**

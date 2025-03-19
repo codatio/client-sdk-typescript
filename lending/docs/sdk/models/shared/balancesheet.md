@@ -8,7 +8,7 @@ import { Decimal } from "@codat/lending/sdk/types";
 
 let value: BalanceSheet = {
   date: "2022-10-23T00:00:00Z",
-  netAssets: new Decimal("3637.11"),
+  netAssets: new Decimal("1289.26"),
 };
 ```
 

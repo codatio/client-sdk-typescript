@@ -6,6 +6,7 @@ import * as z from "zod";
 import { CodatLendingCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,6 +22,7 @@ import * as errors from "../sdk/models/errors/index.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -29,13 +31,14 @@ import { Result } from "../sdk/types/fp.js";
  * @remarks
  * Download invoice as a pdf.
  */
-export async function accountsReceivableInvoicesDownloadPdf(
+export function accountsReceivableInvoicesDownloadPdf(
   client: CodatLendingCore,
   request: operations.DownloadAccountingInvoicePdfRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     ReadableStream<Uint8Array>,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -46,6 +49,34 @@ export async function accountsReceivableInvoicesDownloadPdf(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatLendingCore,
+  request: operations.DownloadAccountingInvoicePdfRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      ReadableStream<Uint8Array>,
+      | errors.ErrorMessage
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -55,7 +86,7 @@ export async function accountsReceivableInvoicesDownloadPdf(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -75,15 +106,16 @@ export async function accountsReceivableInvoicesDownloadPdf(
     "/companies/{companyId}/data/invoices/{invoiceId}/pdf",
   )(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/pdf",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "download-accounting-invoice-pdf",
     oAuth2Scopes: [],
 
@@ -116,7 +148,7 @@ export async function accountsReceivableInvoicesDownloadPdf(
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -138,7 +170,7 @@ export async function accountsReceivableInvoicesDownloadPdf(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -148,6 +180,7 @@ export async function accountsReceivableInvoicesDownloadPdf(
 
   const [result] = await M.match<
     ReadableStream<Uint8Array>,
+    | errors.ErrorMessage
     | errors.ErrorMessage
     | SDKError
     | SDKValidationError
@@ -161,14 +194,16 @@ export async function accountsReceivableInvoicesDownloadPdf(
       ctype: "application/pdf",
     }),
     M.jsonErr(
-      [401, 402, 403, 404, 409, 429, 500, 503],
+      [401, 402, 403, 404, 409, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

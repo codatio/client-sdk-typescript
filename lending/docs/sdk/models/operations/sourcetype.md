@@ -7,7 +7,7 @@ Data source type.
 ```typescript
 import { SourceType } from "@codat/lending/sdk/models/operations";
 
-let value: SourceType = "banking";
+let value: SourceType = "accounting";
 ```
 
 ## Values

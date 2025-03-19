@@ -16,8 +16,8 @@ let value: CommerceCompanyInfo = {
   companyLegalName: "Codat Limited",
   phoneNumbers: [
     {
-      number: "(877) 492-8687",
-      type: "Primary",
+      number: "+44 25691 154789",
+      type: "Fax",
     },
   ],
   webLinks: [

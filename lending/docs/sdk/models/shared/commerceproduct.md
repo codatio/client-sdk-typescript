@@ -11,19 +11,19 @@ import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CommerceProduct = {
   id: "EILBDVJVNUAGVKRQ",
-  name: "Hard Drive",
-  description: "Install of Windows 11 (Professional Edition)",
+  name: "Software Support (Hourly)",
+  description: "1 hour of support from an agent (phone or remote)",
   categorization: "Hardware",
   variants: [
     {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "EILBDVJVNUAGVKRQ",
-      name: "Black Coat",
+      id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+      name: "Large Brown Hat",
       sku: "A725BA2",
       barcode: "564158468416486458646886484",
       unitOfMeasure: "meters",
-      vatPercentage: new Decimal("20"),
+      vatPercentage: new Decimal("12.5"),
       prices: [
         {
           currency: "EUR",
@@ -33,7 +33,7 @@ let value: CommerceProduct = {
         locations: [
           {
             locationRef: {
-              id: "7110701885",
+              id: "EILBDVJVNUAGVKRQ",
             },
           },
         ],

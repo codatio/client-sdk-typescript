@@ -12,22 +12,22 @@ import { Decimal } from "@codat/lending/sdk/types";
 let value: ProductVariant = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  id: "7110701885",
-  name: "Red Coat",
-  sku: "Coat-Black-Md",
+  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+  name: "Large Brown Hat",
+  sku: "LargeBrownHat",
   barcode: "564158468416486458646886484",
-  unitOfMeasure: "meters",
-  vatPercentage: new Decimal("0"),
+  unitOfMeasure: "m",
+  vatPercentage: new Decimal("12.5"),
   prices: [
     {
-      currency: "USD",
+      currency: "EUR",
     },
   ],
   inventory: {
     locations: [
       {
         locationRef: {
-          id: "7110701885",
+          id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
         },
       },
     ],

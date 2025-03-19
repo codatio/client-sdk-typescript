@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type AccountingCreditNotes = {
-  results?: Array<AccountingCreditNote> | undefined;
+  results?: Array<AccountingCreditNote | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const AccountingCreditNotes$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(AccountingCreditNote$inboundSchema).optional(),
+  results: z.array(z.nullable(AccountingCreditNote$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const AccountingCreditNotes$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AccountingCreditNotes$Outbound = {
-  results?: Array<AccountingCreditNote$Outbound> | undefined;
+  results?: Array<AccountingCreditNote$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,7 @@ export const AccountingCreditNotes$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AccountingCreditNotes
 > = z.object({
-  results: z.array(AccountingCreditNote$outboundSchema).optional(),
+  results: z.array(z.nullable(AccountingCreditNote$outboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

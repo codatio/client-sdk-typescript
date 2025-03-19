@@ -12,7 +12,7 @@ export type SourceAccountPrototype = {
   /**
    * Unique ID for the bank account.
    */
-  id?: string | undefined;
+  id: string;
   /**
    * The bank account name.
    */
@@ -75,7 +75,7 @@ export const SourceAccountPrototype$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  id: z.string().optional(),
+  id: z.string(),
   accountName: z.nullable(z.string()).optional(),
   accountType: z.nullable(z.string()).optional(),
   accountNumber: z.nullable(z.string()).optional(),
@@ -87,7 +87,7 @@ export const SourceAccountPrototype$inboundSchema: z.ZodType<
 
 /** @internal */
 export type SourceAccountPrototype$Outbound = {
-  id?: string | undefined;
+  id: string;
   accountName?: string | null | undefined;
   accountType?: string | null | undefined;
   accountNumber?: string | null | undefined;
@@ -103,7 +103,7 @@ export const SourceAccountPrototype$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SourceAccountPrototype
 > = z.object({
-  id: z.string().optional(),
+  id: z.string(),
   accountName: z.nullable(z.string()).optional(),
   accountType: z.nullable(z.string()).optional(),
   accountNumber: z.nullable(z.string()).optional(),

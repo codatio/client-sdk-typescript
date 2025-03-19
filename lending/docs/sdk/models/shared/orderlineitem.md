@@ -7,21 +7,21 @@ import { OrderLineItem } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: OrderLineItem = {
-  id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-  taxPercentage: new Decimal("12.5"),
+  id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  taxPercentage: new Decimal("45.00"),
   taxes: [
     {
       taxComponentRef: {
-        id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+        id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
         name: "<value>",
       },
     },
   ],
   productRef: {
-    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    id: "7110701885",
   },
   productVariantRef: {
-    id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   },
   discountAllocations: [
     {

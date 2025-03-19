@@ -8,7 +8,7 @@ import { DownloadAccountingDirectIncomeAttachmentRequest } from "@codat/lending/
 let value: DownloadAccountingDirectIncomeAttachmentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  directIncomeId: "EILBDVJVNUAGVKRQ",
+  directIncomeId: "7110701885",
   attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
 };
 ```

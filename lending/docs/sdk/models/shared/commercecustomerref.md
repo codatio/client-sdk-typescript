@@ -8,7 +8,7 @@ Reference to the customer that placed the order.
 import { CommerceCustomerRef } from "@codat/lending/sdk/models/shared";
 
 let value: CommerceCustomerRef = {
-  id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  id: "EILBDVJVNUAGVKRQ",
 };
 ```
 

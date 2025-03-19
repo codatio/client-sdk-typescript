@@ -7,7 +7,7 @@ Status of the payment.
 ```typescript
 import { PaymentStatus } from "@codat/lending/sdk/models/shared";
 
-let value: PaymentStatus = "Cancelled";
+let value: PaymentStatus = "Failed";
 ```
 
 ## Values

@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type BankingTransactions = {
-  results?: Array<BankingTransaction> | undefined;
+  results?: Array<BankingTransaction | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const BankingTransactions$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(BankingTransaction$inboundSchema).optional(),
+  results: z.array(z.nullable(BankingTransaction$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const BankingTransactions$inboundSchema: z.ZodType<
 
 /** @internal */
 export type BankingTransactions$Outbound = {
-  results?: Array<BankingTransaction$Outbound> | undefined;
+  results?: Array<BankingTransaction$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,7 @@ export const BankingTransactions$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   BankingTransactions
 > = z.object({
-  results: z.array(BankingTransaction$outboundSchema).optional(),
+  results: z.array(z.nullable(BankingTransaction$outboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

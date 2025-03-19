@@ -7,7 +7,7 @@ Type of transaction for the bank statement line.
 ```typescript
 import { BankTransactionType } from "@codat/lending/sdk/models/shared";
 
-let value: BankTransactionType = "Unknown";
+let value: BankTransactionType = "SerChg";
 ```
 
 ## Values

@@ -41,7 +41,7 @@ export class ManageReports extends ClientSDK {
    * >
    * > This endpoint is part of a beta release. Please contact your account manager if you want to enable it.
    *
-   * Use the *List reports* endpoint to return details about all reports generated for a company. The query parameter can be used to filter the results.
+   * Use the *List reports* endpoint to return details (such as generation's current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.
    */
   async listReports(
     request: operations.ListReportsRequest,

@@ -11,7 +11,7 @@ let value: ProductInventory = {
   locations: [
     {
       locationRef: {
-        id: "EILBDVJVNUAGVKRQ",
+        id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
       },
     },
   ],

@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type CommerceDisputes = {
-  results?: Array<CommerceDispute> | undefined;
+  results?: Array<CommerceDispute | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const CommerceDisputes$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(CommerceDispute$inboundSchema).optional(),
+  results: z.array(z.nullable(CommerceDispute$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const CommerceDisputes$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CommerceDisputes$Outbound = {
-  results?: Array<CommerceDispute$Outbound> | undefined;
+  results?: Array<CommerceDispute$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,7 @@ export const CommerceDisputes$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CommerceDisputes
 > = z.object({
-  results: z.array(CommerceDispute$outboundSchema).optional(),
+  results: z.array(z.nullable(CommerceDispute$outboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

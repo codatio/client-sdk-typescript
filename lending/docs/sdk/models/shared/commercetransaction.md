@@ -23,10 +23,10 @@ let value: CommerceTransaction = {
   id: "EILBDVJVNUAGVKRQ",
   totalAmount: new Decimal("0"),
   currency: "EUR",
-  subType: "CardPayment",
+  subType: "Invoice payment",
   transactionSourceRef: {
-    id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-    type: "Payment",
+    id: "EILBDVJVNUAGVKRQ",
+    type: "Order",
   },
 };
 ```

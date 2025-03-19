@@ -21,13 +21,13 @@ let value: AccountingCreateTransferResponseAccountingTransfer = {
   },
   to: {
     accountRef: {
-      dataType: "transfer",
+      dataType: "accountTransaction",
     },
-    currency: "USD",
+    currency: "GBP",
   },
   depositedRecordRefs: [
     {
-      dataType: "transfer",
+      dataType: "journalEntry",
     },
   ],
 };

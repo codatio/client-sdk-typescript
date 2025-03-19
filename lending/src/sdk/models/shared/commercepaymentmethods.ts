@@ -21,7 +21,7 @@ import {
 } from "./links.js";
 
 export type CommercePaymentMethods = {
-  results?: Array<CommercePaymentMethod> | undefined;
+  results?: Array<CommercePaymentMethod | null> | undefined;
   /**
    * Current page number.
    */
@@ -43,7 +43,7 @@ export const CommercePaymentMethods$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  results: z.array(CommercePaymentMethod$inboundSchema).optional(),
+  results: z.array(z.nullable(CommercePaymentMethod$inboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),
@@ -56,7 +56,7 @@ export const CommercePaymentMethods$inboundSchema: z.ZodType<
 
 /** @internal */
 export type CommercePaymentMethods$Outbound = {
-  results?: Array<CommercePaymentMethod$Outbound> | undefined;
+  results?: Array<CommercePaymentMethod$Outbound | null> | undefined;
   pageNumber: number;
   pageSize: number;
   totalResults: number;
@@ -69,7 +69,7 @@ export const CommercePaymentMethods$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   CommercePaymentMethods
 > = z.object({
-  results: z.array(CommercePaymentMethod$outboundSchema).optional(),
+  results: z.array(z.nullable(CommercePaymentMethod$outboundSchema)).optional(),
   pageNumber: z.number().int(),
   pageSize: z.number().int(),
   totalResults: z.number().int(),

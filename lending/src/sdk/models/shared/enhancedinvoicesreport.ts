@@ -24,10 +24,10 @@ import {
  */
 export type EnhancedInvoicesReport = {
   /**
-   * Report additional information, which is specific to Lending API reports.
+   * Report additional information, which is specific to Lending reports.
    */
   reportInfo?: ReportInfo | undefined;
-  reportItems?: Array<EnhancedInvoiceReportItem> | undefined;
+  reportItems?: Array<EnhancedInvoiceReportItem | null> | undefined;
 };
 
 /** @internal */
@@ -37,13 +37,14 @@ export const EnhancedInvoicesReport$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   reportInfo: ReportInfo$inboundSchema.optional(),
-  reportItems: z.array(EnhancedInvoiceReportItem$inboundSchema).optional(),
+  reportItems: z.array(z.nullable(EnhancedInvoiceReportItem$inboundSchema))
+    .optional(),
 });
 
 /** @internal */
 export type EnhancedInvoicesReport$Outbound = {
   reportInfo?: ReportInfo$Outbound | undefined;
-  reportItems?: Array<EnhancedInvoiceReportItem$Outbound> | undefined;
+  reportItems?: Array<EnhancedInvoiceReportItem$Outbound | null> | undefined;
 };
 
 /** @internal */
@@ -53,7 +54,8 @@ export const EnhancedInvoicesReport$outboundSchema: z.ZodType<
   EnhancedInvoicesReport
 > = z.object({
   reportInfo: ReportInfo$outboundSchema.optional(),
-  reportItems: z.array(EnhancedInvoiceReportItem$outboundSchema).optional(),
+  reportItems: z.array(z.nullable(EnhancedInvoiceReportItem$outboundSchema))
+    .optional(),
 });
 
 /**
