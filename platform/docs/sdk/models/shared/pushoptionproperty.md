@@ -6,10 +6,11 @@
 import { PushOptionProperty } from "@codat/platform/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "Object",
-  displayName: "Veda29",
-  description: "well-to-do below outrun swat come metal",
-  required: false,
+  type: "Array",
+  displayName: "Fannie10",
+  description:
+    "sonar very sympathetically notwithstanding alarmed modulo grizzled",
+  required: true,
 };
 ```
 

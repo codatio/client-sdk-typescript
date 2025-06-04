@@ -6,9 +6,11 @@ import { ClientSDK } from "../lib/sdks.js";
 import { Companies } from "./companies.js";
 import { ConnectionManagement } from "./connectionmanagement.js";
 import { Connections } from "./connections.js";
+import { Cors } from "./cors.js";
 import { CustomDataType } from "./customdatatype.js";
 import { Integrations } from "./integrations.js";
 import { PushData } from "./pushdata.js";
+import { ReadData } from "./readdata.js";
 import { RefreshData } from "./refreshdata.js";
 import { Settings } from "./settings.js";
 import { SupplementalData } from "./supplementaldata.js";
@@ -32,6 +34,16 @@ export class CodatPlatform extends ClientSDK {
     ));
   }
 
+  private _cors?: Cors;
+  get cors(): Cors {
+    return (this._cors ??= new Cors(this._options));
+  }
+
+  private _settings?: Settings;
+  get settings(): Settings {
+    return (this._settings ??= new Settings(this._options));
+  }
+
   private _refreshData?: RefreshData;
   get refreshData(): RefreshData {
     return (this._refreshData ??= new RefreshData(this._options));
@@ -47,9 +59,9 @@ export class CodatPlatform extends ClientSDK {
     return (this._integrations ??= new Integrations(this._options));
   }
 
-  private _settings?: Settings;
-  get settings(): Settings {
-    return (this._settings ??= new Settings(this._options));
+  private _readData?: ReadData;
+  get readData(): ReadData {
+    return (this._readData ??= new ReadData(this._options));
   }
 
   private _pushData?: PushData;

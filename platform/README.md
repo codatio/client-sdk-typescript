@@ -36,18 +36,23 @@ These end points cover creating and managing your companies, data connections, a
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Platform](#platform)
+  * [Endpoints](#endpoints)
+  * [SDK Installation](#sdk-installation)
+  * [Example Usage](#example-usage)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Standalone functions](#standalone-functions)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Requirements](#requirements)
+  * [Debugging](#debugging)
+  * [Support](#support)
 
-* [SDK Installation](#sdk-installation)
-* [Requirements](#requirements)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Standalone functions](#standalone-functions)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -81,6 +86,91 @@ yarn add @codat/platform zod
 # Note that Yarn does not install peer dependencies automatically. You will need
 # to install zod as shown above.
 ```
+
+
+
+### Model Context Protocol (MCP) Server
+
+This SDK is also an installable MCP server where the various SDK methods are
+exposed as tools that can be invoked by AI applications.
+
+> Node.js v20 or greater is required to run the MCP server from npm.
+
+<details>
+<summary>Claude installation steps</summary>
+
+Add the following server definition to your `claude_desktop_config.json` file:
+
+```json
+{
+  "mcpServers": {
+    "CodatPlatform": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@codat/platform",
+        "--",
+        "mcp", "start",
+        "--auth-header", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary>Cursor installation steps</summary>
+
+Create a `.cursor/mcp.json` file in your project root with the following content:
+
+```json
+{
+  "mcpServers": {
+    "CodatPlatform": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "@codat/platform",
+        "--",
+        "mcp", "start",
+        "--auth-header", "..."
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
+```
+
+For a full list of server arguments, run:
+
+```sh
+npx -y --package @codat/platform -- mcp start --help
+```
 <!-- End SDK Installation [installation] -->
 
 ## Example Usage
@@ -92,20 +182,27 @@ yarn add @codat/platform zod
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-const codatPlatform = new CodatPlatform({
-  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-});
+const codatPlatform = new CodatPlatform();
 
 async function run() {
-  const result = await codatPlatform.companies.list({
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
+  await codatPlatform.companyCreated({
+    id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
+    eventType: "company.created",
+    generatedDate: "2024-08-08T17:10:34.015Z",
+    payload: {
+      id: "0498e921-9b53-4396-a412-4f2f5983b0a2",
+      name: "Bank of Dave",
+      description: "Requested a loan for refurb.",
+      redirect:
+        "https://link.codat.io/company/0498e921-9b53-4396-a412-4f2f5983b0a2",
+      lastSync: "2022-01-01T12:00:00.000Z",
+      created: "2022-01-01T12:00:00.000Z",
+      tags: {
+        "customerRegion": "us",
+        "uid": "335a086e-8563-4b03-94e3-39544225ecb6",
+      },
+    },
   });
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -126,19 +223,16 @@ run();
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [get](docs/sdks/companies/README.md#get) - Get company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [replace](docs/sdks/companies/README.md#replace) - Replace company
 * [update](docs/sdks/companies/README.md#update) - Update company
 * [addProduct](docs/sdks/companies/README.md#addproduct) - Add product
 * [removeProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
+* [refreshProductData](docs/sdks/companies/README.md#refreshproductdata) - Refresh product data
 * [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
-### [connectionManagement](docs/sdks/connectionmanagement/README.md)
+### [~~connectionManagement~~](docs/sdks/connectionmanagement/README.md)
 
-* [getAccessToken](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
-
-#### [connectionManagement.corsSettings](docs/sdks/corssettings/README.md)
-
-* [get](docs/sdks/corssettings/README.md#get) - Get CORS settings
-* [set](docs/sdks/corssettings/README.md#set) - Set CORS settings
+* [~~get~~](docs/sdks/connectionmanagement/README.md#get) - Get access token (old) :warning: **Deprecated** Use [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) instead.
 
 ### [connections](docs/sdks/connections/README.md)
 
@@ -148,6 +242,11 @@ run();
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+
+### [~~cors~~](docs/sdks/cors/README.md)
+
+* [~~get~~](docs/sdks/cors/README.md#get) - Get CORS settings (old) :warning: **Deprecated** Use [get](docs/sdks/settings/README.md#get) instead.
+* [~~set~~](docs/sdks/cors/README.md#set) - Set CORS settings (old) :warning: **Deprecated** Use [set](docs/sdks/settings/README.md#set) instead.
 
 ### [customDataType](docs/sdks/customdatatype/README.md)
 
@@ -168,6 +267,10 @@ run();
 * [listOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
 * [getOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 
+### [readData](docs/sdks/readdata/README.md)
+
+* [getValidationResults](docs/sdks/readdata/README.md#getvalidationresults) - Get validation results
+
 ### [refreshData](docs/sdks/refreshdata/README.md)
 
 * [all](docs/sdks/refreshdata/README.md#all) - Refresh all data
@@ -178,6 +281,8 @@ run();
 
 ### [settings](docs/sdks/settings/README.md)
 
+* [get](docs/sdks/settings/README.md#get) - Get CORS settings
+* [set](docs/sdks/settings/README.md#set) - Set CORS settings
 * [getProfile](docs/sdks/settings/README.md#getprofile) - Get profile
 * [updateProfile](docs/sdks/settings/README.md#updateprofile) - Update profile
 * [getSyncSettings](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
@@ -193,9 +298,6 @@ run();
 
 ### [webhooks](docs/sdks/webhooks/README.md)
 
-* [~~list~~](docs/sdks/webhooks/README.md#list) - List webhooks (legacy) :warning: **Deprecated**
-* [~~create~~](docs/sdks/webhooks/README.md#create) - Create webhook (legacy) :warning: **Deprecated**
-* [~~get~~](docs/sdks/webhooks/README.md#get) - Get webhook (legacy) :warning: **Deprecated**
 * [listConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 * [createConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 * [deleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
@@ -226,11 +328,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
 - [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesRefreshProductData`](docs/sdks/companies/README.md#refreshproductdata) - Refresh product data
 - [`companiesRemoveProduct`](docs/sdks/companies/README.md#removeproduct) - Remove product
+- [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
-- [`connectionManagementCorsSettingsGet`](docs/sdks/corssettings/README.md#get) - Get CORS settings
-- [`connectionManagementCorsSettingsSet`](docs/sdks/corssettings/README.md#set) - Set CORS settings
-- [`connectionManagementGetAccessToken`](docs/sdks/connectionmanagement/README.md#getaccesstoken) - Get access token
 - [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
 - [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
 - [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
@@ -247,6 +348,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`pushDataGetModelOptions`](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
 - [`pushDataGetOperation`](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 - [`pushDataListOperations`](docs/sdks/pushdata/README.md#listoperations) - List push operations
+- [`readDataGetValidationResults`](docs/sdks/readdata/README.md#getvalidationresults) - Get validation results
 - [`refreshDataAll`](docs/sdks/refreshdata/README.md#all) - Refresh all data
 - [`refreshDataByDataType`](docs/sdks/refreshdata/README.md#bydatatype) - Refresh data type
 - [`refreshDataGet`](docs/sdks/refreshdata/README.md#get) - Get data status
@@ -254,9 +356,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`refreshDataListPullOperations`](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 - [`settingsCreateApiKey`](docs/sdks/settings/README.md#createapikey) - Create API key
 - [`settingsDeleteApiKey`](docs/sdks/settings/README.md#deleteapikey) - Delete API key
+- [`settingsGet`](docs/sdks/settings/README.md#get) - Get CORS settings
 - [`settingsGetProfile`](docs/sdks/settings/README.md#getprofile) - Get profile
 - [`settingsGetSyncSettings`](docs/sdks/settings/README.md#getsyncsettings) - Get sync settings
 - [`settingsListApiKeys`](docs/sdks/settings/README.md#listapikeys) - List API keys
+- [`settingsSet`](docs/sdks/settings/README.md#set) - Set CORS settings
 - [`settingsUpdateProfile`](docs/sdks/settings/README.md#updateprofile) - Update profile
 - [`settingsUpdateSyncSettings`](docs/sdks/settings/README.md#updatesyncsettings) - Update all sync settings
 - [`supplementalDataConfigure`](docs/sdks/supplementaldata/README.md#configure) - Configure
@@ -264,9 +368,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webhooksCreateConsumer`](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 - [`webhooksDeleteConsumer`](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
 - [`webhooksListConsumers`](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
-- ~~[`webhooksCreate`](docs/sdks/webhooks/README.md#create)~~ - Create webhook (legacy) :warning: **Deprecated**
-- ~~[`webhooksGet`](docs/sdks/webhooks/README.md#get)~~ - Get webhook (legacy) :warning: **Deprecated**
-- ~~[`webhooksList`](docs/sdks/webhooks/README.md#list)~~ - List webhooks (legacy) :warning: **Deprecated**
+- ~~[`connectionManagementGet`](docs/sdks/connectionmanagement/README.md#get)~~ - Get access token (old) :warning: **Deprecated** Use [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) instead.
+- ~~[`corsGet`](docs/sdks/cors/README.md#get)~~ - Get CORS settings (old) :warning: **Deprecated** Use [`settingsGet`](docs/sdks/settings/README.md#get) instead.
+- ~~[`corsSet`](docs/sdks/cors/README.md#set)~~ - Set CORS settings (old) :warning: **Deprecated** Use [`settingsSet`](docs/sdks/settings/README.md#set) instead.
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -286,10 +390,9 @@ const codatPlatform = new CodatPlatform({
 
 async function run() {
   const result = await codatPlatform.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   }, {
     retries: {
       strategy: "backoff",
@@ -303,7 +406,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -331,13 +433,11 @@ const codatPlatform = new CodatPlatform({
 
 async function run() {
   const result = await codatPlatform.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -349,65 +449,53 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
+This table shows properties which are common on error classes. For full details see [error classes](#error-classes).
 
-If a HTTP request fails, an operation my also throw an error from the `sdk/models/errors/httpclienterrors.ts` module:
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.name`        | `string`   | Error class name eg `SDKError`                                                          |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP status code eg `404`                                                               |
+| `error.contentType` | `string`   | HTTP content type eg `application/json`                                                 |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response. Access to headers and more.                                          |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
-
-In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
-
-| Error Type          | Status Code                            | Content Type     |
-| ------------------- | -------------------------------------- | ---------------- |
-| errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
-| errors.SDKError     | 4XX, 5XX                               | \*/\*            |
-
+### Example
 ```typescript
 import { CodatPlatform } from "@codat/platform";
-import {
-  ErrorMessage,
-  SDKValidationError,
-} from "@codat/platform/sdk/models/errors";
+import * as errors from "@codat/platform/sdk/models/errors";
 
 const codatPlatform = new CodatPlatform({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-  let result;
   try {
-    result = await codatPlatform.companies.list({
-      page: 1,
-      pageSize: 100,
+    const result = await codatPlatform.companies.list({
       query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
       orderBy: "-modifiedDate",
+      tags: "region=uk && team=invoice-finance",
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      case (err instanceof SDKValidationError): {
-        // Validation errors can be pretty-printed
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof ErrorMessage): {
-        // Handle err.data$: ErrorMessageData
-        console.error(err);
-        return;
-      }
-      default: {
-        throw err;
-      }
+  } catch (error) {
+    // Depending on the method different errors may be thrown
+    if (error instanceof errors.ErrorMessage) {
+      console.log(error.message);
+      console.log(error.data$.statusCode); // number
+      console.log(error.data$.service); // string
+      console.log(error.data$.error); // string
+      console.log(error.data$.correlationId); // string
+      console.log(error.data$.validation); // shared.ErrorValidation
+    }
+
+    // Fallback error class, if no other more specific error class is matched
+    if (error instanceof errors.SDKError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.rawResponse.headers);
     }
   }
 }
@@ -416,7 +504,16 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+* [`ErrorMessage`](docs/sdk/models/errors/errormessage.md): Your `query` parameter was not correctly formed.
+* `SDKError`: The fallback error class, if no other more specific error class is matched.
+* `SDKValidationError`: Type mismatch between the data returned from the server and the structure expected by the SDK. This can also be thrown for invalid method arguments. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+* Network errors:
+    * `ConnectionError`: HTTP client was unable to make a request to a server.
+    * `RequestTimeoutError`: HTTP request timed out due to an AbortSignal signal.
+    * `RequestAbortedError`: HTTP request was aborted by the client.
+    * `InvalidRequestError`: Any input used to create a request is invalid.
+    * `UnexpectedClientError`: Unrecognised or unexpected error.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -424,7 +521,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -435,13 +532,11 @@ const codatPlatform = new CodatPlatform({
 
 async function run() {
   const result = await codatPlatform.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -520,13 +615,11 @@ const codatPlatform = new CodatPlatform({
 
 async function run() {
   const result = await codatPlatform.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 

@@ -7,7 +7,7 @@ import { ClientRateLimitWebhook } from "@codat/platform/sdk/models/shared";
 
 let value: ClientRateLimitWebhook = {
   id: "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b",
-  eventType: "client.rateLimit.reached",
+  eventType: "client.rateLimit.reset",
   generatedDate: "2022-10-23T00:00:00Z",
   payload: {
     expiryDate: "2022-10-23T00:00:00Z",

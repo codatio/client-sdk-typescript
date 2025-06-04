@@ -16,7 +16,7 @@ import {
 /**
  * Available data types
  */
-export const DataStatusDataTypes = {
+export const DataTypes = {
   AccountTransactions: "accountTransactions",
   BalanceSheet: "balanceSheet",
   BankAccounts: "bankAccounts",
@@ -64,7 +64,7 @@ export const DataStatusDataTypes = {
 /**
  * Available data types
  */
-export type DataStatusDataTypes = ClosedEnum<typeof DataStatusDataTypes>;
+export type DataTypes = ClosedEnum<typeof DataTypes>;
 
 /**
  * Describes the state of data in the Codat cache for a company and data type
@@ -73,7 +73,7 @@ export type DataStatus = {
   /**
    * Available data types
    */
-  dataType: DataStatusDataTypes;
+  dataType: DataTypes;
   /**
    * In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
    *
@@ -95,7 +95,7 @@ export type DataStatus = {
    * > Not all dates from Codat will contain information about time zones.
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
-  lastSuccessfulSync: string;
+  lastSuccessfulSync?: string | undefined;
   /**
    * The current status of the dataset.
    */
@@ -111,24 +111,22 @@ export type DataStatus = {
 };
 
 /** @internal */
-export const DataStatusDataTypes$inboundSchema: z.ZodNativeEnum<
-  typeof DataStatusDataTypes
-> = z.nativeEnum(DataStatusDataTypes);
+export const DataTypes$inboundSchema: z.ZodNativeEnum<typeof DataTypes> = z
+  .nativeEnum(DataTypes);
 
 /** @internal */
-export const DataStatusDataTypes$outboundSchema: z.ZodNativeEnum<
-  typeof DataStatusDataTypes
-> = DataStatusDataTypes$inboundSchema;
+export const DataTypes$outboundSchema: z.ZodNativeEnum<typeof DataTypes> =
+  DataTypes$inboundSchema;
 
 /**
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DataStatusDataTypes$ {
-  /** @deprecated use `DataStatusDataTypes$inboundSchema` instead. */
-  export const inboundSchema = DataStatusDataTypes$inboundSchema;
-  /** @deprecated use `DataStatusDataTypes$outboundSchema` instead. */
-  export const outboundSchema = DataStatusDataTypes$outboundSchema;
+export namespace DataTypes$ {
+  /** @deprecated use `DataTypes$inboundSchema` instead. */
+  export const inboundSchema = DataTypes$inboundSchema;
+  /** @deprecated use `DataTypes$outboundSchema` instead. */
+  export const outboundSchema = DataTypes$outboundSchema;
 }
 
 /** @internal */
@@ -137,8 +135,8 @@ export const DataStatus$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  dataType: DataStatusDataTypes$inboundSchema,
-  lastSuccessfulSync: z.string(),
+  dataType: DataTypes$inboundSchema,
+  lastSuccessfulSync: z.string().optional(),
   currentStatus: Status$inboundSchema,
   latestSyncId: z.string().optional(),
   latestSuccessfulSyncId: z.string().optional(),
@@ -147,7 +145,7 @@ export const DataStatus$inboundSchema: z.ZodType<
 /** @internal */
 export type DataStatus$Outbound = {
   dataType: string;
-  lastSuccessfulSync: string;
+  lastSuccessfulSync?: string | undefined;
   currentStatus: string;
   latestSyncId?: string | undefined;
   latestSuccessfulSyncId?: string | undefined;
@@ -159,8 +157,8 @@ export const DataStatus$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DataStatus
 > = z.object({
-  dataType: DataStatusDataTypes$outboundSchema,
-  lastSuccessfulSync: z.string(),
+  dataType: DataTypes$outboundSchema,
+  lastSuccessfulSync: z.string().optional(),
   currentStatus: Status$outboundSchema,
   latestSyncId: z.string().optional(),
   latestSuccessfulSyncId: z.string().optional(),

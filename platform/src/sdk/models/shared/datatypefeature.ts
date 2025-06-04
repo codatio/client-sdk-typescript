@@ -7,10 +7,10 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PropertieDataType,
-  PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
-} from "./propertiedatatype.js";
+  DataType,
+  DataType$inboundSchema,
+  DataType$outboundSchema,
+} from "./datatype.js";
 import {
   SupportedFeature,
   SupportedFeature$inboundSchema,
@@ -25,7 +25,7 @@ export type DataTypeFeature = {
   /**
    * Available data types
    */
-  dataType?: PropertieDataType | undefined;
+  dataType?: DataType | undefined;
   supportedFeatures: Array<SupportedFeature>;
 };
 
@@ -35,7 +35,7 @@ export const DataTypeFeature$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  dataType: PropertieDataType$inboundSchema.optional(),
+  dataType: DataType$inboundSchema.optional(),
   supportedFeatures: z.array(SupportedFeature$inboundSchema),
 });
 
@@ -51,7 +51,7 @@ export const DataTypeFeature$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   DataTypeFeature
 > = z.object({
-  dataType: PropertieDataType$outboundSchema.optional(),
+  dataType: DataType$outboundSchema.optional(),
   supportedFeatures: z.array(SupportedFeature$outboundSchema),
 });
 

@@ -7,6 +7,8 @@ Manage company profile configuration, sync settings, and API keys.
 
 ### Available Operations
 
+* [get](#get) - Get CORS settings
+* [set](#set) - Set CORS settings
 * [getProfile](#getprofile) - Get profile
 * [updateProfile](#updateprofile) - Update profile
 * [getSyncSettings](#getsyncsettings) - Get sync settings
@@ -14,6 +16,157 @@ Manage company profile configuration, sync settings, and API keys.
 * [listApiKeys](#listapikeys) - List API keys
 * [createApiKey](#createapikey) - Create API key
 * [deleteApiKey](#deleteapikey) - Delete API key
+
+## get
+
+﻿The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) with Codat. 
+
+Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
+
+### Example Usage
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.settings.get();
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { settingsGet } from "@codat/platform/funcs/settingsGet.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await settingsGet(codatPlatform);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsGet failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.ConnectionManagementAllowedOrigins](../../sdk/models/shared/connectionmanagementallowedorigins.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
+
+## set
+
+﻿The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)).
+ 
+Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
+
+### Example Usage
+
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.settings.set({
+    allowedOrigins: [
+      "https://www.bank-of-dave.com",
+    ],
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { settingsSet } from "@codat/platform/funcs/settingsSet.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await settingsSet(codatPlatform, {
+    allowedOrigins: [
+      "https://www.bank-of-dave.com",
+    ],
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsSet failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [shared.ConnectionManagementAllowedOrigins](../../sdk/models/shared/connectionmanagementallowedorigins.md)                                                                     | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.ConnectionManagementAllowedOrigins](../../sdk/models/shared/connectionmanagementallowedorigins.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## getProfile
 
@@ -31,7 +184,6 @@ const codatPlatform = new CodatPlatform({
 async function run() {
   const result = await codatPlatform.settings.getProfile();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -54,15 +206,12 @@ const codatPlatform = new CodatPlatformCore({
 
 async function run() {
   const res = await settingsGetProfile(codatPlatform);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsGetProfile failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -82,10 +231,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorMessage          | 401, 402, 403, 429, 500, 503 | application/json             |
-| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ErrorMessage | 401, 402, 403, 429  | application/json    |
+| errors.ErrorMessage | 500, 503            | application/json    |
+| errors.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## updateProfile
 
@@ -110,11 +260,9 @@ async function run() {
       "https://bobs-burgers.com",
       "https://bobs-burgers.co.uk",
     ],
-    alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     confirmCompanyName: true,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -145,18 +293,14 @@ async function run() {
       "https://bobs-burgers.com",
       "https://bobs-burgers.co.uk",
     ],
-    alertAuthHeader: "Bearer tXEiHiRK7XCtI8TNHbpGs1LI1pumdb4Cl1QIo7B2",
     confirmCompanyName: true,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsUpdateProfile failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -177,10 +321,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorMessage          | 401, 402, 403, 429, 500, 503 | application/json             |
-| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ErrorMessage | 401, 402, 403, 429  | application/json    |
+| errors.ErrorMessage | 500, 503            | application/json    |
+| errors.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## getSyncSettings
 
@@ -198,7 +343,6 @@ const codatPlatform = new CodatPlatform({
 async function run() {
   const result = await codatPlatform.settings.getSyncSettings();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -221,15 +365,12 @@ const codatPlatform = new CodatPlatformCore({
 
 async function run() {
   const res = await settingsGetSyncSettings(codatPlatform);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsGetSyncSettings failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -249,10 +390,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorMessage          | 401, 402, 403, 429, 500, 503 | application/json             |
-| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ErrorMessage | 401, 402, 403, 429  | application/json    |
+| errors.ErrorMessage | 500, 503            | application/json    |
+| errors.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## updateSyncSettings
 
@@ -269,7 +411,7 @@ const codatPlatform = new CodatPlatform({
 
 async function run() {
   await codatPlatform.settings.updateSyncSettings({
-    clientId: "c4907f05-7024-4fc0-bf55-4785be5c9671",
+    clientId: "9807ce3e-cfa5-4370-b4f2-09c282b1598b",
     settings: [
       {
         dataType: "invoices",
@@ -306,7 +448,7 @@ const codatPlatform = new CodatPlatformCore({
 
 async function run() {
   const res = await settingsUpdateSyncSettings(codatPlatform, {
-    clientId: "c4907f05-7024-4fc0-bf55-4785be5c9671",
+    clientId: "9807ce3e-cfa5-4370-b4f2-09c282b1598b",
     settings: [
       {
         dataType: "invoices",
@@ -320,14 +462,12 @@ async function run() {
       },
     ],
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("settingsUpdateSyncSettings failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -348,10 +488,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorMessage          | 401, 402, 403, 429, 500, 503 | application/json             |
-| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ErrorMessage | 401, 402, 403, 429  | application/json    |
+| errors.ErrorMessage | 500, 503            | application/json    |
+| errors.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## listApiKeys
 
@@ -373,7 +514,6 @@ const codatPlatform = new CodatPlatform({
 async function run() {
   const result = await codatPlatform.settings.listApiKeys();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -396,15 +536,12 @@ const codatPlatform = new CodatPlatformCore({
 
 async function run() {
   const res = await settingsListApiKeys(codatPlatform);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsListApiKeys failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -424,10 +561,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorMessage          | 401, 402, 403, 429, 500, 503 | application/json             |
-| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type          | Status Code         | Content Type        |
+| ------------------- | ------------------- | ------------------- |
+| errors.ErrorMessage | 401, 402, 403, 429  | application/json    |
+| errors.ErrorMessage | 500, 503            | application/json    |
+| errors.SDKError     | 4XX, 5XX            | \*/\*               |
 
 ## createApiKey
 
@@ -457,7 +595,6 @@ async function run() {
     name: "azure-invoice-finance-processor",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -482,15 +619,12 @@ async function run() {
   const res = await settingsCreateApiKey(codatPlatform, {
     name: "azure-invoice-finance-processor",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsCreateApiKey failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -511,10 +645,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 409, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## deleteApiKey
 
@@ -543,7 +678,6 @@ async function run() {
     apiKeyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -568,15 +702,12 @@ async function run() {
   const res = await settingsDeleteApiKey(codatPlatform, {
     apiKeyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsDeleteApiKey failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -597,7 +728,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

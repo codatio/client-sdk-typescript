@@ -13,7 +13,7 @@ let value: Integration = {
   name: "Xero",
   enabled: true,
   sourceId: "accounting",
-  sourceType: "Banking",
+  sourceType: "Commerce",
   integrationId: "497a18ca-284e-40c0-985d-f72be35d468e",
   isOfflineConnector: true,
   isBeta: true,
@@ -22,8 +22,8 @@ let value: Integration = {
     {
       supportedFeatures: [
         {
-          featureType: "GetAsPdf",
-          featureState: "Release",
+          featureType: "UploadAttachment",
+          featureState: "NotImplemented",
         },
       ],
     },

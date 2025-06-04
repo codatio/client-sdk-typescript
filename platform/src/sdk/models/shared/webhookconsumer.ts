@@ -34,13 +34,7 @@ export type WebhookConsumer = {
   /**
    * Company tags provide an additional way to filter messages, independent of event types. Company tags are case-sensitive, and only messages from companies with matching tags will be sent to this endpoint. Use the format `tagKey:tagValue`.
    */
-  companyTags?: Array<string> | undefined;
-  /**
-   * Unique identifier of the company to indicate company-specific events. The associated webhook consumer will receive events only for the specified ID.
-   *
-   * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
-   */
-  companyId?: string | null | undefined;
+  companyTags?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -53,8 +47,7 @@ export const WebhookConsumer$inboundSchema: z.ZodType<
   url: z.string().optional(),
   disabled: z.nullable(z.boolean().default(false)),
   eventTypes: z.array(z.string()).optional(),
-  companyTags: z.array(z.string()).optional(),
-  companyId: z.nullable(z.string()).optional(),
+  companyTags: z.nullable(z.array(z.string())).optional(),
 });
 
 /** @internal */
@@ -63,8 +56,7 @@ export type WebhookConsumer$Outbound = {
   url?: string | undefined;
   disabled: boolean | null;
   eventTypes?: Array<string> | undefined;
-  companyTags?: Array<string> | undefined;
-  companyId?: string | null | undefined;
+  companyTags?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -77,8 +69,7 @@ export const WebhookConsumer$outboundSchema: z.ZodType<
   url: z.string().optional(),
   disabled: z.nullable(z.boolean().default(false)),
   eventTypes: z.array(z.string()).optional(),
-  companyTags: z.array(z.string()).optional(),
-  companyId: z.nullable(z.string()).optional(),
+  companyTags: z.nullable(z.array(z.string())).optional(),
 });
 
 /**

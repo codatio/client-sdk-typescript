@@ -7,7 +7,7 @@ The current status of the dataset.
 ```typescript
 import { Status } from "@codat/platform/sdk/models/shared";
 
-let value: Status = "AuthError";
+let value: Status = "Validating";
 ```
 
 ## Values

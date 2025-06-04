@@ -13,34 +13,11 @@ import {
   CompanyReference$outboundSchema,
 } from "./companyreference.js";
 import {
-  PropertieDataType,
-  PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
-} from "./propertiedatatype.js";
-import {
-  Status,
-  Status$inboundSchema,
-  Status$outboundSchema,
-} from "./status.js";
-
-export type DataTypes = {
-  /**
-   * Unique identifier for a company's data connection.
-   */
-  connectionId?: string | undefined;
-  /**
-   * Available data types
-   */
-  dataType?: PropertieDataType | undefined;
-  /**
-   * `True` if records have been created, updated or deleted in Codat's cache.
-   */
-  recordsModified?: boolean | undefined;
-  /**
-   * The current status of the dataset.
-   */
-  status?: Status | undefined;
-};
+  DataTypeReadSummary,
+  DataTypeReadSummary$inboundSchema,
+  DataTypeReadSummary$Outbound,
+  DataTypeReadSummary$outboundSchema,
+} from "./datatypereadsummary.js";
 
 export type ReadCompletedWebhookPayload = {
   referenceCompany?: CompanyReference | undefined;
@@ -66,67 +43,8 @@ export type ReadCompletedWebhookPayload = {
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   modifiedFromDate?: string | undefined;
-  dataTypes?: Array<DataTypes> | undefined;
+  dataTypes?: Array<DataTypeReadSummary> | undefined;
 };
-
-/** @internal */
-export const DataTypes$inboundSchema: z.ZodType<
-  DataTypes,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  connectionId: z.string().optional(),
-  dataType: PropertieDataType$inboundSchema.optional(),
-  recordsModified: z.boolean().optional(),
-  status: Status$inboundSchema.optional(),
-});
-
-/** @internal */
-export type DataTypes$Outbound = {
-  connectionId?: string | undefined;
-  dataType?: string | undefined;
-  recordsModified?: boolean | undefined;
-  status?: string | undefined;
-};
-
-/** @internal */
-export const DataTypes$outboundSchema: z.ZodType<
-  DataTypes$Outbound,
-  z.ZodTypeDef,
-  DataTypes
-> = z.object({
-  connectionId: z.string().optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  recordsModified: z.boolean().optional(),
-  status: Status$outboundSchema.optional(),
-});
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DataTypes$ {
-  /** @deprecated use `DataTypes$inboundSchema` instead. */
-  export const inboundSchema = DataTypes$inboundSchema;
-  /** @deprecated use `DataTypes$outboundSchema` instead. */
-  export const outboundSchema = DataTypes$outboundSchema;
-  /** @deprecated use `DataTypes$Outbound` instead. */
-  export type Outbound = DataTypes$Outbound;
-}
-
-export function dataTypesToJSON(dataTypes: DataTypes): string {
-  return JSON.stringify(DataTypes$outboundSchema.parse(dataTypes));
-}
-
-export function dataTypesFromJSON(
-  jsonString: string,
-): SafeParseResult<DataTypes, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DataTypes$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataTypes' from JSON`,
-  );
-}
 
 /** @internal */
 export const ReadCompletedWebhookPayload$inboundSchema: z.ZodType<
@@ -136,14 +54,14 @@ export const ReadCompletedWebhookPayload$inboundSchema: z.ZodType<
 > = z.object({
   referenceCompany: CompanyReference$inboundSchema.optional(),
   modifiedFromDate: z.string().optional(),
-  dataTypes: z.array(z.lazy(() => DataTypes$inboundSchema)).optional(),
+  dataTypes: z.array(DataTypeReadSummary$inboundSchema).optional(),
 });
 
 /** @internal */
 export type ReadCompletedWebhookPayload$Outbound = {
   referenceCompany?: CompanyReference$Outbound | undefined;
   modifiedFromDate?: string | undefined;
-  dataTypes?: Array<DataTypes$Outbound> | undefined;
+  dataTypes?: Array<DataTypeReadSummary$Outbound> | undefined;
 };
 
 /** @internal */
@@ -154,7 +72,7 @@ export const ReadCompletedWebhookPayload$outboundSchema: z.ZodType<
 > = z.object({
   referenceCompany: CompanyReference$outboundSchema.optional(),
   modifiedFromDate: z.string().optional(),
-  dataTypes: z.array(z.lazy(() => DataTypes$outboundSchema)).optional(),
+  dataTypes: z.array(DataTypeReadSummary$outboundSchema).optional(),
 });
 
 /**

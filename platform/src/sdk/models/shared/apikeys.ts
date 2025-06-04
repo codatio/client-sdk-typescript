@@ -14,18 +14,18 @@ import {
 } from "./apikeydetails.js";
 
 export type ApiKeys = {
-  results?: Array<ApiKeyDetails> | undefined;
+  results?: Array<ApiKeyDetails | null> | undefined;
 };
 
 /** @internal */
 export const ApiKeys$inboundSchema: z.ZodType<ApiKeys, z.ZodTypeDef, unknown> =
   z.object({
-    results: z.array(ApiKeyDetails$inboundSchema).optional(),
+    results: z.array(z.nullable(ApiKeyDetails$inboundSchema)).optional(),
   });
 
 /** @internal */
 export type ApiKeys$Outbound = {
-  results?: Array<ApiKeyDetails$Outbound> | undefined;
+  results?: Array<ApiKeyDetails$Outbound | null> | undefined;
 };
 
 /** @internal */
@@ -34,7 +34,7 @@ export const ApiKeys$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ApiKeys
 > = z.object({
-  results: z.array(ApiKeyDetails$outboundSchema).optional(),
+  results: z.array(z.nullable(ApiKeyDetails$outboundSchema)).optional(),
 });
 
 /**

@@ -6,8 +6,8 @@
 import { PushOption } from "@codat/platform/sdk/models/shared";
 
 let value: PushOption = {
-  type: "DateTime",
-  displayName: "Dominique.Windler",
+  type: "MultiPart",
+  displayName: "Travis.Ebert-Fahey",
   required: false,
 };
 ```

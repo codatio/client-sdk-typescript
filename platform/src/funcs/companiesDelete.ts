@@ -6,6 +6,7 @@ import * as z from "zod";
 import { CodatPlatformCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,6 +22,7 @@ import * as errors from "../sdk/models/errors/index.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -32,11 +34,11 @@ import { Result } from "../sdk/types/fp.js";
  * A [company](https://docs.codat.io/platform-api#/schemas/Company) represents a business sharing access to their data.
  * Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
  */
-export async function companiesDelete(
+export function companiesDelete(
   client: CodatPlatformCore,
   request: operations.DeleteCompanyRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     void,
     | errors.ErrorMessage
@@ -49,13 +51,40 @@ export async function companiesDelete(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatPlatformCore,
+  request: operations.DeleteCompanyRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      void,
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => operations.DeleteCompanyRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -69,15 +98,17 @@ export async function companiesDelete(
 
   const path = pathToFunc("/companies/{companyId}")(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "delete-company",
     oAuth2Scopes: [],
 
@@ -103,13 +134,15 @@ export async function companiesDelete(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "DELETE",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -120,7 +153,7 @@ export async function companiesDelete(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -140,15 +173,14 @@ export async function companiesDelete(
     | ConnectionError
   >(
     M.nil(204, z.void()),
-    M.jsonErr(
-      [401, 402, 403, 404, 429, 500, 503],
-      errors.ErrorMessage$inboundSchema,
-    ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([401, 402, 403, 404, 429], errors.ErrorMessage$inboundSchema),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

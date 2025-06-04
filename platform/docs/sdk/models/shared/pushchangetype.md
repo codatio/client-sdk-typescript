@@ -7,7 +7,7 @@ Type of change being applied to record in third party platform.
 ```typescript
 import { PushChangeType } from "@codat/platform/sdk/models/shared";
 
-let value: PushChangeType = "Modified";
+let value: PushChangeType = "Created";
 ```
 
 ## Values

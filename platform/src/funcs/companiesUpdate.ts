@@ -5,6 +5,7 @@
 import { CodatPlatformCore } from "../core.js";
 import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,22 +22,24 @@ import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
  * Update company
  *
  * @remarks
- * Use the *Update company* endpoint to update both the name and description of the company.
+ * Use the *Update company* endpoint to update the name, description, or tags of the company.
+ *
+ * The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.
  *
  * A [company](https://docs.codat.io/platform-api#/schemas/Company) represents a business sharing access to their data.
- * Each company can have multiple [connections](https://docs.codat.io/platform-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
  */
-export async function companiesUpdate(
+export function companiesUpdate(
   client: CodatPlatformCore,
   request: operations.UpdateCompanyRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.Company,
     | errors.ErrorMessage
@@ -49,16 +52,43 @@ export async function companiesUpdate(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatPlatformCore,
+  request: operations.UpdateCompanyRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.Company,
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => operations.UpdateCompanyRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
-  const body = encodeJSON("body", payload.CompanyRequestBody, {
+  const body = encodeJSON("body", payload.CompanyUpdateRequest, {
     explode: true,
   });
 
@@ -71,16 +101,18 @@ export async function companiesUpdate(
 
   const path = pathToFunc("/companies/{companyId}")(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "update-company",
     oAuth2Scopes: [],
 
@@ -105,14 +137,16 @@ export async function companiesUpdate(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "PUT",
+    method: "PATCH",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -123,7 +157,7 @@ export async function companiesUpdate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -143,15 +177,14 @@ export async function companiesUpdate(
     | ConnectionError
   >(
     M.json(200, shared.Company$inboundSchema),
-    M.jsonErr(
-      [401, 402, 403, 404, 429, 500, 503],
-      errors.ErrorMessage$inboundSchema,
-    ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([401, 402, 403, 404, 429], errors.ErrorMessage$inboundSchema),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

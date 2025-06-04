@@ -4,6 +4,7 @@
 
 import { CodatPlatformCore } from "../core.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
@@ -18,6 +19,7 @@ import * as errors from "../sdk/models/errors/index.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -28,10 +30,10 @@ import { Result } from "../sdk/types/fp.js";
  *
  * [Webhook consumer](https://docs.codat.io/platform-api#/schemas/WebhookConsumer) is an HTTP endpoint that you configure to subscribe to specific events. See our documentation for more details on [Codat's webhook service](https://docs.codat.io/using-the-api/webhooks/overview).
  */
-export async function webhooksListConsumers(
+export function webhooksListConsumers(
   client: CodatPlatformCore,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.WebhookConsumers,
     | errors.ErrorMessage
@@ -44,17 +46,44 @@ export async function webhooksListConsumers(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatPlatformCore,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.WebhookConsumers,
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const path = pathToFunc("/webhooks")();
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "list-webhook-consumers",
     oAuth2Scopes: [],
 
@@ -80,12 +109,14 @@ export async function webhooksListConsumers(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "GET",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -96,7 +127,7 @@ export async function webhooksListConsumers(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -116,15 +147,14 @@ export async function webhooksListConsumers(
     | ConnectionError
   >(
     M.json(200, shared.WebhookConsumers$inboundSchema),
-    M.jsonErr(
-      [400, 401, 402, 403, 429, 500, 503],
-      errors.ErrorMessage$inboundSchema,
-    ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([400, 401, 402, 403, 429], errors.ErrorMessage$inboundSchema),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

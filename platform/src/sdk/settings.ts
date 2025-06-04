@@ -4,9 +4,11 @@
 
 import { settingsCreateApiKey } from "../funcs/settingsCreateApiKey.js";
 import { settingsDeleteApiKey } from "../funcs/settingsDeleteApiKey.js";
+import { settingsGet } from "../funcs/settingsGet.js";
 import { settingsGetProfile } from "../funcs/settingsGetProfile.js";
 import { settingsGetSyncSettings } from "../funcs/settingsGetSyncSettings.js";
 import { settingsListApiKeys } from "../funcs/settingsListApiKeys.js";
+import { settingsSet } from "../funcs/settingsSet.js";
 import { settingsUpdateProfile } from "../funcs/settingsUpdateProfile.js";
 import { settingsUpdateSyncSettings } from "../funcs/settingsUpdateSyncSettings.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -15,6 +17,42 @@ import * as shared from "./models/shared/index.js";
 import { unwrapAsync } from "./types/fp.js";
 
 export class Settings extends ClientSDK {
+  /**
+   * Get CORS settings
+   *
+   * @remarks
+   * The *Get CORS settings* endpoint returns the allowed origins (i.e. your domains) you want to allow cross-origin resource sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)) with Codat.
+   *
+   * Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
+   */
+  async get(
+    options?: RequestOptions,
+  ): Promise<shared.ConnectionManagementAllowedOrigins> {
+    return unwrapAsync(settingsGet(
+      this,
+      options,
+    ));
+  }
+
+  /**
+   * Set CORS settings
+   *
+   * @remarks
+   * The *Set CORS settings* endpoint allows you to register allowed origins (i.e. your domains) for use in cross-origin resource sharing ([CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)).
+   *
+   * Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
+   */
+  async set(
+    request?: shared.ConnectionManagementAllowedOrigins | undefined,
+    options?: RequestOptions,
+  ): Promise<shared.ConnectionManagementAllowedOrigins> {
+    return unwrapAsync(settingsSet(
+      this,
+      request,
+      options,
+    ));
+  }
+
   /**
    * Get profile
    *

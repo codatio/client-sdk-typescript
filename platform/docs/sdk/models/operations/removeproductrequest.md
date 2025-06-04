@@ -7,7 +7,7 @@ import { RemoveProductRequest } from "@codat/platform/sdk/models/operations";
 
 let value: RemoveProductRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  productIdentifier: "expenses",
+  productIdentifier: "bank-feeds",
 };
 ```
 

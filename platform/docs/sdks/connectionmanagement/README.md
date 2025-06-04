@@ -7,13 +7,16 @@ Configure UI and retrieve access tokens for authentication used by **Connections
 
 ### Available Operations
 
-* [getAccessToken](#getaccesstoken) - Get access token
+* [~~get~~](#get) - Get access token (old) :warning: **Deprecated** Use [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) instead.
 
-## getAccessToken
+## ~~get~~
 
-﻿Use the *Get access token* endpoint to retrieve a new access token for use with the [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management). The token is only valid for one hour and applies to a single company.
+﻿The new [Get company access token](https://docs.codat.io/platform-api#/operations/get-company-access-token) endpoint replaces this endpoint and includes additional functionality.
 
-The embeddable [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) lets your customers control access to their data by allowing them to manage their existing connections.
+> :warning: **DEPRECATED**: The endpoint for generating company-specific connection management access tokens has been deprecated.
+Codat now supports a global company access token, providing seamless access across multiple products.
+Update your integration to use the global token for improved efficiency and consistency.
+. Use `getAccessToken` instead.
 
 ### Example Usage
 
@@ -25,11 +28,10 @@ const codatPlatform = new CodatPlatform({
 });
 
 async function run() {
-  const result = await codatPlatform.connectionManagement.getAccessToken({
+  const result = await codatPlatform.connectionManagement.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -42,7 +44,7 @@ The standalone function version of this method:
 
 ```typescript
 import { CodatPlatformCore } from "@codat/platform/core.js";
-import { connectionManagementGetAccessToken } from "@codat/platform/funcs/connectionManagementGetAccessToken.js";
+import { connectionManagementGet } from "@codat/platform/funcs/connectionManagementGet.js";
 
 // Use `CodatPlatformCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -51,18 +53,15 @@ const codatPlatform = new CodatPlatformCore({
 });
 
 async function run() {
-  const res = await connectionManagementGetAccessToken(codatPlatform, {
+  const res = await connectionManagementGet(codatPlatform, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionManagementGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -83,7 +82,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

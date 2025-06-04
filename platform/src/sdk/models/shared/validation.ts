@@ -7,18 +7,18 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ValidationItem,
-  ValidationItem$inboundSchema,
-  ValidationItem$Outbound,
-  ValidationItem$outboundSchema,
-} from "./validationitem.js";
+  ValidationItem1,
+  ValidationItem1$inboundSchema,
+  ValidationItem1$Outbound,
+  ValidationItem1$outboundSchema,
+} from "./validationitem1.js";
 
 /**
  * A human-readable object describing validation decisions Codat has made when pushing data into the platform. If a push has failed because of validation errors, they will be detailed here.
  */
 export type Validation = {
-  errors?: Array<ValidationItem> | null | undefined;
-  warnings?: Array<ValidationItem> | null | undefined;
+  errors?: Array<ValidationItem1> | null | undefined;
+  warnings?: Array<ValidationItem1> | null | undefined;
 };
 
 /** @internal */
@@ -27,14 +27,14 @@ export const Validation$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  errors: z.nullable(z.array(ValidationItem$inboundSchema)).optional(),
-  warnings: z.nullable(z.array(ValidationItem$inboundSchema)).optional(),
+  errors: z.nullable(z.array(ValidationItem1$inboundSchema)).optional(),
+  warnings: z.nullable(z.array(ValidationItem1$inboundSchema)).optional(),
 });
 
 /** @internal */
 export type Validation$Outbound = {
-  errors?: Array<ValidationItem$Outbound> | null | undefined;
-  warnings?: Array<ValidationItem$Outbound> | null | undefined;
+  errors?: Array<ValidationItem1$Outbound> | null | undefined;
+  warnings?: Array<ValidationItem1$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -43,8 +43,8 @@ export const Validation$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   Validation
 > = z.object({
-  errors: z.nullable(z.array(ValidationItem$outboundSchema)).optional(),
-  warnings: z.nullable(z.array(ValidationItem$outboundSchema)).optional(),
+  errors: z.nullable(z.array(ValidationItem1$outboundSchema)).optional(),
+  warnings: z.nullable(z.array(ValidationItem1$outboundSchema)).optional(),
 });
 
 /**

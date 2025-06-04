@@ -7,7 +7,7 @@ import { DataTypeWriteWebhook } from "@codat/platform/sdk/models/shared";
 
 let value: DataTypeWriteWebhook = {
   id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
-  eventType: "bills.write.unsuccessful",
+  eventType: "bills.write.successful",
   generatedDate: "2022-10-23T00:00:00Z",
   payload: {
     referenceCompany: {

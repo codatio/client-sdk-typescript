@@ -4,16 +4,20 @@ generation:
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
+    nameResolutionFeb2025: false
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 typescript:
-  version: 6.0.0
+  version: 6.1.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
@@ -23,6 +27,9 @@ typescript:
   clientServerStatusCodesAsErrors: true
   defaultErrorName: SDKError
   description: Manage the building blocks of Codat, including companies, connections, and more.
+  enableCustomCodeRegions: false
+  enableMCPServer: true
+  enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
   flatteningOrder: body-first
@@ -35,6 +42,7 @@ typescript:
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
+  jsonpath: legacy
   maxMethodParams: 0
   methodArguments: infer-optional-args
   moduleFormat: commonjs

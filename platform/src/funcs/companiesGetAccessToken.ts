@@ -5,6 +5,7 @@
 import { CodatPlatformCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,19 +22,22 @@ import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
  * Get company access token
  *
  * @remarks
- * Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+ * Use the _Get company access token_ endpoint to return an access token for the specified company ID. The token is valid for one day.
+ *
+ * The token is required by Codat's embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to verify the identity of the user and improve the reliability of data provided by them.
  */
-export async function companiesGetAccessToken(
+export function companiesGetAccessToken(
   client: CodatPlatformCore,
   request: operations.GetCompanyAccessTokenRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.CompanyAccessToken,
     | errors.ErrorMessage
@@ -46,6 +50,33 @@ export async function companiesGetAccessToken(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatPlatformCore,
+  request: operations.GetCompanyAccessTokenRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.CompanyAccessToken,
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -53,7 +84,7 @@ export async function companiesGetAccessToken(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -67,15 +98,17 @@ export async function companiesGetAccessToken(
 
   const path = pathToFunc("/companies/{companyId}/accessToken")(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "get-company-access-token",
     oAuth2Scopes: [],
 
@@ -101,13 +134,15 @@ export async function companiesGetAccessToken(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "GET",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -118,7 +153,7 @@ export async function companiesGetAccessToken(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -138,15 +173,14 @@ export async function companiesGetAccessToken(
     | ConnectionError
   >(
     M.json(200, shared.CompanyAccessToken$inboundSchema),
-    M.jsonErr(
-      [401, 402, 403, 404, 429, 500, 503],
-      errors.ErrorMessage$inboundSchema,
-    ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([401, 402, 403, 404, 429], errors.ErrorMessage$inboundSchema),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

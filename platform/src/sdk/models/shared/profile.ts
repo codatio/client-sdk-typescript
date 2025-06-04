@@ -38,10 +38,6 @@ export type Profile = {
    */
   apiKey?: string | undefined;
   /**
-   * Alert or webhooks authorization header.
-   */
-  alertAuthHeader?: string | undefined;
-  /**
    * `True` if the company name has been confirmed.
    *
    * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -58,7 +54,6 @@ export const Profile$inboundSchema: z.ZodType<Profile, z.ZodTypeDef, unknown> =
     redirectUrl: z.string(),
     whiteListUrls: z.array(z.string()).optional(),
     apiKey: z.string().optional(),
-    alertAuthHeader: z.string().optional(),
     confirmCompanyName: z.boolean().optional(),
   });
 
@@ -70,7 +65,6 @@ export type Profile$Outbound = {
   redirectUrl: string;
   whiteListUrls?: Array<string> | undefined;
   apiKey?: string | undefined;
-  alertAuthHeader?: string | undefined;
   confirmCompanyName?: boolean | undefined;
 };
 
@@ -86,7 +80,6 @@ export const Profile$outboundSchema: z.ZodType<
   redirectUrl: z.string(),
   whiteListUrls: z.array(z.string()).optional(),
   apiKey: z.string().optional(),
-  alertAuthHeader: z.string().optional(),
   confirmCompanyName: z.boolean().optional(),
 });
 

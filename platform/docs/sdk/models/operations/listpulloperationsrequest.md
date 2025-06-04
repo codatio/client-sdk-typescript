@@ -7,8 +7,6 @@ import { ListPullOperationsRequest } from "@codat/platform/sdk/models/operations
 
 let value: ListPullOperationsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  page: 1,
-  pageSize: 100,
   query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   orderBy: "-modifiedDate",
 };

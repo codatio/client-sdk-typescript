@@ -1,22 +1,17 @@
 # DataTypes
 
+Available data types
+
 ## Example Usage
 
 ```typescript
 import { DataTypes } from "@codat/platform/sdk/models/shared";
 
-let value: DataTypes = {
-  connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  dataType: "invoices",
-  recordsModified: false,
-};
+let value: DataTypes = "invoices";
 ```
 
-## Fields
+## Values
 
-| Field                                                                       | Type                                                                        | Required                                                                    | Description                                                                 | Example                                                                     |
-| --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| `connectionId`                                                              | *string*                                                                    | :heavy_minus_sign:                                                          | Unique identifier for a company's data connection.                          | 2e9d2c44-f675-40ba-8049-353bfcb5e171                                        |
-| `dataType`                                                                  | [shared.PropertieDataType](../../../sdk/models/shared/propertiedatatype.md) | :heavy_minus_sign:                                                          | Available data types                                                        | invoices                                                                    |
-| `recordsModified`                                                           | *boolean*                                                                   | :heavy_minus_sign:                                                          | `True` if records have been created, updated or deleted in Codat's cache.   | false                                                                       |
-| `status`                                                                    | [shared.Status](../../../sdk/models/shared/status.md)                       | :heavy_minus_sign:                                                          | The current status of the dataset.                                          |                                                                             |
+```typescript
+"accountTransactions" | "balanceSheet" | "bankAccounts" | "bankTransactions" | "billCreditNotes" | "billPayments" | "bills" | "cashFlowStatement" | "chartOfAccounts" | "company" | "creditNotes" | "customers" | "directCosts" | "directIncomes" | "invoices" | "itemReceipts" | "items" | "journalEntries" | "journals" | "paymentMethods" | "payments" | "profitAndLoss" | "purchaseOrders" | "salesOrders" | "suppliers" | "taxRates" | "trackingCategories" | "transfers" | "banking-accountBalances" | "banking-accounts" | "banking-transactionCategories" | "banking-transactions" | "commerce-companyInfo" | "commerce-customers" | "commerce-disputes" | "commerce-locations" | "commerce-orders" | "commerce-paymentMethods" | "commerce-payments" | "commerce-productCategories" | "commerce-products" | "commerce-taxComponents" | "commerce-transactions"
+```
