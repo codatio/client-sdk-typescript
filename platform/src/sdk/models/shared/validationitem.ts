@@ -9,17 +9,21 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ValidationItem = {
   /**
-   * Unique identifier for a validation item.
+   * The unique identifier of the rule that wasn't met.
    */
-  itemId?: string | null | undefined;
+  ruleId?: string | undefined;
   /**
-   * A message outlining validation item's issue.
+   * The unique identifier of the item that was validated.
    */
-  message?: string | null | undefined;
+  itemId?: string | undefined;
   /**
-   * Name of validator.
+   * The message that describes the validation warning or error.
    */
-  validatorName?: string | null | undefined;
+  message?: string | undefined;
+  /**
+   * The name of the validator that was used to validate the item.
+   */
+  validatorName?: string | undefined;
 };
 
 /** @internal */
@@ -28,16 +32,18 @@ export const ValidationItem$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  itemId: z.nullable(z.string()).optional(),
-  message: z.nullable(z.string()).optional(),
-  validatorName: z.nullable(z.string()).optional(),
+  ruleId: z.string().optional(),
+  itemId: z.string().optional(),
+  message: z.string().optional(),
+  validatorName: z.string().optional(),
 });
 
 /** @internal */
 export type ValidationItem$Outbound = {
-  itemId?: string | null | undefined;
-  message?: string | null | undefined;
-  validatorName?: string | null | undefined;
+  ruleId?: string | undefined;
+  itemId?: string | undefined;
+  message?: string | undefined;
+  validatorName?: string | undefined;
 };
 
 /** @internal */
@@ -46,9 +52,10 @@ export const ValidationItem$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ValidationItem
 > = z.object({
-  itemId: z.nullable(z.string()).optional(),
-  message: z.nullable(z.string()).optional(),
-  validatorName: z.nullable(z.string()).optional(),
+  ruleId: z.string().optional(),
+  itemId: z.string().optional(),
+  message: z.string().optional(),
+  validatorName: z.string().optional(),
 });
 
 /**

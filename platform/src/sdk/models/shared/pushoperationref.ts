@@ -7,10 +7,10 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PropertieDataType,
-  PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
-} from "./propertiedatatype.js";
+  DataType,
+  DataType$inboundSchema,
+  DataType$outboundSchema,
+} from "./datatype.js";
 
 export type PushOperationRef = {
   /**
@@ -20,7 +20,7 @@ export type PushOperationRef = {
   /**
    * Available data types
    */
-  dataType?: PropertieDataType | undefined;
+  dataType?: DataType | undefined;
 };
 
 /** @internal */
@@ -30,7 +30,7 @@ export const PushOperationRef$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   id: z.string().optional(),
-  dataType: PropertieDataType$inboundSchema.optional(),
+  dataType: DataType$inboundSchema.optional(),
 });
 
 /** @internal */
@@ -46,7 +46,7 @@ export const PushOperationRef$outboundSchema: z.ZodType<
   PushOperationRef
 > = z.object({
   id: z.string().optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
+  dataType: DataType$outboundSchema.optional(),
 });
 
 /**

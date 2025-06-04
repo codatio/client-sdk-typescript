@@ -10,8 +10,9 @@ let value: ValidationItem = {};
 
 ## Fields
 
-| Field                                        | Type                                         | Required                                     | Description                                  |
-| -------------------------------------------- | -------------------------------------------- | -------------------------------------------- | -------------------------------------------- |
-| `itemId`                                     | *string*                                     | :heavy_minus_sign:                           | Unique identifier for a validation item.     |
-| `message`                                    | *string*                                     | :heavy_minus_sign:                           | A message outlining validation item's issue. |
-| `validatorName`                              | *string*                                     | :heavy_minus_sign:                           | Name of validator.                           |
+| Field                                                         | Type                                                          | Required                                                      | Description                                                   |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- |
+| `ruleId`                                                      | *string*                                                      | :heavy_minus_sign:                                            | The unique identifier of the rule that wasn't met.            |
+| `itemId`                                                      | *string*                                                      | :heavy_minus_sign:                                            | The unique identifier of the item that was validated.         |
+| `message`                                                     | *string*                                                      | :heavy_minus_sign:                                            | The message that describes the validation warning or error.   |
+| `validatorName`                                               | *string*                                                      | :heavy_minus_sign:                                            | The name of the validator that was used to validate the item. |

@@ -5,6 +5,7 @@
 import { CodatPlatformCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -21,6 +22,7 @@ import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -29,11 +31,11 @@ import { Result } from "../sdk/types/fp.js";
  * @remarks
  * The *Refresh custom data type* endpoint refreshes the specified custom data type for a given company. This is an asynchronous operation that will sync updated data from the linked integration into Codat for you to view.
  */
-export async function customDataTypeRefresh(
+export function customDataTypeRefresh(
   client: CodatPlatformCore,
   request: operations.RefreshCustomDataTypeRequest,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.PullOperation,
     | errors.ErrorMessage
@@ -46,6 +48,33 @@ export async function customDataTypeRefresh(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatPlatformCore,
+  request: operations.RefreshCustomDataTypeRequest,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.PullOperation,
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) =>
@@ -53,7 +82,7 @@ export async function customDataTypeRefresh(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -78,15 +107,17 @@ export async function customDataTypeRefresh(
     "/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}",
   )(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "refresh-custom-data-type",
     oAuth2Scopes: [],
 
@@ -112,13 +143,15 @@ export async function customDataTypeRefresh(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "POST",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -140,7 +173,7 @@ export async function customDataTypeRefresh(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -161,14 +194,16 @@ export async function customDataTypeRefresh(
   >(
     M.json(200, shared.PullOperation$inboundSchema),
     M.jsonErr(
-      [401, 402, 403, 404, 429, 451, 500, 503],
+      [401, 402, 403, 404, 429, 451],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

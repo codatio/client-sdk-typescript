@@ -19,11 +19,6 @@ Before pushing data into accounting software, it is often necessary to collect s
 
 Codat tries not to limit users to pushing to a very limited number of standard categories, so we have implemented "options" endpoints, which allow us to expose to our clients the fields which are required to be pushed for a specific linked company, and the options which may be selected for each field.
 
-
-> **Supported Integrations**
-> 
-> Check out our [coverage explorer](https://knowledge.codat.io/) for integrations that support push (POST/PUT methods).
-
 ### Example Usage
 
 ```typescript
@@ -40,7 +35,6 @@ async function run() {
     dataType: "invoices",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -67,15 +61,12 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     dataType: "invoices",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("pushDataGetModelOptions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -96,10 +87,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## listOperations
 
@@ -119,13 +111,10 @@ const codatPlatform = new CodatPlatform({
 async function run() {
   const result = await codatPlatform.pushData.listOperations({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -149,20 +138,15 @@ const codatPlatform = new CodatPlatformCore({
 async function run() {
   const res = await pushDataListOperations(codatPlatform, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("pushDataListOperations failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -183,10 +167,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## getOperation
 
@@ -206,10 +191,9 @@ const codatPlatform = new CodatPlatform({
 async function run() {
   const result = await codatPlatform.pushData.getOperation({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "5ad92d18-1314-44b7-bd71-2a11cd0470da",
+    pushOperationKey: "660e8684-c0fb-4468-9e2a-b2e3b115d747",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -233,17 +217,14 @@ const codatPlatform = new CodatPlatformCore({
 async function run() {
   const res = await pushDataGetOperation(codatPlatform, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "5ad92d18-1314-44b7-bd71-2a11cd0470da",
+    pushOperationKey: "660e8684-c0fb-4468-9e2a-b2e3b115d747",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("pushDataGetOperation failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -264,7 +245,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

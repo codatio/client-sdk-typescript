@@ -115,7 +115,7 @@ export type Connection = {
    */
   created: string;
   dataConnectionErrors?: Array<DataConnectionError> | null | undefined;
-  connectionInfo?: { [k: string]: string } | null | undefined;
+  connectionInfo?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -136,7 +136,7 @@ export const Connection$inboundSchema: z.ZodType<
   created: z.string(),
   dataConnectionErrors: z.nullable(z.array(DataConnectionError$inboundSchema))
     .optional(),
-  connectionInfo: z.nullable(z.record(z.string())).optional(),
+  connectionInfo: z.nullable(z.record(z.any())).optional(),
 });
 
 /** @internal */
@@ -152,7 +152,7 @@ export type Connection$Outbound = {
   lastSync?: string | undefined;
   created: string;
   dataConnectionErrors?: Array<DataConnectionError$Outbound> | null | undefined;
-  connectionInfo?: { [k: string]: string } | null | undefined;
+  connectionInfo?: { [k: string]: any } | null | undefined;
 };
 
 /** @internal */
@@ -173,7 +173,7 @@ export const Connection$outboundSchema: z.ZodType<
   created: z.string(),
   dataConnectionErrors: z.nullable(z.array(DataConnectionError$outboundSchema))
     .optional(),
-  connectionInfo: z.nullable(z.record(z.string())).optional(),
+  connectionInfo: z.nullable(z.record(z.any())).optional(),
 });
 
 /**

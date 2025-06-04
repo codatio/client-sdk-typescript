@@ -7,7 +7,7 @@ The option type.
 ```typescript
 import { PushOptionType } from "@codat/platform/sdk/models/shared";
 
-let value: PushOptionType = "Boolean";
+let value: PushOptionType = "DateTime";
 ```
 
 ## Values

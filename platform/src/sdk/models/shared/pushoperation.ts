@@ -7,10 +7,10 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PropertieDataType,
-  PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
-} from "./propertiedatatype.js";
+  DataType,
+  DataType$inboundSchema,
+  DataType$outboundSchema,
+} from "./datatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
@@ -37,7 +37,7 @@ export type PushOperation = {
   /**
    * Available data types
    */
-  dataType?: PropertieDataType | undefined;
+  dataType?: DataType | undefined;
   /**
    * Unique identifier for your SMB in Codat.
    */
@@ -129,7 +129,7 @@ export const PushOperation$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   changes: z.nullable(z.array(PushOperationChange$inboundSchema)).optional(),
-  dataType: PropertieDataType$inboundSchema.optional(),
+  dataType: DataType$inboundSchema.optional(),
   companyId: z.string(),
   pushOperationKey: z.string(),
   dataConnectionKey: z.string(),
@@ -167,7 +167,7 @@ export const PushOperation$outboundSchema: z.ZodType<
   PushOperation
 > = z.object({
   changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
+  dataType: DataType$outboundSchema.optional(),
   companyId: z.string(),
   pushOperationKey: z.string(),
   dataConnectionKey: z.string(),

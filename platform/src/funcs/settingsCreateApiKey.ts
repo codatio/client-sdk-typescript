@@ -5,6 +5,7 @@
 import { CodatPlatformCore } from "../core.js";
 import { encodeJSON } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
@@ -20,6 +21,7 @@ import * as errors from "../sdk/models/errors/index.js";
 import { SDKError } from "../sdk/models/errors/sdkerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -38,11 +40,11 @@ import { Result } from "../sdk/types/fp.js";
  * * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint.
  * * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
  */
-export async function settingsCreateApiKey(
+export function settingsCreateApiKey(
   client: CodatPlatformCore,
   request?: shared.CreateApiKey | undefined,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.ApiKeyDetails,
     | errors.ErrorMessage
@@ -55,13 +57,40 @@ export async function settingsCreateApiKey(
     | ConnectionError
   >
 > {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
+  client: CodatPlatformCore,
+  request?: shared.CreateApiKey | undefined,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.ApiKeyDetails,
+      | errors.ErrorMessage
+      | SDKError
+      | SDKValidationError
+      | UnexpectedClientError
+      | InvalidRequestError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | ConnectionError
+    >,
+    APICall,
+  ]
+> {
   const parsed = safeParse(
     request,
     (value) => shared.CreateApiKey$outboundSchema.optional().parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = payload === undefined
@@ -70,16 +99,18 @@ export async function settingsCreateApiKey(
 
   const path = pathToFunc("/apiKeys")();
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "create-api-key",
     oAuth2Scopes: [],
 
@@ -105,13 +136,15 @@ export async function settingsCreateApiKey(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "POST",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -133,7 +166,7 @@ export async function settingsCreateApiKey(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -154,14 +187,16 @@ export async function settingsCreateApiKey(
   >(
     M.json(201, shared.ApiKeyDetails$inboundSchema),
     M.jsonErr(
-      [400, 401, 402, 403, 409, 429, 500, 503],
+      [400, 401, 402, 403, 409, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
   )(response, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

@@ -8,24 +8,6 @@ import { ConfigureCustomDataTypeRequest } from "@codat/platform/sdk/models/opera
 let value: ConfigureCustomDataTypeRequest = {
   platformKey: "gbol",
   customDataIdentifier: "DynamicsPurchaseOrders",
-  customDataTypeConfiguration: {
-    dataSource: "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
-    requiredData: {
-      "currencyCode": "$[*].currencyCode",
-      "id": "$[*].id",
-      "number": "$[*].number",
-      "orderDate": "$[*].orderDate",
-      "totalAmountExcludingTax": "$[*].totalAmountExcludingTax",
-      "totalTaxAmount": "$[*].totalTaxAmount",
-      "vendorName": "$[*].number",
-    },
-    keyBy: [
-      "$[*].id",
-    ],
-    sourceModifiedDate: [
-      "$[*].lastModifiedDateTime",
-    ],
-  },
 };
 ```
 

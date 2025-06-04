@@ -8,19 +8,6 @@ import { ConfigureSupplementalDataRequest } from "@codat/platform/sdk/models/ope
 let value: ConfigureSupplementalDataRequest = {
   platformKey: "gbol",
   dataType: "invoices",
-  supplementalDataConfiguration: {
-    supplementalDataConfig: {
-      "orders-supplemental-data": {
-        dataSource: "/orders",
-        pullData: {
-          "orderNumber": "order_num",
-        },
-        pushData: {
-          "orderNumber": "order_num",
-        },
-      },
-    },
-  },
 };
 ```
 

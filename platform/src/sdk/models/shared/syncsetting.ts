@@ -7,10 +7,10 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  PropertieDataType,
-  PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
-} from "./propertiedatatype.js";
+  DataType,
+  DataType$inboundSchema,
+  DataType$outboundSchema,
+} from "./datatype.js";
 
 /**
  * Describes how often, and how much history, should be fetched for the given data type when a pull operation is queued.
@@ -19,7 +19,7 @@ export type SyncSetting = {
   /**
    * Available data types
    */
-  dataType: PropertieDataType;
+  dataType: DataType;
   /**
    * Whether this data type should be queued after a company has authorized a connection.
    */
@@ -74,7 +74,7 @@ export const SyncSetting$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  dataType: PropertieDataType$inboundSchema,
+  dataType: DataType$inboundSchema,
   fetchOnFirstLink: z.boolean(),
   syncSchedule: z.number().int(),
   syncOrder: z.number().int(),
@@ -102,7 +102,7 @@ export const SyncSetting$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   SyncSetting
 > = z.object({
-  dataType: PropertieDataType$outboundSchema,
+  dataType: DataType$outboundSchema,
   fetchOnFirstLink: z.boolean(),
   syncSchedule: z.number().int(),
   syncOrder: z.number().int(),
