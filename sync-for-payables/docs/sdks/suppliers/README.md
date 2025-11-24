@@ -22,6 +22,7 @@ For example, to retrieve only active suppliers (i.e. `status=Active`) or supplie
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -37,7 +38,6 @@ async function run() {
     query: "sourceModifiedDate>2023-12-15T00:00:00.000Z",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -65,15 +65,12 @@ async function run() {
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
     query: "sourceModifiedDate>2023-12-15T00:00:00.000Z",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -94,10 +91,11 @@ run();
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorMessage                         | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| errors.SDKError                             | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## create
 
@@ -108,6 +106,7 @@ The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sy
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -140,7 +139,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -185,15 +183,12 @@ async function run() {
       defaultCurrency: "GBP",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -214,7 +209,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

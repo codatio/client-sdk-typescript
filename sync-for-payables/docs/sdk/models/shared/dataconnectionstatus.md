@@ -7,7 +7,7 @@ The current authorization status of the data connection.
 ```typescript
 import { DataConnectionStatus } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: DataConnectionStatus = "Unlinked";
+let value: DataConnectionStatus = "Deauthorized";
 ```
 
 ## Values

@@ -8,7 +8,7 @@ import { SupplierPrototype } from "@codat/sync-for-payables/sdk/models/shared";
 let value: SupplierPrototype = {
   supplierName: "<value>",
   phone: "+44 25691 154789",
-  status: "Archived",
+  status: "Active",
 };
 ```
 

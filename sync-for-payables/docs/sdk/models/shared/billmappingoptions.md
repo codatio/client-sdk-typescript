@@ -14,7 +14,7 @@ let value: BillMappingOptions = {
       nominalCode: "610",
       name: "Accounts Payable",
       type: "Liability",
-      currency: "USD",
+      currency: "GBP",
       status: "Active",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
     },

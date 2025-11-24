@@ -7,9 +7,15 @@ import { BillLineItem } from "@codat/sync-for-payables/sdk/models/shared";
 import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 let value: BillLineItem = {
-  unitAmount: new Decimal("8326.20"),
-  quantity: new Decimal("7781.57"),
+  unitAmount: new Decimal("9568.32"),
+  quantity: new Decimal("8328.75"),
   accountRef: {},
+  trackingRefs: [
+    {
+      id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+      dataType: "trackingCategories",
+    },
+  ],
 };
 ```
 
@@ -24,3 +30,4 @@ let value: BillLineItem = {
 | `accountRef`                                                          | [shared.BillAccountRef](../../../sdk/models/shared/billaccountref.md) | :heavy_check_mark:                                                    | Reference to the account to which the line item is linked.            |
 | `totalAmount`                                                         | *Decimal*                                                             | :heavy_minus_sign:                                                    | Total amount of the line, including tax.                              |
 | `taxRateRef`                                                          | [shared.BillTaxRateRef](../../../sdk/models/shared/billtaxrateref.md) | :heavy_minus_sign:                                                    | Reference to the tax rate to which the line item is linked.           |
+| `trackingRefs`                                                        | [shared.TrackingRef](../../../sdk/models/shared/trackingref.md)[]     | :heavy_minus_sign:                                                    | N/A                                                                   |

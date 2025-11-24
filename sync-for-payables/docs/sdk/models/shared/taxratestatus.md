@@ -9,7 +9,7 @@ Status of the tax rate in the accounting software.
 ```typescript
 import { TaxRateStatus } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: TaxRateStatus = "Active";
+let value: TaxRateStatus = "Archived";
 ```
 
 ## Values

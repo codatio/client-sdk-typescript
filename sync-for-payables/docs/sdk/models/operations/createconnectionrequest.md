@@ -7,9 +7,6 @@ import { CreateConnectionRequest } from "@codat/sync-for-payables/sdk/models/ope
 
 let value: CreateConnectionRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  requestBody: {
-    platformKey: "gbol",
-  },
 };
 ```
 

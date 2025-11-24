@@ -1,0 +1,20 @@
+# TrackingRef
+
+## Example Usage
+
+```typescript
+import { TrackingRef } from "@codat/sync-for-payables/sdk/models/shared";
+
+let value: TrackingRef = {
+  id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+  dataType: "trackingCategories",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                            | Type                                                                                                                                             | Required                                                                                                                                         | Description                                                                                                                                      | Example                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `id`                                                                                                                                             | *string*                                                                                                                                         | :heavy_minus_sign:                                                                                                                               | Unique identifier of the linked tracking category or the unique identifier of the linked customer.                                               | e9a1b63d-9ff0-40e7-8038-016354b987e6                                                                                                             |
+| `dataType`                                                                                                                                       | [shared.DataType](../../../sdk/models/shared/datatype.md)                                                                                        | :heavy_minus_sign:                                                                                                                               | The type of the linked reference.                                                                                                                | trackingCategories                                                                                                                               |
+| `isBillable`                                                                                                                                     | *boolean*                                                                                                                                        | :heavy_minus_sign:                                                                                                                               | If a customer has been set as the trackingRefs.id then this boolean can be used to set whether the line item is billable to the customer or not. |                                                                                                                                                  |
