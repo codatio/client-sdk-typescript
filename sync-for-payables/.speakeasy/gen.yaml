@@ -4,30 +4,52 @@ generation:
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
+    nameResolutionFeb2025: false
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
+    securityFeb2025: false
+    sharedErrorComponentsApr2025: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
   telemetryEnabled: true
 typescript:
-  version: 9.0.1
+  version: 9.1.0
+  acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
+  additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
   author: Codat
+  baseErrorName: CodatSyncPayablesError
   clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: true
   defaultErrorName: SDKError
   description: Streamline your customers' accounts payable workflow.
+  enableCustomCodeRegions: false
+  enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
+  exportZodModelNamespace: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first
+  forwardCompatibleEnumsByDefault: false
+  generateExamples: true
   imports:
     option: openapi
     paths:
@@ -37,11 +59,18 @@ typescript:
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
   inputModelSuffix: input
+  jsonpath: legacy
+  laxMode: strict
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  modelPropertyCasing: camel
   moduleFormat: commonjs
   outputModelSuffix: output
   packageName: '@codat/sync-for-payables'
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2
+  unionStrategy: left-to-right
+  usageSDKInitImports: []
   useIndexModules: true
+  zodVersion: v3

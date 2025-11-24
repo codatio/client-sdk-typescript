@@ -6,6 +6,7 @@ import { companiesCreate } from "../funcs/companiesCreate.js";
 import { companiesDelete } from "../funcs/companiesDelete.js";
 import { companiesGet } from "../funcs/companiesGet.js";
 import { companiesList } from "../funcs/companiesList.js";
+import { companiesReplace } from "../funcs/companiesReplace.js";
 import { companiesUpdate } from "../funcs/companiesUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
@@ -21,6 +22,19 @@ export class Companies extends ClientSDK {
    *
    * A [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.
    * Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+   *
+   * ## Filter by tags
+   *
+   * The *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):
+   *
+   * - equals (`=`)
+   * - not equals (`!=`)
+   * - contains (`~`)
+   *
+   * For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team:
+   * - Foreign key: `uid = {yourCustomerId}`
+   * - Region: `region != uk`
+   * - Owning team and region: `region = uk && owningTeam = invoice-finance`
    */
   async list(
     request?: operations.ListCompaniesRequest | undefined,
@@ -56,13 +70,34 @@ export class Companies extends ClientSDK {
   }
 
   /**
-   * Update company
+   * Replace company
    *
    * @remarks
-   * Use the *Update company* endpoint to update both the name and description of the company.
+   * Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.
    *
    * A [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.
    * Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+   */
+  async replace(
+    request: operations.ReplaceCompanyRequest,
+    options?: RequestOptions,
+  ): Promise<shared.Company> {
+    return unwrapAsync(companiesReplace(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update company
+   *
+   * @remarks
+   * Use the *Update company* endpoint to update the name, description, or tags of the company.
+   *
+   * The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.
+   *
+   * A [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.
    */
   async update(
     request: operations.UpdateCompanyRequest,

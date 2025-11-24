@@ -17,6 +17,7 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -38,7 +39,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -72,15 +72,12 @@ async function run() {
       currency: "GBP",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -101,7 +98,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

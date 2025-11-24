@@ -24,6 +24,7 @@ Mapping options are a set of accounts and tax rates used to configure the SMB's 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-mapping-options-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/bills" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -39,7 +40,6 @@ async function run() {
     statusQuery: "status=Archived",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -67,15 +67,12 @@ async function run() {
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
     statusQuery: "status=Archived",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsGetBillOptions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -96,10 +93,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## list
 
@@ -111,6 +109,7 @@ By default, the endpoint will return all bills with a status of 'Open' & 'Partia
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -126,7 +125,6 @@ async function run() {
     query: "status=Open",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -154,15 +152,12 @@ async function run() {
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
     query: "status=Open",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -183,10 +178,11 @@ run();
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorMessage                         | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| errors.SDKError                             | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## create
 
@@ -196,6 +192,7 @@ The *Create bill* endpoint creates a new [bill](https://docs.codat.io/sync-for-p
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bill" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 import { Decimal } from "@codat/sync-for-payables/sdk/types";
@@ -257,13 +254,18 @@ async function run() {
           taxRateRef: {
             id: "INPUT2",
           },
+          trackingRefs: [
+            {
+              id: "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa",
+              dataType: "trackingCategories",
+            },
+          ],
         },
       ],
       status: "Open",
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -338,20 +340,23 @@ async function run() {
           taxRateRef: {
             id: "INPUT2",
           },
+          trackingRefs: [
+            {
+              id: "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa",
+              dataType: "trackingCategories",
+            },
+          ],
         },
       ],
       status: "Open",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -372,10 +377,11 @@ run();
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorMessage                         | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| errors.SDKError                             | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## uploadAttachment
 
@@ -385,6 +391,7 @@ The *Upload bill attachment* endpoint uploads an attachment and assigns it again
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="upload-bill-attachment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -396,10 +403,9 @@ async function run() {
   const result = await codatSyncPayables.bills.uploadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -424,17 +430,14 @@ async function run() {
   const res = await billsUploadAttachment(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsUploadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -455,10 +458,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## listAttachments
 
@@ -468,6 +472,7 @@ The *List bill attachments* endpoint returns a list of attachments available to 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-bill-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -479,10 +484,9 @@ async function run() {
   const result = await codatSyncPayables.bills.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -507,17 +511,14 @@ async function run() {
   const res = await billsListAttachments(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -538,10 +539,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 401, 402, 403, 404, 409, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 401, 402, 403, 404, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## downloadAttachment
 
@@ -554,6 +556,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-bill-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -565,11 +568,10 @@ async function run() {
   const result = await codatSyncPayables.bills.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -594,18 +596,15 @@ async function run() {
   const res = await billsDownloadAttachment(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -626,7 +625,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

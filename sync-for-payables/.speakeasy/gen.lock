@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: fc401bb0-cd17-4863-8f85-003111be4b43
 management:
-  docChecksum: 05c2a60eb0f4b40cda5e4a92d94e7b93
+  docChecksum: a5a6b29c932401b54fefc48cb0e59b5f
   docVersion: 3.0.0
-  speakeasyVersion: 1.447.0
-  generationVersion: 2.463.0
-  releaseVersion: 9.0.1
-  configChecksum: 55a7dd8d60cc533562b7dc123ee2c801
+  speakeasyVersion: 1.660.0
+  generationVersion: 2.760.2
+  releaseVersion: 9.1.0
+  configChecksum: e32d9073a594f911de154cfe7423fdc8
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-payables
@@ -14,33 +14,30 @@ management:
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.11
-    core: 3.18.7
+    constsAndDefaults: 0.1.12
+    core: 3.26.9
     decimal: 0.1.2
     defaultEnabledRetries: 0.1.0
-    deprecations: 2.81.1
     downloadStreams: 0.1.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    examples: 2.81.4
-    globalSecurity: 2.82.11
+    examples: 2.82.3
+    globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.82.4
+    globalServerURLs: 2.83.0
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
-    nullables: 0.1.0
+    nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
     serverEventsSentinels: 0.1.0
     uploadStreams: 0.1.0
-    webhooks: 1.0.0
+    webhooks: 1.5.1
 generatedFiles:
-  - .eslintrc.cjs
   - .gitattributes
   - .npmignore
-  - CONTRIBUTING.md
   - FUNCTIONS.md
   - RUNTIMES.md
   - USAGE.md
@@ -65,6 +62,7 @@ generatedFiles:
   - docs/sdk/models/operations/listcompaniesrequest.md
   - docs/sdk/models/operations/listconnectionsrequest.md
   - docs/sdk/models/operations/listsuppliersrequest.md
+  - docs/sdk/models/operations/replacecompanyrequest.md
   - docs/sdk/models/operations/unlinkconnectionrequest.md
   - docs/sdk/models/operations/unlinkconnectionupdateconnection.md
   - docs/sdk/models/operations/updatecompanyrequest.md
@@ -91,10 +89,6 @@ generatedFiles:
   - docs/sdk/models/shared/bills.md
   - docs/sdk/models/shared/billstatus.md
   - docs/sdk/models/shared/billtaxrateref.md
-  - docs/sdk/models/shared/clientratelimitreachedwebhook.md
-  - docs/sdk/models/shared/clientratelimitreachedwebhookdata.md
-  - docs/sdk/models/shared/clientratelimitresetwebhook.md
-  - docs/sdk/models/shared/clientratelimitresetwebhookdata.md
   - docs/sdk/models/shared/clientratelimitwebhook.md
   - docs/sdk/models/shared/clientratelimitwebhookpayload.md
   - docs/sdk/models/shared/codatfile.md
@@ -104,10 +98,12 @@ generatedFiles:
   - docs/sdk/models/shared/companyreference.md
   - docs/sdk/models/shared/companyreferencelinks.md
   - docs/sdk/models/shared/companyrequestbody.md
+  - docs/sdk/models/shared/companyupdaterequest.md
   - docs/sdk/models/shared/connection.md
   - docs/sdk/models/shared/connections.md
   - docs/sdk/models/shared/dataconnectionerror.md
   - docs/sdk/models/shared/dataconnectionstatus.md
+  - docs/sdk/models/shared/datatype.md
   - docs/sdk/models/shared/errorstatus.md
   - docs/sdk/models/shared/errorvalidation.md
   - docs/sdk/models/shared/errorvalidationitem.md
@@ -124,14 +120,19 @@ generatedFiles:
   - docs/sdk/models/shared/supplierstatus.md
   - docs/sdk/models/shared/taxratemappingoption.md
   - docs/sdk/models/shared/taxratestatus.md
+  - docs/sdk/models/shared/trackingref.md
   - docs/sdks/bankaccounts/README.md
   - docs/sdks/billpayments/README.md
   - docs/sdks/bills/README.md
-  - docs/sdks/codatsyncpayables/README.md
   - docs/sdks/companies/README.md
   - docs/sdks/companyinformation/README.md
   - docs/sdks/connections/README.md
   - docs/sdks/suppliers/README.md
+  - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/companiesList.example.ts
+  - examples/package.json
   - jsr.json
   - package.json
   - src/core.ts
@@ -148,6 +149,7 @@ generatedFiles:
   - src/funcs/companiesDelete.ts
   - src/funcs/companiesGet.ts
   - src/funcs/companiesList.ts
+  - src/funcs/companiesReplace.ts
   - src/funcs/companiesUpdate.ts
   - src/funcs/companyInformationGet.ts
   - src/funcs/connectionsCreate.ts
@@ -157,6 +159,7 @@ generatedFiles:
   - src/funcs/connectionsUnlink.ts
   - src/funcs/suppliersCreate.ts
   - src/funcs/suppliersList.ts
+  - src/funcs/validateWebhook.ts
   - src/hooks/hooks.ts
   - src/hooks/index.ts
   - src/hooks/types.ts
@@ -183,9 +186,11 @@ generatedFiles:
   - src/sdk/companyinformation.ts
   - src/sdk/connections.ts
   - src/sdk/index.ts
+  - src/sdk/models/errors/codatsyncpayableserror.ts
   - src/sdk/models/errors/errormessage.ts
   - src/sdk/models/errors/httpclienterrors.ts
   - src/sdk/models/errors/index.ts
+  - src/sdk/models/errors/responsevalidationerror.ts
   - src/sdk/models/errors/sdkerror.ts
   - src/sdk/models/errors/sdkvalidationerror.ts
   - src/sdk/models/operations/createbankaccount.ts
@@ -207,6 +212,7 @@ generatedFiles:
   - src/sdk/models/operations/listcompanies.ts
   - src/sdk/models/operations/listconnections.ts
   - src/sdk/models/operations/listsuppliers.ts
+  - src/sdk/models/operations/replacecompany.ts
   - src/sdk/models/operations/unlinkconnection.ts
   - src/sdk/models/operations/updatecompany.ts
   - src/sdk/models/operations/uploadbillattachment.ts
@@ -232,10 +238,6 @@ generatedFiles:
   - src/sdk/models/shared/bills.ts
   - src/sdk/models/shared/billstatus.ts
   - src/sdk/models/shared/billtaxrateref.ts
-  - src/sdk/models/shared/clientratelimitreachedwebhook.ts
-  - src/sdk/models/shared/clientratelimitreachedwebhookdata.ts
-  - src/sdk/models/shared/clientratelimitresetwebhook.ts
-  - src/sdk/models/shared/clientratelimitresetwebhookdata.ts
   - src/sdk/models/shared/clientratelimitwebhook.ts
   - src/sdk/models/shared/clientratelimitwebhookpayload.ts
   - src/sdk/models/shared/codatfile.ts
@@ -244,6 +246,7 @@ generatedFiles:
   - src/sdk/models/shared/companyinformation.ts
   - src/sdk/models/shared/companyreference.ts
   - src/sdk/models/shared/companyrequestbody.ts
+  - src/sdk/models/shared/companyupdaterequest.ts
   - src/sdk/models/shared/connection.ts
   - src/sdk/models/shared/connections.ts
   - src/sdk/models/shared/dataconnectionerror.ts
@@ -262,8 +265,10 @@ generatedFiles:
   - src/sdk/models/shared/suppliers.ts
   - src/sdk/models/shared/supplierstatus.ts
   - src/sdk/models/shared/taxratemappingoption.ts
+  - src/sdk/models/shared/trackingref.ts
   - src/sdk/sdk.ts
   - src/sdk/suppliers.ts
+  - src/sdk/types/async.ts
   - src/sdk/types/blobs.ts
   - src/sdk/types/constdatetime.ts
   - src/sdk/types/decimal.ts
@@ -273,20 +278,26 @@ generatedFiles:
   - src/sdk/types/operations.ts
   - src/sdk/types/rfcdate.ts
   - src/sdk/types/streams.ts
+  - src/sdk/types/unrecognized.ts
+  - src/sdk/types/webhooks.ts
   - tsconfig.json
 examples:
   list-companies:
-    "":
+    speakeasy-default-list-companies:
       parameters:
         query:
           page: 1
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
-          application/json: {"results": [{"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}]}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400": {}
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     One company:
       parameters:
         query:
@@ -294,9 +305,10 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
-          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "3fa85f64-5717-4562-b3fc-2c963f66afa6", "name": "My Test Company", "description": "My Test Company make testing software", "redirect": "https://link.codat.io/company/3fa85f64-5717-4562-b3fc-2c963f66afa6", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Mike Smith", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/3fa85f64-5717-4562-b3fc-2c963f66afa6/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 1, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
     List of Companies:
       parameters:
         query:
@@ -304,9 +316,10 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "200":
-          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}, {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "redirect": "https://link.codat.io/company/db94eddc-9212-4568-9b5c-3eab0e325913", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/connections/1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 3, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
+          application/json: {"results": [{"id": "d1568dde-adf6-11ed-afa1-0242ac120002", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/d1568dde-adf6-11ed-afa1-0242ac120002", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z", "createdByUserName": "Joe Bloggs", "products": ["spend-insights", "lending", "payables-v2"], "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "51baa045-4836-4317-a42e-3542e991e581", "integrationId": "1c312d69-e638-46d4-ad31-72e6c3ba8390", "integrationKey": "vjms", "sourceId": "396c3158-5dd7-481b-a7c4-a795ca31792b", "sourceType": "Accounting", "platformName": "Pandle", "linkUrl": "https://link-api.codat.io/companies/d1568dde-adf6-11ed-afa1-0242ac120002/connections/51baa045-4836-4317-a42e-3542e991e581/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}, {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["lending", "spend-insights", "payables"], "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "redirect": "https://link.codat.io/company/db94eddc-9212-4568-9b5c-3eab0e325913", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/connections/1e5c8c9e-27fd-4ba9-9a2a-d02ba65bc2fb/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}], "pageNumber": 1, "pageSize": 100, "totalResults": 3, "_links": {"self": {"href": "/companies"}, "current": {"href": "/companies?page=1&pageSize=100"}}}
     Malformed query:
       parameters:
         query:
@@ -314,8 +327,11 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
     Unresolved property:
       parameters:
@@ -324,54 +340,53 @@ examples:
           pageSize: 100
           query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee"
           orderBy: "-modifiedDate"
+          tags: "region=uk && team=invoice-finance"
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   create-company:
     With no description:
       requestBody:
-        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme."}
+        application/json: {"name": "Technicalium"}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
-        "400": {}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceSubsidiaryCompanies": [], "dataConnections": []}
     With a description:
       requestBody:
         application/json: {"name": "Technicalium", "description": "Technology services, including web and app design and development"}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
-        "400": {}
-    With a group:
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "Technology services, including web and app design and development", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "referenceSubsidiaryCompanies": [], "dataConnections": []}
+    With a tag:
       requestBody:
-        application/json: {"name": "Technicalium", "description": "Requested early access to the new financing scheme.", "groups": [{"id": "d7a6c4b4-dc87-45f6-b803-62f466398680"}]}
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
-        "400": {}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights"], "tags": {"region": "us"}, "referenceSubsidiaryCompanies": [], "dataConnections": []}
     Malformed query:
       requestBody:
         application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    With a tag:
-      requestBody:
-        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Technicalium", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18.1950523Z", "createdByUserName": "Dan Tzabar", "tags": {"region": "us"}, "referenceSubsidiaryCompanies": [], "dataConnections": []}
-  update-company:
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  replace-company:
     Update name:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       requestBody:
-        application/json: {"name": "New Name", "description": "Requested early access to the new financing scheme."}
+        application/json: {"name": "New Name"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
-        "401": {}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
     Update description:
       parameters:
         path:
@@ -380,8 +395,11 @@ examples:
         application/json: {"name": "Same name", "description": "Additional documents required"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "description": "Requested early access to the new financing scheme.", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
-        "401": {}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
     Unauthorized:
       parameters:
         path:
@@ -390,6 +408,46 @@ examples:
         application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-company:
+    Update tags:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"tags": {"refrence": "new reference"}}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Update name:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "New Name"}
+      responses:
+        "200":
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
+    Unauthorized:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      requestBody:
+        application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
+      responses:
+        "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   delete-company:
     Unauthorized:
@@ -399,6 +457,8 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   get-company:
     Simple company:
       parameters:
@@ -406,14 +466,21 @@ examples:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores holdings", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [], "dataConnections": []}
-    With groups:
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores holdings", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceSubsidiaryCompanies": [], "dataConnections": []}
+    Parent multi-entity company:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       responses:
         "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "My First Company", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "lastSync": "2022-10-23T00:00:00Z", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "dataConnections": []}
+          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}
+    Subsidiary multi-entity company:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+      responses:
+        "200":
+          application/json: {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "description": "", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "products": ["spend-insights", "lending", "expenses-v1", "commerce"], "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}
     Unauthorized:
       parameters:
         path:
@@ -421,22 +488,10 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Parent multi-entity company:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "description": "", "redirect": "https://link.codat.io/company/ab12c58d-a678-4ebf-a159-ae99e1807bd0", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceSubsidiaryCompanies": [{"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "links": {"portal": "https://app.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/summary"}}, {"id": "db94eddc-9212-4568-9b5c-3eab0e325913", "name": "Toft stores US", "links": {"portal": "https://app.codat.io/companies/db94eddc-9212-4568-9b5c-3eab0e325913/summary"}}], "dataConnections": []}
-    Subsidiary multi-entity company:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-      responses:
-        "200":
-          application/json: {"id": "c8d3af58-7011-47ce-b3f2-89faf300ef6d", "name": "Toft stores UK", "description": "", "redirect": "https://link.codat.io/company/c8d3af58-7011-47ce-b3f2-89faf300ef6d", "created": "2022-11-10T10:45:18Z", "createdByUserName": "Dan Tzabar", "referenceParentCompany": {"id": "ab12c58d-a678-4ebf-a159-ae99e1807bd0", "name": "Toft stores", "links": {"portal": "https://app.codat.io/companies/ab12c58d-a678-4ebf-a159-ae99e1807bd0/summary"}}, "referenceSubsidiaryCompanies": [], "dataConnections": [{"id": "d5ab61b7-1ad0-46fd-9f9f-b6761047941e", "integrationId": "cc750323-5a47-4f28-8d8e-30fbbf2ce137", "integrationKey": "akxx", "sourceId": "9815b998-024d-4415-a40b-89903b2cad6f", "sourceType": "Accounting", "platformName": "Oracle NetSuite", "linkUrl": "https://link-api.codat.io/companies/c8d3af58-7011-47ce-b3f2-89faf300ef6d/connections/d5ab61b7-1ad0-46fd-9f9f-b6761047941e/start", "status": "Linked", "lastSync": "2022-01-01T12:30:00.000Z", "created": "2022-01-01T11:30:00Z"}]}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   list-connections:
-    "":
+    speakeasy-default-list-connections:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
@@ -447,8 +502,11 @@ examples:
           orderBy: "-modifiedDate"
       responses:
         "200":
-          application/json: {"results": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}], "pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
-        "400": {}
+          application/json: {"pageNumber": 1, "pageSize": 10, "totalResults": 1, "_links": {"self": {"href": "/companies/{id}/data/{dataType}"}, "current": {"href": "/companies/{id}/data/{dataType}?page=1&pageSize=10"}}}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Connections:
       parameters:
         path:
@@ -473,6 +531,8 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
     Unresolved property:
       parameters:
         path:
@@ -485,6 +545,8 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   create-connection:
     Connection:
       parameters:
@@ -494,7 +556,7 @@ examples:
         application/json: {"platformKey": "gbol"}
       responses:
         "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
     Unauthorized:
       parameters:
         path:
@@ -504,6 +566,8 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   get-connection:
     Connection:
       parameters:
@@ -512,7 +576,7 @@ examples:
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       responses:
         "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
     Unauthorized:
       parameters:
         path:
@@ -520,6 +584,8 @@ examples:
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       responses:
         "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   delete-connection:
     Unauthorized:
@@ -529,6 +595,8 @@ examples:
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       responses:
         "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   unlink-connection:
     Example:
@@ -540,8 +608,11 @@ examples:
         application/json: {"status": "Unlinked"}
       responses:
         "200":
-          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z", "dataConnectionErrors": []}
-        "401": {}
+          application/json: {"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}
+        "401":
+          application/json: {}
+        "500":
+          application/json: {}
     Unauthorized:
       parameters:
         path:
@@ -549,6 +620,8 @@ examples:
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       responses:
         "401":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   get-company-information:
     Company information:
@@ -567,8 +640,10 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   get-mapping-options-bills:
-    "":
+    speakeasy-default-get-mapping-options-bills:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
@@ -578,8 +653,11 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "200":
-          application/json: {"accounts": [], "taxRates": []}
-        "400": {}
+          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "610", "name": "Accounts Payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Mapping options:
       parameters:
         path:
@@ -590,7 +668,7 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "200":
-          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515", "name": "VAT @ 20%", "code": "VAT20", "effectiveTaxRate": 20, "totalTaxRate": 20, "status": "Active"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+          application/json: {"accounts": [{"id": "1b6266d1-1e44-46c5-8eb5-a8f98e03124e", "nominalCode": "879-i", "name": "Accounts payable", "type": "Liability", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00.000Z"}], "taxRates": [{"id": "d2939064-dd3a-4c0f-9865-a238c2193515", "name": "VAT @ 20%", "code": "VAT20", "effectiveTaxRate": 20, "totalTaxRate": 20, "status": "Active"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
     Malformed query:
       parameters:
         path:
@@ -601,6 +679,8 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   list-bills:
     Status (open):
@@ -613,8 +693,11 @@ examples:
           query: "status=Open"
       responses:
         "200":
-          application/json: {"results": []}
-        "400": {}
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"unitAmount": 724.94, "quantity": 8329.23, "accountRef": {}, "trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (partially paid):
       parameters:
         path:
@@ -625,8 +708,11 @@ examples:
           query: "status=PartiallyPaid"
       responses:
         "200":
-          application/json: {"results": []}
-        "400": {}
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"unitAmount": 724.94, "quantity": 8329.23, "accountRef": {}, "trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Source modified date:
       parameters:
         path:
@@ -637,8 +723,11 @@ examples:
           query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
       responses:
         "200":
-          application/json: {"results": []}
-        "400": {}
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"unitAmount": 724.94, "quantity": 8329.23, "accountRef": {}, "trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (open) & source modified date:
       parameters:
         path:
@@ -649,8 +738,11 @@ examples:
           query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open"
       responses:
         "200":
-          application/json: {"results": []}
-        "400": {}
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"unitAmount": 724.94, "quantity": 8329.23, "accountRef": {}, "trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (partially paid) & source modified date:
       parameters:
         path:
@@ -661,8 +753,11 @@ examples:
           query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid"
       responses:
         "200":
-          application/json: {"results": []}
-        "400": {}
+          application/json: {"results": [{"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"unitAmount": 724.94, "quantity": 8329.23, "accountRef": {}, "trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Bills:
       parameters:
         path:
@@ -672,7 +767,7 @@ examples:
           continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
       responses:
         "200":
-          application/json: {"results": [{"id": "18", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": "1,", "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Open", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "22", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Paid", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+          application/json: {"results": [{"id": "18", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Open", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "22", "reference": "12", "supplierRef": {"id": "4", "supplierName": "BILLy elliot"}, "issueDate": "2019-05-13T00:00:00", "dueDate": "2019-05-13T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Dance shoes", "unitAmount": 5, "quantity": 1, "taxAmount": 0, "accountRef": {"id": "16"}, "totalAmount": 5, "taxRateRef": {"id": "NON"}}], "status": "Paid", "totalAmount": 5, "amountDue": 0, "sourceModifiedDate": "2022-05-26T10:34:10Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
     Malformed query:
       parameters:
         path:
@@ -682,6 +777,8 @@ examples:
           continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
     Unresolved property:
       parameters:
@@ -693,74 +790,76 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   create-bill:
     Create bill:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
-        application/json: {"reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open"}
+        application/json: {"reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "currencyRate": 1, "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}, "trackingRefs": [{"id": "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa", "dataType": "trackingCategories"}]}], "status": "Open"}
       responses:
-        "200":
-          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "status": "Open", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}
-        "400": {}
         "201":
-          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "USD", "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+          application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": [{"unitAmount": 389.65, "quantity": 2803.72, "accountRef": {}, "trackingRefs": [{"id": "e9a1b63d-9ff0-40e7-8038-016354b987e6", "dataType": "trackingCategories"}]}], "status": "Open", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Created bill:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
-        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "USD", "status": "Open"}
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": null, "status": "Open"}
       responses:
-        "200":
-          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2, "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}
         "201":
-          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2, "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+          application/json: {"id": "bill-1029932", "reference": "bill_b8qmmj4ksf1suax", "supplierRef": {"id": "1262c350-fe0f-40ec-aeff-41c95b4a45af", "supplierName": "DIISR - Small Business Services"}, "issueDate": "2023-04-23T00:00:00", "dueDate": "2023-04-23T00:00:00", "currency": "GBP", "lineItems": [{"description": "Half day training - Microsoft Office", "unitAmount": 1800, "quantity": 1, "taxAmount": 360, "accountRef": {"id": "46f9461e-788b-4906-8b74-d1ea17f6dc10"}, "totalAmount": 2160, "taxRateRef": {"id": "INPUT2"}}, {"description": "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.", "unitAmount": 4000, "quantity": 1, "taxAmount": 800, "accountRef": {"id": "f96c9458-d724-47bf-8f74-a9d5726465ce"}, "totalAmount": 4800, "taxRateRef": {"id": "INPUT2"}}, {"description": "Stationery charges", "unitAmount": 32, "quantity": 8, "taxAmount": 51.2, "accountRef": {"id": "cba6527d-f102-4538-b421-e483233e9d5a"}, "totalAmount": 307.2, "taxRateRef": {"id": "INPUT2"}, "trackingRefs": [{"id": "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa", "dataType": "trackingCategories"}]}], "status": "Open", "totalAmount": 7267.2, "amountDue": 7267.2}
     Malformed query:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
-        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "status": "Open"}
+        application/json: {"supplierRef": {"id": "<id>"}, "issueDate": "2022-10-23T00:00:00Z", "dueDate": "2022-10-23T00:00:00Z", "currency": "GBP", "lineItems": null, "status": "Open"}
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   upload-bill-attachment:
-    Malformed query:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-      responses:
-        "400":
-          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
     Attachment metadata:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
       responses:
         "201":
           application/json: {"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}
-  list-bill-attachments:
-    Info:
+    Malformed query:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  list-bill-attachments:
+    Success:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
       responses:
         "200":
-          application/json: {"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}
+          application/json: [{"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "20cfd269-2f0f-44ef-a28c-7b5f725cf1aa", "name": "another_receipt.png", "contentType": "image/png", "dateCreated": "2022-10-24T00:00:00.000Z", "fileSize": 98, "includeWhenSent": true, "sourceModifiedDate": "2022-05-27T12:38:10Z"}]
     Unauthorized:
       parameters:
         path:
@@ -770,28 +869,23 @@ examples:
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
-    Attachments:
-      parameters:
-        path:
-          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
-          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
-      responses:
-        "200":
-          application/json: [{"id": "422f093f-e556-4bf3-91c0-93af70c3e850", "name": "receipt.png", "contentType": "image/png", "dateCreated": "2022-10-23T00:00:00.000Z", "fileSize": 100, "includeWhenSent": true, "sourceModifiedDate": "2022-05-26T10:34:10Z"}, {"id": "20cfd269-2f0f-44ef-a28c-7b5f725cf1aa", "name": "another_receipt.png", "contentType": "image/png", "dateCreated": "2022-10-24T00:00:00.000Z", "fileSize": 98, "includeWhenSent": true, "sourceModifiedDate": "2022-05-27T12:38:10Z"}]
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   download-bill-attachment:
     Unauthorized:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "EILBDVJVNUAGVKRQ"
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
           attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002"
       responses:
         "401":
           application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 401, "service": "PublicApi", "error": "Unauthorized", "correlationId": "7eb40d6b415d7bcd99ce658268284056", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   get-mapping-options-payments:
-    "":
+    speakeasy-default-get-mapping-options-payments:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
@@ -801,8 +895,11 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "200":
-          application/json: {"bankAccounts": []}
-        "400": {}
+          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Mapping options:
       parameters:
         path:
@@ -813,7 +910,7 @@ examples:
           statusQuery: "status=Archived"
       responses:
         "200":
-          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "accountNumber": "12345678", "nominalCode": "1234567", "sortCode": "123456", "currency": "GBP", "status": "Active", "accountType": "Debit", "sourceModifiedDate": "2022-10-23T00:00:00Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+          application/json: {"bankAccounts": [{"id": "3d5a8e00-d108-4045-8823-7f342676cffa", "name": "Bank of Dave current account", "accountNumber": "12345678", "nominalCode": "1234567", "sortCode": "123456", "currency": "GBP", "status": "Active", "accountType": "Debit", "sourceModifiedDate": "2022-10-23T00:00:00.000Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
     Malformed query:
       parameters:
         path:
@@ -825,34 +922,33 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   create-bill-payment:
     Bill payment example:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
-        header: {}
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
       requestBody:
         application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
       responses:
-        "200":
-          application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
-        "400": {}
         "201":
           application/json: {"amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "9e32cbf8-e7d5-4d4d-a593-08d550682aab"}, "currencyRate": 1}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Bill payment:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "7110701885"
-        header: {}
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
       requestBody:
         application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
       responses:
-        "200":
-          application/json: {"id": "billPayment-1029932", "amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
         "201":
           application/json: {"id": "billPayment-1029932", "amount": 22, "date": "2022-10-23T00:00:00.000Z", "reference": "Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "7bda9f44sr56"}, "currencyRate": 1}
     Malformed query:
@@ -860,12 +956,13 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-          billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2"
-        header: {}
+          billId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
       requestBody:
         application/json: {"amount": 1329.54, "date": "2022-10-23T00:00:00Z", "reference": "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44", "accountRef": {"id": "<id>"}}
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   list-suppliers:
     Source modified date:
@@ -878,8 +975,11 @@ examples:
           query: "sourceModifiedDate>2023-12-15T00:00:00.000Z"
       responses:
         "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (active):
       parameters:
         path:
@@ -890,8 +990,11 @@ examples:
           query: "status=Active"
       responses:
         "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (archived):
       parameters:
         path:
@@ -902,8 +1005,11 @@ examples:
           query: "status=Archived"
       responses:
         "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (active) & source modified date:
       parameters:
         path:
@@ -914,8 +1020,11 @@ examples:
           query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active"
       responses:
         "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Status (archived) & source modified date:
       parameters:
         path:
@@ -926,8 +1035,11 @@ examples:
           query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived"
       responses:
         "200":
-          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}]}
-        "400": {}
+          application/json: {"results": [{"id": "C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F", "supplierName": "Kelly's Industrial Supplies", "contactName": "Kelly Ipsum", "emailAddress": "sales@kellysupplies.com", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}]}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Suppliers:
       parameters:
         path:
@@ -948,6 +1060,8 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "ClientsApi", "error": "Error parsing query - Malformed query.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
     Unresolved property:
       parameters:
         path:
@@ -958,31 +1072,30 @@ examples:
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PullApi", "error": "Error parsing query - Could not resolve property isCompleted on Dataset", "correlationId": "98457fb9956b7f9b4b2fd4f6e23bb5c8", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   create-supplier:
     Suppliers:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
         application/json: {"supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GBR", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
       responses:
-        "200":
-          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "{\"sourceModifiedDate\":\"2022-10-23T00:00:00Z\"}"}
-        "400": {}
         "201":
-          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP"}
     Malformed query:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
-        application/json: {"supplierName": "<value>", "phone": "(877) 492-8687", "status": "Active"}
+        application/json: {"supplierName": "<value>", "phone": "+44 25691 154789", "status": "Unknown"}
       responses:
         "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
   create-bank-account:
     Bank account example:
@@ -990,24 +1103,27 @@ examples:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
         application/json: {"nominalCode": "22", "name": "Plutus - Payables - Bank Account 12", "accountType": "Debit", "accountNumber": "0120 0440", "sortCode": "50-50-50", "currency": "GBP"}
       responses:
-        "200":
-          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
-        "400": {}
         "201":
-          application/json: {"currency": "USD", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+          application/json: {"currency": "GBP", "status": "Active", "sourceModifiedDate": "2022-10-23T00:00:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
     Malformed query:
       parameters:
         path:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
-        header: {}
       requestBody:
-        application/json: {"name": "<value>", "accountType": "Credit", "accountNumber": "<value>", "currency": "USD"}
+        application/json: {"name": "<value>", "accountType": "Debit", "accountNumber": "<value>", "currency": "GBP"}
       responses:
         "400":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Typescript SDK Changes Detected:\n* `codatsyncpayables.companies.list()`: \n  *  `request.tags` **Added**\n  *  `response.results.[].dataConnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.create()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.update()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.get()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.list()`:  `response.results.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.create()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.get()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.unlink()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.replace()`: **Added**\n* `codatsyncpayables.bills.list()`:  `response.results.[].lineItems.[].trackingRefs` **Added**\n* `codatsyncpayables.bills.create()`: \n  *  `request.billPrototype.lineItems.[].trackingRefs` **Added**\n  *  `response.lineitems.[].trackingRefs` **Added**\n"

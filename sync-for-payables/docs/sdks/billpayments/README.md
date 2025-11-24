@@ -20,6 +20,7 @@ Mapping options are a set of bank accounts used to configure the SMB's payables 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-mapping-options-payments" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/payments" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -35,7 +36,6 @@ async function run() {
     statusQuery: "status=Archived",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -63,15 +63,12 @@ async function run() {
     continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
     statusQuery: "status=Archived",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsGetPaymentOptions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -92,10 +89,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## create
 
@@ -105,6 +103,7 @@ The *Create bill payment* endpoint creates a new [bill payment](https://docs.cod
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bill-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 import { Decimal } from "@codat/sync-for-payables/sdk/types";
@@ -117,7 +116,7 @@ async function run() {
   const result = await codatSyncPayables.billPayments.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billPaymentPrototype: {
       amount: new Decimal("22"),
       date: "2022-10-23T00:00:00.000Z",
@@ -129,7 +128,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -155,7 +153,7 @@ async function run() {
   const res = await billPaymentsCreate(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billPaymentPrototype: {
       amount: new Decimal("22"),
       date: "2022-10-23T00:00:00.000Z",
@@ -166,15 +164,12 @@ async function run() {
       currencyRate: new Decimal("1"),
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -195,7 +190,8 @@ run();
 
 ### Errors
 
-| Error Type                                  | Status Code                                 | Content Type                                |
-| ------------------------------------------- | ------------------------------------------- | ------------------------------------------- |
-| errors.ErrorMessage                         | 400, 401, 402, 403, 404, 409, 429, 500, 503 | application/json                            |
-| errors.SDKError                             | 4XX, 5XX                                    | \*/\*                                       |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |

@@ -5,10 +5,12 @@
 import { CodatSyncPayablesCore } from "../core.js";
 import { encodeJSON, encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import { CodatSyncPayablesError } from "../sdk/models/errors/codatsyncpayableserror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -17,10 +19,11 @@ import {
   UnexpectedClientError,
 } from "../sdk/models/errors/httpclienterrors.js";
 import * as errors from "../sdk/models/errors/index.js";
-import { SDKError } from "../sdk/models/errors/sdkerror.js";
+import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -31,22 +34,51 @@ import { Result } from "../sdk/types/fp.js";
  *
  * [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
  */
-export async function suppliersCreate(
+export function suppliersCreate(
+  client: CodatSyncPayablesCore,
+  request: operations.CreateSupplierRequest,
+  options?: RequestOptions,
+): APIPromise<
+  Result<
+    shared.Supplier,
+    | errors.ErrorMessage
+    | CodatSyncPayablesError
+    | ResponseValidationError
+    | ConnectionError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
+  >
+> {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
   client: CodatSyncPayablesCore,
   request: operations.CreateSupplierRequest,
   options?: RequestOptions,
 ): Promise<
-  Result<
-    shared.Supplier,
-    | errors.ErrorMessage
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
-    | RequestAbortedError
-    | RequestTimeoutError
-    | ConnectionError
-  >
+  [
+    Result<
+      shared.Supplier,
+      | errors.ErrorMessage
+      | CodatSyncPayablesError
+      | ResponseValidationError
+      | ConnectionError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
+    >,
+    APICall,
+  ]
 > {
   const parsed = safeParse(
     request,
@@ -54,7 +86,7 @@ export async function suppliersCreate(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = encodeJSON("body", payload.supplierPrototype, { explode: true });
@@ -74,7 +106,7 @@ export async function suppliersCreate(
     "/companies/{companyId}/connections/{connectionId}/payables/suppliers",
   )(pathParams);
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
     "Idempotency-Key": encodeSimple(
@@ -82,15 +114,17 @@ export async function suppliersCreate(
       payload["Idempotency-Key"],
       { explode: false, charEncoding: "none" },
     ),
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "create-supplier",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 
@@ -114,13 +148,15 @@ export async function suppliersCreate(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "POST",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -142,7 +178,7 @@ export async function suppliersCreate(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -153,24 +189,27 @@ export async function suppliersCreate(
   const [result] = await M.match<
     shared.Supplier,
     | errors.ErrorMessage
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | CodatSyncPayablesError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(201, shared.Supplier$inboundSchema),
     M.jsonErr(
-      [400, 401, 402, 403, 404, 429, 500, 503],
+      [400, 401, 402, 403, 404, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    M.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields });
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

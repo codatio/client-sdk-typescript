@@ -30,10 +30,7 @@ bun add @codat/sync-for-payables
 ### Yarn
 
 ```bash
-yarn add @codat/sync-for-payables zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add @codat/sync-for-payables
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -52,13 +49,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -91,11 +86,11 @@ run();
 * [listAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
 * [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
 
-
 ### [companies](docs/sdks/companies/README.md)
 
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [create](docs/sdks/companies/README.md#create) - Create company
+* [replace](docs/sdks/companies/README.md#replace) - Replace company
 * [update](docs/sdks/companies/README.md#update) - Update company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [get](docs/sdks/companies/README.md#get) - Get company
@@ -123,11 +118,11 @@ run();
 <!-- Start Summary [summary] -->
 ## Summary
 
-Bill pay kit: The API reference for the Bill Pay kit. 
+Bill pay (synchronous solution): The API reference for the synchronous Bill Pay solution. 
 
-The bill pay kit is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
+The synchronous Bill Pay solution is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
 
-[Explore product](https://docs.codat.io/payables/bill-pay-kit) | [See OpenAPI spec](https://github.com/codatio/oas)
+[Explore solution](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 ---
 ## Supported Integrations
@@ -137,7 +132,9 @@ The bill pay kit is an API and a set of supporting tools designed to integrate a
 | FreeAgent                     | Yes       |
 | QuickBooks Online             | Yes       |
 | Oracle NetSuite               | Yes       |
+| Sage Intacct                  | Yes       |
 | Xero                          | Yes       |
+| Zoho Books                    | Yes       |
 
 ---
 <!-- Start Codat Tags Table -->
@@ -157,19 +154,24 @@ The bill pay kit is an API and a set of supporting tools designed to integrate a
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+  * [SDK Installation](#sdk-installation)
+  * [Example Usage](#example-usage)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Supported Integrations](#supported-integrations)
+  * [Endpoints](#endpoints)
+  * [Requirements](#requirements)
+  * [Standalone functions](#standalone-functions)
+  * [File uploads](#file-uploads)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Debugging](#debugging)
+  * [Support](#support)
 
-* [SDK Installation](#sdk-installation)
-* [Requirements](#requirements)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Standalone functions](#standalone-functions)
-* [File uploads](#file-uploads)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start Requirements [requirements] -->
@@ -206,6 +208,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
 - [`companyInformationGet`](docs/sdks/companyinformation/README.md#get) - Get company information
 - [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
@@ -244,10 +247,9 @@ async function run() {
   const result = await codatSyncPayables.bills.uploadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -271,10 +273,9 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   }, {
     retries: {
       strategy: "backoff",
@@ -288,7 +289,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -316,13 +316,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -334,64 +332,50 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. By default, an API error will throw a `errors.SDKError`.
+[`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-If a HTTP request fails, an operation my also throw an error from the `sdk/models/errors/httpclienterrors.ts` module:
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
-
-In addition, when custom error responses are specified for an operation, the SDK may throw their associated Error type. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation. For example, the `list` method may throw the following errors:
-
-| Error Type          | Status Code                            | Content Type     |
-| ------------------- | -------------------------------------- | ---------------- |
-| errors.ErrorMessage | 400, 401, 402, 403, 404, 429, 500, 503 | application/json |
-| errors.SDKError     | 4XX, 5XX                               | \*/\*            |
-
+### Example
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import {
-  ErrorMessage,
-  SDKValidationError,
-} from "@codat/sync-for-payables/sdk/models/errors";
+import * as errors from "@codat/sync-for-payables/sdk/models/errors";
 
 const codatSyncPayables = new CodatSyncPayables({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-  let result;
   try {
-    result = await codatSyncPayables.companies.list({
-      page: 1,
-      pageSize: 100,
+    const result = await codatSyncPayables.companies.list({
       query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
       orderBy: "-modifiedDate",
+      tags: "region=uk && team=invoice-finance",
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      case (err instanceof SDKValidationError): {
-        // Validation errors can be pretty-printed
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof ErrorMessage): {
-        // Handle err.data$: ErrorMessageData
-        console.error(err);
-        return;
-      }
-      default: {
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.CodatSyncPayablesError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ErrorMessage) {
+        console.log(error.data$.statusCode); // number
+        console.log(error.data$.service); // string
+        console.log(error.data$.error); // string
+        console.log(error.data$.correlationId); // string
+        console.log(error.data$.validation); // shared.ErrorValidation
       }
     }
   }
@@ -401,7 +385,27 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+**Primary errors:**
+* [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts): The base class for HTTP error responses.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): Your `query` parameter was not correctly formed.
+
+<details><summary>Less common errors (6)</summary>
+
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts)**:
+* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -409,7 +413,7 @@ Validation errors can also occur when either method arguments or data returned f
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -420,13 +424,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -480,7 +482,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new CodatSyncPayables({ httpClient });
+const sdk = new CodatSyncPayables({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -505,13 +507,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
