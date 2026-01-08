@@ -6,10 +6,11 @@
 import { PushOptionProperty } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "Object",
-  displayName: "Florian.Champlin60",
-  description: "Horizontal eco-centric local area network",
-  required: false,
+  type: "Array",
+  displayName: "Fannie10",
+  description:
+    "sonar very sympathetically notwithstanding alarmed modulo grizzled",
+  required: true,
 };
 ```
 

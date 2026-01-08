@@ -7,7 +7,7 @@ Current journal status.
 ```typescript
 import { JournalStatus } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: JournalStatus = "Archived";
+let value: JournalStatus = "Active";
 ```
 
 ## Values

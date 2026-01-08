@@ -6,7 +6,7 @@
 import { BillPaymentLineLink } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: BillPaymentLineLink = {
-  type: "Unlinked",
+  type: "BillPayment",
 };
 ```
 

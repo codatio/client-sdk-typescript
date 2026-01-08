@@ -24,6 +24,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-bill-payments" method="get" path="/companies/{companyId}/data/billPayments" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -34,14 +35,11 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.billPayments.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -64,20 +62,15 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await billPaymentsList(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -98,11 +91,11 @@ run();
 
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| errors.ErrorMessage                 | 400,401,402,403,404,409,429,500,503 | application/json                    |
-| errors.SDKError                     | 4xx-5xx                             | */*                                 |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -117,6 +110,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-bill-payments" method="get" path="/companies/{companyId}/data/billPayments/{billPaymentId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -127,11 +121,10 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.billPayments.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    billPaymentId: "<value>",
+    billPaymentId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -154,17 +147,14 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await billPaymentsGet(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    billPaymentId: "<value>",
+    billPaymentId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -185,11 +175,11 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 401,402,403,404,409,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
-
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 401, 402, 403, 404, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## delete
 
@@ -226,6 +216,7 @@ Integrations that support soft delete do not permanently delete the object in th
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-billPayment" method="delete" path="/companies/{companyId}/connections/{connectionId}/push/billPayments/{billPaymentId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -237,11 +228,10 @@ async function run() {
   const result = await codatSyncPayables.billPayments.delete({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billPaymentId: "<value>",
+    billPaymentId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -265,17 +255,14 @@ async function run() {
   const res = await billPaymentsDelete(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billPaymentId: "<value>",
+    billPaymentId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -296,11 +283,11 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## getCreateModel
 
@@ -308,7 +295,7 @@ The *Get create bill payment model* endpoint returns the expected data for the r
 
 [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
@@ -317,6 +304,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-billPayment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/billPayments" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -329,9 +317,8 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -356,15 +343,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsGetCreateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -385,11 +369,11 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## create
 
@@ -397,15 +381,13 @@ The *Create bill payment* endpoint creates a new [bill payment](https://docs.cod
 
 [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-billPayments-model).
 
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
-
-
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bill-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/billPayments" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
@@ -421,7 +403,6 @@ async function run() {
     billPayment: {
       modifiedDate: "2023-01-05T12:33:25.339Z",
       sourceModifiedDate: "2023-01-05T12:33:25.339Z",
-      id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       supplierRef: {
         id: "SUPP1",
         supplierName: "string",
@@ -459,9 +440,8 @@ async function run() {
       },
     },
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -489,7 +469,6 @@ async function run() {
     billPayment: {
       modifiedDate: "2023-01-05T12:33:25.339Z",
       sourceModifiedDate: "2023-01-05T12:33:25.339Z",
-      id: "3d5a8e00-d108-4045-8823-7f342676cffa",
       supplierRef: {
         id: "SUPP1",
         supplierName: "string",
@@ -527,15 +506,12 @@ async function run() {
       },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -556,7 +532,8 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

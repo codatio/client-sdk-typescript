@@ -24,6 +24,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -34,14 +35,11 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.billCreditNotes.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -64,20 +62,15 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await billCreditNotesList(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billCreditNotesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -98,11 +91,11 @@ run();
 
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| errors.ErrorMessage                 | 400,401,402,403,404,409,429,500,503 | application/json                    |
-| errors.SDKError                     | 4xx-5xx                             | */*                                 |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -117,6 +110,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -127,11 +121,10 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.billCreditNotes.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    billCreditNoteId: "<value>",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -154,17 +147,14 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await billCreditNotesGet(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    billCreditNoteId: "<value>",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billCreditNotesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -185,11 +175,11 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 401,402,403,404,409,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
-
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 401, 402, 403, 404, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## getCreateUpdateModel
 
@@ -197,7 +187,7 @@ The *Get create/update bill credit note model* endpoint returns the expected dat
 
 [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
@@ -206,6 +196,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-update-billCreditNote-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/billCreditNotes" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -218,9 +209,8 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -245,15 +235,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billCreditNotesGetCreateUpdateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -274,11 +261,11 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## create
 
@@ -286,7 +273,7 @@ The *Create bill credit note* endpoint creates a new [bill credit note](https://
 
 [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model).
 
@@ -295,6 +282,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bill-credit-note" method="post" path="/companies/{companyId}/connections/{connectionId}/push/billCreditNotes" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
@@ -308,20 +296,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billCreditNote: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "1509398f-98e2-436d-8a5d-c042e0c74ffc",
       billCreditNoteNumber: "309",
       supplierRef: {
         id: "87",
         supplierName: "Ankunding Inc",
       },
-      withholdingTax: [
-        {
-          name: "<value>",
-          amount: new Decimal("4865.89"),
-        },
-      ],
+      withholdingTax: [],
       totalAmount: new Decimal("100"),
       totalDiscount: new Decimal("0"),
       subTotal: new Decimal("100"),
@@ -330,35 +310,36 @@ async function run() {
       remainingCredit: new Decimal("100"),
       status: "Submitted",
       issueDate: "2023-04-20T00:00:00",
-      allocatedOnDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
       currencyRate: new Decimal("1.242097"),
       lineItems: [
-  
-      ],
-      paymentAllocations: [
         {
-          payment: {
-            currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00Z",
+          description: "",
+          unitAmount: new Decimal("100"),
+          quantity: new Decimal("1"),
+          subTotal: new Decimal("100"),
+          taxAmount: new Decimal("0"),
+          totalAmount: new Decimal("100"),
+          accountRef: {
+            id: "7",
           },
-          allocation: {
-            currency: "GBP",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
+          taxRateRef: {
+            id: "NON",
+            name: "NON",
+            effectiveTaxRate: new Decimal("0"),
+          },
+          trackingCategoryRefs: [],
+          tracking: {
+            categoryRefs: [],
+            isBilledTo: "Unknown",
+            isRebilledTo: "NotApplicable",
           },
         },
       ],
-      createdFromRefs: [
-        {
-          dataType: "transfer",
-        },
-      ],
-      note: "Bill Credit Note with 1 line items, totaling 805.78",
     },
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -384,20 +365,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billCreditNote: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "1509398f-98e2-436d-8a5d-c042e0c74ffc",
       billCreditNoteNumber: "309",
       supplierRef: {
         id: "87",
         supplierName: "Ankunding Inc",
       },
-      withholdingTax: [
-        {
-          name: "<value>",
-          amount: new Decimal("8165.88"),
-        },
-      ],
+      withholdingTax: [],
       totalAmount: new Decimal("100"),
       totalDiscount: new Decimal("0"),
       subTotal: new Decimal("100"),
@@ -406,41 +379,40 @@ async function run() {
       remainingCredit: new Decimal("100"),
       status: "Submitted",
       issueDate: "2023-04-20T00:00:00",
-      allocatedOnDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
       currencyRate: new Decimal("1.242097"),
       lineItems: [
-  
-      ],
-      paymentAllocations: [
         {
-          payment: {
-            currency: "USD",
-            paidOnDate: "2022-10-23T00:00:00Z",
+          description: "",
+          unitAmount: new Decimal("100"),
+          quantity: new Decimal("1"),
+          subTotal: new Decimal("100"),
+          taxAmount: new Decimal("0"),
+          totalAmount: new Decimal("100"),
+          accountRef: {
+            id: "7",
           },
-          allocation: {
-            currency: "EUR",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
+          taxRateRef: {
+            id: "NON",
+            name: "NON",
+            effectiveTaxRate: new Decimal("0"),
+          },
+          trackingCategoryRefs: [],
+          tracking: {
+            categoryRefs: [],
+            isBilledTo: "Unknown",
+            isRebilledTo: "NotApplicable",
           },
         },
       ],
-      createdFromRefs: [
-        {
-          dataType: "invoice",
-        },
-      ],
-      note: "Bill Credit Note with 1 line items, totaling 805.78",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billCreditNotesCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -461,11 +433,11 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
-
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## update
 
@@ -473,7 +445,7 @@ The *Update bill credit note* endpoint updates an existing [bill credit note](ht
 
 [Bill credit notes](https://docs.codat.io/sync-for-payables-api#/schemas/BillCreditNote) are issued by a supplier for the purpose of recording credit.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bill credit note model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-billCreditNotes-model).
 
@@ -482,6 +454,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update-bill-credit-note" method="put" path="/companies/{companyId}/connections/{connectionId}/push/billCreditNotes/{billCreditNoteId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
@@ -494,10 +467,8 @@ async function run() {
   const result = await codatSyncPayables.billCreditNotes.update({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billCreditNoteId: "<value>",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billCreditNote: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       id: "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
       billCreditNoteNumber: "14763237",
       supplierRef: {
@@ -512,34 +483,97 @@ async function run() {
       remainingCredit: new Decimal("693"),
       status: "Submitted",
       issueDate: "2019-02-18T16:03:07.268Z",
-      allocatedOnDate: "2022-10-23T00:00:00Z",
       currency: "USD",
       lineItems: [
-  
-      ],
-      paymentAllocations: [
         {
-          payment: {
-            currency: "GBP",
-            paidOnDate: "2022-10-23T00:00:00Z",
+          description: "AcmeMagnet",
+          unitAmount: new Decimal("25"),
+          quantity: new Decimal("4"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("100"),
+          taxAmount: new Decimal("10"),
+          totalAmount: new Decimal("110"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
           },
-          allocation: {
-            currency: "EUR",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
+          taxRateRef: {
+            id: "6c88aff3-7cb9-4980-a3d3-443e72e02498",
+          },
+          itemRef: {
+            id: "3",
+          },
+          createdFromLineRef: {},
+          trackingCategoryRefs: [
+            {
+              id: "department_1",
+              name: "ACMERockets",
+            },
+            {
+              id: "costcode_2",
+              name: "ACM2-ACMESigns",
+            },
+          ],
+        },
+        {
+          description: "ACMEDisintegratingPistol",
+          unitAmount: new Decimal("25"),
+          quantity: new Decimal("3"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("75"),
+          taxAmount: new Decimal("7.5"),
+          totalAmount: new Decimal("82.5"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
+          },
+          taxRateRef: {
+            id: "6c88aff3-7cb9-4980-a3d3-443e72e02498",
+          },
+          itemRef: {
+            id: "3abf0883-03f7-44c6-bc15-1372522d25e1",
           },
         },
-      ],
-      createdFromRefs: [
         {
-          dataType: "accountTransaction",
+          description: "ACMEWhippedCreamDispenser",
+          unitAmount: new Decimal("52"),
+          quantity: new Decimal("6"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("312"),
+          taxAmount: new Decimal("31.2"),
+          totalAmount: new Decimal("343.2"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
+          },
+          taxRateRef: {
+            id: "6c88aff3-7cb9-4980-a3d3-443e72e02498",
+          },
+          itemRef: {
+            id: "3691f3d9-0ff7-4358-8a93-bed31c1b4b03",
+          },
+        },
+        {
+          description: "ACMEJetPropelledPogoStick",
+          unitAmount: new Decimal("130"),
+          quantity: new Decimal("1"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("130"),
+          taxAmount: new Decimal("27.3"),
+          totalAmount: new Decimal("157.3"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
+          },
+          taxRateRef: {
+            id: "d606732b-db18-44d7-823b-7f15f42c32ea",
+          },
+          itemRef: {
+            id: "075410d4-7edc-4936-ba52-9e1e43cbe300",
+          },
         },
       ],
       note: "Track separately",
     },
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -564,10 +598,8 @@ async function run() {
   const res = await billCreditNotesUpdate(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billCreditNoteId: "<value>",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billCreditNote: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       id: "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
       billCreditNoteNumber: "14763237",
       supplierRef: {
@@ -582,40 +614,101 @@ async function run() {
       remainingCredit: new Decimal("693"),
       status: "Submitted",
       issueDate: "2019-02-18T16:03:07.268Z",
-      allocatedOnDate: "2022-10-23T00:00:00Z",
       currency: "USD",
       lineItems: [
-  
-      ],
-      paymentAllocations: [
         {
-          payment: {
-            currency: "EUR",
-            paidOnDate: "2022-10-23T00:00:00Z",
+          description: "AcmeMagnet",
+          unitAmount: new Decimal("25"),
+          quantity: new Decimal("4"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("100"),
+          taxAmount: new Decimal("10"),
+          totalAmount: new Decimal("110"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
           },
-          allocation: {
-            currency: "USD",
-            allocatedOnDate: "2022-10-23T00:00:00Z",
+          taxRateRef: {
+            id: "6c88aff3-7cb9-4980-a3d3-443e72e02498",
+          },
+          itemRef: {
+            id: "3",
+          },
+          createdFromLineRef: {},
+          trackingCategoryRefs: [
+            {
+              id: "department_1",
+              name: "ACMERockets",
+            },
+            {
+              id: "costcode_2",
+              name: "ACM2-ACMESigns",
+            },
+          ],
+        },
+        {
+          description: "ACMEDisintegratingPistol",
+          unitAmount: new Decimal("25"),
+          quantity: new Decimal("3"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("75"),
+          taxAmount: new Decimal("7.5"),
+          totalAmount: new Decimal("82.5"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
+          },
+          taxRateRef: {
+            id: "6c88aff3-7cb9-4980-a3d3-443e72e02498",
+          },
+          itemRef: {
+            id: "3abf0883-03f7-44c6-bc15-1372522d25e1",
           },
         },
-      ],
-      createdFromRefs: [
         {
-          dataType: "invoice",
+          description: "ACMEWhippedCreamDispenser",
+          unitAmount: new Decimal("52"),
+          quantity: new Decimal("6"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("312"),
+          taxAmount: new Decimal("31.2"),
+          totalAmount: new Decimal("343.2"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
+          },
+          taxRateRef: {
+            id: "6c88aff3-7cb9-4980-a3d3-443e72e02498",
+          },
+          itemRef: {
+            id: "3691f3d9-0ff7-4358-8a93-bed31c1b4b03",
+          },
+        },
+        {
+          description: "ACMEJetPropelledPogoStick",
+          unitAmount: new Decimal("130"),
+          quantity: new Decimal("1"),
+          discountAmount: new Decimal("0"),
+          subTotal: new Decimal("130"),
+          taxAmount: new Decimal("27.3"),
+          totalAmount: new Decimal("157.3"),
+          accountRef: {
+            id: "3f267b10-757d-44c0-bef9-20f70cc8fbe3",
+          },
+          taxRateRef: {
+            id: "d606732b-db18-44d7-823b-7f15f42c32ea",
+          },
+          itemRef: {
+            id: "075410d4-7edc-4936-ba52-9e1e43cbe300",
+          },
         },
       ],
       note: "Track separately",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billCreditNotesUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -636,7 +729,8 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

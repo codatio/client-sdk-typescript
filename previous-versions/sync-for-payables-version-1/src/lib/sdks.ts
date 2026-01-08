@@ -42,22 +42,29 @@ export type RequestOptions = {
    */
   retryCodes?: string[];
   /**
+   * Overrides the base server URL that will be used by an operation.
+   */
+  serverURL?: string | URL;
+  /**
+   * @deprecated `fetchOptions` has been flattened into `RequestOptions`.
+   *
    * Sets various request options on the `fetch` call made by an SDK method.
    *
    * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options|Request}
    */
   fetchOptions?: Omit<RequestInit, "method" | "body">;
-};
+} & Omit<RequestInit, "method" | "body">;
 
 type RequestConfig = {
   method: string;
   path: string;
-  baseURL?: string | URL;
+  baseURL?: string | URL | undefined;
   query?: string;
   body?: RequestInit["body"];
   headers?: HeadersInit;
   security?: SecurityState | null;
   uaHeader?: string;
+  userAgent?: string | undefined;
   timeoutMs?: number;
 };
 
@@ -71,11 +78,11 @@ const isBrowserLike = webWorkerLike
   || (typeof window === "object" && typeof window.document !== "undefined");
 
 export class ClientSDK {
-  private readonly httpClient: HTTPClient;
-  protected readonly baseURL: URL | null;
-  protected readonly hooks$: SDKHooks;
-  protected readonly logger?: Logger | undefined;
-  public readonly options$: SDKOptions & { hooks?: SDKHooks };
+  readonly #httpClient: HTTPClient;
+  readonly #hooks: SDKHooks;
+  readonly #logger?: Logger | undefined;
+  public readonly _baseURL: URL | null;
+  public readonly _options: SDKOptions & { hooks?: SDKHooks };
 
   constructor(options: SDKOptions = {}) {
     const opt = options as unknown;
@@ -85,33 +92,35 @@ export class ClientSDK {
       && "hooks" in opt
       && opt.hooks instanceof SDKHooks
     ) {
-      this.hooks$ = opt.hooks;
+      this.#hooks = opt.hooks;
     } else {
-      this.hooks$ = new SDKHooks();
+      this.#hooks = new SDKHooks();
     }
-    this.options$ = { ...options, hooks: this.hooks$ };
-
     const url = serverURLFromOptions(options);
     if (url) {
       url.pathname = url.pathname.replace(/\/+$/, "") + "/";
     }
-    const { baseURL, client } = this.hooks$.sdkInit({
+
+    const { baseURL, client } = this.#hooks.sdkInit({
       baseURL: url,
       client: options.httpClient || new HTTPClient(),
     });
-    this.baseURL = baseURL;
-    this.httpClient = client;
-    this.logger = options.debugLogger;
+    this._baseURL = baseURL;
+    this.#httpClient = client;
+
+    this._options = { ...options, hooks: this.#hooks };
+
+    this.#logger = this._options.debugLogger;
   }
 
-  public createRequest$(
+  public _createRequest(
     context: HookContext,
     conf: RequestConfig,
     options?: RequestOptions,
   ): Result<Request, InvalidRequestError | UnexpectedClientError> {
     const { method, path, query, headers: opHeaders, security } = conf;
 
-    const base = conf.baseURL ?? this.baseURL;
+    const base = conf.baseURL ?? this._baseURL;
     if (!base) {
       return ERR(new InvalidRequestError("No base URL provided for operation"));
     }
@@ -119,6 +128,7 @@ export class ClientSDK {
     const inputURL = new URL(path, reqURL);
 
     if (path) {
+      reqURL.pathname += reqURL.pathname.endsWith("/") ? "" : "/";
       reqURL.pathname += inputURL.pathname.replace(/^\/+/, "");
     }
 
@@ -126,7 +136,10 @@ export class ClientSDK {
 
     const secQuery: string[] = [];
     for (const [k, v] of Object.entries(security?.queryParams || {})) {
-      secQuery.push(encodeForm(k, v, { charEncoding: "percent" }));
+      const q = encodeForm(k, v, { charEncoding: "percent" });
+      if (typeof q !== "undefined") {
+        secQuery.push(q);
+      }
     }
     if (secQuery.length) {
       finalQuery += `&${secQuery.join("&")}`;
@@ -160,7 +173,9 @@ export class ClientSDK {
     cookie = cookie.startsWith("; ") ? cookie.slice(2) : cookie;
     headers.set("cookie", cookie);
 
-    const userHeaders = new Headers(options?.fetchOptions?.headers);
+    const userHeaders = new Headers(
+      options?.headers ?? options?.fetchOptions?.headers,
+    );
     for (const [k, v] of userHeaders) {
       headers.set(k, v);
     }
@@ -168,34 +183,28 @@ export class ClientSDK {
     // Only set user agent header in non-browser-like environments since CORS
     // policy disallows setting it in browsers e.g. Chrome throws an error.
     if (!isBrowserLike) {
-      headers.set(conf.uaHeader ?? "user-agent", SDK_METADATA.userAgent);
+      headers.set(
+        conf.uaHeader ?? "user-agent",
+        conf.userAgent ?? SDK_METADATA.userAgent,
+      );
     }
 
-    let fetchOptions = options?.fetchOptions;
+    const fetchOptions: Omit<RequestInit, "method" | "body"> = {
+      ...options?.fetchOptions,
+      ...options,
+    };
     if (!fetchOptions?.signal && conf.timeoutMs && conf.timeoutMs > 0) {
       const timeoutSignal = AbortSignal.timeout(conf.timeoutMs);
-      if (!fetchOptions) {
-        fetchOptions = { signal: timeoutSignal };
-      } else {
-        fetchOptions.signal = timeoutSignal;
-      }
+      fetchOptions.signal = timeoutSignal;
     }
 
     if (conf.body instanceof ReadableStream) {
-      if (!fetchOptions) {
-        fetchOptions = {
-          // @ts-expect-error see https://github.com/node-fetch/node-fetch/issues/1769
-          duplex: "half",
-        };
-      } else {
-        // @ts-expect-error see https://github.com/node-fetch/node-fetch/issues/1769
-        fetchOptions.duplex = "half";
-      }
+      Object.assign(fetchOptions, { duplex: "half" });
     }
 
     let input;
     try {
-      input = this.hooks$.beforeCreateRequest(context, {
+      input = this.#hooks.beforeCreateRequest(context, {
         url: reqURL,
         options: {
           ...fetchOptions,
@@ -215,13 +224,13 @@ export class ClientSDK {
     return OK(new Request(input.url, input.options));
   }
 
-  public async do$(
+  public async _do(
     request: Request,
     options: {
       context: HookContext;
       errorCodes: number | string | (number | string)[];
-      retryConfig?: RetryConfig | undefined;
-      retryCodes?: string[] | undefined;
+      retryConfig: RetryConfig;
+      retryCodes: string[];
     },
   ): Promise<
     Result<
@@ -233,34 +242,38 @@ export class ClientSDK {
     >
   > {
     const { context, errorCodes } = options;
-    const retryConfig = options.retryConfig || { strategy: "none" };
-    const retryCodes = options.retryCodes || [];
 
     return retry(
       async () => {
-        const req = await this.hooks$.beforeRequest(context, request.clone());
-        await logRequest(this.logger, req).catch((e) =>
-          this.logger?.log("Failed to log request:", e)
+        const req = await this.#hooks.beforeRequest(context, request.clone());
+        await logRequest(this.#logger, req).catch((e) =>
+          this.#logger?.log("Failed to log request:", e)
         );
 
-        let response = await this.httpClient.request(req);
+        let response = await this.#httpClient.request(req);
 
-        if (matchStatusCode(response, errorCodes)) {
-          const result = await this.hooks$.afterError(context, response, null);
-          if (result.error) {
-            throw result.error;
+        try {
+          if (matchStatusCode(response, errorCodes)) {
+            const result = await this.#hooks.afterError(
+              context,
+              response,
+              null,
+            );
+            if (result.error) {
+              throw result.error;
+            }
+            response = result.response || response;
+          } else {
+            response = await this.#hooks.afterSuccess(context, response);
           }
-          response = result.response || response;
-        } else {
-          response = await this.hooks$.afterSuccess(context, response);
+        } finally {
+          await logResponse(this.#logger, response, req)
+            .catch(e => this.#logger?.log("Failed to log response:", e));
         }
-
-        await logResponse(this.logger, response, req)
-          .catch(e => this.logger?.log("Failed to log response:", e));
 
         return response;
       },
-      { config: retryConfig, statusCodes: retryCodes },
+      { config: options.retryConfig, statusCodes: options.retryCodes },
     ).then(
       (r) => OK(r),
       (err) => {
@@ -291,7 +304,9 @@ export class ClientSDK {
   }
 }
 
-const jsonLikeContentTypeRE = /^application\/(?:.{0,100}\+)?json/;
+const jsonLikeContentTypeRE = /(application|text)\/.*?\+*json.*/;
+const jsonlLikeContentTypeRE =
+  /(application|text)\/(.*?\+*\bjsonl\b.*|.*?\+*\bx-ndjson\b.*)/;
 async function logRequest(logger: Logger | undefined, req: Request) {
   if (!logger) {
     return;
@@ -357,8 +372,12 @@ async function logResponse(
   logger.group("Body:");
   switch (true) {
     case matchContentType(res, "application/json")
-      || jsonLikeContentTypeRE.test(ct):
+      || jsonLikeContentTypeRE.test(ct) && !jsonlLikeContentTypeRE.test(ct):
       logger.log(await res.clone().json());
+      break;
+    case matchContentType(res, "application/jsonl")
+      || jsonlLikeContentTypeRE.test(ct):
+      logger.log(await res.clone().text());
       break;
     case matchContentType(res, "text/event-stream"):
       logger.log(`<${contentType}>`);

@@ -6,17 +6,6 @@
 import { TrackingCategories } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: TrackingCategories = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "string",
-      name: "string",
-      status: "Unknown",
-      parentId: "string",
-      hasChildren: true,
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

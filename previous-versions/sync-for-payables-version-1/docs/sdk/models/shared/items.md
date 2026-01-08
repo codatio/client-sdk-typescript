@@ -8,7 +8,7 @@ import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
 
 let value: Items = {
   name: "<value>",
-  amount: new Decimal("8817.36"),
+  amount: new Decimal("6638.92"),
 };
 ```
 

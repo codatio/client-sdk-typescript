@@ -57,6 +57,7 @@ export * from "./listtaxrates.js";
 export * from "./listtrackingcategories.js";
 export * from "./refreshalldatatypes.js";
 export * from "./refreshdatatype.js";
+export * from "./replacecompany.js";
 export * from "./unlinkconnection.js";
 export * from "./updatebill.js";
 export * from "./updatebillcreditnote.js";

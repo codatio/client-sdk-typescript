@@ -7,7 +7,7 @@ The option type.
 ```typescript
 import { PushOptionType } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: PushOptionType = "Object";
+let value: PushOptionType = "DateTime";
 ```
 
 ## Values

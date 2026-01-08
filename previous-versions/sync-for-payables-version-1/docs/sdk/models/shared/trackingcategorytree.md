@@ -10,7 +10,12 @@ import { TrackingCategoryTree } from "@codat/sync-for-payables-version-1/sdk/mod
 let value: TrackingCategoryTree = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
-  subCategories: [],
+  subCategories: [
+    {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+    },
+  ],
 };
 ```
 
@@ -18,8 +23,8 @@ let value: TrackingCategoryTree = {
 
 | Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         | Example                                                                             |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `modifiedDate`                                                                      | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 | 2022-10-23 00:00:00 +0000 UTC                                                       |
-| `sourceModifiedDate`                                                                | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 | 2022-10-23 00:00:00 +0000 UTC                                                       |
+| `modifiedDate`                                                                      | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 | 2022-10-23T00:00:00Z                                                                |
+| `sourceModifiedDate`                                                                | *string*                                                                            | :heavy_minus_sign:                                                                  | N/A                                                                                 | 2022-10-23T00:00:00Z                                                                |
 | `id`                                                                                | *string*                                                                            | :heavy_minus_sign:                                                                  | The identifier for the item, unique per tracking category                           |                                                                                     |
 | `name`                                                                              | *string*                                                                            | :heavy_minus_sign:                                                                  | The name of the tracking category                                                   |                                                                                     |
 | `status`                                                                            | [shared.DefinitionStatus](../../../sdk/models/shared/definitionstatus.md)           | :heavy_minus_sign:                                                                  | Current state of the tracking category.                                             |                                                                                     |

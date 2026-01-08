@@ -7,7 +7,7 @@ Allowed name of the 'dataType'.
 ```typescript
 import { ZeroDataType } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: ZeroDataType = "bills";
+let value: ZeroDataType = "purchaseOrders";
 ```
 
 ## Values

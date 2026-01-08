@@ -7,7 +7,7 @@ Current state of the bill.
 ```typescript
 import { BillStatus } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: BillStatus = "Unknown";
+let value: BillStatus = "Open";
 ```
 
 ## Values

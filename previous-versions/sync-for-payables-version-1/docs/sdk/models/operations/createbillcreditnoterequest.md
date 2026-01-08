@@ -4,50 +4,10 @@
 
 ```typescript
 import { CreateBillCreditNoteRequest } from "@codat/sync-for-payables-version-1/sdk/models/operations";
-import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
 
 let value: CreateBillCreditNoteRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  billCreditNote: {
-    modifiedDate: "2022-10-23T00:00:00Z",
-    sourceModifiedDate: "2022-10-23T00:00:00Z",
-    id: "6a0e9dfb-87b0-47d3-aaaf-9753ae9e757d",
-    billCreditNoteNumber: "14763237",
-    supplierRef: {
-      id: "67C6A7A1-5E84-4AC4-B950-24A114E379D0",
-      supplierName: "Chin's Gas and Oil",
-    },
-    totalAmount: new Decimal("693"),
-    totalDiscount: new Decimal("0"),
-    subTotal: new Decimal("805.78"),
-    totalTaxAmount: new Decimal("0"),
-    discountPercentage: new Decimal("0"),
-    remainingCredit: new Decimal("693"),
-    status: "Submitted",
-    issueDate: "2019-02-18T16:03:07.268Z",
-    allocatedOnDate: "2022-10-23T00:00:00Z",
-    currency: "USD",
-    lineItems: [],
-    paymentAllocations: [
-      {
-        payment: {
-          currency: "EUR",
-          paidOnDate: "2022-10-23T00:00:00Z",
-        },
-        allocation: {
-          currency: "GBP",
-          allocatedOnDate: "2022-10-23T00:00:00Z",
-        },
-      },
-    ],
-    createdFromRefs: [
-      {
-        dataType: "invoice",
-      },
-    ],
-    note: "Track separately",
-  },
 };
 ```
 

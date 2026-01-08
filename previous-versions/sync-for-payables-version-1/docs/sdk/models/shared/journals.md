@@ -6,13 +6,6 @@
 import { Journals } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: Journals = {
-  results: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      createdOn: "2022-10-23T00:00:00Z",
-    },
-  ],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

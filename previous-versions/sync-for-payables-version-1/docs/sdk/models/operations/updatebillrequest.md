@@ -4,35 +4,11 @@
 
 ```typescript
 import { UpdateBillRequest } from "@codat/sync-for-payables-version-1/sdk/models/operations";
-import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
 
 let value: UpdateBillRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  billId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
-  bill: {
-    modifiedDate: "2022-10-23T00:00:00Z",
-    sourceModifiedDate: "2022-10-23T00:00:00Z",
-    issueDate: "2022-10-23T00:00:00Z",
-    dueDate: "2022-10-23T00:00:00Z",
-    currency: "GBP",
-    status: "Paid",
-    subTotal: new Decimal("2384.13"),
-    taxAmount: new Decimal("8906.53"),
-    totalAmount: new Decimal("5145.13"),
-    paymentAllocations: [
-      {
-        payment: {
-          currency: "USD",
-          paidOnDate: "2022-10-23T00:00:00Z",
-        },
-        allocation: {
-          currency: "USD",
-          allocatedOnDate: "2022-10-23T00:00:00Z",
-        },
-      },
-    ],
-  },
+  billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
 };
 ```
 

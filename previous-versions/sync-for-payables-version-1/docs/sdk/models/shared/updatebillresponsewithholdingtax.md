@@ -8,7 +8,7 @@ import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
 
 let value: UpdateBillResponseWithholdingTax = {
   name: "<value>",
-  amount: new Decimal("1811.51"),
+  amount: new Decimal("7610.73"),
 };
 ```
 

@@ -6,8 +6,8 @@
 import { PushOption } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: PushOption = {
-  type: "Array",
-  displayName: "Waino_Orn",
+  type: "MultiPart",
+  displayName: "Travis.Ebert-Fahey",
   required: false,
 };
 ```

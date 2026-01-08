@@ -10,7 +10,7 @@ For example, if a journal entry is generated based on an invoice, this property 
 import { CreateBillCreditNoteResponseRecordReference } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: CreateBillCreditNoteResponseRecordReference = {
-  dataType: "accountTransaction",
+  dataType: "journalEntry",
 };
 ```
 

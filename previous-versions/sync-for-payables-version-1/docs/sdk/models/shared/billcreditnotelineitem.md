@@ -7,8 +7,8 @@ import { BillCreditNoteLineItem } from "@codat/sync-for-payables-version-1/sdk/m
 import { Decimal } from "@codat/sync-for-payables-version-1/sdk/types";
 
 let value: BillCreditNoteLineItem = {
-  unitAmount: new Decimal("2497.96"),
-  quantity: new Decimal("5812.73"),
+  unitAmount: new Decimal("6195.07"),
+  quantity: new Decimal("2177.71"),
 };
 ```
 

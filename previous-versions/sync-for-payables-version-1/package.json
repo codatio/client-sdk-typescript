@@ -1,6 +1,6 @@
 {
   "name": "@codat/sync-for-payables-version-1",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "author": "Codat",
   "main": "./index.js",
   "sideEffects": false,
@@ -10,24 +10,22 @@
     "directory": "previous-versions/sync-for-payables-version-1"
   },
   "scripts": {
-    "lint": "eslint --max-warnings=0 src",
+    "lint": "eslint --cache --max-warnings=0 src",
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
-    "zod": ">= 3"
+    
   },
   "devDependencies": {
-    "@types/node": "^18.19.3",
-    "@typescript-eslint/eslint-plugin": "^7.7.1",
-    "@typescript-eslint/parser": "^7.7.1",
-    "eslint": "^8.57.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "typescript": "^5.4.5",
-    "zod": "^3.23.4"
+    "@eslint/js": "^9.19.0",
+    "eslint": "^9.19.0",
+    "globals": "^15.14.0",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "decimal.js": "^10.4.3"
+    "decimal.js": "^10.4.3",
+    "zod": "^3.25.0 || ^4.0.0"
   }
 }

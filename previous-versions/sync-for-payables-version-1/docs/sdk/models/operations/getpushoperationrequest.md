@@ -7,7 +7,7 @@ import { GetPushOperationRequest } from "@codat/sync-for-payables-version-1/sdk/
 
 let value: GetPushOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "da8a50ce-187f-486b-8173-d689eee9526f",
+  pushOperationKey: "14a4a880-31a4-4db5-88cb-40c00b392985",
 };
 ```
 

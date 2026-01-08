@@ -3,12 +3,14 @@
  */
 
 import { CodatSyncPayablesCore } from "../core.js";
-import { encodeFormQuery as encodeFormQuery$ } from "../lib/encodings.js";
-import * as m$ from "../lib/matchers.js";
-import * as schemas$ from "../lib/schemas.js";
+import { encodeFormQuery } from "../lib/encodings.js";
+import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
+import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import { CodatSyncPayablesError } from "../sdk/models/errors/codatsyncpayableserror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -17,88 +19,153 @@ import {
   UnexpectedClientError,
 } from "../sdk/models/errors/httpclienterrors.js";
 import * as errors from "../sdk/models/errors/index.js";
-import { SDKError } from "../sdk/models/errors/sdkerror.js";
+import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
  * List companies
  *
  * @remarks
- * The *List companies* endpoint returns a list of [companies] associated to your instances.
+ * The *List companies* endpoint returns a list of [companies](https://docs.codat.io/sync-for-payables-api#/schemas/Company) associated to your instances.
  *
  * A [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.
  * Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+ *
+ * ## Filter by tags
+ *
+ * The *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):
+ *
+ * - equals (`=`)
+ * - not equals (`!=`)
+ * - contains (`~`)
+ *
+ * For example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team:
+ * - Foreign key: `uid = {yourCustomerId}`
+ * - Region: `region != uk`
+ * - Owning team and region: `region = uk && owningTeam = invoice-finance`
  */
-export async function companiesList(
-  client$: CodatSyncPayablesCore,
-  request: operations.ListCompaniesRequest,
+export function companiesList(
+  client: CodatSyncPayablesCore,
+  request?: operations.ListCompaniesRequest | undefined,
   options?: RequestOptions,
-): Promise<
+): APIPromise<
   Result<
     shared.Companies,
     | errors.ErrorMessage
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | CodatSyncPayablesError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
-  const input$ = request;
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
 
-  const parsed$ = schemas$.safeParse(
-    input$,
-    (value$) => operations.ListCompaniesRequest$outboundSchema.parse(value$),
+async function $do(
+  client: CodatSyncPayablesCore,
+  request?: operations.ListCompaniesRequest | undefined,
+  options?: RequestOptions,
+): Promise<
+  [
+    Result<
+      shared.Companies,
+      | errors.ErrorMessage
+      | CodatSyncPayablesError
+      | ResponseValidationError
+      | ConnectionError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
+    >,
+    APICall,
+  ]
+> {
+  const parsed = safeParse(
+    request,
+    (value) =>
+      operations.ListCompaniesRequest$outboundSchema.optional().parse(value),
     "Input validation failed",
   );
-  if (!parsed$.ok) {
-    return parsed$;
+  if (!parsed.ok) {
+    return [parsed, { status: "invalid" }];
   }
-  const payload$ = parsed$.value;
-  const body$ = null;
+  const payload = parsed.value;
+  const body = null;
 
-  const path$ = pathToFunc("/companies")();
+  const path = pathToFunc("/companies")();
 
-  const query$ = encodeFormQuery$({
-    "orderBy": payload$.orderBy,
-    "page": payload$.page,
-    "pageSize": payload$.pageSize,
-    "query": payload$.query,
+  const query = encodeFormQuery({
+    "orderBy": payload?.orderBy,
+    "page": payload?.page,
+    "pageSize": payload?.pageSize,
+    "query": payload?.query,
+    "tags": payload?.tags,
   });
 
-  const headers$ = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
-  const authHeader$ = await extractSecurity(client$.options$.authHeader);
-  const security$ = authHeader$ == null ? {} : { authHeader: authHeader$ };
+  const secConfig = await extractSecurity(client._options.authHeader);
+  const securityInput = secConfig == null ? {} : { authHeader: secConfig };
+  const requestSecurity = resolveGlobalSecurity(securityInput);
+
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "list-companies",
-    oAuth2Scopes: [],
-    securitySource: client$.options$.authHeader,
-  };
-  const securitySettings$ = resolveGlobalSecurity(security$);
+    oAuth2Scopes: null,
 
-  const requestRes = client$.createRequest$(context, {
-    security: securitySettings$,
+    resolvedSecurity: requestSecurity,
+
+    securitySource: client._options.authHeader,
+    retryConfig: options?.retries
+      || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 60000,
+          exponent: 1.5,
+          maxElapsedTime: 3600000,
+        },
+        retryConnectionErrors: true,
+      }
+      || { strategy: "none" },
+    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+  };
+
+  const requestRes = client._createRequest(context, {
+    security: requestSecurity,
     method: "GET",
-    path: path$,
-    headers: headers$,
-    query: query$,
-    body: body$,
-    timeoutMs: options?.timeoutMs || client$.options$.timeoutMs || -1,
+    baseURL: options?.serverURL,
+    path: path,
+    headers: headers,
+    query: query,
+    body: body,
+    userAgent: client._options.userAgent,
+    timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
-  const request$ = requestRes.value;
+  const req = requestRes.value;
 
-  const doResult = await client$.do$(request$, {
+  const doResult = await client._do(req, {
     context,
     errorCodes: [
       "400",
@@ -112,50 +179,42 @@ export async function companiesList(
       "503",
       "5XX",
     ],
-    retryConfig: options?.retries
-      || client$.options$.retryConfig
-      || {
-        strategy: "backoff",
-        backoff: {
-          initialInterval: 500,
-          maxInterval: 60000,
-          exponent: 1.5,
-          maxElapsedTime: 3600000,
-        },
-        retryConnectionErrors: true,
-      },
-    retryCodes: options?.retryCodes || ["408", "429", "5XX"],
+    retryConfig: context.retryConfig,
+    retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
-  const responseFields$ = {
-    HttpMeta: { Response: response, Request: request$ },
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
   };
 
-  const [result$] = await m$.match<
+  const [result] = await M.match<
     shared.Companies,
     | errors.ErrorMessage
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | CodatSyncPayablesError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
-    m$.json(200, shared.Companies$inboundSchema),
-    m$.jsonErr(
-      [400, 401, 402, 403, 404, 429, 500, 503],
+    M.json(200, shared.Companies$inboundSchema),
+    M.jsonErr(
+      [400, 401, 402, 403, 404, 429],
       errors.ErrorMessage$inboundSchema,
     ),
-    m$.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields$ });
-  if (!result$.ok) {
-    return result$;
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
+  )(response, req, { extraFields: responseFields });
+  if (!result.ok) {
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result$;
+  return [result, { status: "complete", request: req, response }];
 }

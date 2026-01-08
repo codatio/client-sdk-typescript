@@ -7,11 +7,11 @@ Streamline your customers' accounts payable workflow.
 <!-- Start Summary [summary] -->
 ## Summary
 
-Sync for Payables: The API for Sync for Payables. 
+Sync for Payables: The API for asynchronous Bill Pay solution. 
 
-Sync for Payables is an API and a set of supporting tools built to help integrate with your customers' accounting software, and keep their supplier information, invoices, and payments in sync.
+Asynchronous Bill Pay solution is an API and a set of supporting tools built to help integrate with your customers' accounting software, and keep their supplier information, invoices, and payments in sync.
 
-[Explore product](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+[Explore solution](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 ---
 <!-- Start Codat Tags Table -->
@@ -40,19 +40,24 @@ Sync for Payables is an API and a set of supporting tools built to help integrat
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [Sync for Payables](#sync-for-payables)
+  * [Endpoints](#endpoints)
+  * [SDK Installation](#sdk-installation)
+  * [Example Usage](#example-usage)
+  * [Requirements](#requirements)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Standalone functions](#standalone-functions)
+  * [File uploads](#file-uploads)
+  * [Retries](#retries)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Debugging](#debugging)
+  * [Support](#support)
 
-* [SDK Installation](#sdk-installation)
-* [Requirements](#requirements)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Standalone functions](#standalone-functions)
-* [File uploads](#file-uploads)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Debugging](#debugging)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -81,10 +86,7 @@ bun add @codat/sync-for-payables-version-1
 ### Yarn
 
 ```bash
-yarn add @codat/sync-for-payables-version-1 zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add @codat/sync-for-payables-version-1
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -109,13 +111,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -172,11 +172,11 @@ run();
 * [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
 * [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 
-
 ### [companies](docs/sdks/companies/README.md)
 
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [create](docs/sdks/companies/README.md#create) - Create company
+* [replace](docs/sdks/companies/README.md#replace) - Replace company
 * [update](docs/sdks/companies/README.md#update) - Update company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [get](docs/sdks/companies/README.md#get) - Get company
@@ -263,69 +263,69 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [accountsCreate](docs/sdks/accounts/README.md#create)
-- [accountsGetCreateModel](docs/sdks/accounts/README.md#getcreatemodel)
-- [accountsGet](docs/sdks/accounts/README.md#get)
-- [accountsList](docs/sdks/accounts/README.md#list)
-- [bankAccountsCreate](docs/sdks/bankaccounts/README.md#create)
-- [bankAccountsGetCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel)
-- [billCreditNotesCreate](docs/sdks/billcreditnotes/README.md#create)
-- [billCreditNotesGetCreateUpdateModel](docs/sdks/billcreditnotes/README.md#getcreateupdatemodel)
-- [billCreditNotesGet](docs/sdks/billcreditnotes/README.md#get)
-- [billCreditNotesList](docs/sdks/billcreditnotes/README.md#list)
-- [billCreditNotesUpdate](docs/sdks/billcreditnotes/README.md#update)
-- [billPaymentsCreate](docs/sdks/billpayments/README.md#create)
-- [billPaymentsDelete](docs/sdks/billpayments/README.md#delete)
-- [billPaymentsGetCreateModel](docs/sdks/billpayments/README.md#getcreatemodel)
-- [billPaymentsGet](docs/sdks/billpayments/README.md#get)
-- [billPaymentsList](docs/sdks/billpayments/README.md#list)
-- [billsCreate](docs/sdks/bills/README.md#create)
-- [billsDeleteAttachment](docs/sdks/bills/README.md#deleteattachment)
-- [billsDelete](docs/sdks/bills/README.md#delete)
-- [billsDownloadAttachment](docs/sdks/bills/README.md#downloadattachment)
-- [billsGetAttachment](docs/sdks/bills/README.md#getattachment)
-- [billsGetCreateUpdateModel](docs/sdks/bills/README.md#getcreateupdatemodel)
-- [billsGet](docs/sdks/bills/README.md#get)
-- [billsListAttachments](docs/sdks/bills/README.md#listattachments)
-- [billsList](docs/sdks/bills/README.md#list)
-- [billsUpdate](docs/sdks/bills/README.md#update)
-- [billsUploadAttachment](docs/sdks/bills/README.md#uploadattachment)
-- [companiesCreate](docs/sdks/companies/README.md#create)
-- [companiesDelete](docs/sdks/companies/README.md#delete)
-- [companiesGet](docs/sdks/companies/README.md#get)
-- [companiesList](docs/sdks/companies/README.md#list)
-- [companiesUpdate](docs/sdks/companies/README.md#update)
-- [companyInfoGetAccountingProfile](docs/sdks/companyinfo/README.md#getaccountingprofile)
-- [connectionsCreate](docs/sdks/connections/README.md#create)
-- [connectionsDelete](docs/sdks/connections/README.md#delete)
-- [connectionsGet](docs/sdks/connections/README.md#get)
-- [connectionsList](docs/sdks/connections/README.md#list)
-- [connectionsUnlink](docs/sdks/connections/README.md#unlink)
-- [journalEntriesCreate](docs/sdks/journalentries/README.md#create)
-- [journalEntriesGetCreateModel](docs/sdks/journalentries/README.md#getcreatemodel)
-- [journalsCreate](docs/sdks/journals/README.md#create)
-- [journalsGetCreateModel](docs/sdks/journals/README.md#getcreatemodel)
-- [journalsGet](docs/sdks/journals/README.md#get)
-- [journalsList](docs/sdks/journals/README.md#list)
-- [manageDataGetPullOperation](docs/sdks/managedata/README.md#getpulloperation)
-- [manageDataGet](docs/sdks/managedata/README.md#get)
-- [manageDataListPullOperations](docs/sdks/managedata/README.md#listpulloperations)
-- [manageDataRefreshAllDataTypes](docs/sdks/managedata/README.md#refreshalldatatypes)
-- [manageDataRefreshDataType](docs/sdks/managedata/README.md#refreshdatatype)
-- [paymentMethodsGet](docs/sdks/paymentmethods/README.md#get)
-- [paymentMethodsList](docs/sdks/paymentmethods/README.md#list)
-- [pushOperationsGet](docs/sdks/pushoperations/README.md#get)
-- [pushOperationsList](docs/sdks/pushoperations/README.md#list)
-- [suppliersCreate](docs/sdks/suppliers/README.md#create)
-- [suppliersGetCreateUpdateModel](docs/sdks/suppliers/README.md#getcreateupdatemodel)
-- [suppliersGet](docs/sdks/suppliers/README.md#get)
-- [suppliersList](docs/sdks/suppliers/README.md#list)
-- [suppliersUpdate](docs/sdks/suppliers/README.md#update)
-- [taxRatesGet](docs/sdks/taxrates/README.md#get)
-- [taxRatesList](docs/sdks/taxrates/README.md#list)
-- [trackingCategoriesGet](docs/sdks/trackingcategories/README.md#get)
-- [trackingCategoriesList](docs/sdks/trackingcategories/README.md#list)
-
+- [`accountsCreate`](docs/sdks/accounts/README.md#create) - Create account
+- [`accountsGet`](docs/sdks/accounts/README.md#get) - Get account
+- [`accountsGetCreateModel`](docs/sdks/accounts/README.md#getcreatemodel) - Get create account model
+- [`accountsList`](docs/sdks/accounts/README.md#list) - List accounts
+- [`bankAccountsCreate`](docs/sdks/bankaccounts/README.md#create) - Create bank account
+- [`bankAccountsGetCreateModel`](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
+- [`billCreditNotesCreate`](docs/sdks/billcreditnotes/README.md#create) - Create bill credit note
+- [`billCreditNotesGet`](docs/sdks/billcreditnotes/README.md#get) - Get bill credit note
+- [`billCreditNotesGetCreateUpdateModel`](docs/sdks/billcreditnotes/README.md#getcreateupdatemodel) - Get create/update bill credit note model
+- [`billCreditNotesList`](docs/sdks/billcreditnotes/README.md#list) - List bill credit notes
+- [`billCreditNotesUpdate`](docs/sdks/billcreditnotes/README.md#update) - Update bill credit note
+- [`billPaymentsCreate`](docs/sdks/billpayments/README.md#create) - Create bill payments
+- [`billPaymentsDelete`](docs/sdks/billpayments/README.md#delete) - Delete bill payment
+- [`billPaymentsGet`](docs/sdks/billpayments/README.md#get) - Get bill payment
+- [`billPaymentsGetCreateModel`](docs/sdks/billpayments/README.md#getcreatemodel) - Get create bill payment model
+- [`billPaymentsList`](docs/sdks/billpayments/README.md#list) - List bill payments
+- [`billsCreate`](docs/sdks/bills/README.md#create) - Create bill
+- [`billsDelete`](docs/sdks/bills/README.md#delete) - Delete bill
+- [`billsDeleteAttachment`](docs/sdks/bills/README.md#deleteattachment) - Delete bill attachment
+- [`billsDownloadAttachment`](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
+- [`billsGet`](docs/sdks/bills/README.md#get) - Get bill
+- [`billsGetAttachment`](docs/sdks/bills/README.md#getattachment) - Get bill attachment
+- [`billsGetCreateUpdateModel`](docs/sdks/bills/README.md#getcreateupdatemodel) - Get create/update bill model
+- [`billsList`](docs/sdks/bills/README.md#list) - List bills
+- [`billsListAttachments`](docs/sdks/bills/README.md#listattachments) - List bill attachments
+- [`billsUpdate`](docs/sdks/bills/README.md#update) - Update bill
+- [`billsUploadAttachment`](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
+- [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
+- [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
+- [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
+- [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
+- [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
+- [`companyInfoGetAccountingProfile`](docs/sdks/companyinfo/README.md#getaccountingprofile) - Get company accounting profile
+- [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
+- [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
+- [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
+- [`connectionsList`](docs/sdks/connections/README.md#list) - List connections
+- [`connectionsUnlink`](docs/sdks/connections/README.md#unlink) - Unlink connection
+- [`journalEntriesCreate`](docs/sdks/journalentries/README.md#create) - Create journal entry
+- [`journalEntriesGetCreateModel`](docs/sdks/journalentries/README.md#getcreatemodel) - Get create journal entry model
+- [`journalsCreate`](docs/sdks/journals/README.md#create) - Create journal
+- [`journalsGet`](docs/sdks/journals/README.md#get) - Get journal
+- [`journalsGetCreateModel`](docs/sdks/journals/README.md#getcreatemodel) - Get create journal model
+- [`journalsList`](docs/sdks/journals/README.md#list) - List journals
+- [`manageDataGet`](docs/sdks/managedata/README.md#get) - Get data status
+- [`manageDataGetPullOperation`](docs/sdks/managedata/README.md#getpulloperation) - Get pull operation
+- [`manageDataListPullOperations`](docs/sdks/managedata/README.md#listpulloperations) - List pull operations
+- [`manageDataRefreshAllDataTypes`](docs/sdks/managedata/README.md#refreshalldatatypes) - Refresh all data
+- [`manageDataRefreshDataType`](docs/sdks/managedata/README.md#refreshdatatype) - Refresh data type
+- [`paymentMethodsGet`](docs/sdks/paymentmethods/README.md#get) - Get payment method
+- [`paymentMethodsList`](docs/sdks/paymentmethods/README.md#list) - List payment methods
+- [`pushOperationsGet`](docs/sdks/pushoperations/README.md#get) - Get push operation
+- [`pushOperationsList`](docs/sdks/pushoperations/README.md#list) - List push operations
+- [`suppliersCreate`](docs/sdks/suppliers/README.md#create) - Create supplier
+- [`suppliersGet`](docs/sdks/suppliers/README.md#get) - Get supplier
+- [`suppliersGetCreateUpdateModel`](docs/sdks/suppliers/README.md#getcreateupdatemodel) - Get create/update supplier model
+- [`suppliersList`](docs/sdks/suppliers/README.md#list) - List suppliers
+- [`suppliersUpdate`](docs/sdks/suppliers/README.md#update) - Update supplier
+- [`taxRatesGet`](docs/sdks/taxrates/README.md#get) - Get tax rate
+- [`taxRatesList`](docs/sdks/taxrates/README.md#list) - List all tax rates
+- [`trackingCategoriesGet`](docs/sdks/trackingcategories/README.md#get) - Get tracking categories
+- [`trackingCategoriesList`](docs/sdks/trackingcategories/README.md#list) - List tracking categories
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -355,7 +355,7 @@ async function run() {
   await codatSyncPayables.bills.uploadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 }
 
@@ -379,10 +379,9 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   }, {
     retries: {
       strategy: "backoff",
@@ -396,7 +395,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -424,13 +422,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -442,55 +438,50 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-All SDK methods return a response object or throw an error. If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+[`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted string since validation errors can list many issues and the plain error string may be difficult read when debugging. 
-
-
+### Example
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
-import {
-  ErrorMessage,
-  SDKValidationError,
-} from "@codat/sync-for-payables-version-1/sdk/models/errors";
+import * as errors from "@codat/sync-for-payables-version-1/sdk/models/errors";
 
 const codatSyncPayables = new CodatSyncPayables({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-  let result;
   try {
-    result = await codatSyncPayables.companies.list({
-      page: 1,
-      pageSize: 100,
+    const result = await codatSyncPayables.companies.list({
       query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
       orderBy: "-modifiedDate",
+      tags: "region=uk && team=invoice-finance",
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      case (err instanceof SDKValidationError): {
-        // Validation errors can be pretty-printed
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof ErrorMessage): {
-        // Handle err.data$: ErrorMessageData
-        console.error(err);
-        return;
-      }
-      default: {
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.CodatSyncPayablesError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ErrorMessage) {
+        console.log(error.data$.statusCode); // number
+        console.log(error.data$.service); // string
+        console.log(error.data$.error); // string
+        console.log(error.data$.correlationId); // string
+        console.log(error.data$.validation); // shared.ErrorValidation
       }
     }
   }
@@ -499,48 +490,36 @@ async function run() {
 run();
 
 ```
+
+### Error Classes
+**Primary errors:**
+* [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts): The base class for HTTP error responses.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): Your `query` parameter was not correctly formed.
+
+<details><summary>Less common errors (6)</summary>
+
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts)**:
+* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
 ## Server Selection
 
-### Select Server by Index
-
-You can override the default server globally by passing a server index to the `serverIdx` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
-
-| # | Server | Variables |
-| - | ------ | --------- |
-| 0 | `https://api.codat.io` | None |
-
-```typescript
-import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
-
-const codatSyncPayables = new CodatSyncPayables({
-  serverIdx: 0,
-  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
-});
-
-async function run() {
-  const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
-  });
-
-  // Handle the result
-  console.log(result);
-}
-
-run();
-
-```
-
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL` optional parameter when initializing the SDK client instance. For example:
-
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -551,13 +530,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -611,7 +588,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new CodatSyncPayables({ httpClient });
+const sdk = new CodatSyncPayables({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -622,9 +599,9 @@ const sdk = new CodatSyncPayables({ httpClient });
 
 This SDK supports the following security scheme globally:
 
-| Name         | Type         | Scheme       |
-| ------------ | ------------ | ------------ |
-| `authHeader` | apiKey       | API key      |
+| Name         | Type   | Scheme  |
+| ------------ | ------ | ------- |
+| `authHeader` | apiKey | API key |
 
 To authenticate with the API the `authHeader` parameter must be set when initializing the SDK client instance. For example:
 ```typescript
@@ -636,13 +613,11 @@ const codatSyncPayables = new CodatSyncPayables({
 
 async function run() {
   const result = await codatSyncPayables.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
