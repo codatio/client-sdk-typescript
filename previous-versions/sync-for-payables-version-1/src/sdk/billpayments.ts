@@ -111,7 +111,7 @@ export class BillPayments extends ClientSDK {
    *
    * [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * See the *response examples* for integration-specific indicative models.
    *
@@ -136,11 +136,9 @@ export class BillPayments extends ClientSDK {
    *
    * [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any customer accounts payable account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create bill payment model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-billPayments-model).
-   *
-   * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=billPayments) for integrations that support creating a bill payment.
    */
   async create(
     request: operations.CreateBillPaymentRequest,

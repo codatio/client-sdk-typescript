@@ -21,6 +21,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-tax-rates" method="get" path="/companies/{companyId}/data/taxRates" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -31,14 +32,11 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.taxRates.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -61,20 +59,15 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await taxRatesList(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("taxRatesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -95,11 +88,11 @@ run();
 
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| errors.ErrorMessage                 | 400,401,402,403,404,409,429,500,503 | application/json                    |
-| errors.SDKError                     | 4xx-5xx                             | */*                                 |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -114,6 +107,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-tax-rate" method="get" path="/companies/{companyId}/data/taxRates/{taxRateId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -124,11 +118,10 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.taxRates.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    taxRateId: "<value>",
+    taxRateId: "<id>",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -151,17 +144,14 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await taxRatesGet(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    taxRateId: "<value>",
+    taxRateId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("taxRatesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -182,7 +172,8 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 401,402,403,404,409,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 401, 402, 403, 404, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

@@ -7,7 +7,7 @@ import { GetTaxRateRequest } from "@codat/sync-for-payables-version-1/sdk/models
 
 let value: GetTaxRateRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  taxRateId: "<value>",
+  taxRateId: "<id>",
 };
 ```
 

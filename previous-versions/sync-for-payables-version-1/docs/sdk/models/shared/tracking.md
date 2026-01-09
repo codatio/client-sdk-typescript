@@ -14,7 +14,7 @@ let value: Tracking = {
     },
   ],
   isBilledTo: "Unknown",
-  isRebilledTo: "NotApplicable",
+  isRebilledTo: "Unknown",
 };
 ```
 

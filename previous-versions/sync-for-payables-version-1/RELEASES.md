@@ -99,3 +99,13 @@ Based on:
 - [typescript v2.3.0] previous-versions/sync-for-payables-version-1
 ### Releases
 - [NPM v2.3.0] https://www.npmjs.com/package/@codat/sync-for-payables-version-1/v/2.3.0 - previous-versions/sync-for-payables-version-1
+
+## 2026-01-08 18:07:55
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.660.0 (2.760.2) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v2.4.0] previous-versions/sync-for-payables-version-1
+### Releases
+- [NPM v2.4.0] https://www.npmjs.com/package/@codat/sync-for-payables-version-1/v/2.4.0 - previous-versions/sync-for-payables-version-1

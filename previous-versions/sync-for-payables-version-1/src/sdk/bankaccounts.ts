@@ -18,11 +18,9 @@ export class BankAccounts extends ClientSDK {
    *
    * [Bank accounts](https://docs.codat.io/sync-for-payables-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * See the *response examples* for integration-specific indicative models.
-   *
-   * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating and updating a bank account.
    */
   async getCreateModel(
     request: operations.GetCreateBankAccountsModelRequest,
@@ -43,11 +41,9 @@ export class BankAccounts extends ClientSDK {
    *
    * [Bank accounts](https://docs.codat.io/sync-for-payables-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-bankAccounts-model).
-   *
-   * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bankAccounts) for integrations that support creating an account.
    */
   async create(
     request: operations.CreateBankAccountRequest,

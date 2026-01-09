@@ -7,11 +7,11 @@ import { CreateBillResponseAccountingPaymentAllocation } from "@codat/sync-for-p
 
 let value: CreateBillResponseAccountingPaymentAllocation = {
   payment: {
-    currency: "EUR",
+    currency: "GBP",
     paidOnDate: "2022-10-23T00:00:00Z",
   },
   allocation: {
-    currency: "EUR",
+    currency: "GBP",
     allocatedOnDate: "2022-10-23T00:00:00Z",
   },
 };

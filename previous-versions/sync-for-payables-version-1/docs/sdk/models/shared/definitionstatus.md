@@ -7,7 +7,7 @@ Current state of the tracking category.
 ```typescript
 import { DefinitionStatus } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: DefinitionStatus = "Archived";
+let value: DefinitionStatus = "Unknown";
 ```
 
 ## Values

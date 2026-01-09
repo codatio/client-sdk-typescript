@@ -7,7 +7,7 @@ import { GetJournalRequest } from "@codat/sync-for-payables-version-1/sdk/models
 
 let value: GetJournalRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  journalId: "<value>",
+  journalId: "<id>",
 };
 ```
 

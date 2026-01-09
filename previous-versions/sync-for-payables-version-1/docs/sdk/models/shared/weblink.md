@@ -15,7 +15,7 @@ let value: WebLink = {
 
 ## Fields
 
-| Field                                             | Type                                              | Required                                          | Description                                       |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `type`                                            | [shared.Type](../../../sdk/models/shared/type.md) | :heavy_minus_sign:                                | The type of the weblink.                          |
-| `url`                                             | *string*                                          | :heavy_minus_sign:                                | The full URL for the weblink.                     |
+| Field                                                           | Type                                                            | Required                                                        | Description                                                     |
+| --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------- |
+| `type`                                                          | [shared.WebLinkType](../../../sdk/models/shared/weblinktype.md) | :heavy_minus_sign:                                              | The type of the weblink.                                        |
+| `url`                                                           | *string*                                                        | :heavy_minus_sign:                                              | The full URL for the weblink.                                   |

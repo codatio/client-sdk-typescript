@@ -7,7 +7,7 @@ The current status of the dataset.
 ```typescript
 import { Status } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: Status = "InternalError";
+let value: Status = "Validating";
 ```
 
 ## Values

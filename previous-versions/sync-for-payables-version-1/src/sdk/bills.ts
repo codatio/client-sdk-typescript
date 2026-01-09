@@ -69,7 +69,7 @@ export class Bills extends ClientSDK {
    *
    * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * See the *response examples* for integration-specific indicative models.
    *
@@ -94,11 +94,17 @@ export class Bills extends ClientSDK {
    *
    * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update bill model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-bills-model).
    *
-   * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support creating a bill.
+   * The following integrations support bill creation from purchase orders.
+   * Each bill can reference an associated purchase order at either the header level (applying to the bill as a whole) or at individual line items, allowing for flexible matching between orders and bill details.
+   *
+   * | Integration       | Supports purchase orders |
+   * |-------------------|--------------------------|
+   * | Oracle NetSuite   | Yes                      |
+   * | QuickBooks Online | Yes                      |
    */
   async create(
     request: operations.CreateBillRequest,
@@ -119,7 +125,7 @@ export class Bills extends ClientSDK {
    *
    * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update bill model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-bills-model).
    *
@@ -289,7 +295,7 @@ export class Bills extends ClientSDK {
    *
    * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * For more details on supported file types by integration see [Attachments](https://docs.codat.io/sync-for-payables-api#/schemas/Attachment).
    *

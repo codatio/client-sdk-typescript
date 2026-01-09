@@ -7,7 +7,7 @@ The current status of a transient error. Null statuses indicate that the error i
 ```typescript
 import { ErrorStatus } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: ErrorStatus = "Active";
+let value: ErrorStatus = "Resolved";
 ```
 
 ## Values

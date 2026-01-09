@@ -8,13 +8,9 @@ Categories, and a project and customer, against which the item is tracked.
 import { BillCreditNoteLineItemTracking } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: BillCreditNoteLineItemTracking = {
-  categoryRefs: [
-    {
-      id: "<id>",
-    },
-  ],
+  categoryRefs: [],
   isBilledTo: "Customer",
-  isRebilledTo: "Project",
+  isRebilledTo: "Customer",
 };
 ```
 

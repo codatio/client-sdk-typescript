@@ -6,7 +6,6 @@
 import { BillCreditNotes } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: BillCreditNotes = {
-  results: [],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,

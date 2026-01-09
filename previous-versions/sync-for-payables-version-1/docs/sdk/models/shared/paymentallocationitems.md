@@ -7,11 +7,11 @@ import { PaymentAllocationItems } from "@codat/sync-for-payables-version-1/sdk/m
 
 let value: PaymentAllocationItems = {
   payment: {
-    currency: "USD",
+    currency: "GBP",
     paidOnDate: "2022-10-23T00:00:00Z",
   },
   allocation: {
-    currency: "EUR",
+    currency: "GBP",
     allocatedOnDate: "2022-10-23T00:00:00Z",
   },
 };

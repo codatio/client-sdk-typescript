@@ -1,17 +1,17 @@
 # Type
 
-The type of the weblink.
+The type of phone number
 
 ## Example Usage
 
 ```typescript
 import { Type } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
-let value: Type = "Website";
+let value: Type = "Primary";
 ```
 
 ## Values
 
 ```typescript
-"Website" | "Social" | "Unknown"
+"Primary" | "Landline" | "Mobile" | "Fax" | "Unknown"
 ```

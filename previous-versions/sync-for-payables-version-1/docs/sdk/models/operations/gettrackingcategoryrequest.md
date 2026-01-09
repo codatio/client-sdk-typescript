@@ -7,7 +7,7 @@ import { GetTrackingCategoryRequest } from "@codat/sync-for-payables-version-1/s
 
 let value: GetTrackingCategoryRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  trackingCategoryId: "<value>",
+  trackingCategoryId: "<id>",
 };
 ```
 

@@ -21,6 +21,7 @@ The *List suppliers* endpoint returns a list of [suppliers](https://docs.codat.i
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/data/suppliers" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -31,14 +32,11 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.suppliers.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -61,20 +59,15 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await suppliersList(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -95,11 +88,11 @@ run();
 
 ### Errors
 
-| Error Object                        | Status Code                         | Content Type                        |
-| ----------------------------------- | ----------------------------------- | ----------------------------------- |
-| errors.ErrorMessage                 | 400,401,402,403,404,409,429,500,503 | application/json                    |
-| errors.SDKError                     | 4xx-5xx                             | */*                                 |
-
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## get
 
@@ -114,6 +107,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-supplier" method="get" path="/companies/{companyId}/data/suppliers/{supplierId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -124,11 +118,10 @@ const codatSyncPayables = new CodatSyncPayables({
 async function run() {
   const result = await codatSyncPayables.suppliers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    supplierId: "<value>",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -151,17 +144,14 @@ const codatSyncPayables = new CodatSyncPayablesCore({
 async function run() {
   const res = await suppliersGet(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    supplierId: "<value>",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -182,11 +172,11 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 401,402,403,404,409,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
-
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 401, 402, 403, 404, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## getCreateUpdateModel
 
@@ -194,7 +184,7 @@ The *Get create/update supplier model* endpoint returns the expected data for th
 
 [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
@@ -203,6 +193,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-update-supplier-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/suppliers" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -215,9 +206,8 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -242,15 +232,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersGetCreateUpdateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -271,11 +258,11 @@ run();
 
 ### Errors
 
-| Error Object                | Status Code                 | Content Type                |
-| --------------------------- | --------------------------- | --------------------------- |
-| errors.ErrorMessage         | 401,402,403,404,429,500,503 | application/json            |
-| errors.SDKError             | 4xx-5xx                     | */*                         |
-
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## create
 
@@ -283,7 +270,7 @@ The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sy
 
 [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-suppliers-model).
 
@@ -292,6 +279,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/push/suppliers" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -304,18 +292,14 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplier: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       id: "73593",
       supplierName: "test 20230420 1004",
       contactName: "Joe Bloggs",
-      phone: "(877) 492-8687",
       status: "Active",
     },
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -340,24 +324,18 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplier: {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
       id: "73593",
       supplierName: "test 20230420 1004",
       contactName: "Joe Bloggs",
-      phone: "(877) 492-8687",
       status: "Active",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -378,11 +356,11 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
-
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## update
 
@@ -390,7 +368,7 @@ The *Update supplier* endpoint updates an existing [supplier](https://docs.codat
 
 [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-payables-api#/operations/get-create-update-suppliers-model).
 
@@ -399,6 +377,7 @@ Check out our [coverage explorer](https://knowledge.codat.io/supported-features/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update-supplier" method="put" path="/companies/{companyId}/connections/{connectionId}/push/suppliers/{supplierId}" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables-version-1";
 
@@ -410,7 +389,7 @@ async function run() {
   const result = await codatSyncPayables.suppliers.update({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "<value>",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     supplier: {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
@@ -450,9 +429,8 @@ async function run() {
       },
     },
   });
-  
-  // Handle the result
-  console.log(result)
+
+  console.log(result);
 }
 
 run();
@@ -476,7 +454,7 @@ async function run() {
   const res = await suppliersUpdate(codatSyncPayables, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "<value>",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     supplier: {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
@@ -516,15 +494,12 @@ async function run() {
       },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result)
 }
 
 run();
@@ -545,7 +520,8 @@ run();
 
 ### Errors
 
-| Error Object                    | Status Code                     | Content Type                    |
-| ------------------------------- | ------------------------------- | ------------------------------- |
-| errors.ErrorMessage             | 400,401,402,403,404,429,500,503 | application/json                |
-| errors.SDKError                 | 4xx-5xx                         | */*                             |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

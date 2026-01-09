@@ -6,7 +6,6 @@
 import { Bills } from "@codat/sync-for-payables-version-1/sdk/models/shared";
 
 let value: Bills = {
-  results: [],
   pageNumber: 1,
   pageSize: 10,
   totalResults: 1,
