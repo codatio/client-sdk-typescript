@@ -1,5 +1,4 @@
 # Suppliers
-(*suppliers*)
 
 ## Overview
 

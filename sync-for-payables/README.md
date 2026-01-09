@@ -68,16 +68,16 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [bankAccounts](docs/sdks/bankaccounts/README.md)
+### [BankAccounts](docs/sdks/bankaccounts/README.md)
 
 * [create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 
-### [billPayments](docs/sdks/billpayments/README.md)
+### [BillPayments](docs/sdks/billpayments/README.md)
 
 * [getPaymentOptions](docs/sdks/billpayments/README.md#getpaymentoptions) - Get payment mapping options
 * [create](docs/sdks/billpayments/README.md#create) - Create bill payment
 
-### [bills](docs/sdks/bills/README.md)
+### [Bills](docs/sdks/bills/README.md)
 
 * [getBillOptions](docs/sdks/bills/README.md#getbilloptions) - Get bill mapping options
 * [list](docs/sdks/bills/README.md#list) - List bills
@@ -86,7 +86,7 @@ run();
 * [listAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
 * [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
 
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [create](docs/sdks/companies/README.md#create) - Create company
@@ -95,11 +95,11 @@ run();
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
 * [get](docs/sdks/companies/README.md#get) - Get company
 
-### [companyInformation](docs/sdks/companyinformation/README.md)
+### [CompanyInformation](docs/sdks/companyinformation/README.md)
 
 * [get](docs/sdks/companyinformation/README.md#get) - Get company information
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [create](docs/sdks/connections/README.md#create) - Create connection
@@ -107,7 +107,7 @@ run();
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [suppliers](docs/sdks/suppliers/README.md)
+### [Suppliers](docs/sdks/suppliers/README.md)
 
 * [list](docs/sdks/suppliers/README.md#list) - List suppliers
 * [create](docs/sdks/suppliers/README.md#create) - Create supplier
