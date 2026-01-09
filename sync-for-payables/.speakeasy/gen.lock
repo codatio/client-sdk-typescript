@@ -1,27 +1,31 @@
 lockVersion: 2.0.0
 id: fc401bb0-cd17-4863-8f85-003111be4b43
 management:
-  docChecksum: a5a6b29c932401b54fefc48cb0e59b5f
+  docChecksum: 80094d79321ca2e6cbfc100b36881f64
   docVersion: 3.0.0
-  speakeasyVersion: 1.660.0
-  generationVersion: 2.760.2
-  releaseVersion: 9.1.0
-  configChecksum: e32d9073a594f911de154cfe7423fdc8
+  speakeasyVersion: 1.683.1
+  generationVersion: 2.792.2
+  releaseVersion: 9.2.0
+  configChecksum: 47eff6703a17e17280b578afebf4d71c
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-payables
   published: true
+persistentEdits:
+  generation_id: f0a571f8-3875-4ff4-8067-839704e0edd3
+  pristine_commit_hash: 40acec8afb75b38fa2fc2012b7deff7ba1cd9b8d
+  pristine_tree_hash: a9c3caf6ab9019c3649b7c4287157f72e29c6426
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.9
+    core: 3.26.19
     decimal: 0.1.2
     defaultEnabledRetries: 0.1.0
     downloadStreams: 0.1.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    examples: 2.82.3
+    examples: 2.82.4
     globalSecurity: 2.82.14
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
@@ -31,256 +35,991 @@ features:
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.3.0
+    sdkHooks: 0.4.0
     serverEventsSentinels: 0.1.0
     uploadStreams: 0.1.0
     webhooks: 1.5.1
-generatedFiles:
-  - .gitattributes
-  - .npmignore
-  - FUNCTIONS.md
-  - RUNTIMES.md
-  - USAGE.md
-  - docs/lib/utils/retryconfig.md
-  - docs/sdk/models/errors/errormessage.md
-  - docs/sdk/models/operations/createbankaccountrequest.md
-  - docs/sdk/models/operations/createbillpaymentrequest.md
-  - docs/sdk/models/operations/createbillrequest.md
-  - docs/sdk/models/operations/createconnectionrequest.md
-  - docs/sdk/models/operations/createconnectionrequestbody.md
-  - docs/sdk/models/operations/createsupplierrequest.md
-  - docs/sdk/models/operations/deletecompanyrequest.md
-  - docs/sdk/models/operations/deleteconnectionrequest.md
-  - docs/sdk/models/operations/downloadbillattachmentrequest.md
-  - docs/sdk/models/operations/getcompanyinformationrequest.md
-  - docs/sdk/models/operations/getcompanyrequest.md
-  - docs/sdk/models/operations/getconnectionrequest.md
-  - docs/sdk/models/operations/getmappingoptionsbillsrequest.md
-  - docs/sdk/models/operations/getmappingoptionspaymentsrequest.md
-  - docs/sdk/models/operations/listbillattachmentsrequest.md
-  - docs/sdk/models/operations/listbillsrequest.md
-  - docs/sdk/models/operations/listcompaniesrequest.md
-  - docs/sdk/models/operations/listconnectionsrequest.md
-  - docs/sdk/models/operations/listsuppliersrequest.md
-  - docs/sdk/models/operations/replacecompanyrequest.md
-  - docs/sdk/models/operations/unlinkconnectionrequest.md
-  - docs/sdk/models/operations/unlinkconnectionupdateconnection.md
-  - docs/sdk/models/operations/updatecompanyrequest.md
-  - docs/sdk/models/operations/uploadbillattachmentrequest.md
-  - docs/sdk/models/shared/accountmappingoption.md
-  - docs/sdk/models/shared/accountstatus.md
-  - docs/sdk/models/shared/address.md
-  - docs/sdk/models/shared/addresstype.md
-  - docs/sdk/models/shared/attachment.md
-  - docs/sdk/models/shared/attachmentupload.md
-  - docs/sdk/models/shared/bankaccount.md
-  - docs/sdk/models/shared/bankaccountmappingoption.md
-  - docs/sdk/models/shared/bankaccountprototype.md
-  - docs/sdk/models/shared/bankaccountstatus.md
-  - docs/sdk/models/shared/bankaccounttype.md
-  - docs/sdk/models/shared/bill.md
-  - docs/sdk/models/shared/billaccountref.md
-  - docs/sdk/models/shared/billlineitem.md
-  - docs/sdk/models/shared/billmappingoptions.md
-  - docs/sdk/models/shared/billpayment.md
-  - docs/sdk/models/shared/billpaymentaccountref.md
-  - docs/sdk/models/shared/billpaymentprototype.md
-  - docs/sdk/models/shared/billprototype.md
-  - docs/sdk/models/shared/bills.md
-  - docs/sdk/models/shared/billstatus.md
-  - docs/sdk/models/shared/billtaxrateref.md
-  - docs/sdk/models/shared/clientratelimitwebhook.md
-  - docs/sdk/models/shared/clientratelimitwebhookpayload.md
-  - docs/sdk/models/shared/codatfile.md
-  - docs/sdk/models/shared/companies.md
-  - docs/sdk/models/shared/company.md
-  - docs/sdk/models/shared/companyinformation.md
-  - docs/sdk/models/shared/companyreference.md
-  - docs/sdk/models/shared/companyreferencelinks.md
-  - docs/sdk/models/shared/companyrequestbody.md
-  - docs/sdk/models/shared/companyupdaterequest.md
-  - docs/sdk/models/shared/connection.md
-  - docs/sdk/models/shared/connections.md
-  - docs/sdk/models/shared/dataconnectionerror.md
-  - docs/sdk/models/shared/dataconnectionstatus.md
-  - docs/sdk/models/shared/datatype.md
-  - docs/sdk/models/shared/errorstatus.md
-  - docs/sdk/models/shared/errorvalidation.md
-  - docs/sdk/models/shared/errorvalidationitem.md
-  - docs/sdk/models/shared/halref.md
-  - docs/sdk/models/shared/links.md
-  - docs/sdk/models/shared/pagination.md
-  - docs/sdk/models/shared/paymentmappingoptions.md
-  - docs/sdk/models/shared/security.md
-  - docs/sdk/models/shared/sourcetype.md
-  - docs/sdk/models/shared/supplier.md
-  - docs/sdk/models/shared/supplierprototype.md
-  - docs/sdk/models/shared/supplierref.md
-  - docs/sdk/models/shared/suppliers.md
-  - docs/sdk/models/shared/supplierstatus.md
-  - docs/sdk/models/shared/taxratemappingoption.md
-  - docs/sdk/models/shared/taxratestatus.md
-  - docs/sdk/models/shared/trackingref.md
-  - docs/sdks/bankaccounts/README.md
-  - docs/sdks/billpayments/README.md
-  - docs/sdks/bills/README.md
-  - docs/sdks/companies/README.md
-  - docs/sdks/companyinformation/README.md
-  - docs/sdks/connections/README.md
-  - docs/sdks/suppliers/README.md
-  - eslint.config.mjs
-  - examples/.env.template
-  - examples/README.md
-  - examples/companiesList.example.ts
-  - examples/package.json
-  - jsr.json
-  - package.json
-  - src/core.ts
-  - src/funcs/bankAccountsCreate.ts
-  - src/funcs/billPaymentsCreate.ts
-  - src/funcs/billPaymentsGetPaymentOptions.ts
-  - src/funcs/billsCreate.ts
-  - src/funcs/billsDownloadAttachment.ts
-  - src/funcs/billsGetBillOptions.ts
-  - src/funcs/billsList.ts
-  - src/funcs/billsListAttachments.ts
-  - src/funcs/billsUploadAttachment.ts
-  - src/funcs/companiesCreate.ts
-  - src/funcs/companiesDelete.ts
-  - src/funcs/companiesGet.ts
-  - src/funcs/companiesList.ts
-  - src/funcs/companiesReplace.ts
-  - src/funcs/companiesUpdate.ts
-  - src/funcs/companyInformationGet.ts
-  - src/funcs/connectionsCreate.ts
-  - src/funcs/connectionsDelete.ts
-  - src/funcs/connectionsGet.ts
-  - src/funcs/connectionsList.ts
-  - src/funcs/connectionsUnlink.ts
-  - src/funcs/suppliersCreate.ts
-  - src/funcs/suppliersList.ts
-  - src/funcs/validateWebhook.ts
-  - src/hooks/hooks.ts
-  - src/hooks/index.ts
-  - src/hooks/types.ts
-  - src/index.ts
-  - src/lib/base64.ts
-  - src/lib/config.ts
-  - src/lib/dlv.ts
-  - src/lib/encodings.ts
-  - src/lib/files.ts
-  - src/lib/http.ts
-  - src/lib/is-plain-object.ts
-  - src/lib/logger.ts
-  - src/lib/matchers.ts
-  - src/lib/primitives.ts
-  - src/lib/retries.ts
-  - src/lib/schemas.ts
-  - src/lib/sdks.ts
-  - src/lib/security.ts
-  - src/lib/url.ts
-  - src/sdk/bankaccounts.ts
-  - src/sdk/billpayments.ts
-  - src/sdk/bills.ts
-  - src/sdk/companies.ts
-  - src/sdk/companyinformation.ts
-  - src/sdk/connections.ts
-  - src/sdk/index.ts
-  - src/sdk/models/errors/codatsyncpayableserror.ts
-  - src/sdk/models/errors/errormessage.ts
-  - src/sdk/models/errors/httpclienterrors.ts
-  - src/sdk/models/errors/index.ts
-  - src/sdk/models/errors/responsevalidationerror.ts
-  - src/sdk/models/errors/sdkerror.ts
-  - src/sdk/models/errors/sdkvalidationerror.ts
-  - src/sdk/models/operations/createbankaccount.ts
-  - src/sdk/models/operations/createbill.ts
-  - src/sdk/models/operations/createbillpayment.ts
-  - src/sdk/models/operations/createconnection.ts
-  - src/sdk/models/operations/createsupplier.ts
-  - src/sdk/models/operations/deletecompany.ts
-  - src/sdk/models/operations/deleteconnection.ts
-  - src/sdk/models/operations/downloadbillattachment.ts
-  - src/sdk/models/operations/getcompany.ts
-  - src/sdk/models/operations/getcompanyinformation.ts
-  - src/sdk/models/operations/getconnection.ts
-  - src/sdk/models/operations/getmappingoptionsbills.ts
-  - src/sdk/models/operations/getmappingoptionspayments.ts
-  - src/sdk/models/operations/index.ts
-  - src/sdk/models/operations/listbillattachments.ts
-  - src/sdk/models/operations/listbills.ts
-  - src/sdk/models/operations/listcompanies.ts
-  - src/sdk/models/operations/listconnections.ts
-  - src/sdk/models/operations/listsuppliers.ts
-  - src/sdk/models/operations/replacecompany.ts
-  - src/sdk/models/operations/unlinkconnection.ts
-  - src/sdk/models/operations/updatecompany.ts
-  - src/sdk/models/operations/uploadbillattachment.ts
-  - src/sdk/models/shared/accountmappingoption.ts
-  - src/sdk/models/shared/accountstatus.ts
-  - src/sdk/models/shared/address.ts
-  - src/sdk/models/shared/addresstype.ts
-  - src/sdk/models/shared/attachment.ts
-  - src/sdk/models/shared/attachmentupload.ts
-  - src/sdk/models/shared/bankaccount.ts
-  - src/sdk/models/shared/bankaccountmappingoption.ts
-  - src/sdk/models/shared/bankaccountprototype.ts
-  - src/sdk/models/shared/bankaccountstatus.ts
-  - src/sdk/models/shared/bankaccounttype.ts
-  - src/sdk/models/shared/bill.ts
-  - src/sdk/models/shared/billaccountref.ts
-  - src/sdk/models/shared/billlineitem.ts
-  - src/sdk/models/shared/billmappingoptions.ts
-  - src/sdk/models/shared/billpayment.ts
-  - src/sdk/models/shared/billpaymentaccountref.ts
-  - src/sdk/models/shared/billpaymentprototype.ts
-  - src/sdk/models/shared/billprototype.ts
-  - src/sdk/models/shared/bills.ts
-  - src/sdk/models/shared/billstatus.ts
-  - src/sdk/models/shared/billtaxrateref.ts
-  - src/sdk/models/shared/clientratelimitwebhook.ts
-  - src/sdk/models/shared/clientratelimitwebhookpayload.ts
-  - src/sdk/models/shared/codatfile.ts
-  - src/sdk/models/shared/companies.ts
-  - src/sdk/models/shared/company.ts
-  - src/sdk/models/shared/companyinformation.ts
-  - src/sdk/models/shared/companyreference.ts
-  - src/sdk/models/shared/companyrequestbody.ts
-  - src/sdk/models/shared/companyupdaterequest.ts
-  - src/sdk/models/shared/connection.ts
-  - src/sdk/models/shared/connections.ts
-  - src/sdk/models/shared/dataconnectionerror.ts
-  - src/sdk/models/shared/dataconnectionstatus.ts
-  - src/sdk/models/shared/errorvalidation.ts
-  - src/sdk/models/shared/errorvalidationitem.ts
-  - src/sdk/models/shared/halref.ts
-  - src/sdk/models/shared/index.ts
-  - src/sdk/models/shared/links.ts
-  - src/sdk/models/shared/pagination.ts
-  - src/sdk/models/shared/paymentmappingoptions.ts
-  - src/sdk/models/shared/security.ts
-  - src/sdk/models/shared/supplier.ts
-  - src/sdk/models/shared/supplierprototype.ts
-  - src/sdk/models/shared/supplierref.ts
-  - src/sdk/models/shared/suppliers.ts
-  - src/sdk/models/shared/supplierstatus.ts
-  - src/sdk/models/shared/taxratemappingoption.ts
-  - src/sdk/models/shared/trackingref.ts
-  - src/sdk/sdk.ts
-  - src/sdk/suppliers.ts
-  - src/sdk/types/async.ts
-  - src/sdk/types/blobs.ts
-  - src/sdk/types/constdatetime.ts
-  - src/sdk/types/decimal.ts
-  - src/sdk/types/enums.ts
-  - src/sdk/types/fp.ts
-  - src/sdk/types/index.ts
-  - src/sdk/types/operations.ts
-  - src/sdk/types/rfcdate.ts
-  - src/sdk/types/streams.ts
-  - src/sdk/types/unrecognized.ts
-  - src/sdk/types/webhooks.ts
-  - tsconfig.json
+trackedFiles:
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:26d16d8297b104945139da8c25bd38feeaad3e25
+    pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
+  .npmignore:
+    id: aa70c1f807c3
+    last_write_checksum: sha1:3d5eb92f81539175db1ff0280e0aefbdd701f200
+    pristine_git_object: cf98a6bf092538eb10ff0edc915102682ce9a6e6
+  FUNCTIONS.md:
+    id: 21b9df02aaeb
+    last_write_checksum: sha1:0a0d27bba669518df770ad78b4e2efe9989661a0
+    pristine_git_object: e0bf2256f0d4c3d4fafff1bb5b0d349139e0ca79
+  RUNTIMES.md:
+    id: 620c490847b6
+    last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
+    pristine_git_object: 27731c3b5ace66bedc454ed5acbe15075aacd3dc
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:29799e5e6553e872c6c90e7bed28f2366d0eca10
+    pristine_git_object: 63e81dc1bbfd676a9595c4b25249ff148af96905
+  docs/lib/utils/retryconfig.md:
+    id: 0ce9707cb848
+    last_write_checksum: sha1:bc4454e196fcd219f5a78da690375a884f5ed07b
+    pristine_git_object: 08f95f4552349360b2c0b01802aa71ec3a55d2c2
+  docs/sdk/models/errors/errormessage.md:
+    id: 9affd825e395
+    last_write_checksum: sha1:87c165da16f652778f872f4d82a3ecb0bd6f9f61
+    pristine_git_object: 3b0d871c2df297977b81672143a906cd75be967d
+  docs/sdk/models/operations/createbankaccountrequest.md:
+    id: 37b65b9ee948
+    last_write_checksum: sha1:483907d110a90d48076bce1a91f61beb9de69ccd
+    pristine_git_object: 69ced2b3597cc95b373739d28e0932d2536f90f4
+  docs/sdk/models/operations/createbillpaymentrequest.md:
+    id: 9b17afa6f632
+    last_write_checksum: sha1:2ecb6e46c7feb79e0a01cfa91ebd61f7313d8917
+    pristine_git_object: 4a18ead3feb2065fbb2a93b1d133be54722ba81b
+  docs/sdk/models/operations/createbillrequest.md:
+    id: 5e4c2319d34a
+    last_write_checksum: sha1:b65d34426fedb83df7c23b76812aa8846832db45
+    pristine_git_object: cf72c5ebae8ffc67d39ba925c8d97cc9bc8496a2
+  docs/sdk/models/operations/createconnectionrequest.md:
+    id: 43b13768fa3c
+    last_write_checksum: sha1:eb119e6f55bef64e85ebb71cd41f6c1498ea9438
+    pristine_git_object: fde0ad5aeb5e3e965cfab3e263956f496fb4de64
+  docs/sdk/models/operations/createconnectionrequestbody.md:
+    id: cd2a86f8a996
+    last_write_checksum: sha1:5ee0d70ea351b108cc1593afb8838cfdd06b601c
+    pristine_git_object: 1e30f32b73ac845f814914914457a976e48d7d76
+  docs/sdk/models/operations/createsupplierrequest.md:
+    id: ae6f827978a1
+    last_write_checksum: sha1:ddc28cd008335e46d3cacf5eb1a2d13d6f564c86
+    pristine_git_object: 7bca76b8c558c090c250b4d829f14ee28e8ab461
+  docs/sdk/models/operations/deletecompanyrequest.md:
+    id: 01348357e18f
+    last_write_checksum: sha1:15ac25c9f7146805b3801384de95f08bbbb7c13c
+    pristine_git_object: 119f62cbe77504cb1718d2100af39627f19597fe
+  docs/sdk/models/operations/deleteconnectionrequest.md:
+    id: 70fe5fee5d10
+    last_write_checksum: sha1:b978a67ef30703b8ce2f2f91748a196b54a0cd07
+    pristine_git_object: 9d33a8e82a535f2c0ff5afe0b0269a6aa89d849f
+  docs/sdk/models/operations/downloadbillattachmentrequest.md:
+    id: 61983c8df748
+    last_write_checksum: sha1:2bc5bdb9efba02e4872d78024fa956c6e010c34d
+    pristine_git_object: 813c2200ad4f61c5a106006e059d1f575c1860de
+  docs/sdk/models/operations/getcompanyinformationrequest.md:
+    id: e53b744ff888
+    last_write_checksum: sha1:fdff5a03f97e1397473991f73f0338c802f2b406
+    pristine_git_object: 63c2c7a9f8d59de5d987b66b3dc2525f44d26967
+  docs/sdk/models/operations/getcompanyrequest.md:
+    id: cb14d531f942
+    last_write_checksum: sha1:c06e38587cb5b7c717b38489e87c78ed45245fcc
+    pristine_git_object: 95935d443375deb3c52c92b945eeacf1a3d7cfe1
+  docs/sdk/models/operations/getconnectionrequest.md:
+    id: 6545321b6497
+    last_write_checksum: sha1:8b45285956af0de2c86cec0110465d8d2a45a316
+    pristine_git_object: db3c292f6781514d4af5f017719a8b5010a26335
+  docs/sdk/models/operations/getmappingoptionsbillsrequest.md:
+    id: cb1d767e189e
+    last_write_checksum: sha1:64f1b56629bdc0a821f989f9b0a3a23bc1449f9a
+    pristine_git_object: 5ad854a14ad2511efd991d932c76ec1d83271a09
+  docs/sdk/models/operations/getmappingoptionspaymentsrequest.md:
+    id: 1d4455dfd7f0
+    last_write_checksum: sha1:f68486fa7b1e437fca537537da820ce03473b28b
+    pristine_git_object: de36ca7895eaf3831383d8224ffa79f831365059
+  docs/sdk/models/operations/listbillattachmentsrequest.md:
+    id: 9debe2c87e3c
+    last_write_checksum: sha1:57dba1d776cf9ce3638497782cbd948fc6a30f4f
+    pristine_git_object: 07656597f1f4d73aad5e60d1b530aee88db75548
+  docs/sdk/models/operations/listbillsrequest.md:
+    id: 88f8e1095669
+    last_write_checksum: sha1:2b2f6765b8ca5ad3243a1e9e976e7223a1e9c616
+    pristine_git_object: dcb8ccac2d1fd1518be219a12f6c36d26a2973c7
+  docs/sdk/models/operations/listcompaniesrequest.md:
+    id: 605dcf27a33d
+    last_write_checksum: sha1:e4dfe6b55921907e0defd0253da88a0fa078be84
+    pristine_git_object: 892f70b57072d3370e6fc2298aaff5e7185a16c6
+  docs/sdk/models/operations/listconnectionsrequest.md:
+    id: 6b2aa79356a9
+    last_write_checksum: sha1:ab54b68bd607be4f70f3cd998e4da2206cfe572b
+    pristine_git_object: b66c01daa6e4a19a14ae01970b4502a31d7cf212
+  docs/sdk/models/operations/listsuppliersrequest.md:
+    id: 32a966d4f6d7
+    last_write_checksum: sha1:074b59a267ec5cbe5ddd0e21f146faed21730e33
+    pristine_git_object: c77c6c8a7df87db541ac48ef06b3b1e2e625e79a
+  docs/sdk/models/operations/replacecompanyrequest.md:
+    id: 2f79da54c18c
+    last_write_checksum: sha1:4eb7a2d65a3d87c8dcee8a30adde9caf503d67bd
+    pristine_git_object: 9b4ba9a91d0c1f7b58057e07861cad808e770e01
+  docs/sdk/models/operations/unlinkconnectionrequest.md:
+    id: 9f3addbe3925
+    last_write_checksum: sha1:16a59106af275f5c3435acc46bc4961414bf2c28
+    pristine_git_object: a4d0c3f0f6c52b58943486fb3e6c12aead283865
+  docs/sdk/models/operations/unlinkconnectionupdateconnection.md:
+    id: 454c96f5ba2d
+    last_write_checksum: sha1:7ef87755b95f4b86d49855d58179ef61130021c9
+    pristine_git_object: 8e09632f06b883a64bf56d8c1a3289aef39ddb1f
+  docs/sdk/models/operations/updatecompanyrequest.md:
+    id: 6501e66b32d2
+    last_write_checksum: sha1:dca465bcbdfdbbbcd5768b034d226b32430ef0a3
+    pristine_git_object: 144ed6cd0ab3894091b385527fd93617248e9214
+  docs/sdk/models/operations/uploadbillattachmentrequest.md:
+    id: 4d0fc508b57c
+    last_write_checksum: sha1:1a87d69eff6980750b3fc00bee7cadf4e201900b
+    pristine_git_object: a485793aefd726ff2eaa6bef18e96d499deddc9f
+  docs/sdk/models/shared/accountmappingoption.md:
+    id: f8960c862e21
+    last_write_checksum: sha1:76e283fd3c75ebaf0697f31fa17a1fdb80751a82
+    pristine_git_object: a7c274f6a8554eacfaec67d95db2ab92b62bc787
+  docs/sdk/models/shared/accountstatus.md:
+    id: a8da19baff08
+    last_write_checksum: sha1:6ac56b8e5fd4b21dbdfc1fe83e34bc182ec69ab7
+    pristine_git_object: 9d08accad524560be3829f26f40a2dcfbadd46d0
+  docs/sdk/models/shared/address.md:
+    id: c7a5d3edfbbf
+    last_write_checksum: sha1:e03c907fdcac6cf9267f96a1bb8c45d6f11d6897
+    pristine_git_object: 7055ed058f4ffd806eb0cb6ff2e882cfaed8a9e5
+  docs/sdk/models/shared/addresstype.md:
+    id: 05429d1d4896
+    last_write_checksum: sha1:a6c9f0abb0125e232f5528b78326b9d6cff713eb
+    pristine_git_object: 4dad9f2df1c59734aed95c619b18e7c726f08adc
+  docs/sdk/models/shared/attachment.md:
+    id: 36725df2d249
+    last_write_checksum: sha1:efc3f6340e71c77bbf29da07217a98c55bcbfdc6
+    pristine_git_object: 225eb90642f4f4dcd7f06c64267f91b10cec2351
+  docs/sdk/models/shared/attachmentupload.md:
+    id: d5b29912ce98
+    last_write_checksum: sha1:c66dea74f005d8c2b3b0d83e3b3ce8914d7c8ba1
+    pristine_git_object: f574e91eeea75b77876e8b57c600a82cca974542
+  docs/sdk/models/shared/bankaccount.md:
+    id: a71ab3d0bf48
+    last_write_checksum: sha1:ccd5299dc032ed8a87cebd33c286029560a77602
+    pristine_git_object: faed406599521b56452b5502c9f19719641c9683
+  docs/sdk/models/shared/bankaccountmappingoption.md:
+    id: 29e658f6e450
+    last_write_checksum: sha1:53dea7c541c1257b432b18ad55a2e3f3b2e396b1
+    pristine_git_object: 4a742f4905f634ecb17c25934d53a3c34bd858a5
+  docs/sdk/models/shared/bankaccountprototype.md:
+    id: 18647b021627
+    last_write_checksum: sha1:9a60a35cceb3a086ec16c49d0653d1b3399b3f17
+    pristine_git_object: 41f82d64a60e78f3d45f5a0fe405d37e6321afaf
+  docs/sdk/models/shared/bankaccountstatus.md:
+    id: bb5d0730c110
+    last_write_checksum: sha1:60d8edd47c360c1192f450de1e144ab941c68fad
+    pristine_git_object: c318b5897142a48bb8aee09ff046c3479f1a0af1
+  docs/sdk/models/shared/bankaccounttype.md:
+    id: c1d73962c4ab
+    last_write_checksum: sha1:9032929abd445abb427ffc40d66d64f6b5aa7d25
+    pristine_git_object: 4fac2543aa7e0c0dc1ea7f888aee2bcb5db942b2
+  docs/sdk/models/shared/bill.md:
+    id: 00ca34a63909
+    last_write_checksum: sha1:0088442222e96ec2ea9f96b196c8d55c44d1bc23
+    pristine_git_object: 9752ddeb4d9e1c723e76614cf8c99003d5de10a1
+  docs/sdk/models/shared/billaccountref.md:
+    id: ab2a9fcc40b6
+    last_write_checksum: sha1:35e9dbe72ee7f810f1dc222f01fe0854071ef252
+    pristine_git_object: 70e4050070a5f8a69e5e4627dc7d9f2a3d951ec3
+  docs/sdk/models/shared/billlineitem.md:
+    id: 94d76eb3ef39
+    last_write_checksum: sha1:7075b08200049ef506166e42b6ac5396fbf38cef
+    pristine_git_object: 8d828a732ff65098fc46ceff5799c40d1c2207bd
+  docs/sdk/models/shared/billmappingoptions.md:
+    id: 1857da742ed9
+    last_write_checksum: sha1:0cce57a6fa60a2b9117fdabe60b21d4fe3d10cdb
+    pristine_git_object: ce404e26f35c7acf4b525d18af3dd6664ed1073c
+  docs/sdk/models/shared/billpayment.md:
+    id: 3c14f1e2cb4b
+    last_write_checksum: sha1:de588c7d1c9b8dae61286ed3ffa56eef08b245ab
+    pristine_git_object: 611cbf73975391b0c9144eaa4e47294d49bff617
+  docs/sdk/models/shared/billpaymentaccountref.md:
+    id: ad79442633c0
+    last_write_checksum: sha1:ebf131c8609c441f44a6666aaf8851f3c0b929f9
+    pristine_git_object: 1ba880f63ed1824af8bfdf3149ee1533413a2bfd
+  docs/sdk/models/shared/billpaymentprototype.md:
+    id: 9370ce20d209
+    last_write_checksum: sha1:c67bafd7bde1601941de41835877415b69f1e6c5
+    pristine_git_object: 3e4224ccc8288635ec7b1d16019f0147a37aa88a
+  docs/sdk/models/shared/billprototype.md:
+    id: 7f39fff97328
+    last_write_checksum: sha1:e67e12b959e1d71e53c87ff640997936e13cea96
+    pristine_git_object: 3227186133f744eb9041599fc1b2570315212228
+  docs/sdk/models/shared/bills.md:
+    id: 9f0e932f8fb7
+    last_write_checksum: sha1:aba6b2c049b0f164acec8dfd955905a06571bfb0
+    pristine_git_object: 317958c74c4cb52ede39b86a17df862fb36679ed
+  docs/sdk/models/shared/billstatus.md:
+    id: b9f63ac7e29b
+    last_write_checksum: sha1:c3cd6e156074781d1ba99cc926d347a3e1fadfa1
+    pristine_git_object: 24bd0930ddf9f82da01ee719eea672b7e7d8ad6b
+  docs/sdk/models/shared/billtaxrateref.md:
+    id: 46e797b367e5
+    last_write_checksum: sha1:c2e5d08a837528a9dda0076543c0bab8af241da3
+    pristine_git_object: 4233d84a846692644a61ea68d3bedd6236e06fe1
+  docs/sdk/models/shared/clientratelimitwebhook.md:
+    id: 2ad187176bc8
+    last_write_checksum: sha1:aba014ef818b300a2a99f32871952603d83d8723
+    pristine_git_object: 797ebda4702b75fdf9a93a6e609732d788cc3d18
+  docs/sdk/models/shared/clientratelimitwebhookpayload.md:
+    id: 455bfe8fe625
+    last_write_checksum: sha1:4e513cf7749ac85ab79abdbc700354433b92cdd1
+    pristine_git_object: dec3e05c1d25919401906457bc75e192d1bbc00d
+  docs/sdk/models/shared/codatfile.md:
+    id: b32544e3a5a3
+    last_write_checksum: sha1:18eb035edd767bb64b5bf7785735f526a7db0d4a
+    pristine_git_object: 3df5c34d8cfc41c8423c869eadab63c612f5a0b5
+  docs/sdk/models/shared/companies.md:
+    id: d934c193ecb6
+    last_write_checksum: sha1:5a995427d08c27704ff35dbbb66f2797b15cfff1
+    pristine_git_object: 6d817ea79a353d68a783b50742c6d5f47018a586
+  docs/sdk/models/shared/company.md:
+    id: fb5206b144df
+    last_write_checksum: sha1:3dc251179a6736b5476fe1c7ee300cc3973efeca
+    pristine_git_object: 77257345d9c0ca253ed5d372d40f94bc5d32c97d
+  docs/sdk/models/shared/companyinformation.md:
+    id: d78b0b4b325a
+    last_write_checksum: sha1:ba150ec2e88dc076ca4b33b29754c38070b941e1
+    pristine_git_object: 6a466c52e15c4fa797959917b45028787b8069e9
+  docs/sdk/models/shared/companyreference.md:
+    id: eb83cae3df56
+    last_write_checksum: sha1:238525b35289d8c3d34b69e31306eb22615d861a
+    pristine_git_object: 5c0ddc8f6e8a13bd091cad2ac4cc4bf6d8345a11
+  docs/sdk/models/shared/companyreferencelinks.md:
+    id: bdd0ee48a65d
+    last_write_checksum: sha1:2fa6d89ac19a6f0c0562fd2f9faf1359ef390c0c
+    pristine_git_object: 0849f2a89df2466f5234b127727fd11b25bd464d
+  docs/sdk/models/shared/companyrequestbody.md:
+    id: 3f3dfd0aa865
+    last_write_checksum: sha1:58c240006df1dbfda9a268a65294dd38ac970b6a
+    pristine_git_object: a5961b8ca7a71a6e57dad6b1f999c998bf4bb7a7
+  docs/sdk/models/shared/companyupdaterequest.md:
+    id: cef525a660f4
+    last_write_checksum: sha1:f39c19cdd6e2eb88f087a2aa5953bf61d5ffeb7b
+    pristine_git_object: c2895414e053283bafcd9865baaa72a806a83444
+  docs/sdk/models/shared/connection.md:
+    id: 1c171381dd82
+    last_write_checksum: sha1:f79da66873f4f9e0a6c74dd3d33627b53e78f423
+    pristine_git_object: d19550723a9bb1e7da81bb74a9eaae1d1dc580fd
+  docs/sdk/models/shared/connections.md:
+    id: c39072f6f8dc
+    last_write_checksum: sha1:e1a0cd88fda53543151de90e25b28c34ca6629f8
+    pristine_git_object: 4605317ee995d364b8e6766bd4cbef276a3a2577
+  docs/sdk/models/shared/dataconnectionerror.md:
+    id: 993cf6eb3364
+    last_write_checksum: sha1:674706c320bd73aeafd4724276448a5425c728eb
+    pristine_git_object: 045a260445d530cf6c3872098a330017ed495c23
+  docs/sdk/models/shared/dataconnectionstatus.md:
+    id: fd14e3dc6ca5
+    last_write_checksum: sha1:57c75966eb6caafc78628cd9a82861a16d12af3b
+    pristine_git_object: 99bdbad248f892b194b0ea64b2f40729398b891c
+  docs/sdk/models/shared/datatype.md:
+    id: 0338d85c906d
+    last_write_checksum: sha1:30386b827c08fa3541f637a65828ff3307dc0652
+    pristine_git_object: 158edb5e095eff85af9acfe7005e5c202017d00d
+  docs/sdk/models/shared/errorstatus.md:
+    id: d836c01e48c6
+    last_write_checksum: sha1:1505021cfe7d64cc5bf77160e8512f74f1b572e4
+    pristine_git_object: 97ce376efb07b5421e4957c4cef54f9a4b1e1db6
+  docs/sdk/models/shared/errorvalidation.md:
+    id: a1197fba13d0
+    last_write_checksum: sha1:da4e95c307d6a2e0c9dd1cec699d39f8b46a801d
+    pristine_git_object: d1ae457642f7fdd97ef23e095425fb2f9d65d717
+  docs/sdk/models/shared/errorvalidationitem.md:
+    id: dbec2a990008
+    last_write_checksum: sha1:49fd307df6a3f262c5d431135bee315aefb44c6e
+    pristine_git_object: c053707441b153dcb8316e0620fc730ec57b0c9d
+  docs/sdk/models/shared/halref.md:
+    id: 140248af964e
+    last_write_checksum: sha1:697fceac16f2e453ff1d831a21a74ce62038693f
+    pristine_git_object: aba309c2d8aa8651a78b82226e1a14f412aa34d7
+  docs/sdk/models/shared/links.md:
+    id: fa66a5b5f260
+    last_write_checksum: sha1:8d2a5b16ac474273cdde82984654492309dad412
+    pristine_git_object: 17d8cd9be1d1fe1ad10afc7ce9d840d331323657
+  docs/sdk/models/shared/pagination.md:
+    id: 2979e4010d1b
+    last_write_checksum: sha1:4a05733b4b4e5745151aa9c1b4ee12cf464fce24
+    pristine_git_object: 3e1d39ddc6984e8956468c9d5891bb855b8192ad
+  docs/sdk/models/shared/paymentmappingoptions.md:
+    id: ac2ee80d2b4d
+    last_write_checksum: sha1:d32e658607d145e011b1794f880c01e6402fd5c8
+    pristine_git_object: dcfa3080bf26598363f977c1eab7eb7d79dc80c7
+  docs/sdk/models/shared/security.md:
+    id: 972729c50a07
+    last_write_checksum: sha1:6997fc87475c94be588a1d6f4a48221b8caf21df
+    pristine_git_object: 5f89ebba077a4641bc192f412e79f7722d2a901a
+  docs/sdk/models/shared/sourcetype.md:
+    id: 3ec91bdaf5e7
+    last_write_checksum: sha1:5e91b7ecee2ec5889400a323d7178ee5b6e04e09
+    pristine_git_object: f0a72e771acb7f304ce0ddfcab254c0dff5c6e0a
+  docs/sdk/models/shared/supplier.md:
+    id: 18b82dd2f554
+    last_write_checksum: sha1:d8a566bae76d8224bb0ada377e8ae95ae0c2cd55
+    pristine_git_object: a15e0fcfdfc8b4fdff86f2093489e328797a5d88
+  docs/sdk/models/shared/supplierprototype.md:
+    id: a27221eee44d
+    last_write_checksum: sha1:f7de9d7f53c2fc4d57d3706a7211a02aa8dd4bdb
+    pristine_git_object: d352c080a663296a066f80b387cec6bbe77cc757
+  docs/sdk/models/shared/supplierref.md:
+    id: 8bf8e8bdeb32
+    last_write_checksum: sha1:1cf012570e51569753ee90384a858bab01433686
+    pristine_git_object: c08bc8af699c692baec90a5d13dc6a3135dabd5e
+  docs/sdk/models/shared/suppliers.md:
+    id: 09016bddb305
+    last_write_checksum: sha1:42ec2a4d1f9f4195ec8e1d8057b5713368ef19ed
+    pristine_git_object: fe9207d440aadfe4135b435198cf7a5219f765d3
+  docs/sdk/models/shared/supplierstatus.md:
+    id: 51c838d3b574
+    last_write_checksum: sha1:7544360314ae26a33bbf7b9208071dd2bbe3f774
+    pristine_git_object: 575c3229ed9634d6472dd22390faed0ce9ac204b
+  docs/sdk/models/shared/taxratemappingoption.md:
+    id: 7a055b1b4339
+    last_write_checksum: sha1:646898ac07bc942399253a0b28e5bf9dfac05378
+    pristine_git_object: 7bf026e93661970b4e06154abd93379f6def3960
+  docs/sdk/models/shared/taxratestatus.md:
+    id: e45c0a84a1bd
+    last_write_checksum: sha1:7570b1b425ccae1a9b2a087faa7cce2178a5760e
+    pristine_git_object: dd0ffc12beab997210e41af08cc2dab7041df971
+  docs/sdk/models/shared/trackingref.md:
+    id: 3fc50d3208ff
+    last_write_checksum: sha1:e8afa0e90a08814a5ae448f94eb46ac868a7f3d8
+    pristine_git_object: ca27b21833be5f0fdf1d881925f1ff78ad069828
+  docs/sdks/bankaccounts/README.md:
+    id: 510ffee224ea
+    last_write_checksum: sha1:f230e67bcdc7aa8b08b85b3a4a50a4b9a8950061
+    pristine_git_object: 3fc4582ed50c51fea4f4f5df959a7a5221c47a69
+  docs/sdks/billpayments/README.md:
+    id: 9436cf9c44bd
+    last_write_checksum: sha1:19fd7e1edebafb105c063d80a2051204d170f4ac
+    pristine_git_object: cfba7b6afa58d2ddc8170da2f7b1bbdd824425af
+  docs/sdks/bills/README.md:
+    id: 2a9c97966ab7
+    last_write_checksum: sha1:55e66962c3b821801173327114a0049d78754420
+    pristine_git_object: 937d36fd03129f4eb5a886360202a0f69e7c08f4
+  docs/sdks/companies/README.md:
+    id: 67e8a49afa67
+    last_write_checksum: sha1:29b8ed3045169efe7fc8d5eeb42227db4451948b
+    pristine_git_object: 33217f2fb129e95031508e14f118f099635dcbcc
+  docs/sdks/companyinformation/README.md:
+    id: 319c7ed51023
+    last_write_checksum: sha1:9edff1d747b0eef638dbacea70c6fb7fd4b1224a
+    pristine_git_object: bf1bdf7f327b85013f508a6f038a08101860b0e9
+  docs/sdks/connections/README.md:
+    id: 3ef8931411ea
+    last_write_checksum: sha1:5b794a5b7a3f6e3005963d2878371166ffdc934b
+    pristine_git_object: 4f09f80c03c833dd04a81e560f7bddbc1d526d05
+  docs/sdks/suppliers/README.md:
+    id: 85867190cd79
+    last_write_checksum: sha1:46781f3a75eab256cb37132ef9b40a9e347879d7
+    pristine_git_object: dec70519e57fda24d874d4c0b25fdad1efa25f52
+  eslint.config.mjs:
+    id: 461c8d07f6da
+    last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
+    pristine_git_object: 67bccfec985be20a00970d90155752832dd47135
+  examples/.env.template:
+    id: 52cbe5afed92
+    last_write_checksum: sha1:76d03bc5b9c49e1ab64eaa3f3f7286111383c380
+    pristine_git_object: 5839bf7761e40eca37f79d52f2d1cd869fe71ce2
+  examples/README.md:
+    id: 9d0f69d6e677
+    last_write_checksum: sha1:56057020c8214561ddbc5e6fa5b17bf5d381c322
+    pristine_git_object: 196a773af0f0a771b0f21c3776a60ecb480c0b40
+  examples/companiesList.example.ts:
+    id: 21346a1a073c
+    last_write_checksum: sha1:a4c280e8781505eb22d8a040a456a471bec5d25d
+    pristine_git_object: 962e6d4368773bffea6741633507b88795bde3bf
+  examples/package.json:
+    id: c1d7b0ec8e7e
+    last_write_checksum: sha1:c17f5a70b0e14db12b412afcd91c9a066bef48d9
+    pristine_git_object: 978c98ebda9a2b1f9ea0961b7a06643f604d1d24
+  jsr.json:
+    id: 7f6ab7767282
+    last_write_checksum: sha1:7e428d16b98cc823067d02faf758b15542fad2a3
+    pristine_git_object: a3b100df62e435455456dfe9a06f7017184aff5e
+  package.json:
+    id: 7030d0b2f71b
+    last_write_checksum: sha1:3da0d5028ebe8afcfe3e08de0090701fd20e4d5a
+    pristine_git_object: aa0fea63a788d20dd23bf2cef18c7284ce7883b4
+  src/core.ts:
+    id: f431fdbcd144
+    last_write_checksum: sha1:8ac194d8a86c95d66ff881034c874004f103d6e8
+    pristine_git_object: 3ef31d3371427926066c0f46d57f38b6872442b6
+  src/funcs/bankAccountsCreate.ts:
+    id: c61c77ddef33
+    last_write_checksum: sha1:c93a1a2c74ad4990f21d45132c82b50a584ef173
+    pristine_git_object: fe656e7dee0d91cb642227ffb405fd95bf931770
+  src/funcs/billPaymentsCreate.ts:
+    id: 4a7573a8ef1f
+    last_write_checksum: sha1:01d1a9d56aa947bfe9fe487bf7ce46442daa89d7
+    pristine_git_object: eedfe8bc9e32f7f83413a14f907d519cc8859d7a
+  src/funcs/billPaymentsGetPaymentOptions.ts:
+    id: 3dcdf22bd7f2
+    last_write_checksum: sha1:c8eda6776285be2f42eccb221dcd63a98d55d524
+    pristine_git_object: 25d0eebc4664a60e26fa36f143d6c469e3ab17c7
+  src/funcs/billsCreate.ts:
+    id: 75c376a468d4
+    last_write_checksum: sha1:2632148f69966b72a0e910e9917ee1a1681a5929
+    pristine_git_object: f9dfea6479db28cce0046f4d8fc15bfd00a9d55f
+  src/funcs/billsDownloadAttachment.ts:
+    id: 2e4c12e9ceeb
+    last_write_checksum: sha1:13150629f6e9894f18357b024728ee853344a054
+    pristine_git_object: db77db9c68c6c7b71375c6e205c969d1cd47bdcf
+  src/funcs/billsGetBillOptions.ts:
+    id: 5872e47fa14f
+    last_write_checksum: sha1:8f8b18f4b04546fc429d2730cdb9f404cdd56f91
+    pristine_git_object: a7adecc0138f125a4e10650d090e464c06977d04
+  src/funcs/billsList.ts:
+    id: 7cc1b84a3584
+    last_write_checksum: sha1:b70e56ef264691a393a19310f2312df37441c73c
+    pristine_git_object: 99bb285579ee252a9afe1ec6a25dc30ff6622065
+  src/funcs/billsListAttachments.ts:
+    id: 116a7b452f5c
+    last_write_checksum: sha1:daa08113502a895da2c9034fb34c7fa1991029c3
+    pristine_git_object: 2a8fd61dd7fa0be4aeb7b9db027f785da97888f0
+  src/funcs/billsUploadAttachment.ts:
+    id: d7311d53bc2f
+    last_write_checksum: sha1:1fb8e84e689008f91f420ba5cf7b6f3792980e25
+    pristine_git_object: c7cbf43de1026d5ab605161cab5a9cc0d435798a
+  src/funcs/companiesCreate.ts:
+    id: becfb79b6222
+    last_write_checksum: sha1:498233a67b41aac2f783e6a69cc9fbc4ffafa76b
+    pristine_git_object: 3088009cb98e3f7f31aeb9e9b8257301d2b30e15
+  src/funcs/companiesDelete.ts:
+    id: d4b8d3c15935
+    last_write_checksum: sha1:3a8cb186b7e28f222f7c90a0c0eb1f45f99863de
+    pristine_git_object: 23698d50d44454a11de7b12d2546b92114337af6
+  src/funcs/companiesGet.ts:
+    id: 497c5e9320c2
+    last_write_checksum: sha1:feb6f9520bd230594c517b4a72549bae841213d0
+    pristine_git_object: 4aa95221177994b306ef29ea5707588e744b28e2
+  src/funcs/companiesList.ts:
+    id: c57fb769a99c
+    last_write_checksum: sha1:765673601ed79ee2d140cf250fffb0300506a242
+    pristine_git_object: 647b990e9de66a329ff27230177f6a79428833c3
+  src/funcs/companiesReplace.ts:
+    id: c141cb91cc73
+    last_write_checksum: sha1:4a52e307199aec90ed0f912648426e1e75c51abb
+    pristine_git_object: 3acad3d8f9e56572c9f498a79efefaa19c986446
+  src/funcs/companiesUpdate.ts:
+    id: e3d7bd676c21
+    last_write_checksum: sha1:2ba58cebbc4076061896990a8bf1f2a69c4702b7
+    pristine_git_object: 725ab14763731f3c5c62cb7a725d7ab023ffe11c
+  src/funcs/companyInformationGet.ts:
+    id: d77e867a25e9
+    last_write_checksum: sha1:f409c19096e7986dd8c53272078b2599ee141c0d
+    pristine_git_object: c3a59e1123db03a1e86d45a442a3438278ca4425
+  src/funcs/connectionsCreate.ts:
+    id: 0423cc2d060b
+    last_write_checksum: sha1:61cd6d74c9838c3f5d265a1ebb9644b87c1a1aae
+    pristine_git_object: 8f5d134f1a6d919e8dbcce4d52c1d142cce8967f
+  src/funcs/connectionsDelete.ts:
+    id: f33b14b4a39d
+    last_write_checksum: sha1:d73d6dd4f8e3f96eb7ed05f4d0d4a5b6e2155bfc
+    pristine_git_object: debe3fb4c025730076939c8380c7cbb84564881b
+  src/funcs/connectionsGet.ts:
+    id: 6a1b6227b285
+    last_write_checksum: sha1:5fa6564bf8e9dd18d9d4946f6d2839930bca3a0b
+    pristine_git_object: 1e813fe5d7fae31f4ceb4aa64f41126c9c98da42
+  src/funcs/connectionsList.ts:
+    id: ca36cb8b50d3
+    last_write_checksum: sha1:998a5edd3129f7cea73bcedd3c48066ce1d04dc5
+    pristine_git_object: 4ab0abc7550cae02f01282f4d4b2a339b08b9c4a
+  src/funcs/connectionsUnlink.ts:
+    id: 0ff9d29a8016
+    last_write_checksum: sha1:45598db37d1bcf450229bd1ec4b436039bb9dc27
+    pristine_git_object: 3e0a90b6c0d263a49943535133343d5b7ce1a251
+  src/funcs/suppliersCreate.ts:
+    id: ff2ee5ff481f
+    last_write_checksum: sha1:9717ea5f864184ec8989ae15abaa94c0f4e3a2d5
+    pristine_git_object: 5e3dad5c51ceec40bf3347bb90560293dcb355f2
+  src/funcs/suppliersList.ts:
+    id: ae0c2ccb6871
+    last_write_checksum: sha1:f80380a734779e9b27fc35ce6dcb1edca5d2de8a
+    pristine_git_object: 8133e20e38a550a2e3d8a0509374c9515b9de812
+  src/funcs/validateWebhook.ts:
+    id: f3ebc1bebb84
+    last_write_checksum: sha1:1e69504955d7b8a8b9f0f25f7760f18dcbe7f2f9
+    pristine_git_object: 8c4d3a6bd6d87a5be839877765b214b47ea07898
+  src/hooks/hooks.ts:
+    id: a2463fc6f69b
+    last_write_checksum: sha1:9a569ea8f3177ddcdfe6cd903feaf5c2d2c36a9a
+    pristine_git_object: d34c88497fb1cfb22a725e52b4c218f36d0b5c8e
+  src/hooks/index.ts:
+    id: 5f2dab62b520
+    last_write_checksum: sha1:1a11c073a6cd792932218e1d4ed36b8567bad8ef
+    pristine_git_object: f60ec7acd76141a71d78008c5a362eb0236d8335
+  src/hooks/types.ts:
+    id: 2a02d86ec24f
+    last_write_checksum: sha1:a2145ca7943102b61791b4b067fb593f221349b3
+    pristine_git_object: 494395f66d0a6de6f6cd8b1dc918557843158c1d
+  src/index.ts:
+    id: c5fb850250c7
+    last_write_checksum: sha1:35c9cde3ae14b18b3f893a1afe8b6c44f8760f24
+    pristine_git_object: dbcba164a0082e3bb8c43cf21fa7f8ffb9d35dfc
+  src/lib/base64.ts:
+    id: "598522066688"
+    last_write_checksum: sha1:b0b12ddbd8625efb47c0e955a18641aeb10c6532
+    pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
+  src/lib/config.ts:
+    id: 320761608fb3
+    last_write_checksum: sha1:6e7025631d380b68e03277e65054cb711ac2c5bf
+    pristine_git_object: 24d5a0cf094254fc274205c384958f10c8b313f2
+  src/lib/dlv.ts:
+    id: b1988214835a
+    last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
+    pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
+  src/lib/encodings.ts:
+    id: 3bd8ead98afd
+    last_write_checksum: sha1:d20c131976ab8ac68b22bdde2b7ed84b5b873922
+    pristine_git_object: 31cd3733907afbee3641b9ab680ed417247a7d33
+  src/lib/files.ts:
+    id: e5efa54fcb95
+    last_write_checksum: sha1:d0f325f445b8d22e7d73baf052c585ec2dd24841
+    pristine_git_object: 0344cd046d033f9e8a55de02f7935c5cec5dc30b
+  src/lib/http.ts:
+    id: 63a80782d37e
+    last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
+    pristine_git_object: 13cf1fd7894a89f727b8d2db2ad24313a94f68c7
+  src/lib/is-plain-object.ts:
+    id: b9862591096a
+    last_write_checksum: sha1:df687f25a9590b6fd95d39df41a652ae3fd4e517
+    pristine_git_object: 61070d3d7c7e5e95b1ed7e7ea21869eb0767db77
+  src/lib/logger.ts:
+    id: 7ee7741a02bf
+    last_write_checksum: sha1:0ec9d3a2a34c362746b767e4f9a746c055d57a7b
+    pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
+  src/lib/matchers.ts:
+    id: d54b2253b719
+    last_write_checksum: sha1:80ff3dfb638ef4b45a55dcb63de0c0e834016829
+    pristine_git_object: 41b6095f00172c59b69e9862644563edca5e2fc6
+  src/lib/primitives.ts:
+    id: 74859f750b28
+    last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
+    pristine_git_object: d21f1dc49affa4e6d324bdd60811b470fdfa7eb6
+  src/lib/retries.ts:
+    id: b24a69d15639
+    last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
+    pristine_git_object: e3ce9aba72150fc3c18f3105d39b21aba809377b
+  src/lib/schemas.ts:
+    id: deb4b531fae1
+    last_write_checksum: sha1:b8517a14d3043f488f44e3b10ddd6cabdd22242f
+    pristine_git_object: dc2510e330727b01894e4d3954ea92a62c962e5d
+  src/lib/sdks.ts:
+    id: 8a6d91f1218d
+    last_write_checksum: sha1:faf3ab84ae7a0104c0c43c6accd3e081cf33d191
+    pristine_git_object: b1d7b5c0743b08f4248bdc0e0b84ec4d0617dffb
+  src/lib/security.ts:
+    id: 0502afa7922e
+    last_write_checksum: sha1:c04a467e412cdd09a03239de17aa7d6a9afc246e
+    pristine_git_object: c87ebc333707850c74a6800b73d7e1bb26c27367
+  src/lib/url.ts:
+    id: b0057e24ed76
+    last_write_checksum: sha1:d124050c7e755c0cce233b9e029afb584ff65201
+    pristine_git_object: f3a8de6c021de59c991707946cd294596cae954d
+  src/sdk/bankaccounts.ts:
+    id: 0f1139473f13
+    last_write_checksum: sha1:3295d6179393edad7b55a050008dddbf12e51420
+    pristine_git_object: 1c99cfa1e1ff38847f4e8049e235072fc66a107f
+  src/sdk/billpayments.ts:
+    id: fbe6fff8f39d
+    last_write_checksum: sha1:b09aff24a62876f6e4bfe2d7ae098d2fe6ca10b9
+    pristine_git_object: 63591a2053553e15dc188866e2ac283119813157
+  src/sdk/bills.ts:
+    id: bfb7cb6dd91e
+    last_write_checksum: sha1:788d2a84ff79d6a0ccf1ce1e09b7b50ce0610ec8
+    pristine_git_object: 9b074ec5261998f2208fb4837c6933a17c2f4a5d
+  src/sdk/companies.ts:
+    id: 7d7df3fca5ca
+    last_write_checksum: sha1:adf6eda45c373f26cb05782b1056e6a5c2c13d52
+    pristine_git_object: 26d34a940078cd984c57366fd575652e951bd568
+  src/sdk/companyinformation.ts:
+    id: a31ed1f3ffb3
+    last_write_checksum: sha1:b96a818ec0e16a58926b16011e28d61732dc5bd0
+    pristine_git_object: 969ddf368b859e82f803dec69cc11b9e9e7d2193
+  src/sdk/connections.ts:
+    id: 5992fff3b5cd
+    last_write_checksum: sha1:7fbe7d6d1f9aa1ad7059a7d602c7d7704bf4faa5
+    pristine_git_object: 9253cd633f20b78f1b3044025146fdeb3409ae97
+  src/sdk/index.ts:
+    id: a857902a703f
+    last_write_checksum: sha1:ed6d64f2a6135349aa8498b8d8cff9ba85c7fb8f
+    pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
+  src/sdk/models/errors/codatsyncpayableserror.ts:
+    id: a6c95131b59d
+    last_write_checksum: sha1:aba7822affc0515ac713e6ed783252d50659bc45
+    pristine_git_object: 476e94ceb23bd6a4fbbd58e3710bc233feb91db7
+  src/sdk/models/errors/errormessage.ts:
+    id: 2bc5b9b70870
+    last_write_checksum: sha1:89b4c45920e5afe97f746c80c6fd5f7b10bf3662
+    pristine_git_object: bba810b8615af07093380b31cae7adeb51a14d1e
+  src/sdk/models/errors/httpclienterrors.ts:
+    id: 7be0894f205a
+    last_write_checksum: sha1:994ced121c54fecd0af038ccfb7855fbfd3868ec
+    pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
+  src/sdk/models/errors/index.ts:
+    id: 017ae2dc215b
+    last_write_checksum: sha1:605d488085deac192381c9fd99674821d462a3be
+    pristine_git_object: 907f0f2a97e332fcff70b9aadd7b7650501a8dee
+  src/sdk/models/errors/responsevalidationerror.ts:
+    id: 0b76670204e7
+    last_write_checksum: sha1:b364187560bebd3ab42f7731e1eb0e31279d9274
+    pristine_git_object: 45a94e33eb7f1736e32be35080507a379b9ade97
+  src/sdk/models/errors/sdkerror.ts:
+    id: c231fdf3b914
+    last_write_checksum: sha1:baa8757e30b1190e0d0bec42ed56922bc584bc8d
+    pristine_git_object: 2d987849b07c0e36282762c6a6f150eb9bae0817
+  src/sdk/models/errors/sdkvalidationerror.ts:
+    id: 7c8a11e099b9
+    last_write_checksum: sha1:a69da17627bcc32b820544608f3400423ea53f26
+    pristine_git_object: 6826e1208a5d7b7d310535d18909646522bf0fbd
+  src/sdk/models/operations/createbankaccount.ts:
+    id: 384f1f4b636d
+    last_write_checksum: sha1:eb3a538d6f671236905dba8fa7edce1b40d73955
+    pristine_git_object: 97592386068e8592534dc0da7d7968daa34c0420
+  src/sdk/models/operations/createbill.ts:
+    id: cc771f1cb1cc
+    last_write_checksum: sha1:826ea53f4cc6b7f3fc98323a5e9f53021c6a4324
+    pristine_git_object: f39957fec9d10824fde2114739eef392db84a79a
+  src/sdk/models/operations/createbillpayment.ts:
+    id: 0ee71ee0c364
+    last_write_checksum: sha1:e04e19805517392a7bb36b43e2fcd954d72d2582
+    pristine_git_object: faa4b6a35edbda1ec8dd6ecfed7e270cb4c347e6
+  src/sdk/models/operations/createconnection.ts:
+    id: fd864cebfe91
+    last_write_checksum: sha1:67abdd42c0f4b8669b59225b4cf97763bd0cca4c
+    pristine_git_object: dc5bcac12be709864c1f9a57ab0591899995abeb
+  src/sdk/models/operations/createsupplier.ts:
+    id: 3ac2b8655cd3
+    last_write_checksum: sha1:96876fcdf552501f489b9d7de4de4ef387ded390
+    pristine_git_object: 12d262ab13de6ba56ae1c9bf4d34f34ad7d99fa8
+  src/sdk/models/operations/deletecompany.ts:
+    id: feff26e831a7
+    last_write_checksum: sha1:3c6c30970b77ef97770f4a9fed7866b08bfd1ad0
+    pristine_git_object: dbe555534894ed6e7f64cf4f034fff5fb58ddedb
+  src/sdk/models/operations/deleteconnection.ts:
+    id: 918aad3d3a4a
+    last_write_checksum: sha1:47fa476012d016921380a863c5457ef7babdd186
+    pristine_git_object: 83f75997084050b7c35824dc9e065e81e3677b69
+  src/sdk/models/operations/downloadbillattachment.ts:
+    id: bbb225a0d0f5
+    last_write_checksum: sha1:4749f98fc7cdf39a901e01ce34d2456e09f87076
+    pristine_git_object: 6adf19d90f4e12e88c73df7463261f752100377a
+  src/sdk/models/operations/getcompany.ts:
+    id: 4bef19281ada
+    last_write_checksum: sha1:3c30540e6bcdad8e8a51c616dc9e9b21934890ca
+    pristine_git_object: 77734decc381321230c2bfb8f340633b2064f315
+  src/sdk/models/operations/getcompanyinformation.ts:
+    id: 8d727455797f
+    last_write_checksum: sha1:e3816c8b8f064c4d74ef49a3f5a5dd9e26ded9c1
+    pristine_git_object: bcfcdff0ae86f247239cfc63eb26bb55d8f67d27
+  src/sdk/models/operations/getconnection.ts:
+    id: e6be8d1eab2c
+    last_write_checksum: sha1:94309b857129d317a91f50bae1e58ab670779062
+    pristine_git_object: 126d23b8515e33d0e3c796e642e68ee0f74a6e00
+  src/sdk/models/operations/getmappingoptionsbills.ts:
+    id: 4b567b575627
+    last_write_checksum: sha1:a2f9fa71f6fb737a27edfba842480c56caea564d
+    pristine_git_object: f088daae0e8e2ebe27d613399563b7bb5bf017e0
+  src/sdk/models/operations/getmappingoptionspayments.ts:
+    id: 21c504ea43a2
+    last_write_checksum: sha1:7ba3e7a2231cfc8d7bff9526159adf0dff318dbe
+    pristine_git_object: e3abe91dc20b75266936498daa6a04e90f407226
+  src/sdk/models/operations/index.ts:
+    id: b2864d0519d7
+    last_write_checksum: sha1:b44fffa284de9b2bd8d653775acd40e591bf18cf
+    pristine_git_object: 581b2008d85ebef77cd23fbc4bcf3e7b1a9dcb95
+  src/sdk/models/operations/listbillattachments.ts:
+    id: 4c9488a771ad
+    last_write_checksum: sha1:4ce52025b4b566e46e0a3a1795becd64d7c094c3
+    pristine_git_object: 6262e27ea26748c4cfdb882fd9ebdcf6a1c3d828
+  src/sdk/models/operations/listbills.ts:
+    id: 93bb62843719
+    last_write_checksum: sha1:9a8cfe3b00fd09ab381b0d48535b05f79f1d5318
+    pristine_git_object: 47d5bb0abf9feffe78d8645aebdd45262ef373de
+  src/sdk/models/operations/listcompanies.ts:
+    id: bd514f2d5c1c
+    last_write_checksum: sha1:1487d8f67d5a1c439e6581e854213aa1a386b9f3
+    pristine_git_object: 837a6aae587e8a038402fbcedcd4fcc1873136ba
+  src/sdk/models/operations/listconnections.ts:
+    id: 5797f5b9be29
+    last_write_checksum: sha1:0e709e410d2b500143f63d78e8eaa9ce4c810a6d
+    pristine_git_object: d1be0d9421b3b0d768650208abc91adcf7a9b721
+  src/sdk/models/operations/listsuppliers.ts:
+    id: 5bd206cb074d
+    last_write_checksum: sha1:55e7339b9e752293639be0a7f87635d6dec05abe
+    pristine_git_object: 3fa159b5fdafa5a963448bbb6ec0ac11998df41d
+  src/sdk/models/operations/replacecompany.ts:
+    id: 15f9deaaf7eb
+    last_write_checksum: sha1:dd56621b0a190db2faed25c4f3f8ccc58c20210e
+    pristine_git_object: 5ee35551d47caea122b4f502f81b95691cc291ef
+  src/sdk/models/operations/unlinkconnection.ts:
+    id: 91e6d25ecd14
+    last_write_checksum: sha1:5f4e32b0424df5658a94c777839f8a75adbe40ed
+    pristine_git_object: dbdba4a38ab397554e0d92300812dda648e941fd
+  src/sdk/models/operations/updatecompany.ts:
+    id: dbafb9e0f8d9
+    last_write_checksum: sha1:937aaa5e965aae942c6550456dbe3c37b5d2b280
+    pristine_git_object: 37ead4428659b0b2409ad7f6cf54515e544e23ec
+  src/sdk/models/operations/uploadbillattachment.ts:
+    id: db82a18c5aa9
+    last_write_checksum: sha1:ed1546769f4039b3e5b351a6013e924a437a3f2e
+    pristine_git_object: bdfec6b1272094f3ebd88ce002a20046e320507b
+  src/sdk/models/shared/accountmappingoption.ts:
+    id: 21029bd2bde2
+    last_write_checksum: sha1:1431d7f5b2d85f188b1410e88d7912ec47ac1fed
+    pristine_git_object: 7b003079c03356c3e2bb487c3ad0873f5ef9ad71
+  src/sdk/models/shared/accountstatus.ts:
+    id: d3b6d9d9dc1b
+    last_write_checksum: sha1:cf2e822d702a668036c73990107bf83afdfb3b30
+    pristine_git_object: 8f89f1c6fc0a40ed9a5440d98a70b49ce86b1e4c
+  src/sdk/models/shared/address.ts:
+    id: 123dc664e6b6
+    last_write_checksum: sha1:a570c829903b69bc114de0f5027ee7f0dce0329e
+    pristine_git_object: 25111ed9c84f2619fd0012d07ca6411ca5d5b70c
+  src/sdk/models/shared/addresstype.ts:
+    id: 8f46715578d6
+    last_write_checksum: sha1:2a3313224e8bededfc7da6294878909847d1ba05
+    pristine_git_object: 79122e862530948c41b67e42f51464afbdf2bc13
+  src/sdk/models/shared/attachment.ts:
+    id: 22576f5ca1b9
+    last_write_checksum: sha1:66d1f059ea904eaf8603f37a5357c61a1d184621
+    pristine_git_object: 56c7e61fb1b37296e63e81c83e9fcb96ce9bdb91
+  src/sdk/models/shared/attachmentupload.ts:
+    id: 6a392fdeca2f
+    last_write_checksum: sha1:641e54fc2352b948d32b49bd9024807e63554757
+    pristine_git_object: 9d175ab2154386e54a967876024acc02dff71994
+  src/sdk/models/shared/bankaccount.ts:
+    id: d58b53d62458
+    last_write_checksum: sha1:14ab8fe5108b3737b26c9c9c73a9d780c72ada12
+    pristine_git_object: 0f758d5955130ddf47dddd59a75d5f8afe62a44a
+  src/sdk/models/shared/bankaccountmappingoption.ts:
+    id: b3fef74a0c8c
+    last_write_checksum: sha1:f0367de303e9e38ad2526298e1937b0b4baccd96
+    pristine_git_object: 71fb1473ebb873e115afe6c7b624fa80f7a742ce
+  src/sdk/models/shared/bankaccountprototype.ts:
+    id: 94ee5a709dfb
+    last_write_checksum: sha1:fca1c9101178ae77ca976745c74efd2d54b779af
+    pristine_git_object: f1a8f2f599d81b9340a74989c661219d5b814f95
+  src/sdk/models/shared/bankaccountstatus.ts:
+    id: 01e2b1dd61c8
+    last_write_checksum: sha1:b218b68559d2f170a5fc3ac5dced2a48b3a75164
+    pristine_git_object: 5d54f42b78ae37223e06a210bf95c7dfc0f0f993
+  src/sdk/models/shared/bankaccounttype.ts:
+    id: 5952c2e0e85b
+    last_write_checksum: sha1:fe5700f5c677e62a00833e7835d5ac70198aba9a
+    pristine_git_object: 4690447344052c8618d3a2c56f23c41e1f6351a3
+  src/sdk/models/shared/bill.ts:
+    id: 32bb975f0251
+    last_write_checksum: sha1:c70796e8ebf827aabc9579aacad7f507fbd65900
+    pristine_git_object: 636ced5d6235d6ee0eacb68aa08487537098489c
+  src/sdk/models/shared/billaccountref.ts:
+    id: c08a3448c279
+    last_write_checksum: sha1:c9c255a184b3102998194a06d8d1a53e729e091a
+    pristine_git_object: 592626318ad12e8897ebc23346353b75ee7b82ac
+  src/sdk/models/shared/billlineitem.ts:
+    id: b895a9163af6
+    last_write_checksum: sha1:645377d23efb76df01693205b8cc43dfdea2b49b
+    pristine_git_object: 4a8c9d46fe4348940b99c5e0918820cd8b27443a
+  src/sdk/models/shared/billmappingoptions.ts:
+    id: 461ea9a57de9
+    last_write_checksum: sha1:0699ad1573a0910f4e2cf60d4a244100a798cc9b
+    pristine_git_object: 24bcf35187ceecfb000ed3d644d92e20f44bfecb
+  src/sdk/models/shared/billpayment.ts:
+    id: 5f76ff527afe
+    last_write_checksum: sha1:d7719ba9c5a8ae8133d5231558aad7538902290e
+    pristine_git_object: 9bd47611602afe25ecab7c873a0f23bc1988e32b
+  src/sdk/models/shared/billpaymentaccountref.ts:
+    id: 8c638354df1d
+    last_write_checksum: sha1:83e5a9c1e71c048382118a7550c4c927ca6b3b31
+    pristine_git_object: 6397a853d76f3578d10b75a494c0528e8b0b37c4
+  src/sdk/models/shared/billpaymentprototype.ts:
+    id: 678fcb34437b
+    last_write_checksum: sha1:44d2e2526041e118cbc2f191053d78ff55c5328e
+    pristine_git_object: 147e6551f362622757ebfda4e25329cce20c9343
+  src/sdk/models/shared/billprototype.ts:
+    id: 1b866ddc598c
+    last_write_checksum: sha1:5bfce4c0f3b319ecc41e7e5d8135f1addcb17f9e
+    pristine_git_object: 3cecca2203df9813da49577539c51561c47df751
+  src/sdk/models/shared/bills.ts:
+    id: 8a8a2d27ebb7
+    last_write_checksum: sha1:8d6227334a93fd8f72be644d8c3b8a76395c1d26
+    pristine_git_object: 3c3aea425e377b649e77cd22daf9bec7277d1a07
+  src/sdk/models/shared/billstatus.ts:
+    id: 3eb2db191719
+    last_write_checksum: sha1:6cc683b2d6dcca224bce8b8ba8c6aa6102b421ed
+    pristine_git_object: 3db643f2574363fd80e481da0bd96487adc5a368
+  src/sdk/models/shared/billtaxrateref.ts:
+    id: 8d1342c2b56d
+    last_write_checksum: sha1:adb5fdd9d7327d4b765ee0379707d6a6bdd0c475
+    pristine_git_object: b28f0fd5162c0d032853cff967a0fb87ea0765b3
+  src/sdk/models/shared/clientratelimitwebhook.ts:
+    id: c691f6d7f890
+    last_write_checksum: sha1:873cdc12f8278470e382ae879c4bb2eb17f7f029
+    pristine_git_object: cdc40c0b87eb15c3725596b713a38dec90aa9083
+  src/sdk/models/shared/clientratelimitwebhookpayload.ts:
+    id: d068d62c8d39
+    last_write_checksum: sha1:e9a21951c06c14ff5a39fd7379cd1c3bafc314d1
+    pristine_git_object: 72605d6242434c3e2be999f0006634d5a193e129
+  src/sdk/models/shared/codatfile.ts:
+    id: c7308ff582f1
+    last_write_checksum: sha1:46a60236564ab061fff7b8496ad94922d8284ade
+    pristine_git_object: 0bc3490e3175f93bfcdf04ef1d88f4f56f9771c2
+  src/sdk/models/shared/companies.ts:
+    id: a4b81f9ba7c8
+    last_write_checksum: sha1:81432b885d166aad72ebfcdf5b25eb9c822545b4
+    pristine_git_object: 0f308542ebb67c7b1d3262721bbe236d1176ef3c
+  src/sdk/models/shared/company.ts:
+    id: 8f41ac6a5b4f
+    last_write_checksum: sha1:1f36130119fc338a28f11002a683fdac137d7dc9
+    pristine_git_object: 6c8aa2936e53da4f0fc5146bc49378cbc7abab70
+  src/sdk/models/shared/companyinformation.ts:
+    id: 1ebdfe14e999
+    last_write_checksum: sha1:d1fd26db230f9119898cc1e1eefd81808650a10a
+    pristine_git_object: 57919ecf8b45136a316cb0e90c59d1f1d2262f2a
+  src/sdk/models/shared/companyreference.ts:
+    id: f80ee466bdc7
+    last_write_checksum: sha1:18f872a5210839d73dd540c541ef0b29609d6197
+    pristine_git_object: 403e37ef74b8b1d3bff9075c509287ed96f84752
+  src/sdk/models/shared/companyrequestbody.ts:
+    id: 9e2dd8b2247d
+    last_write_checksum: sha1:a3027f00426e9affb8b7f8d930db63b89c197607
+    pristine_git_object: 5e438635a0842512ed8dd3a9ee464187ed7ff3fe
+  src/sdk/models/shared/companyupdaterequest.ts:
+    id: 9a4400207ec8
+    last_write_checksum: sha1:371f7f83676f4130f9885c506c8184c53e202390
+    pristine_git_object: 442b7a78cb3fde01477e7bb5cec5626c06a9a58b
+  src/sdk/models/shared/connection.ts:
+    id: 18ea99cdadfb
+    last_write_checksum: sha1:5ab7f9ba8eb04f8f51e785516d2875090f19ee23
+    pristine_git_object: 5fb00aec5a931c085023baf79bf4865e6023b733
+  src/sdk/models/shared/connections.ts:
+    id: 221acd1ae99a
+    last_write_checksum: sha1:ef2d949a3163430d3095303bf231c18b7dc93c9c
+    pristine_git_object: 1278d54c36183c06f6113dd14c25f115be7a6465
+  src/sdk/models/shared/dataconnectionerror.ts:
+    id: c94cddffcec9
+    last_write_checksum: sha1:e968b9983e395410ddd93aa9967671e46066eae2
+    pristine_git_object: 1cb816d0f2b87e31e36ad1ece98b6f25bcdb148b
+  src/sdk/models/shared/dataconnectionstatus.ts:
+    id: 506ff77d012f
+    last_write_checksum: sha1:6ab2241aa8830aafaeb937d48e97918a68b9dac7
+    pristine_git_object: 88889c800a39f393c9445929bbd2150fc6daf7ca
+  src/sdk/models/shared/errorvalidation.ts:
+    id: 7595eed057da
+    last_write_checksum: sha1:b7f44c1f99c9de84a9177a6fba2f76704a894a48
+    pristine_git_object: dc97b86b1b0a47cc49cc6ce168bbf2dc7362a7d4
+  src/sdk/models/shared/errorvalidationitem.ts:
+    id: 0fbe584c7194
+    last_write_checksum: sha1:ea42d03e55f11719c38dc24ffdd5d982be3b1ce3
+    pristine_git_object: cd21ec230bfad899a805264c87467c3a1762e9bc
+  src/sdk/models/shared/halref.ts:
+    id: 1c4609be4603
+    last_write_checksum: sha1:b64b146493fe3613970c549edffd33e58402662a
+    pristine_git_object: 921d594fb96fe80f20787e9118d3def4a9e2d53c
+  src/sdk/models/shared/index.ts:
+    id: e97e906e3c14
+    last_write_checksum: sha1:34ff68ac3f37e6e078d83101bcfeac78998f8c23
+    pristine_git_object: 2d6c3711f20d73c3be4a70c86e459f9c00804462
+  src/sdk/models/shared/links.ts:
+    id: 5c9b3efadf74
+    last_write_checksum: sha1:453659d4b39a592c99b3b459eb9f44055f4c4195
+    pristine_git_object: 751d7d00e4248ebfd0d28dadcc799607e058635b
+  src/sdk/models/shared/pagination.ts:
+    id: 4b84b39bc7e6
+    last_write_checksum: sha1:63e1bfc1a2195fe42e883c9d64eddb9628573cde
+    pristine_git_object: 76c185a493690732462a0ab907745e71de47e2d5
+  src/sdk/models/shared/paymentmappingoptions.ts:
+    id: 529c593bc4df
+    last_write_checksum: sha1:8ea9a4cde365e104cb2d007374f95f4350af8cf8
+    pristine_git_object: a08a1d7f9539534a72541a7254d8a35153454610
+  src/sdk/models/shared/security.ts:
+    id: 4a9790ed1c2f
+    last_write_checksum: sha1:1b51b365245ab2a0f5f5a06b90093bceb61fc084
+    pristine_git_object: 675eaa5827f48cff71e28d1627f8d65a74e10623
+  src/sdk/models/shared/supplier.ts:
+    id: 1bed69e4bad9
+    last_write_checksum: sha1:77cffd0b1c233421f80420f922c8968446eb0793
+    pristine_git_object: ec286a0bb2522409f8539ffa2e275a98046b1113
+  src/sdk/models/shared/supplierprototype.ts:
+    id: 711b222b1a01
+    last_write_checksum: sha1:bac82774d1ea65391a1f8536f022d374e3f7ec10
+    pristine_git_object: 0354408f52762646cbe17d5461116a8c5ffed6d4
+  src/sdk/models/shared/supplierref.ts:
+    id: 6c062678b570
+    last_write_checksum: sha1:db11065947402121985e2a38957f0492d8c3d000
+    pristine_git_object: 43af9728925e0aeaed2ab444e7a9fd6647d3720d
+  src/sdk/models/shared/suppliers.ts:
+    id: c62b9ef17289
+    last_write_checksum: sha1:b651dad0af04c09ef23317fb50274794922a095a
+    pristine_git_object: 58e0651226863dbe68451fb0bdad17dc73328c01
+  src/sdk/models/shared/supplierstatus.ts:
+    id: 507c6db656fa
+    last_write_checksum: sha1:9d4da55011629bd22151f5c1443c7004811a4d8c
+    pristine_git_object: 21b6220e1fcb3d01f5cbecc67b1213167b6b158d
+  src/sdk/models/shared/taxratemappingoption.ts:
+    id: 94ca8a0615f3
+    last_write_checksum: sha1:35d3c8d368f4beec67ff10d5719df3fd98c068a1
+    pristine_git_object: 0657c4a1b19cc3a28ceee5f9af9a2ca4445a630e
+  src/sdk/models/shared/trackingref.ts:
+    id: a863d4731f94
+    last_write_checksum: sha1:f07d5d2e0ad446bdb53bed8d97c17f3360c0d2df
+    pristine_git_object: 4ee5f0010ee3fbf793d0daab0a1ea67ca20d8ee0
+  src/sdk/sdk.ts:
+    id: 784571af2f69
+    last_write_checksum: sha1:155dca2735dcfeaef023bd93998ab34a7c12c652
+    pristine_git_object: 2da7d5fa26cf928d1e02acb3582f573f276d1fe4
+  src/sdk/suppliers.ts:
+    id: 68b234e74022
+    last_write_checksum: sha1:4a4af579d918d24a331e295aefc4f22703ebba27
+    pristine_git_object: 7de8009b57e7eecd506d69efec2343ac2d9bb73d
+  src/sdk/types/async.ts:
+    id: 966026768b05
+    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
+    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+  src/sdk/types/blobs.ts:
+    id: 1def31341768
+    last_write_checksum: sha1:cf45d78916671cb6345a11c97c633c64402bc27c
+    pristine_git_object: cce2892d4f573a120ef3907db90ab15f5979cfda
+  src/sdk/types/constdatetime.ts:
+    id: 7e64cb450e63
+    last_write_checksum: sha1:dfaaf9adfaf49808bd4c9dea0039f21b7088d9c0
+    pristine_git_object: fe62144eaf6a2054fc8ca9a98466e70f41b5434d
+  src/sdk/types/decimal.ts:
+    id: 4c47ee438ee8
+    last_write_checksum: sha1:9e679d0ebb0a5b1efcbae4926d24893181f3fe8f
+    pristine_git_object: a7895d555b147e9bf9e3cd79f0b0e9f340d5ecd1
+  src/sdk/types/enums.ts:
+    id: 2ac17fb928cd
+    last_write_checksum: sha1:ee590453d2c87e33e89c633d37ee46907eca0e58
+    pristine_git_object: aba0ffd2a3308a31e516d83b52823d80aa65a8f9
+  src/sdk/types/fp.ts:
+    id: d9ec77b9460c
+    last_write_checksum: sha1:d24994d58f37a1ca106847fcc6d2e976c6f1c093
+    pristine_git_object: ccbe51eac69dfb0da5131f14fd753c4b47c1d527
+  src/sdk/types/index.ts:
+    id: 8c869d66c5f3
+    last_write_checksum: sha1:0e06df309f1646981212f4103ea27cbd65e1f50e
+    pristine_git_object: 19a7bd013477d20d80a670e6833a0f0c9b1c8aa7
+  src/sdk/types/operations.ts:
+    id: c5e9c75d4266
+    last_write_checksum: sha1:c49e724cfb1259296381cb57bc0fcdd2eae45865
+    pristine_git_object: beb81e10f0b9eee2ed398a853fe6f737b743f818
+  src/sdk/types/rfcdate.ts:
+    id: fc969c92a7c1
+    last_write_checksum: sha1:8e5f382e02fe21c2f2e24deb1b7bbf8cddd3dd16
+    pristine_git_object: c79b3f53a3dd922aa2ace5a4191c8652cf9a8e89
+  src/sdk/types/streams.ts:
+    id: e556b428e8dc
+    last_write_checksum: sha1:cc9ced2dd34a76c3a1bd7784ccda1cc3b37ab9a9
+    pristine_git_object: a0163e7a99cea88f21d0ad4ce3af1c720180ee20
+  src/sdk/types/unrecognized.ts:
+    id: 690d294a1973
+    last_write_checksum: sha1:d33ac686528492f4cdc0dbf81ed343b4afe020fe
+    pristine_git_object: b7a2a13f3dff50663429df24ae2f55b647ff1084
+  src/sdk/types/webhooks.ts:
+    id: 0f676e5e22a7
+    last_write_checksum: sha1:dbce0cb417bcdcfcae0827fa045ee93ccab1c2c8
+    pristine_git_object: 9510d20c09d8dd689f6e37254030de22e997f3cc
+  tsconfig.json:
+    id: 61ebb9fd6e8c
+    last_write_checksum: sha1:c3ec7996536cdb9a54319e7d1eb3b199b733d34c
+    pristine_git_object: 0ccdbe286a8780e06a469a9eb7e2fb95322fd507
 examples:
   list-companies:
     speakeasy-default-list-companies:
@@ -1126,4 +1865,250 @@ examples:
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes Detected:\n* `codatsyncpayables.companies.list()`: \n  *  `request.tags` **Added**\n  *  `response.results.[].dataConnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.create()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.update()`: \n  *  `request` **Changed** **Breaking** :warning:\n  *  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.get()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.list()`:  `response.results.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.create()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.get()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.connections.unlink()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatsyncpayables.companies.replace()`: **Added**\n* `codatsyncpayables.bills.list()`:  `response.results.[].lineItems.[].trackingRefs` **Added**\n* `codatsyncpayables.bills.create()`: \n  *  `request.billPrototype.lineItems.[].trackingRefs` **Added**\n  *  `response.lineitems.[].trackingRefs` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `codatsyncpayables.bills.list()`:  `response.results.[].lineItems.[]` **Changed**\n* `codatsyncpayables.bills.create()`: \n  *  `request.billPrototype.lineItems.[]` **Changed**\n  *  `response.lineitems.[]` **Changed**\n"
+generatedFiles:
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/sdk/models/errors/errormessage.md
+  - docs/sdk/models/operations/createbankaccountrequest.md
+  - docs/sdk/models/operations/createbillpaymentrequest.md
+  - docs/sdk/models/operations/createbillrequest.md
+  - docs/sdk/models/operations/createconnectionrequest.md
+  - docs/sdk/models/operations/createconnectionrequestbody.md
+  - docs/sdk/models/operations/createsupplierrequest.md
+  - docs/sdk/models/operations/deletecompanyrequest.md
+  - docs/sdk/models/operations/deleteconnectionrequest.md
+  - docs/sdk/models/operations/downloadbillattachmentrequest.md
+  - docs/sdk/models/operations/getcompanyinformationrequest.md
+  - docs/sdk/models/operations/getcompanyrequest.md
+  - docs/sdk/models/operations/getconnectionrequest.md
+  - docs/sdk/models/operations/getmappingoptionsbillsrequest.md
+  - docs/sdk/models/operations/getmappingoptionspaymentsrequest.md
+  - docs/sdk/models/operations/listbillattachmentsrequest.md
+  - docs/sdk/models/operations/listbillsrequest.md
+  - docs/sdk/models/operations/listcompaniesrequest.md
+  - docs/sdk/models/operations/listconnectionsrequest.md
+  - docs/sdk/models/operations/listsuppliersrequest.md
+  - docs/sdk/models/operations/replacecompanyrequest.md
+  - docs/sdk/models/operations/unlinkconnectionrequest.md
+  - docs/sdk/models/operations/unlinkconnectionupdateconnection.md
+  - docs/sdk/models/operations/updatecompanyrequest.md
+  - docs/sdk/models/operations/uploadbillattachmentrequest.md
+  - docs/sdk/models/shared/accountmappingoption.md
+  - docs/sdk/models/shared/accountstatus.md
+  - docs/sdk/models/shared/address.md
+  - docs/sdk/models/shared/addresstype.md
+  - docs/sdk/models/shared/attachment.md
+  - docs/sdk/models/shared/attachmentupload.md
+  - docs/sdk/models/shared/bankaccount.md
+  - docs/sdk/models/shared/bankaccountmappingoption.md
+  - docs/sdk/models/shared/bankaccountprototype.md
+  - docs/sdk/models/shared/bankaccountstatus.md
+  - docs/sdk/models/shared/bankaccounttype.md
+  - docs/sdk/models/shared/bill.md
+  - docs/sdk/models/shared/billaccountref.md
+  - docs/sdk/models/shared/billlineitem.md
+  - docs/sdk/models/shared/billmappingoptions.md
+  - docs/sdk/models/shared/billpayment.md
+  - docs/sdk/models/shared/billpaymentaccountref.md
+  - docs/sdk/models/shared/billpaymentprototype.md
+  - docs/sdk/models/shared/billprototype.md
+  - docs/sdk/models/shared/bills.md
+  - docs/sdk/models/shared/billstatus.md
+  - docs/sdk/models/shared/billtaxrateref.md
+  - docs/sdk/models/shared/clientratelimitwebhook.md
+  - docs/sdk/models/shared/clientratelimitwebhookpayload.md
+  - docs/sdk/models/shared/codatfile.md
+  - docs/sdk/models/shared/companies.md
+  - docs/sdk/models/shared/company.md
+  - docs/sdk/models/shared/companyinformation.md
+  - docs/sdk/models/shared/companyreference.md
+  - docs/sdk/models/shared/companyreferencelinks.md
+  - docs/sdk/models/shared/companyrequestbody.md
+  - docs/sdk/models/shared/companyupdaterequest.md
+  - docs/sdk/models/shared/connection.md
+  - docs/sdk/models/shared/connections.md
+  - docs/sdk/models/shared/dataconnectionerror.md
+  - docs/sdk/models/shared/dataconnectionstatus.md
+  - docs/sdk/models/shared/datatype.md
+  - docs/sdk/models/shared/errorstatus.md
+  - docs/sdk/models/shared/errorvalidation.md
+  - docs/sdk/models/shared/errorvalidationitem.md
+  - docs/sdk/models/shared/halref.md
+  - docs/sdk/models/shared/links.md
+  - docs/sdk/models/shared/pagination.md
+  - docs/sdk/models/shared/paymentmappingoptions.md
+  - docs/sdk/models/shared/security.md
+  - docs/sdk/models/shared/sourcetype.md
+  - docs/sdk/models/shared/supplier.md
+  - docs/sdk/models/shared/supplierprototype.md
+  - docs/sdk/models/shared/supplierref.md
+  - docs/sdk/models/shared/suppliers.md
+  - docs/sdk/models/shared/supplierstatus.md
+  - docs/sdk/models/shared/taxratemappingoption.md
+  - docs/sdk/models/shared/taxratestatus.md
+  - docs/sdk/models/shared/trackingref.md
+  - docs/sdks/bankaccounts/README.md
+  - docs/sdks/billpayments/README.md
+  - docs/sdks/bills/README.md
+  - docs/sdks/companies/README.md
+  - docs/sdks/companyinformation/README.md
+  - docs/sdks/connections/README.md
+  - docs/sdks/suppliers/README.md
+  - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/companiesList.example.ts
+  - examples/package.json
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/bankAccountsCreate.ts
+  - src/funcs/billPaymentsCreate.ts
+  - src/funcs/billPaymentsGetPaymentOptions.ts
+  - src/funcs/billsCreate.ts
+  - src/funcs/billsDownloadAttachment.ts
+  - src/funcs/billsGetBillOptions.ts
+  - src/funcs/billsList.ts
+  - src/funcs/billsListAttachments.ts
+  - src/funcs/billsUploadAttachment.ts
+  - src/funcs/companiesCreate.ts
+  - src/funcs/companiesDelete.ts
+  - src/funcs/companiesGet.ts
+  - src/funcs/companiesList.ts
+  - src/funcs/companiesReplace.ts
+  - src/funcs/companiesUpdate.ts
+  - src/funcs/companyInformationGet.ts
+  - src/funcs/connectionsCreate.ts
+  - src/funcs/connectionsDelete.ts
+  - src/funcs/connectionsGet.ts
+  - src/funcs/connectionsList.ts
+  - src/funcs/connectionsUnlink.ts
+  - src/funcs/suppliersCreate.ts
+  - src/funcs/suppliersList.ts
+  - src/funcs/validateWebhook.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/sdk/bankaccounts.ts
+  - src/sdk/billpayments.ts
+  - src/sdk/bills.ts
+  - src/sdk/companies.ts
+  - src/sdk/companyinformation.ts
+  - src/sdk/connections.ts
+  - src/sdk/index.ts
+  - src/sdk/models/errors/codatsyncpayableserror.ts
+  - src/sdk/models/errors/errormessage.ts
+  - src/sdk/models/errors/httpclienterrors.ts
+  - src/sdk/models/errors/index.ts
+  - src/sdk/models/errors/responsevalidationerror.ts
+  - src/sdk/models/errors/sdkerror.ts
+  - src/sdk/models/errors/sdkvalidationerror.ts
+  - src/sdk/models/operations/createbankaccount.ts
+  - src/sdk/models/operations/createbill.ts
+  - src/sdk/models/operations/createbillpayment.ts
+  - src/sdk/models/operations/createconnection.ts
+  - src/sdk/models/operations/createsupplier.ts
+  - src/sdk/models/operations/deletecompany.ts
+  - src/sdk/models/operations/deleteconnection.ts
+  - src/sdk/models/operations/downloadbillattachment.ts
+  - src/sdk/models/operations/getcompany.ts
+  - src/sdk/models/operations/getcompanyinformation.ts
+  - src/sdk/models/operations/getconnection.ts
+  - src/sdk/models/operations/getmappingoptionsbills.ts
+  - src/sdk/models/operations/getmappingoptionspayments.ts
+  - src/sdk/models/operations/index.ts
+  - src/sdk/models/operations/listbillattachments.ts
+  - src/sdk/models/operations/listbills.ts
+  - src/sdk/models/operations/listcompanies.ts
+  - src/sdk/models/operations/listconnections.ts
+  - src/sdk/models/operations/listsuppliers.ts
+  - src/sdk/models/operations/replacecompany.ts
+  - src/sdk/models/operations/unlinkconnection.ts
+  - src/sdk/models/operations/updatecompany.ts
+  - src/sdk/models/operations/uploadbillattachment.ts
+  - src/sdk/models/shared/accountmappingoption.ts
+  - src/sdk/models/shared/accountstatus.ts
+  - src/sdk/models/shared/address.ts
+  - src/sdk/models/shared/addresstype.ts
+  - src/sdk/models/shared/attachment.ts
+  - src/sdk/models/shared/attachmentupload.ts
+  - src/sdk/models/shared/bankaccount.ts
+  - src/sdk/models/shared/bankaccountmappingoption.ts
+  - src/sdk/models/shared/bankaccountprototype.ts
+  - src/sdk/models/shared/bankaccountstatus.ts
+  - src/sdk/models/shared/bankaccounttype.ts
+  - src/sdk/models/shared/bill.ts
+  - src/sdk/models/shared/billaccountref.ts
+  - src/sdk/models/shared/billlineitem.ts
+  - src/sdk/models/shared/billmappingoptions.ts
+  - src/sdk/models/shared/billpayment.ts
+  - src/sdk/models/shared/billpaymentaccountref.ts
+  - src/sdk/models/shared/billpaymentprototype.ts
+  - src/sdk/models/shared/billprototype.ts
+  - src/sdk/models/shared/bills.ts
+  - src/sdk/models/shared/billstatus.ts
+  - src/sdk/models/shared/billtaxrateref.ts
+  - src/sdk/models/shared/clientratelimitwebhook.ts
+  - src/sdk/models/shared/clientratelimitwebhookpayload.ts
+  - src/sdk/models/shared/codatfile.ts
+  - src/sdk/models/shared/companies.ts
+  - src/sdk/models/shared/company.ts
+  - src/sdk/models/shared/companyinformation.ts
+  - src/sdk/models/shared/companyreference.ts
+  - src/sdk/models/shared/companyrequestbody.ts
+  - src/sdk/models/shared/companyupdaterequest.ts
+  - src/sdk/models/shared/connection.ts
+  - src/sdk/models/shared/connections.ts
+  - src/sdk/models/shared/dataconnectionerror.ts
+  - src/sdk/models/shared/dataconnectionstatus.ts
+  - src/sdk/models/shared/errorvalidation.ts
+  - src/sdk/models/shared/errorvalidationitem.ts
+  - src/sdk/models/shared/halref.ts
+  - src/sdk/models/shared/index.ts
+  - src/sdk/models/shared/links.ts
+  - src/sdk/models/shared/pagination.ts
+  - src/sdk/models/shared/paymentmappingoptions.ts
+  - src/sdk/models/shared/security.ts
+  - src/sdk/models/shared/supplier.ts
+  - src/sdk/models/shared/supplierprototype.ts
+  - src/sdk/models/shared/supplierref.ts
+  - src/sdk/models/shared/suppliers.ts
+  - src/sdk/models/shared/supplierstatus.ts
+  - src/sdk/models/shared/taxratemappingoption.ts
+  - src/sdk/models/shared/trackingref.ts
+  - src/sdk/sdk.ts
+  - src/sdk/suppliers.ts
+  - src/sdk/types/async.ts
+  - src/sdk/types/blobs.ts
+  - src/sdk/types/constdatetime.ts
+  - src/sdk/types/decimal.ts
+  - src/sdk/types/enums.ts
+  - src/sdk/types/fp.ts
+  - src/sdk/types/index.ts
+  - src/sdk/types/operations.ts
+  - src/sdk/types/rfcdate.ts
+  - src/sdk/types/streams.ts
+  - src/sdk/types/unrecognized.ts
+  - src/sdk/types/webhooks.ts
+  - tsconfig.json
