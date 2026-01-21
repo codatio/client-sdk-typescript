@@ -226,7 +226,6 @@ export * from "./paymentstatus.js";
 export * from "./paymenttype.js";
 export * from "./periodunit.js";
 export * from "./phonenumber.js";
-export * from "./phonenumbertype.js";
 export * from "./productinventory.js";
 export * from "./productinventorylocation.js";
 export * from "./productprice.js";

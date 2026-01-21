@@ -7,7 +7,7 @@ The type of loan transaction.
 ```typescript
 import { LoanTransactionType } from "@codat/lending/sdk/models/shared";
 
-let value: LoanTransactionType = "Interest";
+let value: LoanTransactionType = "Repayment";
 ```
 
 ## Values

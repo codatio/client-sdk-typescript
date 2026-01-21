@@ -1,5 +1,4 @@
-# Disputes
-(*sales.disputes*)
+# Sales.Disputes
 
 ## Overview
 
@@ -19,6 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-commerce-disputes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-disputes" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -34,7 +34,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -62,15 +61,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesDisputesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -108,6 +104,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-dispute" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-disputes/{disputeId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -119,10 +116,9 @@ async function run() {
   const result = await codatLending.sales.disputes.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    disputeId: "7110701885",
+    disputeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -147,17 +143,14 @@ async function run() {
   const res = await salesDisputesGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    disputeId: "7110701885",
+    disputeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesDisputesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

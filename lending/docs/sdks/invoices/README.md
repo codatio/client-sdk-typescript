@@ -1,5 +1,4 @@
-# Invoices
-(*accountsReceivable.invoices*)
+# AccountsReceivable.Invoices
 
 ## Overview
 
@@ -19,6 +18,7 @@ Gets a list of invoices linked to the corresponding banking transaction
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-reconciled-invoices" method="get" path="/companies/{companyId}/reports/enhancedInvoices" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -32,7 +32,6 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -58,15 +57,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesListReconciled failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -115,6 +111,7 @@ To access the `paymentAllocations` property, ensure that the `payments` data typ
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -129,7 +126,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -156,15 +152,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -206,6 +199,7 @@ To access the `paymentAllocations` property, ensure that the `payments` data typ
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -216,10 +210,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.invoices.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    invoiceId: "7110701885",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -243,17 +236,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableInvoicesGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    invoiceId: "7110701885",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -286,6 +276,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-invoice-pdf" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}/pdf" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -299,7 +290,6 @@ async function run() {
     invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -325,15 +315,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesDownloadPdf failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -368,6 +355,7 @@ The *List invoice attachments* endpoint returns a list of attachments available 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoice-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/invoices/{invoiceId}/attachments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -379,10 +367,9 @@ async function run() {
   const result = await codatLending.accountsReceivable.invoices.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "EILBDVJVNUAGVKRQ",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -407,17 +394,14 @@ async function run() {
   const res = await accountsReceivableInvoicesListAttachments(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "EILBDVJVNUAGVKRQ",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -453,6 +437,7 @@ The *Get invoice attachment* endpoint returns a specific attachment for a given 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/invoices/{invoiceId}/attachments/{attachmentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -464,11 +449,10 @@ async function run() {
   const result = await codatLending.accountsReceivable.invoices.getAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "EILBDVJVNUAGVKRQ",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -493,18 +477,15 @@ async function run() {
   const res = await accountsReceivableInvoicesGetAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "EILBDVJVNUAGVKRQ",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGetAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -540,6 +521,7 @@ The *Download invoice attachment* endpoint downloads a specific attachment for a
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-invoice-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/invoices/{invoiceId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -551,11 +533,10 @@ async function run() {
   const result = await codatLending.accountsReceivable.invoices.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "EILBDVJVNUAGVKRQ",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -580,18 +561,15 @@ async function run() {
   const res = await accountsReceivableInvoicesDownloadAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    invoiceId: "EILBDVJVNUAGVKRQ",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

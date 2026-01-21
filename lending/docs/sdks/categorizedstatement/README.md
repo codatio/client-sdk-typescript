@@ -1,5 +1,4 @@
-# CategorizedStatement
-(*banking.categorizedStatement*)
+# Banking.CategorizedStatement
 
 ## Overview
 
@@ -17,6 +16,7 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-categorized-bank-statement" method="get" path="/companies/{companyId}/reports/enhancedCashFlow/transactions" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -30,7 +30,6 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -56,15 +55,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingCategorizedStatementGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

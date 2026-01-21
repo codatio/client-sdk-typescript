@@ -14,10 +14,6 @@ export const tool$manageReportsListReports: ToolDefinition<typeof args> = {
   name: "manage-reports-list-reports",
   description: `List reports
 
-> **Available as beta release**
->
-> This endpoint is part of a beta release. Please contact your account manager if you want to enable it.
-
 Use the *List reports* endpoint to return details (such as generation's current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.`,
   args,
   tool: async (client, args, ctx) => {

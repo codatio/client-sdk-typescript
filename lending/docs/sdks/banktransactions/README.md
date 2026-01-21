@@ -1,5 +1,4 @@
-# BankTransactions
-(*loanWriteback.bankTransactions*)
+# LoanWriteback.BankTransactions
 
 ## Overview
 
@@ -14,12 +13,13 @@ The *Get create bank account transactions model* endpoint returns the expected d
 
 [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-bank-transactions-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts/{accountId}/bankTransactions" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -34,7 +34,6 @@ async function run() {
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -61,15 +60,12 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackBankTransactionsGetCreateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -102,13 +98,14 @@ The *Create bank account transactions* endpoint creates new [bank account transa
 
 [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -122,11 +119,8 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     accountingCreateBankTransactions: {
-      accountId: "7110701885",
+      accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
       transactions: [
-        {
-          date: "2022-10-23T00:00:00Z",
-        },
         {
           date: "2022-10-23T00:00:00Z",
         },
@@ -134,7 +128,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -161,26 +154,20 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     accountingCreateBankTransactions: {
-      accountId: "7110701885",
+      accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
       transactions: [
-        {
-          date: "2022-10-23T00:00:00Z",
-        },
         {
           date: "2022-10-23T00:00:00Z",
         },
       ],
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackBankTransactionsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

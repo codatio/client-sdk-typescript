@@ -1,5 +1,4 @@
-# BankAccounts
-(*loanWriteback.bankAccounts*)
+# LoanWriteback.BankAccounts
 
 ## Overview
 
@@ -14,13 +13,14 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 
 [Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-update-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -34,7 +34,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,15 +59,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackBankAccountsGetCreateUpdateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -101,12 +97,13 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 [Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/lending-api#/operations/get-create-update-bankAccounts-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -121,12 +118,11 @@ async function run() {
     accountingBankAccount: {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      currency: "USD",
+      currency: "GBP",
       status: "Active",
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -154,19 +150,16 @@ async function run() {
     accountingBankAccount: {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      currency: "USD",
+      currency: "GBP",
       status: "Active",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackBankAccountsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

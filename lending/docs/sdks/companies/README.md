@@ -1,5 +1,4 @@
 # Companies
-(*companies*)
 
 ## Overview
 
@@ -36,6 +35,7 @@ For example, you can use the querying to filter companies tagged with a specific
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-companies" method="get" path="/companies" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -50,7 +50,6 @@ async function run() {
     tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -77,15 +76,12 @@ async function run() {
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -123,6 +119,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -135,7 +132,6 @@ async function run() {
     name: "Technicalium",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -160,15 +156,12 @@ async function run() {
   const res = await companiesCreate(codatLending, {
     name: "Technicalium",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -204,6 +197,7 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="replace-company" method="put" path="/companies/{companyId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -219,7 +213,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -247,15 +240,12 @@ async function run() {
       name: "New Name",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesReplace failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -292,6 +282,7 @@ A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a bus
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update-company" method="patch" path="/companies/{companyId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -309,7 +300,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -339,15 +329,12 @@ async function run() {
       },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -384,6 +371,7 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-company" method="delete" path="/companies/{companyId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -420,14 +408,12 @@ async function run() {
   const res = await companiesDelete(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("companiesDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -464,6 +450,7 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company" method="get" path="/companies/{companyId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -476,7 +463,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -501,15 +487,12 @@ async function run() {
   const res = await companiesGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

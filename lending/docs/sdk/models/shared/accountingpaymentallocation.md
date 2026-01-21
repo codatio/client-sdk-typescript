@@ -8,11 +8,11 @@ import { AccountingPaymentAllocation } from "@codat/lending/sdk/models/shared";
 let value: AccountingPaymentAllocation = {
   payment: {
     accountRef: {},
-    currency: "EUR",
+    currency: "GBP",
     paidOnDate: "2022-10-23T00:00:00Z",
   },
   allocation: {
-    currency: "USD",
+    currency: "GBP",
     allocatedOnDate: "2022-10-23T00:00:00Z",
   },
 };

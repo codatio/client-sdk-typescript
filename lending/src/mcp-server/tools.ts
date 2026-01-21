@@ -4,8 +4,12 @@
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { RequestHandlerExtra } from "@modelcontextprotocol/sdk/shared/protocol.js";
-import { CallToolResult } from "@modelcontextprotocol/sdk/types.js";
-import { objectOutputType, ZodRawShape, ZodTypeAny } from "zod";
+import {
+  CallToolResult,
+  ServerNotification,
+  ServerRequest,
+} from "@modelcontextprotocol/sdk/types.js";
+import { objectOutputType, ZodRawShape, ZodTypeAny } from "zod/v3";
 import { CodatLendingCore } from "../core.js";
 import { ConsoleLogger } from "./console-logger.js";
 import { MCPScope } from "./scopes.js";
@@ -20,7 +24,7 @@ export type ToolDefinition<Args extends undefined | ZodRawShape = undefined> =
       tool: (
         client: CodatLendingCore,
         args: objectOutputType<Args, ZodTypeAny>,
-        extra: RequestHandlerExtra,
+        extra: RequestHandlerExtra<ServerRequest, ServerNotification>,
       ) => CallToolResult | Promise<CallToolResult>;
     }
     : {
@@ -30,7 +34,7 @@ export type ToolDefinition<Args extends undefined | ZodRawShape = undefined> =
       args?: undefined;
       tool: (
         client: CodatLendingCore,
-        extra: RequestHandlerExtra,
+        extra: RequestHandlerExtra<ServerRequest, ServerNotification>,
       ) => CallToolResult | Promise<CallToolResult>;
     };
 
@@ -102,12 +106,15 @@ export function createRegisterTool(
       return;
     }
 
-    const toolScopes = tool.scopes ?? [];
-    if (allowedScopes.size > 0 && toolScopes.length === 0) {
+    const scopes = tool.scopes ?? [];
+    if (allowedScopes.size > 0 && scopes.length === 0) {
       return;
     }
 
-    if (!toolScopes.every((s) => allowedScopes.has(s))) {
+    if (
+      allowedScopes.size > 0
+      && !scopes.every((s: MCPScope) => allowedScopes.has(s))
+    ) {
       return;
     }
 

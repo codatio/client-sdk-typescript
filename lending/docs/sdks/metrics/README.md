@@ -1,5 +1,4 @@
-# Metrics
-(*sales.metrics*)
+# Sales.Metrics
 
 ## Overview
 
@@ -36,6 +35,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-revenue-metrics" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/revenue" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -48,12 +48,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 307462,
-    numberOfPeriods: 120092,
+    periodLength: 44877,
+    numberOfPeriods: 459595,
     periodUnit: "Year",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -79,19 +78,16 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 307462,
-    numberOfPeriods: 120092,
+    periodLength: 44877,
+    numberOfPeriods: 459595,
     periodUnit: "Year",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesMetricsGetRevenue failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -152,6 +148,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-customer-retention-metrics" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/customerRetention" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -164,12 +161,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 497588,
-    numberOfPeriods: 431272,
+    periodLength: 555812,
+    numberOfPeriods: 292320,
     periodUnit: "Day",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -195,19 +191,16 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 497588,
-    numberOfPeriods: 431272,
+    periodLength: 555812,
+    numberOfPeriods: 292320,
     periodUnit: "Day",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesMetricsGetCustomerRetention failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -260,6 +253,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-lifetime-value-metrics" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/lifetimeValue" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -272,12 +266,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 900865,
-    numberOfPeriods: 500610,
-    periodUnit: "Year",
+    periodLength: 402759,
+    numberOfPeriods: 976344,
+    periodUnit: "Day",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -303,19 +296,16 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 900865,
-    numberOfPeriods: 500610,
-    periodUnit: "Year",
+    periodLength: 402759,
+    numberOfPeriods: 976344,
+    periodUnit: "Day",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesMetricsGetLifetimeValue failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

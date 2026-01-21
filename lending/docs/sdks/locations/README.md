@@ -1,5 +1,4 @@
-# Locations
-(*sales.locations*)
+# Sales.Locations
 
 ## Overview
 
@@ -19,6 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -32,7 +32,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -58,15 +57,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -104,6 +100,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -115,10 +112,9 @@ async function run() {
   const result = await codatLending.sales.locations.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    locationId: "7110701885",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -143,17 +139,14 @@ async function run() {
   const res = await salesLocationsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    locationId: "7110701885",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

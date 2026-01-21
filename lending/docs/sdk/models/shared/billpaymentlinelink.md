@@ -6,7 +6,7 @@
 import { BillPaymentLineLink } from "@codat/lending/sdk/models/shared";
 
 let value: BillPaymentLineLink = {
-  type: "Discount",
+  type: "BillPayment",
 };
 ```
 

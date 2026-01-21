@@ -1,5 +1,4 @@
-# CodatLendingTransfers
-(*loanWriteback.transfers*)
+# LoanWriteback.Transfers
 
 ## Overview
 
@@ -14,13 +13,14 @@ The *Get create transfer model* endpoint returns the expected data for the reque
 
 [Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-transfers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/transfers" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -34,7 +34,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,15 +59,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackTransfersGetCreateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -101,12 +97,13 @@ The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/le
 
 [Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-transfer" method="post" path="/companies/{companyId}/connections/{connectionId}/push/transfers" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { Decimal } from "@codat/lending/sdk/types";
@@ -153,7 +150,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -212,15 +208,12 @@ async function run() {
       },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackTransfersCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -10,7 +10,7 @@ let value: AgedCreditor = {
   supplierName: "John Doe",
   agedCurrencyOutstanding: [
     {
-      currency: "EUR",
+      currency: "GBP",
       agedOutstandingAmounts: [
         {
           fromDate: "2022-10-23T00:00:00Z",

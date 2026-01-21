@@ -1,5 +1,4 @@
-# SourceAccounts
-(*loanWriteback.sourceAccounts*)
+# LoanWriteback.SourceAccounts
 
 ## Overview
 
@@ -18,9 +17,9 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -32,19 +31,11 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
       id: "<id>",
-      accountName: "<value>",
-      accountType: "creditCard",
-      accountNumber: "<value>",
-      currency: "USD",
-      balance: new Decimal("1343.65"),
+      currency: "GBP",
       modifiedDate: "2022-10-23T00:00:00Z",
-      accountInfo: {
-        accountOpenDate: "2022-10-23",
-      },
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -58,7 +49,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackSourceAccountsCreate } from "@codat/lending/funcs/loanWritebackSourceAccountsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -72,26 +62,16 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     requestBody: {
       id: "<id>",
-      accountName: "<value>",
-      accountType: "creditCard",
-      accountNumber: "<value>",
-      currency: "USD",
-      balance: new Decimal("1343.65"),
+      currency: "GBP",
       modifiedDate: "2022-10-23T00:00:00Z",
-      accountInfo: {
-        accountOpenDate: "2022-10-23",
-      },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackSourceAccountsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -130,6 +110,7 @@ A bank feed account mapping is a specified link between the source account (prov
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-bank-account-mapping" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -143,7 +124,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -169,15 +149,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackSourceAccountsListMappings failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -226,7 +203,7 @@ The method of mapping the source account to the target account varies depending 
 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
 
-### Integration-specific behaviour
+### Integration-specific behavior
 
 | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
 | --------------------- | ----------- | ---------------- | --------------------------- |
@@ -239,6 +216,7 @@ The method of mapping the source account to the target account varies depending 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bank-account-mapping" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeedAccounts/mapping" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -256,7 +234,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -286,15 +263,12 @@ async function run() {
       targetAccountId: "account-081",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackSourceAccountsCreateMapping failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

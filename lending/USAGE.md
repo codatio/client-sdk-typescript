@@ -13,7 +13,6 @@ async function run() {
     tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 

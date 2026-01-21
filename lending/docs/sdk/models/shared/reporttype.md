@@ -5,7 +5,7 @@
 ```typescript
 import { ReportType } from "@codat/lending/sdk/models/shared";
 
-let value: ReportType = "categorizedBankStatement";
+let value: ReportType = "creditModel";
 ```
 
 ## Values

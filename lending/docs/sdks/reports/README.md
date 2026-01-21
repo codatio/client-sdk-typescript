@@ -1,5 +1,4 @@
-# Reports
-(*sales.reports*)
+# Sales.Reports
 
 ## Overview
 
@@ -35,6 +34,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-orders-report" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/orders" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -47,12 +47,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 491586,
-    numberOfPeriods: 393849,
-    periodUnit: "Year",
+    periodLength: 176756,
+    numberOfPeriods: 64425,
+    periodUnit: "Day",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -78,19 +77,16 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 491586,
-    numberOfPeriods: 393849,
-    periodUnit: "Year",
+    periodLength: 176756,
+    numberOfPeriods: 64425,
+    periodUnit: "Day",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesReportsGetOrders failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -145,6 +141,7 @@ The report data then combines multiple reporting dimensions and measures and out
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-refunds-report" method="get" path="/data/companies/{companyId}/connections/{connectionId}/assess/commerceMetrics/refunds" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -157,12 +154,11 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 277786,
-    numberOfPeriods: 810912,
-    periodUnit: "Month",
+    periodLength: 931992,
+    numberOfPeriods: 555513,
+    periodUnit: "Year",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -188,19 +184,16 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 277786,
-    numberOfPeriods: 810912,
-    periodUnit: "Month",
+    periodLength: 931992,
+    numberOfPeriods: 555513,
+    periodUnit: "Year",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesReportsGetRefunds failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

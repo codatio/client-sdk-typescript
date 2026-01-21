@@ -20,7 +20,7 @@ The *Get create payment model* endpoint returns the expected data for the reques
 
 [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.`,
   args,

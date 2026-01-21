@@ -20,7 +20,7 @@ The *Get create transfer model* endpoint returns the expected data for the reque
 
 [Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 `,

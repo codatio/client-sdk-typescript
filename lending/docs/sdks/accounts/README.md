@@ -1,5 +1,4 @@
-# Accounts
-(*financialStatements.accounts*)
+# FinancialStatements.Accounts
 
 ## Overview
 
@@ -18,6 +17,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-accounts" method="get" path="/companies/{companyId}/data/accounts" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -32,7 +32,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -59,15 +58,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsAccountsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -105,6 +101,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-account" method="get" path="/companies/{companyId}/data/accounts/{accountId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -115,10 +112,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.financialStatements.accounts.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    accountId: "7110701885",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -142,17 +138,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await financialStatementsAccountsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    accountId: "7110701885",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsAccountsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

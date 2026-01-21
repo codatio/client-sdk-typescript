@@ -18,7 +18,7 @@ export class BankTransactions extends ClientSDK {
    *
    * [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * See the *response examples* for integration-specific indicative models.
    */
@@ -41,7 +41,7 @@ export class BankTransactions extends ClientSDK {
    *
    * [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create bank transaction model](https://docs.codat.io/lending-api#/operations/get-create-bankTransactions-model).
    */

@@ -20,7 +20,7 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 
 [Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 `,

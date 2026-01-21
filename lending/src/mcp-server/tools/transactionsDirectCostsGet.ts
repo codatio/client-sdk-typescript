@@ -16,7 +16,7 @@ export const tool$transactionsDirectCostsGet: ToolDefinition<typeof args> = {
 
 The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 `,

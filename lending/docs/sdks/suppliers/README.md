@@ -1,5 +1,4 @@
-# Suppliers
-(*accountsPayable.suppliers*)
+# AccountsPayable.Suppliers
 
 ## Overview
 
@@ -22,6 +21,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-suppliers" method="get" path="/companies/{companyId}/data/suppliers" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -36,7 +36,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -63,15 +62,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableSuppliersList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -109,6 +105,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-supplier" method="get" path="/companies/{companyId}/data/suppliers/{supplierId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -119,10 +116,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsPayable.suppliers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    supplierId: "7110701885",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -146,17 +142,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsPayableSuppliersGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    supplierId: "7110701885",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableSuppliersGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -192,6 +185,7 @@ The *List supplier attachments* endpoint returns a list of attachments available
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-supplier-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -203,10 +197,9 @@ async function run() {
   const result = await codatLending.accountsPayable.suppliers.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "EILBDVJVNUAGVKRQ",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -231,17 +224,14 @@ async function run() {
   const res = await accountsPayableSuppliersListAttachments(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "EILBDVJVNUAGVKRQ",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableSuppliersListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -277,6 +267,7 @@ The *Get supplier attachment* endpoint returns a specific attachment for a given
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-supplier-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments/{attachmentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -288,11 +279,10 @@ async function run() {
   const result = await codatLending.accountsPayable.suppliers.getAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "EILBDVJVNUAGVKRQ",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -317,18 +307,15 @@ async function run() {
   const res = await accountsPayableSuppliersGetAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "EILBDVJVNUAGVKRQ",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableSuppliersGetAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -364,6 +351,7 @@ The *Download supplier attachment* endpoint downloads a specific attachment for 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-supplier-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/suppliers/{supplierId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -375,11 +363,10 @@ async function run() {
   const result = await codatLending.accountsPayable.suppliers.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "EILBDVJVNUAGVKRQ",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -404,18 +391,15 @@ async function run() {
   const res = await accountsPayableSuppliersDownloadAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    supplierId: "EILBDVJVNUAGVKRQ",
+    supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableSuppliersDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -14,10 +14,6 @@ export class ManageReports extends ClientSDK {
    * Generate report
    *
    * @remarks
-   * > **Available as beta release**
-   * >
-   * > This endpoint is part of a beta release. Please contact your account manager if you want to enable it.
-   *
    * Use the *Generate report* endpoint to initiate the generation of a report specified by the `reportType` parameter.
    *
    * This action triggers the system to refresh and pull the necessary data from the company's data sources to ensure the report contains the most up-to-date information.
@@ -37,10 +33,6 @@ export class ManageReports extends ClientSDK {
    * List reports
    *
    * @remarks
-   * > **Available as beta release**
-   * >
-   * > This endpoint is part of a beta release. Please contact your account manager if you want to enable it.
-   *
    * Use the *List reports* endpoint to return details (such as generation's current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.
    */
   async listReports(

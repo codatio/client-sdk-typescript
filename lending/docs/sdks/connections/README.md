@@ -1,5 +1,4 @@
 # Connections
-(*connections*)
 
 ## Overview
 
@@ -19,6 +18,7 @@ Create new and manage existing data connections for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-connections" method="get" path="/companies/{companyId}/connections" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -33,7 +33,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,15 +59,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -103,6 +99,7 @@ Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-connection" method="post" path="/companies/{companyId}/connections" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -118,7 +115,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -146,15 +142,12 @@ async function run() {
       platformKey: "gbol",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -187,6 +180,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -200,7 +194,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -226,15 +219,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -268,6 +258,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-connection" method="delete" path="/companies/{companyId}/connections/{connectionId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -306,14 +297,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("connectionsDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -346,6 +335,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -362,7 +352,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -391,15 +380,12 @@ async function run() {
       status: "Unlinked",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionsUnlink failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

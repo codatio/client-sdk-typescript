@@ -1,5 +1,4 @@
 # ManageReports
-(*manageReports*)
 
 ## Overview
 
@@ -12,16 +11,13 @@ Generate and review generated reports for a company.
 
 ## generateReport
 
-> **Available as beta release**
->
-> This endpoint is part of a beta release. Please contact your account manager if you want to enable it.
-
 Use the *Generate report* endpoint to initiate the generation of a report specified by the `reportType` parameter.
 
 This action triggers the system to refresh and pull the necessary data from the company's data sources to ensure the report contains the most up-to-date information.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="generate-report" method="post" path="/companies/{companyId}/reports/{reportType}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -35,7 +31,6 @@ async function run() {
     reportType: "categorizedBankStatement",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -61,15 +56,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportType: "categorizedBankStatement",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageReportsGenerateReport failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -98,14 +90,11 @@ run();
 
 ## listReports
 
-> **Available as beta release**
->
-> This endpoint is part of a beta release. Please contact your account manager if you want to enable it.
-
 Use the *List reports* endpoint to return details (such as generation's current status, date of request, and date of generation) about all reports generated for a company. The query parameter can be used to filter the results.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-reports" method="get" path="/companies/{companyId}/reports" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -120,7 +109,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -147,15 +135,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageReportsListReports failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -1,5 +1,4 @@
 # FileUpload
-(*fileUpload*)
 
 ## Overview
 
@@ -17,6 +16,7 @@ Endpoints to manage uploaded files.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-files" method="get" path="/companies/{companyId}/files" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -29,7 +29,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -54,15 +53,12 @@ async function run() {
   const res = await fileUploadListUploaded(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("fileUploadListUploaded failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -95,6 +91,7 @@ The *Download files* endpoint downloads all files that have  been uploaded by to
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-files" method="get" path="/companies/{companyId}/files/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -108,7 +105,6 @@ async function run() {
     date: "2022-10-23T00:00:00Z",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -134,15 +130,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     date: "2022-10-23T00:00:00Z",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("fileUploadDownload failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -181,6 +174,7 @@ Uploaded files must meet the following requirements:
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="upload-files" method="post" path="/companies/{companyId}/connections/{connectionId}/files" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -219,14 +213,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("fileUploadUpload failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();

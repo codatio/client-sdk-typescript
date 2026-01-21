@@ -7,7 +7,7 @@ The type of routing number.
 ```typescript
 import { RoutingInfoType } from "@codat/lending/sdk/models/shared";
 
-let value: RoutingInfoType = "iban";
+let value: RoutingInfoType = "ifsc";
 ```
 
 ## Values

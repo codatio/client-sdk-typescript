@@ -6,7 +6,7 @@
 import { AccountingAddress } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingAddress = {
-  type: "Billing",
+  type: "Unknown",
 };
 ```
 

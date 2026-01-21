@@ -1,5 +1,4 @@
 # CompanyInfo
-(*companyInfo*)
 
 ## Overview
 
@@ -16,6 +15,7 @@ Gets the latest basic info for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-profile" method="get" path="/companies/{companyId}/data/info" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -28,7 +28,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -53,15 +52,12 @@ async function run() {
   const res = await companyInfoGetAccountingProfile(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companyInfoGetAccountingProfile failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -98,6 +94,7 @@ social media or website information."
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-commerce-profile" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-info" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -111,7 +108,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -137,15 +133,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companyInfoGetCommerceProfile failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

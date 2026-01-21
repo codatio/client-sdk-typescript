@@ -1,5 +1,4 @@
-# CodatLendingReports
-(*accountsReceivable.reports*)
+# AccountsReceivable.Reports
 
 ## Overview
 
@@ -16,6 +15,7 @@ Indicates whether the aged debtors report is available for the company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="is-aged-debtors-report-available" method="get" path="/companies/{companyId}/reports/agedDebtor/available" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -28,7 +28,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -53,15 +52,12 @@ async function run() {
   const res = await accountsReceivableReportsIsAgedDebtorsAvailable(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableReportsIsAgedDebtorsAvailable failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -94,6 +90,7 @@ Returns aged debtors report for company that shows the total outstanding balance
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { RFCDate } from "@codat/lending/sdk/types";
@@ -110,7 +107,6 @@ async function run() {
     periodLengthDays: 30,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -139,15 +135,12 @@ async function run() {
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableReportsGetAgedDebtors failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -180,6 +173,7 @@ Indicates whether the aged creditor report is available for the company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="is-aged-creditors-report-available" method="get" path="/companies/{companyId}/reports/agedCreditor/available" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -192,7 +186,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -217,15 +210,12 @@ async function run() {
   const res = await accountsReceivableReportsIsAgedCreditorsAvailable(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableReportsIsAgedCreditorsAvailable failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -258,6 +248,7 @@ Returns aged creditors report for company that shows the total balance owed by a
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { RFCDate } from "@codat/lending/sdk/types";
@@ -274,7 +265,6 @@ async function run() {
     periodLengthDays: 30,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -303,15 +293,12 @@ async function run() {
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableReportsGetAgedCreditors failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

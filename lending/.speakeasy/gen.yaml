@@ -4,6 +4,7 @@ generation:
   maintainOpenAPIOrder: true
   usageSnippets:
     optionalPropertyRendering: withExample
+    sdkInitStyle: constructor
   useClassNamesForArrayFields: true
   fixes:
     nameResolutionDec2023: true
@@ -11,27 +12,49 @@ generation:
     parameterOrderingFeb2024: true
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: false
+    sharedErrorComponentsApr2025: false
+    sharedNestedComponentsJan2026: false
   auth:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
+    hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  persistentEdits: {}
+  tests:
+    generateTests: true
+    generateNewTests: false
+    skipResponseBodyAssertions: false
   telemetryEnabled: true
 typescript:
-  version: 7.3.0
+  version: 7.4.0
+  acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
+  additionalScripts: {}
+  alwaysIncludeInboundAndOutbound: false
   author: Codat
+  baseErrorName: CodatLendingError
   clientServerStatusCodesAsErrors: true
+  constFieldsAlwaysOptional: false
   defaultErrorName: SDKError
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   enableCustomCodeRegions: false
   enableMCPServer: true
   enableReactQuery: false
   enumFormat: union
+  exportZodModelNamespace: false
+  flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first
+  formStringArrayEncodeMode: encoded-string
+  forwardCompatibleEnumsByDefault: false
+  forwardCompatibleUnionsByDefault: "false"
+  generateExamples: true
   imports:
     option: openapi
     paths:
@@ -40,13 +63,23 @@ typescript:
       operations: sdk/models/operations
       shared: sdk/models/shared
       webhooks: sdk/models/webhooks
+  inferUnionDiscriminators: true
   inputModelSuffix: input
   jsonpath: legacy
+  laxMode: strict
   maxMethodParams: 0
   methodArguments: infer-optional-args
+  modelPropertyCasing: camel
   moduleFormat: commonjs
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageName: '@codat/lending'
+  preApplyUnionDiscriminators: true
+  preserveModelFieldNames: false
   responseFormat: flat
+  sseFlatResponse: false
   templateVersion: v2
+  unionStrategy: left-to-right
+  usageSDKInitImports: []
   useIndexModules: true
+  zodVersion: v3

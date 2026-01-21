@@ -20,7 +20,7 @@ The *Get create/update supplier model* endpoint returns the expected data for th
 
 [Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 `,

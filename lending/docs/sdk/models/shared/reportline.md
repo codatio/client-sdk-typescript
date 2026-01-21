@@ -7,7 +7,7 @@ import { ReportLine } from "@codat/lending/sdk/models/shared";
 import { Decimal } from "@codat/lending/sdk/types";
 
 let value: ReportLine = {
-  value: new Decimal("6976.31"),
+  value: new Decimal("9745.89"),
 };
 ```
 

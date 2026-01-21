@@ -8,7 +8,7 @@ Only returned for transactions. For accounts, there is nothing returned.
 import { DataIntegrityAmounts } from "@codat/lending/sdk/models/shared";
 
 let value: DataIntegrityAmounts = {
-  currency: "EUR",
+  currency: "GBP",
 };
 ```
 

@@ -6,7 +6,7 @@
 import { DataIntegrityMatch } from "@codat/lending/sdk/models/shared";
 
 let value: DataIntegrityMatch = {
-  currency: "USD",
+  currency: "GBP",
 };
 ```
 

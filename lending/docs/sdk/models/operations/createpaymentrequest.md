@@ -4,28 +4,10 @@
 
 ```typescript
 import { CreatePaymentRequest } from "@codat/lending/sdk/models/operations";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CreatePaymentRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  accountingPayment: {
-    modifiedDate: "2022-10-23T00:00:00Z",
-    sourceModifiedDate: "2022-10-23T00:00:00Z",
-    accountRef: {},
-    paymentMethodRef: {
-      id: "EILBDVJVNUAGVKRQ",
-      name: "AliPay",
-    },
-    currency: "EUR",
-    date: "2022-10-23T00:00:00Z",
-    lines: [
-      {
-        amount: new Decimal("9692.06"),
-        allocatedOnDate: "2022-10-23T00:00:00Z",
-      },
-    ],
-  },
 };
 ```
 

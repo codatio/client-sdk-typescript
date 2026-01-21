@@ -9,7 +9,7 @@ let value: DataSource = {
   accounts: [
     {
       sourceRef: {},
-      currency: "EUR",
+      currency: "GBP",
     },
   ],
 };

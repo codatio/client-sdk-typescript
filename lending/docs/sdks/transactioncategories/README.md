@@ -1,5 +1,4 @@
-# TransactionCategories
-(*banking.transactionCategories*)
+# Banking.TransactionCategories
 
 ## Overview
 
@@ -19,6 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-banking-transaction-categories" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactionCategories" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -34,7 +34,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -62,15 +61,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingTransactionCategoriesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -108,6 +104,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-banking-transaction-category" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactionCategories/{transactionCategoryId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -122,7 +119,6 @@ async function run() {
     transactionCategoryId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -149,15 +145,12 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     transactionCategoryId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingTransactionCategoriesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

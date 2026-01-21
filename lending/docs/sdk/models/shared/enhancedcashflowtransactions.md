@@ -97,7 +97,7 @@ let value: EnhancedCashFlowTransactions = {
           description: "Payment to supplier",
           amount: new Decimal("100"),
           currency: "USD",
-          transactionCategory: null,
+          transactionCategory: {},
           platformName: "Plaid",
           counterpartyNames: [],
           accountRef: {

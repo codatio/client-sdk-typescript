@@ -7,7 +7,7 @@ Accounting method used to prepare the cash flow statement.
 ```typescript
 import { ReportInput } from "@codat/lending/sdk/models/shared";
 
-let value: ReportInput = "Unknown";
+let value: ReportInput = "Indirect";
 ```
 
 ## Values
