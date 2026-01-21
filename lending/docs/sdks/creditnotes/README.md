@@ -1,5 +1,4 @@
-# CreditNotes
-(*accountsReceivable.creditNotes*)
+# AccountsReceivable.CreditNotes
 
 ## Overview
 
@@ -19,6 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-credit-notes" method="get" path="/companies/{companyId}/data/creditNotes" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -33,7 +33,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,15 +59,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCreditNotesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -106,6 +102,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-credit-note" method="get" path="/companies/{companyId}/data/creditNotes/{creditNoteId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -119,7 +116,6 @@ async function run() {
     creditNoteId: "<id>",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -145,15 +141,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     creditNoteId: "<id>",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCreditNotesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

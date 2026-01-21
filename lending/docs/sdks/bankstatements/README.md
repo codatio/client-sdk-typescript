@@ -1,5 +1,4 @@
 # BankStatements
-(*bankStatements*)
 
 ## Overview
 
@@ -23,6 +22,7 @@ When you use the [*Upload data*](https://docs.codat.io/lending-api#/operations/u
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-bank-statement-upload-configuration" method="get" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -36,7 +36,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -62,15 +61,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankStatementsGetUploadConfiguration failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -107,6 +103,7 @@ Each data connection can only have one configuration for each company and extern
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="set-bank-statement-upload-configuration" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -124,7 +121,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -154,15 +150,12 @@ async function run() {
       accountId: "abc123-ABC",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankStatementsSetUploadConfiguration failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -199,6 +192,7 @@ You can only have one active session per data type at a time. You can complete o
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="start-bank-statement-upload-session" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/startSession" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -212,7 +206,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -238,15 +231,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankStatementsStartUploadSession failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -281,6 +271,7 @@ Make sure you created configuration for the account using the [*Set upload confi
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="upload-bank-statement-data" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/upload" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -292,17 +283,38 @@ async function run() {
   await codatLending.bankStatements.uploadBankStatementData({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    datasetId: "f5e39dea-ca29-4eec-80fc-9b4b58f7a914",
+    datasetId: "f0095e43-88a7-4395-9f2c-1d5226e1c9e5",
     requestBody: {
-      id: "<id>",
-      name: "<value>",
-      type: "Debit",
-      balance: {},
-      identifiers: {
-        type: "Investment",
-      },
-      currency: "Burundi Franc",
-      institution: {},
+      "results": [
+        {
+          "id": "1703194f-7805-4da8-bac0-2ba5da4a4216",
+          "name": "Business Current Account",
+          "informalName": "Codat",
+          "holder": "Codat Ltd",
+          "type": "Debit",
+          "balance": {
+            "available": -459987.97,
+            "current": -459964.9,
+            "limit": 5000,
+          },
+          "identifiers": {
+            "type": "Depository",
+            "subtype": "checking",
+            "number": "46762629",
+            "bankCode": 9911,
+            "iban": "GB29 LOYD 4773 2346 7626 29",
+            "bic": "LOYDGB21006",
+            "maskedAccountNumber": "LOYDGB21006",
+          },
+          "currency": "GBP",
+          "institution": {
+            "id": "lloyds-bank",
+            "name": "Lloyds Bank",
+          },
+          "modifiedDate": "2022-05-23T16:32:50Z",
+          "sourceModifiedDate": "2021-08-14T05:04:12",
+        },
+      ],
     },
   });
 
@@ -330,27 +342,46 @@ async function run() {
   const res = await bankStatementsUploadBankStatementData(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    datasetId: "f5e39dea-ca29-4eec-80fc-9b4b58f7a914",
+    datasetId: "f0095e43-88a7-4395-9f2c-1d5226e1c9e5",
     requestBody: {
-      id: "<id>",
-      name: "<value>",
-      type: "Debit",
-      balance: {},
-      identifiers: {
-        type: "Investment",
-      },
-      currency: "Burundi Franc",
-      institution: {},
+      "results": [
+        {
+          "id": "1703194f-7805-4da8-bac0-2ba5da4a4216",
+          "name": "Business Current Account",
+          "informalName": "Codat",
+          "holder": "Codat Ltd",
+          "type": "Debit",
+          "balance": {
+            "available": -459987.97,
+            "current": -459964.9,
+            "limit": 5000,
+          },
+          "identifiers": {
+            "type": "Depository",
+            "subtype": "checking",
+            "number": "46762629",
+            "bankCode": 9911,
+            "iban": "GB29 LOYD 4773 2346 7626 29",
+            "bic": "LOYDGB21006",
+            "maskedAccountNumber": "LOYDGB21006",
+          },
+          "currency": "GBP",
+          "institution": {
+            "id": "lloyds-bank",
+            "name": "Lloyds Bank",
+          },
+          "modifiedDate": "2022-05-23T16:32:50Z",
+          "sourceModifiedDate": "2021-08-14T05:04:12",
+        },
+      ],
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("bankStatementsUploadBankStatementData failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -385,6 +416,7 @@ A session is a one-time process that enables you to upload bank statements to Co
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="end-bank-statement-upload-session" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/endSession" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -396,7 +428,7 @@ async function run() {
   await codatLending.bankStatements.endUploadSession({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    datasetId: "d8baee81-bb77-4d34-bcc3-0ef7526e0bde",
+    datasetId: "79c714cf-8643-4bc6-9b4e-8d1a971222b7",
   });
 
 
@@ -423,16 +455,14 @@ async function run() {
   const res = await bankStatementsEndUploadSession(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    datasetId: "d8baee81-bb77-4d34-bcc3-0ef7526e0bde",
+    datasetId: "79c714cf-8643-4bc6-9b4e-8d1a971222b7",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("bankStatementsEndUploadSession failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();

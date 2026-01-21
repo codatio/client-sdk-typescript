@@ -7,7 +7,7 @@ Status of customer.
 ```typescript
 import { CustomerStatus } from "@codat/lending/sdk/models/shared";
 
-let value: CustomerStatus = "Archived";
+let value: CustomerStatus = "Unknown";
 ```
 
 ## Values

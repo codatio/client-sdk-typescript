@@ -18,7 +18,7 @@ export const tool$accountsReceivableDirectIncomesGet: ToolDefinition<
 
 The *Get direct income* endpoint returns a single direct income for a given directIncomeId.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 `,

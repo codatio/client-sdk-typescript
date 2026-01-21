@@ -1,5 +1,4 @@
-# Bills
-(*accountsPayable.bills*)
+# AccountsPayable.Bills
 
 ## Overview
 
@@ -26,6 +25,7 @@ To access the `paymentAllocations` property, ensure that the `billPayments` data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bills" method="get" path="/companies/{companyId}/data/bills" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -40,7 +40,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -67,15 +66,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -117,6 +113,7 @@ To access the `paymentAllocations` property, ensure that the `billPayments` data
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill" method="get" path="/companies/{companyId}/data/bills/{billId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -127,10 +124,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsPayable.bills.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    billId: "7110701885",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -154,17 +150,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsPayableBillsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    billId: "7110701885",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -200,6 +193,7 @@ The *List bill attachments* endpoint returns a list of attachments available to 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -211,10 +205,9 @@ async function run() {
   const result = await codatLending.accountsPayable.bills.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -239,17 +232,14 @@ async function run() {
   const res = await accountsPayableBillsListAttachments(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillsListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -284,6 +274,7 @@ The *Get bill attachment* endpoint returns a specific attachment for a given `bi
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -295,11 +286,10 @@ async function run() {
   const result = await codatLending.accountsPayable.bills.getAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -324,18 +314,15 @@ async function run() {
   const res = await accountsPayableBillsGetAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillsGetAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -370,6 +357,7 @@ The *Download bill attachment* endpoint downloads a specific attachment for a gi
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-bill-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bills/{billId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -381,11 +369,10 @@ async function run() {
   const result = await codatLending.accountsPayable.bills.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -410,18 +397,15 @@ async function run() {
   const res = await accountsPayableBillsDownloadAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    billId: "EILBDVJVNUAGVKRQ",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillsDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

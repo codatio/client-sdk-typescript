@@ -18,7 +18,7 @@ export const tool$accountsReceivableDirectIncomesList: ToolDefinition<
 
 The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) for a given company's connection.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     `,

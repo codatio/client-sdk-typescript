@@ -9,14 +9,12 @@
 const value: shared.SourceAccountV2Prototype = {
   id: "<id>",
   accountName: "<value>",
-  accountType: "savings",
+  accountType: "checking",
   accountNumber: "<value>",
-  currency: "EUR",
-  balance: new Decimal("5823.2"),
+  currency: "GBP",
+  balance: new Decimal("9826.32"),
   modifiedDate: "2022-10-23T00:00:00Z",
-  accountInfo: {
-    accountOpenDate: "2022-10-23",
-  },
+  accountInfo: null,
 };
 ```
 

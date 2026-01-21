@@ -1,5 +1,4 @@
-# CashFlow
-(*financialStatements.cashFlow*)
+# FinancialStatements.CashFlow
 
 ## Overview
 
@@ -13,6 +12,7 @@ Gets the latest cash flow statement for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -28,7 +28,6 @@ async function run() {
     startMonth: "2022-10-23T00:00:00Z",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -56,15 +55,12 @@ async function run() {
     periodsToCompare: 20,
     startMonth: "2022-10-23T00:00:00Z",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsCashFlowGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

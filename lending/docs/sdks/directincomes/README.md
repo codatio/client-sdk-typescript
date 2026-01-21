@@ -1,5 +1,4 @@
-# DirectIncomes
-(*accountsReceivable.directIncomes*)
+# AccountsReceivable.DirectIncomes
 
 ## Overview
 
@@ -15,13 +14,14 @@
 
 The *List direct incomes* endpoint returns a list of [direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) for a given company's connection.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-direct-incomes" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -37,7 +37,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -65,15 +64,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableDirectIncomesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -104,13 +100,14 @@ run();
 
 The *Get direct income* endpoint returns a single direct income for a given directIncomeId.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-direct-income" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -122,10 +119,9 @@ async function run() {
   const result = await codatLending.accountsReceivable.directIncomes.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "7110701885",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -150,17 +146,14 @@ async function run() {
   const res = await accountsReceivableDirectIncomesGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "7110701885",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableDirectIncomesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -191,10 +184,11 @@ run();
 
 The *Get direct income attachment* endpoint returns a specific attachment for a given `directIncomeId` and `attachmentId`.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-direct-income-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments/{attachmentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -206,11 +200,10 @@ async function run() {
   const result = await codatLending.accountsReceivable.directIncomes.getAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "EILBDVJVNUAGVKRQ",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -235,18 +228,15 @@ async function run() {
   const res = await accountsReceivableDirectIncomesGetAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "EILBDVJVNUAGVKRQ",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableDirectIncomesGetAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -277,10 +267,11 @@ run();
 
 The *Download direct income attachment* endpoint downloads a specific attachment for a given `directIncomeId` and `attachmentId`.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-direct-income-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -292,11 +283,10 @@ async function run() {
   const result = await codatLending.accountsReceivable.directIncomes.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "EILBDVJVNUAGVKRQ",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -321,18 +311,15 @@ async function run() {
   const res = await accountsReceivableDirectIncomesDownloadAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "EILBDVJVNUAGVKRQ",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableDirectIncomesDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -363,11 +350,11 @@ run();
 
 The *List direct income attachments* endpoint returns a list of attachments available to download for given `directIncomeId`.
 
-[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are sales of items directly to a customer where payment is received at the point of the sale.
-
+[Direct incomes](https://docs.codat.io/lending-api#/schemas/DirectIncome) are incomes received directly from the business' operations at the point of the sale.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-direct-income-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directIncomes/{directIncomeId}/attachments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -379,10 +366,9 @@ async function run() {
   const result = await codatLending.accountsReceivable.directIncomes.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "EILBDVJVNUAGVKRQ",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -407,17 +393,14 @@ async function run() {
   const res = await accountsReceivableDirectIncomesListAttachments(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directIncomeId: "EILBDVJVNUAGVKRQ",
+    directIncomeId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableDirectIncomesListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

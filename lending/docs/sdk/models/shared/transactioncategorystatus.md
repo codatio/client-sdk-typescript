@@ -7,7 +7,7 @@ The status of the transaction category.
 ```typescript
 import { TransactionCategoryStatus } from "@codat/lending/sdk/models/shared";
 
-let value: TransactionCategoryStatus = "Unknown";
+let value: TransactionCategoryStatus = "Active";
 ```
 
 ## Values

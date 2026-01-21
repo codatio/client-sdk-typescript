@@ -7,7 +7,7 @@ Status of the source account.
 ```typescript
 import { SourceAccountV2Status } from "@codat/lending/sdk/models/shared";
 
-let value: SourceAccountV2Status = "connecting";
+let value: SourceAccountV2Status = "pending";
 ```
 
 ## Values

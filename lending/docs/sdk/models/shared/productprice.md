@@ -6,7 +6,7 @@
 import { ProductPrice } from "@codat/lending/sdk/models/shared";
 
 let value: ProductPrice = {
-  currency: "EUR",
+  currency: "GBP",
 };
 ```
 

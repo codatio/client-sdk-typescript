@@ -1,5 +1,4 @@
 # Liabilities
-(*liabilities*)
 
 ## Overview
 
@@ -23,6 +22,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="generate-loan-transactions" method="post" path="/companies/{companyId}/reports/liabilities/loans/transactions" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -33,7 +33,7 @@ const codatLending = new CodatLending({
 async function run() {
   await codatLending.liabilities.generateLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "accounting",
+    sourceType: "commerce",
   });
 
 
@@ -59,16 +59,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await liabilitiesGenerateLoanTransactions(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "accounting",
+    sourceType: "commerce",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("liabilitiesGenerateLoanTransactions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -106,6 +104,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-loan-transactions" method="get" path="/companies/{companyId}/reports/liabilities/loans/transactions" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -119,7 +118,6 @@ async function run() {
     sourceType: "commerce",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -145,15 +143,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     sourceType: "commerce",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("liabilitiesListLoanTransactions failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -191,6 +186,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="generate-loan-summary" method="post" path="/companies/{companyId}/reports/liabilities/loans" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -229,14 +225,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     sourceType: "accounting",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("liabilitiesGenerateLoanSummary failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -274,6 +268,7 @@ Make sure you have [synced a company](https://docs.codat.io/lending-api#/operati
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-loan-summary" method="get" path="/companies/{companyId}/reports/liabilities/loans" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -284,10 +279,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.liabilities.getLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "banking",
+    sourceType: "accounting",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -311,17 +305,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await liabilitiesGetLoanSummary(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "banking",
+    sourceType: "accounting",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("liabilitiesGetLoanSummary failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

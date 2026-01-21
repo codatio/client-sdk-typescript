@@ -20,7 +20,7 @@ The *Get create account model* endpoint returns the expected data for the reques
 
 [Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.`,
   args,

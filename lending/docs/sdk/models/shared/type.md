@@ -1,17 +1,17 @@
 # Type
 
-The type of the weblink.
+The type of phone number
 
 ## Example Usage
 
 ```typescript
 import { Type } from "@codat/lending/sdk/models/shared";
 
-let value: Type = "Unknown";
+let value: Type = "Primary";
 ```
 
 ## Values
 
 ```typescript
-"Website" | "Social" | "Unknown"
+"Primary" | "Landline" | "Mobile" | "Fax" | "Unknown"
 ```

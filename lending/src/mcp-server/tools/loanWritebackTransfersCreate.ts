@@ -18,7 +18,7 @@ The *Create transfer* endpoint creates a new [transfer](https://docs.codat.io/le
 
 [Transfers](https://docs.codat.io/lending-api#/schemas/Transfer) record the movement of money between two bank accounts, or between a bank account and a nominal account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create transfer model](https://docs.codat.io/lending-api#/operations/get-create-transfers-model).`,
   args,

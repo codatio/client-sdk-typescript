@@ -1,5 +1,4 @@
-# BalanceSheet
-(*financialStatements.balanceSheet*)
+# FinancialStatements.BalanceSheet
 
 ## Overview
 
@@ -16,6 +15,7 @@ Codat suggests a category for each account automatically, but you can [change it
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-categorized-balance-sheet-statement" method="get" path="/companies/{companyId}/reports/enhancedBalanceSheet/accounts" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -29,7 +29,6 @@ async function run() {
     reportDate: "29-09-2020",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -55,15 +54,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportDate: "29-09-2020",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGetCategorizedAccounts failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -96,6 +92,7 @@ Gets the latest balance sheet for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -111,7 +108,6 @@ async function run() {
     startMonth: "2022-10-23T00:00:00Z",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -139,15 +135,12 @@ async function run() {
     periodsToCompare: 20,
     startMonth: "2022-10-23T00:00:00Z",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

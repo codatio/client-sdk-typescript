@@ -1,5 +1,4 @@
-# CodatLendingLoanWritebackPayments
-(*loanWriteback.payments*)
+# LoanWriteback.Payments
 
 ## Overview
 
@@ -14,12 +13,13 @@ The *Get create payment model* endpoint returns the expected data for the reques
 
 [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -33,7 +33,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -59,15 +58,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -100,12 +96,13 @@ The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lend
 
 [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { Decimal } from "@codat/lending/sdk/types";
@@ -154,7 +151,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -215,15 +211,12 @@ async function run() {
       reference: "ref 14/02 1147",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

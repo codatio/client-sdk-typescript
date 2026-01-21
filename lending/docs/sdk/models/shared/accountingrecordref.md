@@ -10,7 +10,7 @@ For example, if a journal entry is generated based on an invoice, this property 
 import { AccountingRecordRef } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingRecordRef = {
-  dataType: "accountTransaction",
+  dataType: "journalEntry",
 };
 ```
 

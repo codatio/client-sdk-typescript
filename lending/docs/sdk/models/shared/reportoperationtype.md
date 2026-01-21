@@ -7,7 +7,7 @@ The name of the generated report.
 ```typescript
 import { ReportOperationType } from "@codat/lending/sdk/models/shared";
 
-let value: ReportOperationType = "creditModel";
+let value: ReportOperationType = "spendAnalysis";
 ```
 
 ## Values

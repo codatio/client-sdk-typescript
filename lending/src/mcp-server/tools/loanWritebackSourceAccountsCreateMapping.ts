@@ -36,7 +36,7 @@ The method of mapping the source account to the target account varies depending 
 2. **Codat UI Mapping**: If you prefer a quicker setup, you can utilize Codat's provided user interface for mapping.
 3. **Accounting Platform Mapping**: For some accounting software, the mapping process must be conducted within the software itself.
 
-### Integration-specific behaviour
+### Integration-specific behavior
 
 | Bank Feed Integration | API Mapping | Codat UI Mapping | Accounting Platform Mapping |
 | --------------------- | ----------- | ---------------- | --------------------------- |

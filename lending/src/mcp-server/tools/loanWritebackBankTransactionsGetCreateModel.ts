@@ -20,7 +20,7 @@ The *Get create bank account transactions model* endpoint returns the expected d
 
 [Bank account transactions](https://docs.codat.io/lending-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.`,
   args,

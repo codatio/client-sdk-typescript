@@ -8,19 +8,38 @@ import { UploadBankStatementDataRequest } from "@codat/lending/sdk/models/operat
 let value: UploadBankStatementDataRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-  datasetId: "90be851c-e1c0-4f98-94e4-dfc817736527",
+  datasetId: "b48991bc-5bf4-4cf4-8090-7c3419f0a6eb",
   requestBody: {
-    pageNumber: 1,
-    pageSize: 10,
-    totalResults: 1,
-    links: {
-      self: {
-        href: "/companies/{id}/data/{dataType}",
+    "results": [
+      {
+        "id": "1703194f-7805-4da8-bac0-2ba5da4a4216",
+        "name": "Business Current Account",
+        "informalName": "Codat",
+        "holder": "Codat Ltd",
+        "type": "Debit",
+        "balance": {
+          "available": -459987.97,
+          "current": -459964.9,
+          "limit": 5000,
+        },
+        "identifiers": {
+          "type": "Depository",
+          "subtype": "checking",
+          "number": "46762629",
+          "bankCode": 9911,
+          "iban": "GB29 LOYD 4773 2346 7626 29",
+          "bic": "LOYDGB21006",
+          "maskedAccountNumber": "LOYDGB21006",
+        },
+        "currency": "GBP",
+        "institution": {
+          "id": "lloyds-bank",
+          "name": "Lloyds Bank",
+        },
+        "modifiedDate": "2022-05-23T16:32:50Z",
+        "sourceModifiedDate": "2021-08-14T05:04:12",
       },
-      current: {
-        href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
-      },
-    },
+    ],
   },
 };
 ```

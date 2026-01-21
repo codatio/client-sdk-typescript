@@ -19,7 +19,7 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 [Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/lending-api#/operations/get-create-update-bankAccounts-model).`,
     args,

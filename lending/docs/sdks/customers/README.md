@@ -1,5 +1,4 @@
-# Customers
-(*accountsReceivable.customers*)
+# AccountsReceivable.Customers
 
 ## Overview
 
@@ -22,6 +21,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-customers" method="get" path="/companies/{companyId}/data/customers" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -36,7 +36,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -63,15 +62,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCustomersList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -109,6 +105,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-customer" method="get" path="/companies/{companyId}/data/customers/{customerId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -119,10 +116,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.customers.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    customerId: "7110701885",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -146,17 +142,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableCustomersGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    customerId: "7110701885",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCustomersGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -191,6 +184,7 @@ The *List customer attachments* endpoint returns a list of attachments avialable
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-customer-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -202,10 +196,9 @@ async function run() {
   const result = await codatLending.accountsReceivable.customers.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "EILBDVJVNUAGVKRQ",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -230,17 +223,14 @@ async function run() {
   const res = await accountsReceivableCustomersListAttachments(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "EILBDVJVNUAGVKRQ",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCustomersListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -276,6 +266,7 @@ The *Get customer attachment* endpoint returns a specific attachment for a given
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-customer-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments/{attachmentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -287,11 +278,10 @@ async function run() {
   const result = await codatLending.accountsReceivable.customers.getAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "EILBDVJVNUAGVKRQ",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -316,18 +306,15 @@ async function run() {
   const res = await accountsReceivableCustomersGetAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "EILBDVJVNUAGVKRQ",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCustomersGetAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -362,6 +349,7 @@ The *Download customer attachment* endpoint downloads a specific attachment for 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-customer-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/customers/{customerId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -373,11 +361,10 @@ async function run() {
   const result = await codatLending.accountsReceivable.customers.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "EILBDVJVNUAGVKRQ",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -402,18 +389,15 @@ async function run() {
   const res = await accountsReceivableCustomersDownloadAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    customerId: "EILBDVJVNUAGVKRQ",
+    customerId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableCustomersDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

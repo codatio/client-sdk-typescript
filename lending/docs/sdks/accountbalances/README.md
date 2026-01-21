@@ -1,5 +1,4 @@
-# AccountBalances
-(*banking.accountBalances*)
+# Banking.AccountBalances
 
 ## Overview
 
@@ -18,6 +17,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-banking-account-balances" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accountBalances" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -33,7 +33,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -61,15 +60,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingAccountBalancesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

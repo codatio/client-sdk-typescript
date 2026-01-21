@@ -7,7 +7,7 @@ import { PushOption } from "@codat/lending/sdk/models/shared";
 
 let value: PushOption = {
   type: "MultiPart",
-  displayName: "Bailee.Strosin32",
+  displayName: "Travis.Ebert-Fahey",
   required: false,
 };
 ```

@@ -1,5 +1,4 @@
-# Refresh
-(*manageData.refresh*)
+# ManageData.Refresh
 
 ## Overview
 
@@ -18,6 +17,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh-all-data-types" method="post" path="/companies/{companyId}/data/all" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -54,14 +54,12 @@ async function run() {
   const res = await manageDataRefreshAllDataTypes(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("manageDataRefreshAllDataTypes failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -82,11 +80,11 @@ run();
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
-| errors.ErrorMessage     | 500, 503                | application/json        |
-| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## dataType
 
@@ -96,6 +94,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh-data-type" method="post" path="/companies/{companyId}/data/queue/{dataType}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -109,7 +108,6 @@ async function run() {
     dataType: "invoices",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -135,15 +133,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: "invoices",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageDataRefreshDataType failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -164,8 +159,8 @@ run();
 
 ### Errors
 
-| Error Type              | Status Code             | Content Type            |
-| ----------------------- | ----------------------- | ----------------------- |
-| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
-| errors.ErrorMessage     | 500, 503                | application/json        |
-| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

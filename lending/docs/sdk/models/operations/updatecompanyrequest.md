@@ -7,10 +7,6 @@ import { UpdateCompanyRequest } from "@codat/lending/sdk/models/operations";
 
 let value: UpdateCompanyRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyUpdateRequest: {
-    name: "Bank of Dave",
-    description: "Requested early access to the new financing scheme.",
-  },
 };
 ```
 

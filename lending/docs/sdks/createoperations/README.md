@@ -1,5 +1,4 @@
-# CreateOperations
-(*loanWriteback.createOperations*)
+# LoanWriteback.CreateOperations
 
 ## Overview
 
@@ -14,6 +13,7 @@ Retrieve create operation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-operation" method="get" path="/companies/{companyId}/push/{pushOperationKey}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -24,10 +24,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.loanWriteback.createOperations.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -51,17 +50,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await loanWritebackCreateOperationsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackCreateOperationsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -94,6 +90,7 @@ List create operations.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-create-operations" method="get" path="/companies/{companyId}/push" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -108,7 +105,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -135,15 +131,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackCreateOperationsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

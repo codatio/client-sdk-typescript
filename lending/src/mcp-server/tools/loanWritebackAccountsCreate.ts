@@ -18,7 +18,7 @@ The *Create account* endpoint creates a new [account](https://docs.codat.io/lend
 
 [Accounts](https://docs.codat.io/lending-api#/schemas/Account) are the categories a business uses to record accounting transactions.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create account model](https://docs.codat.io/lending-api#/operations/get-create-chartOfAccounts-model).`,
   args,

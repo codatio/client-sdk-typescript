@@ -1,5 +1,4 @@
 # ExcelReports
-(*excelReports*)
 
 ## Overview
 
@@ -33,6 +32,7 @@ In response, the endpoint returns the [status](https://docs.codat.io/lending-api
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="generate-excel-report" method="post" path="/data/companies/{companyId}/assess/excel" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -43,10 +43,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.excelReports.generate({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedInvoices",
+    reportType: "enhancedFinancials",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -70,17 +69,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await excelReportsGenerate(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedInvoices",
+    reportType: "enhancedFinancials",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("excelReportsGenerate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -117,6 +113,7 @@ When the report generation completes successfully, the `inProgress` property wil
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-excel-report-generation-status" method="get" path="/data/companies/{companyId}/assess/excel" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -130,7 +127,6 @@ async function run() {
     reportType: "enhancedCashFlow",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -156,15 +152,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     reportType: "enhancedCashFlow",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("excelReportsGetStatus failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -201,6 +194,7 @@ You can [learn more](https://docs.codat.io/lending/features/excel-download-overv
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-excel-report" method="get" path="/data/companies/{companyId}/assess/excel/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -211,10 +205,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.excelReports.download({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedFinancials",
+    reportType: "enhancedCashFlow",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -238,17 +231,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await excelReportsDownload(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedFinancials",
+    reportType: "enhancedCashFlow",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("excelReportsDownload failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

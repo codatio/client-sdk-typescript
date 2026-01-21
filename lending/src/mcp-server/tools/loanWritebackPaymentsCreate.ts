@@ -18,7 +18,7 @@ The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lend
 
 [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).`,
   args,

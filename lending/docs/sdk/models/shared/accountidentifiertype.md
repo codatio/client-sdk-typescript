@@ -7,7 +7,7 @@ Type of account
 ```typescript
 import { AccountIdentifierType } from "@codat/lending/sdk/models/shared";
 
-let value: AccountIdentifierType = "Investment";
+let value: AccountIdentifierType = "Account";
 ```
 
 ## Values

@@ -18,7 +18,7 @@ export class CodatLendingLoanWritebackPayments extends ClientSDK {
    *
    * [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * See the *response examples* for integration-specific indicative models.
    */
@@ -41,7 +41,7 @@ export class CodatLendingLoanWritebackPayments extends ClientSDK {
    *
    * [Payments](https://docs.codat.io/lending-api#/schemas/Payment) represent an allocation of money within any customer accounts receivable account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
    */

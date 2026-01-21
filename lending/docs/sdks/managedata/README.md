@@ -1,5 +1,4 @@
 # ManageData
-(*manageData*)
 
 ## Overview
 
@@ -13,6 +12,7 @@ Get the state of each data type for a company
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-data-status" method="get" path="/companies/{companyId}/dataStatus" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -25,7 +25,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -50,15 +49,12 @@ async function run() {
   const res = await manageDataGetStatus(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageDataGetStatus failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

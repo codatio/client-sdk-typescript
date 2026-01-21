@@ -1,5 +1,4 @@
-# Payments
-(*accountsReceivable.payments*)
+# AccountsReceivable.Payments
 
 ## Overview
 
@@ -19,6 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-payments" method="get" path="/companies/{companyId}/data/payments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -33,7 +33,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,15 +59,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivablePaymentsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -106,6 +102,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-payment" method="get" path="/companies/{companyId}/data/payments/{paymentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -116,10 +113,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.payments.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    paymentId: "7110701885",
+    paymentId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -143,17 +139,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivablePaymentsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    paymentId: "7110701885",
+    paymentId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivablePaymentsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -1,5 +1,4 @@
-# CodatLendingSuppliers
-(*loanWriteback.suppliers*)
+# LoanWriteback.Suppliers
 
 ## Overview
 
@@ -14,13 +13,14 @@ The *Get create/update supplier model* endpoint returns the expected data for th
 
 [Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-update-suppliers-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/suppliers" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -34,7 +34,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -60,15 +59,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackSuppliersGetCreateUpdateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -101,13 +97,14 @@ The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/le
 
 [Suppliers](https://docs.codat.io/lending-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/lending-api#/operations/get-create-update-suppliers-model).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/push/suppliers" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -127,7 +124,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -159,15 +155,12 @@ async function run() {
       status: "Active",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackSuppliersCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -7,7 +7,7 @@ Current state of the credit note.
 ```typescript
 import { CreditNoteStatus } from "@codat/lending/sdk/models/shared";
 
-let value: CreditNoteStatus = "Void";
+let value: CreditNoteStatus = "Draft";
 ```
 
 ## Values

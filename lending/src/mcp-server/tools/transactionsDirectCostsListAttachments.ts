@@ -18,7 +18,7 @@ export const tool$transactionsDirectCostsListAttachments: ToolDefinition<
 
 The *List direct cost attachments* endpoint returns a list of attachments available to download for given \`directCostId\`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 `,
   args,
   tool: async (client, args, ctx) => {

@@ -1,5 +1,4 @@
 # DataIntegrity
-(*dataIntegrity*)
 
 ## Overview
 
@@ -24,6 +23,7 @@ The response tells you:
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-data-integrity-status" method="get" path="/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/status" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -37,7 +37,6 @@ async function run() {
     dataType: "banking-accounts",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -63,15 +62,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     dataType: "banking-accounts",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("dataIntegrityStatus failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -108,6 +104,7 @@ The endpoint response includes only the summary results, not transactions. To vi
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-data-integrity-summaries" method="get" path="/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/summaries" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -122,7 +119,6 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -149,15 +145,12 @@ async function run() {
     dataType: "banking-accounts",
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("dataIntegritySummaries failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -192,6 +185,7 @@ The [details](https://docs.codat.io/lending-api#/schemas/DataIntegrityDetail) ar
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-data-integrity-details" method="get" path="/data/companies/{companyId}/assess/dataTypes/{dataType}/dataIntegrity/details" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -207,7 +201,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -235,15 +228,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("dataIntegrityDetails failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -9,12 +9,12 @@ import { Decimal } from "@codat/lending/sdk/types";
 let value: ServiceCharge = {
   description: "A service charge",
   totalAmount: new Decimal("0"),
-  taxPercentage: new Decimal("45"),
-  taxAmount: new Decimal("45"),
+  taxPercentage: new Decimal("0"),
+  taxAmount: new Decimal("0"),
   taxes: [
     {
       taxComponentRef: {
-        id: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+        id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
         name: "<value>",
       },
     },

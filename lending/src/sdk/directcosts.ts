@@ -19,7 +19,7 @@ export class DirectCosts extends ClientSDK {
    * @remarks
    * The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
    *
-   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
    *
    * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
    */
@@ -40,7 +40,7 @@ export class DirectCosts extends ClientSDK {
    * @remarks
    * The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
    *
-   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
    *
    * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
    */
@@ -61,7 +61,7 @@ export class DirectCosts extends ClientSDK {
    * @remarks
    * The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
    *
-   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
    */
   async getAttachment(
     request: operations.GetAccountingDirectCostAttachmentRequest,
@@ -80,7 +80,7 @@ export class DirectCosts extends ClientSDK {
    * @remarks
    * The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
    *
-   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
    */
   async downloadAttachment(
     request: operations.DownloadAccountingDirectCostAttachmentRequest,
@@ -99,7 +99,7 @@ export class DirectCosts extends ClientSDK {
    * @remarks
    * The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
    *
-   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+   * [Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
    */
   async listAttachments(
     request: operations.ListAccountingDirectCostAttachmentsRequest,

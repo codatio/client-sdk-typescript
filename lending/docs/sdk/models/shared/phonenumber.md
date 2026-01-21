@@ -7,13 +7,13 @@ import { PhoneNumber } from "@codat/lending/sdk/models/shared";
 
 let value: PhoneNumber = {
   number: "+44 25691 154789",
-  type: "Primary",
+  type: "Mobile",
 };
 ```
 
 ## Fields
 
-| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             | Example                                                                 |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `number`                                                                | *string*                                                                | :heavy_minus_sign:                                                      | A phone number.                                                         | +44 25691 154789                                                        |
-| `type`                                                                  | [shared.PhoneNumberType](../../../sdk/models/shared/phonenumbertype.md) | :heavy_check_mark:                                                      | The type of phone number                                                |                                                                         |
+| Field                                             | Type                                              | Required                                          | Description                                       | Example                                           |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| `number`                                          | *string*                                          | :heavy_minus_sign:                                | A phone number.                                   | +44 25691 154789                                  |
+| `type`                                            | [shared.Type](../../../sdk/models/shared/type.md) | :heavy_check_mark:                                | The type of phone number                          |                                                   |

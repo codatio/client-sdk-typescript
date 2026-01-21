@@ -1,5 +1,4 @@
-# DirectCosts
-(*transactions.directCosts*)
+# Transactions.DirectCosts
 
 ## Overview
 
@@ -15,13 +14,14 @@
 
 The *List direct costs* endpoint returns a list of [direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) for a given company's connection.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-direct-costs" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -37,7 +37,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -65,15 +64,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsDirectCostsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -104,13 +100,14 @@ run();
 
 The *Get direct cost* endpoint returns a single direct cost for a given directCostId.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-direct-cost" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -122,10 +119,9 @@ async function run() {
   const result = await codatLending.transactions.directCosts.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "7110701885",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -150,17 +146,14 @@ async function run() {
   const res = await transactionsDirectCostsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "7110701885",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsDirectCostsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -191,10 +184,11 @@ run();
 
 The *Get direct cost attachment* endpoint returns a specific attachment for a given `directCostId` and `attachmentId`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-accounting-direct-cost-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}/attachments/{attachmentId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -206,11 +200,10 @@ async function run() {
   const result = await codatLending.transactions.directCosts.getAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "EILBDVJVNUAGVKRQ",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -235,18 +228,15 @@ async function run() {
   const res = await transactionsDirectCostsGetAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "EILBDVJVNUAGVKRQ",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsDirectCostsGetAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -277,11 +267,12 @@ run();
 
 The *Download direct cost attachment* endpoint downloads a specific attachment for a given `directCostId` and `attachmentId`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="download-accounting-direct-cost-attachment" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}/attachments/{attachmentId}/download" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -293,11 +284,10 @@ async function run() {
   const result = await codatLending.transactions.directCosts.downloadAttachment({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "EILBDVJVNUAGVKRQ",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -322,18 +312,15 @@ async function run() {
   const res = await transactionsDirectCostsDownloadAttachment(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "EILBDVJVNUAGVKRQ",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     attachmentId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsDirectCostsDownloadAttachment failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -364,11 +351,12 @@ run();
 
 The *List direct cost attachments* endpoint returns a list of attachments available to download for given `directCostId`.
 
-[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are purchases of items that are paid off at the point of the purchase.
+[Direct costs](https://docs.codat.io/lending-api#/schemas/DirectCost) are business expenses that don't impact Accounts Payable.
 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-accounting-direct-cost-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/data/directCosts/{directCostId}/attachments" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -380,10 +368,9 @@ async function run() {
   const result = await codatLending.transactions.directCosts.listAttachments({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "EILBDVJVNUAGVKRQ",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -408,17 +395,14 @@ async function run() {
   const res = await transactionsDirectCostsListAttachments(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    directCostId: "EILBDVJVNUAGVKRQ",
+    directCostId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsDirectCostsListAttachments failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

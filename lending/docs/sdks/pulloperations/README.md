@@ -1,5 +1,4 @@
-# PullOperations
-(*manageData.pullOperations*)
+# ManageData.PullOperations
 
 ## Overview
 
@@ -14,6 +13,7 @@ Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -28,7 +28,6 @@ async function run() {
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -55,15 +54,12 @@ async function run() {
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageDataPullOperationsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -96,6 +92,7 @@ Retrieve information about a single dataset or pull operation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-pull-operation" method="get" path="/companies/{companyId}/data/history/{datasetId}" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -106,10 +103,9 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.manageData.pullOperations.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    datasetId: "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    datasetId: "fa5f3e86-bd80-49b8-853c-5fbba4b201f5",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -133,17 +129,14 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await manageDataPullOperationsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    datasetId: "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    datasetId: "fa5f3e86-bd80-49b8-853c-5fbba4b201f5",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageDataPullOperationsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
