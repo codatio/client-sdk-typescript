@@ -5,10 +5,12 @@
 import { CodatBankFeedsCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
 import * as M from "../lib/matchers.js";
+import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import { CodatBankFeedsError } from "../sdk/models/errors/codatbankfeedserror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -17,10 +19,11 @@ import {
   UnexpectedClientError,
 } from "../sdk/models/errors/httpclienterrors.js";
 import * as errors from "../sdk/models/errors/index.js";
-import { SDKError } from "../sdk/models/errors/sdkerror.js";
+import { ResponseValidationError } from "../sdk/models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../sdk/models/errors/sdkvalidationerror.js";
 import * as operations from "../sdk/models/operations/index.js";
 import * as shared from "../sdk/models/shared/index.js";
+import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
@@ -33,22 +36,51 @@ import { Result } from "../sdk/types/fp.js";
  *
  * For bank feeds, your push operations will only relate to the `bankTransactions` data type.
  */
-export async function transactionsGetCreateOperation(
+export function transactionsGetCreateOperation(
+  client: CodatBankFeedsCore,
+  request: operations.GetCreateOperationRequest,
+  options?: RequestOptions,
+): APIPromise<
+  Result<
+    shared.PushOperation,
+    | errors.ErrorMessage
+    | CodatBankFeedsError
+    | ResponseValidationError
+    | ConnectionError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
+  >
+> {
+  return new APIPromise($do(
+    client,
+    request,
+    options,
+  ));
+}
+
+async function $do(
   client: CodatBankFeedsCore,
   request: operations.GetCreateOperationRequest,
   options?: RequestOptions,
 ): Promise<
-  Result<
-    shared.PushOperation,
-    | errors.ErrorMessage
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
-    | RequestAbortedError
-    | RequestTimeoutError
-    | ConnectionError
-  >
+  [
+    Result<
+      shared.PushOperation,
+      | errors.ErrorMessage
+      | CodatBankFeedsError
+      | ResponseValidationError
+      | ConnectionError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
+    >,
+    APICall,
+  ]
 > {
   const parsed = safeParse(
     request,
@@ -56,7 +88,7 @@ export async function transactionsGetCreateOperation(
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return parsed;
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
@@ -77,17 +109,19 @@ export async function transactionsGetCreateOperation(
     pathParams,
   );
 
-  const headers = new Headers({
+  const headers = new Headers(compactMap({
     Accept: "application/json",
-  });
+  }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
   const securityInput = secConfig == null ? {} : { authHeader: secConfig };
   const requestSecurity = resolveGlobalSecurity(securityInput);
 
   const context = {
+    options: client._options,
+    baseURL: options?.serverURL ?? client._baseURL ?? "",
     operationID: "get-create-operation",
-    oAuth2Scopes: [],
+    oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
 
@@ -111,13 +145,15 @@ export async function transactionsGetCreateOperation(
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
     method: "GET",
+    baseURL: options?.serverURL,
     path: path,
     headers: headers,
     body: body,
+    userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return requestRes;
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -128,7 +164,7 @@ export async function transactionsGetCreateOperation(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return doResult;
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -139,24 +175,24 @@ export async function transactionsGetCreateOperation(
   const [result] = await M.match<
     shared.PushOperation,
     | errors.ErrorMessage
-    | SDKError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | CodatBankFeedsError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(200, shared.PushOperation$inboundSchema),
-    M.jsonErr(
-      [401, 402, 403, 404, 429, 500, 503],
-      errors.ErrorMessage$inboundSchema,
-    ),
-    M.fail(["4XX", "5XX"]),
-  )(response, { extraFields: responseFields });
+    M.jsonErr([401, 402, 403, 404, 429], errors.ErrorMessage$inboundSchema),
+    M.jsonErr([500, 503], errors.ErrorMessage$inboundSchema),
+    M.fail("4XX"),
+    M.fail("5XX"),
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
-    return result;
+    return [result, { status: "complete", request: req, response }];
   }
 
-  return result;
+  return [result, { status: "complete", request: req, response }];
 }

@@ -1,0 +1,32 @@
+# SourceAccountBatchCreateResult
+
+Status details and corresponding object of the `Create account` operation.
+
+## Example Usage
+
+```typescript
+import { SourceAccountBatchCreateResult } from "@codat/bank-feeds/sdk/models/shared";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+let value: SourceAccountBatchCreateResult = {
+  account: {
+    id: "acc-002",
+    accountName: "account-081",
+    accountType: "Credit",
+    accountNumber: "12345670",
+    sortCode: "123456",
+    currency: "GBP",
+    balance: new Decimal("99.99"),
+    modifiedDate: "2023-01-09T14:14:14.1057478Z",
+    status: "pending",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                                                   | Type                                                                                                                                                                                                                                    | Required                                                                                                                                                                                                                                | Description                                                                                                                                                                                                                             | Example                                                                                                                                                                                                                                 |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `statusCode`                                                                                                                                                                                                                            | *number*                                                                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                                                                      | The HTTP status code for the creation of the source account                                                                                                                                                                             |                                                                                                                                                                                                                                         |
+| `error`                                                                                                                                                                                                                                 | *string*                                                                                                                                                                                                                                | :heavy_minus_sign:                                                                                                                                                                                                                      | A brief description of the error.                                                                                                                                                                                                       |                                                                                                                                                                                                                                         |
+| `account`                                                                                                                                                                                                                               | [shared.SourceAccount](../../../sdk/models/shared/sourceaccount.md)                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                      | The target bank account in a supported accounting software for ingestion into a bank feed.                                                                                                                                              | {<br/>"id": "acc-002",<br/>"accountName": "account-081",<br/>"sortCode": "123456",<br/>"accountType": "Credit",<br/>"accountNumber": "12345670",<br/>"currency": "GBP",<br/>"balance": 99.99,<br/>"modifiedDate": "2023-01-09T14:14:14.1057478Z",<br/>"status": "pending"<br/>} |

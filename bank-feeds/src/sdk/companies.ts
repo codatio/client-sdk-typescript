@@ -7,6 +7,7 @@ import { companiesDelete } from "../funcs/companiesDelete.js";
 import { companiesGet } from "../funcs/companiesGet.js";
 import { companiesGetAccessToken } from "../funcs/companiesGetAccessToken.js";
 import { companiesList } from "../funcs/companiesList.js";
+import { companiesReplace } from "../funcs/companiesReplace.js";
 import { companiesUpdate } from "../funcs/companiesUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
@@ -110,13 +111,34 @@ export class Companies extends ClientSDK {
   }
 
   /**
-   * Update company
+   * Replace company
    *
    * @remarks
-   * Use the *Update company* endpoint to update both the name and description of the company.
+   * Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.
    *
    * A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
    * Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
+   */
+  async replace(
+    request: operations.ReplaceCompanyRequest,
+    options?: RequestOptions,
+  ): Promise<shared.Company> {
+    return unwrapAsync(companiesReplace(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update company
+   *
+   * @remarks
+   * Use the *Update company* endpoint to update the name, description, or tags of the company.
+   *
+   * The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.
+   *
+   * A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
    */
   async update(
     request: operations.UpdateCompanyRequest,
@@ -133,7 +155,9 @@ export class Companies extends ClientSDK {
    * Get company access token
    *
    * @remarks
-   * Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+   * Use the _Get company access token_ endpoint to return an access token for the specified company ID. The token is valid for one day.
+   *
+   * The token is required by Codat's embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to verify the identity of the user and improve the reliability of data provided by them.
    */
   async getAccessToken(
     request: operations.GetCompanyAccessTokenRequest,

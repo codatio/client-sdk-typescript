@@ -7,11 +7,11 @@
 <!-- Start Summary [summary] -->
 ## Summary
 
-Bank Feeds API: Bank Feeds API enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
+Bank Feeds: Bank Feeds solution enables your SMB users to set up bank feeds from accounts in your application to supported accounting software.
 
 A bank feed is a connection between a source bank account in your application and a target bank account in a supported accounting software.
 
-[Explore product](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+[Explore solution](https://docs.codat.io/bank-feeds-api/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
 ---
 <!-- Start Codat Tags Table -->
@@ -76,10 +76,7 @@ bun add @codat/bank-feeds
 ### Yarn
 
 ```bash
-yarn add @codat/bank-feeds zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
+yarn add @codat/bank-feeds
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -92,19 +89,16 @@ yarn add @codat/bank-feeds zod
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
-const codatBankFeeds = new CodatBankFeeds();
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  await codatBankFeeds.clientRateLimitReached({
-    id: "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b",
-    eventType: "client.rateLimit.reached",
-    generatedDate: "2024-09-01T00:00:00Z",
-    payload: {
-      dailyQuota: 12000,
-      quotaRemaining: 0,
-      expiryDate: "2024-09-01T12:14:14Z",
-    },
+  const result = await codatBankFeeds.companies.create({
+    name: "Technicalium",
   });
+
+  console.log(result);
 }
 
 run();
@@ -118,37 +112,32 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-### [accountMapping](docs/sdks/accountmapping/README.md)
+### [AccountMapping](docs/sdks/accountmapping/README.md)
 
 * [get](docs/sdks/accountmapping/README.md#get) - List bank feed accounts
 * [create](docs/sdks/accountmapping/README.md#create) - Create bank feed account mapping
 
-### [bankAccounts](docs/sdks/bankaccounts/README.md)
+### [BankAccounts](docs/sdks/bankaccounts/README.md)
 
 * [list](docs/sdks/bankaccounts/README.md#list) - List bank accounts
 * [getCreateModel](docs/sdks/bankaccounts/README.md#getcreatemodel) - Get create/update bank account model
 * [create](docs/sdks/bankaccounts/README.md#create) - Create bank account
 
-
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [create](docs/sdks/companies/README.md#create) - Create company
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [get](docs/sdks/companies/README.md#get) - Get company
 * [delete](docs/sdks/companies/README.md#delete) - Delete a company
+* [replace](docs/sdks/companies/README.md#replace) - Replace company
 * [update](docs/sdks/companies/README.md#update) - Update company
 * [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 
-### [companyInformation](docs/sdks/companyinformation/README.md)
+### [CompanyInformation](docs/sdks/companyinformation/README.md)
 
 * [get](docs/sdks/companyinformation/README.md#get) - Get company information
 
-### [configuration](docs/sdks/configuration/README.md)
-
-* [get](docs/sdks/configuration/README.md#get) - Get configuration
-* [set](docs/sdks/configuration/README.md#set) - Set configuration
-
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [create](docs/sdks/connections/README.md#create) - Create connection
@@ -156,7 +145,13 @@ run();
 * [delete](docs/sdks/connections/README.md#delete) - Delete connection
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 
-### [sourceAccounts](docs/sdks/sourceaccounts/README.md)
+### [ManagedBankFeeds](docs/sdks/managedbankfeeds/README.md)
+
+* [getSync](docs/sdks/managedbankfeeds/README.md#getsync) - Get sync
+* [getLatestSync](docs/sdks/managedbankfeeds/README.md#getlatestsync) - Get latest sync
+* [runAdHocSync](docs/sdks/managedbankfeeds/README.md#runadhocsync) - Run ad-hoc sync
+
+### [SourceAccounts](docs/sdks/sourceaccounts/README.md)
 
 * [createBatch](docs/sdks/sourceaccounts/README.md#createbatch) - Create source accounts
 * [create](docs/sdks/sourceaccounts/README.md#create) - Create single source account
@@ -166,11 +161,7 @@ run();
 * [generateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 * [deleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
 
-### [sync](docs/sdks/sync/README.md)
-
-* [getLastSuccessfulSync](docs/sdks/sync/README.md#getlastsuccessfulsync) - Get last successful sync
-
-### [transactions](docs/sdks/transactions/README.md)
+### [Transactions](docs/sdks/transactions/README.md)
 
 * [create](docs/sdks/transactions/README.md#create) - Create bank transactions
 * [getCreateModel](docs/sdks/transactions/README.md#getcreatemodel) - Get create bank transactions model
@@ -200,7 +191,6 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   }, {
     retries: {
       strategy: "backoff",
@@ -214,7 +204,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -243,10 +232,8 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -260,54 +247,48 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `sdk/models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `create` method may throw the following errors:
+[`CodatBankFeedsError`](./src/sdk/models/errors/codatbankfeedserror.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Error Type          | Status Code                       | Content Type     |
-| ------------------- | --------------------------------- | ---------------- |
-| errors.ErrorMessage | 400, 401, 402, 403, 429, 500, 503 | application/json |
-| errors.SDKError     | 4XX, 5XX                          | \*/\*            |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `SDKError`.
-
+### Example
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import {
-  ErrorMessage,
-  SDKValidationError,
-} from "@codat/bank-feeds/sdk/models/errors";
+import * as errors from "@codat/bank-feeds/sdk/models/errors";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
 });
 
 async function run() {
-  let result;
   try {
-    result = await codatBankFeeds.companies.create({
+    const result = await codatBankFeeds.companies.create({
       name: "Technicalium",
-      description: "Requested early access to the new financing scheme.",
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof ErrorMessage): {
-        // Handle err.data$: ErrorMessageData
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
+  } catch (error) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.CodatBankFeedsError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ErrorMessage) {
+        console.log(error.data$.statusCode); // number
+        console.log(error.data$.service); // string
+        console.log(error.data$.error); // string
+        console.log(error.data$.correlationId); // string
+        console.log(error.data$.validation); // shared.ErrorValidation
       }
     }
   }
@@ -317,17 +298,27 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+**Primary errors:**
+* [`CodatBankFeedsError`](./src/sdk/models/errors/codatbankfeedserror.ts): The base class for HTTP error responses.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): The request made is not valid.
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `sdk/models/errors/httpclienterrors.ts` module:
+<details><summary>Less common errors (6)</summary>
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`CodatBankFeedsError`](./src/sdk/models/errors/codatbankfeedserror.ts)**:
+* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 <!-- End Error Handling [errors] -->
 
 
@@ -337,7 +328,7 @@ In some rare cases, the SDK can fail to get a response from the server or even m
 
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
+The default server can be overridden globally by passing a URL to the `serverURL: string` optional parameter when initializing the SDK client instance. For example:
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -349,10 +340,8 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -408,7 +397,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new CodatBankFeeds({ httpClient });
+const sdk = new CodatBankFeeds({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 
@@ -436,10 +425,8 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -479,15 +466,17 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
 - [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
+- [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
 - [`companyInformationGet`](docs/sdks/companyinformation/README.md#get) - Get company information
-- [`configurationGet`](docs/sdks/configuration/README.md#get) - Get configuration
-- [`configurationSet`](docs/sdks/configuration/README.md#set) - Set configuration
 - [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
 - [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
 - [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
 - [`connectionsList`](docs/sdks/connections/README.md#list) - List connections
 - [`connectionsUnlink`](docs/sdks/connections/README.md#unlink) - Unlink connection
+- [`managedBankFeedsGetLatestSync`](docs/sdks/managedbankfeeds/README.md#getlatestsync) - Get latest sync
+- [`managedBankFeedsGetSync`](docs/sdks/managedbankfeeds/README.md#getsync) - Get sync
+- [`managedBankFeedsRunAdHocSync`](docs/sdks/managedbankfeeds/README.md#runadhocsync) - Run ad-hoc sync
 - [`sourceAccountsCreate`](docs/sdks/sourceaccounts/README.md#create) - Create single source account
 - [`sourceAccountsCreateBatch`](docs/sdks/sourceaccounts/README.md#createbatch) - Create source accounts
 - [`sourceAccountsDelete`](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
@@ -495,7 +484,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`sourceAccountsGenerateCredentials`](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 - [`sourceAccountsList`](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 - [`sourceAccountsUpdate`](docs/sdks/sourceaccounts/README.md#update) - Update source account
-- [`syncGetLastSuccessfulSync`](docs/sdks/sync/README.md#getlastsuccessfulsync) - Get last successful sync
 - [`transactionsCreate`](docs/sdks/transactions/README.md#create) - Create bank transactions
 - [`transactionsGetCreateModel`](docs/sdks/transactions/README.md#getcreatemodel) - Get create bank transactions model
 - [`transactionsGetCreateOperation`](docs/sdks/transactions/README.md#getcreateoperation) - Get create operation
@@ -533,7 +521,6 @@ async function run() {
     requestBody: await openAsBlob("example.file"),
   });
 
-  // Handle the result
   console.log(result);
 }
 

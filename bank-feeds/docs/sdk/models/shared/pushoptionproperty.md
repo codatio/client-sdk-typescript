@@ -6,10 +6,11 @@
 import { PushOptionProperty } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "MultiPart",
-  displayName: "Marisa6",
-  description: "yet athwart skateboard newsstand farm bourgeoisie ah how",
-  required: false,
+  type: "Array",
+  displayName: "Fannie10",
+  description:
+    "sonar very sympathetically notwithstanding alarmed modulo grizzled",
+  required: true,
 };
 ```
 

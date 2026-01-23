@@ -1,5 +1,4 @@
 # Transactions
-(*transactions*)
 
 ## Overview
 
@@ -18,13 +17,14 @@ Create new bank account transactions for a company's connections, and see previo
 
 [Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
 Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { Decimal } from "@codat/bank-feeds/sdk/types";
@@ -37,13 +37,13 @@ async function run() {
   const result = await codatBankFeeds.transactions.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     createBankTransactions: {
       accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
       transactions: [
         {
           id: "716422529",
-          date: "2023-08-22T10:21:00Z",
+          date: "2023-08-22T10:21:00",
           description: "Repayment of Credit Card",
           counterparty: "Bank of Example",
           reference: "Ref-12345",
@@ -54,7 +54,7 @@ async function run() {
         },
         {
           id: "716422530",
-          date: "2023-08-22T10:22:00Z",
+          date: "2023-08-22T10:22:00",
           description: "Amazon Purchase",
           counterparty: "Amazon",
           reference: "Ref-12346",
@@ -65,7 +65,7 @@ async function run() {
         },
         {
           id: "716422531",
-          date: "2023-08-22T10:23:00Z",
+          date: "2023-08-22T10:23:00",
           description: "Office Supplies",
           counterparty: "Office Mart",
           reference: "Ref-12347",
@@ -78,7 +78,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -104,13 +103,13 @@ async function run() {
   const res = await transactionsCreate(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    accountId: "9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     createBankTransactions: {
       accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
       transactions: [
         {
           id: "716422529",
-          date: "2023-08-22T10:21:00Z",
+          date: "2023-08-22T10:21:00",
           description: "Repayment of Credit Card",
           counterparty: "Bank of Example",
           reference: "Ref-12345",
@@ -121,7 +120,7 @@ async function run() {
         },
         {
           id: "716422530",
-          date: "2023-08-22T10:22:00Z",
+          date: "2023-08-22T10:22:00",
           description: "Amazon Purchase",
           counterparty: "Amazon",
           reference: "Ref-12346",
@@ -132,7 +131,7 @@ async function run() {
         },
         {
           id: "716422531",
-          date: "2023-08-22T10:23:00Z",
+          date: "2023-08-22T10:23:00",
           description: "Office Supplies",
           counterparty: "Office Mart",
           reference: "Ref-12347",
@@ -144,15 +143,12 @@ async function run() {
       ],
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -173,10 +169,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## getCreateModel
 
@@ -184,12 +181,13 @@ The *Get create bank account transactions model* endpoint returns the expected d
 
 [Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-bank-transactions-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts/{accountId}/bankTransactions" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -204,7 +202,6 @@ async function run() {
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -231,15 +228,12 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsGetCreateModel failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -260,10 +254,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## getCreateOperation
 
@@ -275,6 +270,7 @@ For bank feeds, your push operations will only relate to the `bankTransactions` 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-operation" method="get" path="/companies/{companyId}/push/{pushOperationKey}" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -285,10 +281,9 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.transactions.getCreateOperation({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "1b33a562-bac6-42b7-8818-d55dba8df363",
+    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -312,17 +307,14 @@ const codatBankFeeds = new CodatBankFeedsCore({
 async function run() {
   const res = await transactionsGetCreateOperation(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "1b33a562-bac6-42b7-8818-d55dba8df363",
+    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsGetCreateOperation failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -343,10 +335,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## listCreateOperations
 
@@ -358,6 +351,7 @@ For bank feeds, use this endpoint to view write operations related to the `bankT
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-create-operations" method="get" path="/companies/{companyId}/push" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -368,13 +362,10 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.transactions.listCreateOperations({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -398,20 +389,15 @@ const codatBankFeeds = new CodatBankFeedsCore({
 async function run() {
   const res = await transactionsListCreateOperations(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsListCreateOperations failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -432,7 +418,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

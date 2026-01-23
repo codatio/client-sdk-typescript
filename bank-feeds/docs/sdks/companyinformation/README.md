@@ -1,5 +1,4 @@
 # CompanyInformation
-(*companyInformation*)
 
 ## Overview
 
@@ -13,10 +12,19 @@ Get detailed information about a company from the underlying accounting software
 
 Use the *Get company information* endpoint to return information about the company available from the underlying accounting software.
 
-
+### Supported Integrations
+| Integration           | Supported |
+|-----------------------|-----------|
+| Oracle NetSuite       | Yes       |
+| Xero                  | Yes       |
+| Exact                 | No        |
+| FreeAgent             | No        |
+| Sage                  | No        |
+| QuickBooks Online     | No        |
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company-information" method="get" path="/companies/{companyId}/connections/{connectionId}/bankFeeds/info" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -30,7 +38,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -56,15 +63,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companyInformationGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -85,7 +89,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

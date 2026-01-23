@@ -14,6 +14,16 @@ export class CompanyInformation extends ClientSDK {
    *
    * @remarks
    * Use the *Get company information* endpoint to return information about the company available from the underlying accounting software.
+   *
+   * ### Supported Integrations
+   * | Integration           | Supported |
+   * |-----------------------|-----------|
+   * | Oracle NetSuite       | Yes       |
+   * | Xero                  | Yes       |
+   * | Exact                 | No        |
+   * | FreeAgent             | No        |
+   * | Sage                  | No        |
+   * | QuickBooks Online     | No        |
    */
   async get(
     request: operations.GetCompanyInformationRequest,
