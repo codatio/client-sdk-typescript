@@ -7,7 +7,7 @@ Type of transaction for the bank statement line.
 ```typescript
 import { BankTransactionType } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: BankTransactionType = "Cash";
+let value: BankTransactionType = "RepeatPmt";
 ```
 
 ## Values

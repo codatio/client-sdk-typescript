@@ -22,7 +22,7 @@ export class SourceAccounts extends ClientSDK {
    * The _Batch create source accounts_ endpoint allows you to create multiple representations of your SMB's bank accounts within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
    *
    * > ### Versioning
-   * > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+   * > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
    */
   async createBatch(
     request: operations.CreateBatchSourceAccountRequest,
@@ -42,7 +42,7 @@ export class SourceAccounts extends ClientSDK {
    * The _Create Source Account_ endpoint allows you to create a representation of a bank account within Codat's domain. The company can then map the source account to an existing or new target account in their accounting software.
    *
    * > ### Versioning
-   * > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+   * > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
    */
   async create(
     request: operations.CreateSourceAccountRequest,
@@ -64,7 +64,7 @@ export class SourceAccounts extends ClientSDK {
    * [Source accounts](https://docs.codat.io/bank-feeds-api#/schemas/BankFeedAccount) are the bank's bank account within Codat's domain from which transactions are synced into the accounting platform.
    *
    * > ### Versioning
-   * > If you are integrating the Bank Feeds API with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
+   * > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
    */
   async list(
     request: operations.ListSourceAccountsRequest,
@@ -85,7 +85,9 @@ export class SourceAccounts extends ClientSDK {
    *
    * ### Tips and pitfalls
    *
-   * * This endpoint only updates the `accountName` field.
+   * * This endpoint makes it possible to update the `accountName`, `status`, and `balance` fields.
+   *     * The `status` field can only be updated to 'disconnected'.
+   *     * The `balance` field can only be updated on accounts that are **not** 'connected'.
    * * Updates made here apply exclusively to source accounts and will not affect target accounts in the accounting software.
    */
   async update(

@@ -15,15 +15,25 @@ let value: SourceAccountWebhookPayload = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   sourceAccount: {
-    id: "acc-003",
-    accountName: "account-095",
-    accountType: "Credit",
-    accountNumber: "12345671",
-    sortCode: "123456",
-    currency: "USD",
-    balance: new Decimal("0"),
-    modifiedDate: "2023-01-09T14:14:14.1057478Z",
+    id: "acc-001",
+    accountName: "account-081",
+    accountType: "checking",
+    accountNumber: "12345670",
+    routingInfo: {
+      bankCode: "21001088",
+      type: "bankcode",
+    },
+    currency: "GBP",
+    balance: new Decimal("99.99"),
+    accountInfo: {
+      description: "account description 1",
+      nickname: "account 123",
+      accountOpenDate: "2023-05-06",
+      availableBalance: new Decimal("10"),
+    },
+    modifiedDate: "2024-08-02T00:00:00.000Z",
     status: "pending",
+    feedStartDate: "2024-05-01",
   },
 };
 ```

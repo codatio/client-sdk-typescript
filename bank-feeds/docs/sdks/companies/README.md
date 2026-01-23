@@ -1,5 +1,4 @@
 # Companies
-(*companies*)
 
 ## Overview
 
@@ -11,6 +10,7 @@ Create and manage your SMB users' companies.
 * [list](#list) - List companies
 * [get](#get) - Get company
 * [delete](#delete) - Delete a company
+* [replace](#replace) - Replace company
 * [update](#update) - Update company
 * [getAccessToken](#getaccesstoken) - Get company access token
 
@@ -25,6 +25,7 @@ If forbidden characters (see `name` pattern) are present in the request, a compa
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -35,10 +36,8 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -62,17 +61,13 @@ const codatBankFeeds = new CodatBankFeedsCore({
 async function run() {
   const res = await companiesCreate(codatBankFeeds, {
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesCreate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -93,10 +88,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 400, 401, 402, 403, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 400, 401, 402, 403, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## list
 
@@ -120,6 +116,7 @@ For example, you can use the querying to filter companies tagged with a specific
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-companies" method="get" path="/companies" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -129,14 +126,11 @@ const codatBankFeeds = new CodatBankFeeds({
 
 async function run() {
   const result = await codatBankFeeds.companies.list({
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -159,21 +153,16 @@ const codatBankFeeds = new CodatBankFeedsCore({
 
 async function run() {
   const res = await companiesList(codatBankFeeds, {
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
     tags: "region=uk && team=invoice-finance",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -194,10 +183,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## get
 
@@ -209,6 +199,7 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company" method="get" path="/companies/{companyId}" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -221,7 +212,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -246,15 +236,12 @@ async function run() {
   const res = await companiesGet(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -275,10 +262,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## delete
 
@@ -290,6 +278,7 @@ Each company can have multiple [connections](https://docs.codat.io/bank-feeds-ap
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-company" method="delete" path="/companies/{companyId}" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -326,14 +315,12 @@ async function run() {
   const res = await companiesDelete(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("companiesDelete failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  
 }
 
 run();
@@ -354,20 +341,107 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
-## update
+## replace
 
-﻿Use the *Update company* endpoint to update both the name and description of the company. 
+﻿Use the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.
 
 A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/bank-feeds-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="replace-company" method="put" path="/companies/{companyId}" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.companies.replace({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "New Name",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { companiesReplace } from "@codat/bank-feeds/funcs/companiesReplace.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesReplace(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "New Name",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesReplace failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.ReplaceCompanyRequest](../../sdk/models/operations/replacecompanyrequest.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.Company](../../sdk/models/shared/company.md)\>**
+
+### Errors
+
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
+
+## update
+
+﻿Use the *Update company* endpoint to update the name, description, or tags of the company.
+
+The *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  
+
+A [company](https://docs.codat.io/bank-feeds-api#/schemas/Company) represents a business sharing access to their data.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="update-company" method="patch" path="/companies/{companyId}" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -378,13 +452,13 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.update({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    companyRequestBody: {
-      name: "New Name",
-      description: "Requested early access to the new financing scheme.",
+    companyUpdateRequest: {
+      tags: {
+        "refrence": "new reference",
+      },
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -408,20 +482,18 @@ const codatBankFeeds = new CodatBankFeedsCore({
 async function run() {
   const res = await companiesUpdate(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    companyRequestBody: {
-      name: "New Name",
-      description: "Requested early access to the new financing scheme.",
+    companyUpdateRequest: {
+      tags: {
+        "refrence": "new reference",
+      },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesUpdate failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -442,18 +514,21 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## getAccessToken
 
-Use the _Get company access token_ endpoint to return an access token for the specified company ID to use in Codat's embedded UI products.
+Use the _Get company access token_ endpoint to return an access token for the specified company ID. The token is valid for one day. 
 
+The token is required by Codat's embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to verify the identity of the user and improve the reliability of data provided by them.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company-access-token" method="get" path="/companies/{companyId}/accessToken" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -466,7 +541,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -491,15 +565,12 @@ async function run() {
   const res = await companiesGetAccessToken(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesGetAccessToken failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -520,7 +591,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

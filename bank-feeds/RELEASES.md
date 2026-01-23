@@ -767,3 +767,13 @@ Based on:
 - [typescript v8.0.0] bank-feeds
 ### Releases
 - [NPM v8.0.0] https://www.npmjs.com/package/@codat/bank-feeds/v/8.0.0 - bank-feeds
+
+## 2026-01-23 09:39:31
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.696.0 (2.799.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v8.1.0] bank-feeds
+### Releases
+- [NPM v8.1.0] https://www.npmjs.com/package/@codat/bank-feeds/v/8.1.0 - bank-feeds

@@ -9,10 +9,8 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.companies.create({
     name: "Technicalium",
-    description: "Requested early access to the new financing scheme.",
   });
 
-  // Handle the result
   console.log(result);
 }
 

@@ -20,7 +20,7 @@ export class Transactions extends ClientSDK {
    *
    * [Bank transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of monetary amounts that have moved in and out of an SMB's bank account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
    * Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
@@ -44,7 +44,7 @@ export class Transactions extends ClientSDK {
    *
    * [Bank account transactions](https://docs.codat.io/bank-feeds-api#/schemas/BankTransactions) are records of money that has moved in and out of an SMB's bank account.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * See the *response examples* for integration-specific indicative models.
    */

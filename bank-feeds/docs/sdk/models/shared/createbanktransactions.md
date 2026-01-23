@@ -11,7 +11,7 @@ let value: CreateBankTransactions = {
   transactions: [
     {
       id: "716422529",
-      date: "2022-10-23T00:00:00Z",
+      date: "2023-08-22T10:21:00",
       description:
         "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
       counterparty: "ACME INC",
