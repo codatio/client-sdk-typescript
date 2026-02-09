@@ -19,9 +19,9 @@ By default, this endpoint returns a list of active and archived suppliers. You c
 
 For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate>2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.
 
-### Example Usage
+### Example Usage: Source modified date
 
-<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" -->
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Source modified date" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -74,6 +74,279 @@ async function run() {
 
 run();
 ```
+### Example Usage: Status (active)
+
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Status (active)" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "status=Active",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { suppliersList } from "@codat/sync-for-payables/funcs/suppliersList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await suppliersList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "status=Active",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Status (active) & source modified date
+
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Status (active) & source modified date" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { suppliersList } from "@codat/sync-for-payables/funcs/suppliersList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await suppliersList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Status (archived)
+
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Status (archived)" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "status=Archived",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { suppliersList } from "@codat/sync-for-payables/funcs/suppliersList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await suppliersList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "status=Archived",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Status (archived) & source modified date
+
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Status (archived) & source modified date" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { suppliersList } from "@codat/sync-for-payables/funcs/suppliersList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await suppliersList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Suppliers
+
+<!-- UsageSnippet language="typescript" operationID="list-suppliers" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Suppliers" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.suppliers.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { suppliersList } from "@codat/sync-for-payables/funcs/suppliersList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await suppliersList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersList failed:", res.error);
+  }
+}
+
+run();
+```
 
 ### Parameters
 
@@ -103,9 +376,70 @@ The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sy
 [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
 
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="typescript" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" -->
+<!-- UsageSnippet language="typescript" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Malformed query" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.suppliers.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    supplierPrototype: {
+      supplierName: "<value>",
+      phone: "+44 25691 154789",
+      status: "Unknown",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { suppliersCreate } from "@codat/sync-for-payables/funcs/suppliersCreate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await suppliersCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    supplierPrototype: {
+      supplierName: "<value>",
+      phone: "+44 25691 154789",
+      status: "Unknown",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("suppliersCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Suppliers
+
+<!-- UsageSnippet language="typescript" operationID="create-supplier" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/suppliers" example="Suppliers" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 

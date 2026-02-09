@@ -19,7 +19,7 @@ Mapping options are a set of bank accounts used to configure the SMB's payables 
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-mapping-options-payments" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/payments" -->
+<!-- UsageSnippet language="typescript" operationID="get-mapping-options-payments" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/payments" example="Mapping options" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -100,9 +100,80 @@ The *Create bill payment* endpoint creates a new [bill payment](https://docs.cod
 
 [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
 
-### Example Usage
+### Example Usage: Bill payment
 
-<!-- UsageSnippet language="typescript" operationID="create-bill-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment" -->
+<!-- UsageSnippet language="typescript" operationID="create-bill-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment" example="Bill payment" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+import { Decimal } from "@codat/sync-for-payables/sdk/types";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.billPayments.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPaymentPrototype: {
+      amount: new Decimal("1329.54"),
+      date: "2022-10-23T00:00:00Z",
+      reference: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
+      accountRef: {
+        id: "<id>",
+      },
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billPaymentsCreate } from "@codat/sync-for-payables/funcs/billPaymentsCreate.js";
+import { Decimal } from "@codat/sync-for-payables/sdk/types";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billPaymentsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPaymentPrototype: {
+      amount: new Decimal("1329.54"),
+      date: "2022-10-23T00:00:00Z",
+      reference: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
+      accountRef: {
+        id: "<id>",
+      },
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Bill payment example
+
+<!-- UsageSnippet language="typescript" operationID="create-bill-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment" example="Bill payment example" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 import { Decimal } from "@codat/sync-for-payables/sdk/types";
@@ -161,6 +232,77 @@ async function run() {
         id: "7bda9f44sr56",
       },
       currencyRate: new Decimal("1"),
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billPaymentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="typescript" operationID="create-bill-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment" example="Malformed query" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+import { Decimal } from "@codat/sync-for-payables/sdk/types";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.billPayments.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPaymentPrototype: {
+      amount: new Decimal("1329.54"),
+      date: "2022-10-23T00:00:00Z",
+      reference: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
+      accountRef: {
+        id: "<id>",
+      },
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billPaymentsCreate } from "@codat/sync-for-payables/funcs/billPaymentsCreate.js";
+import { Decimal } from "@codat/sync-for-payables/sdk/types";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billPaymentsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPaymentPrototype: {
+      amount: new Decimal("1329.54"),
+      date: "2022-10-23T00:00:00Z",
+      reference: "Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44",
+      accountRef: {
+        id: "<id>",
+      },
     },
   });
   if (res.ok) {

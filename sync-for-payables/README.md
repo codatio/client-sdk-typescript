@@ -82,6 +82,7 @@ run();
 * [getBillOptions](docs/sdks/bills/README.md#getbilloptions) - Get bill mapping options
 * [list](docs/sdks/bills/README.md#list) - List bills
 * [create](docs/sdks/bills/README.md#create) - Create bill
+* [update](docs/sdks/bills/README.md#update) - Update bill
 * [uploadAttachment](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 * [listAttachments](docs/sdks/bills/README.md#listattachments) - List bill attachments
 * [downloadAttachment](docs/sdks/bills/README.md#downloadattachment) - Download bill attachment
@@ -203,6 +204,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`billsGetBillOptions`](docs/sdks/bills/README.md#getbilloptions) - Get bill mapping options
 - [`billsList`](docs/sdks/bills/README.md#list) - List bills
 - [`billsListAttachments`](docs/sdks/bills/README.md#listattachments) - List bill attachments
+- [`billsUpdate`](docs/sdks/bills/README.md#update) - Update bill
 - [`billsUploadAttachment`](docs/sdks/bills/README.md#uploadattachment) - Upload bill attachment
 - [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
