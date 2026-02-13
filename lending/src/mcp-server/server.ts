@@ -174,7 +174,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "CodatLending",
-    version: "7.4.0",
+    version: "7.5.0",
   });
 
   const client = new CodatLendingCore({

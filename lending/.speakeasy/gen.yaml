@@ -21,6 +21,7 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  versioningStrategy: automatic
   persistentEdits: {}
   tests:
     generateTests: true
@@ -28,7 +29,7 @@ generation:
     skipResponseBodyAssertions: false
   telemetryEnabled: true
 typescript:
-  version: 7.4.0
+  version: 7.5.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -67,6 +68,7 @@ typescript:
   inputModelSuffix: input
   jsonpath: legacy
   laxMode: strict
+  legacyFileNaming: true
   maxMethodParams: 0
   methodArguments: infer-optional-args
   modelPropertyCasing: camel
