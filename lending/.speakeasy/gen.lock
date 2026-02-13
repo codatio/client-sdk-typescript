@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: e806a216-cfe8-4f1d-ae7a-37acb6f96c98
 management:
-  docChecksum: 4da6c8cf4dbb6342ba330ea8560f587d
+  docChecksum: 9c447111606083b3e909a159cdbccbff
   docVersion: 3.0.0
-  speakeasyVersion: 1.692.0
-  generationVersion: 2.797.1
-  releaseVersion: 7.4.0
-  configChecksum: 97a9137659c41c59f170b857fccd8249
+  speakeasyVersion: 1.701.0
+  generationVersion: 2.803.3
+  releaseVersion: 7.5.0
+  configChecksum: f44cf0f48327d437c3ef8601e212636b
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: lending
   installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/lending
   published: true
 persistentEdits:
-  generation_id: 17b17457-4171-4b99-bee5-cf8fe70f1751
-  pristine_commit_hash: 6cfa3c6ab165f93dda99d4150ca02cec622e91cc
-  pristine_tree_hash: 13d0b8a901527f392f75f970814656598daa07dd
+  generation_id: 32956f42-b781-4bd8-a147-434cad455749
+  pristine_commit_hash: b8384d283a23c7133b14eac98cab465ba63af57a
+  pristine_tree_hash: 43262d020646a3c31956950fc593cc57896c961e
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.26.22
+    core: 3.26.23
     decimal: 0.1.2
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
@@ -36,7 +36,7 @@ features:
     methodArguments: 0.1.2
     nameOverrides: 2.81.2
     nullables: 0.1.1
-    responseFormat: 0.2.3
+    responseFormat: 0.3.0
     retries: 2.83.0
     sdkHooks: 0.4.0
     serverEventsSentinels: 0.1.0
@@ -1199,8 +1199,8 @@ trackedFiles:
     pristine_git_object: fca2bcc9c98b56ae8fd8e2c2e4ffe2a92a8eba76
   docs/sdk/models/shared/cashflowtransaction.md:
     id: 41011ee3872c
-    last_write_checksum: sha1:89b3ba87786267ba7fb7bff013ef3358bc6ebbcf
-    pristine_git_object: c23bd20cac8f34b4d7b970cb63aa988818476c16
+    last_write_checksum: sha1:1e9f963f640bd2fde177ae7d76e205e6ea3350c6
+    pristine_git_object: 9fb6b1df172209cbe7cacc46ba118d45fb025df4
   docs/sdk/models/shared/clientratelimitwebhook.md:
     id: 2ad187176bc8
     last_write_checksum: sha1:5ac30c33d4effd255747ffdcb16149ad19e82471
@@ -2355,12 +2355,12 @@ trackedFiles:
     pristine_git_object: 82ff3fb9a4b41e9a0740c407dd7beb18447832a0
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:5a9f0ddba1c61fe094eb78c1940100746c0447a3
-    pristine_git_object: 4a947ff0a9a1039e71913378fe353564f2e5c56c
+    last_write_checksum: sha1:8b27f56b38cfdc448ad14fa3676e2348ca9d7c86
+    pristine_git_object: aa855f7874d0816f141a1d546e0b1397d73aa83d
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:28c09f2015b404c22d9ddbbf10406eca169c9ab5
-    pristine_git_object: aa79eeda30929ab878c5307d985e800931fe8336
+    last_write_checksum: sha1:3751b1a9a5f43db6999ecdb05e89b516f51eb358
+    pristine_git_object: 029b791d7065ea39924982c4a11a832e0d231dde
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:49525d0dec70f391c6df8f42bfff384389507790
@@ -2991,8 +2991,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:e2fd116c59301b89c47b5246c5088a4049a32b11
-    pristine_git_object: 7f9fa023dc5f57c6a1f2704b22885ea22654a5a9
+    last_write_checksum: sha1:98f649a9c9897fa20ddf3e779212c7a166b812f0
+    pristine_git_object: 0ddc1b01edf612d0b6aba09655401976a445eb78
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -3071,8 +3071,8 @@ trackedFiles:
     pristine_git_object: 0955a573c2ce989d63c737410ab8cc28706d9f74
   src/mcp-server/mcp-server.ts:
     id: aabbc4ab07c1
-    last_write_checksum: sha1:74ef384ad4878f79c2aed2a22587617eea3b8a95
-    pristine_git_object: 3944f7d294878c25c36baee62bbf1f82bb206787
+    last_write_checksum: sha1:eb538f63805127fc33906f64580bf612deb23b06
+    pristine_git_object: c5ad14956e96e149d435c5b4d83a24b4505f303a
   src/mcp-server/prompts.ts:
     id: 26f3d73cbf31
     last_write_checksum: sha1:3b7237b1b98855a30574e2cf83f128b1b442d408
@@ -3087,8 +3087,8 @@ trackedFiles:
     pristine_git_object: c25696d4c4f70e081fa5d87ad6891874c509a577
   src/mcp-server/server.ts:
     id: 2784dd48e82a
-    last_write_checksum: sha1:079978965390e574edcf30738b0cf5a2da61950d
-    pristine_git_object: b465ce137b7e515fb78c528b2be61b80217c0539
+    last_write_checksum: sha1:a0cd9bd619a387d767c044ae469534140ca56621
+    pristine_git_object: 86885bea7f27db83247b2982a32b9ffd6bc7f448
   src/mcp-server/shared.ts:
     id: 074e80d4be1e
     last_write_checksum: sha1:56c73d4429691516e35541825e759a0285747a2b
@@ -5227,8 +5227,8 @@ trackedFiles:
     pristine_git_object: d1e993d8a3b42f772a12ce4b5c478a5c150fcc65
   src/sdk/models/shared/enhancedcashflowitem.ts:
     id: 7330c504a05a
-    last_write_checksum: sha1:c01ab7555befdb9392a8ad37ceb0a55b0da6daee
-    pristine_git_object: 735b26fba9bf7eb5868957cef7a949d5264445f5
+    last_write_checksum: sha1:53739a44bd0eefe95bfa7624fde093282b65ea92
+    pristine_git_object: d4591f42a32c7eb5b09ace9d979d2a96ad399937
   src/sdk/models/shared/enhancedcashflowtransactions.ts:
     id: 2312de45bcfa
     last_write_checksum: sha1:b858d87b6f74c15c26379cf073090eee5f8eec8e
@@ -17381,7 +17381,9 @@ examples:
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Typescript SDK Changes:\n* `codatlending.companies.list()`:  `response.results.[].dataConnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.companies.create()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.companies.replace()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.companies.update()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.companies.get()`:  `response.dataconnections.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.connections.list()`:  `response.results.[].connectionInfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.connections.create()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.connections.get()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.connections.unlink()`:  `response.connectioninfo.{}` **Changed** **Breaking** :warning:\n* `codatlending.manageData.refresh.allDataTypes()`:  `error.status[400]` **Added**\n* `codatlending.manageData.refresh.dataType()`:  `error.status[400]` **Added**\n* `codatlending.transactions.journalEntries.list()`:  `response.results.[].journalLines.[]` **Changed**\n* `codatlending.transactions.journalEntries.get()`:  `response.journallines.[]` **Changed**\n* `codatlending.accountsPayable.bills.list()`:  `response.results.[].lineItems.[]` **Changed**\n* `codatlending.accountsPayable.bills.get()`:  `response.lineitems.[]` **Changed**\n* `codatlending.loanWriteback.sourceAccounts.createMapping()`: \n  *  `request.bankFeedBankAccountMapping.feedStartDate` **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `codatlending.banking.categorizedStatement.get()`:  `response.reportItems[].transactions[].isRecurring` **Added**
 generatedFiles:
   - .gitattributes
   - .npmignore
