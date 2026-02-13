@@ -45,7 +45,7 @@ typescript:
   defaultErrorName: SDKError
   description: Make credit decisions backed by enhanced financials, metrics, reports, and data integrity features.
   enableCustomCodeRegions: false
-  enableMCPServer: true
+  enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
   exportZodModelNamespace: false
