@@ -1,5 +1,4 @@
 # CustomDataType
-(*customDataType*)
 
 ## Overview
 
@@ -26,8 +25,9 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 - Make your custom configuration as similar as possible to our standard data types so you can interact with them in exactly the same way.
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
+<!-- UsageSnippet language="typescript" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Dynamics 365 Business Central" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -110,6 +110,328 @@ async function run() {
 
 run();
 ```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="QuickBooks Online" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.customDataType.configure({
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "/query?query=select * from Account",
+      requiredData: {
+        "id": "$.Id",
+        "Currentbal": "$.CurrentBalance",
+        "SubAcc": "$.SubAccount",
+      },
+      keyBy: [
+        "$.Id",
+      ],
+      sourceModifiedDate: [
+        "$.time",
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { customDataTypeConfigure } from "@codat/platform/funcs/customDataTypeConfigure.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await customDataTypeConfigure(codatPlatform, {
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "/query?query=select * from Account",
+      requiredData: {
+        "id": "$.Id",
+        "Currentbal": "$.CurrentBalance",
+        "SubAcc": "$.SubAccount",
+      },
+      keyBy: [
+        "$.Id",
+      ],
+      sourceModifiedDate: [
+        "$.time",
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customDataTypeConfigure failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="typescript" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Unauthorized" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.customDataType.configure({
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
+      requiredData: {
+        "currencyCode": "$[*].currencyCode",
+        "id": "$[*].id",
+        "number": "$[*].number",
+        "orderDate": "$[*].orderDate",
+        "totalAmountExcludingTax": "$[*].totalAmountExcludingTax",
+        "totalTaxAmount": "$[*].totalTaxAmount",
+        "vendorName": "$[*].number",
+      },
+      keyBy: [
+        "$[*].id",
+      ],
+      sourceModifiedDate: [
+        "$[*].lastModifiedDateTime",
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { customDataTypeConfigure } from "@codat/platform/funcs/customDataTypeConfigure.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await customDataTypeConfigure(codatPlatform, {
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "api/purchaseOrders?$filter=currencyCode eq 'NOK'",
+      requiredData: {
+        "currencyCode": "$[*].currencyCode",
+        "id": "$[*].id",
+        "number": "$[*].number",
+        "orderDate": "$[*].orderDate",
+        "totalAmountExcludingTax": "$[*].totalAmountExcludingTax",
+        "totalTaxAmount": "$[*].totalTaxAmount",
+        "vendorName": "$[*].number",
+      },
+      keyBy: [
+        "$[*].id",
+      ],
+      sourceModifiedDate: [
+        "$[*].lastModifiedDateTime",
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customDataTypeConfigure failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero Mapping Arrays
+
+<!-- UsageSnippet language="typescript" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Xero Mapping Arrays" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.customDataType.configure({
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "/api.xro/2.0/Invoices",
+      requiredData: {
+        "invNumber": "$.InvoiceNumber",
+        "type": "$.Type",
+        "InvoiceID": "$.InvoiceID",
+        "lines": "$.LineItems[*]",
+      },
+      keyBy: [
+        "$.InvoiceID",
+      ],
+      sourceModifiedDate: [
+        "$.UpdatedDateUTC",
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { customDataTypeConfigure } from "@codat/platform/funcs/customDataTypeConfigure.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await customDataTypeConfigure(codatPlatform, {
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "/api.xro/2.0/Invoices",
+      requiredData: {
+        "invNumber": "$.InvoiceNumber",
+        "type": "$.Type",
+        "InvoiceID": "$.InvoiceID",
+        "lines": "$.LineItems[*]",
+      },
+      keyBy: [
+        "$.InvoiceID",
+      ],
+      sourceModifiedDate: [
+        "$.UpdatedDateUTC",
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customDataTypeConfigure failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero Simple Record
+
+<!-- UsageSnippet language="typescript" operationID="configure-custom-data-type" method="put" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" example="Xero Simple Record" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.customDataType.configure({
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "/api.xro/2.0/Accounts",
+      requiredData: {
+        "code": "$.Code",
+        "accountId": "$.AccountID",
+        "type": "$.Type",
+        "SysAcc": "$.SystemAccount",
+      },
+      keyBy: [
+        "$.AccountID",
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { customDataTypeConfigure } from "@codat/platform/funcs/customDataTypeConfigure.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await customDataTypeConfigure(codatPlatform, {
+    platformKey: "gbol",
+    customDataIdentifier: "DynamicsPurchaseOrders",
+    customDataTypeConfiguration: {
+      dataSource: "/api.xro/2.0/Accounts",
+      requiredData: {
+        "code": "$.Code",
+        "accountId": "$.AccountID",
+        "type": "$.Type",
+        "SysAcc": "$.SystemAccount",
+      },
+      keyBy: [
+        "$.AccountID",
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("customDataTypeConfigure failed:", res.error);
+  }
+}
+
+run();
+```
 
 ### Parameters
 
@@ -140,6 +462,7 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-custom-data-type-configuration" method="get" path="/integrations/{platformKey}/dataTypes/custom/{customDataIdentifier}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -216,6 +539,7 @@ The *Refresh custom data type* endpoint refreshes the specified custom data type
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh-custom-data-type" method="post" path="/companies/{companyId}/connections/{connectionId}/data/queue/custom/{customDataIdentifier}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -296,6 +620,7 @@ A [custom data type](https://docs.codat.io/using-the-api/custom-data) is an addi
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-custom-data-type-records" method="get" path="/companies/{companyId}/connections/{connectionId}/data/custom/{customDataIdentifier}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

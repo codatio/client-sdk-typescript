@@ -18,10 +18,12 @@ import { tool$companiesCreate } from "./tools/companiesCreate.js";
 import { tool$companiesDelete } from "./tools/companiesDelete.js";
 import { tool$companiesGet } from "./tools/companiesGet.js";
 import { tool$companiesGetAccessToken } from "./tools/companiesGetAccessToken.js";
+import { tool$companiesGetCompanySyncSettings } from "./tools/companiesGetCompanySyncSettings.js";
 import { tool$companiesList } from "./tools/companiesList.js";
 import { tool$companiesRefreshProductData } from "./tools/companiesRefreshProductData.js";
 import { tool$companiesRemoveProduct } from "./tools/companiesRemoveProduct.js";
 import { tool$companiesReplace } from "./tools/companiesReplace.js";
+import { tool$companiesSetCompanySyncSettings } from "./tools/companiesSetCompanySyncSettings.js";
 import { tool$companiesUpdate } from "./tools/companiesUpdate.js";
 import { tool$connectionManagementGet } from "./tools/connectionManagementGet.js";
 import { tool$connectionsCreate } from "./tools/connectionsCreate.js";
@@ -73,7 +75,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "CodatPlatform",
-    version: "6.1.0",
+    version: "6.2.0",
   });
 
   const client = new CodatPlatformCore({
@@ -113,6 +115,8 @@ export function createMCPServer(deps: {
   tool(tool$companiesRemoveProduct);
   tool(tool$companiesRefreshProductData);
   tool(tool$companiesGetAccessToken);
+  tool(tool$companiesGetCompanySyncSettings);
+  tool(tool$companiesSetCompanySyncSettings);
   tool(tool$connectionsList);
   tool(tool$connectionsCreate);
   tool(tool$connectionsGet);

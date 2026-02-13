@@ -18,7 +18,7 @@ The *Configure* endpoint allows you to maintain or change configuration required
 
 [Supplemental data](https://docs.codat.io/using-the-api/supplemental-data/overview) is additional data you can include in Codat's standard data types.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 See the *examples* for integration-specific frequently requested properties.`,
   args,
   tool: async (client, args, ctx) => {

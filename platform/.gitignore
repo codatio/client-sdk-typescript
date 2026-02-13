@@ -1,3 +1,7 @@
+/examples/node_modules
+.env
+.env.local
+.env.*.local
 /react-query
 /mcp-server
 /bin

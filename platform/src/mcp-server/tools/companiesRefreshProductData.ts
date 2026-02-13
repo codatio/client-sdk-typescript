@@ -20,7 +20,9 @@ Use the **Refresh product data** endpoint to manually refresh data for a custom 
 
 - This endpoint only supports refreshing data for **custom products** and can't be used for Codat's standard solutions. Refer to [individual solutions' documentation](https://docs.codat.io/) instead.
 - If a data sync is already in progress for a custom product, the refresh request will return a \`Bad request (400)\` response.
-- If a company has multiple custom products enabled, you can refresh data for each product individually.`,
+- If a company has multiple custom products enabled, you can refresh data for each product individually.
+ - Optionally include a request body with \`dataTypes\` to refresh only selected data types for the specified product. If omitted, the product's scheduled refresh is triggered as usual.
+ - When specifying \`dataTypes\`, each value must be a valid data type supported by the product. Invalid values will result in a \`Bad request (400)\` response listing valid options.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await companiesRefreshProductData(
