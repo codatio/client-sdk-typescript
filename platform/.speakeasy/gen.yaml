@@ -28,7 +28,7 @@ typescript:
   defaultErrorName: SDKError
   description: Manage the building blocks of Codat, including companies, connections, and more.
   enableCustomCodeRegions: false
-  enableMCPServer: true
+  enableMCPServer: false
   enableReactQuery: false
   enumFormat: union
   flattenGlobalSecurity: true
