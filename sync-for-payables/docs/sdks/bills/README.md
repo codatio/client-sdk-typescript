@@ -9,6 +9,7 @@ Get, create, and update Bills.
 * [getBillOptions](#getbilloptions) - Get bill mapping options
 * [list](#list) - List bills
 * [create](#create) - Create bill
+* [update](#update) - Update bill
 * [uploadAttachment](#uploadattachment) - Upload bill attachment
 * [listAttachments](#listattachments) - List bill attachments
 * [downloadAttachment](#downloadattachment) - Download bill attachment
@@ -23,7 +24,7 @@ Mapping options are a set of accounts and tax rates used to configure the SMB's 
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-mapping-options-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/bills" -->
+<!-- UsageSnippet language="typescript" operationID="get-mapping-options-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/bills" example="Mapping options" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -106,9 +107,117 @@ The *List bills* endpoint returns a list of [bills](https://docs.codat.io/sync-f
 
 By default, the endpoint will return all bills with a status of 'Open' & 'PartiallyPaid' to show all oustanding bills.
 
-### Example Usage
+### Example Usage: Bills
 
-<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" -->
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Bills" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsList } from "@codat/sync-for-payables/funcs/billsList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Source modified date
+
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Source modified date" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsList } from "@codat/sync-for-payables/funcs/billsList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Status (open)
+
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Status (open)" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -161,6 +270,171 @@ async function run() {
 
 run();
 ```
+### Example Usage: Status (open) & source modified date
+
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Status (open) & source modified date" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsList } from "@codat/sync-for-payables/funcs/billsList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Status (partially paid)
+
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Status (partially paid)" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "status=PartiallyPaid",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsList } from "@codat/sync-for-payables/funcs/billsList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "status=PartiallyPaid",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Status (partially paid) & source modified date
+
+<!-- UsageSnippet language="typescript" operationID="list-bills" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Status (partially paid) & source modified date" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsList } from "@codat/sync-for-payables/funcs/billsList.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsList(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==",
+    query: "sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsList failed:", res.error);
+  }
+}
+
+run();
+```
 
 ### Parameters
 
@@ -189,9 +463,9 @@ The *Create bill* endpoint creates a new [bill](https://docs.codat.io/sync-for-p
 
 [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
 
-### Example Usage
+### Example Usage: Create bill
 
-<!-- UsageSnippet language="typescript" operationID="create-bill" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills" -->
+<!-- UsageSnippet language="typescript" operationID="create-bill" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Create bill" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 import { Decimal } from "@codat/sync-for-payables/sdk/types";
@@ -360,12 +634,521 @@ async function run() {
 
 run();
 ```
+### Example Usage: Created bill
+
+<!-- UsageSnippet language="typescript" operationID="create-bill" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Created bill" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: null,
+      status: "Open",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsCreate } from "@codat/sync-for-payables/funcs/billsCreate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: null,
+      status: "Open",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="typescript" operationID="create-bill" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Malformed query" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: null,
+      status: "Open",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsCreate } from "@codat/sync-for-payables/funcs/billsCreate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: null,
+      status: "Open",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsCreate failed:", res.error);
+  }
+}
+
+run();
+```
 
 ### Parameters
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `request`                                                                                                                                                                      | [operations.CreateBillRequest](../../sdk/models/operations/createbillrequest.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.Bill](../../sdk/models/shared/bill.md)\>**
+
+### Errors
+
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+
+## update
+
+The *Update bill* endpoint updates an existing [bill](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) for a given company's connection.
+
+[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+
+### Supported Integrations
+
+| Integration                   | Supported |
+|-------------------------------|-----------|
+| FreeAgent                     | Yes       |
+| QuickBooks Online             | Yes       |
+| Xero                          | Yes       |
+| Oracle NetSuite               | No        |
+| Sage Intacct                  | No        |
+| Zoho Books                    | No        |
+
+
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="typescript" operationID="update-bill" method="put" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}" example="Malformed query" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.update({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: [
+        {
+          trackingRefs: [
+            {
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              dataType: "trackingCategories",
+            },
+          ],
+        },
+      ],
+      status: "Open",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsUpdate } from "@codat/sync-for-payables/funcs/billsUpdate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsUpdate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: [
+        {
+          trackingRefs: [
+            {
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              dataType: "trackingCategories",
+            },
+          ],
+        },
+      ],
+      status: "Open",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsUpdate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Update bill
+
+<!-- UsageSnippet language="typescript" operationID="update-bill" method="put" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}" example="Update bill" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+import { Decimal } from "@codat/sync-for-payables/sdk/types";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.update({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPrototype: {
+      reference: "bill_updated_ref",
+      supplierRef: {
+        id: "1262c350-fe0f-40ec-aeff-41c95b4a45af",
+      },
+      issueDate: "2023-04-23T00:00:00",
+      dueDate: "2023-05-23T00:00:00",
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      lineItems: [
+        {
+          description: "Updated line item - Microsoft Office training",
+          unitAmount: new Decimal("2000"),
+          quantity: new Decimal("1"),
+          taxAmount: new Decimal("400"),
+          accountRef: {
+            id: "46f9461e-788b-4906-8b74-d1ea17f6dc10",
+          },
+          totalAmount: new Decimal("2400"),
+          taxRateRef: {
+            id: "INPUT2",
+          },
+        },
+        {
+          description: "Desktop/network support via email & phone - updated rate",
+          unitAmount: new Decimal("4500"),
+          quantity: new Decimal("1"),
+          taxAmount: new Decimal("900"),
+          accountRef: {
+            id: "f96c9458-d724-47bf-8f74-a9d5726465ce",
+          },
+          totalAmount: new Decimal("5400"),
+          taxRateRef: {
+            id: "INPUT2",
+          },
+          trackingRefs: [
+            {
+              id: "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa",
+              dataType: "trackingCategories",
+            },
+          ],
+        },
+      ],
+      status: "Open",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsUpdate } from "@codat/sync-for-payables/funcs/billsUpdate.js";
+import { Decimal } from "@codat/sync-for-payables/sdk/types";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsUpdate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPrototype: {
+      reference: "bill_updated_ref",
+      supplierRef: {
+        id: "1262c350-fe0f-40ec-aeff-41c95b4a45af",
+      },
+      issueDate: "2023-04-23T00:00:00",
+      dueDate: "2023-05-23T00:00:00",
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      lineItems: [
+        {
+          description: "Updated line item - Microsoft Office training",
+          unitAmount: new Decimal("2000"),
+          quantity: new Decimal("1"),
+          taxAmount: new Decimal("400"),
+          accountRef: {
+            id: "46f9461e-788b-4906-8b74-d1ea17f6dc10",
+          },
+          totalAmount: new Decimal("2400"),
+          taxRateRef: {
+            id: "INPUT2",
+          },
+        },
+        {
+          description: "Desktop/network support via email & phone - updated rate",
+          unitAmount: new Decimal("4500"),
+          quantity: new Decimal("1"),
+          taxAmount: new Decimal("900"),
+          accountRef: {
+            id: "f96c9458-d724-47bf-8f74-a9d5726465ce",
+          },
+          totalAmount: new Decimal("5400"),
+          taxRateRef: {
+            id: "INPUT2",
+          },
+          trackingRefs: [
+            {
+              id: "dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa",
+              dataType: "trackingCategories",
+            },
+          ],
+        },
+      ],
+      status: "Open",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsUpdate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Updated bill
+
+<!-- UsageSnippet language="typescript" operationID="update-bill" method="put" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}" example="Updated bill" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bills.update({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: [
+        {
+          trackingRefs: [
+            {
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              dataType: "trackingCategories",
+            },
+          ],
+        },
+      ],
+      status: "Open",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { billsUpdate } from "@codat/sync-for-payables/funcs/billsUpdate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await billsUpdate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    billPrototype: {
+      supplierRef: {
+        id: "<id>",
+      },
+      issueDate: "2022-10-23T00:00:00Z",
+      dueDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      lineItems: [
+        {
+          trackingRefs: [
+            {
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              dataType: "trackingCategories",
+            },
+          ],
+        },
+      ],
+      status: "Open",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("billsUpdate failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.UpdateBillRequest](../../sdk/models/operations/updatebillrequest.md)                                                                                               | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -390,7 +1173,7 @@ The *Upload bill attachment* endpoint uploads an attachment and assigns it again
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="upload-bill-attachment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments" -->
+<!-- UsageSnippet language="typescript" operationID="upload-bill-attachment" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments" example="Attachment metadata" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -471,7 +1254,7 @@ The *List bill attachments* endpoint returns a list of attachments available to 
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list-bill-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments" -->
+<!-- UsageSnippet language="typescript" operationID="list-bill-attachments" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments" example="Success" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -620,7 +1403,7 @@ run();
 
 ### Response
 
-**Promise\<[ReadableStream<Uint8Array>](../../models/.md)\>**
+**Promise\<[ReadableStream<Uint8Array>](../../models/data.md)\>**
 
 ### Errors
 

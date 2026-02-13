@@ -14,9 +14,9 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 [Bank accounts](https://docs.codat.io/sync-for-payables-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-### Example Usage
+### Example Usage: Bank account example
 
-<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" -->
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" example="Bank account example" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -68,6 +68,69 @@ async function run() {
       accountType: "Debit",
       accountNumber: "0120 0440",
       sortCode: "50-50-50",
+      currency: "GBP",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" example="Malformed query" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bankAccounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccountPrototype: {
+      name: "<value>",
+      accountType: "Debit",
+      accountNumber: "<value>",
+      currency: "GBP",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { bankAccountsCreate } from "@codat/sync-for-payables/funcs/bankAccountsCreate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccountPrototype: {
+      name: "<value>",
+      accountType: "Debit",
+      accountNumber: "<value>",
       currency: "GBP",
     },
   });

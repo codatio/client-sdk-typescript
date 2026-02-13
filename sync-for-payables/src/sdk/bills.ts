@@ -7,6 +7,7 @@ import { billsDownloadAttachment } from "../funcs/billsDownloadAttachment.js";
 import { billsGetBillOptions } from "../funcs/billsGetBillOptions.js";
 import { billsList } from "../funcs/billsList.js";
 import { billsListAttachments } from "../funcs/billsListAttachments.js";
+import { billsUpdate } from "../funcs/billsUpdate.js";
 import { billsUploadAttachment } from "../funcs/billsUploadAttachment.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
@@ -69,6 +70,36 @@ export class Bills extends ClientSDK {
     options?: RequestOptions,
   ): Promise<shared.Bill> {
     return unwrapAsync(billsCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update bill
+   *
+   * @remarks
+   * The *Update bill* endpoint updates an existing [bill](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) for a given company's connection.
+   *
+   * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | FreeAgent                     | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Xero                          | Yes       |
+   * | Oracle NetSuite               | No        |
+   * | Sage Intacct                  | No        |
+   * | Zoho Books                    | No        |
+   */
+  async update(
+    request: operations.UpdateBillRequest,
+    options?: RequestOptions,
+  ): Promise<shared.Bill> {
+    return unwrapAsync(billsUpdate(
       this,
       request,
       options,

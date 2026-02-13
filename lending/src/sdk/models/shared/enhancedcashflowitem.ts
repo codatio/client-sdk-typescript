@@ -112,6 +112,10 @@ export type CashFlowTransaction = {
    * > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
    */
   modifiedDate?: string | undefined;
+  /**
+   * Indicates if the transaction is classified as recurring by Codat's categorization engine.
+   */
+  isRecurring?: boolean | null | undefined;
 };
 
 export type EnhancedCashFlowItem = {
@@ -138,6 +142,7 @@ export const CashFlowTransaction$inboundSchema: z.ZodType<
   sourceRef: SourceRef$inboundSchema.optional(),
   accountRef: AccountRef$inboundSchema.optional(),
   modifiedDate: z.string().optional(),
+  isRecurring: z.nullable(z.boolean()).optional(),
 });
 /** @internal */
 export type CashFlowTransaction$Outbound = {
@@ -152,6 +157,7 @@ export type CashFlowTransaction$Outbound = {
   sourceRef?: SourceRef$Outbound | undefined;
   accountRef?: AccountRef$Outbound | undefined;
   modifiedDate?: string | undefined;
+  isRecurring?: boolean | null | undefined;
 };
 
 /** @internal */
@@ -173,6 +179,7 @@ export const CashFlowTransaction$outboundSchema: z.ZodType<
   sourceRef: SourceRef$outboundSchema.optional(),
   accountRef: AccountRef$outboundSchema.optional(),
   modifiedDate: z.string().optional(),
+  isRecurring: z.nullable(z.boolean()).optional(),
 });
 
 export function cashFlowTransactionToJSON(

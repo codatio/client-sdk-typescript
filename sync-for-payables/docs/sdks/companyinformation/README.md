@@ -16,7 +16,7 @@ Use the *Get company information* endpoint to return information about the compa
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-company-information" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/info" -->
+<!-- UsageSnippet language="typescript" operationID="get-company-information" method="get" path="/companies/{companyId}/connections/{connectionId}/payables/info" example="Company information" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
