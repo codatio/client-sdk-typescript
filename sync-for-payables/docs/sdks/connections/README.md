@@ -18,7 +18,7 @@ Create new and manage existing data connections for a company.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list-connections" method="get" path="/companies/{companyId}/connections" -->
+<!-- UsageSnippet language="typescript" operationID="list-connections" method="get" path="/companies/{companyId}/connections" example="Connections" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -97,9 +97,64 @@ run();
 
 Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
-### Example Usage
+### Example Usage: Connection
 
-<!-- UsageSnippet language="typescript" operationID="create-connection" method="post" path="/companies/{companyId}/connections" -->
+<!-- UsageSnippet language="typescript" operationID="create-connection" method="post" path="/companies/{companyId}/connections" example="Connection" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.connections.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    requestBody: {
+      platformKey: "gbol",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { connectionsCreate } from "@codat/sync-for-payables/funcs/connectionsCreate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await connectionsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    requestBody: {
+      platformKey: "gbol",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="typescript" operationID="create-connection" method="post" path="/companies/{companyId}/connections" example="Unauthorized" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -180,7 +235,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" example="Connection" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -335,7 +390,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" -->
+<!-- UsageSnippet language="typescript" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" example="Example" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 

@@ -3,6 +3,27 @@ servers:
   - description: Production
     url: 'https://api.codat.io'
 info:
+  title: Bill pay (synchronous solution)
+  description: |-
+    The API reference for the synchronous Bill Pay solution. 
+
+    The synchronous Bill Pay solution is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
+
+    [Explore solution](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+
+    ---
+    ## Supported Integrations
+
+    | Integration                   | Supported |
+    |-------------------------------|-----------|
+    | FreeAgent                     | Yes       |
+    | QuickBooks Online             | Yes       |
+    | Oracle NetSuite               | Yes       |
+    | Sage Intacct                  | Yes       |
+    | Xero                          | Yes       |
+    | Zoho Books                    | Yes       |
+
+    ---
   title: Lending
   description: |-
     Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.
@@ -18,6 +39,11 @@ info:
     | :- |:- |
     | Companies | Create and manage your SMB users' companies. |
     | Connections | Create new and manage existing data connections for a company. |
+    | Company information | View company profile from the source platform. |
+    | Bills | Get, create, and update Bills. |
+    | Bill payments | Get, create, and update Bill payments. |
+    | Suppliers | Get, create, and update Suppliers. |
+    | Bank accounts | Create a bank account for a given company's connection. |
     | Bank statements | Retrieve banking data from linked bank accounts. |
     | Sales | Retrieve standardized sales data from a linked commerce software. |
     | Financial statements | Financial data and reports from a linked accounting software. |
@@ -76,6 +102,7 @@ x-speakeasy-name-override:
     methodNameOverride: download-attachment
   - operationId: ^upload-.*?-attachment
     methodNameOverride: upload-attachment
+x-codat-docs-path: sync-for-payables-api
 x-codat-docs-path: lending-api
 x-codat-keep-docs-paths-local: true
 x-codat-speakeasy-pagination:
@@ -91,6 +118,16 @@ tags:
     description: Create and manage your SMB users' companies.
   - name: Connections
     description: Create new and manage existing data connections for a company.
+  - name: Company information
+    description: View company profile from the source platform.
+  - name: Bills
+    description: 'Get, create, and update Bills.'
+  - name: Bill payments
+    description: 'Get, create, and update Bill payments.'
+  - name: Suppliers
+    description: 'Get, create, and update Suppliers.'
+  - name: Bank accounts
+    description: Create a bank account for a given company's connection.
   - name: Bank statements
     description: Retrieve banking data from linked bank accounts.
   - name: Sales
@@ -292,6 +329,7 @@ paths:
         '503':
           $ref: '#/components/responses/Service-Unavailable'
       operationId: list-companies
+      description: "\uFEFFThe *List companies* endpoint returns a list of [companies](https://docs.codat.io/sync-for-payables-api#/schemas/Company) associated to your instances.\n\nA [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n\n## Filter by tags\n\nThe *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):\n\n- equals (`=`)\n- not equals (`!=`)\n- contains (`~`)\n\nFor example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: \n- Foreign key: `uid = {yourCustomerId}`\n- Region: `region != uk`\n- Owning team and region: `region = uk && owningTeam = invoice-finance`"
       description: "\uFEFFThe *List companies* endpoint returns a list of [companies](https://docs.codat.io/lending-api#/schemas/Company) associated to your instances.\n\nA [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n\n## Filter by tags\n\nThe *List companies* endpoint supports the filtering of companies using [tags](https://docs.codat.io/using-the-api/managing-companies#add-metadata-to-a-company). It supports the following operators with [Codat’s query language](https://docs.codat.io/using-the-api/querying):\n\n- equals (`=`)\n- not equals (`!=`)\n- contains (`~`)\n\nFor example, you can use the querying to filter companies tagged with a specific foreign key, region, or owning team: \n- Foreign key: `uid = {yourCustomerId}`\n- Region: `region != uk`\n- Owning team and region: `region = uk && owningTeam = invoice-finance`"
       parameters:
         - $ref: '#/components/parameters/page'
@@ -373,6 +411,7 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+      description: "\uFEFFUse the *Create company* endpoint to create a new [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) that represents your customer in Codat. \n\nA [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n\nIf forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`."
       description: "\uFEFFUse the *Create company* endpoint to create a new [company](https://docs.codat.io/lending-api#/schemas/Company) that represents your customer in Codat. \n\nA [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n\nIf forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`."
       requestBody:
         content:
@@ -390,6 +429,7 @@ paths:
   '/companies/{companyId}':
     put:
       summary: Replace company
+      description: "\uFEFFUse the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.\n\nA [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data."
       description: "\uFEFFUse the *Replace company* endpoint to replace the existing name, description, and tags of the company. Calling the endpoint will replace existing values even if new values haven't been defined in the payload.\n\nA [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data."
       operationId: replace-company
       x-speakeasy-name-override: replace
@@ -433,6 +473,7 @@ paths:
                   description: Additional documents required
     patch:
       summary: Update company
+      description: "\uFEFFUse the *Update company* endpoint to update the name, description, or tags of the company.\n\nThe *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  \n\nA [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data."
       description: "\uFEFFUse the *Update company* endpoint to update the name, description, or tags of the company.\n\nThe *Update company* endpoint doesn't have any required fields. If any of the fields provided are `null` or not provided, they won't be included in the update.  \n\nA [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data."
       operationId: update-company
       parameters:
@@ -478,6 +519,7 @@ paths:
       operationId: delete-company
       parameters:
         - $ref: '#/components/parameters/companyId'
+      description: "\uFEFFThe *Delete company* endpoint permanently deletes a [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company), its [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) and any cached data. This operation is irreversible.\n\nA [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n"
       description: "\uFEFFThe *Delete company* endpoint permanently deletes a [company](https://docs.codat.io/lending-api#/schemas/Company), its [connections](https://docs.codat.io/lending-api#/schemas/Connection) and any cached data. This operation is irreversible.\n\nA [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n"
       tags:
         - Companies
@@ -501,6 +543,7 @@ paths:
     get:
       summary: Get company
       operationId: get-company
+      description: "\uFEFFThe *Get company* endpoint returns a single company for a given `companyId`.\n\nA [company](https://docs.codat.io/sync-for-payables-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n"
       description: "\uFEFFThe *Get company* endpoint returns a single company for a given `companyId`.\n\nA [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.\nEach company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.\n"
       parameters:
         - $ref: '#/components/parameters/companyId'
@@ -835,6 +878,32 @@ paths:
                 value:
                   status: Unlinked
         description: ''
+  '/companies/{companyId}/connections/{connectionId}/payables/info':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+    get:
+      summary: Get company information
+      description: |+
+        Use the *Get company information* endpoint to return information about the company available from the underlying accounting software.
+
+      operationId: get-company-information
+      tags:
+        - Company information
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyInformation'
+              examples:
+                Company information:
+                  value:
+                    companyName: Bank of Dave
+                    baseCurrency: GBP
+        '400':
+          $ref: '#/components/responses/BadRequest'
   '/companies/{companyId}/data/all':
     parameters:
       - $ref: '#/components/parameters/companyId'
@@ -862,6 +931,209 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/bills':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+    get:
+      summary: Get bill mapping options
+      description: "\uFEFFUse the *Get mapping options - Bills* endpoint to return a list of available mapping options for a given company's connection ID.\n\nBy default, this endpoint returns a list of active accounts and tax rates. You can use [querying](https://docs.codat.io/using-the-api/querying) to change that.\n\nMapping options are a set of accounts and tax rates used to configure the SMB's payables integration."
+      operationId: get-mapping-options-bills
+      x-speakeasy-name-override: get-bill-options
+      tags:
+        - Bills
+      parameters:
+        - $ref: '#/components/parameters/continuationToken'
+        - $ref: '#/components/parameters/statusQuery'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillMappingOptions'
+              examples:
+                Mapping options:
+                  value:
+                    accounts:
+                      - id: 1b6266d1-1e44-46c5-8eb5-a8f98e03124e
+                        nominalCode: 879-i
+                        name: Accounts payable
+                        type: Liability
+                        currency: GBP
+                        status: Active
+                        sourceModifiedDate: '2022-10-23T00:00:00.000Z'
+                    taxRates:
+                      - id: d2939064-dd3a-4c0f-9865-a238c2193515
+                        name: VAT @ 20%
+                        code: VAT20
+                        effectiveTaxRate: 20
+                        totalTaxRate: 20
+                        status: Active
+                        sourceModifiedDate: '2022-10-23T00:00:00.000Z'
+                    pagination:
+                      continuationToken: eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/Payment-Required'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/Not-Found'
+        '429':
+          $ref: '#/components/responses/Too-Many-Requests'
+        '500':
+          $ref: '#/components/responses/Internal-Server-Error'
+        '503':
+          $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/mappingOptions/payments':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+    get:
+      summary: Get payment mapping options
+      description: "Use the *Get mapping options - Payments* endpoint to return a list of available mapping options for a given company's connection ID.\r\n\r\nBy default, this endpoint returns a list of active bank accounts. You can use [querying](https://docs.codat.io/using-the-api/querying) to change that.\r\n\r\nMapping options are a set of bank accounts used to configure the SMB's payables integration."
+      operationId: get-mapping-options-payments
+      x-speakeasy-name-override: get-payment-options
+      tags:
+        - Bill payments
+      parameters:
+        - $ref: '#/components/parameters/continuationToken'
+        - $ref: '#/components/parameters/statusQuery'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaymentMappingOptions'
+              examples:
+                Mapping options:
+                  value:
+                    bankAccounts:
+                      - id: 3d5a8e00-d108-4045-8823-7f342676cffa
+                        name: Bank of Dave current account
+                        accountNumber: '12345678'
+                        currency: GBP
+                        nominalCode: '1234567'
+                        sortCode: '123456'
+                        status: Active
+                        accountType: Debit
+                        sourceModifiedDate: '2022-10-23T00:00:00.000Z'
+                    pagination:
+                      continuationToken: eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/Payment-Required'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/Not-Found'
+        '429':
+          $ref: '#/components/responses/Too-Many-Requests'
+        '500':
+          $ref: '#/components/responses/Internal-Server-Error'
+        '503':
+          $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/bills':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+    get:
+      summary: List bills
+      description: |-
+        The *List bills* endpoint returns a list of [bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) for a given company's connection.
+
+        [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+
+        By default, the endpoint will return all bills with a status of 'Open' & 'PartiallyPaid' to show all oustanding bills.
+      operationId: list-bills
+      tags:
+        - Bills
+      parameters:
+        - $ref: '#/components/parameters/continuationToken'
+        - name: query
+          in: query
+          required: false
+          schema:
+            type: string
+          examples:
+            Status (open):
+              value: status=Open
+            Status (partially paid):
+              value: status=PartiallyPaid
+            Source modified date:
+              value: 'sourceModifiedDate>2023-12-15T00:00:00.000Z'
+            Status (open) & source modified date:
+              value: 'sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Open'
+            Status (partially paid) & source modified date:
+              value: 'sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=PartiallyPaid'
+          description: 'Codat query string allows you to filter by `status` and `sourceModifiedDate`. Learn more about Codat''s query string [here](https://docs.codat.io/using-the-api/querying). Platfrom specfic statuses: Xero supports  Open | PartiallyPaid | Paid | Void | Draft. Qbo supports Open | PartiallyPaid | Paid. FreeAgent supports Open | PartiallyPaid | Paid.'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bill/definitions/bills'
+              examples:
+                Bills:
+                  value:
+                    results:
+                      - id: '18'
+                        reference: '12'
+                        supplierRef:
+                          id: '4'
+                          supplierName: BILLy elliot
+                        issueDate: '2019-05-13T00:00:00'
+                        dueDate: '2019-05-13T00:00:00'
+                        currency: GBP
+                        currencyRate: '1,'
+                        lineItems:
+                          - description: Dance shoes
+                            unitAmount: 5
+                            quantity: 1
+                            taxAmount: 0
+                            accountRef:
+                              id: '16'
+                            taxRateRef:
+                              id: NON
+                            totalAmount: 5
+                        status: Open
+                        totalAmount: 5
+                        amountDue: 0
+                        sourceModifiedDate: '2022-05-26T10:34:10Z'
+                      - id: '22'
+                        reference: '12'
+                        supplierRef:
+                          id: '4'
+                          supplierName: BILLy elliot
+                        issueDate: '2019-05-13T00:00:00'
+                        dueDate: '2019-05-13T00:00:00'
+                        currency: GBP
+                        currencyRate: 1
+                        lineItems:
+                          - description: Dance shoes
+                            unitAmount: 5
+                            quantity: 1
+                            taxAmount: 0
+                            accountRef:
+                              id: '16'
+                            taxRateRef:
+                              id: NON
+                            totalAmount: 5
+                        status: Paid
+                        totalAmount: 5
+                        amountDue: 0
+                        sourceModifiedDate: '2022-05-26T10:34:10Z'
+                    pagination:
+                      continuationToken: eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==
       description: |-
         Refreshes all data types with `fetch on first link` set to `true` for a given company.
 
@@ -3707,6 +3979,324 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+    post:
+      summary: Create bill
+      description: |-
+        The *Create bill* endpoint creates a new [bill](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) for a given company's connection.
+
+        [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+      operationId: create-bill
+      tags:
+        - Bills
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          description: A unique identifier to ensure idempotent behaviour for subsequent requests.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bill/definitions/billPrototype'
+            examples:
+              Create bill:
+                value:
+                  reference: bill_b8qmmj4ksf1suax
+                  supplierRef:
+                    id: 1262c350-fe0f-40ec-aeff-41c95b4a45af
+                    supplierName: DIISR - Small Business Services
+                  issueDate: '2023-04-23T00:00:00'
+                  dueDate: '2023-04-23T00:00:00'
+                  currency: GBP
+                  currencyRate: 1
+                  lineItems:
+                    - description: Half day training - Microsoft Office
+                      unitAmount: 1800
+                      quantity: 1
+                      taxAmount: 360
+                      totalAmount: 2160
+                      accountRef:
+                        id: 46f9461e-788b-4906-8b74-d1ea17f6dc10
+                      taxRateRef:
+                        id: INPUT2
+                    - description: Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.
+                      unitAmount: 4000
+                      quantity: 1
+                      taxAmount: 800
+                      totalAmount: 4800
+                      accountRef:
+                        id: f96c9458-d724-47bf-8f74-a9d5726465ce
+                      taxRateRef:
+                        id: INPUT2
+                    - description: Stationery charges
+                      unitAmount: 32
+                      quantity: 8
+                      taxAmount: 51.2
+                      totalAmount: 307.2
+                      accountRef:
+                        id: cba6527d-f102-4538-b421-e483233e9d5a
+                      taxRateRef:
+                        id: INPUT2
+                      trackingRefs:
+                        - id: dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa
+                          dataType: trackingCategories
+                  status: Open
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bill'
+              examples:
+                Created bill:
+                  value:
+                    id: bill-1029932
+                    reference: bill_b8qmmj4ksf1suax
+                    supplierRef:
+                      id: 1262c350-fe0f-40ec-aeff-41c95b4a45af
+                      supplierName: DIISR - Small Business Services
+                    issueDate: '2023-04-23T00:00:00'
+                    dueDate: '2023-04-23T00:00:00'
+                    currency: GBP
+                    lineItems:
+                      - description: Half day training - Microsoft Office
+                        unitAmount: 1800
+                        quantity: 1
+                        taxAmount: 360
+                        totalAmount: 2160
+                        accountRef:
+                          id: 46f9461e-788b-4906-8b74-d1ea17f6dc10
+                        taxRateRef:
+                          id: INPUT2
+                      - description: Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.
+                        unitAmount: 4000
+                        quantity: 1
+                        taxAmount: 800
+                        totalAmount: 4800
+                        accountRef:
+                          id: f96c9458-d724-47bf-8f74-a9d5726465ce
+                        taxRateRef:
+                          id: INPUT2
+                      - description: Stationery charges
+                        unitAmount: 32
+                        quantity: 8
+                        taxAmount: 51.2
+                        totalAmount: 307.2
+                        accountRef:
+                          id: cba6527d-f102-4538-b421-e483233e9d5a
+                        taxRateRef:
+                          id: INPUT2
+                        trackingRefs:
+                          - id: dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa
+                            dataType: trackingCategories
+                    status: Open
+                    totalAmount: 7267.2
+                    amountDue: 7267.2
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/Payment-Required'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/Not-Found'
+        '409':
+          $ref: '#/components/responses/Idempotency-Conflict'
+        '429':
+          $ref: '#/components/responses/Too-Many-Requests'
+        '500':
+          $ref: '#/components/responses/Internal-Server-Error'
+        '503':
+          $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+      - $ref: '#/components/parameters/billId'
+    put:
+      summary: Update bill
+      description: |
+        The *Update bill* endpoint updates an existing [bill](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) for a given company's connection.
+
+        [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+
+        ### Supported Integrations
+
+        | Integration                   | Supported |
+        |-------------------------------|-----------|
+        | FreeAgent                     | Yes       |
+        | QuickBooks Online             | Yes       |
+        | Xero                          | Yes       |
+        | Oracle NetSuite               | No        |
+        | Sage Intacct                  | No        |
+        | Zoho Books                    | No        |
+      operationId: update-bill
+      tags:
+        - Bills
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          description: A unique identifier to ensure idempotent behaviour for subsequent requests.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bill/definitions/billPrototype'
+            examples:
+              Update bill:
+                value:
+                  reference: bill_updated_ref
+                  supplierRef:
+                    id: 1262c350-fe0f-40ec-aeff-41c95b4a45af
+                  issueDate: '2023-04-23T00:00:00'
+                  dueDate: '2023-05-23T00:00:00'
+                  currency: GBP
+                  currencyRate: 1
+                  lineItems:
+                    - description: Updated line item - Microsoft Office training
+                      unitAmount: 2000
+                      quantity: 1
+                      taxAmount: 400
+                      totalAmount: 2400
+                      accountRef:
+                        id: 46f9461e-788b-4906-8b74-d1ea17f6dc10
+                      taxRateRef:
+                        id: INPUT2
+                    - description: Desktop/network support via email & phone - updated rate
+                      unitAmount: 4500
+                      quantity: 1
+                      taxAmount: 900
+                      totalAmount: 5400
+                      accountRef:
+                        id: f96c9458-d724-47bf-8f74-a9d5726465ce
+                      taxRateRef:
+                        id: INPUT2
+                      trackingRefs:
+                        - id: dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa
+                          dataType: trackingCategories
+                  status: Open
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bill'
+              examples:
+                Updated bill:
+                  value:
+                    id: bill-1029932
+                    reference: bill_updated_ref
+                    supplierRef:
+                      id: 1262c350-fe0f-40ec-aeff-41c95b4a45af
+                      supplierName: DIISR - Small Business Services
+                    issueDate: '2023-04-23T00:00:00'
+                    dueDate: '2023-05-23T00:00:00'
+                    currency: GBP
+                    lineItems:
+                      - description: Updated line item - Microsoft Office training
+                        unitAmount: 2000
+                        quantity: 1
+                        taxAmount: 400
+                        totalAmount: 2400
+                        accountRef:
+                          id: 46f9461e-788b-4906-8b74-d1ea17f6dc10
+                        taxRateRef:
+                          id: INPUT2
+                      - description: Desktop/network support via email & phone - updated rate
+                        unitAmount: 4500
+                        quantity: 1
+                        taxAmount: 900
+                        totalAmount: 5400
+                        accountRef:
+                          id: f96c9458-d724-47bf-8f74-a9d5726465ce
+                        taxRateRef:
+                          id: INPUT2
+                        trackingRefs:
+                          - id: dba3d4da-f9ed-4eee-8e0b-452d11fdb1fa
+                            dataType: trackingCategories
+                    status: Open
+                    totalAmount: 7800
+                    amountDue: 7800
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/Payment-Required'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/Not-Found'
+        '409':
+          $ref: '#/components/responses/Idempotency-Conflict'
+        '429':
+          $ref: '#/components/responses/Too-Many-Requests'
+        '500':
+          $ref: '#/components/responses/Internal-Server-Error'
+        '503':
+          $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+      - $ref: '#/components/parameters/billId'
+    post:
+      summary: Upload bill attachment
+      description: "The *Upload bill attachment* endpoint uploads an attachment and assigns it against a specific `billId`.\r\n\r\n[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services."
+      operationId: upload-bill-attachment
+      tags:
+        - Bills
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AttachmentUpload'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Attachment'
+              examples:
+                Attachment metadata:
+                  value:
+                    id: 422f093f-e556-4bf3-91c0-93af70c3e850
+                    name: receipt.png
+                    contentType: image/png
+                    dateCreated: '2022-10-23T00:00:00.000Z'
+                    fileSize: 100
+                    includeWhenSent: true
+                    sourceModifiedDate: '2022-05-26T10:34:10Z'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/Payment-Required'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/Not-Found'
+        '429':
+          $ref: '#/components/responses/Too-Many-Requests'
+        '500':
+          $ref: '#/components/responses/Internal-Server-Error'
+        '503':
+          $ref: '#/components/responses/Service-Unavailable'
+    get:
+      summary: List bill attachments
+      description: "The *List bill attachments* endpoint returns a list of attachments available to download for a given `billId`.\r\n\r\n[Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services."
+      operationId: list-bill-attachments
+      tags:
+        - Bills
   '/companies/{companyId}/connections/{connectionId}/data/accountTransactions/{accountTransactionId}':
     get:
       tags:
@@ -3735,6 +4325,24 @@ paths:
           content:
             application/json:
               schema:
+                $ref: '#/components/schemas/Attachment/definitions/attachments'
+              examples:
+                Success:
+                  value:
+                    - id: 422f093f-e556-4bf3-91c0-93af70c3e850
+                      name: receipt.png
+                      contentType: image/png
+                      dateCreated: '2022-10-23T00:00:00.000Z'
+                      fileSize: 100
+                      includeWhenSent: true
+                      sourceModifiedDate: '2022-05-26T10:34:10Z'
+                    - id: 20cfd269-2f0f-44ef-a28c-7b5f725cf1aa
+                      name: another_receipt.png
+                      contentType: image/png
+                      dateCreated: '2022-10-24T00:00:00.000Z'
+                      fileSize: 98
+                      includeWhenSent: true
+                      sourceModifiedDate: '2022-05-27T12:38:10Z'
                 $ref: '#/components/schemas/AccountingAccountTransaction'
               examples:
                 Clear Books:
@@ -3861,6 +4469,23 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments/{attachmentId}/download':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+      - $ref: '#/components/parameters/billId'
+      - $ref: '#/components/parameters/attachmentId'
+    get:
+      summary: Download bill attachment
+      description: |
+        The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
+
+        [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
+
+        Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
+      operationId: download-bill-attachment
+      tags:
+        - Bills
   '/companies/{companyId}/data/accounts':
     get:
       tags:
@@ -12361,6 +12986,110 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/payment':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+      - $ref: '#/components/parameters/billId'
+      - in: header
+        name: Idempotency-Key
+        description: A unique identifier to ensure idempotent behaviour for subsequent requests.
+        schema:
+          type: string
+    post:
+      summary: Create bill payment
+      description: |-
+        The *Create bill payment* endpoint creates a new [bill payment](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) for a given company's connection.
+
+        [Bill payments](https://docs.codat.io/sync-for-payables-api#/schemas/BillPayment) are an allocation of money within any Accounts Payable account.
+      operationId: create-bill-payment
+      tags:
+        - Bill payments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BillPayment/definitions/billPaymentPrototype'
+            examples:
+              Bill payment example:
+                value:
+                  amount: 22
+                  currencyRate: 1
+                  date: '2022-10-23T00:00:00.000Z'
+                  accountRef:
+                    id: 7bda9f44sr56
+                  reference: Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillPayment'
+              examples:
+                Bill payment:
+                  value:
+                    id: billPayment-1029932
+                    amount: 22
+                    currencyRate: 1
+                    date: '2022-10-23T00:00:00.000Z'
+                    accountRef:
+                      id: 7bda9f44sr56
+                    reference: Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/Payment-Required'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/Not-Found'
+        '409':
+          $ref: '#/components/responses/Idempotency-Conflict'
+        '429':
+          $ref: '#/components/responses/Too-Many-Requests'
+        '500':
+          $ref: '#/components/responses/Internal-Server-Error'
+        '503':
+          $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/suppliers':
+    parameters:
+      - $ref: '#/components/parameters/companyId'
+      - $ref: '#/components/parameters/connectionId'
+    get:
+      tags:
+        - Suppliers
+      summary: List suppliers
+      description: |-
+        The *List suppliers* endpoint returns a list of [suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
+
+        [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+
+        By default, this endpoint returns a list of active and archived suppliers. You can use [querying](https://docs.codat.io/using-the-api/querying) to change that. 
+
+        For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate>2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.
+      operationId: list-suppliers
+      parameters:
+        - $ref: '#/components/parameters/continuationToken'
+        - name: query
+          in: query
+          required: false
+          schema:
+            type: string
+          examples:
+            Source modified date:
+              value: 'sourceModifiedDate>2023-12-15T00:00:00.000Z'
+            Status (active):
+              value: status=Active
+            Status (archived):
+              value: status=Archived
+            Status (active) & source modified date:
+              value: 'sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active'
+            Status (archived) & source modified date:
+              value: 'sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Archived'
+          description: 'Codat query string allows you to filter by `sourceModifiedDate` or if a supplier is `Active` or `Archived` in the accounting software. Learn more about Codat''s query string [here](https://docs.codat.io/using-the-api/querying).'
       summary: Download bill attachment
       description: |-
         The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
@@ -12386,6 +13115,41 @@ paths:
           content:
             application/json:
               schema:
+                $ref: '#/components/schemas/Supplier/definitions/suppliers'
+              examples:
+                Suppliers:
+                  value:
+                    results:
+                      - id: c523e12f-8b74-4d3a-bbd8-32d7a2f598b4
+                        supplierName: City Limousines
+                        contactName: Martin Dale
+                        emailAddress: martyd@citylim.co
+                        phone: 07999 999999
+                        addresses:
+                          - type: Billing
+                            line1: Unit 51
+                            line2: Bakersfield Industrial Estate
+                            city: Bakersfield
+                            region: California
+                            country: USA
+                            postalcode: '93308'
+                        status: Active
+                        balance: 100
+                        defaultCurrency: GBP
+                        sourceModifiedDate: '2022-10-23T00:00:00Z'
+                      - id: '41'
+                        supplierName: AI Support
+                        contactName: AI Support
+                        addresses:
+                          - type: Billing
+                            line1: test
+                            region: string
+                            country: Djibouti
+                        status: Active
+                        defaultCurrency: GBP
+                        sourceModifiedDate: '2022-12-07T10:48:18Z'
+                    pagination:
+                      continuationToken: eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==
                 $ref: '#/components/schemas/AccountingCreditNotes'
               examples:
                 Dynamics 365 Business Central:
@@ -14086,6 +14850,65 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+    post:
+      tags:
+        - Suppliers
+      summary: Create supplier
+      description: "The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.\r\n\r\n[Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.\r\n"
+      operationId: create-supplier
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          description: A unique identifier to ensure idempotent behaviour for subsequent requests.
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Supplier/definitions/supplierPrototype'
+            examples:
+              Suppliers:
+                value:
+                  supplierName: Greggs
+                  contactName: Greg Greggs
+                  emailAddress: greg@greggs.com
+                  phone: +44 (0)1223 322410
+                  addresses:
+                    - type: Billing
+                      line1: Flat 1
+                      line2: 2 Dennis Avenue
+                      city: London
+                      region: Camden
+                      country: GBR
+                      postalCode: EC1N 7TE
+                  status: Active
+                  defaultCurrency: GBP
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+              examples:
+                Suppliers:
+                  value:
+                    id: sup-10933920
+                    supplierName: Greggs
+                    contactName: Greg Greggs
+                    emailAddress: greg@greggs.com
+                    phone: +44 (0)1223 322410
+                    address:
+                      - type: Billing
+                        line1: Flat 1
+                        line2: 2 Dennis Avenue
+                        city: London
+                        region: Camden
+                        country: GBR
+                        postalCode: EC1N 7TE
+                    status: Active
+                    defaultCurrency: GBP
       description: |-
         The *List credit notes* endpoint returns a list of [credit notes](https://docs.codat.io/lending-api#/schemas/CreditNote) for a given company's connection.
 
@@ -59850,6 +60673,7 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+  '/companies/{companyId}/connections/{connectionId}/payables/bankAccounts':
       description: The *Download files* endpoint downloads all files that have  been uploaded by to SMB to Codat. A `date` may be specified to download any files uploaded on the date provided.
       operationId: download-files
       x-speakeasy-name-override: download
@@ -59859,6 +60683,14 @@ paths:
       - $ref: '#/components/parameters/connectionId'
     post:
       tags:
+        - Bank accounts
+      summary: Create bank account
+      parameters:
+        - in: header
+          name: Idempotency-Key
+          description: A unique identifier to ensure idempotent behaviour for subsequent requests.
+          schema:
+            type: string
         - File upload
       summary: Upload files for a company
       responses:
@@ -60770,6 +61602,26 @@ paths:
         content:
           application/json:
             schema:
+              $ref: '#/components/schemas/BankAccount/definitions/bankAccountPrototype'
+            examples:
+              Bank account example:
+                value:
+                  id: fb623ab2-f6ff-4b22-b7d3-b7cc2a4aa0ea
+                  nominalCode: '22'
+                  name: Plutus - Payables - Bank Account 12
+                  accountNumber: 0120 0440
+                  sortCode: 50-50-50
+                  currency: GBP
+                  accountType: Debit
+                  status: Active
+                  sourceModifiedDate: '2024-02-22T14:46:43.99Z'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccount'
               $ref: '#/components/schemas/AccountingBankAccount'
             examples: {}
       responses:
@@ -60796,6 +61648,9 @@ paths:
           $ref: '#/components/responses/Internal-Server-Error'
         '503':
           $ref: '#/components/responses/Service-Unavailable'
+      description: "The *Create bank account* endpoint creates a new [bank account](https://docs.codat.io/sync-for-payables-api#/schemas/BankAccount) for a given company's connection.\r\n\r\n[Bank accounts](https://docs.codat.io/sync-for-payables-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution."
+      operationId: create-bank-account
+webhooks:
       description: "The *Create bank account* endpoint creates a new [bank account](https://docs.codat.io/lending-api#/schemas/BankAccount) for a given company's connection.\r\n\r\n[Bank accounts](https://docs.codat.io/lending-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.\r\n\r\n**Integration-specific behavior**\r\n\r\nRequired data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/lending-api#/operations/get-create-update-bankAccounts-model)."
       operationId: create-bank-account
       x-speakeasy-group: loan-writeback.bank-accounts
@@ -76018,6 +76873,10 @@ webhooks:
       responses:
         '200':
           description: Return a 200 status to indicate that the webhook was received successfully.
+components:
+  schemas:
+    Address:
+      title: Address
   reports.categorizedBankStatement.generate.successful:
     post:
       description: Called when a categorized bank statement is successfully generated for a company.
@@ -76508,6 +77367,7 @@ components:
       type: object
       properties:
         type:
+          $ref: '#/components/schemas/Address/definitions/addressType'
           $ref: '#/components/schemas/AccountingAddress/definitions/accountingAddressType'
         line1:
           type: string
@@ -76528,11 +77388,14 @@ components:
         country:
           type: string
           nullable: true
+          description: 'Country of the customer''s address. For NetSuite, use the 2-digit [ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code.'
           description: Country of the customer address.
         postalCode:
           type: string
           nullable: true
           description: Postal code or zip code.
+      definitions:
+        addressType:
       required:
         - type
       definitions:
@@ -76543,6 +77406,28 @@ components:
             - Unknown
             - Billing
             - Delivery
+    Attachment:
+      title: Attachment metadata
+      description: |2-
+          The Codat API supports pulling and pushing of file attachments for invoices, bills, direct costs, and direct incomes.
+
+          > **Retrieving attachments**
+          > 
+          > If a company is authorized, you can query the Codat API to read, download, and upload attachments without requiring a fresh sync of data.
+
+          Unlike other data types, Codat doesn't support [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings) for attachments.
+
+          Note that different integrations have different requirements for file size and extension of attachments.
+
+          | Integration       | File size | File extension                                                                                                                                               |
+          |-------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+          | Xero              | 4 MB      | 7Z, BMP, CSV, DOC, DOCX, EML, GIF, JPEG, JPG, KEYNOTE, MSG, NUMBERS, ODF,   ODS, ODT, PAGES, PDF, PNG, PPT, PPTX, RAR, RTF, TIF, TIFF, TXT, XLS, XLSX,   ZIP |
+          | QuickBooks Online | 100 MB    | AI, CSV, DOC, DOCX, EPS, GIF, JPEG, JPG, ODS, PAGES, PDF, PNG, RTF, TIF,   TXT, XLS, XLSX, XML                                                               |
+          | NetSuite          | 100 MB    | BMP, CSV, XLS, XLSX, JSON, PDF, PJPG, PJPEG, PNG, TXT, SVG, TIF, TIFF,   DOC, DOCX, ZIP                                                                      |
+          | Dynamics 365 Business Central          | 350 MB    | Dynamics do not explicitly outline which file types are supported but they do state <a className="external" href="https://learn.microsoft.com/en-gb/dynamics365/business-central/ui-how-add-link-to-record#to-attach-a-file-to-a-purchase-invoice" target="_blank">here</a> that "You can attach any type of file, such as text, image, or video files".                                                                   |
+      type: object
+      allOf:
+        - properties:
     AccountingAgedCreditorReport:
       title: 'Accounting: Aged creditors report'
       description: |-
@@ -76741,6 +77626,9 @@ components:
               description: |-
                 File type of the attachment. This is represented by appending the file type to the [IETF standard file naming requirements](https://tools.ietf.org/html/rfc6838). For example, for a jpeg file the output is **image/jpeg**.
 
+                Supported file types vary per platform.
+            dateCreated:
+              $ref: '#/components/schemas/Connection/properties/created'
                 Supported file types vary per platform. 
             dateCreated:
               $ref: '#/components/schemas/DateTime'
@@ -76752,6 +77640,41 @@ components:
             includeWhenSent:
               type: boolean
               description: 'If `true`, then the attachment is included with the associated invoice, bill or direct costs when it is printed, emailed, or sent to a customer, if the underlying accounting software allows this.'
+            sourceModifiedDate:
+              allOf:
+                - $ref: '#/components/schemas/Connection/properties/created'
+                - description: |-
+                    The date when a record was last modified in the accounting software, usually by the business or a business process. For example, when payments are made against an invoice. 
+
+                    It is not populated ([read more](https://docs.codat.io/using-the-api/modified-dates#source-modified-date)) when:
+                      - Pulling attachments
+                      - The accounting software does not provide modification dates for a data type
+                      - A record has been deleted from the source platform and Codat doesn't have a record of when the deletion occurred
+                      - A record has been voided. For certain platforms that soft delete records, `isDeleted` metadata is used to identify void records
+
+                    In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>.
+      definitions:
+        attachments:
+          title: Attachments
+          type: array
+          items:
+            $ref: '#/components/schemas/Attachment'
+    AttachmentUpload:
+      title: Attachment upload
+      type: object
+      x-internal: true
+      required:
+        - file
+      properties:
+        file:
+          $ref: '#/components/schemas/AttachmentUpload/definitions/codatFile'
+      definitions:
+        codatFile:
+          type: string
+          description: The file to be uploaded as an attachment.
+          format: binary
+    BankAccount:
+      title: Bank accounts
         - $ref: '#/components/schemas/CommerceOrder/allOf/3'
       examples: []
       definitions:
@@ -76849,6 +77772,12 @@ components:
         - properties:
             id:
               type: string
+              description: 'Identifier for the bank account, unique for the company in the accounting software.'
+            nominalCode:
+              type: string
+              nullable: true
+              description: Code used to identify each nominal account for a business.
+            name:
               description: 'Identifier for the account, unique for the company in the accounting software.'
         - $ref: '#/components/schemas/AccountingBankAccount/definitions/bankAccountPrototype'
         - properties:
@@ -76867,6 +77796,7 @@ components:
               nullable: true
               description: Name of the bank account in the accounting software.
             accountType:
+              $ref: '#/components/schemas/BankAccountType'
               $ref: '#/components/schemas/AccountingBankAccountType'
             nominalCode:
               type: string
@@ -76888,6 +77818,66 @@ components:
 
                 Xero integrations
                 Only a UK account number shows for bank accounts with GBP currency and a combined total of sort code and account number that equals 14 digits, For non-GBP accounts, the full bank account number is populated.
+            sortCode:
+              type: string
+              nullable: true
+              description: |-
+                Sort code for the bank account. This is relevant to UK bank accounts.
+
+                Xero integrations
+                The sort code is only displayed when the currency = GBP and the sort code and account number sum to 14 digits. For non-GBP accounts, this field is not populated.
+            currency:
+              $ref: '#/components/schemas/Bill/properties/currency'
+              description: Base currency of the bank account.
+            status:
+              $ref: '#/components/schemas/BankAccount/definitions/bankAccountStatus'
+        - title: Source Modified Date
+          x-internal: true
+          type: object
+          nullable: true
+          properties:
+            sourceModifiedDate:
+              allOf:
+                - $ref: '#/components/schemas/Connection/properties/created'
+                - description: |-
+                    The date when a record was last modified in the accounting software, usually by the business or a business process. For example, when payments are made against an invoice. 
+
+                    It is not populated ([read more](https://docs.codat.io/using-the-api/modified-dates#source-modified-date)) when:
+                      - Pulling attachments
+                      - The accounting software does not provide modification dates for a data type
+                      - A record has been deleted from the source platform and Codat doesn't have a record of when the deletion occurred
+                      - A record has been voided. For certain platforms that soft delete records, `isDeleted` metadata is used to identify void records
+
+                    In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>.
+      definitions:
+        bankAccountStatus:
+          type: string
+          description: The current status of the bank account.
+          enum:
+            - Active
+            - Archived
+        bankAccountPrototype:
+          title: Bank account prototype
+          type: object
+          properties:
+            nominalCode:
+              $ref: '#/components/schemas/BankAccount/allOf/0/properties/nominalCode'
+            name:
+              $ref: '#/components/schemas/BankAccount/allOf/0/properties/name'
+            accountType:
+              $ref: '#/components/schemas/BankAccountType'
+            accountNumber:
+              $ref: '#/components/schemas/BankAccount/allOf/0/properties/accountNumber'
+            sortCode:
+              $ref: '#/components/schemas/BankAccount/allOf/0/properties/sortCode'
+            currency:
+              $ref: '#/components/schemas/BankAccount/allOf/0/properties/currency'
+          required:
+            - name
+            - accountType
+            - accountNumber
+            - currency
+    BankAccountType:
 
                 FreeAgent integrations
                 For Credit accounts, only the last four digits are required. For other types, the field is optional.
@@ -76985,6 +77975,148 @@ components:
         The type of transactions and balances on the account.  
         For Credit accounts, positive balances are liabilities, and positive transactions **reduce** liabilities.  
         For Debit accounts, positive balances are assets, and positive transactions **increase** assets.
+    Bill:
+      title: Bill
+      description: "\uFEFFBills are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services."
+      type: object
+      properties:
+        id:
+          type: string
+          description: 'Identifier for the bill, unique for the company in the accounting software.'
+        reference:
+          type: string
+          nullable: true
+          description: User-friendly reference for the bill.
+        supplierRef:
+          $ref: '#/components/schemas/Supplier/definitions/supplierRef'
+        issueDate:
+          allOf:
+            - description: Date of the bill as recorded in the accounting software.
+            - $ref: '#/components/schemas/Connection/properties/created'
+        dueDate:
+          allOf:
+            - description: Date the supplier is due to be paid.
+            - $ref: '#/components/schemas/Connection/properties/created'
+        currency:
+          title: Currency
+          x-internal: true
+          type: string
+          description: |-
+            The currency data type in Codat is the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) currency code, e.g. _GBP_.
+
+            ## Unknown currencies
+
+            In line with the ISO 4217 specification, the code _XXX_ is used when the data source does not return a currency for a transaction. 
+
+            There are only a very small number of edge cases where this currency code is returned by the Codat system.
+          format: ISO4217
+          examples:
+            - GBP
+            - USD
+            - EUR
+        currencyRate:
+          title: Currency rate
+          type: number
+          format: decimal
+          nullable: true
+          description: |-
+            Rate to convert the total amount of the payment into the base currency for the company at the time of the payment.
+
+            Currency rates in Codat are implemented as the multiple of foreign currency units to each base currency unit.  
+
+            It is not possible to perform the currency conversion with two or more non-base currencies participating in the transaction. For example, if a company's base currency is USD, and it has a bill issued in EUR, then the bill payment must happen in USD or EUR.
+
+            Where the currency rate is provided by the underlying accounting software, it will be available from Codat with the same precision (up to a maximum of 9 decimal places). 
+
+            For accounting software which do not provide an explicit currency rate, it is calculated as `baseCurrency / foreignCurrency` and will be returned to 9 decimal places.
+
+            ## Examples with base currency of GBP
+
+            | Foreign Currency | Foreign Amount | Currency Rate | Base Currency Amount (GBP) |
+            | :--------------- | :------------- | :------------ | :------------------------- |
+            | **USD**          | $20            | 0.781         | £15.62                     |
+            | **EUR**          | €20            | 0.885         | £17.70                     |
+            | **RUB**          | ₽20            | 0.011         | £0.22                      |
+
+            ## Examples with base currency of USD
+
+            | Foreign Currency | Foreign Amount | Currency Rate | Base Currency Amount (USD) |
+            | :--------------- | :------------- | :------------ | :------------------------- |
+            | **GBP**          | £20            | 1.277         | $25.54                     |
+            | **EUR**          | €20            | 1.134         | $22.68                     |
+            | **RUB**          | ₽20            | 0.015         | $0.30                      |
+
+
+            ### Integration-specific details
+
+            | Integration       | Scenario                                        | System behavior                                                                                                                                                      |
+            |-------------------|-------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+            | QuickBooks Online | Transaction currency differs from base currency | If currency rate value is left `null`, a rate of 1 will be used by QBO by default. To override this, specify a currencyRate in the request body.  |
+        lineItems:
+          type: array
+          nullable: true
+          description: Array of Bill line items.
+          items:
+            $ref: '#/components/schemas/Bill/definitions/billLineItem'
+        status:
+          $ref: '#/components/schemas/Bill/definitions/billStatus'
+        totalAmount:
+          type: number
+          format: decimal
+          description: 'Amount of the bill, including tax.'
+        amountDue:
+          type: number
+          format: decimal
+          nullable: true
+          description: Amount outstanding on the bill.
+        sourceModifiedDate:
+          allOf:
+            - $ref: '#/components/schemas/Connection/properties/created'
+            - description: |-
+                The date when a record was last modified in the accounting software, usually by the business or a business process. For example, when payments are made against an invoice. 
+
+                It is not populated ([read more](https://docs.codat.io/using-the-api/modified-dates#source-modified-date)) when:
+                  - Pulling attachments
+                  - The accounting software does not provide modification dates for a data type
+                  - A record has been deleted from the source platform and Codat doesn't have a record of when the deletion occurred
+                  - A record has been voided. For certain platforms that soft delete records, `isDeleted` metadata is used to identify void records
+
+                In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>.
+      required:
+        - supplierRef
+        - issueDate
+        - dueDate
+        - currency
+        - status
+      definitions:
+        billPrototype:
+          title: Bill prototype
+          type: object
+          properties:
+            reference:
+              $ref: '#/components/schemas/Bill/properties/reference'
+            supplierRef:
+              $ref: '#/components/schemas/Supplier/definitions/supplierRef'
+            issueDate:
+              $ref: '#/components/schemas/Bill/properties/issueDate'
+            dueDate:
+              $ref: '#/components/schemas/Bill/properties/dueDate'
+            currency:
+              $ref: '#/components/schemas/Bill/properties/currency'
+            currencyRate:
+              $ref: '#/components/schemas/Bill/properties/currencyRate'
+            lineItems:
+              $ref: '#/components/schemas/Bill/properties/lineItems'
+            status:
+              $ref: '#/components/schemas/Bill/definitions/billStatus'
+          required:
+            - supplierRef
+            - issueDate
+            - dueDate
+            - currency
+            - status
+        billStatus:
+          description: Current state of the bill. If creating a bill the status must be `Open`.
     AccountingBankTransaction:
       title: 'Accounting: Bank account transaction'
       description: |-
@@ -77202,6 +78334,7 @@ components:
             - Paid
             - Void
             - Draft
+          example: Open
         billLineItem:
           title: Bill line item
           type: object
@@ -77217,11 +78350,18 @@ components:
             unitAmount:
               type: number
               format: decimal
+              description: Unit price of the goods or service.
               description: Price of each unit of goods or services.
             quantity:
               type: number
               format: decimal
               description: Number of units of goods or services received.
+            taxAmount:
+              type: number
+              format: decimal
+              description: Amount of tax applied to the line item.
+            accountRef:
+              $ref: '#/components/schemas/Bill/definitions/billAccountRef'
             unitOfMeasurement:
               type: string
               nullable: true
@@ -77249,6 +78389,32 @@ components:
               format: decimal
               nullable: true
               description: 'Total amount of the line, including tax.'
+            taxRateRef:
+              $ref: '#/components/schemas/Bill/definitions/billTaxRateRef'
+            trackingRefs:
+              type: array
+              nullable: true
+              items:
+                $ref: '#/components/schemas/Bill/definitions/trackingRef'
+        billAccountRef:
+          title: Account reference
+          type: object
+          description: Reference to the account to which the line item is linked.
+          properties:
+            id:
+              type: string
+              description: '''id'' from the Accounts data type.'
+        billTaxRateRef:
+          title: Tax rate reference
+          type: object
+          description: Reference to the tax rate to which the line item is linked.
+          properties:
+            id:
+              type: string
+              description: Unique identifier for the tax rate in the accounting software.
+        bills:
+          title: Bills
+          type: object
             discountPercentage:
               type: number
               format: decimal
@@ -77616,6 +78782,200 @@ components:
             results:
               type: array
               items:
+                $ref: '#/components/schemas/Bill'
+            pagination:
+              $ref: '#/components/schemas/Pagination'
+        trackingRef:
+          type: object
+          title: Tracking reference
+          properties:
+            id:
+              type: string
+              example: e9a1b63d-9ff0-40e7-8038-016354b987e6
+              description: Unique identifier of the linked tracking category or the unique identifier of the linked customer.
+            dataType:
+              type: string
+              example: trackingCategories
+              description: The type of the linked reference.
+              enum:
+                - trackingCategories
+                - customers
+            isBillable:
+              type: boolean
+              description: If a customer has been set as the trackingRefs.id then this boolean can be used to set whether the line item is billable to the customer or not.
+    BillEventWebhook:
+      x-internal: true
+      title: Bill event webhook
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier of the bill event.
+        type:
+          type: string
+          description: Type of webhook event.
+          example: payables.bill.created
+        createdDate:
+          type: string
+          description: The datetime in UTC of when the webhook event was produced by Codat.
+          examples:
+            - '2022-10-23T11:03:35Z'
+        payload:
+          $ref: '#/components/schemas/BillEventWebhook/definitions/billEventPayload'
+      definitions:
+        billEventPayload:
+          title: Bill event payload
+          type: object
+          properties:
+            companyId:
+              $ref: '#/components/parameters/companyId/schema'
+            connectionId:
+              $ref: '#/components/parameters/connectionId/schema'
+            pushOperationKey:
+              type: string
+              format: uuid
+              example: 2e9d2c44-f675-40ba-8049-353bfcb5e171
+              description: Unique identifier for the push operation.
+            bill:
+              $ref: '#/components/schemas/Bill'
+    BillMappingOptions:
+      x-internal: true
+      title: Mapping options bills
+      description: The bill mapping options for a company's accounting software.
+      type: object
+      properties:
+        accounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillMappingOptions/definitions/accountMappingOption'
+        taxRates:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillMappingOptions/definitions/taxRateMappingOption'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      definitions:
+        accountMappingOption:
+          title: Account mapping option
+          type: object
+          allOf:
+            - properties:
+                id:
+                  type: string
+                  description: 'Identifier for the account, unique for the company.'
+                  example: 1b6266d1-1e44-46c5-8eb5-a8f98e03124e
+                nominalCode:
+                  type: string
+                  nullable: true
+                  description: Reference given to each nominal account for a business. It ensures money is allocated to the correct account. This code isn't a unique identifier in the Codat system.
+                  example: '610'
+                name:
+                  type: string
+                  nullable: true
+                  description: Name of the account.
+                  example: Accounts Payable
+                type:
+                  type: string
+                  nullable: true
+                  description: Type of account.
+                  example: Liability
+                currency:
+                  $ref: '#/components/schemas/Bill/properties/currency'
+                status:
+                  $ref: '#/components/schemas/BillMappingOptions/definitions/accountStatus'
+            - $ref: '#/components/schemas/BankAccount/allOf/1'
+        taxRateMappingOption:
+          title: Tax rate mapping option
+          type: object
+          allOf:
+            - properties:
+                id:
+                  type: string
+                  description: 'Identifier for the tax rate, unique for the company in the accounting software.'
+                  example: d2939064-dd3a-4c0f-9865-a238c2193515
+                name:
+                  type: string
+                  nullable: true
+                  description: Codat-augmented name of the tax rate in the accounting software.
+                code:
+                  type: string
+                  nullable: true
+                  description: Code for the tax rate from the accounting software.
+                effectiveTaxRate:
+                  type: number
+                  format: decimal
+                  nullable: true
+                  description: See Effective tax rates description.
+                totalTaxRate:
+                  type: number
+                  format: decimal
+                  nullable: true
+                  description: Total (not compounded) sum of the components of a tax rate.
+                status:
+                  title: Tax rate status
+                  type: string
+                  enum:
+                    - Active
+                    - Archived
+                  description: |-
+                    Status of the tax rate in the accounting software.  
+                    - `Active` - An active tax rate in use by a company.  
+                    - `Archived` - A tax rate that has been archived or is inactive in the accounting software.  
+        accountStatus:
+          type: string
+          description: The current status of the account.
+          enum:
+            - Active
+            - Archived
+          example: Active
+    BillPayment:
+      title: Bill payment
+      type: object
+      description: ''
+      properties:
+        id:
+          type: string
+          description: 'Identifier for the bill payment, unique for the company in the accounting software.'
+        amount:
+          type: number
+          format: decimal
+          description: Amount of the payment in the bill currency.
+          example: 1329.54
+        date:
+          allOf:
+            - $ref: '#/components/schemas/Connection/properties/created'
+            - description: Date the bill payment was recorded in the accounting software.
+        reference:
+          type: string
+          nullable: true
+          description: Additional information associated with the payment.
+          example: Bill Payment against bill c13e37b6-dfaa-4894-b3be-9fe97bda9f44
+        accountRef:
+          $ref: '#/components/schemas/BillPayment/definitions/billPaymentAccountRef'
+        currencyRate:
+          $ref: '#/components/schemas/Bill/properties/currencyRate'
+      definitions:
+        billPaymentPrototype:
+          title: Bill payment prototype
+          type: object
+          properties:
+            amount:
+              $ref: '#/components/schemas/BillPayment/properties/amount'
+            date:
+              $ref: '#/components/schemas/BillPayment/properties/date'
+            reference:
+              $ref: '#/components/schemas/BillPayment/properties/reference'
+            accountRef:
+              $ref: '#/components/schemas/BillPayment/definitions/billPaymentAccountRef'
+            currencyRate:
+              $ref: '#/components/schemas/Bill/properties/currencyRate'
+          required:
+            - amount
+            - date
+            - accountRef
+        billPaymentAccountRef:
+          description: Reference to the bank account / credit card which you are using to pay the bill.
                 $ref: '#/components/schemas/AccountingBillCreditNote'
         - $ref: '#/components/schemas/PagingInfo'
     AccountingBillPayment:
@@ -78294,6 +79654,16 @@ components:
           properties:
             id:
               type: string
+              description: Unique ID of the bank account / credit card
+          required:
+            - id
+      example:
+        amount: 22
+        date: '2022-10-23T00:00:00.000Z'
+        reference: Bill Payment against bill c13e37b6 dfaa-4894-b3be-9fe97bda9f44
+        accountRef:
+          id: 9e32cbf8-e7d5-4d4d-a593-08d550682aab
+        currencyRate: 1
               description: 'Identifier for the bank account transaction, unique for the company in the accounting software.'
             amount:
               type: number
@@ -81184,6 +82554,7 @@ components:
             - client.rateLimit.reset
             - client.rateLimit.reached
         generatedDate:
+          $ref: '#/components/schemas/Connection/properties/created'
           $ref: '#/components/schemas/DateTime'
           description: The date time in UTC the event was generated in Codat.
         payload:
@@ -81200,6 +82571,8 @@ components:
               type: integer
               description: Total number of requests remaining for your client.
             expiryDate:
+              $ref: '#/components/schemas/Connection/properties/created'
+              description: The date time in UTC when your daily quota is reset.
               $ref: '#/components/schemas/DateTime'
               description: The date time in UTC when your daily quota is reset.
     CommerceAddress:
@@ -82711,6 +84084,7 @@ components:
         - $ref: '#/components/schemas/PagingInfo'
     Company:
       title: Company
+      description: "\uFEFFIn Codat, a company represents a business sharing access to their data. Each company can have multiple [connections](https://docs.codat.io/sync-for-payables-api#/schemas/Connection) to different data sources such as one connection to [Xero](https://docs.codat.io/integrations/accounting/xero/accounting-xero) for accounting data, two connections to [Plaid](https://docs.codat.io/integrations/banking/plaid/banking-plaid) for two bank accounts and a connection to [Zettle](https://docs.codat.io/integrations/commerce/zettle/commerce-zettle) for POS data.\n\nTypically each company is one of your customers.\n\nWhen you create a company, you can specify a `name` and we will automatically generate a unique `id` for the company. You can also add a `description` to store any additional information about the company."
       description: "\uFEFFIn Codat, a company represents a business sharing access to their data. Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources such as one connection to [Xero](https://docs.codat.io/integrations/accounting/xero/accounting-xero) for accounting data, two connections to [Plaid](https://docs.codat.io/integrations/banking/plaid/banking-plaid) for two bank accounts and a connection to [Zettle](https://docs.codat.io/integrations/commerce/zettle/commerce-zettle) for POS data.\n\nTypically each company is one of your customers.\n\nWhen you create a company, you can specify a `name` and we will automatically generate a unique `id` for the company. You can also add a `description` to store any additional information about the company."
       type: object
       allOf:
@@ -82741,6 +84115,10 @@ components:
               description: 'The `redirect` [Link URL](https://docs.codat.io/auth-flow/authorize-hosted-link) enabling the customer to start their auth flow journey for the company.'
               example: 'https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739'
             lastSync:
+              $ref: '#/components/schemas/Connection/properties/created'
+              nullable: true
+            created:
+              $ref: '#/components/schemas/Connection/properties/created'
               $ref: '#/components/schemas/DateTime'
               nullable: true
             created:
@@ -82823,6 +84201,19 @@ components:
           products:
             - spend-insights
             - lending
+    CompanyInformation:
+      title: Company information
+      type: object
+      description: Gets the latest basic info for a company.
+      properties:
+        companyName:
+          type: string
+          nullable: true
+          description: Name of the linked company.
+        baseCurrency:
+          type: string
+          nullable: true
+          description: Currency set in the accounting software of the linked company. Used by the currency rate.
     CompanyRequestBody:
       title: Create company request
       x-internal: true
@@ -82859,6 +84250,7 @@ components:
           $ref: '#/components/schemas/Company/definitions/companyDetails/properties/tags'
     Connection:
       title: Connection
+      description: "\uFEFFA connection represents a [company's](https://docs.codat.io/sync-for-payables-api#/schemas/Company) connection to a data source and allows you to synchronize data (pull and/or push) with that source.\n\nA company can have multiple data connections depending on the type of data source it is connecting to. For example, a single company can link to:\n\n- [Accounting data](https://docs.codat.io/accounting-api/overview) - 1 active connection.\n- [Banking data](https://docs.codat.io/banking-api/overview) - Multiple active connections.\n- [Commerce data](https://docs.codat.io/commerce-api/overview) - Multiple active connections.\nAny combination of accounting, banking, and commerce data connections is allowed.\n\nBefore you can use a data connection to pull or push data, the company must grant you access to their business data by [linking the connection](https://docs.codat.io/auth-flow/overview)."
       description: "\uFEFFA connection represents a [company's](https://docs.codat.io/lending-api#/schemas/Company) connection to a data source and allows you to synchronize data (pull and/or push) with that source.\n\nA company can have multiple data connections depending on the type of data source it is connecting to. For example, a single company can link to:\n\n- [Accounting data](https://docs.codat.io/accounting-api/overview) - 1 active connection.\n- [Banking data](https://docs.codat.io/banking-api/overview) - Multiple active connections.\n- [Commerce data](https://docs.codat.io/commerce-api/overview) - Multiple active connections.\nAny combination of accounting, banking, and commerce data connections is allowed.\n\nBefore you can use a data connection to pull or push data, the company must grant you access to their business data by [linking the connection](https://docs.codat.io/auth-flow/overview)."
       type: object
       properties:
@@ -82901,6 +84293,34 @@ components:
         status:
           $ref: '#/components/schemas/Connection/definitions/dataConnectionStatus'
         lastSync:
+          $ref: '#/components/schemas/Connection/properties/created'
+          nullable: true
+        created:
+          title: Date time
+          type: string
+          examples:
+            - '2022-10-23T00:00:00Z'
+            - '2022-10-23'
+          description: |-
+            In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>. Date and time fields are formatted as strings; for example:
+
+            ```
+            2020-10-08T22:40:50Z
+            2021-01-01T00:00:00
+            ```
+
+
+
+            When syncing data that contains `DateTime` fields from Codat, make sure you support the following cases when reading time information:
+
+            - Coordinated Universal Time (UTC): `2021-11-15T06:00:00Z`
+            - Unqualified local time: `2021-11-15T01:00:00`
+            - UTC time offsets: `2021-11-15T01:00:00-05:00`
+
+            > Time zones
+            > 
+            > Not all dates from Codat will contain information about time zones.  
+            > Where it is not available from the underlying platform, Codat will return these as times local to the business whose data has been synced.
           $ref: '#/components/schemas/DateTime'
           nullable: true
         created:
@@ -82949,6 +84369,7 @@ components:
               type: string
               description: A message about a error returned by Codat.
             erroredOnUtc:
+              $ref: '#/components/schemas/Connection/properties/created'
               $ref: '#/components/schemas/DateTime'
             status:
               title: Error status
@@ -82961,6 +84382,7 @@ components:
             resolvedOnUtc:
               description: The datetime in Utc that the error was resolved.
               nullable: true
+              $ref: '#/components/schemas/Connection/properties/created'
               $ref: '#/components/schemas/DateTime'
         dataConnectionSourceType:
           title: Source Type
@@ -83309,6 +84731,7 @@ components:
             - commerce-transactions
           example: invoices
         lastSuccessfulSync:
+          $ref: '#/components/schemas/Connection/properties/created'
           $ref: '#/components/schemas/DateTime'
         currentStatus:
           $ref: '#/components/schemas/PullOperation/properties/status'
@@ -83328,6 +84751,9 @@ components:
           currentStatus: string
           latestSyncId: ad474a37-2003-478e-baee-9af9f1ec2fe3
           latestSuccessfulSyncId: 8220fc90-55b6-47bc-9417-48ac6ea93101
+    DataType:
+      x-internal: true
+      $ref: '#/components/schemas/DataStatus/properties/dataType'
     DataStatusResponse:
       x-internal: true
       title: Data status response
@@ -83943,6 +85369,14 @@ components:
               type: string
               nullable: true
               description: Name of validator.
+    Pagination:
+      title: Pagination metadata
+      x-internal: true
+      type: object
+      properties:
+        continuationToken:
+          type: string
+          description: 'A continuation token indicating there are more results to be fetched. Supply this value in the `continuationToken` query parameter in the next request to fetch the next set of results. Once no more results are available, the continuation token will not be present in the response.'
     ExcelStatus:
       type: object
       title: Excel status
@@ -84358,6 +85792,69 @@ components:
               href: '/companies/{id}/data/{dataType}'
             current:
               href: '/companies/{id}/data/{dataType}?page=1&pageSize=10'
+    PaymentMappingOptions:
+      x-internal: true
+      title: Mapping Options Payments
+      description: Gets the bill payments mapping options for a company's accounting software
+      type: object
+      properties:
+        bankAccounts:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaymentMappingOptions/definitions/bankAccountMappingOption'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+      definitions:
+        bankAccountMappingOption:
+          title: Bank account mapping option
+          type: object
+          allOf:
+            - properties:
+                id:
+                  type: string
+                  description: 'Identifier for the account, unique for the company in the accounting software.'
+                  example: 3d5a8e00-d108-4045-8823-7f342676cffa
+                name:
+                  type: string
+                  nullable: true
+                  description: Name of the bank account in the accounting software.
+                  example: Bank of Dave current account
+                accountNumber:
+                  type: string
+                  nullable: true
+                  description: |-
+                    Account number for the bank account.
+
+                    Xero integrations
+                    Only a UK account number shows for bank accounts with GBP currency and a combined total of sort code and account number that equals 14 digits, For non-GBP accounts, the full bank account number is populated.
+                nominalCode:
+                  type: string
+                  nullable: true
+                  description: Code used to identify each nominal account for a business.
+                sortCode:
+                  type: string
+                  nullable: true
+                  description: |-
+                    Sort code for the bank account.
+
+                    Xero integrations
+                    The sort code is only displayed when the currency = GBP and the sort code and account number sum to 14 digits. For non-GBP accounts, this field is not populated.
+                currency:
+                  type: string
+                  nullable: true
+                  description: The bank account's base currency.
+                status:
+                  $ref: '#/components/schemas/PaymentMappingOptions/definitions/bankAccountStatus'
+                accountType:
+                  $ref: '#/components/schemas/BankAccountType'
+            - $ref: '#/components/schemas/BankAccount/allOf/1'
+        bankAccountStatus:
+          type: string
+          description: The current status of the bank account.
+          enum:
+            - Active
+            - Archived
+          example: Active
     PaymentMethodRef:
       type: object
       title: Payment method reference
@@ -84476,6 +85973,9 @@ components:
           nullable: true
           description: A message about a transient or persistent error returned by Codat or the source platform.
         requested:
+          $ref: '#/components/schemas/Connection/properties/created'
+        completed:
+          $ref: '#/components/schemas/Connection/properties/created'
           $ref: '#/components/schemas/DateTime'
         completed:
           $ref: '#/components/schemas/DateTime'
@@ -84543,6 +86043,10 @@ components:
         dataConnectionKey:
           $ref: '#/components/parameters/connectionId/schema'
         requestedOnUtc:
+          $ref: '#/components/schemas/Connection/properties/created'
+          description: The datetime when the push was requested.
+        completedOnUtc:
+          $ref: '#/components/schemas/Connection/properties/created'
           $ref: '#/components/schemas/DateTime'
           description: The datetime when the push was requested.
         completedOnUtc:
@@ -84663,6 +86167,9 @@ components:
               items:
                 $ref: '#/components/schemas/PushOperation'
         - $ref: '#/components/schemas/PagingInfo'
+    Supplier:
+      title: Supplier
+      description: "\uFEFFSuppliers are people or organizations that provide something, such as a product or service. Use the [List suppliers](https://docs.codat.io/sync-for-payables-v2-api#/operations/list-suppliers) endpoint to retrieve a list of all suppliers for a company.\n\nSuppliers' data links to accounts payable [bills](https://docs.codat.io/sync-for-payables-v2-api#/schemas/Bill).\n "
     PushOption:
       title: Push option
       x-internal: true
@@ -84821,6 +86328,34 @@ components:
       properties:
         id:
           type: string
+          description: 'Identifier for the supplier, unique to the company in the accounting software.'
+        supplierName:
+          type: string
+          description: 'Name of the supplier as recorded in the accounting system, typically the company name.'
+        contactName:
+          type: string
+          nullable: true
+          description: Name of the main contact for the supplier.
+        emailAddress:
+          type: string
+          nullable: true
+          description: Email address that the supplier may be contacted on.
+        phone:
+          type: string
+          nullable: true
+          description: Phone number that the supplier may be contacted on.
+          examples:
+            - +44 25691 154789
+            - (877) 492-8687
+            - 01224 658 999
+        addresses:
+          type: array
+          nullable: true
+          description: An array of Addresses.
+          items:
+            $ref: '#/components/schemas/Address'
+        status:
+          $ref: '#/components/schemas/Supplier/definitions/supplierStatus'
           format: uuid
           description: Unique identifier of the report
           example: 52c0f26b-051a-43ff-b02a-258eec67f5ef
@@ -84908,6 +86443,108 @@ components:
           type: number
           format: decimal
           nullable: true
+          description: Amount outstanding against the supplier.
+        defaultCurrency:
+          type: string
+          nullable: true
+          description: Default currency the supplier's transactional data is recorded in.
+        sourceModifiedDate:
+          allOf:
+            - $ref: '#/components/schemas/Connection/properties/created'
+            - description: |-
+                The date when a record was last modified in the accounting software, usually by the business or a business process. For example, when payments are made against an invoice. 
+
+                It is not populated ([read more](https://docs.codat.io/using-the-api/modified-dates#source-modified-date)) when:
+                  - Pulling attachments
+                  - The accounting software does not provide modification dates for a data type
+                  - A record has been deleted from the source platform and Codat doesn't have a record of when the deletion occurred
+                  - A record has been voided. For certain platforms that soft delete records, `isDeleted` metadata is used to identify void records
+
+                In Codat's data model, dates and times are represented using the <a class="external" href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601 standard</a>.
+      definitions:
+        supplierPrototype:
+          title: Supplier prototype
+          type: object
+          properties:
+            supplierName:
+              $ref: '#/components/schemas/Supplier/properties/supplierName'
+            contactName:
+              $ref: '#/components/schemas/Supplier/properties/contactName'
+            emailAddress:
+              $ref: '#/components/schemas/Supplier/properties/emailAddress'
+            phone:
+              $ref: '#/components/schemas/Supplier/properties/phone'
+            addresses:
+              $ref: '#/components/schemas/Supplier/properties/addresses'
+            status:
+              $ref: '#/components/schemas/Supplier/definitions/supplierStatus'
+            balance:
+              $ref: '#/components/schemas/Supplier/properties/balance'
+            defaultCurrency:
+              $ref: '#/components/schemas/Supplier/properties/defaultCurrency'
+          required:
+            - supplierName
+            - status
+        supplierRef:
+          title: Supplier reference
+          description: Reference to the supplier the record relates to.
+          type: object
+          properties:
+            id:
+              minLength: 1
+              type: string
+              description: The supplier's unique ID
+            supplierName:
+              type: string
+              nullable: true
+              description: The supplier's name
+          required:
+            - id
+        supplierStatus:
+          description: Status of the supplier.
+          type: string
+          enum:
+            - Unknown
+            - Active
+            - Archived
+        suppliers:
+          title: Suppliers
+          type: object
+          properties:
+            results:
+              type: array
+              items:
+                $ref: '#/components/schemas/Supplier'
+            pagination:
+              $ref: '#/components/schemas/Pagination'
+      examples:
+        - id: C520FFD4-F6F6-4FC2-A6D2-5D7088B2B14F
+          supplierName: Kelly's Industrial Supplies
+          contactName: Kelly Ipsum
+          emailAddress: sales@kellysupplies.com
+          phone: 07999 999999
+          addresses:
+            - type: Billing
+              line1: Unit 51
+              line2: Bakersfield Industrial Estate
+              city: Bakersfield
+              region: California
+              country: USA
+              postalcode: '93308'
+          status: Active
+          amount: 100
+          defaultCurrency: GBP
+          sourceModifiedDate: '2022-10-23T00:00:00Z'
+  parameters:
+    attachmentId:
+      name: attachmentId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+        example: 8a210b68-6988-11ed-a1eb-0242ac120002
+      description: Unique identifier for an attachment.
           description: The latest balance for the bank account.
         modifiedDate:
           $ref: '#/components/schemas/DateTime'
@@ -85253,6 +86890,18 @@ components:
         type: string
         example: '-modifiedDate'
       description: 'Field to order results by. [Read more](https://docs.codat.io/using-the-api/ordering-results).'
+    billId:
+      name: billId
+      in: path
+      required: true
+      schema:
+        type: string
+        examples:
+          - 13d946f0-c5d5-42bc-b092-97ece17923ab
+          - 9wg4lep4ush5cxs79pl8sozmsndbaukll3ind4g7buqbm1h2
+          - 7110701885
+          - EILBDVJVNUAGVKRQ
+      description: Unique identifier for a bill.
     companyId:
       name: companyId
       in: path
@@ -85273,6 +86922,8 @@ components:
         example: 2e9d2c44-f675-40ba-8049-353bfcb5e171
         description: Unique identifier for a company's data connection.
       description: Unique identifier for a connection.
+    continuationToken:
+      name: continuationToken
     dataType:
       name: dataType
       description: A key for a Codat data type.
@@ -85576,6 +87227,16 @@ components:
       required: false
       schema:
         type: string
+        example: continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ==
+      description: Retrieve the next page of results using the continuation token from the previous response.
+    statusQuery:
+      name: statusQuery
+      in: query
+      required: false
+      schema:
+        type: string
+      example: status=Archived
+      description: 'Codat query string allows you to filter by `status` (`status=Active||status=Archived`). [Learn more](https://docs.codat.io/using-the-api/querying) about Codat''s query string.'
         enum:
           - auth/get
     reportType:
@@ -85734,6 +87395,21 @@ components:
                 detailedErrorCode: 0
     Conflict:
       description: The data type's dataset has not been requested or is still syncing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorMessage'
+          examples:
+            Conflict:
+              value:
+                statusCode: 409
+                service: PublicApi
+                error: The data set has not been requested.
+                correlationId: bc997528a9d7abb9161ef45f05d38599
+                canBeRetried: Unknown
+                detailedErrorCode: 0
+    Idempotency-Conflict:
+      description: A request is in progress with the same idempotency key.
       content:
         application/json:
           schema:

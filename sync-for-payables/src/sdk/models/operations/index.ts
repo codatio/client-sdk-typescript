@@ -22,5 +22,6 @@ export * from "./listconnections.js";
 export * from "./listsuppliers.js";
 export * from "./replacecompany.js";
 export * from "./unlinkconnection.js";
+export * from "./updatebill.js";
 export * from "./updatecompany.js";
 export * from "./uploadbillattachment.js";
