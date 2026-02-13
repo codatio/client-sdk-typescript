@@ -1,5 +1,4 @@
 # Webhooks
-(*webhooks*)
 
 ## Overview
 
@@ -19,6 +18,7 @@ Create and manage webhooks that listen to Codat's events.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-webhook-consumers" method="get" path="/webhooks" example="Webhook consumers" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -91,8 +91,9 @@ run();
 ### Tips and traps
 - The number of webhook consumers you can create is limited to 50. If you have reached the maximum number of consumers, use the [*Delete webhook consumer*](https://docs.codat.io/platform-api#/operations/delete-webhook-consumer) endpoint to delete an unused consumer first.
 
-### Example Usage
+### Example Usage: Subscribe consumer to one or more event types
 
+<!-- UsageSnippet language="typescript" operationID="create-webhook-consumer" method="post" path="/webhooks" example="Subscribe consumer to one or more event types" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -147,6 +148,63 @@ async function run() {
 
 run();
 ```
+### Example Usage: Subscribe consumer with disabled endpoint
+
+<!-- UsageSnippet language="typescript" operationID="create-webhook-consumer" method="post" path="/webhooks" example="Subscribe consumer with disabled endpoint" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.webhooks.createConsumer({
+    url: "https://example.com/webhoook-consumer",
+    disabled: true,
+    eventTypes: [
+      "DataSyncCompleted",
+    ],
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { webhooksCreateConsumer } from "@codat/platform/funcs/webhooksCreateConsumer.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await webhooksCreateConsumer(codatPlatform, {
+    url: "https://example.com/webhoook-consumer",
+    disabled: true,
+    eventTypes: [
+      "DataSyncCompleted",
+    ],
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("webhooksCreateConsumer failed:", res.error);
+  }
+}
+
+run();
+```
 
 ### Parameters
 
@@ -177,6 +235,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-webhook-consumer" method="delete" path="/webhooks/{webhookId}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

@@ -1,0 +1,18 @@
+# SetCompanySyncSettingsRequest
+
+## Example Usage
+
+```typescript
+import { SetCompanySyncSettingsRequest } from "@codat/platform/sdk/models/operations";
+
+let value: SetCompanySyncSettingsRequest = {
+  companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                             | Type                                                                                                                                                              | Required                                                                                                                                                          | Description                                                                                                                                                       | Example                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `companyId`                                                                                                                                                       | *string*                                                                                                                                                          | :heavy_check_mark:                                                                                                                                                | Unique identifier for a company.                                                                                                                                  | 8a210b68-6988-11ed-a1eb-0242ac120002                                                                                                                              |
+| `requestBody`                                                                                                                                                     | [operations.SetCompanySyncSettingsRequestBody](../../../sdk/models/operations/setcompanysyncsettingsrequestbody.md)                                               | :heavy_minus_sign:                                                                                                                                                | Include a `syncSetting` object for each data type.<br/>`syncFromWindow`, `syncFromUTC` & `monthsToSync` only need to be included if you wish to set a value for them. |                                                                                                                                                                   |

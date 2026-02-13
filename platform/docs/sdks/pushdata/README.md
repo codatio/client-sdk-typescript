@@ -1,5 +1,4 @@
 # PushData
-(*pushData*)
 
 ## Overview
 
@@ -21,6 +20,7 @@ Codat tries not to limit users to pushing to a very limited number of standard c
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-create-update-model-options-by-data-type" method="get" path="/companies/{companyId}/connections/{connectionId}/options/{dataType}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -101,6 +101,7 @@ Write operations are actions that send requests to Codat, enabling the creation,
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company-push-history" method="get" path="/companies/{companyId}/push" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -181,6 +182,7 @@ Write operations are actions that send requests to Codat, enabling the creation,
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-push-operation" method="get" path="/companies/{companyId}/push/{pushOperationKey}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

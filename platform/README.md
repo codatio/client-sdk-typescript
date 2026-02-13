@@ -81,95 +81,7 @@ bun add @codat/platform
 ### Yarn
 
 ```bash
-yarn add @codat/platform zod
-
-# Note that Yarn does not install peer dependencies automatically. You will need
-# to install zod as shown above.
-```
-
-
-
-### Model Context Protocol (MCP) Server
-
-This SDK is also an installable MCP server where the various SDK methods are
-exposed as tools that can be invoked by AI applications.
-
-> Node.js v20 or greater is required to run the MCP server from npm.
-
-<details>
-<summary>Claude installation steps</summary>
-
-Add the following server definition to your `claude_desktop_config.json` file:
-
-```json
-{
-  "mcpServers": {
-    "CodatPlatform": {
-      "command": "npx",
-      "args": [
-        "-y", "--package", "@codat/platform",
-        "--",
-        "mcp", "start",
-        "--auth-header", "..."
-      ]
-    }
-  }
-}
-```
-
-</details>
-
-<details>
-<summary>Cursor installation steps</summary>
-
-Create a `.cursor/mcp.json` file in your project root with the following content:
-
-```json
-{
-  "mcpServers": {
-    "CodatPlatform": {
-      "command": "npx",
-      "args": [
-        "-y", "--package", "@codat/platform",
-        "--",
-        "mcp", "start",
-        "--auth-header", "..."
-      ]
-    }
-  }
-}
-```
-
-</details>
-
-You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
-
-```bash
-curl -L -o mcp-server \
-    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
-chmod +x mcp-server
-```
-
-If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
-
-
-```json
-{
-  "mcpServers": {
-    "Todos": {
-      "command": "./DOWNLOAD/PATH/mcp-server",
-      "args": [
-        "start"
-      ]
-    }
-  }
-}
-```
-
-For a full list of server arguments, run:
-
-```sh
-npx -y --package @codat/platform -- mcp start --help
+yarn add @codat/platform
 ```
 <!-- End SDK Installation [installation] -->
 
@@ -182,27 +94,18 @@ npx -y --package @codat/platform -- mcp start --help
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
-const codatPlatform = new CodatPlatform();
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
 
 async function run() {
-  await codatPlatform.companyCreated({
-    id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
-    eventType: "company.created",
-    generatedDate: "2024-08-08T17:10:34.015Z",
-    payload: {
-      id: "0498e921-9b53-4396-a412-4f2f5983b0a2",
-      name: "Bank of Dave",
-      description: "Requested a loan for refurb.",
-      redirect:
-        "https://link.codat.io/company/0498e921-9b53-4396-a412-4f2f5983b0a2",
-      lastSync: "2022-01-01T12:00:00.000Z",
-      created: "2022-01-01T12:00:00.000Z",
-      tags: {
-        "customerRegion": "us",
-        "uid": "335a086e-8563-4b03-94e3-39544225ecb6",
-      },
-    },
+  const result = await codatPlatform.companies.list({
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
   });
+
+  console.log(result);
 }
 
 run();
@@ -216,8 +119,7 @@ run();
 <details open>
 <summary>Available methods</summary>
 
-
-### [companies](docs/sdks/companies/README.md)
+### [Companies](docs/sdks/companies/README.md)
 
 * [list](docs/sdks/companies/README.md#list) - List companies
 * [create](docs/sdks/companies/README.md#create) - Create company
@@ -229,12 +131,14 @@ run();
 * [removeProduct](docs/sdks/companies/README.md#removeproduct) - Remove product
 * [refreshProductData](docs/sdks/companies/README.md#refreshproductdata) - Refresh product data
 * [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
+* [getCompanySyncSettings](docs/sdks/companies/README.md#getcompanysyncsettings) - Get company sync settings
+* [setCompanySyncSettings](docs/sdks/companies/README.md#setcompanysyncsettings) - Set company sync settings
 
-### [~~connectionManagement~~](docs/sdks/connectionmanagement/README.md)
+### [~~ConnectionManagement~~](docs/sdks/connectionmanagement/README.md)
 
 * [~~get~~](docs/sdks/connectionmanagement/README.md#get) - Get access token (old) :warning: **Deprecated** Use [getAccessToken](docs/sdks/companies/README.md#getaccesstoken) instead.
 
-### [connections](docs/sdks/connections/README.md)
+### [Connections](docs/sdks/connections/README.md)
 
 * [list](docs/sdks/connections/README.md#list) - List connections
 * [create](docs/sdks/connections/README.md#create) - Create connection
@@ -243,35 +147,35 @@ run();
 * [unlink](docs/sdks/connections/README.md#unlink) - Unlink connection
 * [updateAuthorization](docs/sdks/connections/README.md#updateauthorization) - Update authorization
 
-### [~~cors~~](docs/sdks/cors/README.md)
+### [~~Cors~~](docs/sdks/cors/README.md)
 
 * [~~get~~](docs/sdks/cors/README.md#get) - Get CORS settings (old) :warning: **Deprecated** Use [get](docs/sdks/settings/README.md#get) instead.
 * [~~set~~](docs/sdks/cors/README.md#set) - Set CORS settings (old) :warning: **Deprecated** Use [set](docs/sdks/settings/README.md#set) instead.
 
-### [customDataType](docs/sdks/customdatatype/README.md)
+### [CustomDataType](docs/sdks/customdatatype/README.md)
 
 * [configure](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
 * [getConfiguration](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
 * [refresh](docs/sdks/customdatatype/README.md#refresh) - Refresh custom data type
 * [list](docs/sdks/customdatatype/README.md#list) - List custom data type records
 
-### [integrations](docs/sdks/integrations/README.md)
+### [Integrations](docs/sdks/integrations/README.md)
 
 * [list](docs/sdks/integrations/README.md#list) - List integrations
 * [get](docs/sdks/integrations/README.md#get) - Get integration
 * [getBranding](docs/sdks/integrations/README.md#getbranding) - Get branding
 
-### [pushData](docs/sdks/pushdata/README.md)
+### [PushData](docs/sdks/pushdata/README.md)
 
 * [getModelOptions](docs/sdks/pushdata/README.md#getmodeloptions) - Get push options
 * [listOperations](docs/sdks/pushdata/README.md#listoperations) - List push operations
 * [getOperation](docs/sdks/pushdata/README.md#getoperation) - Get push operation
 
-### [readData](docs/sdks/readdata/README.md)
+### [ReadData](docs/sdks/readdata/README.md)
 
 * [getValidationResults](docs/sdks/readdata/README.md#getvalidationresults) - Get validation results
 
-### [refreshData](docs/sdks/refreshdata/README.md)
+### [RefreshData](docs/sdks/refreshdata/README.md)
 
 * [all](docs/sdks/refreshdata/README.md#all) - Refresh all data
 * [byDataType](docs/sdks/refreshdata/README.md#bydatatype) - Refresh data type
@@ -279,7 +183,7 @@ run();
 * [listPullOperations](docs/sdks/refreshdata/README.md#listpulloperations) - List pull operations
 * [getPullOperation](docs/sdks/refreshdata/README.md#getpulloperation) - Get pull operation
 
-### [settings](docs/sdks/settings/README.md)
+### [Settings](docs/sdks/settings/README.md)
 
 * [get](docs/sdks/settings/README.md#get) - Get CORS settings
 * [set](docs/sdks/settings/README.md#set) - Set CORS settings
@@ -291,12 +195,12 @@ run();
 * [createApiKey](docs/sdks/settings/README.md#createapikey) - Create API key
 * [deleteApiKey](docs/sdks/settings/README.md#deleteapikey) - Delete API key
 
-### [supplementalData](docs/sdks/supplementaldata/README.md)
+### [SupplementalData](docs/sdks/supplementaldata/README.md)
 
 * [configure](docs/sdks/supplementaldata/README.md#configure) - Configure
 * [getConfiguration](docs/sdks/supplementaldata/README.md#getconfiguration) - Get configuration
 
-### [webhooks](docs/sdks/webhooks/README.md)
+### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [listConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 * [createConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
@@ -327,10 +231,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
 - [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) - Get company access token
+- [`companiesGetCompanySyncSettings`](docs/sdks/companies/README.md#getcompanysyncsettings) - Get company sync settings
 - [`companiesList`](docs/sdks/companies/README.md#list) - List companies
 - [`companiesRefreshProductData`](docs/sdks/companies/README.md#refreshproductdata) - Refresh product data
 - [`companiesRemoveProduct`](docs/sdks/companies/README.md#removeproduct) - Remove product
 - [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
+- [`companiesSetCompanySyncSettings`](docs/sdks/companies/README.md#setcompanysyncsettings) - Set company sync settings
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
 - [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
 - [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
@@ -449,16 +355,15 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-This table shows properties which are common on error classes. For full details see [error classes](#error-classes).
+[`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts) is the base class for all HTTP error responses. It has the following properties:
 
 | Property            | Type       | Description                                                                             |
 | ------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| `error.name`        | `string`   | Error class name eg `SDKError`                                                          |
 | `error.message`     | `string`   | Error message                                                                           |
-| `error.statusCode`  | `number`   | HTTP status code eg `404`                                                               |
-| `error.contentType` | `string`   | HTTP content type eg `application/json`                                                 |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
 | `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
-| `error.rawResponse` | `Response` | Raw HTTP response. Access to headers and more.                                          |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
 | `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
@@ -480,22 +385,21 @@ async function run() {
 
     console.log(result);
   } catch (error) {
-    // Depending on the method different errors may be thrown
-    if (error instanceof errors.ErrorMessage) {
-      console.log(error.message);
-      console.log(error.data$.statusCode); // number
-      console.log(error.data$.service); // string
-      console.log(error.data$.error); // string
-      console.log(error.data$.correlationId); // string
-      console.log(error.data$.validation); // shared.ErrorValidation
-    }
-
-    // Fallback error class, if no other more specific error class is matched
-    if (error instanceof errors.SDKError) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.CodatPlatformError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
-      console.log(error.rawResponse.headers);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ErrorMessage) {
+        console.log(error.data$.statusCode); // number
+        console.log(error.data$.service); // string
+        console.log(error.data$.error); // string
+        console.log(error.data$.correlationId); // string
+        console.log(error.data$.validation); // shared.ErrorValidation
+      }
     }
   }
 }
@@ -505,15 +409,26 @@ run();
 ```
 
 ### Error Classes
-* [`ErrorMessage`](docs/sdk/models/errors/errormessage.md): Your `query` parameter was not correctly formed.
-* `SDKError`: The fallback error class, if no other more specific error class is matched.
-* `SDKValidationError`: Type mismatch between the data returned from the server and the structure expected by the SDK. This can also be thrown for invalid method arguments. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
-* Network errors:
-    * `ConnectionError`: HTTP client was unable to make a request to a server.
-    * `RequestTimeoutError`: HTTP request timed out due to an AbortSignal signal.
-    * `RequestAbortedError`: HTTP request was aborted by the client.
-    * `InvalidRequestError`: Any input used to create a request is invalid.
-    * `UnexpectedClientError`: Unrecognised or unexpected error.
+**Primary errors:**
+* [`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts): The base class for HTTP error responses.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): Your `query` parameter was not correctly formed.
+
+<details><summary>Less common errors (6)</summary>
+
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts)**:
+* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -558,19 +473,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "@codat/platform/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {
@@ -590,7 +509,7 @@ httpClient.addHook("requestError", (error, request) => {
   console.groupEnd();
 });
 
-const sdk = new CodatPlatform({ httpClient });
+const sdk = new CodatPlatform({ httpClient: httpClient });
 ```
 <!-- End Custom HTTP Client [http-client] -->
 

@@ -1,5 +1,4 @@
 # Settings
-(*settings*)
 
 ## Overview
 
@@ -25,6 +24,7 @@ Enabling CORS with Codat is required by our embeddable UIs (such as [Connections
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-cors-settings" method="get" path="/corsSettings" example="Allowed origins" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -94,8 +94,62 @@ run();
  
 Enabling CORS with Codat is required by our embeddable UIs (such as [Connections SDK](https://docs.codat.io/auth-flow/optimize/connection-management) and [Link SDK](https://docs.codat.io/auth-flow/authorize-embedded-link)) to access Codat's API endpoints.
 
-### Example Usage
+### Example Usage: Allowed origins
 
+<!-- UsageSnippet language="typescript" operationID="set-cors-settings" method="post" path="/corsSettings" example="Allowed origins" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.settings.set({
+    allowedOrigins: [
+      "https://www.bank-of-dave.com",
+    ],
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { settingsSet } from "@codat/platform/funcs/settingsSet.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await settingsSet(codatPlatform, {
+    allowedOrigins: [
+      "https://www.bank-of-dave.com",
+    ],
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsSet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="typescript" operationID="set-cors-settings" method="post" path="/corsSettings" example="Unauthorized" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -174,6 +228,7 @@ Fetch your Codat profile.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-profile" method="get" path="/profile" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -243,6 +298,7 @@ Update your Codat profile
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update-profile" method="put" path="/profile" example="Unauthorized" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -333,6 +389,7 @@ Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-profile-syncSettings" method="get" path="/profile/syncSettings" example="Example" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -402,6 +459,7 @@ Update sync settings for all data types.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update-profile-syncSettings" method="post" path="/profile/syncSettings" example="Unauthorized" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -504,6 +562,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-api-keys" method="get" path="/apiKeys" example="Example" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -581,8 +640,156 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 * If you require multiple API keys, perform multiple calls to the *Create API keys* endpoint. 
 * The number of API keys is limited to 10. If you have reached the maximum amount of keys, use the *Delete API key* endpoint to delete an unused key first.
 
-### Example Usage
+### Example Usage: API key details
 
+<!-- UsageSnippet language="typescript" operationID="create-api-key" method="post" path="/apiKeys" example="API key details" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.settings.createApiKey({
+    name: "azure-invoice-finance-processor",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { settingsCreateApiKey } from "@codat/platform/funcs/settingsCreateApiKey.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await settingsCreateApiKey(codatPlatform, {
+    name: "azure-invoice-finance-processor",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsCreateApiKey failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: API key details with name
+
+<!-- UsageSnippet language="typescript" operationID="create-api-key" method="post" path="/apiKeys" example="API key details with name" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.settings.createApiKey({
+    name: "azure-invoice-finance-processor",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { settingsCreateApiKey } from "@codat/platform/funcs/settingsCreateApiKey.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await settingsCreateApiKey(codatPlatform, {
+    name: "azure-invoice-finance-processor",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsCreateApiKey failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Create API key with name
+
+<!-- UsageSnippet language="typescript" operationID="create-api-key" method="post" path="/apiKeys" example="Create API key with name" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.settings.createApiKey({
+    name: "azure-invoice-finance-processor",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { settingsCreateApiKey } from "@codat/platform/funcs/settingsCreateApiKey.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await settingsCreateApiKey(codatPlatform, {
+    name: "azure-invoice-finance-processor",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("settingsCreateApiKey failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Max length for name reached
+
+<!-- UsageSnippet language="typescript" operationID="create-api-key" method="post" path="/apiKeys" example="Max length for name reached" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -666,6 +873,7 @@ You can [read more](https://docs.codat.io/using-the-api/authentication) about au
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-api-key" method="delete" path="/apiKeys/{apiKeyId}" example="Conflict" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

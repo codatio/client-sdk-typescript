@@ -1,5 +1,7 @@
-# ConnectionManagement
-(*connectionManagement*)
+# ~~ConnectionManagement~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -20,6 +22,7 @@ Update your integration to use the global token for improved efficiency and cons
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-connection-management-access-token" method="get" path="/companies/{companyId}/connectionManagement/accessToken" example="Access token" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

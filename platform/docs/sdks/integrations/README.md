@@ -1,5 +1,4 @@
 # Integrations
-(*integrations*)
 
 ## Overview
 
@@ -17,6 +16,7 @@ List your available integrations
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-integrations" method="get" path="/integrations" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -93,6 +93,7 @@ Get single integration, by platformKey
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-integration" method="get" path="/integrations/{platformKey}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -167,6 +168,7 @@ Get branding for platform.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-integrations-branding" method="get" path="/integrations/{platformKey}/branding" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
