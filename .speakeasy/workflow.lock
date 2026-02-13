@@ -1,5 +1,4 @@
 speakeasyVersion: 1.709.1
-speakeasyVersion: 1.701.0
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
