@@ -1,5 +1,4 @@
 # Connections
-(*connections*)
 
 ## Overview
 
@@ -20,6 +19,7 @@ Create new and manage existing data connections for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-connections" method="get" path="/companies/{companyId}/connections" example="Connections" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -98,8 +98,64 @@ run();
 
 Use the [List Integrations](https://docs.codat.io/platform-api#/operations/list-integrations) endpoint to access valid platform keys. 
 
-### Example Usage
+### Example Usage: Connection
 
+<!-- UsageSnippet language="typescript" operationID="create-connection" method="post" path="/companies/{companyId}/connections" example="Connection" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.connections.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    requestBody: {
+      platformKey: "gbol",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { connectionsCreate } from "@codat/platform/funcs/connectionsCreate.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await connectionsCreate(codatPlatform, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    requestBody: {
+      platformKey: "gbol",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("connectionsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="typescript" operationID="create-connection" method="post" path="/companies/{companyId}/connections" example="Unauthorized" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -180,6 +236,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-connection" method="get" path="/companies/{companyId}/connections/{connectionId}" example="Connection" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -257,6 +314,7 @@ This operation is not reversible. The end user would need to reauthorize a new d
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="delete-connection" method="delete" path="/companies/{companyId}/connections/{connectionId}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -333,6 +391,7 @@ run();
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="unlink-connection" method="patch" path="/companies/{companyId}/connections/{connectionId}" example="Example" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -415,6 +474,7 @@ Update data connection's authorization.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="update-connection-authorization" method="put" path="/companies/{companyId}/connections/{connectionId}/authorization" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

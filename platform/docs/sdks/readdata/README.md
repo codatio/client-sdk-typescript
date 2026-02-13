@@ -1,5 +1,4 @@
 # ReadData
-(*readData*)
 
 ## Overview
 
@@ -20,6 +19,7 @@ The validation result [schema](https://docs.codat.io/platform-api#/schemas/Valid
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-read-validation-results" method="get" path="/companies/{companyId}/sync/{datasetId}/validation" example="Validation result" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

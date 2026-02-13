@@ -7,10 +7,12 @@ import { companiesCreate } from "../funcs/companiesCreate.js";
 import { companiesDelete } from "../funcs/companiesDelete.js";
 import { companiesGet } from "../funcs/companiesGet.js";
 import { companiesGetAccessToken } from "../funcs/companiesGetAccessToken.js";
+import { companiesGetCompanySyncSettings } from "../funcs/companiesGetCompanySyncSettings.js";
 import { companiesList } from "../funcs/companiesList.js";
 import { companiesRefreshProductData } from "../funcs/companiesRefreshProductData.js";
 import { companiesRemoveProduct } from "../funcs/companiesRemoveProduct.js";
 import { companiesReplace } from "../funcs/companiesReplace.js";
+import { companiesSetCompanySyncSettings } from "../funcs/companiesSetCompanySyncSettings.js";
 import { companiesUpdate } from "../funcs/companiesUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
@@ -203,6 +205,8 @@ export class Companies extends ClientSDK {
    * - This endpoint only supports refreshing data for **custom products** and can't be used for Codat's standard solutions. Refer to [individual solutions' documentation](https://docs.codat.io/) instead.
    * - If a data sync is already in progress for a custom product, the refresh request will return a `Bad request (400)` response.
    * - If a company has multiple custom products enabled, you can refresh data for each product individually.
+   *  - Optionally include a request body with `dataTypes` to refresh only selected data types for the specified product. If omitted, the product's scheduled refresh is triggered as usual.
+   *  - When specifying `dataTypes`, each value must be a valid data type supported by the product. Invalid values will result in a `Bad request (400)` response listing valid options.
    */
   async refreshProductData(
     request: operations.RefreshProductDataRequest,
@@ -228,6 +232,40 @@ export class Companies extends ClientSDK {
     options?: RequestOptions,
   ): Promise<shared.CompanyAccessToken> {
     return unwrapAsync(companiesGetAccessToken(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get company sync settings
+   *
+   * @remarks
+   * Retrieve the [sync settings](https://docs.codat.io/knowledge-base/advanced-sync-settings) for a specific company. This includes how often data types should be queued to be updated, and how much history should be fetched.
+   */
+  async getCompanySyncSettings(
+    request: operations.GetCompanySyncSettingsRequest,
+    options?: RequestOptions,
+  ): Promise<shared.CompanySyncSettings> {
+    return unwrapAsync(companiesGetCompanySyncSettings(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Set company sync settings
+   *
+   * @remarks
+   * Set the sync settings for a specific company.
+   */
+  async setCompanySyncSettings(
+    request: operations.SetCompanySyncSettingsRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(companiesSetCompanySyncSettings(
       this,
       request,
       options,

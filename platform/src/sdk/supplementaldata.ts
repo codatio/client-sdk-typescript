@@ -18,7 +18,7 @@ export class SupplementalData extends ClientSDK {
    *
    * [Supplemental data](https://docs.codat.io/using-the-api/supplemental-data/overview) is additional data you can include in Codat's standard data types.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    * See the *examples* for integration-specific frequently requested properties.
    */
   async configure(

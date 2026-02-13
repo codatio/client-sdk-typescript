@@ -1,5 +1,7 @@
-# Cors
-(*cors*)
+# ~~Cors~~
+
+> [!WARNING]
+> This SDK is **DEPRECATED**
 
 ## Overview
 
@@ -20,6 +22,7 @@ Update your integrations to use the new path `/corsSettings` as the existing rou
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-connection-management-cors-settings" method="get" path="/connectionManagement/corsSettings" example="Allowed origins" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -93,8 +96,62 @@ Enabling CORS with Codat is required by our embeddable UIs (such as [Connections
 Update your integrations to use the new path `/corsSettings` as the existing route will be removed in a future release.
 . Use `set` instead.
 
-### Example Usage
+### Example Usage: Allowed origins
 
+<!-- UsageSnippet language="typescript" operationID="set-connection-management-cors-settings" method="post" path="/connectionManagement/corsSettings" example="Allowed origins" -->
+```typescript
+import { CodatPlatform } from "@codat/platform";
+
+const codatPlatform = new CodatPlatform({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatPlatform.cors.set({
+    allowedOrigins: [
+      "https://www.bank-of-dave.com",
+    ],
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatPlatformCore } from "@codat/platform/core.js";
+import { corsSet } from "@codat/platform/funcs/corsSet.js";
+
+// Use `CodatPlatformCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatPlatform = new CodatPlatformCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await corsSet(codatPlatform, {
+    allowedOrigins: [
+      "https://www.bank-of-dave.com",
+    ],
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("corsSet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Unauthorized
+
+<!-- UsageSnippet language="typescript" operationID="set-connection-management-cors-settings" method="post" path="/connectionManagement/corsSettings" example="Unauthorized" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 

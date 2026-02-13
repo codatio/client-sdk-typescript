@@ -1,5 +1,4 @@
 # RefreshData
-(*refreshData*)
 
 ## Overview
 
@@ -23,6 +22,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh-company-data" method="post" path="/companies/{companyId}/data/all" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -99,6 +99,7 @@ This is an asynchronous operation, and will bring updated data into Codat from t
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="refresh-data-type" method="post" path="/companies/{companyId}/data/queue/{dataType}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -175,6 +176,7 @@ Get the state of each data type for a company
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company-data-status" method="get" path="/companies/{companyId}/dataStatus" example="Example" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -249,6 +251,7 @@ Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" example="Example" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -327,6 +330,7 @@ Retrieve information about a single dataset or pull operation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-pull-operation" method="get" path="/companies/{companyId}/data/history/{datasetId}" -->
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
