@@ -40,6 +40,7 @@ export * from "./listsyncs.js";
 export * from "./listsynctransactions.js";
 export * from "./refreshalldatatypes.js";
 export * from "./refreshdatatype.js";
+export * from "./replacecompany.js";
 export * from "./setcompanyconfiguration.js";
 export * from "./unlinkconnection.js";
 export * from "./updatecompany.js";

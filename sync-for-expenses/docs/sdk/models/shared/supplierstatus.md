@@ -7,7 +7,7 @@ Status of the supplier.
 ```typescript
 import { SupplierStatus } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: SupplierStatus = "Unknown";
+let value: SupplierStatus = "Archived";
 ```
 
 ## Values

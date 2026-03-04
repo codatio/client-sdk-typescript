@@ -20,7 +20,20 @@ export class Suppliers extends ClientSDK {
    *
    * [Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
    *
-   * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data).
+   * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-all-data-types).
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | Dynamics 365 Business Central | Yes       |
+   * | FreeAgent                     | Yes       |
+   * | Oracle NetSuite               | Yes       |
+   * | QuickBooks Desktop            | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Sage Intacct                  | Yes       |
+   * | Xero                          | Yes       |
+   * | Zoho Books                    | Yes       |
    */
   async list(
     request: operations.ListSuppliersRequest,
@@ -41,7 +54,20 @@ export class Suppliers extends ClientSDK {
    *
    * [Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
    *
-   * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-company-data).
+   * Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/sync-for-expenses-api#/operations/refresh-all-data-types).
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | Dynamics 365 Business Central | Yes       |
+   * | FreeAgent                     | Yes       |
+   * | Oracle NetSuite               | Yes       |
+   * | QuickBooks Desktop            | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Sage Intacct                  | Yes       |
+   * | Xero                          | Yes       |
+   * | Zoho Books                    | Yes       |
    */
   async get(
     request: operations.GetSupplierRequest,
@@ -62,9 +88,22 @@ export class Suppliers extends ClientSDK {
    *
    * [Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model).
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | Dynamics 365 Business Central | Yes       |
+   * | FreeAgent                     | Yes       |
+   * | Oracle NetSuite               | Yes       |
+   * | QuickBooks Desktop            | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Sage Intacct                  | Yes       |
+   * | Xero                          | Yes       |
+   * | Zoho Books                    | Yes       |
    */
   async create(
     request: operations.CreateSupplierRequest,
@@ -85,9 +124,17 @@ export class Suppliers extends ClientSDK {
    *
    * [Suppliers](https://docs.codat.io/sync-for-expenses-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
    *
-   * **Integration-specific behaviour**
+   * **Integration-specific behavior**
    *
    * Required data may vary by integration. To see what data to post, first call [Get create/update supplier model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-suppliers-model).
+   *
+   * ### Supported Integrations
+   *
+   * | Integration       | Supported |
+   * |-------------------|-----------|
+   * | FreeAgent         | Yes       |
+   * | QuickBooks Online | Yes       |
+   * | Xero              | Yes       |
    */
   async update(
     request: operations.UpdateSupplierRequest,

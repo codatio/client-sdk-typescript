@@ -7,13 +7,6 @@ import { SetCompanyConfigurationRequest } from "@codat/sync-for-expenses/sdk/mod
 
 let value: SetCompanyConfigurationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  companyConfiguration: {
-    bankAccount: {
-      id: "32",
-    },
-    supplier: {},
-    customer: {},
-  },
 };
 ```
 

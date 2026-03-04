@@ -1,4 +1,4 @@
-speakeasyVersion: 1.715.0
+speakeasyVersion: 1.741.1
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
@@ -34,11 +34,10 @@ sources:
             - "1.1"
     sync-for-expenses-source:
         sourceNamespace: sync-for-expenses-source
-        sourceRevisionDigest: sha256:f8ef7ba352bd592880c7f83244de0c14b6474fddaeab684d77f596df550ce3ea
-        sourceBlobDigest: sha256:abe56a70fc7e5c5883c7e8a6bef59d69ceb2dc4eddbb3106ae06b6c5acb38408
+        sourceRevisionDigest: sha256:62683d8745c6d1a5c87fcfcf9b37c8d8d6209fabf2dd7ea7082e8f21531d1ebc
+        sourceBlobDigest: sha256:aa297e6cc1e1af7d1b8f9832e8da914f7e3d365f13c80edf6ac5a0c5f8789aeb
         tags:
             - latest
-            - speakeasy-sdk-regen-1732638392
             - prealpha
     sync-for-payables-source:
         sourceNamespace: sync-for-payables-source
@@ -95,10 +94,10 @@ targets:
     sync-for-expenses-library:
         source: sync-for-expenses-source
         sourceNamespace: sync-for-expenses-source
-        sourceRevisionDigest: sha256:f8ef7ba352bd592880c7f83244de0c14b6474fddaeab684d77f596df550ce3ea
-        sourceBlobDigest: sha256:abe56a70fc7e5c5883c7e8a6bef59d69ceb2dc4eddbb3106ae06b6c5acb38408
-        codeSamplesNamespace: sync-for-expenses-source-code-samples
-        codeSamplesRevisionDigest: sha256:822014a4673a26638b590d81a71d55691613d2d105856eb4bc2d670dd43960ae
+        sourceRevisionDigest: sha256:62683d8745c6d1a5c87fcfcf9b37c8d8d6209fabf2dd7ea7082e8f21531d1ebc
+        sourceBlobDigest: sha256:aa297e6cc1e1af7d1b8f9832e8da914f7e3d365f13c80edf6ac5a0c5f8789aeb
+        codeSamplesNamespace: sync-for-expenses-source-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:bb05f8e2149ca791541f6ff5ed8005baa208f390fa6c37862ba77b9125ef4ed3
     sync-for-payables-library:
         source: sync-for-payables-source
         sourceNamespace: sync-for-payables-source
