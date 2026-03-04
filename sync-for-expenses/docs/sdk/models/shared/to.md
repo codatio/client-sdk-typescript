@@ -10,7 +10,7 @@ let value: To = {
   accountRef: {
     id: "<id>",
   },
-  amount: new Decimal("9255.97"),
+  amount: new Decimal("512.02"),
 };
 ```
 

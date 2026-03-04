@@ -6,8 +6,8 @@
 import { PushOption } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: PushOption = {
-  type: "DateTime",
-  displayName: "Holden89",
+  type: "MultiPart",
+  displayName: "Travis.Ebert-Fahey",
   required: false,
 };
 ```

@@ -25,6 +25,8 @@ export class Reimbursements extends ClientSDK {
    * | QuickBooks Desktop    | Yes       |
    * | QuickBooks Online     | Yes       |
    * | Oracle NetSuite       | Yes       |
+   * | Zoho Books            | Yes       |
+   * | Sage Intacct          | Yes       |
    */
   async create(
     request: operations.CreateReimbursableExpenseTransactionRequest,
@@ -51,6 +53,8 @@ export class Reimbursements extends ClientSDK {
    * | FreeAgent             | Yes       |
    * | QuickBooks Online     | Yes       |
    * | Oracle NetSuite       | Yes       |
+   * | Sage Intacct          | Yes       |
+   * | Zoho Books            | Yes       |
    */
   async update(
     request: operations.UpdateReimbursableExpenseTransactionRequest,

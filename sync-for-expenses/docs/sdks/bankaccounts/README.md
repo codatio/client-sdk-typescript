@@ -1,5 +1,4 @@
 # BankAccounts
-(*bankAccounts*)
 
 ## Overview
 
@@ -16,12 +15,76 @@ The *Create bank account* endpoint creates a new [bank account](https://docs.cod
 
 [Bank accounts](https://docs.codat.io/sync-for-expenses-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 Required data may vary by integration. To see what data to post, first call [Get create/update bank account model](https://docs.codat.io/sync-for-expenses-api#/operations/get-create-update-bankAccounts-model).
 
-### Example Usage
+### Example Usage: Malformed query
 
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" example="Malformed query" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccount: {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      status: "Active",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsCreate } from "@codat/sync-for-expenses/funcs/bankAccountsCreate.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsCreate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccount: {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      currency: "GBP",
+      status: "Active",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" example="QuickBooks Online" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -42,7 +105,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -75,15 +137,79 @@ async function run() {
       status: "Active",
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsCreate failed:", res.error);
   }
+}
 
-  const { value: result } = res;
+run();
+```
+### Example Usage: Xero
 
-  // Handle the result
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" example="Xero" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccount: {
+      accountName: "Xero GBP Bank Account",
+      accountType: "Debit",
+      sortCode: "445566",
+      accountNumber: "12345678",
+      currency: "GBP",
+      status: "Active",
+    },
+  });
+
   console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsCreate } from "@codat/sync-for-expenses/funcs/bankAccountsCreate.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsCreate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccount: {
+      accountName: "Xero GBP Bank Account",
+      accountType: "Debit",
+      sortCode: "445566",
+      accountNumber: "12345678",
+      currency: "GBP",
+      status: "Active",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsCreate failed:", res.error);
+  }
 }
 
 run();
@@ -104,10 +230,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## getCreateModel
 
@@ -115,13 +242,14 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 
 [Bank accounts](https://docs.codat.io/sync-for-expenses-api#/schemas/BankAccount) are financial accounts maintained by a bank or other financial institution.
 
-**Integration-specific behaviour**
+**Integration-specific behavior**
 
 See the *response examples* for integration-specific indicative models.
 
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Dynamics 365 Business Central" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -135,7 +263,6 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -161,15 +288,420 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
   }
+}
 
-  const { value: result } = res;
+run();
+```
+### Example Usage: Exact (Netherlands)
 
-  // Handle the result
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Exact (Netherlands)" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
   console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Exact (UK)" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="FreeAgent" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="KashFlow" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="QuickBooks Desktop" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Sandbox" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { bankAccountsGetCreateModel } from "@codat/sync-for-expenses/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
 }
 
 run();
@@ -190,7 +722,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

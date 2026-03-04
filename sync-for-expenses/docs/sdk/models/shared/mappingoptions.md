@@ -4,7 +4,6 @@
 
 ```typescript
 import { MappingOptions } from "@codat/sync-for-expenses/sdk/models/shared";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 let value: MappingOptions = {
   expenseProvider: "Partner Expense",
@@ -31,18 +30,7 @@ let value: MappingOptions = {
       parentId: "DEPARTMENTS",
     },
   ],
-  taxRates: [
-    {
-      id: "23_Bills",
-      name: "20% Bill tax Bills",
-      code: "20% Bill tax",
-      effectiveTaxRate: new Decimal("20"),
-      totalTaxRate: new Decimal("20"),
-      validTransactionTypes: [
-        "Payment",
-      ],
-    },
-  ],
+  taxRates: null,
 };
 ```
 
