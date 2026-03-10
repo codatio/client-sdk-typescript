@@ -1,13 +1,13 @@
-# PhoneNumberType
+# ItemsType
 
 The type of phone number
 
 ## Example Usage
 
 ```typescript
-import { PhoneNumberType } from "@codat/sync-for-expenses/sdk/models/shared";
+import { ItemsType } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: PhoneNumberType = "Unknown";
+let value: ItemsType = "Primary";
 ```
 
 ## Values

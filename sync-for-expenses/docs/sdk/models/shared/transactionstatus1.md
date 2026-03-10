@@ -7,7 +7,7 @@ Status of transaction.
 ```typescript
 import { TransactionStatus1 } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: TransactionStatus1 = "Pending";
+let value: TransactionStatus1 = "PushError";
 ```
 
 ## Values

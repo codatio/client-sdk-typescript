@@ -7,7 +7,7 @@ The current status of the dataset.
 ```typescript
 import { DatasetStatus } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: DatasetStatus = "Complete";
+let value: DatasetStatus = "RateLimitError";
 ```
 
 ## Values

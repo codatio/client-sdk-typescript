@@ -13,22 +13,22 @@ let value: TransferTransactionRequest = {
     accountRef: {
       id: "<id>",
     },
-    amount: new Decimal("871.29"),
+    amount: new Decimal("2003.32"),
   },
   to: {
     accountRef: {
       id: "<id>",
     },
-    amount: new Decimal("202.18"),
+    amount: new Decimal("625.97"),
   },
 };
 ```
 
 ## Fields
 
-| Field                                             | Type                                              | Required                                          | Description                                       | Example                                           |
-| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `description`                                     | *string*                                          | :heavy_minus_sign:                                | Any private, company notes about the transaction. | Transfer from bank account Y to bank account Z    |
-| `date`                                            | *string*                                          | :heavy_check_mark:                                | N/A                                               | 2022-10-23 00:00:00 +0000 UTC                     |
-| `from`                                            | [shared.From](../../../sdk/models/shared/from.md) | :heavy_check_mark:                                | N/A                                               |                                                   |
-| `to`                                              | [shared.To](../../../sdk/models/shared/to.md)     | :heavy_check_mark:                                | N/A                                               |                                                   |
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `description`                                                     | *string*                                                          | :heavy_minus_sign:                                                | Any private, company notes about the transaction.                 | Transfer from bank account Y to bank account Z                    |
+| `date`                                                            | *string*                                                          | :heavy_check_mark:                                                | N/A                                                               | **Example 1:** 2022-10-23T00:00:00Z<br/>**Example 2:** 2022-10-23 |
+| `from`                                                            | [shared.From](../../../sdk/models/shared/from.md)                 | :heavy_check_mark:                                                | N/A                                                               |                                                                   |
+| `to`                                                              | [shared.To](../../../sdk/models/shared/to.md)                     | :heavy_check_mark:                                                | N/A                                                               |                                                                   |

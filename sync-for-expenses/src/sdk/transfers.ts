@@ -20,12 +20,16 @@ export class Transfers extends ClientSDK {
    * The `from.amount` and `to.amount` fields are in the native currency of the account.
    *
    * ### Supported Integrations
-   * | Integration           | Supported |
-   * |-----------------------|-----------|
-   * | FreeAgent             | Yes       |
-   * | QuickBooks Desktop    | Yes       |
-   * | QuickBooks Online     | Yes       |
-   * | Xero                  | Yes       |
+   * | Integration           | Create transfer  | Update transfer  |
+   * |-----------------------|------------------|------------------|
+   * | Dynamics				| No			   | No				  |
+   * | FreeAgent             | Yes              | Yes              |
+   * | NetSuite              | No               | No               |
+   * | QuickBooks Desktop    | Yes              | No               |
+   * | QuickBooks Online     | Yes              | Yes              |
+   * | Sage Intacct          | No               | No               |
+   * | Xero                  | Yes              | No               |
+   * | Zoho Books            | No               | No               |
    */
   async create(
     request: operations.CreateTransferTransactionRequest,

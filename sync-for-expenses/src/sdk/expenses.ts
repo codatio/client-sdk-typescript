@@ -27,7 +27,9 @@ export class Expenses extends ClientSDK {
    * | QuickBooks Desktop            | Yes       |
    * | QuickBooks Online             | Yes       |
    * | Oracle NetSuite               | Yes       |
+   * | Sage Intacct                  | Yes       |
    * | Xero                          | Yes       |
+   * | Zoho Books                    | Yes       |
    */
   async create(
     request: operations.CreateExpenseTransactionRequest,
@@ -48,14 +50,23 @@ export class Expenses extends ClientSDK {
    *
    * [Expense transactions](https://docs.codat.io/sync-for-expenses-api#/schemas/UpdateExpenseRequest) represent transactions made with a company debit or credit card.
    *
-   * ### Supported Integrations
+   * ### Supported integrations
    * The following integrations are supported for the [Payment](https://docs.codat.io/expenses/sync-process/expense-transactions#transaction-types) transaction `type` only:
    * | Integration           | Supported |
    * |-----------------------|-----------|
    * | FreeAgent             | Yes       |
+   * | QuickBooks Desktop    | Yes       |
    * | QuickBooks Online     | Yes       |
    * | Oracle NetSuite       | Yes       |
+   * | Sage Intacct          | Yes       |
    * | Xero                  | Yes       |
+   * | Zoho Books            | Yes       |
+   *
+   * #### Integration-specific behavior
+   *
+   * | Integration           | Specifics |
+   * |-----------------------|-----------|
+   * | Sage Intacct          | To sync **debit card expenses**, map the debit card to a Credit Card with the account type set to `Debit`.|
    */
   async update(
     request: operations.UpdateExpenseTransactionRequest,

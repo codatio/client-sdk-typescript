@@ -1,5 +1,4 @@
 # Transfers
-(*transfers*)
 
 ## Overview
 
@@ -18,15 +17,20 @@ Transfers record the movement of money between two bank accounts, or between a b
 The `from.amount` and `to.amount` fields are in the native currency of the account.
 
 ### Supported Integrations
-| Integration           | Supported |
-|-----------------------|-----------|
-| FreeAgent             | Yes       |
-| QuickBooks Desktop    | Yes       |
-| QuickBooks Online     | Yes       |
-| Xero                  | Yes       |
+| Integration           | Create transfer  | Update transfer  |
+|-----------------------|------------------|------------------|
+| Dynamics				| No			   | No				  |
+| FreeAgent             | Yes              | Yes              |
+| NetSuite              | No               | No               |
+| QuickBooks Desktop    | Yes              | No               |
+| QuickBooks Online     | Yes              | Yes              |
+| Sage Intacct          | No               | No               |
+| Xero                  | Yes              | No               |
+| Zoho Books            | No               | No               |
 
-### Example Usage
+### Example Usage: Create transfer
 
+<!-- UsageSnippet language="typescript" operationID="create-transfer-transaction" method="put" path="/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}" example="Create transfer" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 import { Decimal } from "@codat/sync-for-expenses/sdk/types";
@@ -57,7 +61,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -100,15 +103,182 @@ async function run() {
       },
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transfersCreate failed:", res.error);
   }
+}
 
-  const { value: result } = res;
+run();
+```
+### Example Usage: Example 1
 
-  // Handle the result
+<!-- UsageSnippet language="typescript" operationID="create-transfer-transaction" method="put" path="/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}" example="Example 1" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.transfers.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    transferTransactionRequest: {
+      description: "Transfer from bank account Y to bank account Z",
+      date: "2022-10-23T00:00:00Z",
+      from: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("7329.18"),
+      },
+      to: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("522.15"),
+      },
+    },
+  });
+
   console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { transfersCreate } from "@codat/sync-for-expenses/funcs/transfersCreate.js";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await transfersCreate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    transferTransactionRequest: {
+      description: "Transfer from bank account Y to bank account Z",
+      date: "2022-10-23T00:00:00Z",
+      from: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("7329.18"),
+      },
+      to: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("522.15"),
+      },
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transfersCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="typescript" operationID="create-transfer-transaction" method="put" path="/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}" example="Malformed query" -->
+```typescript
+import { CodatSyncExpenses } from "@codat/sync-for-expenses";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+const codatSyncExpenses = new CodatSyncExpenses({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncExpenses.transfers.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    transferTransactionRequest: {
+      description: "Transfer from bank account Y to bank account Z",
+      date: "2022-10-23T00:00:00Z",
+      from: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("7329.18"),
+      },
+      to: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("522.15"),
+      },
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
+import { transfersCreate } from "@codat/sync-for-expenses/funcs/transfersCreate.js";
+import { Decimal } from "@codat/sync-for-expenses/sdk/types";
+
+// Use `CodatSyncExpensesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncExpenses = new CodatSyncExpensesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await transfersCreate(codatSyncExpenses, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
+    transferTransactionRequest: {
+      description: "Transfer from bank account Y to bank account Z",
+      date: "2022-10-23T00:00:00Z",
+      from: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("7329.18"),
+      },
+      to: {
+        accountRef: {
+          id: "<id>",
+        },
+        amount: new Decimal("522.15"),
+      },
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transfersCreate failed:", res.error);
+  }
 }
 
 run();
@@ -129,7 +299,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

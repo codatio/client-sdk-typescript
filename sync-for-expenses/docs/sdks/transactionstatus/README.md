@@ -1,5 +1,4 @@
 # TransactionStatus
-(*transactionStatus*)
 
 ## Overview
 
@@ -16,6 +15,7 @@ Gets the transactions and status for a sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-sync-transactions" method="get" path="/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -27,11 +27,8 @@ async function run() {
   const result = await codatSyncExpenses.transactionStatus.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-    page: 1,
-    pageSize: 100,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -56,18 +53,13 @@ async function run() {
   const res = await transactionStatusList(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
-    page: 1,
-    pageSize: 100,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionStatusList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -88,10 +80,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## get
 
@@ -99,6 +92,7 @@ Gets the status of a transaction for a sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-sync-transaction" method="get" path="/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -113,7 +107,6 @@ async function run() {
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -140,15 +133,12 @@ async function run() {
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
     transactionId: "336694d8-2dca-4cb5-a28d-3ccb83e55eee",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionStatusGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -169,7 +159,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

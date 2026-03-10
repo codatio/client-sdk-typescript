@@ -1,9 +1,18 @@
 **/*
+!/FUNCTIONS.md
+!/RUNTIMES.md
+!/REACT_QUERY.md
 !/**/*.ts
 !/**/*.js
+!/**/*.mjs
+!/package.json
+!/jsr.json
+!/dist/**/*.json
+!/esm/**/*.json
 !/**/*.map
 
-/.eslintrc.js
+/eslint.config.mjs
+/.oxlintrc.json
 /cjs
 /.tshy
 /.tshy-*

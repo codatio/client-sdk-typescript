@@ -12,7 +12,6 @@ let value: UpdateExpenseRequest = {
   currency: "GBP",
   contactRef: {
     id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
-    type: "Supplier",
   },
   bankAccountRef: {
     id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
@@ -34,7 +33,6 @@ let value: UpdateExpenseRequest = {
       trackingRefs: [
         {
           id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-          dataType: "trackingCategories",
         },
       ],
       invoiceTo: {
