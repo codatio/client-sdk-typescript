@@ -98,13 +98,34 @@
 <body><h2 id="typescript-sdk-changes">Typescript SDK Changes:</h2>
 
 <ul>
-<li><code>codatplatform.companies.getCompanySyncSettings()</code>: <strong>Added</strong></li>
-<li><code>codatplatform.companies.setCompanySyncSettings()</code>: <strong>Added</strong></li>
-<li><code>codatplatform.companies.refreshProductData()</code>:
+<li><code>codatsyncexpenses.connections.create()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.companies.list()</code>:
 
 <ul>
-<li><code>request.requestBody</code> <strong>Added</strong></li>
+<li><code>request.tags</code> <strong>Added</strong></li>
+<li><code>response.results[].dataConnections[].connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
 </ul></li>
+<li><code>codatsyncexpenses.companies.create()</code>:  <code>response.dataConnections[].connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.companies.update()</code>:
+
+<ul>
+<li><code>request</code> <strong>Changed</strong> (Breaking ⚠️)
+
+<ul>
+<li><code>companyRequestBody</code> <strong>Removed</strong> (Breaking ⚠️)</li>
+<li><code>companyUpdateRequest</code> <strong>Added</strong></li>
+</ul></li>
+<li><code>response.dataConnections[].connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+</ul></li>
+<li><code>codatsyncexpenses.companies.get()</code>:  <code>response.dataConnections[].connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.connections.list()</code>:  <code>response.results[].connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.connections.get()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.connections.unlink()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.connections.createPartnerExpenseConnection()</code>:  <code>response.connectionInfo.Map&lt;any&gt;</code> <strong>Changed</strong> (Breaking ⚠️)</li>
+<li><code>codatsyncexpenses.companies.replace()</code>: <strong>Added</strong></li>
+<li><code>codatsyncexpenses.manageData.refreshAllDataTypes()</code>:  <code>error.status[400]</code> <strong>Added</strong></li>
+<li><code>codatsyncexpenses.manageData.get()</code>:  <code>response.accountTransactions.lastSuccessfulSync</code> <strong>Changed</strong></li>
+<li><code>codatsyncexpenses.manageData.refreshDataType()</code>:  <code>error.status[400]</code> <strong>Added</strong></li>
 </ul>
 </body>
 </html>

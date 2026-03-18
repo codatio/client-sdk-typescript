@@ -7,7 +7,6 @@ import { TrackingRefAdjustmentTransaction } from "@codat/sync-for-expenses/sdk/m
 
 let value: TrackingRefAdjustmentTransaction = {
   id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-  dataType: "trackingCategories",
 };
 ```
 

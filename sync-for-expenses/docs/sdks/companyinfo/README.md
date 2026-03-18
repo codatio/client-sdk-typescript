@@ -1,5 +1,4 @@
 # CompanyInfo
-(*companyInfo*)
 
 ## Overview
 
@@ -15,6 +14,7 @@ Gets the latest basic info for a company.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-company-info" method="get" path="/companies/{companyId}/data/info" example="Example 1" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -27,7 +27,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -52,15 +51,12 @@ async function run() {
   const res = await companyInfoGet(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companyInfoGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -81,7 +77,8 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 401, 402, 403, 404, 409, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 401, 402, 403, 404, 409, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

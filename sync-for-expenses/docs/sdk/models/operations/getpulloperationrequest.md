@@ -7,7 +7,7 @@ import { GetPullOperationRequest } from "@codat/sync-for-expenses/sdk/models/ope
 
 let value: GetPullOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "e92fd8e8-edfe-4026-bf42-e7e2a71b3000",
+  datasetId: "2e524c49-3726-44e5-9563-576172cc15aa",
 };
 ```
 

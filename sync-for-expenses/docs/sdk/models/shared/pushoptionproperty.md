@@ -7,9 +7,10 @@ import { PushOptionProperty } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: PushOptionProperty = {
   type: "Array",
-  displayName: "Tevin.Zulauf86",
-  description: "ha intensely settle pluck shallow meh instead",
-  required: false,
+  displayName: "Fannie10",
+  description:
+    "sonar very sympathetically notwithstanding alarmed modulo grizzled",
+  required: true,
 };
 ```
 

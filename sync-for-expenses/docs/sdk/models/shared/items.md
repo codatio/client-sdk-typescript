@@ -6,7 +6,7 @@
 import { Items } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: Items = {
-  type: "Unknown",
+  type: "Billing",
 };
 ```
 

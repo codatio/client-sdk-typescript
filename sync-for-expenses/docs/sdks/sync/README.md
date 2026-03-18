@@ -1,5 +1,4 @@
 # Sync
-(*sync*)
 
 ## Overview
 
@@ -18,6 +17,7 @@ Gets the status of the last successful sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-last-successful-sync" method="get" path="/companies/{companyId}/sync/expenses/syncs/lastSuccessful/status" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -30,7 +30,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -55,15 +54,12 @@ async function run() {
   const res = await syncGetLastSuccessfulSync(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("syncGetLastSuccessfulSync failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -84,10 +80,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## getLatestSync
 
@@ -95,6 +92,7 @@ Gets the latest sync status
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-latest-sync" method="get" path="/companies/{companyId}/sync/expenses/syncs/latest/status" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -107,7 +105,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -132,15 +129,12 @@ async function run() {
   const res = await syncGetLatestSync(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("syncGetLatestSync failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -161,10 +155,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## list
 
@@ -172,6 +167,7 @@ Gets a list of sync statuses
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-syncs" method="get" path="/companies/{companyId}/sync/expenses/syncs/list/status" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -184,7 +180,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -209,15 +204,12 @@ async function run() {
   const res = await syncList(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("syncList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -238,10 +230,11 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
 
 ## get
 
@@ -249,6 +242,7 @@ Get the sync status for a specified sync
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-sync-by-id" method="get" path="/companies/{companyId}/sync/expenses/syncs/{syncId}/status" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -262,7 +256,6 @@ async function run() {
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -288,15 +281,12 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     syncId: "6fb40d5e-b13e-11ed-afa1-0242ac120002",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("syncGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -317,7 +307,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |

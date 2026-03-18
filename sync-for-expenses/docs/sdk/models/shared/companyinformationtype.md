@@ -7,7 +7,7 @@ The type of the weblink.
 ```typescript
 import { CompanyInformationType } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: CompanyInformationType = "Unknown";
+let value: CompanyInformationType = "Social";
 ```
 
 ## Values

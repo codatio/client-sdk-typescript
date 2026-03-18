@@ -1,5 +1,4 @@
 # PushOperations
-(*pushOperations*)
 
 ## Overview
 
@@ -16,6 +15,7 @@ List push operation records.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="list-push-operations" method="get" path="/companies/{companyId}/push" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -26,13 +26,10 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.pushOperations.list({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -56,20 +53,15 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await pushOperationsList(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    page: 1,
-    pageSize: 100,
     query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
     orderBy: "-modifiedDate",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("pushOperationsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -90,10 +82,11 @@ run();
 
 ### Errors
 
-| Error Type                             | Status Code                            | Content Type                           |
-| -------------------------------------- | -------------------------------------- | -------------------------------------- |
-| errors.ErrorMessage                    | 400, 401, 402, 403, 404, 429, 500, 503 | application/json                       |
-| errors.SDKError                        | 4XX, 5XX                               | \*/\*                                  |
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## get
 
@@ -101,6 +94,7 @@ Retrieve push operation.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get-push-operation" method="get" path="/companies/{companyId}/push/{pushOperationKey}" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
 
@@ -111,10 +105,9 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.pushOperations.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    pushOperationKey: "660e8684-c0fb-4468-9e2a-b2e3b115d747",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -138,17 +131,14 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await pushOperationsGet(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "b888f774-3e7c-4135-a18c-6b985523c4bc",
+    pushOperationKey: "660e8684-c0fb-4468-9e2a-b2e3b115d747",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("pushOperationsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -169,7 +159,8 @@ run();
 
 ### Errors
 
-| Error Type                        | Status Code                       | Content Type                      |
-| --------------------------------- | --------------------------------- | --------------------------------- |
-| errors.ErrorMessage               | 401, 402, 403, 404, 429, 500, 503 | application/json                  |
-| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
+| errors.ErrorMessage     | 500, 503                | application/json        |
+| errors.SDKError         | 4XX, 5XX                | \*/\*                   |
