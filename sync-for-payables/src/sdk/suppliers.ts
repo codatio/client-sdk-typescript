@@ -4,6 +4,7 @@
 
 import { suppliersCreate } from "../funcs/suppliersCreate.js";
 import { suppliersList } from "../funcs/suppliersList.js";
+import { suppliersUpdate } from "../funcs/suppliersUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as operations from "./models/operations/index.js";
 import * as shared from "./models/shared/index.js";
@@ -21,6 +22,17 @@ export class Suppliers extends ClientSDK {
    * By default, this endpoint returns a list of active and archived suppliers. You can use [querying](https://docs.codat.io/using-the-api/querying) to change that.
    *
    * For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate>2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | FreeAgent                     | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Xero                          | Yes       |
+   * | Oracle NetSuite               | Yes       |
+   * | Sage Intacct                  | Yes       |
+   * | Zoho Books                    | Yes       |
    */
   async list(
     request: operations.ListSuppliersRequest,
@@ -40,12 +52,60 @@ export class Suppliers extends ClientSDK {
    * The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
    *
    * [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | FreeAgent                     | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Xero                          | Yes       |
+   * | Oracle NetSuite               | Yes       |
+   * | Sage Intacct                  | Yes       |
+   * | Zoho Books                    | Yes       |
    */
   async create(
     request: operations.CreateSupplierRequest,
     options?: RequestOptions,
   ): Promise<shared.Supplier> {
     return unwrapAsync(suppliersCreate(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update supplier
+   *
+   * @remarks
+   * The *Update supplier* endpoint updates an existing [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
+   *
+   * [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+   *
+   * This is a full-replace PUT endpoint. Any fields not included in the request body will be cleared on the supplier record.
+   *
+   * ### Supported Integrations
+   *
+   * | Integration                   | Supported |
+   * |-------------------------------|-----------|
+   * | FreeAgent                     | Yes       |
+   * | QuickBooks Online             | Yes       |
+   * | Xero                          | Yes       |
+   * | Oracle NetSuite               | No        |
+   * | Sage Intacct                  | No        |
+   * | Zoho Books                    | No        |
+   *
+   * ### Platform-specific behavior
+   *
+   * - **Xero**: Archived suppliers cannot be updated (returns `400`). Suppliers must be unarchived manually in the Xero UI before updating.
+   * - **QuickBooks Online**: Currency can only be set when creating a supplier, and cannot be changed via update.
+   */
+  async update(
+    request: operations.UpdateSupplierRequest,
+    options?: RequestOptions,
+  ): Promise<shared.Supplier> {
+    return unwrapAsync(suppliersUpdate(
       this,
       request,
       options,

@@ -37,6 +37,17 @@ import { Result } from "../sdk/types/fp.js";
  * By default, this endpoint returns a list of active and archived suppliers. You can use [querying](https://docs.codat.io/using-the-api/querying) to change that.
  *
  * For example, to retrieve only active suppliers (i.e. `status=Active`) or suppliers created within the specified number of days (e.g. `sourceModifiedDate>2023-12-15T00:00:00.000Z`), query the endpoint as follows: `/payables/suppliers?query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.For example, to retrieve active suppliers modified after a particular date use `query=sourceModifiedDate>2023-12-15T00:00:00.000Z&&status=Active`.
+ *
+ * ### Supported Integrations
+ *
+ * | Integration                   | Supported |
+ * |-------------------------------|-----------|
+ * | FreeAgent                     | Yes       |
+ * | QuickBooks Online             | Yes       |
+ * | Xero                          | Yes       |
+ * | Oracle NetSuite               | Yes       |
+ * | Sage Intacct                  | Yes       |
+ * | Zoho Books                    | Yes       |
  */
 export function suppliersList(
   client: CodatSyncPayablesCore,
@@ -105,7 +116,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc(
     "/companies/{companyId}/connections/{connectionId}/payables/suppliers",
   )(pathParams);

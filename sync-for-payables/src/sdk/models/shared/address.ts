@@ -34,7 +34,7 @@ export type Address = {
    */
   region?: string | null | undefined;
   /**
-   * Country of the customer's address. For NetSuite, use the 2-digit [ISO 3166](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) country code.
+   * Country of the address. We recommend using the 2-digit ISO 3166 country code (e.g. `GB`, `US`, `FR`) as this is accepted by all supported platforms.
    */
   country?: string | null | undefined;
   /**
