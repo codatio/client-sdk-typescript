@@ -7,6 +7,7 @@ import { sourceAccountsCreateBatch } from "../funcs/sourceAccountsCreateBatch.js
 import { sourceAccountsDelete } from "../funcs/sourceAccountsDelete.js";
 import { sourceAccountsDeleteCredentials } from "../funcs/sourceAccountsDeleteCredentials.js";
 import { sourceAccountsGenerateCredentials } from "../funcs/sourceAccountsGenerateCredentials.js";
+import { sourceAccountsGenerateOtp } from "../funcs/sourceAccountsGenerateOtp.js";
 import { sourceAccountsList } from "../funcs/sourceAccountsList.js";
 import { sourceAccountsUpdate } from "../funcs/sourceAccountsUpdate.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
@@ -156,6 +157,27 @@ export class SourceAccounts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(sourceAccountsDeleteCredentials(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Generate one-time password
+   *
+   * @remarks
+   * The *Generate OTP* endpoint generates a one-time password (OTP) for a bank feed connection. The OTP is returned along with an expiry time, after which it will no longer be valid.
+   *
+   * > **For Sage only**
+   * >
+   * > Only call this endpoint for connections to Sage. Calling it for other integrations will return an error.
+   */
+  async generateOtp(
+    request: operations.GenerateOtpRequest,
+    options?: RequestOptions,
+  ): Promise<shared.GenerateOtpResponse> {
+    return unwrapAsync(sourceAccountsGenerateOtp(
       this,
       request,
       options,

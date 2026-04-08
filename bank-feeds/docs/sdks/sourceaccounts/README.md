@@ -13,6 +13,7 @@ Provide and manage lists of source bank accounts.
 * [delete](#delete) - Delete source account
 * [generateCredentials](#generatecredentials) - Generate source account credentials
 * [deleteCredentials](#deletecredentials) - Delete all source account credentials
+* [generateOtp](#generateotp) - Generate one-time password
 
 ## createBatch
 
@@ -23,7 +24,7 @@ The _Batch create source accounts_ endpoint allows you to create multiple repres
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="create-batch-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/batch" -->
+<!-- UsageSnippet language="typescript" operationID="create-batch-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/batch" example="Malformed query" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -115,9 +116,143 @@ The _Create Source Account_ endpoint allows you to create a representation of a 
 > ### Versioning
 > If you are integrating the Bank Feeds solution with Codat after August 1, 2024, please use the v2 version of the API, as detailed in the schema below. For integrations completed before August 1, 2024, select the v1 version from the schema dropdown below.
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" -->
+<!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Malformed query" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.sourceAccounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    requestBody: {
+      id: "<id>",
+      currency: "GBP",
+      modifiedDate: "2022-10-23T00:00:00Z",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { sourceAccountsCreate } from "@codat/bank-feeds/funcs/sourceAccountsCreate.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await sourceAccountsCreate(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    requestBody: {
+      id: "<id>",
+      currency: "GBP",
+      modifiedDate: "2022-10-23T00:00:00Z",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("sourceAccountsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Version 1
+
+<!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 1" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.sourceAccounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    requestBody: {
+      id: "acc-002",
+      accountName: "account-081",
+      accountType: "Credit",
+      accountNumber: "12345670",
+      sortCode: "123456",
+      currency: "GBP",
+      balance: new Decimal("99.99"),
+      modifiedDate: "2023-01-09T14:14:14.1057478Z",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { sourceAccountsCreate } from "@codat/bank-feeds/funcs/sourceAccountsCreate.js";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await sourceAccountsCreate(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    requestBody: {
+      id: "acc-002",
+      accountName: "account-081",
+      accountType: "Credit",
+      accountNumber: "12345670",
+      sortCode: "123456",
+      currency: "GBP",
+      balance: new Decimal("99.99"),
+      modifiedDate: "2023-01-09T14:14:14.1057478Z",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("sourceAccountsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Version 2
+
+<!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 2" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -293,7 +428,7 @@ run();
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="update-source-account" method="patch" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" -->
+<!-- UsageSnippet language="typescript" operationID="update-source-account" method="patch" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" example="Malformed query" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { Decimal } from "@codat/bank-feeds/sdk/types";
@@ -484,7 +619,7 @@ The old credentials will still be valid until the revoke credentials endpoint is
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="generate-credentials" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" -->
+<!-- UsageSnippet language="typescript" operationID="generate-credentials" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" example="Unauthorized" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { openAsBlob } from "node:fs";
@@ -637,3 +772,85 @@ run();
 | errors.ErrorMessage     | 401, 402, 403, 404, 429 | application/json        |
 | errors.ErrorMessage     | 500, 503                | application/json        |
 | errors.SDKError         | 4XX, 5XX                | \*/\*                   |
+
+## generateOtp
+
+The *Generate OTP* endpoint generates a one-time password (OTP) for a bank feed connection. The OTP is returned along with an expiry time, after which it will no longer be valid.
+
+> **For Sage only**
+>
+> Only call this endpoint for connections to Sage. Calling it for other integrations will return an error.
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="generate-otp" method="post" path="/companies/{companyId}/connections/{connectionId}/bankFeeds/otp" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.sourceAccounts.generateOtp({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { sourceAccountsGenerateOtp } from "@codat/bank-feeds/funcs/sourceAccountsGenerateOtp.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await sourceAccountsGenerateOtp(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("sourceAccountsGenerateOtp failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GenerateOtpRequest](../../sdk/models/operations/generateotprequest.md)                                                                                             | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.GenerateOtpResponse](../../sdk/models/shared/generateotpresponse.md)\>**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |

@@ -19,9 +19,614 @@ The *List bank accounts* endpoint returns a list of [bank accounts](https://docs
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/bank-feeds-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" -->
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="FreeAgent" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="KashFlow" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Oracle NetSuite" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="QuickBooks Desktop" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="QuickBooks Online" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Sage 50 (UK)" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Sage Intacct" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Xero" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsList } from "@codat/bank-feeds/funcs/bankAccountsList.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsList(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="list-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Zoho Books" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -107,9 +712,417 @@ The *Get create/update bank account model* endpoint returns the expected data fo
 See the *response examples* for integration-specific indicative models.
 
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" -->
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Exact (Netherlands)" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Exact (UK)" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="FreeAgent" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="KashFlow" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="QuickBooks Desktop" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.bankAccounts.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { bankAccountsGetCreateModel } from "@codat/bank-feeds/funcs/bankAccountsGetCreateModel.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsGetCreateModel(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-create-bankAccounts-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/bankAccounts" example="Sandbox" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 
@@ -192,7 +1205,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" -->
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts" example="Malformed query" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 

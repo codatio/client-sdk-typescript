@@ -160,6 +160,7 @@ run();
 * [delete](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
 * [generateCredentials](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
 * [deleteCredentials](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
+* [generateOtp](docs/sdks/sourceaccounts/README.md#generateotp) - Generate one-time password
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
@@ -365,19 +366,23 @@ The `HTTPClient` constructor takes an optional `fetcher` argument that can be
 used to integrate a third-party HTTP client or when writing tests to mock out
 the HTTP client and feed in fixtures.
 
-The following example shows how to use the `"beforeRequest"` hook to to add a
-custom header and a timeout to requests and how to use the `"requestError"` hook
-to log errors:
+The following example shows how to:
+- route requests through a proxy server using [undici](https://www.npmjs.com/package/undici)'s ProxyAgent
+- use the `"beforeRequest"` hook to add a custom header and a timeout to requests
+- use the `"requestError"` hook to log errors
 
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
+import { ProxyAgent } from "undici";
 import { HTTPClient } from "@codat/bank-feeds/lib/http";
 
+const dispatcher = new ProxyAgent("http://proxy.example.com:8080");
+
 const httpClient = new HTTPClient({
-  // fetcher takes a function that has the same signature as native `fetch`.
-  fetcher: (request) => {
-    return fetch(request);
-  }
+  // 'fetcher' takes a function that has the same signature as native 'fetch'.
+  fetcher: (input, init) =>
+    // 'dispatcher' is specific to undici and not part of the standard Fetch API.
+    fetch(input, { ...init, dispatcher } as RequestInit),
 });
 
 httpClient.addHook("beforeRequest", (request) => {
@@ -482,6 +487,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`sourceAccountsDelete`](docs/sdks/sourceaccounts/README.md#delete) - Delete source account
 - [`sourceAccountsDeleteCredentials`](docs/sdks/sourceaccounts/README.md#deletecredentials) - Delete all source account credentials
 - [`sourceAccountsGenerateCredentials`](docs/sdks/sourceaccounts/README.md#generatecredentials) - Generate source account credentials
+- [`sourceAccountsGenerateOtp`](docs/sdks/sourceaccounts/README.md#generateotp) - Generate one-time password
 - [`sourceAccountsList`](docs/sdks/sourceaccounts/README.md#list) - List source accounts
 - [`sourceAccountsUpdate`](docs/sdks/sourceaccounts/README.md#update) - Update source account
 - [`transactionsCreate`](docs/sdks/transactions/README.md#create) - Create bank transactions

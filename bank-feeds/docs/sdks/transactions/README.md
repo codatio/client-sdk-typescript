@@ -22,9 +22,415 @@ Create new bank account transactions for a company's connections, and see previo
 The required properties may vary based on the integration. For detailed requirements specific to each accounting software, refer to the API reference examples.
 Alternatively, you can view the [Get create bank transaction model](https://docs.codat.io/bank-feeds-api#/operations/get-create-bank-transactions-model) for more information.
 
-### Example Usage
+### Example Usage: FreeAgent
 
-<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="FreeAgent" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.transactions.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
+      transactions: [
+        {
+          id: "716422529",
+          date: "2023-08-22T10:21:00",
+          description: "Repayment of Credit Card",
+          amount: new Decimal("100"),
+          transactionType: "Credit",
+        },
+        {
+          id: "716422530",
+          date: "2023-08-22T10:22:00",
+          description: "Amazon Purchase",
+          amount: new Decimal("-100"),
+          transactionType: "Debit",
+        },
+        {
+          id: "716422531",
+          date: "2023-08-22T10:23:00",
+          description: "Office Supplies",
+          amount: new Decimal("-60"),
+          transactionType: "Debit",
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await transactionsCreate(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
+      transactions: [
+        {
+          id: "716422529",
+          date: "2023-08-22T10:21:00",
+          description: "Repayment of Credit Card",
+          amount: new Decimal("100"),
+          transactionType: "Credit",
+        },
+        {
+          id: "716422530",
+          date: "2023-08-22T10:22:00",
+          description: "Amazon Purchase",
+          amount: new Decimal("-100"),
+          transactionType: "Debit",
+        },
+        {
+          id: "716422531",
+          date: "2023-08-22T10:23:00",
+          description: "Office Supplies",
+          amount: new Decimal("-60"),
+          transactionType: "Debit",
+        },
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Malformed query
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Malformed query" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.transactions.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+      transactions: [],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await transactionsCreate(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+      transactions: [],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Bank Feeds
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="QuickBooks Online Bank Feeds" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.transactions.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
+      transactions: [
+        {
+          id: "716422529",
+          date: "2023-08-22T10:21:00",
+          description: "Repayment of Credit Card",
+          amount: new Decimal("100"),
+          balance: new Decimal("100"),
+          transactionType: "Credit",
+        },
+        {
+          id: "716422530",
+          date: "2023-08-22T10:22:00",
+          description: "Amazon Purchase",
+          amount: new Decimal("-100"),
+          balance: new Decimal("0"),
+          transactionType: "Debit",
+        },
+        {
+          id: "716422531",
+          date: "2023-08-22T10:23:00",
+          description: "Office Supplies",
+          amount: new Decimal("-60"),
+          balance: new Decimal("-60"),
+          transactionType: "Debit",
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await transactionsCreate(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
+      transactions: [
+        {
+          id: "716422529",
+          date: "2023-08-22T10:21:00",
+          description: "Repayment of Credit Card",
+          amount: new Decimal("100"),
+          balance: new Decimal("100"),
+          transactionType: "Credit",
+        },
+        {
+          id: "716422530",
+          date: "2023-08-22T10:22:00",
+          description: "Amazon Purchase",
+          amount: new Decimal("-100"),
+          balance: new Decimal("0"),
+          transactionType: "Debit",
+        },
+        {
+          id: "716422531",
+          date: "2023-08-22T10:23:00",
+          description: "Office Supplies",
+          amount: new Decimal("-60"),
+          balance: new Decimal("-60"),
+          transactionType: "Debit",
+        },
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Sage" -->
+```typescript
+import { CodatBankFeeds } from "@codat/bank-feeds";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+const codatBankFeeds = new CodatBankFeeds({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatBankFeeds.transactions.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
+      transactions: [
+        {
+          id: "716422529",
+          date: "2023-08-22T10:21:00",
+          description: "Repayment of Credit Card",
+          counterparty: "Bank of Example",
+          reference: "Ref-12345",
+          amount: new Decimal("100"),
+          balance: new Decimal("100"),
+          transactionType: "Credit",
+        },
+        {
+          id: "716422530",
+          date: "2023-08-22T10:22:00",
+          description: "Amazon Purchase",
+          counterparty: "Amazon",
+          reference: "Ref-12346",
+          amount: new Decimal("-100"),
+          balance: new Decimal("0"),
+          transactionType: "Debit",
+        },
+        {
+          id: "716422531",
+          date: "2023-08-22T10:23:00",
+          description: "Office Supplies",
+          counterparty: "Office Mart",
+          reference: "Ref-12347",
+          amount: new Decimal("-60"),
+          balance: new Decimal("-60"),
+          transactionType: "Debit",
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
+import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
+import { Decimal } from "@codat/bank-feeds/sdk/types";
+
+// Use `CodatBankFeedsCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatBankFeeds = new CodatBankFeedsCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await transactionsCreate(codatBankFeeds, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    createBankTransactions: {
+      accountId: "49cd5a42-b311-4750-9361-52e2ed1d4653",
+      transactions: [
+        {
+          id: "716422529",
+          date: "2023-08-22T10:21:00",
+          description: "Repayment of Credit Card",
+          counterparty: "Bank of Example",
+          reference: "Ref-12345",
+          amount: new Decimal("100"),
+          balance: new Decimal("100"),
+          transactionType: "Credit",
+        },
+        {
+          id: "716422530",
+          date: "2023-08-22T10:22:00",
+          description: "Amazon Purchase",
+          counterparty: "Amazon",
+          reference: "Ref-12346",
+          amount: new Decimal("-100"),
+          balance: new Decimal("0"),
+          transactionType: "Debit",
+        },
+        {
+          id: "716422531",
+          date: "2023-08-22T10:23:00",
+          description: "Office Supplies",
+          counterparty: "Office Mart",
+          reference: "Ref-12347",
+          amount: new Decimal("-60"),
+          balance: new Decimal("-60"),
+          transactionType: "Debit",
+        },
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("transactionsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Xero" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
 import { Decimal } from "@codat/bank-feeds/sdk/types";

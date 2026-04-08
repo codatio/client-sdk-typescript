@@ -31,6 +31,7 @@ export * from "./dataconnectionstatus.js";
 export * from "./datatype.js";
 export * from "./errorvalidation.js";
 export * from "./errorvalidationitem.js";
+export * from "./generateotpresponse.js";
 export * from "./halref.js";
 export * from "./links.js";
 export * from "./pushchangetype.js";
