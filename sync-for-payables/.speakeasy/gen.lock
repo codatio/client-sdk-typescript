@@ -1,43 +1,43 @@
 lockVersion: 2.0.0
 id: fc401bb0-cd17-4863-8f85-003111be4b43
 management:
-  docChecksum: 2c97e4172eda0b5a31c6dc31f428235d
+  docChecksum: 66b675d1d723d12ccffb437a1e3793aa
   docVersion: 3.0.0
-  speakeasyVersion: 1.709.1
-  generationVersion: 2.812.2
-  releaseVersion: 9.3.0
-  configChecksum: eb76039957333544a749c3c7cdb088ba
+  speakeasyVersion: 1.759.1
+  generationVersion: 2.869.10
+  releaseVersion: 9.3.1
+  configChecksum: b2545e201431d6621510fbedf53c00c0
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
-  installationURL: https://gitpkg.now.sh/codatio/client-sdk-typescript/sync-for-payables
+  installationURL: https://github.com/codatio/client-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: acead2d8-1254-45eb-9a4a-ded52846926f
-  pristine_commit_hash: 4b1a31628b26572f81563bf5589a981b1fd80984
-  pristine_tree_hash: c417f50ecda0802d3fbe751c1aeef66becba5173
+  generation_id: 35a36825-074a-4d84-bbb0-671cec0d2a2e
+  pristine_commit_hash: d96bd81e4e27c89764df8bf535d48086a64c8a77
+  pristine_tree_hash: b79bf62063a50be18e173075b8ee01090d44d217
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.13
-    core: 3.26.27
+    constsAndDefaults: 0.1.14
+    core: 3.26.43
     decimal: 0.1.2
     defaultEnabledRetries: 0.1.0
     downloadStreams: 0.1.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    examples: 2.82.4
+    examples: 2.82.5
     globalSecurity: 2.82.15
     globalSecurityCallbacks: 0.1.0
-    globalSecurityFlattening: 0.1.0
-    globalServerURLs: 2.83.0
+    globalSecurityFlattening: 0.1.1
+    globalServerURLs: 2.83.1
     methodArguments: 0.1.2
-    nameOverrides: 2.81.2
+    nameOverrides: 2.81.4
     nullables: 0.1.1
     responseFormat: 0.3.0
     retries: 2.83.0
     sdkHooks: 0.4.0
     serverEventsSentinels: 0.1.0
-    uploadStreams: 0.1.0
+    uploadStreams: 0.1.1
     webhooks: 1.5.1
 trackedFiles:
   .gitattributes:
@@ -46,8 +46,8 @@ trackedFiles:
     pristine_git_object: 113eead5093c17d43a46159132885318f281a68a
   .npmignore:
     id: aa70c1f807c3
-    last_write_checksum: sha1:3d5eb92f81539175db1ff0280e0aefbdd701f200
-    pristine_git_object: cf98a6bf092538eb10ff0edc915102682ce9a6e6
+    last_write_checksum: sha1:6572da81f2e7a978ec29c22c2210bf461c5897b2
+    pristine_git_object: 670ac0a62d7e568c9d44a14f5deafb8442a255d8
   FUNCTIONS.md:
     id: 21b9df02aaeb
     last_write_checksum: sha1:0a0d27bba669518df770ad78b4e2efe9989661a0
@@ -164,6 +164,10 @@ trackedFiles:
     id: 6501e66b32d2
     last_write_checksum: sha1:dca465bcbdfdbbbcd5768b034d226b32430ef0a3
     pristine_git_object: 144ed6cd0ab3894091b385527fd93617248e9214
+  docs/sdk/models/operations/updatesupplierrequest.md:
+    id: 1f70a198fbdf
+    last_write_checksum: sha1:ebf40a57c203a1488361a3b395bd469fd3f9a0cd
+    pristine_git_object: ae033594d29a20d0fdfa24e4fa8af02808bea0d1
   docs/sdk/models/operations/uploadbillattachmentrequest.md:
     id: 4d0fc508b57c
     last_write_checksum: sha1:1b6833d55c20ff5022b26e198c1d10a9a8d2da55
@@ -178,8 +182,8 @@ trackedFiles:
     pristine_git_object: 9d08accad524560be3829f26f40a2dcfbadd46d0
   docs/sdk/models/shared/address.md:
     id: c7a5d3edfbbf
-    last_write_checksum: sha1:e03c907fdcac6cf9267f96a1bb8c45d6f11d6897
-    pristine_git_object: 7055ed058f4ffd806eb0cb6ff2e882cfaed8a9e5
+    last_write_checksum: sha1:897e5d811efbfb839b6506779059ba7c607e01ea
+    pristine_git_object: 0484dced3fd37514b369a03814aa12e57924d147
   docs/sdk/models/shared/addresstype.md:
     id: 05429d1d4896
     last_write_checksum: sha1:a6c9f0abb0125e232f5528b78326b9d6cff713eb
@@ -354,8 +358,8 @@ trackedFiles:
     pristine_git_object: f0a72e771acb7f304ce0ddfcab254c0dff5c6e0a
   docs/sdk/models/shared/supplier.md:
     id: 18b82dd2f554
-    last_write_checksum: sha1:edfaa31f05d418469b81ce8ae8ccf3c452cf8197
-    pristine_git_object: 5081b9b67f7294f928896e8f7329e8dab9cd0868
+    last_write_checksum: sha1:55473cd8c50a0885ce35dd6aad9ae044a4397ddd
+    pristine_git_object: 4eac748f59ced787572fc32d62325b9aecbdde75
   docs/sdk/models/shared/supplierprototype.md:
     id: a27221eee44d
     last_write_checksum: sha1:ddba8dad1749525662b8584769a81031984966e4
@@ -366,8 +370,8 @@ trackedFiles:
     pristine_git_object: c08bc8af699c692baec90a5d13dc6a3135dabd5e
   docs/sdk/models/shared/suppliers.md:
     id: 09016bddb305
-    last_write_checksum: sha1:42ec2a4d1f9f4195ec8e1d8057b5713368ef19ed
-    pristine_git_object: fe9207d440aadfe4135b435198cf7a5219f765d3
+    last_write_checksum: sha1:3eff0a8f68d1570c89d96f1799062d1520c7ee8a
+    pristine_git_object: d2581385bb9f823ed5fde53583e801ea3c937937
   docs/sdk/models/shared/supplierstatus.md:
     id: 51c838d3b574
     last_write_checksum: sha1:7544360314ae26a33bbf7b9208071dd2bbe3f774
@@ -386,8 +390,8 @@ trackedFiles:
     pristine_git_object: ca27b21833be5f0fdf1d881925f1ff78ad069828
   docs/sdks/bankaccounts/README.md:
     id: 510ffee224ea
-    last_write_checksum: sha1:9c7c1463ccd19d91cce4534e7b25ed02ebcec2bc
-    pristine_git_object: db9df7c371199f7b719a7cee753f8d65abfb503d
+    last_write_checksum: sha1:35cdd88fcbf66d90e885dee71068e338ab4637ad
+    pristine_git_object: 432e19e5a357e41b8ee7d934f089cbc61b8caab5
   docs/sdks/billpayments/README.md:
     id: 9436cf9c44bd
     last_write_checksum: sha1:ef4376c2d72147a0f042f0f53a56f99afc45f3b4
@@ -410,8 +414,8 @@ trackedFiles:
     pristine_git_object: 452a258b593b694757e26817c56f6fe1a51fc3d9
   docs/sdks/suppliers/README.md:
     id: 85867190cd79
-    last_write_checksum: sha1:39cbdf19ec3edd6615a9aa57250e36a3987b0f9e
-    pristine_git_object: dfc03ec5304835b004c45b9a6e6e611c09861740
+    last_write_checksum: sha1:13aab7180271a534e9db0c6a7f0ba52b5f1dd529
+    pristine_git_object: 059dfa32c662ed67966d472fa81f30d129399c4c
   eslint.config.mjs:
     id: 461c8d07f6da
     last_write_checksum: sha1:9398f326377fe47f67af2df6eb6370750c0790b4
@@ -434,112 +438,116 @@ trackedFiles:
     pristine_git_object: 978c98ebda9a2b1f9ea0961b7a06643f604d1d24
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:c6b3f0829d9e0c044498adbd9a6f5a4b79beeb06
-    pristine_git_object: 0cb5b5775a7680695fc5d2c1ee7a137c8274980d
+    last_write_checksum: sha1:a40d242c2f6aefda2209fdd94bf91e149440135a
+    pristine_git_object: afcc356c8c6e6325c403d4e1eeb5c867a845e6d5
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:aaeff6d243afdfa522559b767dec7ff92fcfe163
-    pristine_git_object: 7b0eb141c13e8964955e10403880be3c51d78101
+    last_write_checksum: sha1:87a1a2c8c76fec940b602cccb5803dbc24994b14
+    pristine_git_object: 7ece72f1df47eb720adbbe73552b6d5a783150b6
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:8ac194d8a86c95d66ff881034c874004f103d6e8
     pristine_git_object: 3ef31d3371427926066c0f46d57f38b6872442b6
   src/funcs/bankAccountsCreate.ts:
     id: c61c77ddef33
-    last_write_checksum: sha1:c93a1a2c74ad4990f21d45132c82b50a584ef173
-    pristine_git_object: fe656e7dee0d91cb642227ffb405fd95bf931770
+    last_write_checksum: sha1:4aedeefdc7b65646737c872cf01f44cab047cc74
+    pristine_git_object: c3ff3ed109d1a57047bd8d1acaae3615a083b2a3
   src/funcs/billPaymentsCreate.ts:
     id: 4a7573a8ef1f
-    last_write_checksum: sha1:01d1a9d56aa947bfe9fe487bf7ce46442daa89d7
-    pristine_git_object: eedfe8bc9e32f7f83413a14f907d519cc8859d7a
+    last_write_checksum: sha1:444a08cc613e0535033d9d12c3f3ce96be420acd
+    pristine_git_object: 882a67539ce45987211a8cf0d2cb64c1f92f7112
   src/funcs/billPaymentsGetPaymentOptions.ts:
     id: 3dcdf22bd7f2
-    last_write_checksum: sha1:c8eda6776285be2f42eccb221dcd63a98d55d524
-    pristine_git_object: 25d0eebc4664a60e26fa36f143d6c469e3ab17c7
+    last_write_checksum: sha1:74781e3bb9398c22cc93304b16e71597f3ad0684
+    pristine_git_object: f042d24e98a600704d907399ab7b725eb36c528b
   src/funcs/billsCreate.ts:
     id: 75c376a468d4
-    last_write_checksum: sha1:2632148f69966b72a0e910e9917ee1a1681a5929
-    pristine_git_object: f9dfea6479db28cce0046f4d8fc15bfd00a9d55f
+    last_write_checksum: sha1:0eba28f6a888557b9f6f0d8c05a4ed638d538453
+    pristine_git_object: c84752311dd168a460e19d7cec9d22542071fe9c
   src/funcs/billsDownloadAttachment.ts:
     id: 2e4c12e9ceeb
-    last_write_checksum: sha1:13150629f6e9894f18357b024728ee853344a054
-    pristine_git_object: db77db9c68c6c7b71375c6e205c969d1cd47bdcf
+    last_write_checksum: sha1:3bb0b9e40bdd46ad8d7824b2e9982d4d1d755276
+    pristine_git_object: 475a3bbcd85c2bb1eafb54a50fedb76b55caecf3
   src/funcs/billsGetBillOptions.ts:
     id: 5872e47fa14f
-    last_write_checksum: sha1:8f8b18f4b04546fc429d2730cdb9f404cdd56f91
-    pristine_git_object: a7adecc0138f125a4e10650d090e464c06977d04
+    last_write_checksum: sha1:cfbf410d40fbf30aba5a69d7018a330c2463acf8
+    pristine_git_object: cfe0b76555f8a6d5bfb665ebdf30986c53925e64
   src/funcs/billsList.ts:
     id: 7cc1b84a3584
-    last_write_checksum: sha1:b70e56ef264691a393a19310f2312df37441c73c
-    pristine_git_object: 99bb285579ee252a9afe1ec6a25dc30ff6622065
+    last_write_checksum: sha1:1759fa2e093755e46fc824173544372bee599ac8
+    pristine_git_object: e776abb6ac82ea1ab1c65e53d56929d3b3bb212d
   src/funcs/billsListAttachments.ts:
     id: 116a7b452f5c
-    last_write_checksum: sha1:daa08113502a895da2c9034fb34c7fa1991029c3
-    pristine_git_object: 2a8fd61dd7fa0be4aeb7b9db027f785da97888f0
+    last_write_checksum: sha1:b99359be56e4aad9b5e8342d28398bf1af2e5163
+    pristine_git_object: 7d43c85a42461ec524986ab1ea8e76a4bc0e5377
   src/funcs/billsUpdate.ts:
     id: a652cf860449
-    last_write_checksum: sha1:d1481a9aa3b0e23e19f567047d88318d8ee4ab3b
-    pristine_git_object: bcf5448414a1dbb1e3081803c0bec87405f6a9be
+    last_write_checksum: sha1:7a0d43c9bdc5c9a4a8b503d1b321e2a77e715562
+    pristine_git_object: ffdf57fed871c050db4b166e8535696e9c239bad
   src/funcs/billsUploadAttachment.ts:
     id: d7311d53bc2f
-    last_write_checksum: sha1:1fb8e84e689008f91f420ba5cf7b6f3792980e25
-    pristine_git_object: c7cbf43de1026d5ab605161cab5a9cc0d435798a
+    last_write_checksum: sha1:35d0c574fea1dbb5e99fc1150642b68572d0c0d6
+    pristine_git_object: 80ce15bd9cfbcfc02ef7f7a8c35a099cdfcb7596
   src/funcs/companiesCreate.ts:
     id: becfb79b6222
     last_write_checksum: sha1:498233a67b41aac2f783e6a69cc9fbc4ffafa76b
     pristine_git_object: 3088009cb98e3f7f31aeb9e9b8257301d2b30e15
   src/funcs/companiesDelete.ts:
     id: d4b8d3c15935
-    last_write_checksum: sha1:3a8cb186b7e28f222f7c90a0c0eb1f45f99863de
-    pristine_git_object: 23698d50d44454a11de7b12d2546b92114337af6
+    last_write_checksum: sha1:2ab2ecd1f5389be634b35c71f73613e921df8595
+    pristine_git_object: 150318df2b0f9e83654f1091b776a48a78d66adf
   src/funcs/companiesGet.ts:
     id: 497c5e9320c2
-    last_write_checksum: sha1:feb6f9520bd230594c517b4a72549bae841213d0
-    pristine_git_object: 4aa95221177994b306ef29ea5707588e744b28e2
+    last_write_checksum: sha1:1e0ae2ab01b3d3c8893d93383460939a03c119a6
+    pristine_git_object: a951fc7338a735009a8c7caab4268541f9c4afcb
   src/funcs/companiesList.ts:
     id: c57fb769a99c
     last_write_checksum: sha1:765673601ed79ee2d140cf250fffb0300506a242
     pristine_git_object: 647b990e9de66a329ff27230177f6a79428833c3
   src/funcs/companiesReplace.ts:
     id: c141cb91cc73
-    last_write_checksum: sha1:4a52e307199aec90ed0f912648426e1e75c51abb
-    pristine_git_object: 3acad3d8f9e56572c9f498a79efefaa19c986446
+    last_write_checksum: sha1:e55f386706b4c18d77788d78962b75d2949d349a
+    pristine_git_object: 5e270df4085f5c2563aa0fd7ccb2dc492d2ec9a4
   src/funcs/companiesUpdate.ts:
     id: e3d7bd676c21
-    last_write_checksum: sha1:2ba58cebbc4076061896990a8bf1f2a69c4702b7
-    pristine_git_object: 725ab14763731f3c5c62cb7a725d7ab023ffe11c
+    last_write_checksum: sha1:c5ce9a8ee2af326b660f9e82c5ff67c67123fd45
+    pristine_git_object: 6d55577b2445e39679da050791d8a2788e2c61e8
   src/funcs/companyInformationGet.ts:
     id: d77e867a25e9
-    last_write_checksum: sha1:f409c19096e7986dd8c53272078b2599ee141c0d
-    pristine_git_object: c3a59e1123db03a1e86d45a442a3438278ca4425
+    last_write_checksum: sha1:9bb712f11b3e43a6dd71ea05230c7a80ab57d892
+    pristine_git_object: 7b50da07c79e05ebdf75a2bc32deb87d24e1923c
   src/funcs/connectionsCreate.ts:
     id: 0423cc2d060b
-    last_write_checksum: sha1:61cd6d74c9838c3f5d265a1ebb9644b87c1a1aae
-    pristine_git_object: 8f5d134f1a6d919e8dbcce4d52c1d142cce8967f
+    last_write_checksum: sha1:5244c61027af98a5484581d682d1e8b6e83d90e3
+    pristine_git_object: f49a47f9c82d8caaaa19e342e3496c7b952c2e82
   src/funcs/connectionsDelete.ts:
     id: f33b14b4a39d
-    last_write_checksum: sha1:d73d6dd4f8e3f96eb7ed05f4d0d4a5b6e2155bfc
-    pristine_git_object: debe3fb4c025730076939c8380c7cbb84564881b
+    last_write_checksum: sha1:f1162764c5d4f3048d6165edf75a4a823b8bee75
+    pristine_git_object: 55d0f7f67e5218a0fab6bba8fa444afe54d5a142
   src/funcs/connectionsGet.ts:
     id: 6a1b6227b285
-    last_write_checksum: sha1:5fa6564bf8e9dd18d9d4946f6d2839930bca3a0b
-    pristine_git_object: 1e813fe5d7fae31f4ceb4aa64f41126c9c98da42
+    last_write_checksum: sha1:bf8d34ac015f5843555325c2c37d87c9864e55ec
+    pristine_git_object: 972e332896faaf8b8d1b138bf0cb946ecc5b9e7c
   src/funcs/connectionsList.ts:
     id: ca36cb8b50d3
-    last_write_checksum: sha1:998a5edd3129f7cea73bcedd3c48066ce1d04dc5
-    pristine_git_object: 4ab0abc7550cae02f01282f4d4b2a339b08b9c4a
+    last_write_checksum: sha1:f475d8b0bfce9d2bb666aa8a3ccb1c4cc071090b
+    pristine_git_object: 1e7d60812118969ca583aaea55ac257bb5403042
   src/funcs/connectionsUnlink.ts:
     id: 0ff9d29a8016
-    last_write_checksum: sha1:45598db37d1bcf450229bd1ec4b436039bb9dc27
-    pristine_git_object: 3e0a90b6c0d263a49943535133343d5b7ce1a251
+    last_write_checksum: sha1:98ced888e700c29268a0d866e8e31d1e4ac78e5c
+    pristine_git_object: 0dc33eb10046e9171d85f290f82d8458f2412dae
   src/funcs/suppliersCreate.ts:
     id: ff2ee5ff481f
-    last_write_checksum: sha1:9717ea5f864184ec8989ae15abaa94c0f4e3a2d5
-    pristine_git_object: 5e3dad5c51ceec40bf3347bb90560293dcb355f2
+    last_write_checksum: sha1:8ccbfdf9e6e6e1f9cefe3754d2965d78f5fa067c
+    pristine_git_object: 0d8100cb62e95b2fa0f1072b8a7b23e082edf836
   src/funcs/suppliersList.ts:
     id: ae0c2ccb6871
-    last_write_checksum: sha1:f80380a734779e9b27fc35ce6dcb1edca5d2de8a
-    pristine_git_object: 8133e20e38a550a2e3d8a0509374c9515b9de812
+    last_write_checksum: sha1:e0636f0f82c31b7cf7065084b14456ab3433338d
+    pristine_git_object: df736ae4457f77779dd389046d05178d00615d5f
+  src/funcs/suppliersUpdate.ts:
+    id: c36b960e49de
+    last_write_checksum: sha1:50e5ac4b0db30f159e2cda4615a9af9a9510264a
+    pristine_git_object: 129cccdaeffc23f6d96ebb11f4d9b96b3678ecbc
   src/funcs/validateWebhook.ts:
     id: f3ebc1bebb84
     last_write_checksum: sha1:1e69504955d7b8a8b9f0f25f7760f18dcbe7f2f9
@@ -566,8 +574,8 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:390a98b7d59665baee40b7eeb5276a8b9ed11761
-    pristine_git_object: fd701a606a0cdedc02bcc0bacf3e0fcb1cfe8b20
+    last_write_checksum: sha1:4cf318816880eddd1b9dd4bda474ae9dcc25c05d
+    pristine_git_object: 4ca670297e656274d0bc6f6a1a552ab363332117
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -578,8 +586,8 @@ trackedFiles:
     pristine_git_object: 31cd3733907afbee3641b9ab680ed417247a7d33
   src/lib/files.ts:
     id: e5efa54fcb95
-    last_write_checksum: sha1:d0f325f445b8d22e7d73baf052c585ec2dd24841
-    pristine_git_object: 0344cd046d033f9e8a55de02f7935c5cec5dc30b
+    last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
+    pristine_git_object: 6ca6b37d35a12448da176ee2517cc036db12c81c
   src/lib/http.ts:
     id: 63a80782d37e
     last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
@@ -594,8 +602,8 @@ trackedFiles:
     pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
   src/lib/matchers.ts:
     id: d54b2253b719
-    last_write_checksum: sha1:80ff3dfb638ef4b45a55dcb63de0c0e834016829
-    pristine_git_object: 41b6095f00172c59b69e9862644563edca5e2fc6
+    last_write_checksum: sha1:4775ae173392e86f356bb1ffd0d16f3c2d7b0d54
+    pristine_git_object: b096d6f201a8f1b24dea405dc0cb1c75efdf4c97
   src/lib/primitives.ts:
     id: 74859f750b28
     last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
@@ -610,16 +618,16 @@ trackedFiles:
     pristine_git_object: dc2510e330727b01894e4d3954ea92a62c962e5d
   src/lib/sdks.ts:
     id: 8a6d91f1218d
-    last_write_checksum: sha1:18da4753f916af929ae4a2445b13b09c23e1cc6f
-    pristine_git_object: 126029ae98e4c0ceb16ccfa40f8dd82890dd3193
+    last_write_checksum: sha1:66d56bfdbd12a17c58ca2b03f6b10b1c34380dbe
+    pristine_git_object: 43fcf336ef4986ed91de77f38e0cc8b3d9c4ed76
   src/lib/security.ts:
     id: 0502afa7922e
-    last_write_checksum: sha1:c04a467e412cdd09a03239de17aa7d6a9afc246e
-    pristine_git_object: c87ebc333707850c74a6800b73d7e1bb26c27367
+    last_write_checksum: sha1:3d00348fcb3784d76766bd94dc1da51f67bdaaa4
+    pristine_git_object: 5d93cd4a14174e63dea219d284ce12764a9c6c2b
   src/lib/url.ts:
     id: b0057e24ed76
-    last_write_checksum: sha1:d124050c7e755c0cce233b9e029afb584ff65201
-    pristine_git_object: f3a8de6c021de59c991707946cd294596cae954d
+    last_write_checksum: sha1:3bceadd74bf0b31adf13eb06b7531077c3e07d65
+    pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/sdk/bankaccounts.ts:
     id: 0f1139473f13
     last_write_checksum: sha1:3295d6179393edad7b55a050008dddbf12e51420
@@ -730,8 +738,8 @@ trackedFiles:
     pristine_git_object: e3abe91dc20b75266936498daa6a04e90f407226
   src/sdk/models/operations/index.ts:
     id: b2864d0519d7
-    last_write_checksum: sha1:4934cad9df052a399535eac591d0bc05d118d013
-    pristine_git_object: 12cda2c10abda85b69ff014ab7541de1c155eb2b
+    last_write_checksum: sha1:505fcd8ef9c4021c8f11e4f52ba6a26d89708c63
+    pristine_git_object: 278d9d3bd729e5277ccc305c15ed1a51567a9567
   src/sdk/models/operations/listbillattachments.ts:
     id: 4c9488a771ad
     last_write_checksum: sha1:4ce52025b4b566e46e0a3a1795becd64d7c094c3
@@ -768,6 +776,10 @@ trackedFiles:
     id: dbafb9e0f8d9
     last_write_checksum: sha1:937aaa5e965aae942c6550456dbe3c37b5d2b280
     pristine_git_object: 37ead4428659b0b2409ad7f6cf54515e544e23ec
+  src/sdk/models/operations/updatesupplier.ts:
+    id: 4c259e646cb1
+    last_write_checksum: sha1:f7d37623859257edb9c452c9bf05304f4b624ef6
+    pristine_git_object: 69cdde755d3f6e1f106524bb138115c4cdafa604
   src/sdk/models/operations/uploadbillattachment.ts:
     id: db82a18c5aa9
     last_write_checksum: sha1:ed1546769f4039b3e5b351a6013e924a437a3f2e
@@ -782,8 +794,8 @@ trackedFiles:
     pristine_git_object: 8f89f1c6fc0a40ed9a5440d98a70b49ce86b1e4c
   src/sdk/models/shared/address.ts:
     id: 123dc664e6b6
-    last_write_checksum: sha1:a570c829903b69bc114de0f5027ee7f0dce0329e
-    pristine_git_object: 25111ed9c84f2619fd0012d07ca6411ca5d5b70c
+    last_write_checksum: sha1:6bc0bae915301145ca09163fd65e12ffca447061
+    pristine_git_object: d40d6e69a20e6a68ca3550a3f31edfc159ec6765
   src/sdk/models/shared/addresstype.ts:
     id: 8f46715578d6
     last_write_checksum: sha1:2a3313224e8bededfc7da6294878909847d1ba05
@@ -978,8 +990,8 @@ trackedFiles:
     pristine_git_object: 2da7d5fa26cf928d1e02acb3582f573f276d1fe4
   src/sdk/suppliers.ts:
     id: 68b234e74022
-    last_write_checksum: sha1:4a4af579d918d24a331e295aefc4f22703ebba27
-    pristine_git_object: 7de8009b57e7eecd506d69efec2343ac2d9bb73d
+    last_write_checksum: sha1:f3d5cb6caebe97f3e980c7292271713ee41aaf24
+    pristine_git_object: 0ad27777da8c0a83c50f81d5a5061610dbf4be79
   src/sdk/types/async.ts:
     id: 966026768b05
     last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
@@ -1030,8 +1042,8 @@ trackedFiles:
     pristine_git_object: 9510d20c09d8dd689f6e37254030de22e997f3cc
   tsconfig.json:
     id: 61ebb9fd6e8c
-    last_write_checksum: sha1:c3ec7996536cdb9a54319e7d1eb3b199b733d34c
-    pristine_git_object: 0ccdbe286a8780e06a469a9eb7e2fb95322fd507
+    last_write_checksum: sha1:79dc1550d921fefec69f8632ed3b24dad41ca2f6
+    pristine_git_object: 76110f883cac40bb04fb2f376cd69ea8c8d6d215
 examples:
   list-companies:
     speakeasy-default-list-companies:
@@ -1871,7 +1883,7 @@ examples:
           continuationToken: "continuationToken=eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="
       responses:
         "200":
-          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-12-07T10:48:18Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
+          application/json: {"results": [{"id": "c523e12f-8b74-4d3a-bbd8-32d7a2f598b4", "supplierName": "City Limousines", "contactName": "Martin Dale", "emailAddress": "martyd@citylim.co", "phone": "07999 999999", "addresses": [{"type": "Billing", "line1": "Unit 51", "line2": "Bakersfield Industrial Estate", "city": "Bakersfield", "region": "California", "country": "USA", "postalCode": "93308"}], "status": "Active", "balance": 100, "defaultCurrency": "GBP", "sourceModifiedDate": "2022-10-23T00:00:00Z"}, {"id": "41", "supplierName": "AI Support", "contactName": "AI Support", "addresses": [{"type": "Billing", "line1": "test", "region": "string", "country": "Djibouti"}], "status": "Active", "defaultCurrency": "GBP", "sourceModifiedDate": "2022-12-07T10:48:18Z"}], "pagination": {"continuationToken": "eyJwYWdlIjoyLCJwYWdlU2l6ZSI6MTAwLCJwYWdlQ291bnQiOjExfQ=="}}
     Malformed query:
       parameters:
         path:
@@ -1903,10 +1915,10 @@ examples:
           companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
           connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
       requestBody:
-        application/json: {"supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GBR", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
+        application/json: {"supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
       responses:
         "201":
-          application/json: {"id": "sup-10933920", "supplierName": "Greggs", "contactName": "Greg Greggs", "emailAddress": "greg@greggs.com", "phone": "+44 (0)1223 322410", "status": "Active", "defaultCurrency": "GBP"}
+          application/json: {"id": "sup-10933920", "supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "balance": 0, "defaultCurrency": "GBP", "sourceModifiedDate": "2026-03-18T10:30:00Z"}
     Malformed query:
       parameters:
         path:
@@ -1960,6 +1972,16 @@ examples:
           application/json: {}
         "500":
           application/json: {}
+    Created bank account:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+      requestBody:
+        application/json: {"name": "<value>", "accountType": "Debit", "accountNumber": "<value>", "currency": "GBP"}
+      responses:
+        "201":
+          application/json: {"id": "fb623ab2-f6ff-4b22-b7d3-b7cc2a4aa0ea", "nominalCode": "22", "name": "Plutus - Payables - Bank Account 12", "accountType": "Debit", "accountNumber": "0120 0440", "sortCode": "50-50-50", "currency": "GBP", "status": "Active", "sourceModifiedDate": "2024-02-22T14:46:43.99Z"}
   update-bill:
     Update bill:
       parameters:
@@ -2000,11 +2022,51 @@ examples:
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
         "500":
           application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+  update-supplier:
+    Update supplier:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "defaultCurrency": "GBP"}
+      responses:
+        "200":
+          application/json: {"id": "sup-10933920", "supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "balance": 0, "defaultCurrency": "GBP", "sourceModifiedDate": "2026-03-18T10:30:00Z"}
+        "400":
+          application/json: {}
+        "500":
+          application/json: {}
+    Updated supplier:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierName": "<value>", "phone": "+44 25691 154789", "status": "Active"}
+      responses:
+        "200":
+          application/json: {"id": "sup-10933920", "supplierName": "Northridge Office Supplies", "contactName": "Sarah Johnson", "emailAddress": "sarah.johnson@northridgesupplies.co.uk", "phone": "+44 (0)1223 322410", "addresses": [{"type": "Billing", "line1": "Flat 1", "line2": "2 Dennis Avenue", "city": "London", "region": "Camden", "country": "GB", "postalCode": "EC1N 7TE"}], "status": "Active", "balance": 0, "defaultCurrency": "GBP", "sourceModifiedDate": "2026-03-18T10:30:00Z"}
+    Malformed query:
+      parameters:
+        path:
+          companyId: "8a210b68-6988-11ed-a1eb-0242ac120002"
+          connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171"
+          supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab"
+      requestBody:
+        application/json: {"supplierName": "<value>", "phone": "+44 25691 154789", "status": "Active"}
+      responses:
+        "400":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
+        "500":
+          application/json: {"statusCode": 400, "service": "PublicApi", "error": "Error processing request - not valid.", "correlationId": "bc997528a9d7abb9161ef45f05d38599", "canBeRetried": "Unknown", "detailedErrorCode": 0}
 examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `codatsyncpayables.bills.update()`: **Added**
+  * `codatsyncpayables.suppliers.update()`: **Added**
 generatedFiles:
   - .gitattributes
   - .npmignore
