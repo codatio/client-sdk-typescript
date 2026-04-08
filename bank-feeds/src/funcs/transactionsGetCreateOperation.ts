@@ -104,7 +104,6 @@ async function $do(
       { explode: false, charEncoding: "percent" },
     ),
   };
-
   const path = pathToFunc("/companies/{companyId}/push/{pushOperationKey}")(
     pathParams,
   );

@@ -1,2 +1,2 @@
 ## Typescript SDK Changes:
-* `codatsyncpayables.suppliers.update()`: **Added**
+* `codatbankfeeds.sourceAccounts.generateOtp()`: **Added**

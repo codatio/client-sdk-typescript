@@ -13,6 +13,7 @@ export * from "./deletecompany.js";
 export * from "./deleteconnection.js";
 export * from "./deletesourceaccount.js";
 export * from "./generatecredentials.js";
+export * from "./generateotp.js";
 export * from "./getbankaccountmapping.js";
 export * from "./getcompany.js";
 export * from "./getcompanyaccesstoken.js";
