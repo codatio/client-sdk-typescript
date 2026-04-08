@@ -27,12 +27,14 @@ import { APICall, APIPromise } from "../sdk/types/async.js";
 import { Result } from "../sdk/types/fp.js";
 
 /**
- * Create supplier
+ * Update supplier
  *
  * @remarks
- * The *Create supplier* endpoint creates a new [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
+ * The *Update supplier* endpoint updates an existing [supplier](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) for a given company's connection.
  *
  * [Suppliers](https://docs.codat.io/sync-for-payables-api#/schemas/Supplier) are people or organizations that provide something, such as a product or service.
+ *
+ * This is a full-replace PUT endpoint. Any fields not included in the request body will be cleared on the supplier record.
  *
  * ### Supported Integrations
  *
@@ -41,13 +43,18 @@ import { Result } from "../sdk/types/fp.js";
  * | FreeAgent                     | Yes       |
  * | QuickBooks Online             | Yes       |
  * | Xero                          | Yes       |
- * | Oracle NetSuite               | Yes       |
- * | Sage Intacct                  | Yes       |
- * | Zoho Books                    | Yes       |
+ * | Oracle NetSuite               | No        |
+ * | Sage Intacct                  | No        |
+ * | Zoho Books                    | No        |
+ *
+ * ### Platform-specific behavior
+ *
+ * - **Xero**: Archived suppliers cannot be updated (returns `400`). Suppliers must be unarchived manually in the Xero UI before updating.
+ * - **QuickBooks Online**: Currency can only be set when creating a supplier, and cannot be changed via update.
  */
-export function suppliersCreate(
+export function suppliersUpdate(
   client: CodatSyncPayablesCore,
-  request: operations.CreateSupplierRequest,
+  request: operations.UpdateSupplierRequest,
   options?: RequestOptions,
 ): APIPromise<
   Result<
@@ -72,7 +79,7 @@ export function suppliersCreate(
 
 async function $do(
   client: CodatSyncPayablesCore,
-  request: operations.CreateSupplierRequest,
+  request: operations.UpdateSupplierRequest,
   options?: RequestOptions,
 ): Promise<
   [
@@ -93,7 +100,7 @@ async function $do(
 > {
   const parsed = safeParse(
     request,
-    (value) => operations.CreateSupplierRequest$outboundSchema.parse(value),
+    (value) => operations.UpdateSupplierRequest$outboundSchema.parse(value),
     "Input validation failed",
   );
   if (!parsed.ok) {
@@ -111,19 +118,18 @@ async function $do(
       explode: false,
       charEncoding: "percent",
     }),
+    supplierId: encodeSimple("supplierId", payload.supplierId, {
+      explode: false,
+      charEncoding: "percent",
+    }),
   };
   const path = pathToFunc(
-    "/companies/{companyId}/connections/{connectionId}/payables/suppliers",
+    "/companies/{companyId}/connections/{connectionId}/payables/suppliers/{supplierId}",
   )(pathParams);
 
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
-    "Idempotency-Key": encodeSimple(
-      "Idempotency-Key",
-      payload["Idempotency-Key"],
-      { explode: false, charEncoding: "none" },
-    ),
   }));
 
   const secConfig = await extractSecurity(client._options.authHeader);
@@ -133,7 +139,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "create-supplier",
+    operationID: "update-supplier",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -157,7 +163,7 @@ async function $do(
 
   const requestRes = client._createRequest(context, {
     security: requestSecurity,
-    method: "POST",
+    method: "PUT",
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
@@ -208,7 +214,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(201, shared.Supplier$inboundSchema),
+    M.json(200, shared.Supplier$inboundSchema),
     M.jsonErr(
       [400, 401, 402, 403, 404, 429],
       errors.ErrorMessage$inboundSchema,

@@ -81,6 +81,69 @@ async function run() {
 
 run();
 ```
+### Example Usage: Created bank account
+
+<!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" example="Created bank account" -->
+```typescript
+import { CodatSyncPayables } from "@codat/sync-for-payables";
+
+const codatSyncPayables = new CodatSyncPayables({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatSyncPayables.bankAccounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccountPrototype: {
+      name: "<value>",
+      accountType: "Debit",
+      accountNumber: "<value>",
+      currency: "GBP",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
+import { bankAccountsCreate } from "@codat/sync-for-payables/funcs/bankAccountsCreate.js";
+
+// Use `CodatSyncPayablesCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatSyncPayables = new CodatSyncPayablesCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankAccountsCreate(codatSyncPayables, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    bankAccountPrototype: {
+      name: "<value>",
+      accountType: "Debit",
+      accountNumber: "<value>",
+      currency: "GBP",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankAccountsCreate failed:", res.error);
+  }
+}
+
+run();
+```
 ### Example Usage: Malformed query
 
 <!-- UsageSnippet language="typescript" operationID="create-bank-account" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bankAccounts" example="Malformed query" -->

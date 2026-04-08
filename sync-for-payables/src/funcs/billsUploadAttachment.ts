@@ -5,6 +5,7 @@
 import { CodatSyncPayablesCore } from "../core.js";
 import { appendForm, encodeSimple } from "../lib/encodings.js";
 import {
+  bytesToBlob,
   getContentTypeFromFileName,
   readableStreamToArrayBuffer,
 } from "../lib/files.js";
@@ -107,8 +108,12 @@ async function $do(
       const contentType =
         getContentTypeFromFileName(payload.AttachmentUpload.file.fileName)
         || "application/octet-stream";
-      const blob = new Blob([buffer], { type: contentType });
-      appendForm(body, "file", blob, payload.AttachmentUpload.file.fileName);
+      appendForm(
+        body,
+        "file",
+        bytesToBlob(buffer, contentType),
+        payload.AttachmentUpload.file.fileName,
+      );
     } else {
       const contentType =
         getContentTypeFromFileName(payload.AttachmentUpload.file.fileName)
@@ -116,9 +121,7 @@ async function $do(
       appendForm(
         body,
         "file",
-        new Blob([payload.AttachmentUpload.file.content], {
-          type: contentType,
-        }),
+        bytesToBlob(payload.AttachmentUpload.file.content, contentType),
         payload.AttachmentUpload.file.fileName,
       );
     }
@@ -138,7 +141,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc(
     "/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}/attachments",
   )(pathParams);
