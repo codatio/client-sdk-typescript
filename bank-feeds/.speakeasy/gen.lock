@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 87e6188d-fa80-4f96-a443-9e303956b15f
 management:
-  docChecksum: 5585d6d3f1630763832805877be3a651
+  docChecksum: 4d9c9e0c2c4bcc00392c83527d11c46c
   docVersion: 3.0.0
-  speakeasyVersion: 1.761.1
-  generationVersion: 2.879.6
-  releaseVersion: 8.2.0
-  configChecksum: e3473054dd2c3f4c5bc93b8ba4c0a57f
+  speakeasyVersion: 1.761.5
+  generationVersion: 2.879.13
+  releaseVersion: 8.2.1
+  configChecksum: 5a4e54c448a6d30dfedfba8db6c61937
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: bank-feeds
   installationURL: https://github.com/codatio/client-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 1019e2a9-2fb3-474e-9bab-864decb5e50b
-  pristine_commit_hash: 92c88f6b6b67d4923d33b6adae54781d41883c71
-  pristine_tree_hash: 428ebeb269fb9e0a6619975c831f0f93765cd8a9
+  generation_id: 05419e8e-e24a-4e02-a2ae-d0c7a0b326c9
+  pristine_commit_hash: cbe57a6ab6b2897641bc8a9ee1262a9440aa8bbf
+  pristine_tree_hash: 4fc841e9f39bdb7bc8faf7c3b0925fbfae16d600
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.26.46
+    core: 3.26.48
     decimal: 0.1.2
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
@@ -351,8 +351,8 @@ trackedFiles:
     pristine_git_object: ff85ddcb72f4464c26af235e2db46177bcd68d27
   docs/sdk/models/shared/connection.md:
     id: 1c171381dd82
-    last_write_checksum: sha1:043e84e691ce5b4cbb1d7f846114f4334e9d7fca
-    pristine_git_object: cdb14568711b976209135b38b9ae2fb3f1ff5e31
+    last_write_checksum: sha1:35207ea6a904ec7cd782ac6f2393a49f1e5546ae
+    pristine_git_object: 736f40fee0f7b390a287b0e2ca22a8aa3e026de5
   docs/sdk/models/shared/connections.md:
     id: c39072f6f8dc
     last_write_checksum: sha1:0fb76ce5f360b1ef1dfda85e9d1be81501ae969c
@@ -611,12 +611,12 @@ trackedFiles:
     pristine_git_object: 5849f7aa02de15c0673aa97ccb19d8de40e674ec
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:d4125bdfe337be984a823e89005c1cc493de6847
-    pristine_git_object: 0e8aed01d36cfa9ef5e55344b46380ef677c4078
+    last_write_checksum: sha1:785fe3c38a1806d71cc2ecdb17cdad62920ed1fc
+    pristine_git_object: 2a79e4d746b917737220e7e32e08d1b7d7cb2f85
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:bc07ae64137d0c4b61009318a0b3493b45792c7c
-    pristine_git_object: f1818c4fcb6d7bfe112a01ad2787280e56ea409b
+    last_write_checksum: sha1:d4439e40ea9604eb03f3444e92b43977da1183b8
+    pristine_git_object: 4c485f34f6811f20a513fb7165383d2b4785d3cb
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:939d4d97f4ee72ccbb797678743af5d6560c7172
@@ -779,16 +779,16 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b4668ec2db27a66751aa60cbefb10b40008e545a
-    pristine_git_object: 21f3a7d3cba97fc2a2b2456f6d65da9c9929fed7
+    last_write_checksum: sha1:47fff5d9e31379a17ae9216bdaa65d0be9d76158
+    pristine_git_object: dd2fab6e9cc02d5cc482b77f75eba6590b1fbb8f
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
     pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
   src/lib/encodings.ts:
     id: 3bd8ead98afd
-    last_write_checksum: sha1:14a1c57947f58b6851f480ab87aef14def989fa0
-    pristine_git_object: d21ccfedbfd9f8460372edcf9b65273612aaa955
+    last_write_checksum: sha1:d47614c415b37e092965c34cb668562195701004
+    pristine_git_object: 2791d25bc4f7cf6eec17a65f899851e225fa3deb
   src/lib/files.ts:
     id: e5efa54fcb95
     last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
@@ -1103,8 +1103,8 @@ trackedFiles:
     pristine_git_object: 442b7a78cb3fde01477e7bb5cec5626c06a9a58b
   src/sdk/models/shared/connection.ts:
     id: 18ea99cdadfb
-    last_write_checksum: sha1:54c8ad382f953c898de97f40e9a7a4de02b6479a
-    pristine_git_object: e9cdf91f8f979eae88370c211a3f8d7914eaf2be
+    last_write_checksum: sha1:1c3498904be31a13124a357c3d5c2be29b635d61
+    pristine_git_object: 832a913ba40ccf7a7ed02840d57bf0b81bf015a5
   src/sdk/models/shared/connections.ts:
     id: 221acd1ae99a
     last_write_checksum: sha1:ef2d949a3163430d3095303bf231c18b7dc93c9c
@@ -2655,7 +2655,15 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `codatbankfeeds.sourceAccounts.generateOtp()`: **Added**
+  * `codatbankfeeds.companies.create()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatbankfeeds.companies.list()`:  `response.results[].dataConnections[].integrationKey` **Changed**
+  * `codatbankfeeds.companies.get()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatbankfeeds.companies.replace()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatbankfeeds.companies.update()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatbankfeeds.connections.list()`:  `response.results[].integrationKey` **Changed**
+  * `codatbankfeeds.connections.create()`:  `response.integrationKey` **Changed**
+  * `codatbankfeeds.connections.get()`:  `response.integrationKey` **Changed**
+  * `codatbankfeeds.connections.unlink()`:  `response.integrationKey` **Changed**
 generatedFiles:
   - .eslintrc.cjs
   - .gitattributes

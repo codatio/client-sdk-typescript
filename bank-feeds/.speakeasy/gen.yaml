@@ -30,7 +30,7 @@ generation:
     skipResponseBodyAssertions: false
   telemetryEnabled: true
 typescript:
-  version: 8.2.0
+  version: 8.2.1
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
