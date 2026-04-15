@@ -28,10 +28,6 @@ info:
     | Company information | Get detailed information about a company from the underlying platform. |
     | Transactions | Create new bank account transactions for a company's connections, and see previous operations. |
     <!-- End Codat Tags Table -->
-  version: 3.0.0
-  contact:
-    name: Codat
-    email: support@codat.io
   termsOfService: 'https://www.codat.io/legals/'
 security:
   - auth_header: []
@@ -4053,7 +4049,6 @@ components:
       required:
         - id
         - integrationId
-        - integrationKey
         - sourceId
         - platformName
         - linkUrl
