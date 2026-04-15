@@ -1,2 +1,11 @@
 ## Typescript SDK Changes:
-* `codatbankfeeds.sourceAccounts.generateOtp()`: **Added**
+* `codatsyncexpenses.companies.list()`:  `response.results[].dataConnections[].integrationKey` **Changed**
+* `codatsyncexpenses.companies.create()`:  `response.dataConnections[].integrationKey` **Changed**
+* `codatsyncexpenses.companies.replace()`:  `response.dataConnections[].integrationKey` **Changed**
+* `codatsyncexpenses.companies.update()`:  `response.dataConnections[].integrationKey` **Changed**
+* `codatsyncexpenses.companies.get()`:  `response.dataConnections[].integrationKey` **Changed**
+* `codatsyncexpenses.connections.list()`:  `response.results[].integrationKey` **Changed**
+* `codatsyncexpenses.connections.create()`:  `response.integrationKey` **Changed**
+* `codatsyncexpenses.connections.get()`:  `response.integrationKey` **Changed**
+* `codatsyncexpenses.connections.unlink()`:  `response.integrationKey` **Changed**
+* `codatsyncexpenses.connections.createPartnerExpenseConnection()`:  `response.integrationKey` **Changed**
