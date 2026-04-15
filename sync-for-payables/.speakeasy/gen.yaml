@@ -30,7 +30,7 @@ generation:
     skipResponseBodyAssertions: false
   telemetryEnabled: true
 typescript:
-  version: 9.3.1
+  version: 9.3.2
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -50,6 +50,7 @@ typescript:
   enableReactQuery: false
   enumFormat: union
   exportZodModelNamespace: false
+  fixEnumNameSanitization: false
   flatAdditionalProperties: false
   flattenGlobalSecurity: true
   flatteningOrder: body-first

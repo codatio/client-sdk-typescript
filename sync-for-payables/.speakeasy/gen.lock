@@ -1,32 +1,32 @@
 lockVersion: 2.0.0
 id: fc401bb0-cd17-4863-8f85-003111be4b43
 management:
-  docChecksum: 66b675d1d723d12ccffb437a1e3793aa
+  docChecksum: 384bfbce0790e3cb0ef8a6a311ab8782
   docVersion: 3.0.0
-  speakeasyVersion: 1.759.1
-  generationVersion: 2.869.10
-  releaseVersion: 9.3.1
-  configChecksum: b2545e201431d6621510fbedf53c00c0
+  speakeasyVersion: 1.761.5
+  generationVersion: 2.879.13
+  releaseVersion: 9.3.2
+  configChecksum: faa290d3f5262eaf5bf706d194dce4ce
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: sync-for-payables
   installationURL: https://github.com/codatio/client-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 35a36825-074a-4d84-bbb0-671cec0d2a2e
-  pristine_commit_hash: d96bd81e4e27c89764df8bf535d48086a64c8a77
-  pristine_tree_hash: b79bf62063a50be18e173075b8ee01090d44d217
+  generation_id: 4509736e-1686-498a-a67e-b42300ae1fe5
+  pristine_commit_hash: 1aa4f2f2cd3f13641de63bb2e7943424a577b350
+  pristine_tree_hash: 5032ae07dc046e746a791e0df54456fe5a48fda5
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.26.43
+    core: 3.26.48
     decimal: 0.1.2
     defaultEnabledRetries: 0.1.0
     downloadStreams: 0.1.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     examples: 2.82.5
-    globalSecurity: 2.82.15
+    globalSecurity: 2.82.16
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.83.1
@@ -302,8 +302,8 @@ trackedFiles:
     pristine_git_object: c2895414e053283bafcd9865baaa72a806a83444
   docs/sdk/models/shared/connection.md:
     id: 1c171381dd82
-    last_write_checksum: sha1:1d46733a254ce67dbd7e9b0391c89f27e6aab035
-    pristine_git_object: 762b25c0460165793afcbce6aa013f395ddff35b
+    last_write_checksum: sha1:627d17f01c6752b941bcb239c1c885ff236a7c1d
+    pristine_git_object: 8f6a4b0d4143cea3750a5c2b825c7be752c68605
   docs/sdk/models/shared/connections.md:
     id: c39072f6f8dc
     last_write_checksum: sha1:e1a0cd88fda53543151de90e25b28c34ca6629f8
@@ -438,12 +438,12 @@ trackedFiles:
     pristine_git_object: 978c98ebda9a2b1f9ea0961b7a06643f604d1d24
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:a40d242c2f6aefda2209fdd94bf91e149440135a
-    pristine_git_object: afcc356c8c6e6325c403d4e1eeb5c867a845e6d5
+    last_write_checksum: sha1:cec6d55ce881ec20a25e384e8f9a72644101300c
+    pristine_git_object: b2c9844eeec3006aa3a25847e3aa5cbbb249de43
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:87a1a2c8c76fec940b602cccb5803dbc24994b14
-    pristine_git_object: 7ece72f1df47eb720adbbe73552b6d5a783150b6
+    last_write_checksum: sha1:df2cb8185aafd2ddb38f85223cb9c0d1a39f434c
+    pristine_git_object: 2fd28d81f6576812dbeaf1c0a059f5e3e9af2444
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:8ac194d8a86c95d66ff881034c874004f103d6e8
@@ -486,8 +486,8 @@ trackedFiles:
     pristine_git_object: ffdf57fed871c050db4b166e8535696e9c239bad
   src/funcs/billsUploadAttachment.ts:
     id: d7311d53bc2f
-    last_write_checksum: sha1:35d0c574fea1dbb5e99fc1150642b68572d0c0d6
-    pristine_git_object: 80ce15bd9cfbcfc02ef7f7a8c35a099cdfcb7596
+    last_write_checksum: sha1:b74f388b7ec61a6aa4c8bf2655e3a8c4e45acb54
+    pristine_git_object: 7472b6c4136e5bd577dab1c7db9357715d44b6fa
   src/funcs/companiesCreate.ts:
     id: becfb79b6222
     last_write_checksum: sha1:498233a67b41aac2f783e6a69cc9fbc4ffafa76b
@@ -574,16 +574,16 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:4cf318816880eddd1b9dd4bda474ae9dcc25c05d
-    pristine_git_object: 4ca670297e656274d0bc6f6a1a552ab363332117
+    last_write_checksum: sha1:835a7136502fd3ac54a8a6f1eb4057d6dbe6950f
+    pristine_git_object: 13702fa82ec50987761ba6ea80bf2419e004a47c
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
     pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
   src/lib/encodings.ts:
     id: 3bd8ead98afd
-    last_write_checksum: sha1:d20c131976ab8ac68b22bdde2b7ed84b5b873922
-    pristine_git_object: 31cd3733907afbee3641b9ab680ed417247a7d33
+    last_write_checksum: sha1:d47614c415b37e092965c34cb668562195701004
+    pristine_git_object: 2791d25bc4f7cf6eec17a65f899851e225fa3deb
   src/lib/files.ts:
     id: e5efa54fcb95
     last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
@@ -622,8 +622,8 @@ trackedFiles:
     pristine_git_object: 43fcf336ef4986ed91de77f38e0cc8b3d9c4ed76
   src/lib/security.ts:
     id: 0502afa7922e
-    last_write_checksum: sha1:3d00348fcb3784d76766bd94dc1da51f67bdaaa4
-    pristine_git_object: 5d93cd4a14174e63dea219d284ce12764a9c6c2b
+    last_write_checksum: sha1:808e939964cd1393080c8b6428dabf33f746bae5
+    pristine_git_object: 3da8e733b499dfb3c174dab84751a95ebc42324a
   src/lib/url.ts:
     id: b0057e24ed76
     last_write_checksum: sha1:3bceadd74bf0b31adf13eb06b7531077c3e07d65
@@ -910,8 +910,8 @@ trackedFiles:
     pristine_git_object: 442b7a78cb3fde01477e7bb5cec5626c06a9a58b
   src/sdk/models/shared/connection.ts:
     id: 18ea99cdadfb
-    last_write_checksum: sha1:5ab7f9ba8eb04f8f51e785516d2875090f19ee23
-    pristine_git_object: 5fb00aec5a931c085023baf79bf4865e6023b733
+    last_write_checksum: sha1:5b1dbfa5f03b30878a7c435749ecaec5956d17e8
+    pristine_git_object: 7a8022769c2cadad8fd8071864d78e9e6e53bdb0
   src/sdk/models/shared/connections.ts:
     id: 221acd1ae99a
     last_write_checksum: sha1:ef2d949a3163430d3095303bf231c18b7dc93c9c
@@ -2066,7 +2066,15 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `codatsyncpayables.suppliers.update()`: **Added**
+  * `codatsyncpayables.companies.list()`:  `response.results[].dataConnections[].integrationKey` **Changed**
+  * `codatsyncpayables.companies.create()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatsyncpayables.companies.replace()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatsyncpayables.companies.update()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatsyncpayables.companies.get()`:  `response.dataConnections[].integrationKey` **Changed**
+  * `codatsyncpayables.connections.list()`:  `response.results[].integrationKey` **Changed**
+  * `codatsyncpayables.connections.create()`:  `response.integrationKey` **Changed**
+  * `codatsyncpayables.connections.get()`:  `response.integrationKey` **Changed**
+  * `codatsyncpayables.connections.unlink()`:  `response.integrationKey` **Changed**
 generatedFiles:
   - .gitattributes
   - .npmignore
