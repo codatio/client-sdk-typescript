@@ -95,7 +95,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/companies/{companyId}/data/info")(pathParams);
 
   const headers = new Headers(compactMap({
