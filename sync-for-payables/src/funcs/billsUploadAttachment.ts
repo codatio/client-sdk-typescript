@@ -3,7 +3,7 @@
  */
 
 import { CodatSyncPayablesCore } from "../core.js";
-import { appendForm, encodeSimple } from "../lib/encodings.js";
+import { appendForm, encodeSimple, normalizeBlob } from "../lib/encodings.js";
 import {
   bytesToBlob,
   getContentTypeFromFileName,
@@ -100,7 +100,10 @@ async function $do(
   const body = new FormData();
   if (payload.AttachmentUpload != null) {
     if (isBlobLike(payload.AttachmentUpload.file)) {
-      appendForm(body, "file", payload.AttachmentUpload.file);
+      const file = payload.AttachmentUpload.file;
+      const blob = await normalizeBlob(file);
+      const name = "name" in file ? (file.name as string) : undefined;
+      appendForm(body, "file", blob, name);
     } else if (isReadableStream(payload.AttachmentUpload.file.content)) {
       const buffer = await readableStreamToArrayBuffer(
         payload.AttachmentUpload.file.content,
