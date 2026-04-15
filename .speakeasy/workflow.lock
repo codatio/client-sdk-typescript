@@ -2,8 +2,8 @@ speakeasyVersion: 1.761.5
 sources:
     bank-feeds-source:
         sourceNamespace: bank-feeds-source
-        sourceRevisionDigest: sha256:db973c9d8c06047299854a7aa58c29bee90109d9230c0d3014c5f37c9116b7ea
-        sourceBlobDigest: sha256:ea9603cd302e3ac9fb6b395903cff7fe65012374fe509a445472baf9daca0e35
+        sourceRevisionDigest: sha256:169b50aca543aab236e24029ee5037bb8230d7f9149b9705da680973a86e62d0
+        sourceBlobDigest: sha256:d15376235a83cfd95449e02f7a2fcffac242798aa337954333c4a81174231e3f
         tags:
             - latest
             - 3.0.0
@@ -64,10 +64,10 @@ targets:
     bank-feeds-library:
         source: bank-feeds-source
         sourceNamespace: bank-feeds-source
-        sourceRevisionDigest: sha256:db973c9d8c06047299854a7aa58c29bee90109d9230c0d3014c5f37c9116b7ea
-        sourceBlobDigest: sha256:ea9603cd302e3ac9fb6b395903cff7fe65012374fe509a445472baf9daca0e35
+        sourceRevisionDigest: sha256:169b50aca543aab236e24029ee5037bb8230d7f9149b9705da680973a86e62d0
+        sourceBlobDigest: sha256:d15376235a83cfd95449e02f7a2fcffac242798aa337954333c4a81174231e3f
         codeSamplesNamespace: bank-feeds-source-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:032616bc1ff11ca3fb3a34bee42438f65bd1d5fe04a53c233792ffec3ba173ed
+        codeSamplesRevisionDigest: sha256:83ffc4dde37ee38e46090010970d8f5e1f2d451c4d2a4acc2b3b7ed3de332f66
     lending-library:
         source: lending-source
         sourceNamespace: lending-source

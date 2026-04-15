@@ -37,10 +37,6 @@ info:
     | Suppliers | Get, create, and update Suppliers. |
     | Bank accounts | Create a bank account for a given company's connection. |
     <!-- End Codat Tags Table -->
-  version: 3.0.0
-  contact:
-    name: Codat
-    email: support@codat.io
   termsOfService: 'https://www.codat.io/legals/'
 security:
   - auth_header: []
