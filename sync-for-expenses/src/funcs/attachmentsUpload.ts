@@ -3,8 +3,9 @@
  */
 
 import { CodatSyncExpensesCore } from "../core.js";
-import { appendForm, encodeSimple } from "../lib/encodings.js";
+import { appendForm, encodeSimple, normalizeBlob } from "../lib/encodings.js";
 import {
+  bytesToBlob,
   getContentTypeFromFileName,
   readableStreamToArrayBuffer,
 } from "../lib/files.js";
@@ -113,7 +114,10 @@ async function $do(
   const body = new FormData();
   if (payload.AttachmentUpload != null) {
     if (isBlobLike(payload.AttachmentUpload.file)) {
-      appendForm(body, "file", payload.AttachmentUpload.file);
+      const file = payload.AttachmentUpload.file;
+      const blob = await normalizeBlob(file);
+      const name = "name" in file ? (file.name as string) : undefined;
+      appendForm(body, "file", blob, name);
     } else if (isReadableStream(payload.AttachmentUpload.file.content)) {
       const buffer = await readableStreamToArrayBuffer(
         payload.AttachmentUpload.file.content,
@@ -121,19 +125,10 @@ async function $do(
       const contentType =
         getContentTypeFromFileName(payload.AttachmentUpload.file.fileName)
         || "application/octet-stream";
-      const blob = new Blob([buffer], { type: contentType });
-      appendForm(body, "file", blob, payload.AttachmentUpload.file.fileName);
-    } else if (payload.AttachmentUpload.file.content instanceof Uint8Array) {
-      const contentType =
-        getContentTypeFromFileName(payload.AttachmentUpload.file.fileName)
-        || "application/octet-stream";
       appendForm(
         body,
         "file",
-        new Blob(
-          [new Uint8Array(payload.AttachmentUpload.file.content).buffer],
-          { type: contentType },
-        ),
+        bytesToBlob(buffer, contentType),
         payload.AttachmentUpload.file.fileName,
       );
     } else {
@@ -143,9 +138,7 @@ async function $do(
       appendForm(
         body,
         "file",
-        new Blob([payload.AttachmentUpload.file.content], {
-          type: contentType,
-        }),
+        bytesToBlob(payload.AttachmentUpload.file.content, contentType),
         payload.AttachmentUpload.file.fileName,
       );
     }
@@ -165,7 +158,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc(
     "/companies/{companyId}/sync/expenses/syncs/{syncId}/transactions/{transactionId}/attachments",
   )(pathParams);

@@ -95,7 +95,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc("/companies/{companyId}/data/history")(pathParams);
 
   const query = encodeFormQuery({
