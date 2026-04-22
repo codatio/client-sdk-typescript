@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCommerceRefundsReportRequest = {
@@ -40,20 +37,6 @@ export type GetCommerceRefundsReportRequest = {
 };
 
 /** @internal */
-export const GetCommerceRefundsReportRequest$inboundSchema: z.ZodType<
-  GetCommerceRefundsReportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  reportDate: z.string(),
-  periodLength: z.number().int(),
-  numberOfPeriods: z.number().int(),
-  periodUnit: shared.PeriodUnit$inboundSchema,
-  includeDisplayNames: z.boolean().optional(),
-});
-/** @internal */
 export type GetCommerceRefundsReportRequest$Outbound = {
   companyId: string;
   connectionId: string;
@@ -86,14 +69,5 @@ export function getCommerceRefundsReportRequestToJSON(
     GetCommerceRefundsReportRequest$outboundSchema.parse(
       getCommerceRefundsReportRequest,
     ),
-  );
-}
-export function getCommerceRefundsReportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCommerceRefundsReportRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetCommerceRefundsReportRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCommerceRefundsReportRequest' from JSON`,
   );
 }

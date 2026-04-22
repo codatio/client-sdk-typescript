@@ -7,18 +7,8 @@ import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  CommerceOrder,
-  CommerceOrder$inboundSchema,
-  CommerceOrder$Outbound,
-  CommerceOrder$outboundSchema,
-} from "./commerceorder.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { CommerceOrder, CommerceOrder$inboundSchema } from "./commerceorder.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type CommerceOrders = {
   results?: Array<CommerceOrder | null> | undefined;
@@ -53,35 +43,7 @@ export const CommerceOrders$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type CommerceOrders$Outbound = {
-  results?: Array<CommerceOrder$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const CommerceOrders$outboundSchema: z.ZodType<
-  CommerceOrders$Outbound,
-  z.ZodTypeDef,
-  CommerceOrders
-> = z.object({
-  results: z.array(z.nullable(CommerceOrder$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function commerceOrdersToJSON(commerceOrders: CommerceOrders): string {
-  return JSON.stringify(CommerceOrders$outboundSchema.parse(commerceOrders));
-}
 export function commerceOrdersFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceOrders, SDKValidationError> {

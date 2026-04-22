@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DownloadFilesRequest = {
   /**
@@ -18,15 +15,6 @@ export type DownloadFilesRequest = {
   date?: string | undefined;
 };
 
-/** @internal */
-export const DownloadFilesRequest$inboundSchema: z.ZodType<
-  DownloadFilesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  date: z.string().optional(),
-});
 /** @internal */
 export type DownloadFilesRequest$Outbound = {
   companyId: string;
@@ -48,14 +36,5 @@ export function downloadFilesRequestToJSON(
 ): string {
   return JSON.stringify(
     DownloadFilesRequest$outboundSchema.parse(downloadFilesRequest),
-  );
-}
-export function downloadFilesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DownloadFilesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DownloadFilesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DownloadFilesRequest' from JSON`,
   );
 }

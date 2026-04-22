@@ -28,33 +28,7 @@ export const AgedOutstandingAmountDetail$inboundSchema: z.ZodType<
   name: z.string().optional(),
   amount: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type AgedOutstandingAmountDetail$Outbound = {
-  name?: string | undefined;
-  amount?: number | undefined;
-};
 
-/** @internal */
-export const AgedOutstandingAmountDetail$outboundSchema: z.ZodType<
-  AgedOutstandingAmountDetail$Outbound,
-  z.ZodTypeDef,
-  AgedOutstandingAmountDetail
-> = z.object({
-  name: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function agedOutstandingAmountDetailToJSON(
-  agedOutstandingAmountDetail: AgedOutstandingAmountDetail,
-): string {
-  return JSON.stringify(
-    AgedOutstandingAmountDetail$outboundSchema.parse(
-      agedOutstandingAmountDetail,
-    ),
-  );
-}
 export function agedOutstandingAmountDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<AgedOutstandingAmountDetail, SDKValidationError> {

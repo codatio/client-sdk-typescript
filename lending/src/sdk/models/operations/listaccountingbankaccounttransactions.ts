@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAccountingBankAccountTransactionsRequest = {
   /**
@@ -38,21 +35,6 @@ export type ListAccountingBankAccountTransactionsRequest = {
   orderBy?: string | undefined;
 };
 
-/** @internal */
-export const ListAccountingBankAccountTransactionsRequest$inboundSchema:
-  z.ZodType<
-    ListAccountingBankAccountTransactionsRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    companyId: z.string(),
-    connectionId: z.string(),
-    accountId: z.string(),
-    page: z.number().int().default(1),
-    pageSize: z.number().int().default(100),
-    query: z.string().optional(),
-    orderBy: z.string().optional(),
-  });
 /** @internal */
 export type ListAccountingBankAccountTransactionsRequest$Outbound = {
   companyId: string;
@@ -88,20 +70,5 @@ export function listAccountingBankAccountTransactionsRequestToJSON(
     ListAccountingBankAccountTransactionsRequest$outboundSchema.parse(
       listAccountingBankAccountTransactionsRequest,
     ),
-  );
-}
-export function listAccountingBankAccountTransactionsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  ListAccountingBankAccountTransactionsRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      ListAccountingBankAccountTransactionsRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'ListAccountingBankAccountTransactionsRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CompanyRequestBody = {
   /**
@@ -22,16 +19,6 @@ export type CompanyRequestBody = {
   tags?: { [k: string]: string } | undefined;
 };
 
-/** @internal */
-export const CompanyRequestBody$inboundSchema: z.ZodType<
-  CompanyRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  name: z.string(),
-  description: z.string().optional(),
-  tags: z.record(z.string()).optional(),
-});
 /** @internal */
 export type CompanyRequestBody$Outbound = {
   name: string;
@@ -55,14 +42,5 @@ export function companyRequestBodyToJSON(
 ): string {
   return JSON.stringify(
     CompanyRequestBody$outboundSchema.parse(companyRequestBody),
-  );
-}
-export function companyRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<CompanyRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CompanyRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CompanyRequestBody' from JSON`,
   );
 }

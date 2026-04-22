@@ -3,12 +3,8 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CreateBankAccountTransaction,
-  CreateBankAccountTransaction$inboundSchema,
   CreateBankAccountTransaction$Outbound,
   CreateBankAccountTransaction$outboundSchema,
 } from "./createbankaccounttransaction.js";
@@ -21,15 +17,6 @@ export type AccountingCreateBankTransactions = {
   transactions?: Array<CreateBankAccountTransaction> | undefined;
 };
 
-/** @internal */
-export const AccountingCreateBankTransactions$inboundSchema: z.ZodType<
-  AccountingCreateBankTransactions,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  accountId: z.string().optional(),
-  transactions: z.array(CreateBankAccountTransaction$inboundSchema).optional(),
-});
 /** @internal */
 export type AccountingCreateBankTransactions$Outbound = {
   accountId?: string | undefined;
@@ -53,14 +40,5 @@ export function accountingCreateBankTransactionsToJSON(
     AccountingCreateBankTransactions$outboundSchema.parse(
       accountingCreateBankTransactions,
     ),
-  );
-}
-export function accountingCreateBankTransactionsFromJSON(
-  jsonString: string,
-): SafeParseResult<AccountingCreateBankTransactions, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AccountingCreateBankTransactions$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AccountingCreateBankTransactions' from JSON`,
   );
 }

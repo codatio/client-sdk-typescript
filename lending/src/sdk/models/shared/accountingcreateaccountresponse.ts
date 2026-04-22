@@ -7,50 +7,26 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountStatus,
-  AccountStatus$inboundSchema,
-  AccountStatus$outboundSchema,
-} from "./accountstatus.js";
-import {
-  AccountType,
-  AccountType$inboundSchema,
-  AccountType$outboundSchema,
-} from "./accounttype.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { AccountStatus, AccountStatus$inboundSchema } from "./accountstatus.js";
+import { AccountType, AccountType$inboundSchema } from "./accounttype.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 /**
  * When querying Codat's data model, some data types return `validDatatypeLinks` metadata in the JSON response. This indicates where that object can be used as a reference—a _valid link_—when creating or updating other data.
@@ -323,33 +299,7 @@ export const AccountingCreateAccountResponseValidDataTypeLinks$inboundSchema:
     property: z.nullable(z.string()).optional(),
     links: z.nullable(z.array(z.string())).optional(),
   });
-/** @internal */
-export type AccountingCreateAccountResponseValidDataTypeLinks$Outbound = {
-  property?: string | null | undefined;
-  links?: Array<string> | null | undefined;
-};
 
-/** @internal */
-export const AccountingCreateAccountResponseValidDataTypeLinks$outboundSchema:
-  z.ZodType<
-    AccountingCreateAccountResponseValidDataTypeLinks$Outbound,
-    z.ZodTypeDef,
-    AccountingCreateAccountResponseValidDataTypeLinks
-  > = z.object({
-    property: z.nullable(z.string()).optional(),
-    links: z.nullable(z.array(z.string())).optional(),
-  });
-
-export function accountingCreateAccountResponseValidDataTypeLinksToJSON(
-  accountingCreateAccountResponseValidDataTypeLinks:
-    AccountingCreateAccountResponseValidDataTypeLinks,
-): string {
-  return JSON.stringify(
-    AccountingCreateAccountResponseValidDataTypeLinks$outboundSchema.parse(
-      accountingCreateAccountResponseValidDataTypeLinks,
-    ),
-  );
-}
 export function accountingCreateAccountResponseValidDataTypeLinksFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -395,72 +345,7 @@ export const AccountingCreateAccountResponseAccountingAccount$inboundSchema:
     supplementalData: SupplementalData$inboundSchema.optional(),
     metadata: Metadata$inboundSchema.optional(),
   });
-/** @internal */
-export type AccountingCreateAccountResponseAccountingAccount$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  nominalCode?: string | null | undefined;
-  name?: string | null | undefined;
-  description?: string | null | undefined;
-  fullyQualifiedCategory?: string | null | undefined;
-  fullyQualifiedName?: string | null | undefined;
-  currency?: string | undefined;
-  currentBalance?: number | null | undefined;
-  type?: string | undefined;
-  status?: string | undefined;
-  isBankAccount?: boolean | undefined;
-  validDatatypeLinks?:
-    | Array<AccountingCreateAccountResponseValidDataTypeLinks$Outbound>
-    | null
-    | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCreateAccountResponseAccountingAccount$outboundSchema:
-  z.ZodType<
-    AccountingCreateAccountResponseAccountingAccount$Outbound,
-    z.ZodTypeDef,
-    AccountingCreateAccountResponseAccountingAccount
-  > = z.object({
-    modifiedDate: z.string().optional(),
-    sourceModifiedDate: z.string().optional(),
-    id: z.string().optional(),
-    nominalCode: z.nullable(z.string()).optional(),
-    name: z.nullable(z.string()).optional(),
-    description: z.nullable(z.string()).optional(),
-    fullyQualifiedCategory: z.nullable(z.string()).optional(),
-    fullyQualifiedName: z.nullable(z.string()).optional(),
-    currency: z.string().optional(),
-    currentBalance: z.nullable(
-      z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-        typeof v === "number" ? v : v.toNumber()
-      ),
-    ).optional(),
-    type: AccountType$outboundSchema.optional(),
-    status: AccountStatus$outboundSchema.optional(),
-    isBankAccount: z.boolean().optional(),
-    validDatatypeLinks: z.nullable(
-      z.array(z.lazy(() =>
-        AccountingCreateAccountResponseValidDataTypeLinks$outboundSchema
-      )),
-    ).optional(),
-    supplementalData: SupplementalData$outboundSchema.optional(),
-    metadata: Metadata$outboundSchema.optional(),
-  });
-
-export function accountingCreateAccountResponseAccountingAccountToJSON(
-  accountingCreateAccountResponseAccountingAccount:
-    AccountingCreateAccountResponseAccountingAccount,
-): string {
-  return JSON.stringify(
-    AccountingCreateAccountResponseAccountingAccount$outboundSchema.parse(
-      accountingCreateAccountResponseAccountingAccount,
-    ),
-  );
-}
 export function accountingCreateAccountResponseAccountingAccountFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -502,62 +387,7 @@ export const AccountingCreateAccountResponse$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type AccountingCreateAccountResponse$Outbound = {
-  data?:
-    | AccountingCreateAccountResponseAccountingAccount$Outbound
-    | null
-    | undefined;
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const AccountingCreateAccountResponse$outboundSchema: z.ZodType<
-  AccountingCreateAccountResponse$Outbound,
-  z.ZodTypeDef,
-  AccountingCreateAccountResponse
-> = z.object({
-  data: z.nullable(
-    z.lazy(() =>
-      AccountingCreateAccountResponseAccountingAccount$outboundSchema
-    ),
-  ).optional(),
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function accountingCreateAccountResponseToJSON(
-  accountingCreateAccountResponse: AccountingCreateAccountResponse,
-): string {
-  return JSON.stringify(
-    AccountingCreateAccountResponse$outboundSchema.parse(
-      accountingCreateAccountResponse,
-    ),
-  );
-}
 export function accountingCreateAccountResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreateAccountResponse, SDKValidationError> {

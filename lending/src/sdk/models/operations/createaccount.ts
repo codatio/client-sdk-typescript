@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateAccountRequest = {
@@ -28,18 +25,6 @@ export type CreateAccountRequest = {
   accountPrototype?: shared.AccountPrototype | undefined;
 };
 
-/** @internal */
-export const CreateAccountRequest$inboundSchema: z.ZodType<
-  CreateAccountRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  timeoutInMinutes: z.number().int().optional(),
-  allowSyncOnPushComplete: z.boolean().default(true),
-  accountPrototype: shared.AccountPrototype$inboundSchema.optional(),
-});
 /** @internal */
 export type CreateAccountRequest$Outbound = {
   companyId: string;
@@ -67,14 +52,5 @@ export function createAccountRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateAccountRequest$outboundSchema.parse(createAccountRequest),
-  );
-}
-export function createAccountRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateAccountRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateAccountRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateAccountRequest' from JSON`,
   );
 }

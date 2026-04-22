@@ -30,27 +30,7 @@ export const TaxComponentRef$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string(),
 });
-/** @internal */
-export type TaxComponentRef$Outbound = {
-  id: string;
-  name: string;
-};
 
-/** @internal */
-export const TaxComponentRef$outboundSchema: z.ZodType<
-  TaxComponentRef$Outbound,
-  z.ZodTypeDef,
-  TaxComponentRef
-> = z.object({
-  id: z.string(),
-  name: z.string(),
-});
-
-export function taxComponentRefToJSON(
-  taxComponentRef: TaxComponentRef,
-): string {
-  return JSON.stringify(TaxComponentRef$outboundSchema.parse(taxComponentRef));
-}
 export function taxComponentRefFromJSON(
   jsonString: string,
 ): SafeParseResult<TaxComponentRef, SDKValidationError> {

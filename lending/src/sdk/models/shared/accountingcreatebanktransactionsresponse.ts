@@ -9,31 +9,20 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CreateBankAccountTransaction,
   CreateBankAccountTransaction$inboundSchema,
-  CreateBankAccountTransaction$Outbound,
-  CreateBankAccountTransaction$outboundSchema,
 } from "./createbankaccounttransaction.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 /**
  * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -149,32 +138,7 @@ export const AccountingCreateBankAccountTransactions$inboundSchema: z.ZodType<
   accountId: z.string().optional(),
   transactions: z.array(CreateBankAccountTransaction$inboundSchema).optional(),
 });
-/** @internal */
-export type AccountingCreateBankAccountTransactions$Outbound = {
-  accountId?: string | undefined;
-  transactions?: Array<CreateBankAccountTransaction$Outbound> | undefined;
-};
 
-/** @internal */
-export const AccountingCreateBankAccountTransactions$outboundSchema: z.ZodType<
-  AccountingCreateBankAccountTransactions$Outbound,
-  z.ZodTypeDef,
-  AccountingCreateBankAccountTransactions
-> = z.object({
-  accountId: z.string().optional(),
-  transactions: z.array(CreateBankAccountTransaction$outboundSchema).optional(),
-});
-
-export function accountingCreateBankAccountTransactionsToJSON(
-  accountingCreateBankAccountTransactions:
-    AccountingCreateBankAccountTransactions,
-): string {
-  return JSON.stringify(
-    AccountingCreateBankAccountTransactions$outboundSchema.parse(
-      accountingCreateBankAccountTransactions,
-    ),
-  );
-}
 export function accountingCreateBankAccountTransactionsFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -213,57 +177,7 @@ export const AccountingCreateBankTransactionsResponse$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type AccountingCreateBankTransactionsResponse$Outbound = {
-  data?: AccountingCreateBankAccountTransactions$Outbound | undefined;
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const AccountingCreateBankTransactionsResponse$outboundSchema: z.ZodType<
-  AccountingCreateBankTransactionsResponse$Outbound,
-  z.ZodTypeDef,
-  AccountingCreateBankTransactionsResponse
-> = z.object({
-  data: z.lazy(() => AccountingCreateBankAccountTransactions$outboundSchema)
-    .optional(),
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function accountingCreateBankTransactionsResponseToJSON(
-  accountingCreateBankTransactionsResponse:
-    AccountingCreateBankTransactionsResponse,
-): string {
-  return JSON.stringify(
-    AccountingCreateBankTransactionsResponse$outboundSchema.parse(
-      accountingCreateBankTransactionsResponse,
-    ),
-  );
-}
 export function accountingCreateBankTransactionsResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<

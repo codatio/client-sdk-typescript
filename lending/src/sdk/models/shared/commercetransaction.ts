@@ -10,19 +10,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 import {
   TransactionSourceRef,
   TransactionSourceRef$inboundSchema,
-  TransactionSourceRef$Outbound,
-  TransactionSourceRef$outboundSchema,
 } from "./transactionsourceref.js";
 import {
   TransactionType,
   TransactionType$inboundSchema,
-  TransactionType$outboundSchema,
 } from "./transactiontype.js";
 
 /**
@@ -154,49 +149,7 @@ export const CommerceTransaction$inboundSchema: z.ZodType<
   transactionSourceRef: TransactionSourceRef$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type CommerceTransaction$Outbound = {
-  createdDate?: string | undefined;
-  sourceCreatedDate?: string | undefined;
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  totalAmount?: number | undefined;
-  currency?: string | undefined;
-  type?: string | undefined;
-  subType?: string | undefined;
-  transactionSourceRef?: TransactionSourceRef$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const CommerceTransaction$outboundSchema: z.ZodType<
-  CommerceTransaction$Outbound,
-  z.ZodTypeDef,
-  CommerceTransaction
-> = z.object({
-  createdDate: z.string().optional(),
-  sourceCreatedDate: z.string().optional(),
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-  type: TransactionType$outboundSchema.optional(),
-  subType: z.string().optional(),
-  transactionSourceRef: TransactionSourceRef$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function commerceTransactionToJSON(
-  commerceTransaction: CommerceTransaction,
-): string {
-  return JSON.stringify(
-    CommerceTransaction$outboundSchema.parse(commerceTransaction),
-  );
-}
 export function commerceTransactionFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceTransaction, SDKValidationError> {

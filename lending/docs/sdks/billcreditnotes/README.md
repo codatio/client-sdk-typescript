@@ -16,9 +16,698 @@ The *List bill credit notes* endpoint returns a list of [bill credit notes](http
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" -->
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Exact (Netherlands)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Exact (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Sage 200cloud" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesList } from "@codat/lending/funcs/accountsPayableBillCreditNotesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bill-credit-notes" method="get" path="/companies/{companyId}/data/billCreditNotes" example="Xero" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -100,9 +789,672 @@ The *Get bill credit note* endpoint returns a single bill credit note for a give
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Exact (Netherlands)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Exact (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Sage 200cloud" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsPayable.billCreditNotes.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsPayableBillCreditNotesGet } from "@codat/lending/funcs/accountsPayableBillCreditNotesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsPayableBillCreditNotesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    billCreditNoteId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsPayableBillCreditNotesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bill-credit-note" method="get" path="/companies/{companyId}/data/billCreditNotes/{billCreditNoteId}" example="Xero" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

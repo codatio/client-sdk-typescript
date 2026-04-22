@@ -43,39 +43,7 @@ export const TargetAccountOption$inboundSchema: z.ZodType<
   sortCode: z.nullable(z.string()).optional(),
   accountNumber: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type TargetAccountOption$Outbound = {
-  id?: string | undefined;
-  name?: string | null | undefined;
-  balance?: number | null | undefined;
-  sortCode?: string | null | undefined;
-  accountNumber?: string | null | undefined;
-};
 
-/** @internal */
-export const TargetAccountOption$outboundSchema: z.ZodType<
-  TargetAccountOption$Outbound,
-  z.ZodTypeDef,
-  TargetAccountOption
-> = z.object({
-  id: z.string().optional(),
-  name: z.nullable(z.string()).optional(),
-  balance: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  sortCode: z.nullable(z.string()).optional(),
-  accountNumber: z.nullable(z.string()).optional(),
-});
-
-export function targetAccountOptionToJSON(
-  targetAccountOption: TargetAccountOption,
-): string {
-  return JSON.stringify(
-    TargetAccountOption$outboundSchema.parse(targetAccountOption),
-  );
-}
 export function targetAccountOptionFromJSON(
   jsonString: string,
 ): SafeParseResult<TargetAccountOption, SDKValidationError> {

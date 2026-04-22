@@ -6,16 +6,10 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  DisputeStatus,
-  DisputeStatus$inboundSchema,
-  DisputeStatus$outboundSchema,
-} from "./disputestatus.js";
+import { DisputeStatus, DisputeStatus$inboundSchema } from "./disputestatus.js";
 import {
   TransactionSourceRef,
   TransactionSourceRef$inboundSchema,
-  TransactionSourceRef$Outbound,
-  TransactionSourceRef$outboundSchema,
 } from "./transactionsourceref.js";
 
 /**
@@ -126,43 +120,7 @@ export const CommerceDispute$inboundSchema: z.ZodType<
   dueDate: z.string().optional(),
   createdDate: z.string().optional(),
 });
-/** @internal */
-export type CommerceDispute$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  disputedTransactions?: Array<TransactionSourceRef$Outbound> | undefined;
-  totalAmount?: any | undefined;
-  currency: string;
-  status?: string | undefined;
-  reason?: string | undefined;
-  dueDate?: string | undefined;
-  createdDate?: string | undefined;
-};
 
-/** @internal */
-export const CommerceDispute$outboundSchema: z.ZodType<
-  CommerceDispute$Outbound,
-  z.ZodTypeDef,
-  CommerceDispute
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  disputedTransactions: z.array(TransactionSourceRef$outboundSchema).optional(),
-  totalAmount: z.any().optional(),
-  currency: z.string(),
-  status: DisputeStatus$outboundSchema.optional(),
-  reason: z.string().optional(),
-  dueDate: z.string().optional(),
-  createdDate: z.string().optional(),
-});
-
-export function commerceDisputeToJSON(
-  commerceDispute: CommerceDispute,
-): string {
-  return JSON.stringify(CommerceDispute$outboundSchema.parse(commerceDispute));
-}
 export function commerceDisputeFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceDispute, SDKValidationError> {

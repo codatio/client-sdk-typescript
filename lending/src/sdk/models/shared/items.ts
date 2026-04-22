@@ -25,27 +25,7 @@ export const Items$inboundSchema: z.ZodType<Items, z.ZodTypeDef, unknown> = z
     name: z.string(),
     amount: z.number().transform(v => new Decimal$(v)),
   });
-/** @internal */
-export type Items$Outbound = {
-  name: string;
-  amount: number;
-};
 
-/** @internal */
-export const Items$outboundSchema: z.ZodType<
-  Items$Outbound,
-  z.ZodTypeDef,
-  Items
-> = z.object({
-  name: z.string(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-});
-
-export function itemsToJSON(items: Items): string {
-  return JSON.stringify(Items$outboundSchema.parse(items));
-}
 export function itemsFromJSON(
   jsonString: string,
 ): SafeParseResult<Items, SDKValidationError> {

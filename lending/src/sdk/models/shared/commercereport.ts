@@ -9,26 +9,18 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceReportComponent,
   CommerceReportComponent$inboundSchema,
-  CommerceReportComponent$Outbound,
-  CommerceReportComponent$outboundSchema,
 } from "./commercereportcomponent.js";
 import {
   CommerceReportDimension,
   CommerceReportDimension$inboundSchema,
-  CommerceReportDimension$Outbound,
-  CommerceReportDimension$outboundSchema,
 } from "./commercereportdimension.js";
 import {
   CommerceReportError,
   CommerceReportError$inboundSchema,
-  CommerceReportError$Outbound,
-  CommerceReportError$outboundSchema,
 } from "./commercereporterror.js";
 import {
   CommerceReportMeasure,
   CommerceReportMeasure$inboundSchema,
-  CommerceReportMeasure$Outbound,
-  CommerceReportMeasure$outboundSchema,
 } from "./commercereportmeasure.js";
 
 /**
@@ -95,31 +87,7 @@ export const CommerceReport$inboundSchema: z.ZodType<
   reportData: z.array(CommerceReportComponent$inboundSchema).optional(),
   errors: z.array(CommerceReportError$inboundSchema).optional(),
 });
-/** @internal */
-export type CommerceReport$Outbound = {
-  reportInfo?: { [k: string]: string } | undefined;
-  dimensions?: Array<CommerceReportDimension$Outbound> | undefined;
-  measures?: Array<CommerceReportMeasure$Outbound> | undefined;
-  reportData?: Array<CommerceReportComponent$Outbound> | undefined;
-  errors?: Array<CommerceReportError$Outbound> | undefined;
-};
 
-/** @internal */
-export const CommerceReport$outboundSchema: z.ZodType<
-  CommerceReport$Outbound,
-  z.ZodTypeDef,
-  CommerceReport
-> = z.object({
-  reportInfo: z.record(z.string()).optional(),
-  dimensions: z.array(CommerceReportDimension$outboundSchema).optional(),
-  measures: z.array(CommerceReportMeasure$outboundSchema).optional(),
-  reportData: z.array(CommerceReportComponent$outboundSchema).optional(),
-  errors: z.array(CommerceReportError$outboundSchema).optional(),
-});
-
-export function commerceReportToJSON(commerceReport: CommerceReport): string {
-  return JSON.stringify(CommerceReport$outboundSchema.parse(commerceReport));
-}
 export function commerceReportFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceReport, SDKValidationError> {

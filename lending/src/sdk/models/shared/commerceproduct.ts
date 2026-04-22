@@ -9,14 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductVariant,
   ProductVariant$inboundSchema,
-  ProductVariant$Outbound,
-  ProductVariant$outboundSchema,
 } from "./productvariant.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -73,37 +69,7 @@ export const CommerceProduct$inboundSchema: z.ZodType<
   variants: z.array(z.nullable(ProductVariant$inboundSchema)).optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type CommerceProduct$Outbound = {
-  id: string;
-  name?: string | undefined;
-  description?: string | undefined;
-  categorization?: string | undefined;
-  isGiftCard?: boolean | undefined;
-  variants?: Array<ProductVariant$Outbound | null> | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const CommerceProduct$outboundSchema: z.ZodType<
-  CommerceProduct$Outbound,
-  z.ZodTypeDef,
-  CommerceProduct
-> = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  categorization: z.string().optional(),
-  isGiftCard: z.boolean().optional(),
-  variants: z.array(z.nullable(ProductVariant$outboundSchema)).optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function commerceProductToJSON(
-  commerceProduct: CommerceProduct,
-): string {
-  return JSON.stringify(CommerceProduct$outboundSchema.parse(commerceProduct));
-}
 export function commerceProductFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceProduct, SDKValidationError> {

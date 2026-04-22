@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * An indicator to cancel the dataset processing or trigger ingestion and enrichment of data.
@@ -30,22 +27,10 @@ export type EndUploadSessionRequest = {
 };
 
 /** @internal */
-export const EndUploadSessionRequestStatus$inboundSchema: z.ZodNativeEnum<
-  typeof EndUploadSessionRequestStatus
-> = z.nativeEnum(EndUploadSessionRequestStatus);
-/** @internal */
 export const EndUploadSessionRequestStatus$outboundSchema: z.ZodNativeEnum<
   typeof EndUploadSessionRequestStatus
-> = EndUploadSessionRequestStatus$inboundSchema;
+> = z.nativeEnum(EndUploadSessionRequestStatus);
 
-/** @internal */
-export const EndUploadSessionRequest$inboundSchema: z.ZodType<
-  EndUploadSessionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  status: EndUploadSessionRequestStatus$inboundSchema.optional(),
-});
 /** @internal */
 export type EndUploadSessionRequest$Outbound = {
   status?: string | undefined;
@@ -65,14 +50,5 @@ export function endUploadSessionRequestToJSON(
 ): string {
   return JSON.stringify(
     EndUploadSessionRequest$outboundSchema.parse(endUploadSessionRequest),
-  );
-}
-export function endUploadSessionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<EndUploadSessionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => EndUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EndUploadSessionRequest' from JSON`,
   );
 }

@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ReportComponentMeasure,
   ReportComponentMeasure$inboundSchema,
-  ReportComponentMeasure$Outbound,
-  ReportComponentMeasure$outboundSchema,
 } from "./reportcomponentmeasure.js";
 
 export type CommerceReportComponent = {
@@ -48,38 +46,7 @@ export const CommerceReportComponent$inboundSchema: z.ZodType<
   components: z.array(z.lazy(() => CommerceReportComponent$inboundSchema))
     .optional(),
 });
-/** @internal */
-export type CommerceReportComponent$Outbound = {
-  dimension?: number | undefined;
-  dimensionDisplayName?: string | undefined;
-  item?: number | undefined;
-  itemDisplayName?: string | undefined;
-  measures?: Array<ReportComponentMeasure$Outbound> | undefined;
-  components?: Array<CommerceReportComponent$Outbound> | undefined;
-};
 
-/** @internal */
-export const CommerceReportComponent$outboundSchema: z.ZodType<
-  CommerceReportComponent$Outbound,
-  z.ZodTypeDef,
-  CommerceReportComponent
-> = z.object({
-  dimension: z.number().int().optional(),
-  dimensionDisplayName: z.string().optional(),
-  item: z.number().int().optional(),
-  itemDisplayName: z.string().optional(),
-  measures: z.array(ReportComponentMeasure$outboundSchema).optional(),
-  components: z.array(z.lazy(() => CommerceReportComponent$outboundSchema))
-    .optional(),
-});
-
-export function commerceReportComponentToJSON(
-  commerceReportComponent: CommerceReportComponent,
-): string {
-  return JSON.stringify(
-    CommerceReportComponent$outboundSchema.parse(commerceReportComponent),
-  );
-}
 export function commerceReportComponentFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceReportComponent, SDKValidationError> {

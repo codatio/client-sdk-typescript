@@ -9,19 +9,9 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CashFlowStatement,
   CashFlowStatement$inboundSchema,
-  CashFlowStatement$Outbound,
-  CashFlowStatement$outboundSchema,
 } from "./cashflowstatement.js";
-import {
-  ReportBasis,
-  ReportBasis$inboundSchema,
-  ReportBasis$outboundSchema,
-} from "./reportbasis.js";
-import {
-  ReportInput,
-  ReportInput$inboundSchema,
-  ReportInput$outboundSchema,
-} from "./reportinput.js";
+import { ReportBasis, ReportBasis$inboundSchema } from "./reportbasis.js";
+import { ReportInput, ReportInput$inboundSchema } from "./reportinput.js";
 
 /**
  * > **Operating activities only**
@@ -122,39 +112,7 @@ export const AccountingCashFlowStatement$inboundSchema: z.ZodType<
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });
-/** @internal */
-export type AccountingCashFlowStatement$Outbound = {
-  reports: Array<CashFlowStatement$Outbound>;
-  reportBasis: string;
-  reportInput: string;
-  currency?: string | undefined;
-  mostRecentAvailableMonth?: string | undefined;
-  earliestAvailableMonth?: string | undefined;
-};
 
-/** @internal */
-export const AccountingCashFlowStatement$outboundSchema: z.ZodType<
-  AccountingCashFlowStatement$Outbound,
-  z.ZodTypeDef,
-  AccountingCashFlowStatement
-> = z.object({
-  reports: z.array(CashFlowStatement$outboundSchema),
-  reportBasis: ReportBasis$outboundSchema,
-  reportInput: ReportInput$outboundSchema,
-  currency: z.string().optional(),
-  mostRecentAvailableMonth: z.string().optional(),
-  earliestAvailableMonth: z.string().optional(),
-});
-
-export function accountingCashFlowStatementToJSON(
-  accountingCashFlowStatement: AccountingCashFlowStatement,
-): string {
-  return JSON.stringify(
-    AccountingCashFlowStatement$outboundSchema.parse(
-      accountingCashFlowStatement,
-    ),
-  );
-}
 export function accountingCashFlowStatementFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCashFlowStatement, SDKValidationError> {

@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EnhancedInvoiceReportItem,
   EnhancedInvoiceReportItem$inboundSchema,
-  EnhancedInvoiceReportItem$Outbound,
-  EnhancedInvoiceReportItem$outboundSchema,
 } from "./enhancedinvoicereportitem.js";
-import {
-  ReportInfo,
-  ReportInfo$inboundSchema,
-  ReportInfo$Outbound,
-  ReportInfo$outboundSchema,
-} from "./reportinfo.js";
+import { ReportInfo, ReportInfo$inboundSchema } from "./reportinfo.js";
 
 /**
  * The enhanced invoices report takes the key elements of the Invoices report verifying those marked as paid in the accounting software have actually been paid by matching with the bank statement.
@@ -40,30 +33,7 @@ export const EnhancedInvoicesReport$inboundSchema: z.ZodType<
   reportItems: z.array(z.nullable(EnhancedInvoiceReportItem$inboundSchema))
     .optional(),
 });
-/** @internal */
-export type EnhancedInvoicesReport$Outbound = {
-  reportInfo?: ReportInfo$Outbound | undefined;
-  reportItems?: Array<EnhancedInvoiceReportItem$Outbound | null> | undefined;
-};
 
-/** @internal */
-export const EnhancedInvoicesReport$outboundSchema: z.ZodType<
-  EnhancedInvoicesReport$Outbound,
-  z.ZodTypeDef,
-  EnhancedInvoicesReport
-> = z.object({
-  reportInfo: ReportInfo$outboundSchema.optional(),
-  reportItems: z.array(z.nullable(EnhancedInvoiceReportItem$outboundSchema))
-    .optional(),
-});
-
-export function enhancedInvoicesReportToJSON(
-  enhancedInvoicesReport: EnhancedInvoicesReport,
-): string {
-  return JSON.stringify(
-    EnhancedInvoicesReport$outboundSchema.parse(enhancedInvoicesReport),
-  );
-}
 export function enhancedInvoicesReportFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedInvoicesReport, SDKValidationError> {

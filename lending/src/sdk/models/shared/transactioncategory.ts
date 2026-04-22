@@ -33,37 +33,7 @@ export const TransactionCategory$inboundSchema: z.ZodType<
   confidences: z.array(z.number().transform(v => new Decimal$(v))).optional(),
   levels: z.array(z.string()).optional(),
 });
-/** @internal */
-export type TransactionCategory$Outbound = {
-  confidence?: number | undefined;
-  confidences?: Array<number> | undefined;
-  levels?: Array<string> | undefined;
-};
 
-/** @internal */
-export const TransactionCategory$outboundSchema: z.ZodType<
-  TransactionCategory$Outbound,
-  z.ZodTypeDef,
-  TransactionCategory
-> = z.object({
-  confidence: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  confidences: z.array(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  levels: z.array(z.string()).optional(),
-});
-
-export function transactionCategoryToJSON(
-  transactionCategory: TransactionCategory,
-): string {
-  return JSON.stringify(
-    TransactionCategory$outboundSchema.parse(transactionCategory),
-  );
-}
 export function transactionCategoryFromJSON(
   jsonString: string,
 ): SafeParseResult<TransactionCategory, SDKValidationError> {

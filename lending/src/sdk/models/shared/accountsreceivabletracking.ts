@@ -9,31 +9,16 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
-  AccountingCustomerRef$Outbound,
-  AccountingCustomerRef$outboundSchema,
 } from "./accountingcustomerref.js";
 import {
   AccountingRecordRef,
   AccountingRecordRef$inboundSchema,
-  AccountingRecordRef$Outbound,
-  AccountingRecordRef$outboundSchema,
 } from "./accountingrecordref.js";
-import {
-  BilledToType1,
-  BilledToType1$inboundSchema,
-  BilledToType1$outboundSchema,
-} from "./billedtotype1.js";
-import {
-  ProjectRef,
-  ProjectRef$inboundSchema,
-  ProjectRef$Outbound,
-  ProjectRef$outboundSchema,
-} from "./projectref.js";
+import { BilledToType1, BilledToType1$inboundSchema } from "./billedtotype1.js";
+import { ProjectRef, ProjectRef$inboundSchema } from "./projectref.js";
 import {
   TrackingCategoryRef,
   TrackingCategoryRef$inboundSchema,
-  TrackingCategoryRef$Outbound,
-  TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
 
 /**
@@ -74,37 +59,7 @@ export const AccountsReceivableTracking$inboundSchema: z.ZodType<
   isRebilledTo: BilledToType1$inboundSchema,
   recordRef: AccountingRecordRef$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountsReceivableTracking$Outbound = {
-  categoryRefs: Array<TrackingCategoryRef$Outbound>;
-  customerRef?: AccountingCustomerRef$Outbound | undefined;
-  projectRef?: ProjectRef$Outbound | undefined;
-  isBilledTo: string;
-  isRebilledTo: string;
-  recordRef?: AccountingRecordRef$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountsReceivableTracking$outboundSchema: z.ZodType<
-  AccountsReceivableTracking$Outbound,
-  z.ZodTypeDef,
-  AccountsReceivableTracking
-> = z.object({
-  categoryRefs: z.array(TrackingCategoryRef$outboundSchema),
-  customerRef: AccountingCustomerRef$outboundSchema.optional(),
-  projectRef: ProjectRef$outboundSchema.optional(),
-  isBilledTo: BilledToType1$outboundSchema,
-  isRebilledTo: BilledToType1$outboundSchema,
-  recordRef: AccountingRecordRef$outboundSchema.optional(),
-});
-
-export function accountsReceivableTrackingToJSON(
-  accountsReceivableTracking: AccountsReceivableTracking,
-): string {
-  return JSON.stringify(
-    AccountsReceivableTracking$outboundSchema.parse(accountsReceivableTracking),
-  );
-}
 export function accountsReceivableTrackingFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountsReceivableTracking, SDKValidationError> {

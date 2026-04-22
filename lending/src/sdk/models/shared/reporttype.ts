@@ -12,8 +12,5 @@ export const ReportType = {
 export type ReportType = ClosedEnum<typeof ReportType>;
 
 /** @internal */
-export const ReportType$inboundSchema: z.ZodNativeEnum<typeof ReportType> = z
+export const ReportType$outboundSchema: z.ZodNativeEnum<typeof ReportType> = z
   .nativeEnum(ReportType);
-/** @internal */
-export const ReportType$outboundSchema: z.ZodNativeEnum<typeof ReportType> =
-  ReportType$inboundSchema;

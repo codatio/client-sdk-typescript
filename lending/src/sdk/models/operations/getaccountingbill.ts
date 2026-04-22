@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingBillRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetAccountingBillRequest = {
   billId: string;
 };
 
-/** @internal */
-export const GetAccountingBillRequest$inboundSchema: z.ZodType<
-  GetAccountingBillRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  billId: z.string(),
-});
 /** @internal */
 export type GetAccountingBillRequest$Outbound = {
   companyId: string;
@@ -48,14 +36,5 @@ export function getAccountingBillRequestToJSON(
 ): string {
   return JSON.stringify(
     GetAccountingBillRequest$outboundSchema.parse(getAccountingBillRequest),
-  );
-}
-export function getAccountingBillRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAccountingBillRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetAccountingBillRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAccountingBillRequest' from JSON`,
   );
 }

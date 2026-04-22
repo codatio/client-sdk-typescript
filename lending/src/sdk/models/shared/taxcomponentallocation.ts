@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   TaxComponentRef,
   TaxComponentRef$inboundSchema,
-  TaxComponentRef$Outbound,
-  TaxComponentRef$outboundSchema,
 } from "./taxcomponentref.js";
 
 export type TaxComponentAllocation = {
@@ -34,33 +32,7 @@ export const TaxComponentAllocation$inboundSchema: z.ZodType<
   taxComponentRef: TaxComponentRef$inboundSchema.optional(),
   rate: z.nullable(z.number().transform(v => new Decimal$(v))).optional(),
 });
-/** @internal */
-export type TaxComponentAllocation$Outbound = {
-  taxComponentRef?: TaxComponentRef$Outbound | undefined;
-  rate?: number | null | undefined;
-};
 
-/** @internal */
-export const TaxComponentAllocation$outboundSchema: z.ZodType<
-  TaxComponentAllocation$Outbound,
-  z.ZodTypeDef,
-  TaxComponentAllocation
-> = z.object({
-  taxComponentRef: TaxComponentRef$outboundSchema.optional(),
-  rate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-});
-
-export function taxComponentAllocationToJSON(
-  taxComponentAllocation: TaxComponentAllocation,
-): string {
-  return JSON.stringify(
-    TaxComponentAllocation$outboundSchema.parse(taxComponentAllocation),
-  );
-}
 export function taxComponentAllocationFromJSON(
   jsonString: string,
 ): SafeParseResult<TaxComponentAllocation, SDKValidationError> {

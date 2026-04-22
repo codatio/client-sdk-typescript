@@ -10,61 +10,31 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
-  AccountingCustomerRef$Outbound,
-  AccountingCustomerRef$outboundSchema,
 } from "./accountingcustomerref.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
-import {
-  PaymentLine,
-  PaymentLine$inboundSchema,
-  PaymentLine$Outbound,
-  PaymentLine$outboundSchema,
-} from "./paymentline.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
+import { PaymentLine, PaymentLine$inboundSchema } from "./paymentline.js";
 import {
   PaymentMethodRef,
   PaymentMethodRef$inboundSchema,
-  PaymentMethodRef$Outbound,
-  PaymentMethodRef$outboundSchema,
 } from "./paymentmethodref.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 /**
  * > **Payments or bill payments?**
@@ -951,65 +921,7 @@ export const AccountingCreatePaymentResponseAccountingPayment$inboundSchema:
     metadata: Metadata$inboundSchema.optional(),
     supplementalData: SupplementalData$inboundSchema.optional(),
   });
-/** @internal */
-export type AccountingCreatePaymentResponseAccountingPayment$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  customerRef?: AccountingCustomerRef$Outbound | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  paymentMethodRef?: PaymentMethodRef$Outbound | undefined;
-  totalAmount?: number | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  date: string;
-  note?: string | null | undefined;
-  lines?: Array<PaymentLine$Outbound> | null | undefined;
-  reference?: string | null | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCreatePaymentResponseAccountingPayment$outboundSchema:
-  z.ZodType<
-    AccountingCreatePaymentResponseAccountingPayment$Outbound,
-    z.ZodTypeDef,
-    AccountingCreatePaymentResponseAccountingPayment
-  > = z.object({
-    modifiedDate: z.string().optional(),
-    sourceModifiedDate: z.string().optional(),
-    id: z.string().optional(),
-    customerRef: AccountingCustomerRef$outboundSchema.optional(),
-    accountRef: AccountRef$outboundSchema.optional(),
-    paymentMethodRef: PaymentMethodRef$outboundSchema.optional(),
-    totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ).optional(),
-    currency: z.string().optional(),
-    currencyRate: z.nullable(
-      z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-        typeof v === "number" ? v : v.toNumber()
-      ),
-    ).optional(),
-    date: z.string(),
-    note: z.nullable(z.string()).optional(),
-    lines: z.nullable(z.array(PaymentLine$outboundSchema)).optional(),
-    reference: z.nullable(z.string()).optional(),
-    metadata: Metadata$outboundSchema.optional(),
-    supplementalData: SupplementalData$outboundSchema.optional(),
-  });
-
-export function accountingCreatePaymentResponseAccountingPaymentToJSON(
-  accountingCreatePaymentResponseAccountingPayment:
-    AccountingCreatePaymentResponseAccountingPayment,
-): string {
-  return JSON.stringify(
-    AccountingCreatePaymentResponseAccountingPayment$outboundSchema.parse(
-      accountingCreatePaymentResponseAccountingPayment,
-    ),
-  );
-}
 export function accountingCreatePaymentResponseAccountingPaymentFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -1051,62 +963,7 @@ export const AccountingCreatePaymentResponse$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type AccountingCreatePaymentResponse$Outbound = {
-  data?:
-    | AccountingCreatePaymentResponseAccountingPayment$Outbound
-    | null
-    | undefined;
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const AccountingCreatePaymentResponse$outboundSchema: z.ZodType<
-  AccountingCreatePaymentResponse$Outbound,
-  z.ZodTypeDef,
-  AccountingCreatePaymentResponse
-> = z.object({
-  data: z.nullable(
-    z.lazy(() =>
-      AccountingCreatePaymentResponseAccountingPayment$outboundSchema
-    ),
-  ).optional(),
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function accountingCreatePaymentResponseToJSON(
-  accountingCreatePaymentResponse: AccountingCreatePaymentResponse,
-): string {
-  return JSON.stringify(
-    AccountingCreatePaymentResponse$outboundSchema.parse(
-      accountingCreatePaymentResponse,
-    ),
-  );
-}
 export function accountingCreatePaymentResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreatePaymentResponse, SDKValidationError> {

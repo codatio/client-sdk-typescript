@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListCommercePaymentMethodsRequest = {
   /**
@@ -34,19 +31,6 @@ export type ListCommercePaymentMethodsRequest = {
   orderBy?: string | undefined;
 };
 
-/** @internal */
-export const ListCommercePaymentMethodsRequest$inboundSchema: z.ZodType<
-  ListCommercePaymentMethodsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  page: z.number().int().default(1),
-  pageSize: z.number().int().default(100),
-  query: z.string().optional(),
-  orderBy: z.string().optional(),
-});
 /** @internal */
 export type ListCommercePaymentMethodsRequest$Outbound = {
   companyId: string;
@@ -78,14 +62,5 @@ export function listCommercePaymentMethodsRequestToJSON(
     ListCommercePaymentMethodsRequest$outboundSchema.parse(
       listCommercePaymentMethodsRequest,
     ),
-  );
-}
-export function listCommercePaymentMethodsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListCommercePaymentMethodsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListCommercePaymentMethodsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListCommercePaymentMethodsRequest' from JSON`,
   );
 }

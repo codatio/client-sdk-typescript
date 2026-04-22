@@ -7,23 +7,12 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  InvoiceStatus,
-  InvoiceStatus$inboundSchema,
-  InvoiceStatus$outboundSchema,
-} from "./invoicestatus.js";
+import { InvoiceStatus, InvoiceStatus$inboundSchema } from "./invoicestatus.js";
 import {
   LendingCustomerRef,
   LendingCustomerRef$inboundSchema,
-  LendingCustomerRef$Outbound,
-  LendingCustomerRef$outboundSchema,
 } from "./lendingcustomerref.js";
-import {
-  Payment,
-  Payment$inboundSchema,
-  Payment$Outbound,
-  Payment$outboundSchema,
-} from "./payment.js";
+import { Payment, Payment$inboundSchema } from "./payment.js";
 
 export type EnhancedInvoiceReportItem = {
   modifiedDate?: string | undefined;
@@ -158,55 +147,7 @@ export const EnhancedInvoiceReportItem$inboundSchema: z.ZodType<
   payments: z.array(Payment$inboundSchema).optional(),
   paidOnDate: z.string().optional(),
 });
-/** @internal */
-export type EnhancedInvoiceReportItem$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  invoiceNumber?: string | undefined;
-  customerRef?: LendingCustomerRef$Outbound | undefined;
-  issueDate?: string | undefined;
-  dueDate?: string | undefined;
-  status?: string | undefined;
-  currency?: string | undefined;
-  totalAmount?: number | undefined;
-  amountDue?: number | undefined;
-  payments?: Array<Payment$Outbound> | undefined;
-  paidOnDate?: string | undefined;
-};
 
-/** @internal */
-export const EnhancedInvoiceReportItem$outboundSchema: z.ZodType<
-  EnhancedInvoiceReportItem$Outbound,
-  z.ZodTypeDef,
-  EnhancedInvoiceReportItem
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  invoiceNumber: z.string().optional(),
-  customerRef: LendingCustomerRef$outboundSchema.optional(),
-  issueDate: z.string().optional(),
-  dueDate: z.string().optional(),
-  status: InvoiceStatus$outboundSchema.optional(),
-  currency: z.string().optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  amountDue: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  payments: z.array(Payment$outboundSchema).optional(),
-  paidOnDate: z.string().optional(),
-});
-
-export function enhancedInvoiceReportItemToJSON(
-  enhancedInvoiceReportItem: EnhancedInvoiceReportItem,
-): string {
-  return JSON.stringify(
-    EnhancedInvoiceReportItem$outboundSchema.parse(enhancedInvoiceReportItem),
-  );
-}
 export function enhancedInvoiceReportItemFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedInvoiceReportItem, SDKValidationError> {

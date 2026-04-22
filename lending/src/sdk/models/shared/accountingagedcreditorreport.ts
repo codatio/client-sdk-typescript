@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AgedCreditor,
-  AgedCreditor$inboundSchema,
-  AgedCreditor$Outbound,
-  AgedCreditor$outboundSchema,
-} from "./agedcreditor.js";
+import { AgedCreditor, AgedCreditor$inboundSchema } from "./agedcreditor.js";
 
 /**
  * The Aged Creditors report shows the total balance owed by a business to its suppliers over time.
@@ -110,33 +105,7 @@ export const AccountingAgedCreditorReport$inboundSchema: z.ZodType<
   reportDate: z.string().optional(),
   data: z.array(AgedCreditor$inboundSchema).optional(),
 });
-/** @internal */
-export type AccountingAgedCreditorReport$Outbound = {
-  generated?: string | undefined;
-  reportDate?: string | undefined;
-  data?: Array<AgedCreditor$Outbound> | undefined;
-};
 
-/** @internal */
-export const AccountingAgedCreditorReport$outboundSchema: z.ZodType<
-  AccountingAgedCreditorReport$Outbound,
-  z.ZodTypeDef,
-  AccountingAgedCreditorReport
-> = z.object({
-  generated: z.string().optional(),
-  reportDate: z.string().optional(),
-  data: z.array(AgedCreditor$outboundSchema).optional(),
-});
-
-export function accountingAgedCreditorReportToJSON(
-  accountingAgedCreditorReport: AccountingAgedCreditorReport,
-): string {
-  return JSON.stringify(
-    AccountingAgedCreditorReport$outboundSchema.parse(
-      accountingAgedCreditorReport,
-    ),
-  );
-}
 export function accountingAgedCreditorReportFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingAgedCreditorReport, SDKValidationError> {

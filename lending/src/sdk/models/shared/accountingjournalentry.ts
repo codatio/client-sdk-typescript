@@ -9,32 +9,13 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   JournalEntryRecordRef,
   JournalEntryRecordRef$inboundSchema,
-  JournalEntryRecordRef$Outbound,
-  JournalEntryRecordRef$outboundSchema,
 } from "./journalentryrecordref.js";
-import {
-  JournalLine,
-  JournalLine$inboundSchema,
-  JournalLine$Outbound,
-  JournalLine$outboundSchema,
-} from "./journalline.js";
-import {
-  JournalRef,
-  JournalRef$inboundSchema,
-  JournalRef$Outbound,
-  JournalRef$outboundSchema,
-} from "./journalref.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { JournalLine, JournalLine$inboundSchema } from "./journalline.js";
+import { JournalRef, JournalRef$inboundSchema } from "./journalref.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -180,49 +161,7 @@ export const AccountingJournalEntry$inboundSchema: z.ZodType<
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingJournalEntry$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  description?: string | null | undefined;
-  postedOn?: string | undefined;
-  createdOn?: string | undefined;
-  updatedOn?: string | undefined;
-  journalRef?: JournalRef$Outbound | undefined;
-  journalLines?: Array<JournalLine$Outbound> | null | undefined;
-  recordRef?: JournalEntryRecordRef$Outbound | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingJournalEntry$outboundSchema: z.ZodType<
-  AccountingJournalEntry$Outbound,
-  z.ZodTypeDef,
-  AccountingJournalEntry
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  description: z.nullable(z.string()).optional(),
-  postedOn: z.string().optional(),
-  createdOn: z.string().optional(),
-  updatedOn: z.string().optional(),
-  journalRef: JournalRef$outboundSchema.optional(),
-  journalLines: z.nullable(z.array(JournalLine$outboundSchema)).optional(),
-  recordRef: JournalEntryRecordRef$outboundSchema.optional(),
-  metadata: Metadata$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingJournalEntryToJSON(
-  accountingJournalEntry: AccountingJournalEntry,
-): string {
-  return JSON.stringify(
-    AccountingJournalEntry$outboundSchema.parse(accountingJournalEntry),
-  );
-}
 export function accountingJournalEntryFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingJournalEntry, SDKValidationError> {

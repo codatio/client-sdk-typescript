@@ -12,7 +12,7 @@ Get the state of each data type for a company
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-data-status" method="get" path="/companies/{companyId}/dataStatus" -->
+<!-- UsageSnippet language="typescript" operationID="get-data-status" method="get" path="/companies/{companyId}/dataStatus" example="Example" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

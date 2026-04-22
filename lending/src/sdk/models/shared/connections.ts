@@ -7,18 +7,8 @@ import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Connection,
-  Connection$inboundSchema,
-  Connection$Outbound,
-  Connection$outboundSchema,
-} from "./connection.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Connection, Connection$inboundSchema } from "./connection.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type Connections = {
   results?: Array<Connection> | undefined;
@@ -53,35 +43,7 @@ export const Connections$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type Connections$Outbound = {
-  results?: Array<Connection$Outbound> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const Connections$outboundSchema: z.ZodType<
-  Connections$Outbound,
-  z.ZodTypeDef,
-  Connections
-> = z.object({
-  results: z.array(Connection$outboundSchema).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function connectionsToJSON(connections: Connections): string {
-  return JSON.stringify(Connections$outboundSchema.parse(connections));
-}
 export function connectionsFromJSON(
   jsonString: string,
 ): SafeParseResult<Connections, SDKValidationError> {

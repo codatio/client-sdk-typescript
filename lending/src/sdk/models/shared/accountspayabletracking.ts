@@ -9,25 +9,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
-  AccountingCustomerRef$Outbound,
-  AccountingCustomerRef$outboundSchema,
 } from "./accountingcustomerref.js";
-import {
-  BilledToType,
-  BilledToType$inboundSchema,
-  BilledToType$outboundSchema,
-} from "./billedtotype.js";
-import {
-  ProjectRef,
-  ProjectRef$inboundSchema,
-  ProjectRef$Outbound,
-  ProjectRef$outboundSchema,
-} from "./projectref.js";
+import { BilledToType, BilledToType$inboundSchema } from "./billedtotype.js";
+import { ProjectRef, ProjectRef$inboundSchema } from "./projectref.js";
 import {
   TrackingCategoryRef,
   TrackingCategoryRef$inboundSchema,
-  TrackingCategoryRef$Outbound,
-  TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
 
 /**
@@ -59,35 +46,7 @@ export const AccountsPayableTracking$inboundSchema: z.ZodType<
   isBilledTo: BilledToType$inboundSchema,
   isRebilledTo: BilledToType$inboundSchema,
 });
-/** @internal */
-export type AccountsPayableTracking$Outbound = {
-  categoryRefs: Array<TrackingCategoryRef$Outbound>;
-  customerRef?: AccountingCustomerRef$Outbound | undefined;
-  projectRef?: ProjectRef$Outbound | undefined;
-  isBilledTo: string;
-  isRebilledTo: string;
-};
 
-/** @internal */
-export const AccountsPayableTracking$outboundSchema: z.ZodType<
-  AccountsPayableTracking$Outbound,
-  z.ZodTypeDef,
-  AccountsPayableTracking
-> = z.object({
-  categoryRefs: z.array(TrackingCategoryRef$outboundSchema),
-  customerRef: AccountingCustomerRef$outboundSchema.optional(),
-  projectRef: ProjectRef$outboundSchema.optional(),
-  isBilledTo: BilledToType$outboundSchema,
-  isRebilledTo: BilledToType$outboundSchema,
-});
-
-export function accountsPayableTrackingToJSON(
-  accountsPayableTracking: AccountsPayableTracking,
-): string {
-  return JSON.stringify(
-    AccountsPayableTracking$outboundSchema.parse(accountsPayableTracking),
-  );
-}
 export function accountsPayableTrackingFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountsPayableTracking, SDKValidationError> {

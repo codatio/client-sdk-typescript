@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCommerceRevenueMetricsRequest = {
@@ -40,20 +37,6 @@ export type GetCommerceRevenueMetricsRequest = {
 };
 
 /** @internal */
-export const GetCommerceRevenueMetricsRequest$inboundSchema: z.ZodType<
-  GetCommerceRevenueMetricsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  reportDate: z.string(),
-  periodLength: z.number().int(),
-  numberOfPeriods: z.number().int(),
-  periodUnit: shared.PeriodUnit$inboundSchema,
-  includeDisplayNames: z.boolean().optional(),
-});
-/** @internal */
 export type GetCommerceRevenueMetricsRequest$Outbound = {
   companyId: string;
   connectionId: string;
@@ -86,14 +69,5 @@ export function getCommerceRevenueMetricsRequestToJSON(
     GetCommerceRevenueMetricsRequest$outboundSchema.parse(
       getCommerceRevenueMetricsRequest,
     ),
-  );
-}
-export function getCommerceRevenueMetricsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCommerceRevenueMetricsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetCommerceRevenueMetricsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCommerceRevenueMetricsRequest' from JSON`,
   );
 }

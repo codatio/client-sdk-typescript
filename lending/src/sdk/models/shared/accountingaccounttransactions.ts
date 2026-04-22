@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAccountTransaction,
   AccountingAccountTransaction$inboundSchema,
-  AccountingAccountTransaction$Outbound,
-  AccountingAccountTransaction$outboundSchema,
 } from "./accountingaccounttransaction.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingAccountTransactions = {
   results?: Array<AccountingAccountTransaction | null> | undefined;
@@ -54,42 +47,7 @@ export const AccountingAccountTransactions$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingAccountTransactions$Outbound = {
-  results?: Array<AccountingAccountTransaction$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingAccountTransactions$outboundSchema: z.ZodType<
-  AccountingAccountTransactions$Outbound,
-  z.ZodTypeDef,
-  AccountingAccountTransactions
-> = z.object({
-  results: z.array(z.nullable(AccountingAccountTransaction$outboundSchema))
-    .optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingAccountTransactionsToJSON(
-  accountingAccountTransactions: AccountingAccountTransactions,
-): string {
-  return JSON.stringify(
-    AccountingAccountTransactions$outboundSchema.parse(
-      accountingAccountTransactions,
-    ),
-  );
-}
 export function accountingAccountTransactionsFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingAccountTransactions, SDKValidationError> {

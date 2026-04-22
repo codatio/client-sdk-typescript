@@ -65,27 +65,7 @@ export const ReportSourceReference$inboundSchema: z.ZodType<
 > = z.object({
   sourceType: z.string().optional(),
 });
-/** @internal */
-export type ReportSourceReference$Outbound = {
-  sourceType?: string | undefined;
-};
 
-/** @internal */
-export const ReportSourceReference$outboundSchema: z.ZodType<
-  ReportSourceReference$Outbound,
-  z.ZodTypeDef,
-  ReportSourceReference
-> = z.object({
-  sourceType: z.string().optional(),
-});
-
-export function reportSourceReferenceToJSON(
-  reportSourceReference: ReportSourceReference,
-): string {
-  return JSON.stringify(
-    ReportSourceReference$outboundSchema.parse(reportSourceReference),
-  );
-}
 export function reportSourceReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportSourceReference, SDKValidationError> {
@@ -110,37 +90,7 @@ export const Accounts$inboundSchema: z.ZodType<
   currency: z.string().optional(),
   currentBalance: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type Accounts$Outbound = {
-  sourceRef?: ReportSourceReference$Outbound | undefined;
-  platformName?: string | undefined;
-  accountProvider?: string | undefined;
-  accountName?: string | undefined;
-  accountType?: string | undefined;
-  currency?: string | undefined;
-  currentBalance?: number | undefined;
-};
 
-/** @internal */
-export const Accounts$outboundSchema: z.ZodType<
-  Accounts$Outbound,
-  z.ZodTypeDef,
-  Accounts
-> = z.object({
-  sourceRef: z.lazy(() => ReportSourceReference$outboundSchema).optional(),
-  platformName: z.string().optional(),
-  accountProvider: z.string().optional(),
-  accountName: z.string().optional(),
-  accountType: z.string().optional(),
-  currency: z.string().optional(),
-  currentBalance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function accountsToJSON(accounts: Accounts): string {
-  return JSON.stringify(Accounts$outboundSchema.parse(accounts));
-}
 export function accountsFromJSON(
   jsonString: string,
 ): SafeParseResult<Accounts, SDKValidationError> {

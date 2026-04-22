@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BillPaymentLineLink,
   BillPaymentLineLink$inboundSchema,
-  BillPaymentLineLink$Outbound,
-  BillPaymentLineLink$outboundSchema,
 } from "./billpaymentlinelink.js";
 
 export type BillPaymentLine = {
@@ -54,31 +52,7 @@ export const BillPaymentLine$inboundSchema: z.ZodType<
   links: z.nullable(z.array(BillPaymentLineLink$inboundSchema)).optional(),
   allocatedOnDate: z.string().optional(),
 });
-/** @internal */
-export type BillPaymentLine$Outbound = {
-  amount: number;
-  links?: Array<BillPaymentLineLink$Outbound> | null | undefined;
-  allocatedOnDate?: string | undefined;
-};
 
-/** @internal */
-export const BillPaymentLine$outboundSchema: z.ZodType<
-  BillPaymentLine$Outbound,
-  z.ZodTypeDef,
-  BillPaymentLine
-> = z.object({
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  links: z.nullable(z.array(BillPaymentLineLink$outboundSchema)).optional(),
-  allocatedOnDate: z.string().optional(),
-});
-
-export function billPaymentLineToJSON(
-  billPaymentLine: BillPaymentLine,
-): string {
-  return JSON.stringify(BillPaymentLine$outboundSchema.parse(billPaymentLine));
-}
 export function billPaymentLineFromJSON(
   jsonString: string,
 ): SafeParseResult<BillPaymentLine, SDKValidationError> {

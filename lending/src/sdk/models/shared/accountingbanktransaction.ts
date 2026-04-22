@@ -10,7 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BankTransactionType,
   BankTransactionType$inboundSchema,
-  BankTransactionType$outboundSchema,
 } from "./banktransactiontype.js";
 
 /**
@@ -103,49 +102,7 @@ export const AccountingBankTransaction$inboundSchema: z.ZodType<
   balance: z.number().transform(v => new Decimal$(v)).optional(),
   transactionType: BankTransactionType$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingBankTransaction$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  accountId?: string | null | undefined;
-  clearedOnDate?: string | undefined;
-  description?: string | null | undefined;
-  reconciled?: boolean | undefined;
-  amount?: number | undefined;
-  balance?: number | undefined;
-  transactionType?: string | undefined;
-};
 
-/** @internal */
-export const AccountingBankTransaction$outboundSchema: z.ZodType<
-  AccountingBankTransaction$Outbound,
-  z.ZodTypeDef,
-  AccountingBankTransaction
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  accountId: z.nullable(z.string()).optional(),
-  clearedOnDate: z.string().optional(),
-  description: z.nullable(z.string()).optional(),
-  reconciled: z.boolean().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  transactionType: BankTransactionType$outboundSchema.optional(),
-});
-
-export function accountingBankTransactionToJSON(
-  accountingBankTransaction: AccountingBankTransaction,
-): string {
-  return JSON.stringify(
-    AccountingBankTransaction$outboundSchema.parse(accountingBankTransaction),
-  );
-}
 export function accountingBankTransactionFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingBankTransaction, SDKValidationError> {

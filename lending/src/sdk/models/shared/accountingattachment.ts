@@ -93,41 +93,7 @@ export const AccountingAttachment$inboundSchema: z.ZodType<
   fileSize: z.nullable(z.number().int()).optional(),
   includeWhenSent: z.boolean().optional(),
 });
-/** @internal */
-export type AccountingAttachment$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  name?: string | null | undefined;
-  contentType?: string | null | undefined;
-  dateCreated?: string | undefined;
-  fileSize?: number | null | undefined;
-  includeWhenSent?: boolean | undefined;
-};
 
-/** @internal */
-export const AccountingAttachment$outboundSchema: z.ZodType<
-  AccountingAttachment$Outbound,
-  z.ZodTypeDef,
-  AccountingAttachment
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  name: z.nullable(z.string()).optional(),
-  contentType: z.nullable(z.string()).optional(),
-  dateCreated: z.string().optional(),
-  fileSize: z.nullable(z.number().int()).optional(),
-  includeWhenSent: z.boolean().optional(),
-});
-
-export function accountingAttachmentToJSON(
-  accountingAttachment: AccountingAttachment,
-): string {
-  return JSON.stringify(
-    AccountingAttachment$outboundSchema.parse(accountingAttachment),
-  );
-}
 export function accountingAttachmentFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingAttachment, SDKValidationError> {

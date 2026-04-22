@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingBill,
   AccountingBill$inboundSchema,
-  AccountingBill$Outbound,
-  AccountingBill$outboundSchema,
 } from "./accountingbill.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingBills = {
   results?: Array<AccountingBill | null> | undefined;
@@ -53,37 +46,7 @@ export const AccountingBills$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingBills$Outbound = {
-  results?: Array<AccountingBill$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingBills$outboundSchema: z.ZodType<
-  AccountingBills$Outbound,
-  z.ZodTypeDef,
-  AccountingBills
-> = z.object({
-  results: z.array(z.nullable(AccountingBill$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingBillsToJSON(
-  accountingBills: AccountingBills,
-): string {
-  return JSON.stringify(AccountingBills$outboundSchema.parse(accountingBills));
-}
 export function accountingBillsFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingBills, SDKValidationError> {

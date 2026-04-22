@@ -195,14 +195,6 @@ export type GetDataStatusDataStatuses = {
 };
 
 /** @internal */
-export const GetDataStatusRequest$inboundSchema: z.ZodType<
-  GetDataStatusRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-});
-/** @internal */
 export type GetDataStatusRequest$Outbound = {
   companyId: string;
 };
@@ -221,15 +213,6 @@ export function getDataStatusRequestToJSON(
 ): string {
   return JSON.stringify(
     GetDataStatusRequest$outboundSchema.parse(getDataStatusRequest),
-  );
-}
-export function getDataStatusRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetDataStatusRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetDataStatusRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetDataStatusRequest' from JSON`,
   );
 }
 
@@ -301,129 +284,7 @@ export const GetDataStatusDataStatuses$inboundSchema: z.ZodType<
     "commerce-transactions": "commerceTransactions",
   });
 });
-/** @internal */
-export type GetDataStatusDataStatuses$Outbound = {
-  accountTransactions?: shared.DataStatus$Outbound | undefined;
-  balanceSheet?: shared.DataStatus$Outbound | undefined;
-  bankAccounts?: shared.DataStatus$Outbound | undefined;
-  bankTransactions?: shared.DataStatus$Outbound | undefined;
-  billCreditNotes?: shared.DataStatus$Outbound | undefined;
-  billPayments?: shared.DataStatus$Outbound | undefined;
-  bills?: shared.DataStatus$Outbound | undefined;
-  cashFlowStatement?: shared.DataStatus$Outbound | undefined;
-  chartOfAccounts?: shared.DataStatus$Outbound | undefined;
-  company?: shared.DataStatus$Outbound | undefined;
-  creditNotes?: shared.DataStatus$Outbound | undefined;
-  customers?: shared.DataStatus$Outbound | undefined;
-  directCosts?: shared.DataStatus$Outbound | undefined;
-  directIncomes?: shared.DataStatus$Outbound | undefined;
-  invoices?: shared.DataStatus$Outbound | undefined;
-  itemReceipts?: shared.DataStatus$Outbound | undefined;
-  items?: shared.DataStatus$Outbound | undefined;
-  journalEntries?: shared.DataStatus$Outbound | undefined;
-  journals?: shared.DataStatus$Outbound | undefined;
-  paymentMethods?: shared.DataStatus$Outbound | undefined;
-  payments?: shared.DataStatus$Outbound | undefined;
-  profitAndLoss?: shared.DataStatus$Outbound | undefined;
-  purchaseOrders?: shared.DataStatus$Outbound | undefined;
-  salesOrders?: shared.DataStatus$Outbound | undefined;
-  suppliers?: shared.DataStatus$Outbound | undefined;
-  taxRates?: shared.DataStatus$Outbound | undefined;
-  trackingCategories?: shared.DataStatus$Outbound | undefined;
-  transfers?: shared.DataStatus$Outbound | undefined;
-  "banking-accountBalances"?: shared.DataStatus$Outbound | undefined;
-  "banking-accounts"?: shared.DataStatus$Outbound | undefined;
-  "banking-transactionCategories"?: shared.DataStatus$Outbound | undefined;
-  "banking-transactions"?: shared.DataStatus$Outbound | undefined;
-  "commerce-companyInfo"?: shared.DataStatus$Outbound | undefined;
-  "commerce-customers"?: shared.DataStatus$Outbound | undefined;
-  "commerce-disputes"?: shared.DataStatus$Outbound | undefined;
-  "commerce-locations"?: shared.DataStatus$Outbound | undefined;
-  "commerce-orders"?: shared.DataStatus$Outbound | undefined;
-  "commerce-paymentMethods"?: shared.DataStatus$Outbound | undefined;
-  "commerce-payments"?: shared.DataStatus$Outbound | undefined;
-  "commerce-productCategories"?: shared.DataStatus$Outbound | undefined;
-  "commerce-products"?: shared.DataStatus$Outbound | undefined;
-  "commerce-taxComponents"?: shared.DataStatus$Outbound | undefined;
-  "commerce-transactions"?: shared.DataStatus$Outbound | undefined;
-};
 
-/** @internal */
-export const GetDataStatusDataStatuses$outboundSchema: z.ZodType<
-  GetDataStatusDataStatuses$Outbound,
-  z.ZodTypeDef,
-  GetDataStatusDataStatuses
-> = z.object({
-  accountTransactions: shared.DataStatus$outboundSchema.optional(),
-  balanceSheet: shared.DataStatus$outboundSchema.optional(),
-  bankAccounts: shared.DataStatus$outboundSchema.optional(),
-  bankTransactions: shared.DataStatus$outboundSchema.optional(),
-  billCreditNotes: shared.DataStatus$outboundSchema.optional(),
-  billPayments: shared.DataStatus$outboundSchema.optional(),
-  bills: shared.DataStatus$outboundSchema.optional(),
-  cashFlowStatement: shared.DataStatus$outboundSchema.optional(),
-  chartOfAccounts: shared.DataStatus$outboundSchema.optional(),
-  company: shared.DataStatus$outboundSchema.optional(),
-  creditNotes: shared.DataStatus$outboundSchema.optional(),
-  customers: shared.DataStatus$outboundSchema.optional(),
-  directCosts: shared.DataStatus$outboundSchema.optional(),
-  directIncomes: shared.DataStatus$outboundSchema.optional(),
-  invoices: shared.DataStatus$outboundSchema.optional(),
-  itemReceipts: shared.DataStatus$outboundSchema.optional(),
-  items: shared.DataStatus$outboundSchema.optional(),
-  journalEntries: shared.DataStatus$outboundSchema.optional(),
-  journals: shared.DataStatus$outboundSchema.optional(),
-  paymentMethods: shared.DataStatus$outboundSchema.optional(),
-  payments: shared.DataStatus$outboundSchema.optional(),
-  profitAndLoss: shared.DataStatus$outboundSchema.optional(),
-  purchaseOrders: shared.DataStatus$outboundSchema.optional(),
-  salesOrders: shared.DataStatus$outboundSchema.optional(),
-  suppliers: shared.DataStatus$outboundSchema.optional(),
-  taxRates: shared.DataStatus$outboundSchema.optional(),
-  trackingCategories: shared.DataStatus$outboundSchema.optional(),
-  transfers: shared.DataStatus$outboundSchema.optional(),
-  bankingAccountBalances: shared.DataStatus$outboundSchema.optional(),
-  bankingAccounts: shared.DataStatus$outboundSchema.optional(),
-  bankingTransactionCategories: shared.DataStatus$outboundSchema.optional(),
-  bankingTransactions: shared.DataStatus$outboundSchema.optional(),
-  commerceCompanyInfo: shared.DataStatus$outboundSchema.optional(),
-  commerceCustomers: shared.DataStatus$outboundSchema.optional(),
-  commerceDisputes: shared.DataStatus$outboundSchema.optional(),
-  commerceLocations: shared.DataStatus$outboundSchema.optional(),
-  commerceOrders: shared.DataStatus$outboundSchema.optional(),
-  commercePaymentMethods: shared.DataStatus$outboundSchema.optional(),
-  commercePayments: shared.DataStatus$outboundSchema.optional(),
-  commerceProductCategories: shared.DataStatus$outboundSchema.optional(),
-  commerceProducts: shared.DataStatus$outboundSchema.optional(),
-  commerceTaxComponents: shared.DataStatus$outboundSchema.optional(),
-  commerceTransactions: shared.DataStatus$outboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    bankingAccountBalances: "banking-accountBalances",
-    bankingAccounts: "banking-accounts",
-    bankingTransactionCategories: "banking-transactionCategories",
-    bankingTransactions: "banking-transactions",
-    commerceCompanyInfo: "commerce-companyInfo",
-    commerceCustomers: "commerce-customers",
-    commerceDisputes: "commerce-disputes",
-    commerceLocations: "commerce-locations",
-    commerceOrders: "commerce-orders",
-    commercePaymentMethods: "commerce-paymentMethods",
-    commercePayments: "commerce-payments",
-    commerceProductCategories: "commerce-productCategories",
-    commerceProducts: "commerce-products",
-    commerceTaxComponents: "commerce-taxComponents",
-    commerceTransactions: "commerce-transactions",
-  });
-});
-
-export function getDataStatusDataStatusesToJSON(
-  getDataStatusDataStatuses: GetDataStatusDataStatuses,
-): string {
-  return JSON.stringify(
-    GetDataStatusDataStatuses$outboundSchema.parse(getDataStatusDataStatuses),
-  );
-}
 export function getDataStatusDataStatusesFromJSON(
   jsonString: string,
 ): SafeParseResult<GetDataStatusDataStatuses, SDKValidationError> {

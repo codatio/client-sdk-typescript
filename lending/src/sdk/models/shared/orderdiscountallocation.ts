@@ -28,31 +28,7 @@ export const OrderDiscountAllocation$inboundSchema: z.ZodType<
   name: z.string().optional(),
   totalAmount: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type OrderDiscountAllocation$Outbound = {
-  name?: string | undefined;
-  totalAmount?: number | undefined;
-};
 
-/** @internal */
-export const OrderDiscountAllocation$outboundSchema: z.ZodType<
-  OrderDiscountAllocation$Outbound,
-  z.ZodTypeDef,
-  OrderDiscountAllocation
-> = z.object({
-  name: z.string().optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function orderDiscountAllocationToJSON(
-  orderDiscountAllocation: OrderDiscountAllocation,
-): string {
-  return JSON.stringify(
-    OrderDiscountAllocation$outboundSchema.parse(orderDiscountAllocation),
-  );
-}
 export function orderDiscountAllocationFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderDiscountAllocation, SDKValidationError> {

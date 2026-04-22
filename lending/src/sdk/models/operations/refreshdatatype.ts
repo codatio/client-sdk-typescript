@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type RefreshDataTypeRequest = {
@@ -23,16 +20,6 @@ export type RefreshDataTypeRequest = {
   connectionId?: string | undefined;
 };
 
-/** @internal */
-export const RefreshDataTypeRequest$inboundSchema: z.ZodType<
-  RefreshDataTypeRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  dataType: shared.DataType$inboundSchema,
-  connectionId: z.string().optional(),
-});
 /** @internal */
 export type RefreshDataTypeRequest$Outbound = {
   companyId: string;
@@ -56,14 +43,5 @@ export function refreshDataTypeRequestToJSON(
 ): string {
   return JSON.stringify(
     RefreshDataTypeRequest$outboundSchema.parse(refreshDataTypeRequest),
-  );
-}
-export function refreshDataTypeRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<RefreshDataTypeRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => RefreshDataTypeRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'RefreshDataTypeRequest' from JSON`,
   );
 }

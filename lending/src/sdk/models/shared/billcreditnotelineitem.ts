@@ -7,30 +7,16 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
 import {
   AccountsPayableTracking,
   AccountsPayableTracking$inboundSchema,
-  AccountsPayableTracking$Outbound,
-  AccountsPayableTracking$outboundSchema,
 } from "./accountspayabletracking.js";
 import {
   TrackingCategoryRef,
   TrackingCategoryRef$inboundSchema,
-  TrackingCategoryRef$Outbound,
-  TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
-import {
-  Zero,
-  Zero$inboundSchema,
-  Zero$Outbound,
-  Zero$outboundSchema,
-} from "./zero.js";
+import { Zero, Zero$inboundSchema } from "./zero.js";
 
 /**
  * Data types that reference a tax rate, for example invoice and bill line items, use a taxRateRef that includes the ID and name of the linked tax rate.
@@ -165,33 +151,7 @@ export const TaxRateReference$inboundSchema: z.ZodType<
   name: z.string().optional(),
   effectiveTaxRate: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type TaxRateReference$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  effectiveTaxRate?: number | undefined;
-};
 
-/** @internal */
-export const TaxRateReference$outboundSchema: z.ZodType<
-  TaxRateReference$Outbound,
-  z.ZodTypeDef,
-  TaxRateReference
-> = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  effectiveTaxRate: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function taxRateReferenceToJSON(
-  taxRateReference: TaxRateReference,
-): string {
-  return JSON.stringify(
-    TaxRateReference$outboundSchema.parse(taxRateReference),
-  );
-}
 export function taxRateReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<TaxRateReference, SDKValidationError> {
@@ -211,25 +171,7 @@ export const ItemReference$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type ItemReference$Outbound = {
-  id: string;
-  name?: string | null | undefined;
-};
 
-/** @internal */
-export const ItemReference$outboundSchema: z.ZodType<
-  ItemReference$Outbound,
-  z.ZodTypeDef,
-  ItemReference
-> = z.object({
-  id: z.string(),
-  name: z.nullable(z.string()).optional(),
-});
-
-export function itemReferenceToJSON(itemReference: ItemReference): string {
-  return JSON.stringify(ItemReference$outboundSchema.parse(itemReference));
-}
 export function itemReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<ItemReference, SDKValidationError> {
@@ -266,80 +208,7 @@ export const BillCreditNoteLineItem$inboundSchema: z.ZodType<
     .optional(),
   tracking: AccountsPayableTracking$inboundSchema.optional(),
 });
-/** @internal */
-export type BillCreditNoteLineItem$Outbound = {
-  description?: string | null | undefined;
-  unitAmount: number;
-  quantity: number;
-  unitOfMeasurement?: string | null | undefined;
-  discountAmount?: number | null | undefined;
-  subTotal?: number | null | undefined;
-  taxAmount?: number | null | undefined;
-  totalAmount?: number | null | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  discountPercentage?: number | null | undefined;
-  taxRateRef?: TaxRateReference$Outbound | undefined;
-  itemRef?: ItemReference$Outbound | undefined;
-  createdFromLineRef?: Zero$Outbound | undefined;
-  trackingCategoryRefs?: Array<TrackingCategoryRef$Outbound> | null | undefined;
-  tracking?: AccountsPayableTracking$Outbound | undefined;
-};
 
-/** @internal */
-export const BillCreditNoteLineItem$outboundSchema: z.ZodType<
-  BillCreditNoteLineItem$Outbound,
-  z.ZodTypeDef,
-  BillCreditNoteLineItem
-> = z.object({
-  description: z.nullable(z.string()).optional(),
-  unitAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  quantity: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  unitOfMeasurement: z.nullable(z.string()).optional(),
-  discountAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  subTotal: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  taxAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  totalAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  accountRef: AccountRef$outboundSchema.optional(),
-  discountPercentage: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  taxRateRef: z.lazy(() => TaxRateReference$outboundSchema).optional(),
-  itemRef: z.lazy(() => ItemReference$outboundSchema).optional(),
-  createdFromLineRef: Zero$outboundSchema.optional(),
-  trackingCategoryRefs: z.nullable(z.array(TrackingCategoryRef$outboundSchema))
-    .optional(),
-  tracking: AccountsPayableTracking$outboundSchema.optional(),
-});
-
-export function billCreditNoteLineItemToJSON(
-  billCreditNoteLineItem: BillCreditNoteLineItem,
-): string {
-  return JSON.stringify(
-    BillCreditNoteLineItem$outboundSchema.parse(billCreditNoteLineItem),
-  );
-}
 export function billCreditNoteLineItemFromJSON(
   jsonString: string,
 ): SafeParseResult<BillCreditNoteLineItem, SDKValidationError> {

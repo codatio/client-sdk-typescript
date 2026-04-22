@@ -44,35 +44,7 @@ export const DataIntegrityAmounts$inboundSchema: z.ZodType<
   max: z.number().transform(v => new Decimal$(v)).optional(),
   currency: z.string().optional(),
 });
-/** @internal */
-export type DataIntegrityAmounts$Outbound = {
-  min?: number | undefined;
-  max?: number | undefined;
-  currency?: string | undefined;
-};
 
-/** @internal */
-export const DataIntegrityAmounts$outboundSchema: z.ZodType<
-  DataIntegrityAmounts$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityAmounts
-> = z.object({
-  min: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  max: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-});
-
-export function dataIntegrityAmountsToJSON(
-  dataIntegrityAmounts: DataIntegrityAmounts,
-): string {
-  return JSON.stringify(
-    DataIntegrityAmounts$outboundSchema.parse(dataIntegrityAmounts),
-  );
-}
 export function dataIntegrityAmountsFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityAmounts, SDKValidationError> {

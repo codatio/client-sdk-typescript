@@ -7,18 +7,8 @@ import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
-import {
-  PullOperation,
-  PullOperation$inboundSchema,
-  PullOperation$Outbound,
-  PullOperation$outboundSchema,
-} from "./pulloperation.js";
+import { Links, Links$inboundSchema } from "./links.js";
+import { PullOperation, PullOperation$inboundSchema } from "./pulloperation.js";
 
 export type PullOperations = {
   results?: Array<PullOperation> | undefined;
@@ -53,35 +43,7 @@ export const PullOperations$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type PullOperations$Outbound = {
-  results?: Array<PullOperation$Outbound> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const PullOperations$outboundSchema: z.ZodType<
-  PullOperations$Outbound,
-  z.ZodTypeDef,
-  PullOperations
-> = z.object({
-  results: z.array(PullOperation$outboundSchema).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function pullOperationsToJSON(pullOperations: PullOperations): string {
-  return JSON.stringify(PullOperations$outboundSchema.parse(pullOperations));
-}
 export function pullOperationsFromJSON(
   jsonString: string,
 ): SafeParseResult<PullOperations, SDKValidationError> {

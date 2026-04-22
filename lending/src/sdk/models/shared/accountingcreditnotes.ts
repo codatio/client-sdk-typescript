@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCreditNote,
   AccountingCreditNote$inboundSchema,
-  AccountingCreditNote$Outbound,
-  AccountingCreditNote$outboundSchema,
 } from "./accountingcreditnote.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingCreditNotes = {
   results?: Array<AccountingCreditNote | null> | undefined;
@@ -53,39 +46,7 @@ export const AccountingCreditNotes$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingCreditNotes$Outbound = {
-  results?: Array<AccountingCreditNote$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingCreditNotes$outboundSchema: z.ZodType<
-  AccountingCreditNotes$Outbound,
-  z.ZodTypeDef,
-  AccountingCreditNotes
-> = z.object({
-  results: z.array(z.nullable(AccountingCreditNote$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingCreditNotesToJSON(
-  accountingCreditNotes: AccountingCreditNotes,
-): string {
-  return JSON.stringify(
-    AccountingCreditNotes$outboundSchema.parse(accountingCreditNotes),
-  );
-}
 export function accountingCreditNotesFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreditNotes, SDKValidationError> {

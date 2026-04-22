@@ -37,35 +37,7 @@ export const BankFeedBankAccountMappingResponse$inboundSchema: z.ZodType<
   status: z.nullable(z.string()).optional(),
   error: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type BankFeedBankAccountMappingResponse$Outbound = {
-  sourceAccountId?: string | undefined;
-  targetAccountId?: string | null | undefined;
-  status?: string | null | undefined;
-  error?: string | null | undefined;
-};
 
-/** @internal */
-export const BankFeedBankAccountMappingResponse$outboundSchema: z.ZodType<
-  BankFeedBankAccountMappingResponse$Outbound,
-  z.ZodTypeDef,
-  BankFeedBankAccountMappingResponse
-> = z.object({
-  sourceAccountId: z.string().optional(),
-  targetAccountId: z.nullable(z.string()).optional(),
-  status: z.nullable(z.string()).optional(),
-  error: z.nullable(z.string()).optional(),
-});
-
-export function bankFeedBankAccountMappingResponseToJSON(
-  bankFeedBankAccountMappingResponse: BankFeedBankAccountMappingResponse,
-): string {
-  return JSON.stringify(
-    BankFeedBankAccountMappingResponse$outboundSchema.parse(
-      bankFeedBankAccountMappingResponse,
-    ),
-  );
-}
 export function bankFeedBankAccountMappingResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<BankFeedBankAccountMappingResponse, SDKValidationError> {

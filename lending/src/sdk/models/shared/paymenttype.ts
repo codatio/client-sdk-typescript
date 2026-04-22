@@ -30,6 +30,3 @@ export type PaymentType = ClosedEnum<typeof PaymentType>;
 /** @internal */
 export const PaymentType$inboundSchema: z.ZodNativeEnum<typeof PaymentType> = z
   .nativeEnum(PaymentType);
-/** @internal */
-export const PaymentType$outboundSchema: z.ZodNativeEnum<typeof PaymentType> =
-  PaymentType$inboundSchema;

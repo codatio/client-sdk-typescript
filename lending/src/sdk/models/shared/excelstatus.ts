@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ExcelReportTypes,
   ExcelReportTypes$inboundSchema,
-  ExcelReportTypes$outboundSchema,
 } from "./excelreporttypes.js";
 
 export type ExcelStatus = {
@@ -80,37 +79,7 @@ export const ExcelStatus$inboundSchema: z.ZodType<
   reportType: ExcelReportTypes$inboundSchema.optional(),
   fileSize: z.nullable(z.number().int()).optional(),
 });
-/** @internal */
-export type ExcelStatus$Outbound = {
-  lastGenerated?: string | undefined;
-  inProgress?: boolean | undefined;
-  queued?: string | undefined;
-  success?: boolean | undefined;
-  errorMessage?: string | undefined;
-  lastInvocationId?: string | undefined;
-  reportType?: string | undefined;
-  fileSize?: number | null | undefined;
-};
 
-/** @internal */
-export const ExcelStatus$outboundSchema: z.ZodType<
-  ExcelStatus$Outbound,
-  z.ZodTypeDef,
-  ExcelStatus
-> = z.object({
-  lastGenerated: z.string().optional(),
-  inProgress: z.boolean().optional(),
-  queued: z.string().optional(),
-  success: z.boolean().optional(),
-  errorMessage: z.string().optional(),
-  lastInvocationId: z.string().optional(),
-  reportType: ExcelReportTypes$outboundSchema.optional(),
-  fileSize: z.nullable(z.number().int()).optional(),
-});
-
-export function excelStatusToJSON(excelStatus: ExcelStatus): string {
-  return JSON.stringify(ExcelStatus$outboundSchema.parse(excelStatus));
-}
 export function excelStatusFromJSON(
   jsonString: string,
 ): SafeParseResult<ExcelStatus, SDKValidationError> {

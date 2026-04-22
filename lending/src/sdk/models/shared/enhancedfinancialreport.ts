@@ -10,14 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   EnhancedReportAccountCategory,
   EnhancedReportAccountCategory$inboundSchema,
-  EnhancedReportAccountCategory$Outbound,
-  EnhancedReportAccountCategory$outboundSchema,
 } from "./enhancedreportaccountcategory.js";
 import {
   EnhancedReportInfo,
   EnhancedReportInfo$inboundSchema,
-  EnhancedReportInfo$Outbound,
-  EnhancedReportInfo$outboundSchema,
 } from "./enhancedreportinfo.js";
 
 export type ReportItem = {
@@ -78,33 +74,7 @@ export const ReportItem$inboundSchema: z.ZodType<
   accountId: z.string().optional(),
   accountCategory: EnhancedReportAccountCategory$inboundSchema.optional(),
 });
-/** @internal */
-export type ReportItem$Outbound = {
-  date?: string | undefined;
-  balance?: number | undefined;
-  accountName?: string | undefined;
-  accountId?: string | undefined;
-  accountCategory?: EnhancedReportAccountCategory$Outbound | undefined;
-};
 
-/** @internal */
-export const ReportItem$outboundSchema: z.ZodType<
-  ReportItem$Outbound,
-  z.ZodTypeDef,
-  ReportItem
-> = z.object({
-  date: z.string().optional(),
-  balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  accountName: z.string().optional(),
-  accountId: z.string().optional(),
-  accountCategory: EnhancedReportAccountCategory$outboundSchema.optional(),
-});
-
-export function reportItemToJSON(reportItem: ReportItem): string {
-  return JSON.stringify(ReportItem$outboundSchema.parse(reportItem));
-}
 export function reportItemFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportItem, SDKValidationError> {
@@ -124,29 +94,7 @@ export const EnhancedFinancialReport$inboundSchema: z.ZodType<
   reportInfo: EnhancedReportInfo$inboundSchema.optional(),
   reportItems: z.array(z.lazy(() => ReportItem$inboundSchema)).optional(),
 });
-/** @internal */
-export type EnhancedFinancialReport$Outbound = {
-  reportInfo?: EnhancedReportInfo$Outbound | undefined;
-  reportItems?: Array<ReportItem$Outbound> | undefined;
-};
 
-/** @internal */
-export const EnhancedFinancialReport$outboundSchema: z.ZodType<
-  EnhancedFinancialReport$Outbound,
-  z.ZodTypeDef,
-  EnhancedFinancialReport
-> = z.object({
-  reportInfo: EnhancedReportInfo$outboundSchema.optional(),
-  reportItems: z.array(z.lazy(() => ReportItem$outboundSchema)).optional(),
-});
-
-export function enhancedFinancialReportToJSON(
-  enhancedFinancialReport: EnhancedFinancialReport,
-): string {
-  return JSON.stringify(
-    EnhancedFinancialReport$outboundSchema.parse(enhancedFinancialReport),
-  );
-}
 export function enhancedFinancialReportFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedFinancialReport, SDKValidationError> {

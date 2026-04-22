@@ -24,7 +24,3 @@ export type TransactionSourceType = ClosedEnum<typeof TransactionSourceType>;
 export const TransactionSourceType$inboundSchema: z.ZodNativeEnum<
   typeof TransactionSourceType
 > = z.nativeEnum(TransactionSourceType);
-/** @internal */
-export const TransactionSourceType$outboundSchema: z.ZodNativeEnum<
-  typeof TransactionSourceType
-> = TransactionSourceType$inboundSchema;

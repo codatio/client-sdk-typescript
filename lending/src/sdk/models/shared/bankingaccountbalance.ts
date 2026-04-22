@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountBalanceAmounts,
   AccountBalanceAmounts$inboundSchema,
-  AccountBalanceAmounts$Outbound,
-  AccountBalanceAmounts$outboundSchema,
 } from "./accountbalanceamounts.js";
 
 /**
@@ -73,35 +71,7 @@ export const BankingAccountBalance$inboundSchema: z.ZodType<
   balance: AccountBalanceAmounts$inboundSchema,
   date: z.string(),
 });
-/** @internal */
-export type BankingAccountBalance$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  accountId: string;
-  balance: AccountBalanceAmounts$Outbound;
-  date: string;
-};
 
-/** @internal */
-export const BankingAccountBalance$outboundSchema: z.ZodType<
-  BankingAccountBalance$Outbound,
-  z.ZodTypeDef,
-  BankingAccountBalance
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  accountId: z.string(),
-  balance: AccountBalanceAmounts$outboundSchema,
-  date: z.string(),
-});
-
-export function bankingAccountBalanceToJSON(
-  bankingAccountBalance: BankingAccountBalance,
-): string {
-  return JSON.stringify(
-    BankingAccountBalance$outboundSchema.parse(bankingAccountBalance),
-  );
-}
 export function bankingAccountBalanceFromJSON(
   jsonString: string,
 ): SafeParseResult<BankingAccountBalance, SDKValidationError> {

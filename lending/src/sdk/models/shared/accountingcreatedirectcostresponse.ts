@@ -10,55 +10,30 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
-  AccountingPaymentAllocation$Outbound,
-  AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
-import {
-  ContactRef,
-  ContactRef$inboundSchema,
-  ContactRef$Outbound,
-  ContactRef$outboundSchema,
-} from "./contactref.js";
+import { ContactRef, ContactRef$inboundSchema } from "./contactref.js";
 import {
   DirectCostLineItem,
   DirectCostLineItem$inboundSchema,
-  DirectCostLineItem$Outbound,
-  DirectCostLineItem$outboundSchema,
 } from "./directcostlineitem.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 /**
  * > **Language tip:** Direct costs may also be referred to as **Spend transactions**, **Spend money transactions**, or **Payments** in various accounting software.
@@ -316,71 +291,7 @@ export const AccountingCreateDirectCostResponseAccountingDirectCost$inboundSchem
     supplementalData: SupplementalData$inboundSchema.optional(),
     metadata: Metadata$inboundSchema.optional(),
   });
-/** @internal */
-export type AccountingCreateDirectCostResponseAccountingDirectCost$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  reference?: string | null | undefined;
-  note?: string | null | undefined;
-  contactRef?: ContactRef$Outbound | undefined;
-  issueDate: string;
-  currency: string;
-  currencyRate?: number | null | undefined;
-  lineItems: Array<DirectCostLineItem$Outbound>;
-  paymentAllocations: Array<AccountingPaymentAllocation$Outbound>;
-  subTotal: number;
-  taxAmount: number;
-  totalAmount: number;
-  supplementalData?: SupplementalData$Outbound | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCreateDirectCostResponseAccountingDirectCost$outboundSchema:
-  z.ZodType<
-    AccountingCreateDirectCostResponseAccountingDirectCost$Outbound,
-    z.ZodTypeDef,
-    AccountingCreateDirectCostResponseAccountingDirectCost
-  > = z.object({
-    modifiedDate: z.string().optional(),
-    sourceModifiedDate: z.string().optional(),
-    id: z.string().optional(),
-    reference: z.nullable(z.string()).optional(),
-    note: z.nullable(z.string()).optional(),
-    contactRef: ContactRef$outboundSchema.optional(),
-    issueDate: z.string(),
-    currency: z.string(),
-    currencyRate: z.nullable(
-      z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-        typeof v === "number" ? v : v.toNumber()
-      ),
-    ).optional(),
-    lineItems: z.array(DirectCostLineItem$outboundSchema),
-    paymentAllocations: z.array(AccountingPaymentAllocation$outboundSchema),
-    subTotal: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-    taxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-    totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-    supplementalData: SupplementalData$outboundSchema.optional(),
-    metadata: Metadata$outboundSchema.optional(),
-  });
-
-export function accountingCreateDirectCostResponseAccountingDirectCostToJSON(
-  accountingCreateDirectCostResponseAccountingDirectCost:
-    AccountingCreateDirectCostResponseAccountingDirectCost,
-): string {
-  return JSON.stringify(
-    AccountingCreateDirectCostResponseAccountingDirectCost$outboundSchema.parse(
-      accountingCreateDirectCostResponseAccountingDirectCost,
-    ),
-  );
-}
 export function accountingCreateDirectCostResponseAccountingDirectCostFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -421,62 +332,7 @@ export const AccountingCreateDirectCostResponse$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type AccountingCreateDirectCostResponse$Outbound = {
-  data?:
-    | AccountingCreateDirectCostResponseAccountingDirectCost$Outbound
-    | null
-    | undefined;
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const AccountingCreateDirectCostResponse$outboundSchema: z.ZodType<
-  AccountingCreateDirectCostResponse$Outbound,
-  z.ZodTypeDef,
-  AccountingCreateDirectCostResponse
-> = z.object({
-  data: z.nullable(
-    z.lazy(() =>
-      AccountingCreateDirectCostResponseAccountingDirectCost$outboundSchema
-    ),
-  ).optional(),
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function accountingCreateDirectCostResponseToJSON(
-  accountingCreateDirectCostResponse: AccountingCreateDirectCostResponse,
-): string {
-  return JSON.stringify(
-    AccountingCreateDirectCostResponse$outboundSchema.parse(
-      accountingCreateDirectCostResponse,
-    ),
-  );
-}
 export function accountingCreateDirectCostResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreateDirectCostResponse, SDKValidationError> {

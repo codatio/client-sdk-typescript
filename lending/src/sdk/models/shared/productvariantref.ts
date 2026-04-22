@@ -30,29 +30,7 @@ export const ProductVariantRef$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string().optional(),
 });
-/** @internal */
-export type ProductVariantRef$Outbound = {
-  id: string;
-  name?: string | undefined;
-};
 
-/** @internal */
-export const ProductVariantRef$outboundSchema: z.ZodType<
-  ProductVariantRef$Outbound,
-  z.ZodTypeDef,
-  ProductVariantRef
-> = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-});
-
-export function productVariantRefToJSON(
-  productVariantRef: ProductVariantRef,
-): string {
-  return JSON.stringify(
-    ProductVariantRef$outboundSchema.parse(productVariantRef),
-  );
-}
 export function productVariantRefFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductVariantRef, SDKValidationError> {

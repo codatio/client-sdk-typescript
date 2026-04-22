@@ -30,29 +30,7 @@ export const CommerceCustomerRef$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string().optional(),
 });
-/** @internal */
-export type CommerceCustomerRef$Outbound = {
-  id: string;
-  name?: string | undefined;
-};
 
-/** @internal */
-export const CommerceCustomerRef$outboundSchema: z.ZodType<
-  CommerceCustomerRef$Outbound,
-  z.ZodTypeDef,
-  CommerceCustomerRef
-> = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-});
-
-export function commerceCustomerRefToJSON(
-  commerceCustomerRef: CommerceCustomerRef,
-): string {
-  return JSON.stringify(
-    CommerceCustomerRef$outboundSchema.parse(commerceCustomerRef),
-  );
-}
 export function commerceCustomerRefFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceCustomerRef, SDKValidationError> {

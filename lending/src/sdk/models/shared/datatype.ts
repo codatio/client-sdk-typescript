@@ -59,8 +59,5 @@ export const DataType = {
 export type DataType = ClosedEnum<typeof DataType>;
 
 /** @internal */
-export const DataType$inboundSchema: z.ZodNativeEnum<typeof DataType> = z
+export const DataType$outboundSchema: z.ZodNativeEnum<typeof DataType> = z
   .nativeEnum(DataType);
-/** @internal */
-export const DataType$outboundSchema: z.ZodNativeEnum<typeof DataType> =
-  DataType$inboundSchema;

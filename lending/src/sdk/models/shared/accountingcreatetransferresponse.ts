@@ -10,61 +10,34 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingRecordRef,
   AccountingRecordRef$inboundSchema,
-  AccountingRecordRef$Outbound,
-  AccountingRecordRef$outboundSchema,
 } from "./accountingrecordref.js";
-import {
-  ContactRef,
-  ContactRef$inboundSchema,
-  ContactRef$Outbound,
-  ContactRef$outboundSchema,
-} from "./contactref.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { ContactRef, ContactRef$inboundSchema } from "./contactref.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 import {
   TrackingCategoryRef,
   TrackingCategoryRef$inboundSchema,
-  TrackingCategoryRef$Outbound,
-  TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
 import {
   TransferAccount,
   TransferAccount$inboundSchema,
-  TransferAccount$Outbound,
-  TransferAccount$outboundSchema,
 } from "./transferaccount.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 /**
  * The status of the transfer in the account
@@ -251,10 +224,6 @@ export const AccountingCreateTransferResponseStatus$inboundSchema:
   z.ZodNativeEnum<typeof AccountingCreateTransferResponseStatus> = z.nativeEnum(
     AccountingCreateTransferResponseStatus,
   );
-/** @internal */
-export const AccountingCreateTransferResponseStatus$outboundSchema:
-  z.ZodNativeEnum<typeof AccountingCreateTransferResponseStatus> =
-    AccountingCreateTransferResponseStatus$inboundSchema;
 
 /** @internal */
 export const AccountingCreateTransferResponseAccountingTransfer$inboundSchema:
@@ -280,59 +249,7 @@ export const AccountingCreateTransferResponseAccountingTransfer$inboundSchema:
     metadata: Metadata$inboundSchema.optional(),
     supplementalData: SupplementalData$inboundSchema.optional(),
   });
-/** @internal */
-export type AccountingCreateTransferResponseAccountingTransfer$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  description?: string | null | undefined;
-  contactRef?: ContactRef$Outbound | undefined;
-  date?: string | undefined;
-  from?: TransferAccount$Outbound | undefined;
-  to?: TransferAccount$Outbound | undefined;
-  status?: string | null | undefined;
-  trackingCategoryRefs?: Array<TrackingCategoryRef$Outbound> | null | undefined;
-  depositedRecordRefs?: Array<AccountingRecordRef$Outbound> | null | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCreateTransferResponseAccountingTransfer$outboundSchema:
-  z.ZodType<
-    AccountingCreateTransferResponseAccountingTransfer$Outbound,
-    z.ZodTypeDef,
-    AccountingCreateTransferResponseAccountingTransfer
-  > = z.object({
-    modifiedDate: z.string().optional(),
-    sourceModifiedDate: z.string().optional(),
-    id: z.string().optional(),
-    description: z.nullable(z.string()).optional(),
-    contactRef: ContactRef$outboundSchema.optional(),
-    date: z.string().optional(),
-    from: TransferAccount$outboundSchema.optional(),
-    to: TransferAccount$outboundSchema.optional(),
-    status: z.nullable(AccountingCreateTransferResponseStatus$outboundSchema)
-      .optional(),
-    trackingCategoryRefs: z.nullable(
-      z.array(TrackingCategoryRef$outboundSchema),
-    ).optional(),
-    depositedRecordRefs: z.nullable(z.array(AccountingRecordRef$outboundSchema))
-      .optional(),
-    metadata: Metadata$outboundSchema.optional(),
-    supplementalData: SupplementalData$outboundSchema.optional(),
-  });
-
-export function accountingCreateTransferResponseAccountingTransferToJSON(
-  accountingCreateTransferResponseAccountingTransfer:
-    AccountingCreateTransferResponseAccountingTransfer,
-): string {
-  return JSON.stringify(
-    AccountingCreateTransferResponseAccountingTransfer$outboundSchema.parse(
-      accountingCreateTransferResponseAccountingTransfer,
-    ),
-  );
-}
 export function accountingCreateTransferResponseAccountingTransferFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -374,62 +291,7 @@ export const AccountingCreateTransferResponse$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type AccountingCreateTransferResponse$Outbound = {
-  data?:
-    | AccountingCreateTransferResponseAccountingTransfer$Outbound
-    | null
-    | undefined;
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const AccountingCreateTransferResponse$outboundSchema: z.ZodType<
-  AccountingCreateTransferResponse$Outbound,
-  z.ZodTypeDef,
-  AccountingCreateTransferResponse
-> = z.object({
-  data: z.nullable(
-    z.lazy(() =>
-      AccountingCreateTransferResponseAccountingTransfer$outboundSchema
-    ),
-  ).optional(),
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function accountingCreateTransferResponseToJSON(
-  accountingCreateTransferResponse: AccountingCreateTransferResponse,
-): string {
-  return JSON.stringify(
-    AccountingCreateTransferResponse$outboundSchema.parse(
-      accountingCreateTransferResponse,
-    ),
-  );
-}
 export function accountingCreateTransferResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreateTransferResponse, SDKValidationError> {

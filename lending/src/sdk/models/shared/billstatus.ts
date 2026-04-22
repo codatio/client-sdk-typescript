@@ -24,6 +24,3 @@ export type BillStatus = ClosedEnum<typeof BillStatus>;
 /** @internal */
 export const BillStatus$inboundSchema: z.ZodNativeEnum<typeof BillStatus> = z
   .nativeEnum(BillStatus);
-/** @internal */
-export const BillStatus$outboundSchema: z.ZodNativeEnum<typeof BillStatus> =
-  BillStatus$inboundSchema;

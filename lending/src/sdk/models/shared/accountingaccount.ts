@@ -7,27 +7,12 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountStatus,
-  AccountStatus$inboundSchema,
-  AccountStatus$outboundSchema,
-} from "./accountstatus.js";
-import {
-  AccountType,
-  AccountType$inboundSchema,
-  AccountType$outboundSchema,
-} from "./accounttype.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { AccountStatus, AccountStatus$inboundSchema } from "./accountstatus.js";
+import { AccountType, AccountType$inboundSchema } from "./accounttype.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -201,29 +186,7 @@ export const ValidDataTypeLinks$inboundSchema: z.ZodType<
   property: z.nullable(z.string()).optional(),
   links: z.nullable(z.array(z.string())).optional(),
 });
-/** @internal */
-export type ValidDataTypeLinks$Outbound = {
-  property?: string | null | undefined;
-  links?: Array<string> | null | undefined;
-};
 
-/** @internal */
-export const ValidDataTypeLinks$outboundSchema: z.ZodType<
-  ValidDataTypeLinks$Outbound,
-  z.ZodTypeDef,
-  ValidDataTypeLinks
-> = z.object({
-  property: z.nullable(z.string()).optional(),
-  links: z.nullable(z.array(z.string())).optional(),
-});
-
-export function validDataTypeLinksToJSON(
-  validDataTypeLinks: ValidDataTypeLinks,
-): string {
-  return JSON.stringify(
-    ValidDataTypeLinks$outboundSchema.parse(validDataTypeLinks),
-  );
-}
 export function validDataTypeLinksFromJSON(
   jsonString: string,
 ): SafeParseResult<ValidDataTypeLinks, SDKValidationError> {
@@ -260,63 +223,7 @@ export const AccountingAccount$inboundSchema: z.ZodType<
   supplementalData: SupplementalData$inboundSchema.optional(),
   metadata: Metadata$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingAccount$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  nominalCode?: string | null | undefined;
-  name?: string | null | undefined;
-  description?: string | null | undefined;
-  fullyQualifiedCategory?: string | null | undefined;
-  fullyQualifiedName?: string | null | undefined;
-  currency?: string | undefined;
-  currentBalance?: number | null | undefined;
-  type?: string | undefined;
-  status?: string | undefined;
-  isBankAccount?: boolean | undefined;
-  validDatatypeLinks?: Array<ValidDataTypeLinks$Outbound> | null | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingAccount$outboundSchema: z.ZodType<
-  AccountingAccount$Outbound,
-  z.ZodTypeDef,
-  AccountingAccount
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  nominalCode: z.nullable(z.string()).optional(),
-  name: z.nullable(z.string()).optional(),
-  description: z.nullable(z.string()).optional(),
-  fullyQualifiedCategory: z.nullable(z.string()).optional(),
-  fullyQualifiedName: z.nullable(z.string()).optional(),
-  currency: z.string().optional(),
-  currentBalance: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  type: AccountType$outboundSchema.optional(),
-  status: AccountStatus$outboundSchema.optional(),
-  isBankAccount: z.boolean().optional(),
-  validDatatypeLinks: z.nullable(
-    z.array(z.lazy(() => ValidDataTypeLinks$outboundSchema)),
-  ).optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-  metadata: Metadata$outboundSchema.optional(),
-});
-
-export function accountingAccountToJSON(
-  accountingAccount: AccountingAccount,
-): string {
-  return JSON.stringify(
-    AccountingAccount$outboundSchema.parse(accountingAccount),
-  );
-}
 export function accountingAccountFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingAccount, SDKValidationError> {

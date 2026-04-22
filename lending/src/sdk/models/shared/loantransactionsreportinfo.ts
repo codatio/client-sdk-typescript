@@ -65,37 +65,7 @@ export const LoanTransactionsReportInfo$inboundSchema: z.ZodType<
   companyName: z.string().optional(),
   generatedDate: z.string().optional(),
 });
-/** @internal */
-export type LoanTransactionsReportInfo$Outbound = {
-  pageNumber?: number | undefined;
-  pageSize?: number | undefined;
-  totalResults?: number | undefined;
-  reportName?: string | undefined;
-  companyName?: string | undefined;
-  generatedDate?: string | undefined;
-};
 
-/** @internal */
-export const LoanTransactionsReportInfo$outboundSchema: z.ZodType<
-  LoanTransactionsReportInfo$Outbound,
-  z.ZodTypeDef,
-  LoanTransactionsReportInfo
-> = z.object({
-  pageNumber: z.number().int().optional(),
-  pageSize: z.number().int().optional(),
-  totalResults: z.number().int().optional(),
-  reportName: z.string().optional(),
-  companyName: z.string().optional(),
-  generatedDate: z.string().optional(),
-});
-
-export function loanTransactionsReportInfoToJSON(
-  loanTransactionsReportInfo: LoanTransactionsReportInfo,
-): string {
-  return JSON.stringify(
-    LoanTransactionsReportInfo$outboundSchema.parse(loanTransactionsReportInfo),
-  );
-}
 export function loanTransactionsReportInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<LoanTransactionsReportInfo, SDKValidationError> {

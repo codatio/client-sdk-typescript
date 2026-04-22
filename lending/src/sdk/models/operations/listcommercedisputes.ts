@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListCommerceDisputesRequest = {
   /**
@@ -34,19 +31,6 @@ export type ListCommerceDisputesRequest = {
   orderBy?: string | undefined;
 };
 
-/** @internal */
-export const ListCommerceDisputesRequest$inboundSchema: z.ZodType<
-  ListCommerceDisputesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  page: z.number().int().default(1),
-  pageSize: z.number().int().default(100),
-  query: z.string().optional(),
-  orderBy: z.string().optional(),
-});
 /** @internal */
 export type ListCommerceDisputesRequest$Outbound = {
   companyId: string;
@@ -78,14 +62,5 @@ export function listCommerceDisputesRequestToJSON(
     ListCommerceDisputesRequest$outboundSchema.parse(
       listCommerceDisputesRequest,
     ),
-  );
-}
-export function listCommerceDisputesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListCommerceDisputesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListCommerceDisputesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListCommerceDisputesRequest' from JSON`,
   );
 }

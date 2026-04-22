@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceDispute,
   CommerceDispute$inboundSchema,
-  CommerceDispute$Outbound,
-  CommerceDispute$outboundSchema,
 } from "./commercedispute.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type CommerceDisputes = {
   results?: Array<CommerceDispute | null> | undefined;
@@ -53,39 +46,7 @@ export const CommerceDisputes$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type CommerceDisputes$Outbound = {
-  results?: Array<CommerceDispute$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const CommerceDisputes$outboundSchema: z.ZodType<
-  CommerceDisputes$Outbound,
-  z.ZodTypeDef,
-  CommerceDisputes
-> = z.object({
-  results: z.array(z.nullable(CommerceDispute$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function commerceDisputesToJSON(
-  commerceDisputes: CommerceDisputes,
-): string {
-  return JSON.stringify(
-    CommerceDisputes$outboundSchema.parse(commerceDisputes),
-  );
-}
 export function commerceDisputesFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceDisputes, SDKValidationError> {

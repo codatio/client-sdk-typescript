@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type SourceAccountPrototype = {
   /**
@@ -70,21 +67,6 @@ export type SourceAccountPrototype = {
 };
 
 /** @internal */
-export const SourceAccountPrototype$inboundSchema: z.ZodType<
-  SourceAccountPrototype,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  id: z.string(),
-  accountName: z.nullable(z.string()).optional(),
-  accountType: z.nullable(z.string()).optional(),
-  accountNumber: z.nullable(z.string()).optional(),
-  sortCode: z.nullable(z.string()).optional(),
-  currency: z.string().optional(),
-  balance: z.nullable(z.number().transform(v => new Decimal$(v))).optional(),
-  modifiedDate: z.string().optional(),
-});
-/** @internal */
 export type SourceAccountPrototype$Outbound = {
   id: string;
   accountName?: string | null | undefined;
@@ -121,14 +103,5 @@ export function sourceAccountPrototypeToJSON(
 ): string {
   return JSON.stringify(
     SourceAccountPrototype$outboundSchema.parse(sourceAccountPrototype),
-  );
-}
-export function sourceAccountPrototypeFromJSON(
-  jsonString: string,
-): SafeParseResult<SourceAccountPrototype, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => SourceAccountPrototype$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'SourceAccountPrototype' from JSON`,
   );
 }

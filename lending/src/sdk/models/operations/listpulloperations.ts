@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListPullOperationsRequest = {
   /**
@@ -30,18 +27,6 @@ export type ListPullOperationsRequest = {
   orderBy?: string | undefined;
 };
 
-/** @internal */
-export const ListPullOperationsRequest$inboundSchema: z.ZodType<
-  ListPullOperationsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  page: z.number().int().default(1),
-  pageSize: z.number().int().default(100),
-  query: z.string().optional(),
-  orderBy: z.string().optional(),
-});
 /** @internal */
 export type ListPullOperationsRequest$Outbound = {
   companyId: string;
@@ -69,14 +54,5 @@ export function listPullOperationsRequestToJSON(
 ): string {
   return JSON.stringify(
     ListPullOperationsRequest$outboundSchema.parse(listPullOperationsRequest),
-  );
-}
-export function listPullOperationsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListPullOperationsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListPullOperationsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListPullOperationsRequest' from JSON`,
   );
 }

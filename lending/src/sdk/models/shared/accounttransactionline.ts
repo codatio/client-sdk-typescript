@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountTransactionLineRecordRef,
   AccountTransactionLineRecordRef$inboundSchema,
-  AccountTransactionLineRecordRef$Outbound,
-  AccountTransactionLineRecordRef$outboundSchema,
 } from "./accounttransactionlinerecordref.js";
 
 export type AccountTransactionLine = {
@@ -39,33 +37,7 @@ export const AccountTransactionLine$inboundSchema: z.ZodType<
   recordRef: AccountTransactionLineRecordRef$inboundSchema.optional(),
   amount: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type AccountTransactionLine$Outbound = {
-  description?: string | null | undefined;
-  recordRef?: AccountTransactionLineRecordRef$Outbound | undefined;
-  amount?: number | undefined;
-};
 
-/** @internal */
-export const AccountTransactionLine$outboundSchema: z.ZodType<
-  AccountTransactionLine$Outbound,
-  z.ZodTypeDef,
-  AccountTransactionLine
-> = z.object({
-  description: z.nullable(z.string()).optional(),
-  recordRef: AccountTransactionLineRecordRef$outboundSchema.optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function accountTransactionLineToJSON(
-  accountTransactionLine: AccountTransactionLine,
-): string {
-  return JSON.stringify(
-    AccountTransactionLine$outboundSchema.parse(accountTransactionLine),
-  );
-}
 export function accountTransactionLineFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountTransactionLine, SDKValidationError> {

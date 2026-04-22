@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateBankTransactionsModelRequest = {
   /**
@@ -22,16 +19,6 @@ export type GetCreateBankTransactionsModelRequest = {
   accountId: string;
 };
 
-/** @internal */
-export const GetCreateBankTransactionsModelRequest$inboundSchema: z.ZodType<
-  GetCreateBankTransactionsModelRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  accountId: z.string(),
-});
 /** @internal */
 export type GetCreateBankTransactionsModelRequest$Outbound = {
   companyId: string;
@@ -57,15 +44,5 @@ export function getCreateBankTransactionsModelRequestToJSON(
     GetCreateBankTransactionsModelRequest$outboundSchema.parse(
       getCreateBankTransactionsModelRequest,
     ),
-  );
-}
-export function getCreateBankTransactionsModelRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCreateBankTransactionsModelRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetCreateBankTransactionsModelRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCreateBankTransactionsModelRequest' from JSON`,
   );
 }

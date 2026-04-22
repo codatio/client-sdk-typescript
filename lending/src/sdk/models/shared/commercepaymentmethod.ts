@@ -47,10 +47,6 @@ export type CommercePaymentMethod = {
 export const CommercePaymentMethodStatus$inboundSchema: z.ZodNativeEnum<
   typeof CommercePaymentMethodStatus
 > = z.nativeEnum(CommercePaymentMethodStatus);
-/** @internal */
-export const CommercePaymentMethodStatus$outboundSchema: z.ZodNativeEnum<
-  typeof CommercePaymentMethodStatus
-> = CommercePaymentMethodStatus$inboundSchema;
 
 /** @internal */
 export const CommercePaymentMethod$inboundSchema: z.ZodType<
@@ -64,35 +60,7 @@ export const CommercePaymentMethod$inboundSchema: z.ZodType<
   name: z.string().optional(),
   status: CommercePaymentMethodStatus$inboundSchema.optional(),
 });
-/** @internal */
-export type CommercePaymentMethod$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  name?: string | undefined;
-  status?: string | undefined;
-};
 
-/** @internal */
-export const CommercePaymentMethod$outboundSchema: z.ZodType<
-  CommercePaymentMethod$Outbound,
-  z.ZodTypeDef,
-  CommercePaymentMethod
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  name: z.string().optional(),
-  status: CommercePaymentMethodStatus$outboundSchema.optional(),
-});
-
-export function commercePaymentMethodToJSON(
-  commercePaymentMethod: CommercePaymentMethod,
-): string {
-  return JSON.stringify(
-    CommercePaymentMethod$outboundSchema.parse(commercePaymentMethod),
-  );
-}
 export function commercePaymentMethodFromJSON(
   jsonString: string,
 ): SafeParseResult<CommercePaymentMethod, SDKValidationError> {

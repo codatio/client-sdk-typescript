@@ -16,7 +16,7 @@ The _Get categorized bank statement_ endpoint provides a fully categorized list 
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-categorized-bank-statement" method="get" path="/companies/{companyId}/reports/enhancedCashFlow/transactions" -->
+<!-- UsageSnippet language="typescript" operationID="get-categorized-bank-statement" method="get" path="/companies/{companyId}/reports/enhancedCashFlow/transactions" example="Categorized bank statement" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CreateConnectionRequestBody = {
   /**
@@ -23,14 +20,6 @@ export type CreateConnectionRequest = {
   requestBody?: CreateConnectionRequestBody | undefined;
 };
 
-/** @internal */
-export const CreateConnectionRequestBody$inboundSchema: z.ZodType<
-  CreateConnectionRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  platformKey: z.string().optional(),
-});
 /** @internal */
 export type CreateConnectionRequestBody$Outbound = {
   platformKey?: string | undefined;
@@ -54,30 +43,7 @@ export function createConnectionRequestBodyToJSON(
     ),
   );
 }
-export function createConnectionRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateConnectionRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateConnectionRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateConnectionRequestBody' from JSON`,
-  );
-}
 
-/** @internal */
-export const CreateConnectionRequest$inboundSchema: z.ZodType<
-  CreateConnectionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  RequestBody: z.lazy(() => CreateConnectionRequestBody$inboundSchema)
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "RequestBody": "requestBody",
-  });
-});
 /** @internal */
 export type CreateConnectionRequest$Outbound = {
   companyId: string;
@@ -104,14 +70,5 @@ export function createConnectionRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateConnectionRequest$outboundSchema.parse(createConnectionRequest),
-  );
-}
-export function createConnectionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateConnectionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateConnectionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateConnectionRequest' from JSON`,
   );
 }

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCommercePaymentMethodRequest = {
   /**
@@ -22,16 +19,6 @@ export type GetCommercePaymentMethodRequest = {
   paymentMethodId: string;
 };
 
-/** @internal */
-export const GetCommercePaymentMethodRequest$inboundSchema: z.ZodType<
-  GetCommercePaymentMethodRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  paymentMethodId: z.string(),
-});
 /** @internal */
 export type GetCommercePaymentMethodRequest$Outbound = {
   companyId: string;
@@ -57,14 +44,5 @@ export function getCommercePaymentMethodRequestToJSON(
     GetCommercePaymentMethodRequest$outboundSchema.parse(
       getCommercePaymentMethodRequest,
     ),
-  );
-}
-export function getCommercePaymentMethodRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCommercePaymentMethodRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetCommercePaymentMethodRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCommercePaymentMethodRequest' from JSON`,
   );
 }

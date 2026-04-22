@@ -27,29 +27,7 @@ export const LendingCustomerRef$inboundSchema: z.ZodType<
   id: z.string().optional(),
   customerName: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type LendingCustomerRef$Outbound = {
-  id?: string | undefined;
-  customerName?: string | null | undefined;
-};
 
-/** @internal */
-export const LendingCustomerRef$outboundSchema: z.ZodType<
-  LendingCustomerRef$Outbound,
-  z.ZodTypeDef,
-  LendingCustomerRef
-> = z.object({
-  id: z.string().optional(),
-  customerName: z.nullable(z.string()).optional(),
-});
-
-export function lendingCustomerRefToJSON(
-  lendingCustomerRef: LendingCustomerRef,
-): string {
-  return JSON.stringify(
-    LendingCustomerRef$outboundSchema.parse(lendingCustomerRef),
-  );
-}
 export function lendingCustomerRefFromJSON(
   jsonString: string,
 ): SafeParseResult<LendingCustomerRef, SDKValidationError> {

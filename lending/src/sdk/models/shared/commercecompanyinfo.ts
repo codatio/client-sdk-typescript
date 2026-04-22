@@ -9,27 +9,13 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountBalance,
   AccountBalance$inboundSchema,
-  AccountBalance$Outbound,
-  AccountBalance$outboundSchema,
 } from "./accountbalance.js";
 import {
   CommerceAddress,
   CommerceAddress$inboundSchema,
-  CommerceAddress$Outbound,
-  CommerceAddress$outboundSchema,
 } from "./commerceaddress.js";
-import {
-  PhoneNumber,
-  PhoneNumber$inboundSchema,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phonenumber.js";
-import {
-  WebLink,
-  WebLink$inboundSchema,
-  WebLink$Outbound,
-  WebLink$outboundSchema,
-} from "./weblink.js";
+import { PhoneNumber, PhoneNumber$inboundSchema } from "./phonenumber.js";
+import { WebLink, WebLink$inboundSchema } from "./weblink.js";
 
 /**
  * In the Codat system, company profile includes standard commercial details about
@@ -132,51 +118,7 @@ export const CommerceCompanyInfo$inboundSchema: z.ZodType<
   sourceUrls: z.record(z.string()).optional(),
   createdDate: z.string().optional(),
 });
-/** @internal */
-export type CommerceCompanyInfo$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  companyName?: string | undefined;
-  commercePlatformRef?: string | undefined;
-  companyLegalName?: string | undefined;
-  addresses?: Array<CommerceAddress$Outbound> | undefined;
-  phoneNumbers?: Array<PhoneNumber$Outbound> | undefined;
-  webLinks?: Array<WebLink$Outbound> | undefined;
-  registrationNumber?: string | undefined;
-  baseCurrency?: string | undefined;
-  accountBalances?: Array<AccountBalance$Outbound> | undefined;
-  sourceUrls?: { [k: string]: string } | undefined;
-  createdDate?: string | undefined;
-};
 
-/** @internal */
-export const CommerceCompanyInfo$outboundSchema: z.ZodType<
-  CommerceCompanyInfo$Outbound,
-  z.ZodTypeDef,
-  CommerceCompanyInfo
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  companyName: z.string().optional(),
-  commercePlatformRef: z.string().optional(),
-  companyLegalName: z.string().optional(),
-  addresses: z.array(CommerceAddress$outboundSchema).optional(),
-  phoneNumbers: z.array(PhoneNumber$outboundSchema).optional(),
-  webLinks: z.array(WebLink$outboundSchema).optional(),
-  registrationNumber: z.string().optional(),
-  baseCurrency: z.string().optional(),
-  accountBalances: z.array(AccountBalance$outboundSchema).optional(),
-  sourceUrls: z.record(z.string()).optional(),
-  createdDate: z.string().optional(),
-});
-
-export function commerceCompanyInfoToJSON(
-  commerceCompanyInfo: CommerceCompanyInfo,
-): string {
-  return JSON.stringify(
-    CommerceCompanyInfo$outboundSchema.parse(commerceCompanyInfo),
-  );
-}
 export function commerceCompanyInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceCompanyInfo, SDKValidationError> {

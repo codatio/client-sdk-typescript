@@ -25,7 +25,3 @@ export type BillCreditNoteStatus = ClosedEnum<typeof BillCreditNoteStatus>;
 export const BillCreditNoteStatus$inboundSchema: z.ZodNativeEnum<
   typeof BillCreditNoteStatus
 > = z.nativeEnum(BillCreditNoteStatus);
-/** @internal */
-export const BillCreditNoteStatus$outboundSchema: z.ZodNativeEnum<
-  typeof BillCreditNoteStatus
-> = BillCreditNoteStatus$inboundSchema;

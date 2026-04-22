@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UploadFilesRequest = {
@@ -21,20 +18,6 @@ export type UploadFilesRequest = {
   fileUpload?: shared.FileUpload | undefined;
 };
 
-/** @internal */
-export const UploadFilesRequest$inboundSchema: z.ZodType<
-  UploadFilesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  FileUpload: shared.FileUpload$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "FileUpload": "fileUpload",
-  });
-});
 /** @internal */
 export type UploadFilesRequest$Outbound = {
   companyId: string;
@@ -62,14 +45,5 @@ export function uploadFilesRequestToJSON(
 ): string {
   return JSON.stringify(
     UploadFilesRequest$outboundSchema.parse(uploadFilesRequest),
-  );
-}
-export function uploadFilesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<UploadFilesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UploadFilesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UploadFilesRequest' from JSON`,
   );
 }

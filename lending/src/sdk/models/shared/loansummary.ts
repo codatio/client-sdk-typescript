@@ -9,14 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LoanSummaryReportInfo,
   LoanSummaryReportInfo$inboundSchema,
-  LoanSummaryReportInfo$Outbound,
-  LoanSummaryReportInfo$outboundSchema,
 } from "./loansummaryreportinfo.js";
 import {
   LoanSummaryReportItem,
   LoanSummaryReportItem$inboundSchema,
-  LoanSummaryReportItem$Outbound,
-  LoanSummaryReportItem$outboundSchema,
 } from "./loansummaryreportitem.js";
 
 export type LoanSummary = {
@@ -36,25 +32,7 @@ export const LoanSummary$inboundSchema: z.ZodType<
   reportInfo: LoanSummaryReportInfo$inboundSchema.optional(),
   reportItems: z.array(LoanSummaryReportItem$inboundSchema).optional(),
 });
-/** @internal */
-export type LoanSummary$Outbound = {
-  reportInfo?: LoanSummaryReportInfo$Outbound | undefined;
-  reportItems?: Array<LoanSummaryReportItem$Outbound> | undefined;
-};
 
-/** @internal */
-export const LoanSummary$outboundSchema: z.ZodType<
-  LoanSummary$Outbound,
-  z.ZodTypeDef,
-  LoanSummary
-> = z.object({
-  reportInfo: LoanSummaryReportInfo$outboundSchema.optional(),
-  reportItems: z.array(LoanSummaryReportItem$outboundSchema).optional(),
-});
-
-export function loanSummaryToJSON(loanSummary: LoanSummary): string {
-  return JSON.stringify(LoanSummary$outboundSchema.parse(loanSummary));
-}
 export function loanSummaryFromJSON(
   jsonString: string,
 ): SafeParseResult<LoanSummary, SDKValidationError> {

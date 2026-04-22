@@ -71,41 +71,7 @@ export const BankingTransactionRef$inboundSchema: z.ZodType<
   description: z.string().optional(),
   amount: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type BankingTransactionRef$Outbound = {
-  id?: string | undefined;
-  dataConnectionId?: string | undefined;
-  accountId?: string | undefined;
-  accountName?: string | undefined;
-  date?: string | undefined;
-  description?: string | undefined;
-  amount?: number | undefined;
-};
 
-/** @internal */
-export const BankingTransactionRef$outboundSchema: z.ZodType<
-  BankingTransactionRef$Outbound,
-  z.ZodTypeDef,
-  BankingTransactionRef
-> = z.object({
-  id: z.string().optional(),
-  dataConnectionId: z.string().optional(),
-  accountId: z.string().optional(),
-  accountName: z.string().optional(),
-  date: z.string().optional(),
-  description: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function bankingTransactionRefToJSON(
-  bankingTransactionRef: BankingTransactionRef,
-): string {
-  return JSON.stringify(
-    BankingTransactionRef$outboundSchema.parse(bankingTransactionRef),
-  );
-}
 export function bankingTransactionRefFromJSON(
   jsonString: string,
 ): SafeParseResult<BankingTransactionRef, SDKValidationError> {

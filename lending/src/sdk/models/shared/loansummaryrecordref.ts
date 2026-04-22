@@ -9,12 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LoanSummaryIntegrationType,
   LoanSummaryIntegrationType$inboundSchema,
-  LoanSummaryIntegrationType$outboundSchema,
 } from "./loansummaryintegrationtype.js";
 import {
   LoanSummaryRecordRefType,
   LoanSummaryRecordRefType$inboundSchema,
-  LoanSummaryRecordRefType$outboundSchema,
 } from "./loansummaryrecordreftype.js";
 
 export type LoanSummaryRecordRef = {
@@ -47,33 +45,7 @@ export const LoanSummaryRecordRef$inboundSchema: z.ZodType<
   integrationType: LoanSummaryIntegrationType$inboundSchema.optional(),
   recordRefType: LoanSummaryRecordRefType$inboundSchema.optional(),
 });
-/** @internal */
-export type LoanSummaryRecordRef$Outbound = {
-  id?: string | undefined;
-  dataConnectionId?: string | undefined;
-  integrationType?: string | undefined;
-  recordRefType?: string | undefined;
-};
 
-/** @internal */
-export const LoanSummaryRecordRef$outboundSchema: z.ZodType<
-  LoanSummaryRecordRef$Outbound,
-  z.ZodTypeDef,
-  LoanSummaryRecordRef
-> = z.object({
-  id: z.string().optional(),
-  dataConnectionId: z.string().optional(),
-  integrationType: LoanSummaryIntegrationType$outboundSchema.optional(),
-  recordRefType: LoanSummaryRecordRefType$outboundSchema.optional(),
-});
-
-export function loanSummaryRecordRefToJSON(
-  loanSummaryRecordRef: LoanSummaryRecordRef,
-): string {
-  return JSON.stringify(
-    LoanSummaryRecordRef$outboundSchema.parse(loanSummaryRecordRef),
-  );
-}
 export function loanSummaryRecordRefFromJSON(
   jsonString: string,
 ): SafeParseResult<LoanSummaryRecordRef, SDKValidationError> {

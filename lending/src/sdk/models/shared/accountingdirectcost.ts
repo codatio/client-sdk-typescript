@@ -10,32 +10,16 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
-  AccountingPaymentAllocation$Outbound,
-  AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
-import {
-  ContactRef,
-  ContactRef$inboundSchema,
-  ContactRef$Outbound,
-  ContactRef$outboundSchema,
-} from "./contactref.js";
+import { ContactRef, ContactRef$inboundSchema } from "./contactref.js";
 import {
   DirectCostLineItem,
   DirectCostLineItem$inboundSchema,
-  DirectCostLineItem$Outbound,
-  DirectCostLineItem$outboundSchema,
 } from "./directcostlineitem.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -194,67 +178,7 @@ export const AccountingDirectCost$inboundSchema: z.ZodType<
   supplementalData: SupplementalData$inboundSchema.optional(),
   metadata: Metadata$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingDirectCost$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  reference?: string | null | undefined;
-  note?: string | null | undefined;
-  contactRef?: ContactRef$Outbound | undefined;
-  issueDate: string;
-  currency: string;
-  currencyRate?: number | null | undefined;
-  lineItems: Array<DirectCostLineItem$Outbound>;
-  paymentAllocations: Array<AccountingPaymentAllocation$Outbound>;
-  subTotal: number;
-  taxAmount: number;
-  totalAmount: number;
-  supplementalData?: SupplementalData$Outbound | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingDirectCost$outboundSchema: z.ZodType<
-  AccountingDirectCost$Outbound,
-  z.ZodTypeDef,
-  AccountingDirectCost
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  reference: z.nullable(z.string()).optional(),
-  note: z.nullable(z.string()).optional(),
-  contactRef: ContactRef$outboundSchema.optional(),
-  issueDate: z.string(),
-  currency: z.string(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  lineItems: z.array(DirectCostLineItem$outboundSchema),
-  paymentAllocations: z.array(AccountingPaymentAllocation$outboundSchema),
-  subTotal: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  taxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-  metadata: Metadata$outboundSchema.optional(),
-});
-
-export function accountingDirectCostToJSON(
-  accountingDirectCost: AccountingDirectCost,
-): string {
-  return JSON.stringify(
-    AccountingDirectCost$outboundSchema.parse(accountingDirectCost),
-  );
-}
 export function accountingDirectCostFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingDirectCost, SDKValidationError> {

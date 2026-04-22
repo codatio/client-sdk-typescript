@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegrityMatch,
   DataIntegrityMatch$inboundSchema,
-  DataIntegrityMatch$Outbound,
-  DataIntegrityMatch$outboundSchema,
 } from "./dataintegritymatch.js";
 
 export type DataIntegrityDetail = {
@@ -87,43 +85,7 @@ export const DataIntegrityDetail$inboundSchema: z.ZodType<
   currency: z.string().optional(),
   matches: z.array(DataIntegrityMatch$inboundSchema).optional(),
 });
-/** @internal */
-export type DataIntegrityDetail$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  connectionId?: string | undefined;
-  date?: string | undefined;
-  description?: string | undefined;
-  amount?: number | undefined;
-  currency?: string | undefined;
-  matches?: Array<DataIntegrityMatch$Outbound> | undefined;
-};
 
-/** @internal */
-export const DataIntegrityDetail$outboundSchema: z.ZodType<
-  DataIntegrityDetail$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityDetail
-> = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  connectionId: z.string().optional(),
-  date: z.string().optional(),
-  description: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-  matches: z.array(DataIntegrityMatch$outboundSchema).optional(),
-});
-
-export function dataIntegrityDetailToJSON(
-  dataIntegrityDetail: DataIntegrityDetail,
-): string {
-  return JSON.stringify(
-    DataIntegrityDetail$outboundSchema.parse(dataIntegrityDetail),
-  );
-}
 export function dataIntegrityDetailFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityDetail, SDKValidationError> {

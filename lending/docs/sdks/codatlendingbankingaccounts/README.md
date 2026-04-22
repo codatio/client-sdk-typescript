@@ -16,9 +16,64 @@ The *List accounts* endpoint returns a list of [accounts](https://docs.codat.io/
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="typescript" operationID="list-banking-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accounts" -->
+<!-- UsageSnippet language="typescript" operationID="list-banking-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accounts" example="Basiq" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.banking.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { bankingAccountsList } from "@codat/lending/funcs/bankingAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankingAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="typescript" operationID="list-banking-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accounts" example="Plaid" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -101,9 +156,62 @@ The *Get account* endpoint returns a single account for a given accountId.
 
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="typescript" operationID="get-banking-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accounts/{accountId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-banking-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accounts/{accountId}" example="Basiq" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.banking.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { bankingAccountsGet } from "@codat/lending/funcs/bankingAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankingAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="typescript" operationID="get-banking-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-accounts/{accountId}" example="Plaid" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

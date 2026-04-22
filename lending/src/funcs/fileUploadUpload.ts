@@ -4,11 +4,13 @@
 
 import * as z from "zod/v3";
 import { CodatLendingCore } from "../core.js";
-import { appendForm, encodeSimple } from "../lib/encodings.js";
+import { appendForm, encodeSimple, normalizeBlob } from "../lib/encodings.js";
 import {
+  bytesToBlob,
   getContentTypeFromFileName,
   readableStreamToArrayBuffer,
 } from "../lib/files.js";
+import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -102,7 +104,10 @@ async function $do(
   const body = new FormData();
   if (payload.FileUpload != null) {
     if (isBlobLike(payload.FileUpload.file)) {
-      appendForm(body, "file", payload.FileUpload.file);
+      const file = payload.FileUpload.file;
+      const blob = await normalizeBlob(file);
+      const name = "name" in file ? (file.name as string) : undefined;
+      appendForm(body, "file", blob, name);
     } else if (isReadableStream(payload.FileUpload.file.content)) {
       const buffer = await readableStreamToArrayBuffer(
         payload.FileUpload.file.content,
@@ -110,8 +115,12 @@ async function $do(
       const contentType =
         getContentTypeFromFileName(payload.FileUpload.file.fileName)
         || "application/octet-stream";
-      const blob = new Blob([buffer], { type: contentType });
-      appendForm(body, "file", blob, payload.FileUpload.file.fileName);
+      appendForm(
+        body,
+        "file",
+        bytesToBlob(buffer, contentType),
+        payload.FileUpload.file.fileName,
+      );
     } else {
       const contentType =
         getContentTypeFromFileName(payload.FileUpload.file.fileName)
@@ -119,7 +128,7 @@ async function $do(
       appendForm(
         body,
         "file",
-        new Blob([payload.FileUpload.file.content], { type: contentType }),
+        bytesToBlob(payload.FileUpload.file.content, contentType),
         payload.FileUpload.file.fileName,
       );
     }
@@ -135,7 +144,6 @@ async function $do(
       charEncoding: "percent",
     }),
   };
-
   const path = pathToFunc(
     "/companies/{companyId}/connections/{connectionId}/files",
   )(pathParams);
@@ -190,18 +198,8 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: [
-      "400",
-      "401",
-      "402",
-      "403",
-      "404",
-      "429",
-      "4XX",
-      "500",
-      "503",
-      "5XX",
-    ],
+    isErrorStatusCode: (statusCode: number) =>
+      matchStatusCode({ status: statusCode } as Response, ["4XX", "5XX"]),
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });

@@ -17,9 +17,621 @@ The *Get create payment model* endpoint returns the expected data for the reques
 
 See the *response examples* for integration-specific indicative models.
 
-### Example Usage
+### Example Usage: FreeAgent
 
-<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" -->
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="FreshBooks" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: MYOB AccountRight and Essentials
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="MYOB AccountRight and Essentials" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.getCreateModel({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsGetCreateModel } from "@codat/lending/funcs/loanWritebackPaymentsGetCreateModel.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsGetCreateModel(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsGetCreateModel failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="get-create-payment-model" method="get" path="/companies/{companyId}/connections/{connectionId}/options/payments" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -100,9 +712,96 @@ The *Create payment* endpoint creates a new [payment](https://docs.codat.io/lend
 
 Required data may vary by integration. To see what data to post, first call [Get create payment model](https://docs.codat.io/lending-api#/operations/get-create-payments-model).
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" -->
+<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Malformed query" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+import { Decimal } from "@codat/lending/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      accountRef: {},
+      paymentMethodRef: {
+        id: "EILBDVJVNUAGVKRQ",
+        name: "AliPay",
+      },
+      currency: "GBP",
+      date: "2022-10-23T00:00:00Z",
+      lines: [
+        {
+          amount: new Decimal("9098.82"),
+          allocatedOnDate: "2022-10-23T00:00:00Z",
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
+import { Decimal } from "@codat/lending/sdk/types";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsCreate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      modifiedDate: "2022-10-23T00:00:00Z",
+      sourceModifiedDate: "2022-10-23T00:00:00Z",
+      accountRef: {},
+      paymentMethodRef: {
+        id: "EILBDVJVNUAGVKRQ",
+        name: "AliPay",
+      },
+      currency: "GBP",
+      date: "2022-10-23T00:00:00Z",
+      lines: [
+        {
+          amount: new Decimal("9098.82"),
+          allocatedOnDate: "2022-10-23T00:00:00Z",
+        },
+      ],
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="QuickBooks Desktop" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 import { Decimal } from "@codat/lending/sdk/types";
@@ -209,6 +908,343 @@ async function run() {
         },
       ],
       reference: "ref 14/02 1147",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+import { Decimal } from "@codat/lending/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      customerRef: {
+        id: "CUST1",
+      },
+      accountRef: {
+        id: "1200",
+        name: "Bank Current Account",
+      },
+      paymentMethodRef: {
+        id: "4405",
+      },
+      totalAmount: new Decimal("4"),
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      date: "2023-03-17T11:47:04.792Z",
+      note: "note 07/03 14.31",
+      lines: [
+        {
+          amount: new Decimal("4"),
+          links: [
+            {
+              type: "Invoice",
+              id: "INV-31",
+              amount: new Decimal("-4"),
+              currencyRate: new Decimal("1"),
+            },
+          ],
+          allocatedOnDate: "2023-02-11T11:47:04.792Z",
+        },
+      ],
+      reference: "ref",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
+import { Decimal } from "@codat/lending/sdk/types";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsCreate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      customerRef: {
+        id: "CUST1",
+      },
+      accountRef: {
+        id: "1200",
+        name: "Bank Current Account",
+      },
+      paymentMethodRef: {
+        id: "4405",
+      },
+      totalAmount: new Decimal("4"),
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      date: "2023-03-17T11:47:04.792Z",
+      note: "note 07/03 14.31",
+      lines: [
+        {
+          amount: new Decimal("4"),
+          links: [
+            {
+              type: "Invoice",
+              id: "INV-31",
+              amount: new Decimal("-4"),
+              currencyRate: new Decimal("1"),
+            },
+          ],
+          allocatedOnDate: "2023-02-11T11:47:04.792Z",
+        },
+      ],
+      reference: "ref",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+import { Decimal } from "@codat/lending/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      customerRef: {
+        id: "30444c5bd4964fd787c7f8e2e5301ce1",
+        companyName: "Stanley test customer",
+      },
+      accountRef: {
+        id: "9a25937b267a11e797950a57719b2edb",
+        name: "Current",
+      },
+      totalAmount: new Decimal("0.17"),
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      date: "2023-03-20T11:47:04.792Z",
+      note: "Need to send products asap.",
+      lines: [
+        {
+          amount: new Decimal("0.17"),
+          links: [
+            {
+              type: "Invoice",
+              id: "bb85db9226d7450fb99eb83e7fb37505",
+              amount: new Decimal("-0.17"),
+              currencyRate: new Decimal("1"),
+            },
+          ],
+          allocatedOnDate: "2023-02-11T11:47:04.792Z",
+        },
+      ],
+      reference: "normal payment 20/03 17.05",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
+import { Decimal } from "@codat/lending/sdk/types";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsCreate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      customerRef: {
+        id: "30444c5bd4964fd787c7f8e2e5301ce1",
+        companyName: "Stanley test customer",
+      },
+      accountRef: {
+        id: "9a25937b267a11e797950a57719b2edb",
+        name: "Current",
+      },
+      totalAmount: new Decimal("0.17"),
+      currency: "GBP",
+      currencyRate: new Decimal("1"),
+      date: "2023-03-20T11:47:04.792Z",
+      note: "Need to send products asap.",
+      lines: [
+        {
+          amount: new Decimal("0.17"),
+          links: [
+            {
+              type: "Invoice",
+              id: "bb85db9226d7450fb99eb83e7fb37505",
+              amount: new Decimal("-0.17"),
+              currencyRate: new Decimal("1"),
+            },
+          ],
+          allocatedOnDate: "2023-02-11T11:47:04.792Z",
+        },
+      ],
+      reference: "normal payment 20/03 17.05",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("loanWritebackPaymentsCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+import { Decimal } from "@codat/lending/sdk/types";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.loanWriteback.payments.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      customerRef: {
+        id: "19",
+      },
+      accountRef: {
+        id: "81",
+      },
+      totalAmount: new Decimal("0"),
+      date: "2022-03-12T00:00:00",
+      lines: [
+        {
+          amount: new Decimal("0"),
+          links: [
+            {
+              type: "Invoice",
+              id: "246",
+              amount: new Decimal("-1.1"),
+            },
+            {
+              type: "CreditNote",
+              id: "280",
+              amount: new Decimal("1.1"),
+            },
+          ],
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
+import { Decimal } from "@codat/lending/sdk/types";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await loanWritebackPaymentsCreate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountingPayment: {
+      customerRef: {
+        id: "19",
+      },
+      accountRef: {
+        id: "81",
+      },
+      totalAmount: new Decimal("0"),
+      date: "2022-03-12T00:00:00",
+      lines: [
+        {
+          amount: new Decimal("0"),
+          links: [
+            {
+              type: "Invoice",
+              id: "246",
+              amount: new Decimal("-1.1"),
+            },
+            {
+              type: "CreditNote",
+              id: "280",
+              amount: new Decimal("1.1"),
+            },
+          ],
+        },
+      ],
     },
   });
   if (res.ok) {

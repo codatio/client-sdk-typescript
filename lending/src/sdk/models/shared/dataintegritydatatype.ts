@@ -14,10 +14,6 @@ export const DataIntegrityDataType = {
 export type DataIntegrityDataType = ClosedEnum<typeof DataIntegrityDataType>;
 
 /** @internal */
-export const DataIntegrityDataType$inboundSchema: z.ZodNativeEnum<
-  typeof DataIntegrityDataType
-> = z.nativeEnum(DataIntegrityDataType);
-/** @internal */
 export const DataIntegrityDataType$outboundSchema: z.ZodNativeEnum<
   typeof DataIntegrityDataType
-> = DataIntegrityDataType$inboundSchema;
+> = z.nativeEnum(DataIntegrityDataType);

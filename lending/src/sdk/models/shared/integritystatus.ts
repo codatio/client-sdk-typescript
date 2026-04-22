@@ -23,7 +23,3 @@ export type IntegrityStatus = ClosedEnum<typeof IntegrityStatus>;
 export const IntegrityStatus$inboundSchema: z.ZodNativeEnum<
   typeof IntegrityStatus
 > = z.nativeEnum(IntegrityStatus);
-/** @internal */
-export const IntegrityStatus$outboundSchema: z.ZodNativeEnum<
-  typeof IntegrityStatus
-> = IntegrityStatus$inboundSchema;

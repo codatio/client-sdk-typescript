@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingBalanceSheetRequest = {
   /**
@@ -26,17 +23,6 @@ export type GetAccountingBalanceSheetRequest = {
   startMonth?: string | undefined;
 };
 
-/** @internal */
-export const GetAccountingBalanceSheetRequest$inboundSchema: z.ZodType<
-  GetAccountingBalanceSheetRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  periodLength: z.number().int(),
-  periodsToCompare: z.number().int(),
-  startMonth: z.string().optional(),
-});
 /** @internal */
 export type GetAccountingBalanceSheetRequest$Outbound = {
   companyId: string;
@@ -64,14 +50,5 @@ export function getAccountingBalanceSheetRequestToJSON(
     GetAccountingBalanceSheetRequest$outboundSchema.parse(
       getAccountingBalanceSheetRequest,
     ),
-  );
-}
-export function getAccountingBalanceSheetRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAccountingBalanceSheetRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetAccountingBalanceSheetRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAccountingBalanceSheetRequest' from JSON`,
   );
 }

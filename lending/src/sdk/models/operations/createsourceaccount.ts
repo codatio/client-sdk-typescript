@@ -36,15 +36,6 @@ export type CreateSourceAccountResponseBody =
   | shared.SourceAccount;
 
 /** @internal */
-export const CreateSourceAccountRequestBody$inboundSchema: z.ZodType<
-  CreateSourceAccountRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  shared.SourceAccountV2Prototype$inboundSchema,
-  shared.SourceAccountPrototype$inboundSchema,
-]);
-/** @internal */
 export type CreateSourceAccountRequestBody$Outbound =
   | shared.SourceAccountV2Prototype$Outbound
   | shared.SourceAccountPrototype$Outbound;
@@ -68,33 +59,7 @@ export function createSourceAccountRequestBodyToJSON(
     ),
   );
 }
-export function createSourceAccountRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateSourceAccountRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateSourceAccountRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateSourceAccountRequestBody' from JSON`,
-  );
-}
 
-/** @internal */
-export const CreateSourceAccountRequest$inboundSchema: z.ZodType<
-  CreateSourceAccountRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  RequestBody: z.union([
-    shared.SourceAccountV2Prototype$inboundSchema,
-    shared.SourceAccountPrototype$inboundSchema,
-  ]).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "RequestBody": "requestBody",
-  });
-});
 /** @internal */
 export type CreateSourceAccountRequest$Outbound = {
   companyId: string;
@@ -130,15 +95,6 @@ export function createSourceAccountRequestToJSON(
     CreateSourceAccountRequest$outboundSchema.parse(createSourceAccountRequest),
   );
 }
-export function createSourceAccountRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateSourceAccountRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateSourceAccountRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateSourceAccountRequest' from JSON`,
-  );
-}
 
 /** @internal */
 export const CreateSourceAccountResponseBody$inboundSchema: z.ZodType<
@@ -149,30 +105,7 @@ export const CreateSourceAccountResponseBody$inboundSchema: z.ZodType<
   shared.SourceAccountV2$inboundSchema,
   shared.SourceAccount$inboundSchema,
 ]);
-/** @internal */
-export type CreateSourceAccountResponseBody$Outbound =
-  | shared.SourceAccountV2$Outbound
-  | shared.SourceAccount$Outbound;
 
-/** @internal */
-export const CreateSourceAccountResponseBody$outboundSchema: z.ZodType<
-  CreateSourceAccountResponseBody$Outbound,
-  z.ZodTypeDef,
-  CreateSourceAccountResponseBody
-> = z.union([
-  shared.SourceAccountV2$outboundSchema,
-  shared.SourceAccount$outboundSchema,
-]);
-
-export function createSourceAccountResponseBodyToJSON(
-  createSourceAccountResponseBody: CreateSourceAccountResponseBody,
-): string {
-  return JSON.stringify(
-    CreateSourceAccountResponseBody$outboundSchema.parse(
-      createSourceAccountResponseBody,
-    ),
-  );
-}
 export function createSourceAccountResponseBodyFromJSON(
   jsonString: string,
 ): SafeParseResult<CreateSourceAccountResponseBody, SDKValidationError> {

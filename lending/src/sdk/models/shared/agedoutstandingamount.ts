@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AgedOutstandingAmountDetail,
   AgedOutstandingAmountDetail$inboundSchema,
-  AgedOutstandingAmountDetail$Outbound,
-  AgedOutstandingAmountDetail$outboundSchema,
 } from "./agedoutstandingamountdetail.js";
 
 export type AgedOutstandingAmount = {
@@ -80,35 +78,7 @@ export const AgedOutstandingAmount$inboundSchema: z.ZodType<
   amount: z.number().transform(v => new Decimal$(v)).optional(),
   details: z.array(AgedOutstandingAmountDetail$inboundSchema).optional(),
 });
-/** @internal */
-export type AgedOutstandingAmount$Outbound = {
-  fromDate?: string | undefined;
-  toDate?: string | undefined;
-  amount?: number | undefined;
-  details?: Array<AgedOutstandingAmountDetail$Outbound> | undefined;
-};
 
-/** @internal */
-export const AgedOutstandingAmount$outboundSchema: z.ZodType<
-  AgedOutstandingAmount$Outbound,
-  z.ZodTypeDef,
-  AgedOutstandingAmount
-> = z.object({
-  fromDate: z.string().optional(),
-  toDate: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  details: z.array(AgedOutstandingAmountDetail$outboundSchema).optional(),
-});
-
-export function agedOutstandingAmountToJSON(
-  agedOutstandingAmount: AgedOutstandingAmount,
-): string {
-  return JSON.stringify(
-    AgedOutstandingAmount$outboundSchema.parse(agedOutstandingAmount),
-  );
-}
 export function agedOutstandingAmountFromJSON(
   jsonString: string,
 ): SafeParseResult<AgedOutstandingAmount, SDKValidationError> {

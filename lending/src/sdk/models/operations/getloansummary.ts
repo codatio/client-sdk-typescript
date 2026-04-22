@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data source type.
@@ -35,23 +32,10 @@ export type GetLoanSummaryRequest = {
 };
 
 /** @internal */
-export const GetLoanSummaryQueryParamSourceType$inboundSchema: z.ZodNativeEnum<
-  typeof GetLoanSummaryQueryParamSourceType
-> = z.nativeEnum(GetLoanSummaryQueryParamSourceType);
-/** @internal */
 export const GetLoanSummaryQueryParamSourceType$outboundSchema: z.ZodNativeEnum<
   typeof GetLoanSummaryQueryParamSourceType
-> = GetLoanSummaryQueryParamSourceType$inboundSchema;
+> = z.nativeEnum(GetLoanSummaryQueryParamSourceType);
 
-/** @internal */
-export const GetLoanSummaryRequest$inboundSchema: z.ZodType<
-  GetLoanSummaryRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  sourceType: GetLoanSummaryQueryParamSourceType$inboundSchema,
-});
 /** @internal */
 export type GetLoanSummaryRequest$Outbound = {
   companyId: string;
@@ -73,14 +57,5 @@ export function getLoanSummaryRequestToJSON(
 ): string {
   return JSON.stringify(
     GetLoanSummaryRequest$outboundSchema.parse(getLoanSummaryRequest),
-  );
-}
-export function getLoanSummaryRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetLoanSummaryRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetLoanSummaryRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetLoanSummaryRequest' from JSON`,
   );
 }

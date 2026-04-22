@@ -51,43 +51,7 @@ export const DataIntegrityByAmount$inboundSchema: z.ZodType<
   total: z.number().transform(v => new Decimal$(v)).optional(),
   currency: z.string().optional(),
 });
-/** @internal */
-export type DataIntegrityByAmount$Outbound = {
-  matchPercentage?: number | undefined;
-  unmatched?: number | undefined;
-  matched?: number | undefined;
-  total?: number | undefined;
-  currency?: string | undefined;
-};
 
-/** @internal */
-export const DataIntegrityByAmount$outboundSchema: z.ZodType<
-  DataIntegrityByAmount$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityByAmount
-> = z.object({
-  matchPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  unmatched: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  matched: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  total: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-});
-
-export function dataIntegrityByAmountToJSON(
-  dataIntegrityByAmount: DataIntegrityByAmount,
-): string {
-  return JSON.stringify(
-    DataIntegrityByAmount$outboundSchema.parse(dataIntegrityByAmount),
-  );
-}
 export function dataIntegrityByAmountFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityByAmount, SDKValidationError> {

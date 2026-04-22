@@ -10,38 +10,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceCustomerRef,
   CommerceCustomerRef$inboundSchema,
-  CommerceCustomerRef$Outbound,
-  CommerceCustomerRef$outboundSchema,
 } from "./commercecustomerref.js";
-import {
-  LocationRef,
-  LocationRef$inboundSchema,
-  LocationRef$Outbound,
-  LocationRef$outboundSchema,
-} from "./locationref.js";
-import {
-  OrderLineItem,
-  OrderLineItem$inboundSchema,
-  OrderLineItem$Outbound,
-  OrderLineItem$outboundSchema,
-} from "./orderlineitem.js";
-import {
-  PaymentRef,
-  PaymentRef$inboundSchema,
-  PaymentRef$Outbound,
-  PaymentRef$outboundSchema,
-} from "./paymentref.js";
-import {
-  ServiceCharge,
-  ServiceCharge$inboundSchema,
-  ServiceCharge$Outbound,
-  ServiceCharge$outboundSchema,
-} from "./servicecharge.js";
+import { LocationRef, LocationRef$inboundSchema } from "./locationref.js";
+import { OrderLineItem, OrderLineItem$inboundSchema } from "./orderlineitem.js";
+import { PaymentRef, PaymentRef$inboundSchema } from "./paymentref.js";
+import { ServiceCharge, ServiceCharge$inboundSchema } from "./servicecharge.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -182,69 +158,7 @@ export const CommerceOrder$inboundSchema: z.ZodType<
   supplementalData: SupplementalData$inboundSchema.optional(),
   createdDate: z.string().optional(),
 });
-/** @internal */
-export type CommerceOrder$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  orderNumber?: string | undefined;
-  country?: string | undefined;
-  currency?: string | undefined;
-  closedDate?: string | undefined;
-  totalAmount?: number | undefined;
-  totalRefund?: number | undefined;
-  totalTaxAmount?: number | undefined;
-  totalDiscount?: number | undefined;
-  totalGratuity?: number | undefined;
-  orderLineItems?: Array<OrderLineItem$Outbound> | undefined;
-  payments?: Array<PaymentRef$Outbound | null> | undefined;
-  serviceCharges?: Array<ServiceCharge$Outbound> | undefined;
-  locationRef?: LocationRef$Outbound | undefined;
-  customerRef?: CommerceCustomerRef$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-  createdDate?: string | undefined;
-};
 
-/** @internal */
-export const CommerceOrder$outboundSchema: z.ZodType<
-  CommerceOrder$Outbound,
-  z.ZodTypeDef,
-  CommerceOrder
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  orderNumber: z.string().optional(),
-  country: z.string().optional(),
-  currency: z.string().optional(),
-  closedDate: z.string().optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalRefund: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalDiscount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalGratuity: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  orderLineItems: z.array(OrderLineItem$outboundSchema).optional(),
-  payments: z.array(z.nullable(PaymentRef$outboundSchema)).optional(),
-  serviceCharges: z.array(ServiceCharge$outboundSchema).optional(),
-  locationRef: LocationRef$outboundSchema.optional(),
-  customerRef: CommerceCustomerRef$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-  createdDate: z.string().optional(),
-});
-
-export function commerceOrderToJSON(commerceOrder: CommerceOrder): string {
-  return JSON.stringify(CommerceOrder$outboundSchema.parse(commerceOrder));
-}
 export function commerceOrderFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceOrder, SDKValidationError> {

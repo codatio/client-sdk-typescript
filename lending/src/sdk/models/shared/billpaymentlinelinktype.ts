@@ -31,7 +31,3 @@ export type BillPaymentLineLinkType = ClosedEnum<
 export const BillPaymentLineLinkType$inboundSchema: z.ZodNativeEnum<
   typeof BillPaymentLineLinkType
 > = z.nativeEnum(BillPaymentLineLinkType);
-/** @internal */
-export const BillPaymentLineLinkType$outboundSchema: z.ZodNativeEnum<
-  typeof BillPaymentLineLinkType
-> = BillPaymentLineLinkType$inboundSchema;

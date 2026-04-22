@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCategorizedProfitAndLossStatementRequest = {
   /**
@@ -22,17 +19,6 @@ export type GetCategorizedProfitAndLossStatementRequest = {
   numberOfPeriods?: number | undefined;
 };
 
-/** @internal */
-export const GetCategorizedProfitAndLossStatementRequest$inboundSchema:
-  z.ZodType<
-    GetCategorizedProfitAndLossStatementRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    companyId: z.string(),
-    reportDate: z.string().optional(),
-    numberOfPeriods: z.number().int().optional(),
-  });
 /** @internal */
 export type GetCategorizedProfitAndLossStatementRequest$Outbound = {
   companyId: string;
@@ -60,20 +46,5 @@ export function getCategorizedProfitAndLossStatementRequestToJSON(
     GetCategorizedProfitAndLossStatementRequest$outboundSchema.parse(
       getCategorizedProfitAndLossStatementRequest,
     ),
-  );
-}
-export function getCategorizedProfitAndLossStatementRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  GetCategorizedProfitAndLossStatementRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetCategorizedProfitAndLossStatementRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'GetCategorizedProfitAndLossStatementRequest' from JSON`,
   );
 }

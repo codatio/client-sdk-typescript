@@ -41,7 +41,3 @@ export type InvoiceStatus = ClosedEnum<typeof InvoiceStatus>;
 export const InvoiceStatus$inboundSchema: z.ZodNativeEnum<
   typeof InvoiceStatus
 > = z.nativeEnum(InvoiceStatus);
-/** @internal */
-export const InvoiceStatus$outboundSchema: z.ZodNativeEnum<
-  typeof InvoiceStatus
-> = InvoiceStatus$inboundSchema;

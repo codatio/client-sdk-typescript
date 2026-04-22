@@ -52,29 +52,7 @@ export const FileT$inboundSchema: z.ZodType<FileT, z.ZodTypeDef, unknown> = z
     sourceType: z.nullable(z.string()).optional(),
     uploaded: z.string().optional(),
   });
-/** @internal */
-export type FileT$Outbound = {
-  fileName?: string | null | undefined;
-  displayName?: string | null | undefined;
-  sourceType?: string | null | undefined;
-  uploaded?: string | undefined;
-};
 
-/** @internal */
-export const FileT$outboundSchema: z.ZodType<
-  FileT$Outbound,
-  z.ZodTypeDef,
-  FileT
-> = z.object({
-  fileName: z.nullable(z.string()).optional(),
-  displayName: z.nullable(z.string()).optional(),
-  sourceType: z.nullable(z.string()).optional(),
-  uploaded: z.string().optional(),
-});
-
-export function fileToJSON(fileT: FileT): string {
-  return JSON.stringify(FileT$outboundSchema.parse(fileT));
-}
 export function fileFromJSON(
   jsonString: string,
 ): SafeParseResult<FileT, SDKValidationError> {

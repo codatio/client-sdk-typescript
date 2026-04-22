@@ -7,12 +7,7 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  LocationRef,
-  LocationRef$inboundSchema,
-  LocationRef$Outbound,
-  LocationRef$outboundSchema,
-} from "./locationref.js";
+import { LocationRef, LocationRef$inboundSchema } from "./locationref.js";
 
 export type ProductInventoryLocation = {
   /**
@@ -34,31 +29,7 @@ export const ProductInventoryLocation$inboundSchema: z.ZodType<
   quantity: z.number().transform(v => new Decimal$(v)).optional(),
   locationRef: LocationRef$inboundSchema.optional(),
 });
-/** @internal */
-export type ProductInventoryLocation$Outbound = {
-  quantity?: number | undefined;
-  locationRef?: LocationRef$Outbound | undefined;
-};
 
-/** @internal */
-export const ProductInventoryLocation$outboundSchema: z.ZodType<
-  ProductInventoryLocation$Outbound,
-  z.ZodTypeDef,
-  ProductInventoryLocation
-> = z.object({
-  quantity: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  locationRef: LocationRef$outboundSchema.optional(),
-});
-
-export function productInventoryLocationToJSON(
-  productInventoryLocation: ProductInventoryLocation,
-): string {
-  return JSON.stringify(
-    ProductInventoryLocation$outboundSchema.parse(productInventoryLocation),
-  );
-}
 export function productInventoryLocationFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductInventoryLocation, SDKValidationError> {

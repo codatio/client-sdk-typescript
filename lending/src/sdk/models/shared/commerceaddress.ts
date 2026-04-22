@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceAddressType,
   CommerceAddressType$inboundSchema,
-  CommerceAddressType$outboundSchema,
 } from "./commerceaddresstype.js";
 
 export type CommerceAddress = {
@@ -57,37 +56,7 @@ export const CommerceAddress$inboundSchema: z.ZodType<
   country: z.string().optional(),
   postalCode: z.string().optional(),
 });
-/** @internal */
-export type CommerceAddress$Outbound = {
-  type?: string | undefined;
-  line1?: string | undefined;
-  line2?: string | undefined;
-  city?: string | undefined;
-  region?: string | undefined;
-  country?: string | undefined;
-  postalCode?: string | undefined;
-};
 
-/** @internal */
-export const CommerceAddress$outboundSchema: z.ZodType<
-  CommerceAddress$Outbound,
-  z.ZodTypeDef,
-  CommerceAddress
-> = z.object({
-  type: CommerceAddressType$outboundSchema.optional(),
-  line1: z.string().optional(),
-  line2: z.string().optional(),
-  city: z.string().optional(),
-  region: z.string().optional(),
-  country: z.string().optional(),
-  postalCode: z.string().optional(),
-});
-
-export function commerceAddressToJSON(
-  commerceAddress: CommerceAddress,
-): string {
-  return JSON.stringify(CommerceAddress$outboundSchema.parse(commerceAddress));
-}
 export function commerceAddressFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceAddress, SDKValidationError> {

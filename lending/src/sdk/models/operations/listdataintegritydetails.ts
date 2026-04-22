@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type ListDataIntegrityDetailsRequest = {
@@ -35,19 +32,6 @@ export type ListDataIntegrityDetailsRequest = {
   orderBy?: string | undefined;
 };
 
-/** @internal */
-export const ListDataIntegrityDetailsRequest$inboundSchema: z.ZodType<
-  ListDataIntegrityDetailsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  dataType: shared.DataIntegrityDataType$inboundSchema,
-  page: z.number().int().default(1),
-  pageSize: z.number().int().default(100),
-  query: z.string().optional(),
-  orderBy: z.string().optional(),
-});
 /** @internal */
 export type ListDataIntegrityDetailsRequest$Outbound = {
   companyId: string;
@@ -79,14 +63,5 @@ export function listDataIntegrityDetailsRequestToJSON(
     ListDataIntegrityDetailsRequest$outboundSchema.parse(
       listDataIntegrityDetailsRequest,
     ),
-  );
-}
-export function listDataIntegrityDetailsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListDataIntegrityDetailsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListDataIntegrityDetailsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListDataIntegrityDetailsRequest' from JSON`,
   );
 }

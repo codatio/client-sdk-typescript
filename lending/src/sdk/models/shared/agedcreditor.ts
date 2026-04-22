@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AgedCurrencyOutstanding,
   AgedCurrencyOutstanding$inboundSchema,
-  AgedCurrencyOutstanding$Outbound,
-  AgedCurrencyOutstanding$outboundSchema,
 } from "./agedcurrencyoutstanding.js";
 
 export type AgedCreditor = {
@@ -39,28 +37,7 @@ export const AgedCreditor$inboundSchema: z.ZodType<
   agedCurrencyOutstanding: z.array(AgedCurrencyOutstanding$inboundSchema)
     .optional(),
 });
-/** @internal */
-export type AgedCreditor$Outbound = {
-  supplierId?: string | undefined;
-  supplierName?: string | undefined;
-  agedCurrencyOutstanding?: Array<AgedCurrencyOutstanding$Outbound> | undefined;
-};
 
-/** @internal */
-export const AgedCreditor$outboundSchema: z.ZodType<
-  AgedCreditor$Outbound,
-  z.ZodTypeDef,
-  AgedCreditor
-> = z.object({
-  supplierId: z.string().optional(),
-  supplierName: z.string().optional(),
-  agedCurrencyOutstanding: z.array(AgedCurrencyOutstanding$outboundSchema)
-    .optional(),
-});
-
-export function agedCreditorToJSON(agedCreditor: AgedCreditor): string {
-  return JSON.stringify(AgedCreditor$outboundSchema.parse(agedCreditor));
-}
 export function agedCreditorFromJSON(
   jsonString: string,
 ): SafeParseResult<AgedCreditor, SDKValidationError> {

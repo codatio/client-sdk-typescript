@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IsAgedCreditorsReportAvailableRequest = {
   /**
@@ -14,14 +11,6 @@ export type IsAgedCreditorsReportAvailableRequest = {
   companyId: string;
 };
 
-/** @internal */
-export const IsAgedCreditorsReportAvailableRequest$inboundSchema: z.ZodType<
-  IsAgedCreditorsReportAvailableRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-});
 /** @internal */
 export type IsAgedCreditorsReportAvailableRequest$Outbound = {
   companyId: string;
@@ -43,15 +32,5 @@ export function isAgedCreditorsReportAvailableRequestToJSON(
     IsAgedCreditorsReportAvailableRequest$outboundSchema.parse(
       isAgedCreditorsReportAvailableRequest,
     ),
-  );
-}
-export function isAgedCreditorsReportAvailableRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<IsAgedCreditorsReportAvailableRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      IsAgedCreditorsReportAvailableRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'IsAgedCreditorsReportAvailableRequest' from JSON`,
   );
 }

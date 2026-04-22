@@ -9,15 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LoanTransactionsReportInfo,
   LoanTransactionsReportInfo$inboundSchema,
-  LoanTransactionsReportInfo$Outbound,
-  LoanTransactionsReportInfo$outboundSchema,
 } from "./loantransactionsreportinfo.js";
-import {
-  ReportItems,
-  ReportItems$inboundSchema,
-  ReportItems$Outbound,
-  ReportItems$outboundSchema,
-} from "./reportitems.js";
+import { ReportItems, ReportItems$inboundSchema } from "./reportitems.js";
 
 export type LoanTransactions = {
   reportInfo?: LoanTransactionsReportInfo | undefined;
@@ -36,29 +29,7 @@ export const LoanTransactions$inboundSchema: z.ZodType<
   reportInfo: LoanTransactionsReportInfo$inboundSchema.optional(),
   reportItems: z.array(ReportItems$inboundSchema).optional(),
 });
-/** @internal */
-export type LoanTransactions$Outbound = {
-  reportInfo?: LoanTransactionsReportInfo$Outbound | undefined;
-  reportItems?: Array<ReportItems$Outbound> | undefined;
-};
 
-/** @internal */
-export const LoanTransactions$outboundSchema: z.ZodType<
-  LoanTransactions$Outbound,
-  z.ZodTypeDef,
-  LoanTransactions
-> = z.object({
-  reportInfo: LoanTransactionsReportInfo$outboundSchema.optional(),
-  reportItems: z.array(ReportItems$outboundSchema).optional(),
-});
-
-export function loanTransactionsToJSON(
-  loanTransactions: LoanTransactions,
-): string {
-  return JSON.stringify(
-    LoanTransactions$outboundSchema.parse(loanTransactions),
-  );
-}
 export function loanTransactionsFromJSON(
   jsonString: string,
 ): SafeParseResult<LoanTransactions, SDKValidationError> {

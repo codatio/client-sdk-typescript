@@ -23,7 +23,3 @@ export type ServiceChargeType = ClosedEnum<typeof ServiceChargeType>;
 export const ServiceChargeType$inboundSchema: z.ZodNativeEnum<
   typeof ServiceChargeType
 > = z.nativeEnum(ServiceChargeType);
-/** @internal */
-export const ServiceChargeType$outboundSchema: z.ZodNativeEnum<
-  typeof ServiceChargeType
-> = ServiceChargeType$inboundSchema;

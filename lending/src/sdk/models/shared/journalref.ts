@@ -30,25 +30,7 @@ export const JournalRef$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type JournalRef$Outbound = {
-  id: string;
-  name?: string | null | undefined;
-};
 
-/** @internal */
-export const JournalRef$outboundSchema: z.ZodType<
-  JournalRef$Outbound,
-  z.ZodTypeDef,
-  JournalRef
-> = z.object({
-  id: z.string(),
-  name: z.nullable(z.string()).optional(),
-});
-
-export function journalRefToJSON(journalRef: JournalRef): string {
-  return JSON.stringify(JournalRef$outboundSchema.parse(journalRef));
-}
 export function journalRefFromJSON(
   jsonString: string,
 ): SafeParseResult<JournalRef, SDKValidationError> {

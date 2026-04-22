@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type EndBankStatementUploadSessionRequest = {
@@ -25,22 +22,6 @@ export type EndBankStatementUploadSessionRequest = {
   endUploadSessionRequest?: shared.EndUploadSessionRequest | undefined;
 };
 
-/** @internal */
-export const EndBankStatementUploadSessionRequest$inboundSchema: z.ZodType<
-  EndBankStatementUploadSessionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  datasetId: z.string(),
-  EndUploadSessionRequest: shared.EndUploadSessionRequest$inboundSchema
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "EndUploadSessionRequest": "endUploadSessionRequest",
-  });
-});
 /** @internal */
 export type EndBankStatementUploadSessionRequest$Outbound = {
   companyId: string;
@@ -73,15 +54,5 @@ export function endBankStatementUploadSessionRequestToJSON(
     EndBankStatementUploadSessionRequest$outboundSchema.parse(
       endBankStatementUploadSessionRequest,
     ),
-  );
-}
-export function endBankStatementUploadSessionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<EndBankStatementUploadSessionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      EndBankStatementUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'EndBankStatementUploadSessionRequest' from JSON`,
   );
 }

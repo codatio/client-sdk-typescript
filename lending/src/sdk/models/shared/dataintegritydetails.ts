@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegrityDetail,
   DataIntegrityDetail$inboundSchema,
-  DataIntegrityDetail$Outbound,
-  DataIntegrityDetail$outboundSchema,
 } from "./dataintegritydetail.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type DataIntegrityDetails = {
   results?: Array<DataIntegrityDetail> | undefined;
@@ -53,39 +46,7 @@ export const DataIntegrityDetails$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type DataIntegrityDetails$Outbound = {
-  results?: Array<DataIntegrityDetail$Outbound> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const DataIntegrityDetails$outboundSchema: z.ZodType<
-  DataIntegrityDetails$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityDetails
-> = z.object({
-  results: z.array(DataIntegrityDetail$outboundSchema).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function dataIntegrityDetailsToJSON(
-  dataIntegrityDetails: DataIntegrityDetails,
-): string {
-  return JSON.stringify(
-    DataIntegrityDetails$outboundSchema.parse(dataIntegrityDetails),
-  );
-}
 export function dataIntegrityDetailsFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityDetails, SDKValidationError> {

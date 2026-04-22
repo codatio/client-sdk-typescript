@@ -7,17 +7,10 @@ import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 import {
   ReportOperation,
   ReportOperation$inboundSchema,
-  ReportOperation$Outbound,
-  ReportOperation$outboundSchema,
 } from "./reportoperation.js";
 
 export type Reports = {
@@ -50,35 +43,7 @@ export const Reports$inboundSchema: z.ZodType<Reports, z.ZodTypeDef, unknown> =
       "_links": "links",
     });
   });
-/** @internal */
-export type Reports$Outbound = {
-  results?: Array<ReportOperation$Outbound> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const Reports$outboundSchema: z.ZodType<
-  Reports$Outbound,
-  z.ZodTypeDef,
-  Reports
-> = z.object({
-  results: z.array(ReportOperation$outboundSchema).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function reportsToJSON(reports: Reports): string {
-  return JSON.stringify(Reports$outboundSchema.parse(reports));
-}
 export function reportsFromJSON(
   jsonString: string,
 ): SafeParseResult<Reports, SDKValidationError> {

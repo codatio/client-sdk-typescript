@@ -7,42 +7,21 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
 import {
   BillPaymentLine,
   BillPaymentLine$inboundSchema,
-  BillPaymentLine$Outbound,
-  BillPaymentLine$outboundSchema,
 } from "./billpaymentline.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   PaymentMethodRef,
   PaymentMethodRef$inboundSchema,
-  PaymentMethodRef$Outbound,
-  PaymentMethodRef$outboundSchema,
 } from "./paymentmethodref.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  SupplierRef,
-  SupplierRef$inboundSchema,
-  SupplierRef$Outbound,
-  SupplierRef$outboundSchema,
-} from "./supplierref.js";
+import { SupplierRef, SupplierRef$inboundSchema } from "./supplierref.js";
 
 /**
  * > **Bill payments or payments?**
@@ -297,61 +276,7 @@ export const AccountingBillPayment$inboundSchema: z.ZodType<
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingBillPayment$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  supplierRef?: SupplierRef$Outbound | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  totalAmount?: number | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  date: string;
-  note?: string | null | undefined;
-  paymentMethodRef?: PaymentMethodRef$Outbound | undefined;
-  lines?: Array<BillPaymentLine$Outbound> | null | undefined;
-  reference?: string | null | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingBillPayment$outboundSchema: z.ZodType<
-  AccountingBillPayment$Outbound,
-  z.ZodTypeDef,
-  AccountingBillPayment
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  supplierRef: SupplierRef$outboundSchema.optional(),
-  accountRef: AccountRef$outboundSchema.optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  date: z.string(),
-  note: z.nullable(z.string()).optional(),
-  paymentMethodRef: PaymentMethodRef$outboundSchema.optional(),
-  lines: z.nullable(z.array(BillPaymentLine$outboundSchema)).optional(),
-  reference: z.nullable(z.string()).optional(),
-  metadata: Metadata$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingBillPaymentToJSON(
-  accountingBillPayment: AccountingBillPayment,
-): string {
-  return JSON.stringify(
-    AccountingBillPayment$outboundSchema.parse(accountingBillPayment),
-  );
-}
 export function accountingBillPaymentFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingBillPayment, SDKValidationError> {

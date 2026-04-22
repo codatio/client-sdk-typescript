@@ -23,7 +23,3 @@ export type PushOperationStatus = ClosedEnum<typeof PushOperationStatus>;
 export const PushOperationStatus$inboundSchema: z.ZodNativeEnum<
   typeof PushOperationStatus
 > = z.nativeEnum(PushOperationStatus);
-/** @internal */
-export const PushOperationStatus$outboundSchema: z.ZodNativeEnum<
-  typeof PushOperationStatus
-> = PushOperationStatus$inboundSchema;

@@ -27,7 +27,3 @@ export type PushOptionType = ClosedEnum<typeof PushOptionType>;
 export const PushOptionType$inboundSchema: z.ZodNativeEnum<
   typeof PushOptionType
 > = z.nativeEnum(PushOptionType);
-/** @internal */
-export const PushOptionType$outboundSchema: z.ZodNativeEnum<
-  typeof PushOptionType
-> = PushOptionType$inboundSchema;

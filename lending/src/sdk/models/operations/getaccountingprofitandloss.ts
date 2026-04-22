@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingProfitAndLossRequest = {
   /**
@@ -26,17 +23,6 @@ export type GetAccountingProfitAndLossRequest = {
   startMonth?: string | undefined;
 };
 
-/** @internal */
-export const GetAccountingProfitAndLossRequest$inboundSchema: z.ZodType<
-  GetAccountingProfitAndLossRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  periodLength: z.number().int(),
-  periodsToCompare: z.number().int(),
-  startMonth: z.string().optional(),
-});
 /** @internal */
 export type GetAccountingProfitAndLossRequest$Outbound = {
   companyId: string;
@@ -64,14 +50,5 @@ export function getAccountingProfitAndLossRequestToJSON(
     GetAccountingProfitAndLossRequest$outboundSchema.parse(
       getAccountingProfitAndLossRequest,
     ),
-  );
-}
-export function getAccountingProfitAndLossRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAccountingProfitAndLossRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetAccountingProfitAndLossRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAccountingProfitAndLossRequest' from JSON`,
   );
 }

@@ -15,7 +15,7 @@ Gets the latest basic info for a company.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-accounting-profile" method="get" path="/companies/{companyId}/data/info" -->
+<!-- UsageSnippet language="typescript" operationID="get-accounting-profile" method="get" path="/companies/{companyId}/data/info" example="Example 1" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -94,7 +94,7 @@ social media or website information."
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-commerce-profile" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-info" -->
+<!-- UsageSnippet language="typescript" operationID="get-commerce-profile" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-info" example="Example 1" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

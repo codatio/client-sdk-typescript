@@ -3,29 +3,12 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type CodatFile = {
   fileName: string;
   content: ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array;
 };
 
-/** @internal */
-export const CodatFile$inboundSchema: z.ZodType<
-  CodatFile,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  fileName: z.string(),
-  content: z.union([
-    z.instanceof(ReadableStream<Uint8Array>),
-    z.instanceof(Blob),
-    z.instanceof(ArrayBuffer),
-    z.instanceof(Uint8Array),
-  ]),
-});
 /** @internal */
 export type CodatFile$Outbound = {
   fileName: string;
@@ -49,13 +32,4 @@ export const CodatFile$outboundSchema: z.ZodType<
 
 export function codatFileToJSON(codatFile: CodatFile): string {
   return JSON.stringify(CodatFile$outboundSchema.parse(codatFile));
-}
-export function codatFileFromJSON(
-  jsonString: string,
-): SafeParseResult<CodatFile, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CodatFile$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CodatFile' from JSON`,
-  );
 }

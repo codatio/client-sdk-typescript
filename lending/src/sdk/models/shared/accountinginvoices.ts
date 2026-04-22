@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingInvoice,
   AccountingInvoice$inboundSchema,
-  AccountingInvoice$Outbound,
-  AccountingInvoice$outboundSchema,
 } from "./accountinginvoice.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingInvoices = {
   results?: Array<AccountingInvoice | null> | undefined;
@@ -53,39 +46,7 @@ export const AccountingInvoices$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingInvoices$Outbound = {
-  results?: Array<AccountingInvoice$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingInvoices$outboundSchema: z.ZodType<
-  AccountingInvoices$Outbound,
-  z.ZodTypeDef,
-  AccountingInvoices
-> = z.object({
-  results: z.array(z.nullable(AccountingInvoice$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingInvoicesToJSON(
-  accountingInvoices: AccountingInvoices,
-): string {
-  return JSON.stringify(
-    AccountingInvoices$outboundSchema.parse(accountingInvoices),
-  );
-}
 export function accountingInvoicesFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingInvoices, SDKValidationError> {

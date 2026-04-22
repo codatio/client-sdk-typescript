@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCategorizedBalanceSheetStatementRequest = {
   /**
@@ -22,14 +19,6 @@ export type GetCategorizedBalanceSheetStatementRequest = {
   numberOfPeriods?: number | undefined;
 };
 
-/** @internal */
-export const GetCategorizedBalanceSheetStatementRequest$inboundSchema:
-  z.ZodType<GetCategorizedBalanceSheetStatementRequest, z.ZodTypeDef, unknown> =
-    z.object({
-      companyId: z.string(),
-      reportDate: z.string(),
-      numberOfPeriods: z.number().int().optional(),
-    });
 /** @internal */
 export type GetCategorizedBalanceSheetStatementRequest$Outbound = {
   companyId: string;
@@ -57,20 +46,5 @@ export function getCategorizedBalanceSheetStatementRequestToJSON(
     GetCategorizedBalanceSheetStatementRequest$outboundSchema.parse(
       getCategorizedBalanceSheetStatementRequest,
     ),
-  );
-}
-export function getCategorizedBalanceSheetStatementRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  GetCategorizedBalanceSheetStatementRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetCategorizedBalanceSheetStatementRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'GetCategorizedBalanceSheetStatementRequest' from JSON`,
   );
 }

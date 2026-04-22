@@ -9,14 +9,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProfitAndLossReport,
   ProfitAndLossReport$inboundSchema,
-  ProfitAndLossReport$Outbound,
-  ProfitAndLossReport$outboundSchema,
 } from "./profitandlossreport.js";
-import {
-  ReportBasis,
-  ReportBasis$inboundSchema,
-  ReportBasis$outboundSchema,
-} from "./reportbasis.js";
+import { ReportBasis, ReportBasis$inboundSchema } from "./reportbasis.js";
 
 /**
  * > **Language tip:** Profit and loss statement is also referred to as **income statement** under US GAAP (Generally Accepted Accounting Principles).
@@ -112,37 +106,7 @@ export const AccountingProfitAndLossReport$inboundSchema: z.ZodType<
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });
-/** @internal */
-export type AccountingProfitAndLossReport$Outbound = {
-  reports: Array<ProfitAndLossReport$Outbound>;
-  reportBasis: string;
-  currency?: string | undefined;
-  mostRecentAvailableMonth?: string | undefined;
-  earliestAvailableMonth?: string | undefined;
-};
 
-/** @internal */
-export const AccountingProfitAndLossReport$outboundSchema: z.ZodType<
-  AccountingProfitAndLossReport$Outbound,
-  z.ZodTypeDef,
-  AccountingProfitAndLossReport
-> = z.object({
-  reports: z.array(ProfitAndLossReport$outboundSchema),
-  reportBasis: ReportBasis$outboundSchema,
-  currency: z.string().optional(),
-  mostRecentAvailableMonth: z.string().optional(),
-  earliestAvailableMonth: z.string().optional(),
-});
-
-export function accountingProfitAndLossReportToJSON(
-  accountingProfitAndLossReport: AccountingProfitAndLossReport,
-): string {
-  return JSON.stringify(
-    AccountingProfitAndLossReport$outboundSchema.parse(
-      accountingProfitAndLossReport,
-    ),
-  );
-}
 export function accountingProfitAndLossReportFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingProfitAndLossReport, SDKValidationError> {

@@ -24,7 +24,3 @@ export type PushChangeType = ClosedEnum<typeof PushChangeType>;
 export const PushChangeType$inboundSchema: z.ZodNativeEnum<
   typeof PushChangeType
 > = z.nativeEnum(PushChangeType);
-/** @internal */
-export const PushChangeType$outboundSchema: z.ZodNativeEnum<
-  typeof PushChangeType
-> = PushChangeType$inboundSchema;

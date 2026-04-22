@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateSupplierRequest = {
@@ -29,23 +26,6 @@ export type CreateSupplierRequest = {
   accountingSupplier?: shared.AccountingSupplier | null | undefined;
 };
 
-/** @internal */
-export const CreateSupplierRequest$inboundSchema: z.ZodType<
-  CreateSupplierRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  timeoutInMinutes: z.number().int().optional(),
-  allowSyncOnPushComplete: z.boolean().default(true),
-  AccountingSupplier: z.nullable(shared.AccountingSupplier$inboundSchema)
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "AccountingSupplier": "accountingSupplier",
-  });
-});
 /** @internal */
 export type CreateSupplierRequest$Outbound = {
   companyId: string;
@@ -78,14 +58,5 @@ export function createSupplierRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateSupplierRequest$outboundSchema.parse(createSupplierRequest),
-  );
-}
-export function createSupplierRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateSupplierRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateSupplierRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateSupplierRequest' from JSON`,
   );
 }

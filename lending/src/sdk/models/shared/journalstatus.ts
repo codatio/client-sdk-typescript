@@ -22,7 +22,3 @@ export type JournalStatus = ClosedEnum<typeof JournalStatus>;
 export const JournalStatus$inboundSchema: z.ZodNativeEnum<
   typeof JournalStatus
 > = z.nativeEnum(JournalStatus);
-/** @internal */
-export const JournalStatus$outboundSchema: z.ZodNativeEnum<
-  typeof JournalStatus
-> = JournalStatus$inboundSchema;

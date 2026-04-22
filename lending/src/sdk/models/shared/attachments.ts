@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAttachment,
   AccountingAttachment$inboundSchema,
-  AccountingAttachment$Outbound,
-  AccountingAttachment$outboundSchema,
 } from "./accountingattachment.js";
 
 export type Attachments = {
@@ -27,25 +25,7 @@ export const Attachments$inboundSchema: z.ZodType<
     z.array(z.nullable(AccountingAttachment$inboundSchema)),
   ).optional(),
 });
-/** @internal */
-export type Attachments$Outbound = {
-  attachments?: Array<AccountingAttachment$Outbound | null> | null | undefined;
-};
 
-/** @internal */
-export const Attachments$outboundSchema: z.ZodType<
-  Attachments$Outbound,
-  z.ZodTypeDef,
-  Attachments
-> = z.object({
-  attachments: z.nullable(
-    z.array(z.nullable(AccountingAttachment$outboundSchema)),
-  ).optional(),
-});
-
-export function attachmentsToJSON(attachments: Attachments): string {
-  return JSON.stringify(Attachments$outboundSchema.parse(attachments));
-}
 export function attachmentsFromJSON(
   jsonString: string,
 ): SafeParseResult<Attachments, SDKValidationError> {

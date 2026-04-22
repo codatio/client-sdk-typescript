@@ -45,9 +45,6 @@ export type Zero = {
 /** @internal */
 export const ZeroDataType$inboundSchema: z.ZodNativeEnum<typeof ZeroDataType> =
   z.nativeEnum(ZeroDataType);
-/** @internal */
-export const ZeroDataType$outboundSchema: z.ZodNativeEnum<typeof ZeroDataType> =
-  ZeroDataType$inboundSchema;
 
 /** @internal */
 export const Zero$inboundSchema: z.ZodType<Zero, z.ZodTypeDef, unknown> = z
@@ -56,24 +53,7 @@ export const Zero$inboundSchema: z.ZodType<Zero, z.ZodTypeDef, unknown> = z
     dataType: ZeroDataType$inboundSchema.optional(),
     lineNumber: z.string().optional(),
   });
-/** @internal */
-export type Zero$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-  lineNumber?: string | undefined;
-};
 
-/** @internal */
-export const Zero$outboundSchema: z.ZodType<Zero$Outbound, z.ZodTypeDef, Zero> =
-  z.object({
-    id: z.string().optional(),
-    dataType: ZeroDataType$outboundSchema.optional(),
-    lineNumber: z.string().optional(),
-  });
-
-export function zeroToJSON(zero: Zero): string {
-  return JSON.stringify(Zero$outboundSchema.parse(zero));
-}
 export function zeroFromJSON(
   jsonString: string,
 ): SafeParseResult<Zero, SDKValidationError> {

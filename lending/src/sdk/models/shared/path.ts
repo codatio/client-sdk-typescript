@@ -11,9 +11,6 @@ export const Path = {
 export type Path = ClosedEnum<typeof Path>;
 
 /** @internal */
-export const Path$inboundSchema: z.ZodNativeEnum<typeof Path> = z.nativeEnum(
+export const Path$outboundSchema: z.ZodNativeEnum<typeof Path> = z.nativeEnum(
   Path,
 );
-/** @internal */
-export const Path$outboundSchema: z.ZodNativeEnum<typeof Path> =
-  Path$inboundSchema;

@@ -7,11 +7,7 @@ import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Status,
-  Status$inboundSchema,
-  Status$outboundSchema,
-} from "./status.js";
+import { Status, Status$inboundSchema } from "./status.js";
 
 /**
  * Available data types
@@ -113,9 +109,6 @@ export type DataStatus = {
 /** @internal */
 export const DataTypes$inboundSchema: z.ZodNativeEnum<typeof DataTypes> = z
   .nativeEnum(DataTypes);
-/** @internal */
-export const DataTypes$outboundSchema: z.ZodNativeEnum<typeof DataTypes> =
-  DataTypes$inboundSchema;
 
 /** @internal */
 export const DataStatus$inboundSchema: z.ZodType<
@@ -129,31 +122,7 @@ export const DataStatus$inboundSchema: z.ZodType<
   latestSyncId: z.string().optional(),
   latestSuccessfulSyncId: z.string().optional(),
 });
-/** @internal */
-export type DataStatus$Outbound = {
-  dataType: string;
-  lastSuccessfulSync?: string | undefined;
-  currentStatus: string;
-  latestSyncId?: string | undefined;
-  latestSuccessfulSyncId?: string | undefined;
-};
 
-/** @internal */
-export const DataStatus$outboundSchema: z.ZodType<
-  DataStatus$Outbound,
-  z.ZodTypeDef,
-  DataStatus
-> = z.object({
-  dataType: DataTypes$outboundSchema,
-  lastSuccessfulSync: z.string().optional(),
-  currentStatus: Status$outboundSchema,
-  latestSyncId: z.string().optional(),
-  latestSuccessfulSyncId: z.string().optional(),
-});
-
-export function dataStatusToJSON(dataStatus: DataStatus): string {
-  return JSON.stringify(DataStatus$outboundSchema.parse(dataStatus));
-}
 export function dataStatusFromJSON(
   jsonString: string,
 ): SafeParseResult<DataStatus, SDKValidationError> {

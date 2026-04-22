@@ -10,19 +10,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductInventory,
   ProductInventory$inboundSchema,
-  ProductInventory$Outbound,
-  ProductInventory$outboundSchema,
 } from "./productinventory.js";
-import {
-  ProductPrice,
-  ProductPrice$inboundSchema,
-  ProductPrice$Outbound,
-  ProductPrice$outboundSchema,
-} from "./productprice.js";
+import { ProductPrice, ProductPrice$inboundSchema } from "./productprice.js";
 import {
   ProductVariantStatus,
   ProductVariantStatus$inboundSchema,
-  ProductVariantStatus$outboundSchema,
 } from "./productvariantstatus.js";
 
 /**
@@ -122,51 +114,7 @@ export const ProductVariant$inboundSchema: z.ZodType<
   status: ProductVariantStatus$inboundSchema.optional(),
   createdDate: z.string().optional(),
 });
-/** @internal */
-export type ProductVariant$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  name?: string | undefined;
-  isTaxEnabled?: boolean | undefined;
-  sku?: string | undefined;
-  barcode?: string | undefined;
-  unitOfMeasure?: string | undefined;
-  vatPercentage?: number | undefined;
-  prices?: Array<ProductPrice$Outbound> | undefined;
-  inventory?: ProductInventory$Outbound | undefined;
-  shippingRequired?: boolean | undefined;
-  status?: string | undefined;
-  createdDate?: string | undefined;
-};
 
-/** @internal */
-export const ProductVariant$outboundSchema: z.ZodType<
-  ProductVariant$Outbound,
-  z.ZodTypeDef,
-  ProductVariant
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  name: z.string().optional(),
-  isTaxEnabled: z.boolean().optional(),
-  sku: z.string().optional(),
-  barcode: z.string().optional(),
-  unitOfMeasure: z.string().optional(),
-  vatPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  prices: z.array(ProductPrice$outboundSchema).optional(),
-  inventory: ProductInventory$outboundSchema.optional(),
-  shippingRequired: z.boolean().optional(),
-  status: ProductVariantStatus$outboundSchema.optional(),
-  createdDate: z.string().optional(),
-});
-
-export function productVariantToJSON(productVariant: ProductVariant): string {
-  return JSON.stringify(ProductVariant$outboundSchema.parse(productVariant));
-}
 export function productVariantFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductVariant, SDKValidationError> {

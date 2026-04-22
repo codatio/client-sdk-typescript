@@ -38,32 +38,7 @@ export const ReportLine$inboundSchema: z.ZodType<
   value: z.number().transform(v => new Decimal$(v)),
   items: z.nullable(z.array(z.lazy(() => ReportLine$inboundSchema))).optional(),
 });
-/** @internal */
-export type ReportLine$Outbound = {
-  accountId?: string | null | undefined;
-  name?: string | null | undefined;
-  value: number;
-  items?: Array<ReportLine$Outbound> | null | undefined;
-};
 
-/** @internal */
-export const ReportLine$outboundSchema: z.ZodType<
-  ReportLine$Outbound,
-  z.ZodTypeDef,
-  ReportLine
-> = z.object({
-  accountId: z.nullable(z.string()).optional(),
-  name: z.nullable(z.string()).optional(),
-  value: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  items: z.nullable(z.array(z.lazy(() => ReportLine$outboundSchema)))
-    .optional(),
-});
-
-export function reportLineToJSON(reportLine: ReportLine): string {
-  return JSON.stringify(ReportLine$outboundSchema.parse(reportLine));
-}
 export function reportLineFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportLine, SDKValidationError> {

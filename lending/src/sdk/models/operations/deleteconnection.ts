@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DeleteConnectionRequest = {
   /**
@@ -18,15 +15,6 @@ export type DeleteConnectionRequest = {
   connectionId: string;
 };
 
-/** @internal */
-export const DeleteConnectionRequest$inboundSchema: z.ZodType<
-  DeleteConnectionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-});
 /** @internal */
 export type DeleteConnectionRequest$Outbound = {
   companyId: string;
@@ -48,14 +36,5 @@ export function deleteConnectionRequestToJSON(
 ): string {
   return JSON.stringify(
     DeleteConnectionRequest$outboundSchema.parse(deleteConnectionRequest),
-  );
-}
-export function deleteConnectionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DeleteConnectionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DeleteConnectionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DeleteConnectionRequest' from JSON`,
   );
 }

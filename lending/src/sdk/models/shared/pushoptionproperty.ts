@@ -9,19 +9,14 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushOptionChoice,
   PushOptionChoice$inboundSchema,
-  PushOptionChoice$Outbound,
-  PushOptionChoice$outboundSchema,
 } from "./pushoptionchoice.js";
 import {
   PushOptionType,
   PushOptionType$inboundSchema,
-  PushOptionType$outboundSchema,
 } from "./pushoptiontype.js";
 import {
   PushValidationInfo,
   PushValidationInfo$inboundSchema,
-  PushValidationInfo$Outbound,
-  PushValidationInfo$outboundSchema,
 } from "./pushvalidationinfo.js";
 
 export type PushOptionProperty = {
@@ -62,41 +57,7 @@ export const PushOptionProperty$inboundSchema: z.ZodType<
   options: z.nullable(z.array(PushOptionChoice$inboundSchema)).optional(),
   validation: PushValidationInfo$inboundSchema.optional(),
 });
-/** @internal */
-export type PushOptionProperty$Outbound = {
-  type: string;
-  displayName: string;
-  description: string;
-  required: boolean;
-  properties?: { [k: string]: PushOptionProperty$Outbound } | null | undefined;
-  options?: Array<PushOptionChoice$Outbound> | null | undefined;
-  validation?: PushValidationInfo$Outbound | undefined;
-};
 
-/** @internal */
-export const PushOptionProperty$outboundSchema: z.ZodType<
-  PushOptionProperty$Outbound,
-  z.ZodTypeDef,
-  PushOptionProperty
-> = z.object({
-  type: PushOptionType$outboundSchema,
-  displayName: z.string(),
-  description: z.string(),
-  required: z.boolean(),
-  properties: z.nullable(
-    z.record(z.lazy(() => PushOptionProperty$outboundSchema)),
-  ).optional(),
-  options: z.nullable(z.array(PushOptionChoice$outboundSchema)).optional(),
-  validation: PushValidationInfo$outboundSchema.optional(),
-});
-
-export function pushOptionPropertyToJSON(
-  pushOptionProperty: PushOptionProperty,
-): string {
-  return JSON.stringify(
-    PushOptionProperty$outboundSchema.parse(pushOptionProperty),
-  );
-}
 export function pushOptionPropertyFromJSON(
   jsonString: string,
 ): SafeParseResult<PushOptionProperty, SDKValidationError> {

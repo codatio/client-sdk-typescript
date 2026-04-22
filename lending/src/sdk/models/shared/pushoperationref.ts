@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 
 export type PushOperationRef = {
@@ -32,29 +31,7 @@ export const PushOperationRef$inboundSchema: z.ZodType<
   id: z.string().optional(),
   dataType: PropertieDataType$inboundSchema.optional(),
 });
-/** @internal */
-export type PushOperationRef$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-};
 
-/** @internal */
-export const PushOperationRef$outboundSchema: z.ZodType<
-  PushOperationRef$Outbound,
-  z.ZodTypeDef,
-  PushOperationRef
-> = z.object({
-  id: z.string().optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-});
-
-export function pushOperationRefToJSON(
-  pushOperationRef: PushOperationRef,
-): string {
-  return JSON.stringify(
-    PushOperationRef$outboundSchema.parse(pushOperationRef),
-  );
-}
 export function pushOperationRefFromJSON(
   jsonString: string,
 ): SafeParseResult<PushOperationRef, SDKValidationError> {

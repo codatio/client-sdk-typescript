@@ -9,20 +9,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAddress,
   AccountingAddress$inboundSchema,
-  AccountingAddress$Outbound,
-  AccountingAddress$outboundSchema,
 } from "./accountingaddress.js";
 import {
   CustomerStatus,
   CustomerStatus$inboundSchema,
-  CustomerStatus$outboundSchema,
 } from "./customerstatus.js";
-import {
-  PhoneNumber,
-  PhoneNumber$inboundSchema,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phonenumber.js";
+import { PhoneNumber, PhoneNumber$inboundSchema } from "./phonenumber.js";
 
 export type Contact = {
   /**
@@ -76,33 +68,7 @@ export const Contact$inboundSchema: z.ZodType<Contact, z.ZodTypeDef, unknown> =
     status: CustomerStatus$inboundSchema,
     modifiedDate: z.string().optional(),
   });
-/** @internal */
-export type Contact$Outbound = {
-  name?: string | null | undefined;
-  email?: string | null | undefined;
-  phone?: Array<PhoneNumber$Outbound> | null | undefined;
-  address?: AccountingAddress$Outbound | undefined;
-  status: string;
-  modifiedDate?: string | undefined;
-};
 
-/** @internal */
-export const Contact$outboundSchema: z.ZodType<
-  Contact$Outbound,
-  z.ZodTypeDef,
-  Contact
-> = z.object({
-  name: z.nullable(z.string()).optional(),
-  email: z.nullable(z.string()).optional(),
-  phone: z.nullable(z.array(PhoneNumber$outboundSchema)).optional(),
-  address: AccountingAddress$outboundSchema.optional(),
-  status: CustomerStatus$outboundSchema,
-  modifiedDate: z.string().optional(),
-});
-
-export function contactToJSON(contact: Contact): string {
-  return JSON.stringify(Contact$outboundSchema.parse(contact));
-}
 export function contactFromJSON(
   jsonString: string,
 ): SafeParseResult<Contact, SDKValidationError> {

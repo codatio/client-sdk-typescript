@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AgedOutstandingAmount,
   AgedOutstandingAmount$inboundSchema,
-  AgedOutstandingAmount$Outbound,
-  AgedOutstandingAmount$outboundSchema,
 } from "./agedoutstandingamount.js";
 
 export type AgedCurrencyOutstanding = {
@@ -42,30 +40,7 @@ export const AgedCurrencyOutstanding$inboundSchema: z.ZodType<
   agedOutstandingAmounts: z.array(AgedOutstandingAmount$inboundSchema)
     .optional(),
 });
-/** @internal */
-export type AgedCurrencyOutstanding$Outbound = {
-  currency?: string | undefined;
-  agedOutstandingAmounts?: Array<AgedOutstandingAmount$Outbound> | undefined;
-};
 
-/** @internal */
-export const AgedCurrencyOutstanding$outboundSchema: z.ZodType<
-  AgedCurrencyOutstanding$Outbound,
-  z.ZodTypeDef,
-  AgedCurrencyOutstanding
-> = z.object({
-  currency: z.string().optional(),
-  agedOutstandingAmounts: z.array(AgedOutstandingAmount$outboundSchema)
-    .optional(),
-});
-
-export function agedCurrencyOutstandingToJSON(
-  agedCurrencyOutstanding: AgedCurrencyOutstanding,
-): string {
-  return JSON.stringify(
-    AgedCurrencyOutstanding$outboundSchema.parse(agedCurrencyOutstanding),
-  );
-}
 export function agedCurrencyOutstandingFromJSON(
   jsonString: string,
 ): SafeParseResult<AgedCurrencyOutstanding, SDKValidationError> {

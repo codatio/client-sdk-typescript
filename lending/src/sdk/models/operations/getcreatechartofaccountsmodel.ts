@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateChartOfAccountsModelRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetCreateChartOfAccountsModelRequest = {
   connectionId: string;
 };
 
-/** @internal */
-export const GetCreateChartOfAccountsModelRequest$inboundSchema: z.ZodType<
-  GetCreateChartOfAccountsModelRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-});
 /** @internal */
 export type GetCreateChartOfAccountsModelRequest$Outbound = {
   companyId: string;
@@ -50,15 +38,5 @@ export function getCreateChartOfAccountsModelRequestToJSON(
     GetCreateChartOfAccountsModelRequest$outboundSchema.parse(
       getCreateChartOfAccountsModelRequest,
     ),
-  );
-}
-export function getCreateChartOfAccountsModelRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCreateChartOfAccountsModelRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetCreateChartOfAccountsModelRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCreateChartOfAccountsModelRequest' from JSON`,
   );
 }

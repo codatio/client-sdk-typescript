@@ -10,50 +10,26 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
-  AccountingPaymentAllocation$Outbound,
-  AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
 import {
   AccountingRecordRef,
   AccountingRecordRef$inboundSchema,
-  AccountingRecordRef$Outbound,
-  AccountingRecordRef$outboundSchema,
 } from "./accountingrecordref.js";
 import {
   BillCreditNoteLineItem,
   BillCreditNoteLineItem$inboundSchema,
-  BillCreditNoteLineItem$Outbound,
-  BillCreditNoteLineItem$outboundSchema,
 } from "./billcreditnotelineitem.js";
 import {
   BillCreditNoteStatus,
   BillCreditNoteStatus$inboundSchema,
-  BillCreditNoteStatus$outboundSchema,
 } from "./billcreditnotestatus.js";
-import {
-  Items,
-  Items$inboundSchema,
-  Items$Outbound,
-  Items$outboundSchema,
-} from "./items.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Items, Items$inboundSchema } from "./items.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  SupplierRef,
-  SupplierRef$inboundSchema,
-  SupplierRef$Outbound,
-  SupplierRef$outboundSchema,
-} from "./supplierref.js";
+import { SupplierRef, SupplierRef$inboundSchema } from "./supplierref.js";
 
 /**
  * > **Bill credit notes or credit notes?**
@@ -271,94 +247,7 @@ export const AccountingBillCreditNote$inboundSchema: z.ZodType<
   supplementalData: SupplementalData$inboundSchema.optional(),
   metadata: Metadata$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingBillCreditNote$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  billCreditNoteNumber?: string | null | undefined;
-  supplierRef?: SupplierRef$Outbound | undefined;
-  withholdingTax?: Array<Items$Outbound> | null | undefined;
-  totalAmount: number;
-  totalDiscount: number;
-  subTotal: number;
-  totalTaxAmount: number;
-  discountPercentage: number;
-  remainingCredit?: number | undefined;
-  status: string;
-  issueDate?: string | undefined;
-  allocatedOnDate?: string | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  lineItems?: Array<BillCreditNoteLineItem$Outbound> | null | undefined;
-  paymentAllocations?:
-    | Array<AccountingPaymentAllocation$Outbound>
-    | null
-    | undefined;
-  createdFromRefs?: Array<AccountingRecordRef$Outbound> | null | undefined;
-  note?: string | null | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingBillCreditNote$outboundSchema: z.ZodType<
-  AccountingBillCreditNote$Outbound,
-  z.ZodTypeDef,
-  AccountingBillCreditNote
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  billCreditNoteNumber: z.nullable(z.string()).optional(),
-  supplierRef: SupplierRef$outboundSchema.optional(),
-  withholdingTax: z.nullable(z.array(Items$outboundSchema)).optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  totalDiscount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  subTotal: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  totalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  discountPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(
-    v => typeof v === "number" ? v : v.toNumber()
-  ),
-  remainingCredit: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  status: BillCreditNoteStatus$outboundSchema,
-  issueDate: z.string().optional(),
-  allocatedOnDate: z.string().optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  lineItems: z.nullable(z.array(BillCreditNoteLineItem$outboundSchema))
-    .optional(),
-  paymentAllocations: z.nullable(
-    z.array(AccountingPaymentAllocation$outboundSchema),
-  ).optional(),
-  createdFromRefs: z.nullable(z.array(AccountingRecordRef$outboundSchema))
-    .optional(),
-  note: z.nullable(z.string()).optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-  metadata: Metadata$outboundSchema.optional(),
-});
-
-export function accountingBillCreditNoteToJSON(
-  accountingBillCreditNote: AccountingBillCreditNote,
-): string {
-  return JSON.stringify(
-    AccountingBillCreditNote$outboundSchema.parse(accountingBillCreditNote),
-  );
-}
 export function accountingBillCreditNoteFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingBillCreditNote, SDKValidationError> {

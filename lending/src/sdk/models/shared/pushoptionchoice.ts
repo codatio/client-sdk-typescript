@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushOptionType,
   PushOptionType$inboundSchema,
-  PushOptionType$outboundSchema,
 } from "./pushoptiontype.js";
 
 export type PushOptionChoice = {
@@ -47,35 +46,7 @@ export const PushOptionChoice$inboundSchema: z.ZodType<
   description: z.string().optional(),
   required: z.boolean().optional(),
 });
-/** @internal */
-export type PushOptionChoice$Outbound = {
-  value?: string | undefined;
-  type?: string | undefined;
-  displayName?: string | undefined;
-  description?: string | undefined;
-  required?: boolean | undefined;
-};
 
-/** @internal */
-export const PushOptionChoice$outboundSchema: z.ZodType<
-  PushOptionChoice$Outbound,
-  z.ZodTypeDef,
-  PushOptionChoice
-> = z.object({
-  value: z.string().optional(),
-  type: PushOptionType$outboundSchema.optional(),
-  displayName: z.string().optional(),
-  description: z.string().optional(),
-  required: z.boolean().optional(),
-});
-
-export function pushOptionChoiceToJSON(
-  pushOptionChoice: PushOptionChoice,
-): string {
-  return JSON.stringify(
-    PushOptionChoice$outboundSchema.parse(pushOptionChoice),
-  );
-}
 export function pushOptionChoiceFromJSON(
   jsonString: string,
 ): SafeParseResult<PushOptionChoice, SDKValidationError> {

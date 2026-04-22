@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceRecordRef,
   CommerceRecordRef$inboundSchema,
-  CommerceRecordRef$Outbound,
-  CommerceRecordRef$outboundSchema,
 } from "./commercerecordref.js";
 
 /**
@@ -50,37 +48,7 @@ export const CommerceProductCategory$inboundSchema: z.ZodType<
   ancestorRefs: z.array(CommerceRecordRef$inboundSchema).optional(),
   hasChildren: z.boolean().optional(),
 });
-/** @internal */
-export type CommerceProductCategory$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  name?: string | undefined;
-  ancestorRefs?: Array<CommerceRecordRef$Outbound> | undefined;
-  hasChildren?: boolean | undefined;
-};
 
-/** @internal */
-export const CommerceProductCategory$outboundSchema: z.ZodType<
-  CommerceProductCategory$Outbound,
-  z.ZodTypeDef,
-  CommerceProductCategory
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  name: z.string().optional(),
-  ancestorRefs: z.array(CommerceRecordRef$outboundSchema).optional(),
-  hasChildren: z.boolean().optional(),
-});
-
-export function commerceProductCategoryToJSON(
-  commerceProductCategory: CommerceProductCategory,
-): string {
-  return JSON.stringify(
-    CommerceProductCategory$outboundSchema.parse(commerceProductCategory),
-  );
-}
 export function commerceProductCategoryFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceProductCategory, SDKValidationError> {

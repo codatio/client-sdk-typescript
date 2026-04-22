@@ -22,7 +22,3 @@ export type ProductVariantStatus = ClosedEnum<typeof ProductVariantStatus>;
 export const ProductVariantStatus$inboundSchema: z.ZodNativeEnum<
   typeof ProductVariantStatus
 > = z.nativeEnum(ProductVariantStatus);
-/** @internal */
-export const ProductVariantStatus$outboundSchema: z.ZodNativeEnum<
-  typeof ProductVariantStatus
-> = ProductVariantStatus$inboundSchema;

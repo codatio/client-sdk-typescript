@@ -6,17 +6,8 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  JournalStatus,
-  JournalStatus$inboundSchema,
-  JournalStatus$outboundSchema,
-} from "./journalstatus.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { JournalStatus, JournalStatus$inboundSchema } from "./journalstatus.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 
 /**
  * > **Language tip:** For line items, or individual transactions, of a company's financial documents, refer to the [Journal entries](https://docs.codat.io/lending-api#/schemas/JournalEntry) data type
@@ -122,47 +113,7 @@ export const AccountingJournal$inboundSchema: z.ZodType<
   status: JournalStatus$inboundSchema.optional(),
   metadata: Metadata$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingJournal$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  journalCode?: string | null | undefined;
-  name?: string | null | undefined;
-  type?: string | null | undefined;
-  parentId?: string | null | undefined;
-  hasChildren?: boolean | undefined;
-  createdOn?: string | undefined;
-  status?: string | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingJournal$outboundSchema: z.ZodType<
-  AccountingJournal$Outbound,
-  z.ZodTypeDef,
-  AccountingJournal
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  journalCode: z.nullable(z.string()).optional(),
-  name: z.nullable(z.string()).optional(),
-  type: z.nullable(z.string()).optional(),
-  parentId: z.nullable(z.string()).optional(),
-  hasChildren: z.boolean().optional(),
-  createdOn: z.string().optional(),
-  status: JournalStatus$outboundSchema.optional(),
-  metadata: Metadata$outboundSchema.optional(),
-});
-
-export function accountingJournalToJSON(
-  accountingJournal: AccountingJournal,
-): string {
-  return JSON.stringify(
-    AccountingJournal$outboundSchema.parse(accountingJournal),
-  );
-}
 export function accountingJournalFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingJournal, SDKValidationError> {

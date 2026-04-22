@@ -33,33 +33,7 @@ export const ReportComponentMeasure$inboundSchema: z.ZodType<
   measureDisplayName: z.string().optional(),
   value: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type ReportComponentMeasure$Outbound = {
-  index?: number | undefined;
-  measureDisplayName?: string | undefined;
-  value?: number | undefined;
-};
 
-/** @internal */
-export const ReportComponentMeasure$outboundSchema: z.ZodType<
-  ReportComponentMeasure$Outbound,
-  z.ZodTypeDef,
-  ReportComponentMeasure
-> = z.object({
-  index: z.number().int().optional(),
-  measureDisplayName: z.string().optional(),
-  value: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function reportComponentMeasureToJSON(
-  reportComponentMeasure: ReportComponentMeasure,
-): string {
-  return JSON.stringify(
-    ReportComponentMeasure$outboundSchema.parse(reportComponentMeasure),
-  );
-}
 export function reportComponentMeasureFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportComponentMeasure, SDKValidationError> {

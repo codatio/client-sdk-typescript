@@ -24,7 +24,3 @@ export type TransactionCategoryStatus = ClosedEnum<
 export const TransactionCategoryStatus$inboundSchema: z.ZodNativeEnum<
   typeof TransactionCategoryStatus
 > = z.nativeEnum(TransactionCategoryStatus);
-/** @internal */
-export const TransactionCategoryStatus$outboundSchema: z.ZodNativeEnum<
-  typeof TransactionCategoryStatus
-> = TransactionCategoryStatus$inboundSchema;
