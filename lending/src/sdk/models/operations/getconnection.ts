@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetConnectionRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetConnectionRequest = {
   connectionId: string;
 };
 
-/** @internal */
-export const GetConnectionRequest$inboundSchema: z.ZodType<
-  GetConnectionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-});
 /** @internal */
 export type GetConnectionRequest$Outbound = {
   companyId: string;
@@ -48,14 +36,5 @@ export function getConnectionRequestToJSON(
 ): string {
   return JSON.stringify(
     GetConnectionRequest$outboundSchema.parse(getConnectionRequest),
-  );
-}
-export function getConnectionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetConnectionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetConnectionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetConnectionRequest' from JSON`,
   );
 }

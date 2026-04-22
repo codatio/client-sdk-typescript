@@ -9,14 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegrityByAmount,
   DataIntegrityByAmount$inboundSchema,
-  DataIntegrityByAmount$Outbound,
-  DataIntegrityByAmount$outboundSchema,
 } from "./dataintegritybyamount.js";
 import {
   DataIntegrityByCount,
   DataIntegrityByCount$inboundSchema,
-  DataIntegrityByCount$Outbound,
-  DataIntegrityByCount$outboundSchema,
 } from "./dataintegritybycount.js";
 
 export type DataIntegritySummary = {
@@ -38,31 +34,7 @@ export const DataIntegritySummary$inboundSchema: z.ZodType<
   byAmount: DataIntegrityByAmount$inboundSchema.optional(),
   byCount: DataIntegrityByCount$inboundSchema.optional(),
 });
-/** @internal */
-export type DataIntegritySummary$Outbound = {
-  type?: string | undefined;
-  byAmount?: DataIntegrityByAmount$Outbound | undefined;
-  byCount?: DataIntegrityByCount$Outbound | undefined;
-};
 
-/** @internal */
-export const DataIntegritySummary$outboundSchema: z.ZodType<
-  DataIntegritySummary$Outbound,
-  z.ZodTypeDef,
-  DataIntegritySummary
-> = z.object({
-  type: z.string().optional(),
-  byAmount: DataIntegrityByAmount$outboundSchema.optional(),
-  byCount: DataIntegrityByCount$outboundSchema.optional(),
-});
-
-export function dataIntegritySummaryToJSON(
-  dataIntegritySummary: DataIntegritySummary,
-): string {
-  return JSON.stringify(
-    DataIntegritySummary$outboundSchema.parse(dataIntegritySummary),
-  );
-}
 export function dataIntegritySummaryFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegritySummary, SDKValidationError> {

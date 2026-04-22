@@ -21,10 +21,6 @@ export const PropertieAccountType = {
 export type PropertieAccountType = ClosedEnum<typeof PropertieAccountType>;
 
 /** @internal */
-export const PropertieAccountType$inboundSchema: z.ZodNativeEnum<
-  typeof PropertieAccountType
-> = z.nativeEnum(PropertieAccountType);
-/** @internal */
 export const PropertieAccountType$outboundSchema: z.ZodNativeEnum<
   typeof PropertieAccountType
-> = PropertieAccountType$inboundSchema;
+> = z.nativeEnum(PropertieAccountType);

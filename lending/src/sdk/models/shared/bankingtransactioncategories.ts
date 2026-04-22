@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BankingTransactionCategory,
   BankingTransactionCategory$inboundSchema,
-  BankingTransactionCategory$Outbound,
-  BankingTransactionCategory$outboundSchema,
 } from "./bankingtransactioncategory.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type BankingTransactionCategories = {
   results?: Array<BankingTransactionCategory | null> | undefined;
@@ -54,42 +47,7 @@ export const BankingTransactionCategories$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type BankingTransactionCategories$Outbound = {
-  results?: Array<BankingTransactionCategory$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const BankingTransactionCategories$outboundSchema: z.ZodType<
-  BankingTransactionCategories$Outbound,
-  z.ZodTypeDef,
-  BankingTransactionCategories
-> = z.object({
-  results: z.array(z.nullable(BankingTransactionCategory$outboundSchema))
-    .optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function bankingTransactionCategoriesToJSON(
-  bankingTransactionCategories: BankingTransactionCategories,
-): string {
-  return JSON.stringify(
-    BankingTransactionCategories$outboundSchema.parse(
-      bankingTransactionCategories,
-    ),
-  );
-}
 export function bankingTransactionCategoriesFromJSON(
   jsonString: string,
 ): SafeParseResult<BankingTransactionCategories, SDKValidationError> {

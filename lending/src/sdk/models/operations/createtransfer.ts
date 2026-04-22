@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateTransferRequest = {
@@ -29,23 +26,6 @@ export type CreateTransferRequest = {
   accountingTransfer?: shared.AccountingTransfer | null | undefined;
 };
 
-/** @internal */
-export const CreateTransferRequest$inboundSchema: z.ZodType<
-  CreateTransferRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  timeoutInMinutes: z.number().int().optional(),
-  allowSyncOnPushComplete: z.boolean().default(true),
-  AccountingTransfer: z.nullable(shared.AccountingTransfer$inboundSchema)
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "AccountingTransfer": "accountingTransfer",
-  });
-});
 /** @internal */
 export type CreateTransferRequest$Outbound = {
   companyId: string;
@@ -78,14 +58,5 @@ export function createTransferRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateTransferRequest$outboundSchema.parse(createTransferRequest),
-  );
-}
-export function createTransferRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateTransferRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateTransferRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateTransferRequest' from JSON`,
   );
 }

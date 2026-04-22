@@ -32,31 +32,7 @@ export const CommerceReportError$inboundSchema: z.ZodType<
   type: z.string().optional(),
   details: z.record(z.array(z.string())).optional(),
 });
-/** @internal */
-export type CommerceReportError$Outbound = {
-  message?: string | undefined;
-  type?: string | undefined;
-  details?: { [k: string]: Array<string> } | undefined;
-};
 
-/** @internal */
-export const CommerceReportError$outboundSchema: z.ZodType<
-  CommerceReportError$Outbound,
-  z.ZodTypeDef,
-  CommerceReportError
-> = z.object({
-  message: z.string().optional(),
-  type: z.string().optional(),
-  details: z.record(z.array(z.string())).optional(),
-});
-
-export function commerceReportErrorToJSON(
-  commerceReportError: CommerceReportError,
-): string {
-  return JSON.stringify(
-    CommerceReportError$outboundSchema.parse(commerceReportError),
-  );
-}
 export function commerceReportErrorFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceReportError, SDKValidationError> {

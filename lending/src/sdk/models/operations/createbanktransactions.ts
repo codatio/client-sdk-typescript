@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateBankTransactionsRequest = {
@@ -35,24 +32,6 @@ export type CreateBankTransactionsRequest = {
     | undefined;
 };
 
-/** @internal */
-export const CreateBankTransactionsRequest$inboundSchema: z.ZodType<
-  CreateBankTransactionsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  accountId: z.string(),
-  timeoutInMinutes: z.number().int().optional(),
-  allowSyncOnPushComplete: z.boolean().default(true),
-  AccountingCreateBankTransactions: shared
-    .AccountingCreateBankTransactions$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "AccountingCreateBankTransactions": "accountingCreateBankTransactions",
-  });
-});
 /** @internal */
 export type CreateBankTransactionsRequest$Outbound = {
   companyId: string;
@@ -91,14 +70,5 @@ export function createBankTransactionsRequestToJSON(
     CreateBankTransactionsRequest$outboundSchema.parse(
       createBankTransactionsRequest,
     ),
-  );
-}
-export function createBankTransactionsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateBankTransactionsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateBankTransactionsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateBankTransactionsRequest' from JSON`,
   );
 }

@@ -7,16 +7,8 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  PaymentStatus,
-  PaymentStatus$inboundSchema,
-  PaymentStatus$outboundSchema,
-} from "./paymentstatus.js";
-import {
-  PaymentType,
-  PaymentType$inboundSchema,
-  PaymentType$outboundSchema,
-} from "./paymenttype.js";
+import { PaymentStatus, PaymentStatus$inboundSchema } from "./paymentstatus.js";
+import { PaymentType, PaymentType$inboundSchema } from "./paymenttype.js";
 
 export type PaymentRef = {
   modifiedDate?: string | undefined;
@@ -116,45 +108,7 @@ export const PaymentRef$inboundSchema: z.ZodType<
   dueDate: z.string().optional(),
   createdDate: z.string().optional(),
 });
-/** @internal */
-export type PaymentRef$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  amount?: number | null | undefined;
-  currency?: string | undefined;
-  type?: string | null | undefined;
-  status?: string | undefined;
-  paymentProvider?: string | undefined;
-  dueDate?: string | undefined;
-  createdDate?: string | undefined;
-};
 
-/** @internal */
-export const PaymentRef$outboundSchema: z.ZodType<
-  PaymentRef$Outbound,
-  z.ZodTypeDef,
-  PaymentRef
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  amount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  currency: z.string().optional(),
-  type: z.nullable(PaymentType$outboundSchema).optional(),
-  status: PaymentStatus$outboundSchema.optional(),
-  paymentProvider: z.string().optional(),
-  dueDate: z.string().optional(),
-  createdDate: z.string().optional(),
-});
-
-export function paymentRefToJSON(paymentRef: PaymentRef): string {
-  return JSON.stringify(PaymentRef$outboundSchema.parse(paymentRef));
-}
 export function paymentRefFromJSON(
   jsonString: string,
 ): SafeParseResult<PaymentRef, SDKValidationError> {

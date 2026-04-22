@@ -118,10 +118,6 @@ export type SourceAccount = {
 export const SourceAccountStatus$inboundSchema: z.ZodNativeEnum<
   typeof SourceAccountStatus
 > = z.nativeEnum(SourceAccountStatus);
-/** @internal */
-export const SourceAccountStatus$outboundSchema: z.ZodNativeEnum<
-  typeof SourceAccountStatus
-> = SourceAccountStatus$inboundSchema;
 
 /** @internal */
 export const SourceAccount$inboundSchema: z.ZodType<
@@ -140,45 +136,7 @@ export const SourceAccount$inboundSchema: z.ZodType<
   status: z.nullable(SourceAccountStatus$inboundSchema).optional(),
   feedStartDate: z.string().optional(),
 });
-/** @internal */
-export type SourceAccount$Outbound = {
-  id: string;
-  accountName?: string | null | undefined;
-  accountType?: string | null | undefined;
-  accountNumber?: string | null | undefined;
-  sortCode?: string | null | undefined;
-  currency?: string | undefined;
-  balance?: number | null | undefined;
-  modifiedDate?: string | undefined;
-  status?: string | null | undefined;
-  feedStartDate?: string | undefined;
-};
 
-/** @internal */
-export const SourceAccount$outboundSchema: z.ZodType<
-  SourceAccount$Outbound,
-  z.ZodTypeDef,
-  SourceAccount
-> = z.object({
-  id: z.string(),
-  accountName: z.nullable(z.string()).optional(),
-  accountType: z.nullable(z.string()).optional(),
-  accountNumber: z.nullable(z.string()).optional(),
-  sortCode: z.nullable(z.string()).optional(),
-  currency: z.string().optional(),
-  balance: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  modifiedDate: z.string().optional(),
-  status: z.nullable(SourceAccountStatus$outboundSchema).optional(),
-  feedStartDate: z.string().optional(),
-});
-
-export function sourceAccountToJSON(sourceAccount: SourceAccount): string {
-  return JSON.stringify(SourceAccount$outboundSchema.parse(sourceAccount));
-}
 export function sourceAccountFromJSON(
   jsonString: string,
 ): SafeParseResult<SourceAccount, SDKValidationError> {

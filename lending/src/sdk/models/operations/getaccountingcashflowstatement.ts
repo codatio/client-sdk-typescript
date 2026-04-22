@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingCashFlowStatementRequest = {
   /**
@@ -26,17 +23,6 @@ export type GetAccountingCashFlowStatementRequest = {
   startMonth?: string | undefined;
 };
 
-/** @internal */
-export const GetAccountingCashFlowStatementRequest$inboundSchema: z.ZodType<
-  GetAccountingCashFlowStatementRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  periodLength: z.number().int(),
-  periodsToCompare: z.number().int(),
-  startMonth: z.string().optional(),
-});
 /** @internal */
 export type GetAccountingCashFlowStatementRequest$Outbound = {
   companyId: string;
@@ -64,15 +50,5 @@ export function getAccountingCashFlowStatementRequestToJSON(
     GetAccountingCashFlowStatementRequest$outboundSchema.parse(
       getAccountingCashFlowStatementRequest,
     ),
-  );
-}
-export function getAccountingCashFlowStatementRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAccountingCashFlowStatementRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetAccountingCashFlowStatementRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAccountingCashFlowStatementRequest' from JSON`,
   );
 }

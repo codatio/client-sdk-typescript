@@ -7,12 +7,7 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ReportLine,
-  ReportLine$inboundSchema,
-  ReportLine$Outbound,
-  ReportLine$outboundSchema,
-} from "./reportline.js";
+import { ReportLine, ReportLine$inboundSchema } from "./reportline.js";
 
 export type BalanceSheet = {
   /**
@@ -58,33 +53,7 @@ export const BalanceSheet$inboundSchema: z.ZodType<
   netAssets: z.number().transform(v => new Decimal$(v)),
   equity: ReportLine$inboundSchema.optional(),
 });
-/** @internal */
-export type BalanceSheet$Outbound = {
-  date?: string | undefined;
-  assets?: ReportLine$Outbound | undefined;
-  liabilities?: ReportLine$Outbound | undefined;
-  netAssets: number;
-  equity?: ReportLine$Outbound | undefined;
-};
 
-/** @internal */
-export const BalanceSheet$outboundSchema: z.ZodType<
-  BalanceSheet$Outbound,
-  z.ZodTypeDef,
-  BalanceSheet
-> = z.object({
-  date: z.string().optional(),
-  assets: ReportLine$outboundSchema.optional(),
-  liabilities: ReportLine$outboundSchema.optional(),
-  netAssets: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  equity: ReportLine$outboundSchema.optional(),
-});
-
-export function balanceSheetToJSON(balanceSheet: BalanceSheet): string {
-  return JSON.stringify(BalanceSheet$outboundSchema.parse(balanceSheet));
-}
 export function balanceSheetFromJSON(
   jsonString: string,
 ): SafeParseResult<BalanceSheet, SDKValidationError> {

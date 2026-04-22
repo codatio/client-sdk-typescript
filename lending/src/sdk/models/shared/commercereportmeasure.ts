@@ -37,33 +37,7 @@ export const CommerceReportMeasure$inboundSchema: z.ZodType<
   index: z.number().int().optional(),
   type: z.string().optional(),
 });
-/** @internal */
-export type CommerceReportMeasure$Outbound = {
-  displayName?: string | undefined;
-  units?: string | undefined;
-  index?: number | undefined;
-  type?: string | undefined;
-};
 
-/** @internal */
-export const CommerceReportMeasure$outboundSchema: z.ZodType<
-  CommerceReportMeasure$Outbound,
-  z.ZodTypeDef,
-  CommerceReportMeasure
-> = z.object({
-  displayName: z.string().optional(),
-  units: z.string().optional(),
-  index: z.number().int().optional(),
-  type: z.string().optional(),
-});
-
-export function commerceReportMeasureToJSON(
-  commerceReportMeasure: CommerceReportMeasure,
-): string {
-  return JSON.stringify(
-    CommerceReportMeasure$outboundSchema.parse(commerceReportMeasure),
-  );
-}
 export function commerceReportMeasureFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceReportMeasure, SDKValidationError> {

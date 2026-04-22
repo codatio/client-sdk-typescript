@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AgedDebtor,
-  AgedDebtor$inboundSchema,
-  AgedDebtor$Outbound,
-  AgedDebtor$outboundSchema,
-} from "./ageddebtor.js";
+import { AgedDebtor, AgedDebtor$inboundSchema } from "./ageddebtor.js";
 
 /**
  * The Aged Debtors report shows the total outstanding balance due from customers to the business over time.
@@ -110,31 +105,7 @@ export const AccountingAgedDebtorReport$inboundSchema: z.ZodType<
   reportDate: z.string().optional(),
   data: z.array(AgedDebtor$inboundSchema).optional(),
 });
-/** @internal */
-export type AccountingAgedDebtorReport$Outbound = {
-  generated?: string | undefined;
-  reportDate?: string | undefined;
-  data?: Array<AgedDebtor$Outbound> | undefined;
-};
 
-/** @internal */
-export const AccountingAgedDebtorReport$outboundSchema: z.ZodType<
-  AccountingAgedDebtorReport$Outbound,
-  z.ZodTypeDef,
-  AccountingAgedDebtorReport
-> = z.object({
-  generated: z.string().optional(),
-  reportDate: z.string().optional(),
-  data: z.array(AgedDebtor$outboundSchema).optional(),
-});
-
-export function accountingAgedDebtorReportToJSON(
-  accountingAgedDebtorReport: AccountingAgedDebtorReport,
-): string {
-  return JSON.stringify(
-    AccountingAgedDebtorReport$outboundSchema.parse(accountingAgedDebtorReport),
-  );
-}
 export function accountingAgedDebtorReportFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingAgedDebtorReport, SDKValidationError> {

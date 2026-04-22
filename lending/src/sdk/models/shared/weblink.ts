@@ -38,9 +38,6 @@ export type WebLink = {
 /** @internal */
 export const WebLinkType$inboundSchema: z.ZodNativeEnum<typeof WebLinkType> = z
   .nativeEnum(WebLinkType);
-/** @internal */
-export const WebLinkType$outboundSchema: z.ZodNativeEnum<typeof WebLinkType> =
-  WebLinkType$inboundSchema;
 
 /** @internal */
 export const WebLink$inboundSchema: z.ZodType<WebLink, z.ZodTypeDef, unknown> =
@@ -48,25 +45,7 @@ export const WebLink$inboundSchema: z.ZodType<WebLink, z.ZodTypeDef, unknown> =
     type: WebLinkType$inboundSchema.optional(),
     url: z.string().optional(),
   });
-/** @internal */
-export type WebLink$Outbound = {
-  type?: string | undefined;
-  url?: string | undefined;
-};
 
-/** @internal */
-export const WebLink$outboundSchema: z.ZodType<
-  WebLink$Outbound,
-  z.ZodTypeDef,
-  WebLink
-> = z.object({
-  type: WebLinkType$outboundSchema.optional(),
-  url: z.string().optional(),
-});
-
-export function webLinkToJSON(webLink: WebLink): string {
-  return JSON.stringify(WebLink$outboundSchema.parse(webLink));
-}
 export function webLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<WebLink, SDKValidationError> {

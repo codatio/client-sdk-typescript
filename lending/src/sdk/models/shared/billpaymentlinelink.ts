@@ -10,7 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BillPaymentLineLinkType,
   BillPaymentLineLinkType$inboundSchema,
-  BillPaymentLineLinkType$outboundSchema,
 } from "./billpaymentlinelinktype.js";
 
 export type BillPaymentLineLink = {
@@ -81,41 +80,7 @@ export const BillPaymentLineLink$inboundSchema: z.ZodType<
   currencyRate: z.nullable(z.number().transform(v => new Decimal$(v)))
     .optional(),
 });
-/** @internal */
-export type BillPaymentLineLink$Outbound = {
-  type: string;
-  id?: string | null | undefined;
-  amount?: number | null | undefined;
-  currencyRate?: number | null | undefined;
-};
 
-/** @internal */
-export const BillPaymentLineLink$outboundSchema: z.ZodType<
-  BillPaymentLineLink$Outbound,
-  z.ZodTypeDef,
-  BillPaymentLineLink
-> = z.object({
-  type: BillPaymentLineLinkType$outboundSchema,
-  id: z.nullable(z.string()).optional(),
-  amount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-});
-
-export function billPaymentLineLinkToJSON(
-  billPaymentLineLink: BillPaymentLineLink,
-): string {
-  return JSON.stringify(
-    BillPaymentLineLink$outboundSchema.parse(billPaymentLineLink),
-  );
-}
 export function billPaymentLineLinkFromJSON(
   jsonString: string,
 ): SafeParseResult<BillPaymentLineLink, SDKValidationError> {

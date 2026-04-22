@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingDirectIncome,
   AccountingDirectIncome$inboundSchema,
-  AccountingDirectIncome$Outbound,
-  AccountingDirectIncome$outboundSchema,
 } from "./accountingdirectincome.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingDirectIncomes = {
   results?: Array<AccountingDirectIncome | null> | undefined;
@@ -53,40 +46,7 @@ export const AccountingDirectIncomes$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingDirectIncomes$Outbound = {
-  results?: Array<AccountingDirectIncome$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingDirectIncomes$outboundSchema: z.ZodType<
-  AccountingDirectIncomes$Outbound,
-  z.ZodTypeDef,
-  AccountingDirectIncomes
-> = z.object({
-  results: z.array(z.nullable(AccountingDirectIncome$outboundSchema))
-    .optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingDirectIncomesToJSON(
-  accountingDirectIncomes: AccountingDirectIncomes,
-): string {
-  return JSON.stringify(
-    AccountingDirectIncomes$outboundSchema.parse(accountingDirectIncomes),
-  );
-}
 export function accountingDirectIncomesFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingDirectIncomes, SDKValidationError> {

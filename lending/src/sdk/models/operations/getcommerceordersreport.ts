@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetCommerceOrdersReportRequest = {
@@ -40,20 +37,6 @@ export type GetCommerceOrdersReportRequest = {
 };
 
 /** @internal */
-export const GetCommerceOrdersReportRequest$inboundSchema: z.ZodType<
-  GetCommerceOrdersReportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  reportDate: z.string(),
-  periodLength: z.number().int(),
-  numberOfPeriods: z.number().int(),
-  periodUnit: shared.PeriodUnit$inboundSchema,
-  includeDisplayNames: z.boolean().optional(),
-});
-/** @internal */
 export type GetCommerceOrdersReportRequest$Outbound = {
   companyId: string;
   connectionId: string;
@@ -86,14 +69,5 @@ export function getCommerceOrdersReportRequestToJSON(
     GetCommerceOrdersReportRequest$outboundSchema.parse(
       getCommerceOrdersReportRequest,
     ),
-  );
-}
-export function getCommerceOrdersReportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCommerceOrdersReportRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetCommerceOrdersReportRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCommerceOrdersReportRequest' from JSON`,
   );
 }

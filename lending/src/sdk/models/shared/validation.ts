@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ValidationItem,
   ValidationItem$inboundSchema,
-  ValidationItem$Outbound,
-  ValidationItem$outboundSchema,
 } from "./validationitem.js";
 
 /**
@@ -30,25 +28,7 @@ export const Validation$inboundSchema: z.ZodType<
   errors: z.nullable(z.array(ValidationItem$inboundSchema)).optional(),
   warnings: z.nullable(z.array(ValidationItem$inboundSchema)).optional(),
 });
-/** @internal */
-export type Validation$Outbound = {
-  errors?: Array<ValidationItem$Outbound> | null | undefined;
-  warnings?: Array<ValidationItem$Outbound> | null | undefined;
-};
 
-/** @internal */
-export const Validation$outboundSchema: z.ZodType<
-  Validation$Outbound,
-  z.ZodTypeDef,
-  Validation
-> = z.object({
-  errors: z.nullable(z.array(ValidationItem$outboundSchema)).optional(),
-  warnings: z.nullable(z.array(ValidationItem$outboundSchema)).optional(),
-});
-
-export function validationToJSON(validation: Validation): string {
-  return JSON.stringify(Validation$outboundSchema.parse(validation));
-}
 export function validationFromJSON(
   jsonString: string,
 ): SafeParseResult<Validation, SDKValidationError> {

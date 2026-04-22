@@ -16,9 +16,162 @@ The *List locations* endpoint returns a list of [locations](https://docs.codat.i
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Clover
 
-<!-- UsageSnippet language="typescript" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" -->
+<!-- UsageSnippet language="typescript" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Clover" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.sales.locations.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesLocationsList } from "@codat/lending/funcs/salesLocationsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesLocationsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Lightspeed K Trial
+
+<!-- UsageSnippet language="typescript" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Lightspeed K Trial" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.sales.locations.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesLocationsList } from "@codat/lending/funcs/salesLocationsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesLocationsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="typescript" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Shopify" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.sales.locations.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesLocationsList } from "@codat/lending/funcs/salesLocationsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesLocationsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="typescript" operationID="list-commerce-locations" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations" example="Square" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -98,9 +251,168 @@ The *Get location* endpoint returns a single location for a given locationId.
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Clover
 
-<!-- UsageSnippet language="typescript" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Clover" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.sales.locations.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesLocationsGet } from "@codat/lending/funcs/salesLocationsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesLocationsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Lightspeed K Trial
+
+<!-- UsageSnippet language="typescript" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Lightspeed K Trial" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.sales.locations.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesLocationsGet } from "@codat/lending/funcs/salesLocationsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesLocationsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Shopify
+
+<!-- UsageSnippet language="typescript" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Shopify" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.sales.locations.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { salesLocationsGet } from "@codat/lending/funcs/salesLocationsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await salesLocationsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    locationId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("salesLocationsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Square
+
+<!-- UsageSnippet language="typescript" operationID="get-commerce-location" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-locations/{locationId}" example="Square" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

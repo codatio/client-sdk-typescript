@@ -118,31 +118,3 @@ export const ErrorMessage$inboundSchema: z.ZodType<
       body: v.body$,
     });
   });
-
-/** @internal */
-export type ErrorMessage$Outbound = {
-  statusCode?: number | undefined;
-  service?: string | undefined;
-  error?: string | undefined;
-  correlationId?: string | undefined;
-  validation?: shared.ErrorValidation$Outbound | null | undefined;
-  canBeRetried?: string | undefined;
-  detailedErrorCode?: number | undefined;
-};
-
-/** @internal */
-export const ErrorMessage$outboundSchema: z.ZodType<
-  ErrorMessage$Outbound,
-  z.ZodTypeDef,
-  ErrorMessage
-> = z.instanceof(ErrorMessage)
-  .transform(v => v.data$)
-  .pipe(z.object({
-    statusCode: z.number().int().optional(),
-    service: z.string().optional(),
-    error: z.string().optional(),
-    correlationId: z.string().optional(),
-    validation: z.nullable(shared.ErrorValidation$outboundSchema).optional(),
-    canBeRetried: z.string().optional(),
-    detailedErrorCode: z.number().int().optional(),
-  }));

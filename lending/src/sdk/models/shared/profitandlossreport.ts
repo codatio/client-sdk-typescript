@@ -7,12 +7,7 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ReportLine,
-  ReportLine$inboundSchema,
-  ReportLine$Outbound,
-  ReportLine$outboundSchema,
-} from "./reportline.js";
+import { ReportLine, ReportLine$inboundSchema } from "./reportline.js";
 
 export type ProfitAndLossReport = {
   /**
@@ -100,55 +95,7 @@ export const ProfitAndLossReport$inboundSchema: z.ZodType<
   netOtherIncome: z.number().transform(v => new Decimal$(v)),
   netProfit: z.number().transform(v => new Decimal$(v)),
 });
-/** @internal */
-export type ProfitAndLossReport$Outbound = {
-  fromDate?: string | undefined;
-  toDate?: string | undefined;
-  income?: ReportLine$Outbound | undefined;
-  costOfSales?: ReportLine$Outbound | undefined;
-  grossProfit: number;
-  expenses?: ReportLine$Outbound | undefined;
-  netOperatingProfit: number;
-  otherExpenses?: ReportLine$Outbound | undefined;
-  otherIncome?: ReportLine$Outbound | undefined;
-  netOtherIncome: number;
-  netProfit: number;
-};
 
-/** @internal */
-export const ProfitAndLossReport$outboundSchema: z.ZodType<
-  ProfitAndLossReport$Outbound,
-  z.ZodTypeDef,
-  ProfitAndLossReport
-> = z.object({
-  fromDate: z.string().optional(),
-  toDate: z.string().optional(),
-  income: ReportLine$outboundSchema.optional(),
-  costOfSales: ReportLine$outboundSchema.optional(),
-  grossProfit: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  expenses: ReportLine$outboundSchema.optional(),
-  netOperatingProfit: z.union([z.instanceof(Decimal$), z.number()]).transform(
-    v => typeof v === "number" ? v : v.toNumber()
-  ),
-  otherExpenses: ReportLine$outboundSchema.optional(),
-  otherIncome: ReportLine$outboundSchema.optional(),
-  netOtherIncome: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  netProfit: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-});
-
-export function profitAndLossReportToJSON(
-  profitAndLossReport: ProfitAndLossReport,
-): string {
-  return JSON.stringify(
-    ProfitAndLossReport$outboundSchema.parse(profitAndLossReport),
-  );
-}
 export function profitAndLossReportFromJSON(
   jsonString: string,
 ): SafeParseResult<ProfitAndLossReport, SDKValidationError> {

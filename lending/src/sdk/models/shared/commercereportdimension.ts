@@ -38,29 +38,7 @@ export const CommerceReportDimensionItems$inboundSchema: z.ZodType<
 > = z.object({
   index: z.number().int().optional(),
 });
-/** @internal */
-export type CommerceReportDimensionItems$Outbound = {
-  index?: number | undefined;
-};
 
-/** @internal */
-export const CommerceReportDimensionItems$outboundSchema: z.ZodType<
-  CommerceReportDimensionItems$Outbound,
-  z.ZodTypeDef,
-  CommerceReportDimensionItems
-> = z.object({
-  index: z.number().int().optional(),
-});
-
-export function commerceReportDimensionItemsToJSON(
-  commerceReportDimensionItems: CommerceReportDimensionItems,
-): string {
-  return JSON.stringify(
-    CommerceReportDimensionItems$outboundSchema.parse(
-      commerceReportDimensionItems,
-    ),
-  );
-}
 export function commerceReportDimensionItemsFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceReportDimensionItems, SDKValidationError> {
@@ -83,34 +61,7 @@ export const CommerceReportDimension$inboundSchema: z.ZodType<
   items: z.array(z.lazy(() => CommerceReportDimensionItems$inboundSchema))
     .optional(),
 });
-/** @internal */
-export type CommerceReportDimension$Outbound = {
-  index?: number | undefined;
-  displayName?: string | undefined;
-  type?: string | undefined;
-  items?: Array<CommerceReportDimensionItems$Outbound> | undefined;
-};
 
-/** @internal */
-export const CommerceReportDimension$outboundSchema: z.ZodType<
-  CommerceReportDimension$Outbound,
-  z.ZodTypeDef,
-  CommerceReportDimension
-> = z.object({
-  index: z.number().int().optional(),
-  displayName: z.string().optional(),
-  type: z.string().optional(),
-  items: z.array(z.lazy(() => CommerceReportDimensionItems$outboundSchema))
-    .optional(),
-});
-
-export function commerceReportDimensionToJSON(
-  commerceReportDimension: CommerceReportDimension,
-): string {
-  return JSON.stringify(
-    CommerceReportDimension$outboundSchema.parse(commerceReportDimension),
-  );
-}
 export function commerceReportDimensionFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceReportDimension, SDKValidationError> {

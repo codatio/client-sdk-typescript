@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * Data source type.
@@ -33,21 +30,9 @@ export type GenerateLoanTransactionsRequest = {
 };
 
 /** @internal */
-export const SourceType$inboundSchema: z.ZodNativeEnum<typeof SourceType> = z
+export const SourceType$outboundSchema: z.ZodNativeEnum<typeof SourceType> = z
   .nativeEnum(SourceType);
-/** @internal */
-export const SourceType$outboundSchema: z.ZodNativeEnum<typeof SourceType> =
-  SourceType$inboundSchema;
 
-/** @internal */
-export const GenerateLoanTransactionsRequest$inboundSchema: z.ZodType<
-  GenerateLoanTransactionsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  sourceType: SourceType$inboundSchema,
-});
 /** @internal */
 export type GenerateLoanTransactionsRequest$Outbound = {
   companyId: string;
@@ -71,14 +56,5 @@ export function generateLoanTransactionsRequestToJSON(
     GenerateLoanTransactionsRequest$outboundSchema.parse(
       generateLoanTransactionsRequest,
     ),
-  );
-}
-export function generateLoanTransactionsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GenerateLoanTransactionsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GenerateLoanTransactionsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GenerateLoanTransactionsRequest' from JSON`,
   );
 }

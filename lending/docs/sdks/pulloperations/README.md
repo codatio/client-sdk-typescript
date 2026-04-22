@@ -13,7 +13,7 @@ Gets the pull operation history (datasets) for a given company.
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" -->
+<!-- UsageSnippet language="typescript" operationID="list-pull-operations" method="get" path="/companies/{companyId}/data/history" example="Example" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

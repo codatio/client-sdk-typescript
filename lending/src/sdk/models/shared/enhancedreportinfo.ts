@@ -63,33 +63,7 @@ export const EnhancedReportInfo$inboundSchema: z.ZodType<
   companyName: z.string().optional(),
   generatedDate: z.string().optional(),
 });
-/** @internal */
-export type EnhancedReportInfo$Outbound = {
-  currency?: string | undefined;
-  reportName?: string | undefined;
-  companyName?: string | undefined;
-  generatedDate?: string | undefined;
-};
 
-/** @internal */
-export const EnhancedReportInfo$outboundSchema: z.ZodType<
-  EnhancedReportInfo$Outbound,
-  z.ZodTypeDef,
-  EnhancedReportInfo
-> = z.object({
-  currency: z.string().optional(),
-  reportName: z.string().optional(),
-  companyName: z.string().optional(),
-  generatedDate: z.string().optional(),
-});
-
-export function enhancedReportInfoToJSON(
-  enhancedReportInfo: EnhancedReportInfo,
-): string {
-  return JSON.stringify(
-    EnhancedReportInfo$outboundSchema.parse(enhancedReportInfo),
-  );
-}
 export function enhancedReportInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedReportInfo, SDKValidationError> {

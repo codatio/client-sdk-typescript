@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ProductInventoryLocation,
   ProductInventoryLocation$inboundSchema,
-  ProductInventoryLocation$Outbound,
-  ProductInventoryLocation$outboundSchema,
 } from "./productinventorylocation.js";
 
 /**
@@ -35,33 +33,7 @@ export const ProductInventory$inboundSchema: z.ZodType<
     .optional(),
   locations: z.array(ProductInventoryLocation$inboundSchema).optional(),
 });
-/** @internal */
-export type ProductInventory$Outbound = {
-  totalQuantity?: number | null | undefined;
-  locations?: Array<ProductInventoryLocation$Outbound> | undefined;
-};
 
-/** @internal */
-export const ProductInventory$outboundSchema: z.ZodType<
-  ProductInventory$Outbound,
-  z.ZodTypeDef,
-  ProductInventory
-> = z.object({
-  totalQuantity: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  locations: z.array(ProductInventoryLocation$outboundSchema).optional(),
-});
-
-export function productInventoryToJSON(
-  productInventory: ProductInventory,
-): string {
-  return JSON.stringify(
-    ProductInventory$outboundSchema.parse(productInventory),
-  );
-}
 export function productInventoryFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductInventory, SDKValidationError> {

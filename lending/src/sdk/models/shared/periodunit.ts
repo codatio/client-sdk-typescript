@@ -14,8 +14,5 @@ export const PeriodUnit = {
 export type PeriodUnit = ClosedEnum<typeof PeriodUnit>;
 
 /** @internal */
-export const PeriodUnit$inboundSchema: z.ZodNativeEnum<typeof PeriodUnit> = z
+export const PeriodUnit$outboundSchema: z.ZodNativeEnum<typeof PeriodUnit> = z
   .nativeEnum(PeriodUnit);
-/** @internal */
-export const PeriodUnit$outboundSchema: z.ZodNativeEnum<typeof PeriodUnit> =
-  PeriodUnit$inboundSchema;

@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UploadBankStatementDataRequestBody =
@@ -39,16 +36,6 @@ export type UploadBankStatementDataRequest = {
 };
 
 /** @internal */
-export const UploadBankStatementDataRequestBody$inboundSchema: z.ZodType<
-  UploadBankStatementDataRequestBody,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  shared.BankingAccount$inboundSchema,
-  shared.BankingTransactions$inboundSchema,
-  z.any(),
-]);
-/** @internal */
 export type UploadBankStatementDataRequestBody$Outbound =
   | shared.BankingAccount$Outbound
   | shared.BankingTransactions$Outbound
@@ -74,37 +61,7 @@ export function uploadBankStatementDataRequestBodyToJSON(
     ),
   );
 }
-export function uploadBankStatementDataRequestBodyFromJSON(
-  jsonString: string,
-): SafeParseResult<UploadBankStatementDataRequestBody, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      UploadBankStatementDataRequestBody$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UploadBankStatementDataRequestBody' from JSON`,
-  );
-}
 
-/** @internal */
-export const UploadBankStatementDataRequest$inboundSchema: z.ZodType<
-  UploadBankStatementDataRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  datasetId: z.string(),
-  path: shared.Path$inboundSchema.optional(),
-  RequestBody: z.union([
-    shared.BankingAccount$inboundSchema,
-    shared.BankingTransactions$inboundSchema,
-    z.any(),
-  ]).optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "RequestBody": "requestBody",
-  });
-});
 /** @internal */
 export type UploadBankStatementDataRequest$Outbound = {
   companyId: string;
@@ -146,14 +103,5 @@ export function uploadBankStatementDataRequestToJSON(
     UploadBankStatementDataRequest$outboundSchema.parse(
       uploadBankStatementDataRequest,
     ),
-  );
-}
-export function uploadBankStatementDataRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<UploadBankStatementDataRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UploadBankStatementDataRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UploadBankStatementDataRequest' from JSON`,
   );
 }

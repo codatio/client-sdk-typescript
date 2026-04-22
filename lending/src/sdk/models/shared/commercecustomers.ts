@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceCustomer,
   CommerceCustomer$inboundSchema,
-  CommerceCustomer$Outbound,
-  CommerceCustomer$outboundSchema,
 } from "./commercecustomer.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type CommerceCustomers = {
   results?: Array<CommerceCustomer | null> | undefined;
@@ -53,39 +46,7 @@ export const CommerceCustomers$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type CommerceCustomers$Outbound = {
-  results?: Array<CommerceCustomer$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const CommerceCustomers$outboundSchema: z.ZodType<
-  CommerceCustomers$Outbound,
-  z.ZodTypeDef,
-  CommerceCustomers
-> = z.object({
-  results: z.array(z.nullable(CommerceCustomer$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function commerceCustomersToJSON(
-  commerceCustomers: CommerceCustomers,
-): string {
-  return JSON.stringify(
-    CommerceCustomers$outboundSchema.parse(commerceCustomers),
-  );
-}
 export function commerceCustomersFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceCustomers, SDKValidationError> {

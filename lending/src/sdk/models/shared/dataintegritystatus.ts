@@ -9,26 +9,18 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegrityAmounts,
   DataIntegrityAmounts$inboundSchema,
-  DataIntegrityAmounts$Outbound,
-  DataIntegrityAmounts$outboundSchema,
 } from "./dataintegrityamounts.js";
 import {
   DataIntegrityConnectionId,
   DataIntegrityConnectionId$inboundSchema,
-  DataIntegrityConnectionId$Outbound,
-  DataIntegrityConnectionId$outboundSchema,
 } from "./dataintegrityconnectionid.js";
 import {
   DataIntegrityDates,
   DataIntegrityDates$inboundSchema,
-  DataIntegrityDates$Outbound,
-  DataIntegrityDates$outboundSchema,
 } from "./dataintegritydates.js";
 import {
   DataIntegrityStatusInfo,
   DataIntegrityStatusInfo$inboundSchema,
-  DataIntegrityStatusInfo$Outbound,
-  DataIntegrityStatusInfo$outboundSchema,
 } from "./dataintegritystatusinfo.js";
 
 export type DataIntegrityStatus = {
@@ -60,35 +52,7 @@ export const DataIntegrityStatus$inboundSchema: z.ZodType<
   amounts: DataIntegrityAmounts$inboundSchema.optional(),
   dates: DataIntegrityDates$inboundSchema.optional(),
 });
-/** @internal */
-export type DataIntegrityStatus$Outbound = {
-  type?: string | undefined;
-  statusInfo?: DataIntegrityStatusInfo$Outbound | undefined;
-  connectionIds?: DataIntegrityConnectionId$Outbound | undefined;
-  amounts?: DataIntegrityAmounts$Outbound | undefined;
-  dates?: DataIntegrityDates$Outbound | undefined;
-};
 
-/** @internal */
-export const DataIntegrityStatus$outboundSchema: z.ZodType<
-  DataIntegrityStatus$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityStatus
-> = z.object({
-  type: z.string().optional(),
-  statusInfo: DataIntegrityStatusInfo$outboundSchema.optional(),
-  connectionIds: DataIntegrityConnectionId$outboundSchema.optional(),
-  amounts: DataIntegrityAmounts$outboundSchema.optional(),
-  dates: DataIntegrityDates$outboundSchema.optional(),
-});
-
-export function dataIntegrityStatusToJSON(
-  dataIntegrityStatus: DataIntegrityStatus,
-): string {
-  return JSON.stringify(
-    DataIntegrityStatus$outboundSchema.parse(dataIntegrityStatus),
-  );
-}
 export function dataIntegrityStatusFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityStatus, SDKValidationError> {

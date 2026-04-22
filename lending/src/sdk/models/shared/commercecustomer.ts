@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceAddress,
   CommerceAddress$inboundSchema,
-  CommerceAddress$Outbound,
-  CommerceAddress$outboundSchema,
 } from "./commerceaddress.js";
 
 /**
@@ -85,45 +83,7 @@ export const CommerceCustomer$inboundSchema: z.ZodType<
   note: z.string().optional(),
   createdDate: z.string().optional(),
 });
-/** @internal */
-export type CommerceCustomer$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  customerName?: string | undefined;
-  emailAddress?: string | undefined;
-  phone?: string | null | undefined;
-  defaultCurrency?: string | undefined;
-  addresses?: Array<CommerceAddress$Outbound> | undefined;
-  note?: string | undefined;
-  createdDate?: string | undefined;
-};
 
-/** @internal */
-export const CommerceCustomer$outboundSchema: z.ZodType<
-  CommerceCustomer$Outbound,
-  z.ZodTypeDef,
-  CommerceCustomer
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  customerName: z.string().optional(),
-  emailAddress: z.string().optional(),
-  phone: z.nullable(z.string()).optional(),
-  defaultCurrency: z.string().optional(),
-  addresses: z.array(CommerceAddress$outboundSchema).optional(),
-  note: z.string().optional(),
-  createdDate: z.string().optional(),
-});
-
-export function commerceCustomerToJSON(
-  commerceCustomer: CommerceCustomer,
-): string {
-  return JSON.stringify(
-    CommerceCustomer$outboundSchema.parse(commerceCustomer),
-  );
-}
 export function commerceCustomerFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceCustomer, SDKValidationError> {

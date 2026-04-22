@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingDirectCost,
   AccountingDirectCost$inboundSchema,
-  AccountingDirectCost$Outbound,
-  AccountingDirectCost$outboundSchema,
 } from "./accountingdirectcost.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingDirectCosts = {
   results?: Array<AccountingDirectCost | null> | undefined;
@@ -53,39 +46,7 @@ export const AccountingDirectCosts$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingDirectCosts$Outbound = {
-  results?: Array<AccountingDirectCost$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingDirectCosts$outboundSchema: z.ZodType<
-  AccountingDirectCosts$Outbound,
-  z.ZodTypeDef,
-  AccountingDirectCosts
-> = z.object({
-  results: z.array(z.nullable(AccountingDirectCost$outboundSchema)).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingDirectCostsToJSON(
-  accountingDirectCosts: AccountingDirectCosts,
-): string {
-  return JSON.stringify(
-    AccountingDirectCosts$outboundSchema.parse(accountingDirectCosts),
-  );
-}
 export function accountingDirectCostsFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingDirectCosts, SDKValidationError> {

@@ -49,10 +49,6 @@ export type JournalEntryRecordRef = {
 export const JournalEntryRecordRefDataType$inboundSchema: z.ZodNativeEnum<
   typeof JournalEntryRecordRefDataType
 > = z.nativeEnum(JournalEntryRecordRefDataType);
-/** @internal */
-export const JournalEntryRecordRefDataType$outboundSchema: z.ZodNativeEnum<
-  typeof JournalEntryRecordRefDataType
-> = JournalEntryRecordRefDataType$inboundSchema;
 
 /** @internal */
 export const JournalEntryRecordRef$inboundSchema: z.ZodType<
@@ -63,29 +59,7 @@ export const JournalEntryRecordRef$inboundSchema: z.ZodType<
   id: z.string().optional(),
   dataType: JournalEntryRecordRefDataType$inboundSchema.optional(),
 });
-/** @internal */
-export type JournalEntryRecordRef$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-};
 
-/** @internal */
-export const JournalEntryRecordRef$outboundSchema: z.ZodType<
-  JournalEntryRecordRef$Outbound,
-  z.ZodTypeDef,
-  JournalEntryRecordRef
-> = z.object({
-  id: z.string().optional(),
-  dataType: JournalEntryRecordRefDataType$outboundSchema.optional(),
-});
-
-export function journalEntryRecordRefToJSON(
-  journalEntryRecordRef: JournalEntryRecordRef,
-): string {
-  return JSON.stringify(
-    JournalEntryRecordRef$outboundSchema.parse(journalEntryRecordRef),
-  );
-}
 export function journalEntryRecordRefFromJSON(
   jsonString: string,
 ): SafeParseResult<JournalEntryRecordRef, SDKValidationError> {

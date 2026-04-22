@@ -9,48 +9,29 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAddress,
   AccountingAddress$inboundSchema,
-  AccountingAddress$Outbound,
-  AccountingAddress$outboundSchema,
 } from "./accountingaddress.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 import {
   SupplierStatus,
   SupplierStatus$inboundSchema,
-  SupplierStatus$outboundSchema,
 } from "./supplierstatus.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 /**
  * ## Overview
@@ -231,57 +212,7 @@ export const AccountingCreateSupplierResponseAccountingSupplier$inboundSchema:
     metadata: Metadata$inboundSchema.optional(),
     supplementalData: SupplementalData$inboundSchema.optional(),
   });
-/** @internal */
-export type AccountingCreateSupplierResponseAccountingSupplier$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  supplierName?: string | null | undefined;
-  contactName?: string | null | undefined;
-  emailAddress?: string | null | undefined;
-  phone?: string | null | undefined;
-  addresses?: Array<AccountingAddress$Outbound> | null | undefined;
-  registrationNumber?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  status: string;
-  defaultCurrency?: string | null | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCreateSupplierResponseAccountingSupplier$outboundSchema:
-  z.ZodType<
-    AccountingCreateSupplierResponseAccountingSupplier$Outbound,
-    z.ZodTypeDef,
-    AccountingCreateSupplierResponseAccountingSupplier
-  > = z.object({
-    modifiedDate: z.string().optional(),
-    sourceModifiedDate: z.string().optional(),
-    id: z.string().optional(),
-    supplierName: z.nullable(z.string()).optional(),
-    contactName: z.nullable(z.string()).optional(),
-    emailAddress: z.nullable(z.string()).optional(),
-    phone: z.nullable(z.string()).optional(),
-    addresses: z.nullable(z.array(AccountingAddress$outboundSchema)).optional(),
-    registrationNumber: z.nullable(z.string()).optional(),
-    taxNumber: z.nullable(z.string()).optional(),
-    status: SupplierStatus$outboundSchema,
-    defaultCurrency: z.nullable(z.string()).optional(),
-    metadata: Metadata$outboundSchema.optional(),
-    supplementalData: SupplementalData$outboundSchema.optional(),
-  });
-
-export function accountingCreateSupplierResponseAccountingSupplierToJSON(
-  accountingCreateSupplierResponseAccountingSupplier:
-    AccountingCreateSupplierResponseAccountingSupplier,
-): string {
-  return JSON.stringify(
-    AccountingCreateSupplierResponseAccountingSupplier$outboundSchema.parse(
-      accountingCreateSupplierResponseAccountingSupplier,
-    ),
-  );
-}
 export function accountingCreateSupplierResponseAccountingSupplierFromJSON(
   jsonString: string,
 ): SafeParseResult<
@@ -323,62 +254,7 @@ export const AccountingCreateSupplierResponse$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type AccountingCreateSupplierResponse$Outbound = {
-  data?:
-    | AccountingCreateSupplierResponseAccountingSupplier$Outbound
-    | null
-    | undefined;
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const AccountingCreateSupplierResponse$outboundSchema: z.ZodType<
-  AccountingCreateSupplierResponse$Outbound,
-  z.ZodTypeDef,
-  AccountingCreateSupplierResponse
-> = z.object({
-  data: z.nullable(
-    z.lazy(() =>
-      AccountingCreateSupplierResponseAccountingSupplier$outboundSchema
-    ),
-  ).optional(),
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function accountingCreateSupplierResponseToJSON(
-  accountingCreateSupplierResponse: AccountingCreateSupplierResponse,
-): string {
-  return JSON.stringify(
-    AccountingCreateSupplierResponse$outboundSchema.parse(
-      accountingCreateSupplierResponse,
-    ),
-  );
-}
 export function accountingCreateSupplierResponseFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreateSupplierResponse, SDKValidationError> {

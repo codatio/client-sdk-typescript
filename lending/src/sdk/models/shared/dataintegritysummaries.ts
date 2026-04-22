@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataIntegritySummary,
   DataIntegritySummary$inboundSchema,
-  DataIntegritySummary$Outbound,
-  DataIntegritySummary$outboundSchema,
 } from "./dataintegritysummary.js";
 
 export type DataIntegritySummaries = {
@@ -25,27 +23,7 @@ export const DataIntegritySummaries$inboundSchema: z.ZodType<
 > = z.object({
   summaries: z.array(DataIntegritySummary$inboundSchema).optional(),
 });
-/** @internal */
-export type DataIntegritySummaries$Outbound = {
-  summaries?: Array<DataIntegritySummary$Outbound> | undefined;
-};
 
-/** @internal */
-export const DataIntegritySummaries$outboundSchema: z.ZodType<
-  DataIntegritySummaries$Outbound,
-  z.ZodTypeDef,
-  DataIntegritySummaries
-> = z.object({
-  summaries: z.array(DataIntegritySummary$outboundSchema).optional(),
-});
-
-export function dataIntegritySummariesToJSON(
-  dataIntegritySummaries: DataIntegritySummaries,
-): string {
-  return JSON.stringify(
-    DataIntegritySummaries$outboundSchema.parse(dataIntegritySummaries),
-  );
-}
 export function dataIntegritySummariesFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegritySummaries, SDKValidationError> {

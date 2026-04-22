@@ -3,31 +3,24 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
-  AccountingPaymentAllocation$inboundSchema,
   AccountingPaymentAllocation$Outbound,
   AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
 import {
   ContactRef,
-  ContactRef$inboundSchema,
   ContactRef$Outbound,
   ContactRef$outboundSchema,
 } from "./contactref.js";
 import {
   DirectCostLineItem,
-  DirectCostLineItem$inboundSchema,
   DirectCostLineItem$Outbound,
   DirectCostLineItem$outboundSchema,
 } from "./directcostlineitem.js";
 import {
   SupplementalData,
-  SupplementalData$inboundSchema,
   SupplementalData$Outbound,
   SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
@@ -143,26 +136,6 @@ export type DirectCostPrototype = {
 };
 
 /** @internal */
-export const DirectCostPrototype$inboundSchema: z.ZodType<
-  DirectCostPrototype,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  reference: z.nullable(z.string()).optional(),
-  note: z.nullable(z.string()).optional(),
-  contactRef: ContactRef$inboundSchema.optional(),
-  issueDate: z.string(),
-  currency: z.string(),
-  currencyRate: z.nullable(z.number().transform(v => new Decimal$(v)))
-    .optional(),
-  lineItems: z.array(DirectCostLineItem$inboundSchema),
-  paymentAllocations: z.array(AccountingPaymentAllocation$inboundSchema),
-  subTotal: z.number().transform(v => new Decimal$(v)),
-  taxAmount: z.number().transform(v => new Decimal$(v)),
-  totalAmount: z.number().transform(v => new Decimal$(v)),
-  supplementalData: SupplementalData$inboundSchema.optional(),
-});
-/** @internal */
 export type DirectCostPrototype$Outbound = {
   reference?: string | null | undefined;
   note?: string | null | undefined;
@@ -213,14 +186,5 @@ export function directCostPrototypeToJSON(
 ): string {
   return JSON.stringify(
     DirectCostPrototype$outboundSchema.parse(directCostPrototype),
-  );
-}
-export function directCostPrototypeFromJSON(
-  jsonString: string,
-): SafeParseResult<DirectCostPrototype, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DirectCostPrototype$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DirectCostPrototype' from JSON`,
   );
 }

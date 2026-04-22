@@ -90,9 +90,834 @@ run();
 
 Gets the latest balance sheet for a company.
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" -->
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Clear Books" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Exact (Netherlands)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Exact (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="FreshBooks" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: MYOB AccountRight and Essentials
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="MYOB AccountRight and Essentials" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Wave" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.balanceSheet.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsBalanceSheetGet } from "@codat/lending/funcs/financialStatementsBalanceSheetGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsBalanceSheetGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsBalanceSheetGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-balance-sheet" method="get" path="/companies/{companyId}/data/financials/balanceSheet" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

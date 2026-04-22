@@ -29,27 +29,7 @@ export const ItemRef$inboundSchema: z.ZodType<ItemRef, z.ZodTypeDef, unknown> =
     dataConnectionId: z.string().optional(),
     type: z.string().optional(),
   });
-/** @internal */
-export type ItemRef$Outbound = {
-  id?: string | undefined;
-  dataConnectionId?: string | undefined;
-  type?: string | undefined;
-};
 
-/** @internal */
-export const ItemRef$outboundSchema: z.ZodType<
-  ItemRef$Outbound,
-  z.ZodTypeDef,
-  ItemRef
-> = z.object({
-  id: z.string().optional(),
-  dataConnectionId: z.string().optional(),
-  type: z.string().optional(),
-});
-
-export function itemRefToJSON(itemRef: ItemRef): string {
-  return JSON.stringify(ItemRef$outboundSchema.parse(itemRef));
-}
 export function itemRefFromJSON(
   jsonString: string,
 ): SafeParseResult<ItemRef, SDKValidationError> {

@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  BalanceSheet,
-  BalanceSheet$inboundSchema,
-  BalanceSheet$Outbound,
-  BalanceSheet$outboundSchema,
-} from "./balancesheet.js";
+import { BalanceSheet, BalanceSheet$inboundSchema } from "./balancesheet.js";
 
 /**
  * ## Overview
@@ -107,33 +102,7 @@ export const AccountingBalanceSheet$inboundSchema: z.ZodType<
   mostRecentAvailableMonth: z.string().optional(),
   earliestAvailableMonth: z.string().optional(),
 });
-/** @internal */
-export type AccountingBalanceSheet$Outbound = {
-  currency?: string | undefined;
-  reports: Array<BalanceSheet$Outbound>;
-  mostRecentAvailableMonth?: string | undefined;
-  earliestAvailableMonth?: string | undefined;
-};
 
-/** @internal */
-export const AccountingBalanceSheet$outboundSchema: z.ZodType<
-  AccountingBalanceSheet$Outbound,
-  z.ZodTypeDef,
-  AccountingBalanceSheet
-> = z.object({
-  currency: z.string().optional(),
-  reports: z.array(BalanceSheet$outboundSchema),
-  mostRecentAvailableMonth: z.string().optional(),
-  earliestAvailableMonth: z.string().optional(),
-});
-
-export function accountingBalanceSheetToJSON(
-  accountingBalanceSheet: AccountingBalanceSheet,
-): string {
-  return JSON.stringify(
-    AccountingBalanceSheet$outboundSchema.parse(accountingBalanceSheet),
-  );
-}
 export function accountingBalanceSheetFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingBalanceSheet, SDKValidationError> {

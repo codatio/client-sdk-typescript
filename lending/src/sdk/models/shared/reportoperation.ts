@@ -104,19 +104,11 @@ export type ReportOperation = {
 export const ReportOperationStatus$inboundSchema: z.ZodNativeEnum<
   typeof ReportOperationStatus
 > = z.nativeEnum(ReportOperationStatus);
-/** @internal */
-export const ReportOperationStatus$outboundSchema: z.ZodNativeEnum<
-  typeof ReportOperationStatus
-> = ReportOperationStatus$inboundSchema;
 
 /** @internal */
 export const ReportOperationType$inboundSchema: z.ZodNativeEnum<
   typeof ReportOperationType
 > = z.nativeEnum(ReportOperationType);
-/** @internal */
-export const ReportOperationType$outboundSchema: z.ZodNativeEnum<
-  typeof ReportOperationType
-> = ReportOperationType$inboundSchema;
 
 /** @internal */
 export const ReportOperation$inboundSchema: z.ZodType<
@@ -131,35 +123,7 @@ export const ReportOperation$inboundSchema: z.ZodType<
   updatedDate: z.string().optional(),
   errorMessage: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type ReportOperation$Outbound = {
-  id?: string | undefined;
-  status?: string | undefined;
-  type?: string | undefined;
-  requestedDate?: string | undefined;
-  updatedDate?: string | undefined;
-  errorMessage?: string | null | undefined;
-};
 
-/** @internal */
-export const ReportOperation$outboundSchema: z.ZodType<
-  ReportOperation$Outbound,
-  z.ZodTypeDef,
-  ReportOperation
-> = z.object({
-  id: z.string().optional(),
-  status: ReportOperationStatus$outboundSchema.optional(),
-  type: ReportOperationType$outboundSchema.optional(),
-  requestedDate: z.string().optional(),
-  updatedDate: z.string().optional(),
-  errorMessage: z.nullable(z.string()).optional(),
-});
-
-export function reportOperationToJSON(
-  reportOperation: ReportOperation,
-): string {
-  return JSON.stringify(ReportOperation$outboundSchema.parse(reportOperation));
-}
 export function reportOperationFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportOperation, SDKValidationError> {

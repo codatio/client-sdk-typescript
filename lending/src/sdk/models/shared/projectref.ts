@@ -27,25 +27,7 @@ export const ProjectRef$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type ProjectRef$Outbound = {
-  id: string;
-  name?: string | null | undefined;
-};
 
-/** @internal */
-export const ProjectRef$outboundSchema: z.ZodType<
-  ProjectRef$Outbound,
-  z.ZodTypeDef,
-  ProjectRef
-> = z.object({
-  id: z.string(),
-  name: z.nullable(z.string()).optional(),
-});
-
-export function projectRefToJSON(projectRef: ProjectRef): string {
-  return JSON.stringify(ProjectRef$outboundSchema.parse(projectRef));
-}
 export function projectRefFromJSON(
   jsonString: string,
 ): SafeParseResult<ProjectRef, SDKValidationError> {

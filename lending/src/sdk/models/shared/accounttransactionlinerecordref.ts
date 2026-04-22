@@ -49,10 +49,6 @@ export type AccountTransactionLineRecordRef = {
 export const AccountTransactionLineRecordRefDataType$inboundSchema:
   z.ZodNativeEnum<typeof AccountTransactionLineRecordRefDataType> = z
     .nativeEnum(AccountTransactionLineRecordRefDataType);
-/** @internal */
-export const AccountTransactionLineRecordRefDataType$outboundSchema:
-  z.ZodNativeEnum<typeof AccountTransactionLineRecordRefDataType> =
-    AccountTransactionLineRecordRefDataType$inboundSchema;
 
 /** @internal */
 export const AccountTransactionLineRecordRef$inboundSchema: z.ZodType<
@@ -63,31 +59,7 @@ export const AccountTransactionLineRecordRef$inboundSchema: z.ZodType<
   id: z.string().optional(),
   dataType: AccountTransactionLineRecordRefDataType$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountTransactionLineRecordRef$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-};
 
-/** @internal */
-export const AccountTransactionLineRecordRef$outboundSchema: z.ZodType<
-  AccountTransactionLineRecordRef$Outbound,
-  z.ZodTypeDef,
-  AccountTransactionLineRecordRef
-> = z.object({
-  id: z.string().optional(),
-  dataType: AccountTransactionLineRecordRefDataType$outboundSchema.optional(),
-});
-
-export function accountTransactionLineRecordRefToJSON(
-  accountTransactionLineRecordRef: AccountTransactionLineRecordRef,
-): string {
-  return JSON.stringify(
-    AccountTransactionLineRecordRef$outboundSchema.parse(
-      accountTransactionLineRecordRef,
-    ),
-  );
-}
 export function accountTransactionLineRecordRefFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountTransactionLineRecordRef, SDKValidationError> {

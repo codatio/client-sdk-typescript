@@ -33,9 +33,62 @@ For example, you can use the querying to filter companies tagged with a specific
 - Region: `region != uk`
 - Owning team and region: `region = uk && owningTeam = invoice-finance`
 
-### Example Usage
+### Example Usage: List of Companies
 
-<!-- UsageSnippet language="typescript" operationID="list-companies" method="get" path="/companies" -->
+<!-- UsageSnippet language="typescript" operationID="list-companies" method="get" path="/companies" example="List of Companies" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.list({
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesList } from "@codat/lending/funcs/companiesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesList(codatLending, {
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+    tags: "region=uk && team=invoice-finance",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: One company
+
+<!-- UsageSnippet language="typescript" operationID="list-companies" method="get" path="/companies" example="One company" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -117,9 +170,162 @@ Each company can have multiple [connections](https://docs.codat.io/lending-api#/
 
 If forbidden characters (see `name` pattern) are present in the request, a company will be created with the forbidden characters removed. For example, `Company (Codat[1])` with be created as `Company Codat1`.
 
-### Example Usage
+### Example Usage: Malformed query
 
-<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" -->
+<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" example="Malformed query" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.create({
+    name: "Bank of Dave",
+    description: "Requested early access to the new financing scheme.",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesCreate } from "@codat/lending/funcs/companiesCreate.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesCreate(codatLending, {
+    name: "Bank of Dave",
+    description: "Requested early access to the new financing scheme.",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: With a description
+
+<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" example="With a description" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.create({
+    name: "Technicalium",
+    description: "Technology services, including web and app design and development",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesCreate } from "@codat/lending/funcs/companiesCreate.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesCreate(codatLending, {
+    name: "Technicalium",
+    description: "Technology services, including web and app design and development",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: With a tag
+
+<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" example="With a tag" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.create({
+    name: "Bank of Dave",
+    description: "Requested early access to the new financing scheme.",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesCreate } from "@codat/lending/funcs/companiesCreate.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesCreate(codatLending, {
+    name: "Bank of Dave",
+    description: "Requested early access to the new financing scheme.",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesCreate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: With no description
+
+<!-- UsageSnippet language="typescript" operationID="create-company" method="post" path="/companies" example="With no description" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -195,9 +401,123 @@ run();
 A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
 Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
-### Example Usage
+### Example Usage: Unauthorized
 
-<!-- UsageSnippet language="typescript" operationID="replace-company" method="put" path="/companies/{companyId}" -->
+<!-- UsageSnippet language="typescript" operationID="replace-company" method="put" path="/companies/{companyId}" example="Unauthorized" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.replace({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "Bank of Dave",
+      description: "Requested early access to the new financing scheme.",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesReplace } from "@codat/lending/funcs/companiesReplace.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesReplace(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "Bank of Dave",
+      description: "Requested early access to the new financing scheme.",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesReplace failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Update description
+
+<!-- UsageSnippet language="typescript" operationID="replace-company" method="put" path="/companies/{companyId}" example="Update description" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.replace({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "Same name",
+      description: "Additional documents required",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesReplace } from "@codat/lending/funcs/companiesReplace.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesReplace(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyRequestBody: {
+      name: "Same name",
+      description: "Additional documents required",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesReplace failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Update name
+
+<!-- UsageSnippet language="typescript" operationID="replace-company" method="put" path="/companies/{companyId}" example="Update name" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -280,9 +600,121 @@ The *Update company* endpoint doesn't have any required fields. If any of the fi
 
 A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a business sharing access to their data.
 
-### Example Usage
+### Example Usage: Unauthorized
 
-<!-- UsageSnippet language="typescript" operationID="update-company" method="patch" path="/companies/{companyId}" -->
+<!-- UsageSnippet language="typescript" operationID="update-company" method="patch" path="/companies/{companyId}" example="Unauthorized" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.update({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyUpdateRequest: {
+      name: "Bank of Dave",
+      description: "Requested early access to the new financing scheme.",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesUpdate } from "@codat/lending/funcs/companiesUpdate.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesUpdate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyUpdateRequest: {
+      name: "Bank of Dave",
+      description: "Requested early access to the new financing scheme.",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesUpdate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Update name
+
+<!-- UsageSnippet language="typescript" operationID="update-company" method="patch" path="/companies/{companyId}" example="Update name" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.update({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyUpdateRequest: {
+      name: "New Name",
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesUpdate } from "@codat/lending/funcs/companiesUpdate.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesUpdate(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    companyUpdateRequest: {
+      name: "New Name",
+    },
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesUpdate failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Update tags
+
+<!-- UsageSnippet language="typescript" operationID="update-company" method="patch" path="/companies/{companyId}" example="Update tags" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -448,9 +880,107 @@ A [company](https://docs.codat.io/lending-api#/schemas/Company) represents a bus
 Each company can have multiple [connections](https://docs.codat.io/lending-api#/schemas/Connection) to different data sources, such as one connection to Xero for accounting data, two connections to Plaid for two bank accounts, and a connection to Zettle for POS data.
 
 
-### Example Usage
+### Example Usage: Parent multi-entity company
 
-<!-- UsageSnippet language="typescript" operationID="get-company" method="get" path="/companies/{companyId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-company" method="get" path="/companies/{companyId}" example="Parent multi-entity company" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesGet } from "@codat/lending/funcs/companiesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Simple company
+
+<!-- UsageSnippet language="typescript" operationID="get-company" method="get" path="/companies/{companyId}" example="Simple company" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.companies.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { companiesGet } from "@codat/lending/funcs/companiesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await companiesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("companiesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Subsidiary multi-entity company
+
+<!-- UsageSnippet language="typescript" operationID="get-company" method="get" path="/companies/{companyId}" example="Subsidiary multi-entity company" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

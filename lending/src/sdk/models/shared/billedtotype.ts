@@ -22,6 +22,3 @@ export type BilledToType = ClosedEnum<typeof BilledToType>;
 /** @internal */
 export const BilledToType$inboundSchema: z.ZodNativeEnum<typeof BilledToType> =
   z.nativeEnum(BilledToType);
-/** @internal */
-export const BilledToType$outboundSchema: z.ZodNativeEnum<typeof BilledToType> =
-  BilledToType$inboundSchema;

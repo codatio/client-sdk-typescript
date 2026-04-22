@@ -136,10 +136,6 @@ export type PullOperation = {
 export const DatasetStatus$inboundSchema: z.ZodNativeEnum<
   typeof DatasetStatus
 > = z.nativeEnum(DatasetStatus);
-/** @internal */
-export const DatasetStatus$outboundSchema: z.ZodNativeEnum<
-  typeof DatasetStatus
-> = DatasetStatus$inboundSchema;
 
 /** @internal */
 export const PullOperation$inboundSchema: z.ZodType<
@@ -160,45 +156,7 @@ export const PullOperation$inboundSchema: z.ZodType<
   isCompleted: z.boolean(),
   isErrored: z.boolean(),
 });
-/** @internal */
-export type PullOperation$Outbound = {
-  id: string;
-  companyId: string;
-  connectionId: string;
-  dataType: string;
-  status: string;
-  statusDescription?: string | null | undefined;
-  errorMessage?: string | null | undefined;
-  requested: string;
-  completed?: string | undefined;
-  progress: number;
-  isCompleted: boolean;
-  isErrored: boolean;
-};
 
-/** @internal */
-export const PullOperation$outboundSchema: z.ZodType<
-  PullOperation$Outbound,
-  z.ZodTypeDef,
-  PullOperation
-> = z.object({
-  id: z.string(),
-  companyId: z.string(),
-  connectionId: z.string(),
-  dataType: z.string(),
-  status: DatasetStatus$outboundSchema,
-  statusDescription: z.nullable(z.string()).optional(),
-  errorMessage: z.nullable(z.string()).optional(),
-  requested: z.string(),
-  completed: z.string().optional(),
-  progress: z.number().int(),
-  isCompleted: z.boolean(),
-  isErrored: z.boolean(),
-});
-
-export function pullOperationToJSON(pullOperation: PullOperation): string {
-  return JSON.stringify(PullOperation$outboundSchema.parse(pullOperation));
-}
 export function pullOperationFromJSON(
   jsonString: string,
 ): SafeParseResult<PullOperation, SDKValidationError> {

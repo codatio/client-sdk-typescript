@@ -8,17 +8,10 @@ import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
 import {
   TrackingRecordRef,
   TrackingRecordRef$inboundSchema,
-  TrackingRecordRef$Outbound,
-  TrackingRecordRef$outboundSchema,
 } from "./trackingrecordref.js";
 
 /**
@@ -91,27 +84,7 @@ export const JournalLineTracking$inboundSchema: z.ZodType<
 > = z.object({
   recordRefs: z.nullable(z.array(TrackingRecordRef$inboundSchema)).optional(),
 });
-/** @internal */
-export type JournalLineTracking$Outbound = {
-  recordRefs?: Array<TrackingRecordRef$Outbound> | null | undefined;
-};
 
-/** @internal */
-export const JournalLineTracking$outboundSchema: z.ZodType<
-  JournalLineTracking$Outbound,
-  z.ZodTypeDef,
-  JournalLineTracking
-> = z.object({
-  recordRefs: z.nullable(z.array(TrackingRecordRef$outboundSchema)).optional(),
-});
-
-export function journalLineTrackingToJSON(
-  journalLineTracking: JournalLineTracking,
-): string {
-  return JSON.stringify(
-    JournalLineTracking$outboundSchema.parse(journalLineTracking),
-  );
-}
 export function journalLineTrackingFromJSON(
   jsonString: string,
 ): SafeParseResult<JournalLineTracking, SDKValidationError> {
@@ -126,10 +99,6 @@ export function journalLineTrackingFromJSON(
 export const JournalLineDataType$inboundSchema: z.ZodNativeEnum<
   typeof JournalLineDataType
 > = z.nativeEnum(JournalLineDataType);
-/** @internal */
-export const JournalLineDataType$outboundSchema: z.ZodNativeEnum<
-  typeof JournalLineDataType
-> = JournalLineDataType$inboundSchema;
 
 /** @internal */
 export const ContactReference$inboundSchema: z.ZodType<
@@ -140,29 +109,7 @@ export const ContactReference$inboundSchema: z.ZodType<
   id: z.string(),
   dataType: z.nullable(JournalLineDataType$inboundSchema).optional(),
 });
-/** @internal */
-export type ContactReference$Outbound = {
-  id: string;
-  dataType?: string | null | undefined;
-};
 
-/** @internal */
-export const ContactReference$outboundSchema: z.ZodType<
-  ContactReference$Outbound,
-  z.ZodTypeDef,
-  ContactReference
-> = z.object({
-  id: z.string(),
-  dataType: z.nullable(JournalLineDataType$outboundSchema).optional(),
-});
-
-export function contactReferenceToJSON(
-  contactReference: ContactReference,
-): string {
-  return JSON.stringify(
-    ContactReference$outboundSchema.parse(contactReference),
-  );
-}
 export function contactReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<ContactReference, SDKValidationError> {
@@ -188,41 +135,7 @@ export const JournalLine$inboundSchema: z.ZodType<
   tracking: z.lazy(() => JournalLineTracking$inboundSchema).optional(),
   contactRef: z.lazy(() => ContactReference$inboundSchema).optional(),
 });
-/** @internal */
-export type JournalLine$Outbound = {
-  description?: string | null | undefined;
-  netAmount: number;
-  transactionAmount?: number | undefined;
-  currency?: string | null | undefined;
-  transactionCurrency?: string | null | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  tracking?: JournalLineTracking$Outbound | undefined;
-  contactRef?: ContactReference$Outbound | undefined;
-};
 
-/** @internal */
-export const JournalLine$outboundSchema: z.ZodType<
-  JournalLine$Outbound,
-  z.ZodTypeDef,
-  JournalLine
-> = z.object({
-  description: z.nullable(z.string()).optional(),
-  netAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  transactionAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(
-    v => typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.nullable(z.string()).optional(),
-  transactionCurrency: z.nullable(z.string()).optional(),
-  accountRef: AccountRef$outboundSchema.optional(),
-  tracking: z.lazy(() => JournalLineTracking$outboundSchema).optional(),
-  contactRef: z.lazy(() => ContactReference$outboundSchema).optional(),
-});
-
-export function journalLineToJSON(journalLine: JournalLine): string {
-  return JSON.stringify(JournalLine$outboundSchema.parse(journalLine));
-}
 export function journalLineFromJSON(
   jsonString: string,
 ): SafeParseResult<JournalLine, SDKValidationError> {

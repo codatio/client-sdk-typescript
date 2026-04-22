@@ -18,7 +18,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="list-commerce-product-categories" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories" -->
+<!-- UsageSnippet language="typescript" operationID="list-commerce-product-categories" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories" example="Lightspeed K Trial" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -104,7 +104,7 @@ Before using this endpoint, you must have [retrieved data for the company](https
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-commerce-product-category" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories/{productId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-commerce-product-category" method="get" path="/companies/{companyId}/connections/{connectionId}/data/commerce-productCategories/{productId}" example="Lightspeed K Trial" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

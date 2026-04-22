@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   BankingTransactionRef,
   BankingTransactionRef$inboundSchema,
-  BankingTransactionRef$Outbound,
-  BankingTransactionRef$outboundSchema,
 } from "./bankingtransactionref.js";
 
 export type Payment = {
@@ -113,42 +111,7 @@ export const Payment$inboundSchema: z.ZodType<Payment, z.ZodTypeDef, unknown> =
     bankingTransactionRefs: z.array(BankingTransactionRef$inboundSchema)
       .optional(),
   });
-/** @internal */
-export type Payment$Outbound = {
-  id?: string | undefined;
-  date?: string | undefined;
-  paymentType?: string | undefined;
-  amount?: number | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  bankingTransactionRefs?: Array<BankingTransactionRef$Outbound> | undefined;
-};
 
-/** @internal */
-export const Payment$outboundSchema: z.ZodType<
-  Payment$Outbound,
-  z.ZodTypeDef,
-  Payment
-> = z.object({
-  id: z.string().optional(),
-  date: z.string().optional(),
-  paymentType: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  bankingTransactionRefs: z.array(BankingTransactionRef$outboundSchema)
-    .optional(),
-});
-
-export function paymentToJSON(payment: Payment): string {
-  return JSON.stringify(Payment$outboundSchema.parse(payment));
-}
 export function paymentFromJSON(
   jsonString: string,
 ): SafeParseResult<Payment, SDKValidationError> {

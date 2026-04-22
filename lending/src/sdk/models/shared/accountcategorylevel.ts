@@ -31,31 +31,7 @@ export const AccountCategoryLevel$inboundSchema: z.ZodType<
   levelName: z.string().optional(),
   confidence: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type AccountCategoryLevel$Outbound = {
-  levelName?: string | undefined;
-  confidence?: number | undefined;
-};
 
-/** @internal */
-export const AccountCategoryLevel$outboundSchema: z.ZodType<
-  AccountCategoryLevel$Outbound,
-  z.ZodTypeDef,
-  AccountCategoryLevel
-> = z.object({
-  levelName: z.string().optional(),
-  confidence: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function accountCategoryLevelToJSON(
-  accountCategoryLevel: AccountCategoryLevel,
-): string {
-  return JSON.stringify(
-    AccountCategoryLevel$outboundSchema.parse(accountCategoryLevel),
-  );
-}
 export function accountCategoryLevelFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountCategoryLevel, SDKValidationError> {

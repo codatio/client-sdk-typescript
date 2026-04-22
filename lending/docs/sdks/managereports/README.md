@@ -17,7 +17,7 @@ This action triggers the system to refresh and pull the necessary data from the 
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="generate-report" method="post" path="/companies/{companyId}/reports/{reportType}" -->
+<!-- UsageSnippet language="typescript" operationID="generate-report" method="post" path="/companies/{companyId}/reports/{reportType}" example="Report" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

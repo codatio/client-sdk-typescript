@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type DownloadExcelReportRequest = {
@@ -19,15 +16,6 @@ export type DownloadExcelReportRequest = {
   reportType: shared.ExcelReportTypes;
 };
 
-/** @internal */
-export const DownloadExcelReportRequest$inboundSchema: z.ZodType<
-  DownloadExcelReportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  reportType: shared.ExcelReportTypes$inboundSchema,
-});
 /** @internal */
 export type DownloadExcelReportRequest$Outbound = {
   companyId: string;
@@ -49,14 +37,5 @@ export function downloadExcelReportRequestToJSON(
 ): string {
   return JSON.stringify(
     DownloadExcelReportRequest$outboundSchema.parse(downloadExcelReportRequest),
-  );
-}
-export function downloadExcelReportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<DownloadExcelReportRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DownloadExcelReportRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DownloadExcelReportRequest' from JSON`,
   );
 }

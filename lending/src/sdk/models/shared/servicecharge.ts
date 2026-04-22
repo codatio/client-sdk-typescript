@@ -10,13 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ServiceChargeType,
   ServiceChargeType$inboundSchema,
-  ServiceChargeType$outboundSchema,
 } from "./servicechargetype.js";
 import {
   TaxComponentAllocation,
   TaxComponentAllocation$inboundSchema,
-  TaxComponentAllocation$Outbound,
-  TaxComponentAllocation$outboundSchema,
 } from "./taxcomponentallocation.js";
 
 export type ServiceCharge = {
@@ -64,41 +61,7 @@ export const ServiceCharge$inboundSchema: z.ZodType<
   quantity: z.number().int().optional(),
   type: ServiceChargeType$inboundSchema.optional(),
 });
-/** @internal */
-export type ServiceCharge$Outbound = {
-  description?: string | undefined;
-  totalAmount?: number | undefined;
-  taxPercentage?: number | undefined;
-  taxAmount?: number | undefined;
-  taxes?: Array<TaxComponentAllocation$Outbound> | undefined;
-  quantity?: number | undefined;
-  type?: string | undefined;
-};
 
-/** @internal */
-export const ServiceCharge$outboundSchema: z.ZodType<
-  ServiceCharge$Outbound,
-  z.ZodTypeDef,
-  ServiceCharge
-> = z.object({
-  description: z.string().optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  taxPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  taxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  taxes: z.array(TaxComponentAllocation$outboundSchema).optional(),
-  quantity: z.number().int().optional(),
-  type: ServiceChargeType$outboundSchema.optional(),
-});
-
-export function serviceChargeToJSON(serviceCharge: ServiceCharge): string {
-  return JSON.stringify(ServiceCharge$outboundSchema.parse(serviceCharge));
-}
 export function serviceChargeFromJSON(
   jsonString: string,
 ): SafeParseResult<ServiceCharge, SDKValidationError> {

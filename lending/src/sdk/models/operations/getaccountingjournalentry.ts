@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingJournalEntryRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetAccountingJournalEntryRequest = {
   journalEntryId: string;
 };
 
-/** @internal */
-export const GetAccountingJournalEntryRequest$inboundSchema: z.ZodType<
-  GetAccountingJournalEntryRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  journalEntryId: z.string(),
-});
 /** @internal */
 export type GetAccountingJournalEntryRequest$Outbound = {
   companyId: string;
@@ -50,14 +38,5 @@ export function getAccountingJournalEntryRequestToJSON(
     GetAccountingJournalEntryRequest$outboundSchema.parse(
       getAccountingJournalEntryRequest,
     ),
-  );
-}
-export function getAccountingJournalEntryRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAccountingJournalEntryRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetAccountingJournalEntryRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAccountingJournalEntryRequest' from JSON`,
   );
 }

@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ReportLine,
-  ReportLine$inboundSchema,
-  ReportLine$Outbound,
-  ReportLine$outboundSchema,
-} from "./reportline.js";
+import { ReportLine, ReportLine$inboundSchema } from "./reportline.js";
 
 export type CashFlowStatement = {
   /**
@@ -73,33 +68,7 @@ export const CashFlowStatement$inboundSchema: z.ZodType<
   cashReceipts: ReportLine$inboundSchema.optional(),
   cashPayments: ReportLine$inboundSchema.optional(),
 });
-/** @internal */
-export type CashFlowStatement$Outbound = {
-  fromDate?: string | undefined;
-  toDate?: string | undefined;
-  cashReceipts?: ReportLine$Outbound | undefined;
-  cashPayments?: ReportLine$Outbound | undefined;
-};
 
-/** @internal */
-export const CashFlowStatement$outboundSchema: z.ZodType<
-  CashFlowStatement$Outbound,
-  z.ZodTypeDef,
-  CashFlowStatement
-> = z.object({
-  fromDate: z.string().optional(),
-  toDate: z.string().optional(),
-  cashReceipts: ReportLine$outboundSchema.optional(),
-  cashPayments: ReportLine$outboundSchema.optional(),
-});
-
-export function cashFlowStatementToJSON(
-  cashFlowStatement: CashFlowStatement,
-): string {
-  return JSON.stringify(
-    CashFlowStatement$outboundSchema.parse(cashFlowStatement),
-  );
-}
 export function cashFlowStatementFromJSON(
   jsonString: string,
 ): SafeParseResult<CashFlowStatement, SDKValidationError> {

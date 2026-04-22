@@ -60,39 +60,7 @@ export const DataIntegrityMatch$inboundSchema: z.ZodType<
   amount: z.string().optional(),
   currency: z.string().optional(),
 });
-/** @internal */
-export type DataIntegrityMatch$Outbound = {
-  id?: string | undefined;
-  type?: string | undefined;
-  connectionId?: string | undefined;
-  date?: string | undefined;
-  description?: string | undefined;
-  amount?: string | undefined;
-  currency?: string | undefined;
-};
 
-/** @internal */
-export const DataIntegrityMatch$outboundSchema: z.ZodType<
-  DataIntegrityMatch$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityMatch
-> = z.object({
-  id: z.string().optional(),
-  type: z.string().optional(),
-  connectionId: z.string().optional(),
-  date: z.string().optional(),
-  description: z.string().optional(),
-  amount: z.string().optional(),
-  currency: z.string().optional(),
-});
-
-export function dataIntegrityMatchToJSON(
-  dataIntegrityMatch: DataIntegrityMatch,
-): string {
-  return JSON.stringify(
-    DataIntegrityMatch$outboundSchema.parse(dataIntegrityMatch),
-  );
-}
 export function dataIntegrityMatchFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityMatch, SDKValidationError> {

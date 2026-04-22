@@ -24,7 +24,3 @@ export type CommerceAddressType = ClosedEnum<typeof CommerceAddressType>;
 export const CommerceAddressType$inboundSchema: z.ZodNativeEnum<
   typeof CommerceAddressType
 > = z.nativeEnum(CommerceAddressType);
-/** @internal */
-export const CommerceAddressType$outboundSchema: z.ZodNativeEnum<
-  typeof CommerceAddressType
-> = CommerceAddressType$inboundSchema;

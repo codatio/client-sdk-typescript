@@ -32,31 +32,7 @@ export const PushFieldValidation$inboundSchema: z.ZodType<
   details: z.string(),
   ref: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type PushFieldValidation$Outbound = {
-  field?: string | undefined;
-  details: string;
-  ref?: string | null | undefined;
-};
 
-/** @internal */
-export const PushFieldValidation$outboundSchema: z.ZodType<
-  PushFieldValidation$Outbound,
-  z.ZodTypeDef,
-  PushFieldValidation
-> = z.object({
-  field: z.string().optional(),
-  details: z.string(),
-  ref: z.nullable(z.string()).optional(),
-});
-
-export function pushFieldValidationToJSON(
-  pushFieldValidation: PushFieldValidation,
-): string {
-  return JSON.stringify(
-    PushFieldValidation$outboundSchema.parse(pushFieldValidation),
-  );
-}
 export function pushFieldValidationFromJSON(
   jsonString: string,
 ): SafeParseResult<PushFieldValidation, SDKValidationError> {

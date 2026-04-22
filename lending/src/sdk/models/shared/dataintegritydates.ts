@@ -112,33 +112,7 @@ export const DataIntegrityDates$inboundSchema: z.ZodType<
   minOverlappingDate: z.string().optional(),
   maxOverlappingDate: z.string().optional(),
 });
-/** @internal */
-export type DataIntegrityDates$Outbound = {
-  minDate?: string | undefined;
-  maxDate?: string | undefined;
-  minOverlappingDate?: string | undefined;
-  maxOverlappingDate?: string | undefined;
-};
 
-/** @internal */
-export const DataIntegrityDates$outboundSchema: z.ZodType<
-  DataIntegrityDates$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityDates
-> = z.object({
-  minDate: z.string().optional(),
-  maxDate: z.string().optional(),
-  minOverlappingDate: z.string().optional(),
-  maxOverlappingDate: z.string().optional(),
-});
-
-export function dataIntegrityDatesToJSON(
-  dataIntegrityDates: DataIntegrityDates,
-): string {
-  return JSON.stringify(
-    DataIntegrityDates$outboundSchema.parse(dataIntegrityDates),
-  );
-}
 export function dataIntegrityDatesFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityDates, SDKValidationError> {

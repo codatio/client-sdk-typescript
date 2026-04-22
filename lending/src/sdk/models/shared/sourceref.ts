@@ -25,23 +25,7 @@ export const SourceRef$inboundSchema: z.ZodType<
 > = z.object({
   sourceType: z.string().optional(),
 });
-/** @internal */
-export type SourceRef$Outbound = {
-  sourceType?: string | undefined;
-};
 
-/** @internal */
-export const SourceRef$outboundSchema: z.ZodType<
-  SourceRef$Outbound,
-  z.ZodTypeDef,
-  SourceRef
-> = z.object({
-  sourceType: z.string().optional(),
-});
-
-export function sourceRefToJSON(sourceRef: SourceRef): string {
-  return JSON.stringify(SourceRef$outboundSchema.parse(sourceRef));
-}
 export function sourceRefFromJSON(
   jsonString: string,
 ): SafeParseResult<SourceRef, SDKValidationError> {

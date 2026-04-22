@@ -7,23 +7,11 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
-import {
-  SourceRef,
-  SourceRef$inboundSchema,
-  SourceRef$Outbound,
-  SourceRef$outboundSchema,
-} from "./sourceref.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
+import { SourceRef, SourceRef$inboundSchema } from "./sourceref.js";
 import {
   TransactionCategory,
   TransactionCategory$inboundSchema,
-  TransactionCategory$Outbound,
-  TransactionCategory$outboundSchema,
 } from "./transactioncategory.js";
 
 export type CashFlowTransaction = {
@@ -144,51 +132,7 @@ export const CashFlowTransaction$inboundSchema: z.ZodType<
   modifiedDate: z.string().optional(),
   isRecurring: z.nullable(z.boolean()).optional(),
 });
-/** @internal */
-export type CashFlowTransaction$Outbound = {
-  id?: string | undefined;
-  date?: string | undefined;
-  description?: string | undefined;
-  amount?: number | undefined;
-  currency?: string | undefined;
-  transactionCategory?: TransactionCategory$Outbound | undefined;
-  platformName?: string | undefined;
-  counterpartyNames?: Array<string> | undefined;
-  sourceRef?: SourceRef$Outbound | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  modifiedDate?: string | undefined;
-  isRecurring?: boolean | null | undefined;
-};
 
-/** @internal */
-export const CashFlowTransaction$outboundSchema: z.ZodType<
-  CashFlowTransaction$Outbound,
-  z.ZodTypeDef,
-  CashFlowTransaction
-> = z.object({
-  id: z.string().optional(),
-  date: z.string().optional(),
-  description: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  currency: z.string().optional(),
-  transactionCategory: TransactionCategory$outboundSchema.optional(),
-  platformName: z.string().optional(),
-  counterpartyNames: z.array(z.string()).optional(),
-  sourceRef: SourceRef$outboundSchema.optional(),
-  accountRef: AccountRef$outboundSchema.optional(),
-  modifiedDate: z.string().optional(),
-  isRecurring: z.nullable(z.boolean()).optional(),
-});
-
-export function cashFlowTransactionToJSON(
-  cashFlowTransaction: CashFlowTransaction,
-): string {
-  return JSON.stringify(
-    CashFlowTransaction$outboundSchema.parse(cashFlowTransaction),
-  );
-}
 export function cashFlowTransactionFromJSON(
   jsonString: string,
 ): SafeParseResult<CashFlowTransaction, SDKValidationError> {
@@ -208,28 +152,7 @@ export const EnhancedCashFlowItem$inboundSchema: z.ZodType<
   transactions: z.array(z.lazy(() => CashFlowTransaction$inboundSchema))
     .optional(),
 });
-/** @internal */
-export type EnhancedCashFlowItem$Outbound = {
-  transactions?: Array<CashFlowTransaction$Outbound> | undefined;
-};
 
-/** @internal */
-export const EnhancedCashFlowItem$outboundSchema: z.ZodType<
-  EnhancedCashFlowItem$Outbound,
-  z.ZodTypeDef,
-  EnhancedCashFlowItem
-> = z.object({
-  transactions: z.array(z.lazy(() => CashFlowTransaction$outboundSchema))
-    .optional(),
-});
-
-export function enhancedCashFlowItemToJSON(
-  enhancedCashFlowItem: EnhancedCashFlowItem,
-): string {
-  return JSON.stringify(
-    EnhancedCashFlowItem$outboundSchema.parse(enhancedCashFlowItem),
-  );
-}
 export function enhancedCashFlowItemFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedCashFlowItem, SDKValidationError> {

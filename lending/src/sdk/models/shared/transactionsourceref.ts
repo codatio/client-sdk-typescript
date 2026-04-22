@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   TransactionSourceType,
   TransactionSourceType$inboundSchema,
-  TransactionSourceType$outboundSchema,
 } from "./transactionsourcetype.js";
 
 export type TransactionSourceRef = {
@@ -32,29 +31,7 @@ export const TransactionSourceRef$inboundSchema: z.ZodType<
   id: z.string(),
   type: TransactionSourceType$inboundSchema,
 });
-/** @internal */
-export type TransactionSourceRef$Outbound = {
-  id: string;
-  type: string;
-};
 
-/** @internal */
-export const TransactionSourceRef$outboundSchema: z.ZodType<
-  TransactionSourceRef$Outbound,
-  z.ZodTypeDef,
-  TransactionSourceRef
-> = z.object({
-  id: z.string(),
-  type: TransactionSourceType$outboundSchema,
-});
-
-export function transactionSourceRefToJSON(
-  transactionSourceRef: TransactionSourceRef,
-): string {
-  return JSON.stringify(
-    TransactionSourceRef$outboundSchema.parse(transactionSourceRef),
-  );
-}
 export function transactionSourceRefFromJSON(
   jsonString: string,
 ): SafeParseResult<TransactionSourceRef, SDKValidationError> {

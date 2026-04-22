@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDataIntegritySummariesRequest = {
@@ -23,16 +20,6 @@ export type GetDataIntegritySummariesRequest = {
   query?: string | undefined;
 };
 
-/** @internal */
-export const GetDataIntegritySummariesRequest$inboundSchema: z.ZodType<
-  GetDataIntegritySummariesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  dataType: shared.DataIntegrityDataType$inboundSchema,
-  query: z.string().optional(),
-});
 /** @internal */
 export type GetDataIntegritySummariesRequest$Outbound = {
   companyId: string;
@@ -58,14 +45,5 @@ export function getDataIntegritySummariesRequestToJSON(
     GetDataIntegritySummariesRequest$outboundSchema.parse(
       getDataIntegritySummariesRequest,
     ),
-  );
-}
-export function getDataIntegritySummariesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetDataIntegritySummariesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetDataIntegritySummariesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetDataIntegritySummariesRequest' from JSON`,
   );
 }

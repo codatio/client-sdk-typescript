@@ -105,7 +105,7 @@ Required data may vary by integration. To see what data to post, first call [Get
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" -->
+<!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Malformed query" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

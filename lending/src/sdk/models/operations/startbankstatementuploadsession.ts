@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type StartBankStatementUploadSessionRequest = {
@@ -21,21 +18,6 @@ export type StartBankStatementUploadSessionRequest = {
   startUploadSessionRequest?: shared.StartUploadSessionRequest | undefined;
 };
 
-/** @internal */
-export const StartBankStatementUploadSessionRequest$inboundSchema: z.ZodType<
-  StartBankStatementUploadSessionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  StartUploadSessionRequest: shared.StartUploadSessionRequest$inboundSchema
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "StartUploadSessionRequest": "startUploadSessionRequest",
-  });
-});
 /** @internal */
 export type StartBankStatementUploadSessionRequest$Outbound = {
   companyId: string;
@@ -69,15 +51,5 @@ export function startBankStatementUploadSessionRequestToJSON(
     StartBankStatementUploadSessionRequest$outboundSchema.parse(
       startBankStatementUploadSessionRequest,
     ),
-  );
-}
-export function startBankStatementUploadSessionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<StartBankStatementUploadSessionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      StartBankStatementUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'StartBankStatementUploadSessionRequest' from JSON`,
   );
 }

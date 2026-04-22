@@ -30,25 +30,7 @@ export const SupplierRef$inboundSchema: z.ZodType<
   id: z.string(),
   supplierName: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type SupplierRef$Outbound = {
-  id: string;
-  supplierName?: string | null | undefined;
-};
 
-/** @internal */
-export const SupplierRef$outboundSchema: z.ZodType<
-  SupplierRef$Outbound,
-  z.ZodTypeDef,
-  SupplierRef
-> = z.object({
-  id: z.string(),
-  supplierName: z.nullable(z.string()).optional(),
-});
-
-export function supplierRefToJSON(supplierRef: SupplierRef): string {
-  return JSON.stringify(SupplierRef$outboundSchema.parse(supplierRef));
-}
 export function supplierRefFromJSON(
   jsonString: string,
 ): SafeParseResult<SupplierRef, SDKValidationError> {

@@ -30,7 +30,3 @@ export type DisputeStatus = ClosedEnum<typeof DisputeStatus>;
 export const DisputeStatus$inboundSchema: z.ZodNativeEnum<
   typeof DisputeStatus
 > = z.nativeEnum(DisputeStatus);
-/** @internal */
-export const DisputeStatus$outboundSchema: z.ZodNativeEnum<
-  typeof DisputeStatus
-> = DisputeStatus$inboundSchema;

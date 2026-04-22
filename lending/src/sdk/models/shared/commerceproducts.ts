@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceProduct,
   CommerceProduct$inboundSchema,
-  CommerceProduct$Outbound,
-  CommerceProduct$outboundSchema,
 } from "./commerceproduct.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type CommerceProducts = {
   results?: Array<CommerceProduct> | undefined;
@@ -53,39 +46,7 @@ export const CommerceProducts$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type CommerceProducts$Outbound = {
-  results?: Array<CommerceProduct$Outbound> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const CommerceProducts$outboundSchema: z.ZodType<
-  CommerceProducts$Outbound,
-  z.ZodTypeDef,
-  CommerceProducts
-> = z.object({
-  results: z.array(CommerceProduct$outboundSchema).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function commerceProductsToJSON(
-  commerceProducts: CommerceProducts,
-): string {
-  return JSON.stringify(
-    CommerceProducts$outboundSchema.parse(commerceProducts),
-  );
-}
 export function commerceProductsFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceProducts, SDKValidationError> {

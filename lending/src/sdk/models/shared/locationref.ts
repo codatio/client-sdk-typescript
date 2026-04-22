@@ -30,25 +30,7 @@ export const LocationRef$inboundSchema: z.ZodType<
   id: z.string(),
   name: z.string().optional(),
 });
-/** @internal */
-export type LocationRef$Outbound = {
-  id: string;
-  name?: string | undefined;
-};
 
-/** @internal */
-export const LocationRef$outboundSchema: z.ZodType<
-  LocationRef$Outbound,
-  z.ZodTypeDef,
-  LocationRef
-> = z.object({
-  id: z.string(),
-  name: z.string().optional(),
-});
-
-export function locationRefToJSON(locationRef: LocationRef): string {
-  return JSON.stringify(LocationRef$outboundSchema.parse(locationRef));
-}
 export function locationRefFromJSON(
   jsonString: string,
 ): SafeParseResult<LocationRef, SDKValidationError> {

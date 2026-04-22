@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListAccountingDirectCostsRequest = {
   /**
@@ -34,19 +31,6 @@ export type ListAccountingDirectCostsRequest = {
   orderBy?: string | undefined;
 };
 
-/** @internal */
-export const ListAccountingDirectCostsRequest$inboundSchema: z.ZodType<
-  ListAccountingDirectCostsRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  page: z.number().int().default(1),
-  pageSize: z.number().int().default(100),
-  query: z.string().optional(),
-  orderBy: z.string().optional(),
-});
 /** @internal */
 export type ListAccountingDirectCostsRequest$Outbound = {
   companyId: string;
@@ -78,14 +62,5 @@ export function listAccountingDirectCostsRequestToJSON(
     ListAccountingDirectCostsRequest$outboundSchema.parse(
       listAccountingDirectCostsRequest,
     ),
-  );
-}
-export function listAccountingDirectCostsRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListAccountingDirectCostsRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListAccountingDirectCostsRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListAccountingDirectCostsRequest' from JSON`,
   );
 }

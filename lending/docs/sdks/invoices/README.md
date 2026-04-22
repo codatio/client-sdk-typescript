@@ -109,9 +109,910 @@ Before using this endpoint, you must have [retrieved data for the company](https
 To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" -->
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Clear Books" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Exact (Netherlands)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Exact (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="FreshBooks" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage 200cloud" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Wave" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesList } from "@codat/lending/funcs/accountsReceivableInvoicesList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-invoices" method="get" path="/companies/{companyId}/data/invoices" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -197,9 +1098,876 @@ Before using this endpoint, you must have [retrieved data for the company](https
 To access the `paymentAllocations` property, ensure that the `payments` data type is queued and cached in Codat before retrieving `invoices` from Codat's cache.
 
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Clear Books" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Dynamics 365 Business Central
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (Netherlands)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Exact (Netherlands)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Exact (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Exact (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="FreshBooks" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 200cloud
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage 200cloud" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Wave
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Wave" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountsReceivable.invoices.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountsReceivableInvoicesGet } from "@codat/lending/funcs/accountsReceivableInvoicesGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountsReceivableInvoicesGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    invoiceId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountsReceivableInvoicesGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-invoice" method="get" path="/companies/{companyId}/data/invoices/{invoiceId}" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -337,7 +2105,7 @@ run();
 
 ### Response
 
-**Promise\<[ReadableStream<Uint8Array>](../../models/.md)\>**
+**Promise\<[ReadableStream<Uint8Array>](../../models/data.md)\>**
 
 ### Errors
 
@@ -586,7 +2354,7 @@ run();
 
 ### Response
 
-**Promise\<[ReadableStream<Uint8Array>](../../models/.md)\>**
+**Promise\<[ReadableStream<Uint8Array>](../../models/data.md)\>**
 
 ### Errors
 

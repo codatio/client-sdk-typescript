@@ -3,23 +3,14 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountStatus,
-  AccountStatus$inboundSchema,
   AccountStatus$outboundSchema,
 } from "./accountstatus.js";
-import {
-  AccountType,
-  AccountType$inboundSchema,
-  AccountType$outboundSchema,
-} from "./accounttype.js";
+import { AccountType, AccountType$outboundSchema } from "./accounttype.js";
 import {
   SupplementalData,
-  SupplementalData$inboundSchema,
   SupplementalData$Outbound,
   SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
@@ -153,15 +144,6 @@ export type AccountPrototype = {
 };
 
 /** @internal */
-export const AccountPrototypeValidDataTypeLinks$inboundSchema: z.ZodType<
-  AccountPrototypeValidDataTypeLinks,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  property: z.nullable(z.string()).optional(),
-  links: z.nullable(z.array(z.string())).optional(),
-});
-/** @internal */
 export type AccountPrototypeValidDataTypeLinks$Outbound = {
   property?: string | null | undefined;
   links?: Array<string> | null | undefined;
@@ -186,39 +168,7 @@ export function accountPrototypeValidDataTypeLinksToJSON(
     ),
   );
 }
-export function accountPrototypeValidDataTypeLinksFromJSON(
-  jsonString: string,
-): SafeParseResult<AccountPrototypeValidDataTypeLinks, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      AccountPrototypeValidDataTypeLinks$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AccountPrototypeValidDataTypeLinks' from JSON`,
-  );
-}
 
-/** @internal */
-export const AccountPrototype$inboundSchema: z.ZodType<
-  AccountPrototype,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  nominalCode: z.nullable(z.string()).optional(),
-  name: z.nullable(z.string()).optional(),
-  description: z.nullable(z.string()).optional(),
-  fullyQualifiedCategory: z.nullable(z.string()).optional(),
-  fullyQualifiedName: z.nullable(z.string()).optional(),
-  currency: z.string().optional(),
-  currentBalance: z.nullable(z.number().transform(v => new Decimal$(v)))
-    .optional(),
-  type: AccountType$inboundSchema.optional(),
-  status: AccountStatus$inboundSchema.optional(),
-  isBankAccount: z.boolean().optional(),
-  validDatatypeLinks: z.nullable(
-    z.array(z.lazy(() => AccountPrototypeValidDataTypeLinks$inboundSchema)),
-  ).optional(),
-  supplementalData: SupplementalData$inboundSchema.optional(),
-});
 /** @internal */
 export type AccountPrototype$Outbound = {
   nominalCode?: string | null | undefined;
@@ -269,14 +219,5 @@ export function accountPrototypeToJSON(
 ): string {
   return JSON.stringify(
     AccountPrototype$outboundSchema.parse(accountPrototype),
-  );
-}
-export function accountPrototypeFromJSON(
-  jsonString: string,
-): SafeParseResult<AccountPrototype, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => AccountPrototype$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'AccountPrototype' from JSON`,
   );
 }

@@ -10,26 +10,15 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   OrderDiscountAllocation,
   OrderDiscountAllocation$inboundSchema,
-  OrderDiscountAllocation$Outbound,
-  OrderDiscountAllocation$outboundSchema,
 } from "./orderdiscountallocation.js";
-import {
-  ProductRef,
-  ProductRef$inboundSchema,
-  ProductRef$Outbound,
-  ProductRef$outboundSchema,
-} from "./productref.js";
+import { ProductRef, ProductRef$inboundSchema } from "./productref.js";
 import {
   ProductVariantRef,
   ProductVariantRef$inboundSchema,
-  ProductVariantRef$Outbound,
-  ProductVariantRef$outboundSchema,
 } from "./productvariantref.js";
 import {
   TaxComponentAllocation,
   TaxComponentAllocation$inboundSchema,
-  TaxComponentAllocation$Outbound,
-  TaxComponentAllocation$outboundSchema,
 } from "./taxcomponentallocation.js";
 
 export type OrderLineItem = {
@@ -93,52 +82,7 @@ export const OrderLineItem$inboundSchema: z.ZodType<
   discountAllocations: z.array(OrderDiscountAllocation$inboundSchema)
     .optional(),
 });
-/** @internal */
-export type OrderLineItem$Outbound = {
-  id: string;
-  quantity?: number | undefined;
-  taxPercentage?: number | undefined;
-  totalAmount?: number | undefined;
-  totalTaxAmount?: number | undefined;
-  unitPrice?: number | undefined;
-  taxes?: Array<TaxComponentAllocation$Outbound> | undefined;
-  productRef?: ProductRef$Outbound | undefined;
-  productVariantRef?: ProductVariantRef$Outbound | undefined;
-  discountAllocations?: Array<OrderDiscountAllocation$Outbound> | undefined;
-};
 
-/** @internal */
-export const OrderLineItem$outboundSchema: z.ZodType<
-  OrderLineItem$Outbound,
-  z.ZodTypeDef,
-  OrderLineItem
-> = z.object({
-  id: z.string(),
-  quantity: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  taxPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  unitPrice: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  taxes: z.array(TaxComponentAllocation$outboundSchema).optional(),
-  productRef: ProductRef$outboundSchema.optional(),
-  productVariantRef: ProductVariantRef$outboundSchema.optional(),
-  discountAllocations: z.array(OrderDiscountAllocation$outboundSchema)
-    .optional(),
-});
-
-export function orderLineItemToJSON(orderLineItem: OrderLineItem): string {
-  return JSON.stringify(OrderLineItem$outboundSchema.parse(orderLineItem));
-}
 export function orderLineItemFromJSON(
   jsonString: string,
 ): SafeParseResult<OrderLineItem, SDKValidationError> {

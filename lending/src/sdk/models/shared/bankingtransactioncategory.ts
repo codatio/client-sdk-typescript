@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   TransactionCategoryStatus,
   TransactionCategoryStatus$inboundSchema,
-  TransactionCategoryStatus$outboundSchema,
 } from "./transactioncategorystatus.js";
 
 /**
@@ -58,39 +57,7 @@ export const BankingTransactionCategory$inboundSchema: z.ZodType<
   hasChildren: z.boolean().optional(),
   status: TransactionCategoryStatus$inboundSchema.optional(),
 });
-/** @internal */
-export type BankingTransactionCategory$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  name: string;
-  parentId?: string | null | undefined;
-  hasChildren?: boolean | undefined;
-  status?: string | undefined;
-};
 
-/** @internal */
-export const BankingTransactionCategory$outboundSchema: z.ZodType<
-  BankingTransactionCategory$Outbound,
-  z.ZodTypeDef,
-  BankingTransactionCategory
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  name: z.string(),
-  parentId: z.nullable(z.string()).optional(),
-  hasChildren: z.boolean().optional(),
-  status: TransactionCategoryStatus$outboundSchema.optional(),
-});
-
-export function bankingTransactionCategoryToJSON(
-  bankingTransactionCategory: BankingTransactionCategory,
-): string {
-  return JSON.stringify(
-    BankingTransactionCategory$outboundSchema.parse(bankingTransactionCategory),
-  );
-}
 export function bankingTransactionCategoryFromJSON(
   jsonString: string,
 ): SafeParseResult<BankingTransactionCategory, SDKValidationError> {

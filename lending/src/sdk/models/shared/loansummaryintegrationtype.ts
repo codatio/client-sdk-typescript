@@ -24,7 +24,3 @@ export type LoanSummaryIntegrationType = ClosedEnum<
 export const LoanSummaryIntegrationType$inboundSchema: z.ZodNativeEnum<
   typeof LoanSummaryIntegrationType
 > = z.nativeEnum(LoanSummaryIntegrationType);
-/** @internal */
-export const LoanSummaryIntegrationType$outboundSchema: z.ZodNativeEnum<
-  typeof LoanSummaryIntegrationType
-> = LoanSummaryIntegrationType$inboundSchema;

@@ -10,9 +10,284 @@
 
 Gets the latest cash flow statement for a company.
 
-### Example Usage
+### Example Usage: Clear Books
 
-<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" -->
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="Clear Books" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.cashFlow.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsCashFlowGet } from "@codat/lending/funcs/financialStatementsCashFlowGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsCashFlowGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsCashFlowGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreshBooks
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="FreshBooks" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.cashFlow.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsCashFlowGet } from "@codat/lending/funcs/financialStatementsCashFlowGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsCashFlowGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsCashFlowGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.cashFlow.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsCashFlowGet } from "@codat/lending/funcs/financialStatementsCashFlowGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsCashFlowGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsCashFlowGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.cashFlow.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsCashFlowGet } from "@codat/lending/funcs/financialStatementsCashFlowGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsCashFlowGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsCashFlowGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.financialStatements.cashFlow.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { financialStatementsCashFlowGet } from "@codat/lending/funcs/financialStatementsCashFlowGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await financialStatementsCashFlowGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    periodLength: 4,
+    periodsToCompare: 20,
+    startMonth: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("financialStatementsCashFlowGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-cash-flow-statement" method="get" path="/companies/{companyId}/data/financials/cashFlowStatement" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

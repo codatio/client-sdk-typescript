@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushFieldValidation,
   PushFieldValidation$inboundSchema,
-  PushFieldValidation$Outbound,
-  PushFieldValidation$outboundSchema,
 } from "./pushfieldvalidation.js";
 
 export type PushValidationInfo = {
@@ -28,30 +26,7 @@ export const PushValidationInfo$inboundSchema: z.ZodType<
   information: z.nullable(z.array(PushFieldValidation$inboundSchema))
     .optional(),
 });
-/** @internal */
-export type PushValidationInfo$Outbound = {
-  warnings?: Array<PushFieldValidation$Outbound> | null | undefined;
-  information?: Array<PushFieldValidation$Outbound> | null | undefined;
-};
 
-/** @internal */
-export const PushValidationInfo$outboundSchema: z.ZodType<
-  PushValidationInfo$Outbound,
-  z.ZodTypeDef,
-  PushValidationInfo
-> = z.object({
-  warnings: z.nullable(z.array(PushFieldValidation$outboundSchema)).optional(),
-  information: z.nullable(z.array(PushFieldValidation$outboundSchema))
-    .optional(),
-});
-
-export function pushValidationInfoToJSON(
-  pushValidationInfo: PushValidationInfo,
-): string {
-  return JSON.stringify(
-    PushValidationInfo$outboundSchema.parse(pushValidationInfo),
-  );
-}
 export function pushValidationInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<PushValidationInfo, SDKValidationError> {

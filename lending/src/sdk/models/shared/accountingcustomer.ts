@@ -9,31 +9,16 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAddress,
   AccountingAddress$inboundSchema,
-  AccountingAddress$Outbound,
-  AccountingAddress$outboundSchema,
 } from "./accountingaddress.js";
-import {
-  Contact,
-  Contact$inboundSchema,
-  Contact$Outbound,
-  Contact$outboundSchema,
-} from "./contact.js";
+import { Contact, Contact$inboundSchema } from "./contact.js";
 import {
   CustomerStatus,
   CustomerStatus$inboundSchema,
-  CustomerStatus$outboundSchema,
 } from "./customerstatus.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -133,55 +118,7 @@ export const AccountingCustomer$inboundSchema: z.ZodType<
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingCustomer$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  customerName?: string | null | undefined;
-  contactName?: string | null | undefined;
-  emailAddress?: string | null | undefined;
-  defaultCurrency?: string | undefined;
-  phone?: string | null | undefined;
-  addresses?: Array<AccountingAddress$Outbound> | null | undefined;
-  contacts?: Array<Contact$Outbound> | null | undefined;
-  registrationNumber?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  status: string;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCustomer$outboundSchema: z.ZodType<
-  AccountingCustomer$Outbound,
-  z.ZodTypeDef,
-  AccountingCustomer
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  customerName: z.nullable(z.string()).optional(),
-  contactName: z.nullable(z.string()).optional(),
-  emailAddress: z.nullable(z.string()).optional(),
-  defaultCurrency: z.string().optional(),
-  phone: z.nullable(z.string()).optional(),
-  addresses: z.nullable(z.array(AccountingAddress$outboundSchema)).optional(),
-  contacts: z.nullable(z.array(Contact$outboundSchema)).optional(),
-  registrationNumber: z.nullable(z.string()).optional(),
-  taxNumber: z.nullable(z.string()).optional(),
-  status: CustomerStatus$outboundSchema,
-  metadata: Metadata$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingCustomerToJSON(
-  accountingCustomer: AccountingCustomer,
-): string {
-  return JSON.stringify(
-    AccountingCustomer$outboundSchema.parse(accountingCustomer),
-  );
-}
 export function accountingCustomerFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCustomer, SDKValidationError> {

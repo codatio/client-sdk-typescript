@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ListReconciledInvoicesRequest = {
   /**
@@ -26,17 +23,6 @@ export type ListReconciledInvoicesRequest = {
   query?: string | undefined;
 };
 
-/** @internal */
-export const ListReconciledInvoicesRequest$inboundSchema: z.ZodType<
-  ListReconciledInvoicesRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  page: z.number().int().default(1),
-  pageSize: z.number().int().default(100),
-  query: z.string().optional(),
-});
 /** @internal */
 export type ListReconciledInvoicesRequest$Outbound = {
   companyId: string;
@@ -64,14 +50,5 @@ export function listReconciledInvoicesRequestToJSON(
     ListReconciledInvoicesRequest$outboundSchema.parse(
       listReconciledInvoicesRequest,
     ),
-  );
-}
-export function listReconciledInvoicesRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ListReconciledInvoicesRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ListReconciledInvoicesRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ListReconciledInvoicesRequest' from JSON`,
   );
 }

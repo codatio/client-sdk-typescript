@@ -38,9 +38,6 @@ export type PhoneNumber = {
 export const Type$inboundSchema: z.ZodNativeEnum<typeof Type> = z.nativeEnum(
   Type,
 );
-/** @internal */
-export const Type$outboundSchema: z.ZodNativeEnum<typeof Type> =
-  Type$inboundSchema;
 
 /** @internal */
 export const PhoneNumber$inboundSchema: z.ZodType<
@@ -51,25 +48,7 @@ export const PhoneNumber$inboundSchema: z.ZodType<
   number: z.nullable(z.string()).optional(),
   type: Type$inboundSchema,
 });
-/** @internal */
-export type PhoneNumber$Outbound = {
-  number?: string | null | undefined;
-  type: string;
-};
 
-/** @internal */
-export const PhoneNumber$outboundSchema: z.ZodType<
-  PhoneNumber$Outbound,
-  z.ZodTypeDef,
-  PhoneNumber
-> = z.object({
-  number: z.nullable(z.string()).optional(),
-  type: Type$outboundSchema,
-});
-
-export function phoneNumberToJSON(phoneNumber: PhoneNumber): string {
-  return JSON.stringify(PhoneNumber$outboundSchema.parse(phoneNumber));
-}
 export function phoneNumberFromJSON(
   jsonString: string,
 ): SafeParseResult<PhoneNumber, SDKValidationError> {

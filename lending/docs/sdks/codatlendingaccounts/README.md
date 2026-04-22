@@ -16,9 +16,614 @@ The *List bank accounts* endpoint returns a list of [bank accounts](https://docs
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" -->
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsList } from "@codat/lending/funcs/accountingBankDataAccountsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="list-accounting-bank-accounts" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -102,9 +707,592 @@ The *Get bank account* endpoint returns a single account for a given accountId.
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Dynamics 365 Business Central
 
-<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Dynamics 365 Business Central" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: FreeAgent
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="FreeAgent" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: KashFlow
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="KashFlow" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Oracle NetSuite
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Oracle NetSuite" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Desktop
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="QuickBooks Desktop" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="QuickBooks Online" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: QuickBooks Online Sandbox
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="QuickBooks Online Sandbox" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage 50 (UK)
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Sage 50 (UK)" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Business Cloud Accounting
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Sage Business Cloud Accounting" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Sage Intacct
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Sage Intacct" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Xero
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Xero" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.accountingBankData.accounts.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { accountingBankDataAccountsGet } from "@codat/lending/funcs/accountingBankDataAccountsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await accountingBankDataAccountsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("accountingBankDataAccountsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Zoho Books
+
+<!-- UsageSnippet language="typescript" operationID="get-accounting-bank-account" method="get" path="/companies/{companyId}/connections/{connectionId}/data/bankAccounts/{accountId}" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

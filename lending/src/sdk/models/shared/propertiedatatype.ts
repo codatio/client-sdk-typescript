@@ -62,7 +62,3 @@ export type PropertieDataType = ClosedEnum<typeof PropertieDataType>;
 export const PropertieDataType$inboundSchema: z.ZodNativeEnum<
   typeof PropertieDataType
 > = z.nativeEnum(PropertieDataType);
-/** @internal */
-export const PropertieDataType$outboundSchema: z.ZodNativeEnum<
-  typeof PropertieDataType
-> = PropertieDataType$inboundSchema;

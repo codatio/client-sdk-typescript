@@ -8,18 +8,8 @@ import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountInfo,
-  AccountInfo$inboundSchema,
-  AccountInfo$Outbound,
-  AccountInfo$outboundSchema,
-} from "./accountinfo.js";
-import {
-  RoutingInfo,
-  RoutingInfo$inboundSchema,
-  RoutingInfo$Outbound,
-  RoutingInfo$outboundSchema,
-} from "./routinginfo.js";
+import { AccountInfo, AccountInfo$inboundSchema } from "./accountinfo.js";
+import { RoutingInfo, RoutingInfo$inboundSchema } from "./routinginfo.js";
 
 /**
  * The type of bank account e.g. checking, savings, loan, creditCard, prepaidCard.
@@ -139,19 +129,11 @@ export type SourceAccountV2 = {
 export const SourceAccountV2AccountType$inboundSchema: z.ZodNativeEnum<
   typeof SourceAccountV2AccountType
 > = z.nativeEnum(SourceAccountV2AccountType);
-/** @internal */
-export const SourceAccountV2AccountType$outboundSchema: z.ZodNativeEnum<
-  typeof SourceAccountV2AccountType
-> = SourceAccountV2AccountType$inboundSchema;
 
 /** @internal */
 export const SourceAccountV2Status$inboundSchema: z.ZodNativeEnum<
   typeof SourceAccountV2Status
 > = z.nativeEnum(SourceAccountV2Status);
-/** @internal */
-export const SourceAccountV2Status$outboundSchema: z.ZodNativeEnum<
-  typeof SourceAccountV2Status
-> = SourceAccountV2Status$inboundSchema;
 
 /** @internal */
 export const SourceAccountV2$inboundSchema: z.ZodType<
@@ -172,49 +154,7 @@ export const SourceAccountV2$inboundSchema: z.ZodType<
   status: z.nullable(SourceAccountV2Status$inboundSchema).optional(),
   feedStartDate: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type SourceAccountV2$Outbound = {
-  id: string;
-  accountName: string;
-  accountType: string;
-  accountNumber: string;
-  sortCode?: string | null | undefined;
-  routingInfo?: RoutingInfo$Outbound | undefined;
-  currency: string;
-  balance: number;
-  accountInfo?: AccountInfo$Outbound | null | undefined;
-  modifiedDate?: string | undefined;
-  status?: string | null | undefined;
-  feedStartDate?: string | null | undefined;
-};
 
-/** @internal */
-export const SourceAccountV2$outboundSchema: z.ZodType<
-  SourceAccountV2$Outbound,
-  z.ZodTypeDef,
-  SourceAccountV2
-> = z.object({
-  id: z.string(),
-  accountName: z.string(),
-  accountType: SourceAccountV2AccountType$outboundSchema,
-  accountNumber: z.string(),
-  sortCode: z.nullable(z.string()).optional(),
-  routingInfo: RoutingInfo$outboundSchema.optional(),
-  currency: z.string(),
-  balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  accountInfo: z.nullable(AccountInfo$outboundSchema).optional(),
-  modifiedDate: z.string().optional(),
-  status: z.nullable(SourceAccountV2Status$outboundSchema).optional(),
-  feedStartDate: z.nullable(z.string()).optional(),
-});
-
-export function sourceAccountV2ToJSON(
-  sourceAccountV2: SourceAccountV2,
-): string {
-  return JSON.stringify(SourceAccountV2$outboundSchema.parse(sourceAccountV2));
-}
 export function sourceAccountV2FromJSON(
   jsonString: string,
 ): SafeParseResult<SourceAccountV2, SDKValidationError> {

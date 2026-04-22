@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountCategoryLevel,
   AccountCategoryLevel$inboundSchema,
-  AccountCategoryLevel$Outbound,
-  AccountCategoryLevel$outboundSchema,
 } from "./accountcategorylevel.js";
 
 export type EnhancedReportAccountCategory = {
@@ -30,31 +28,7 @@ export const EnhancedReportAccountCategory$inboundSchema: z.ZodType<
   status: z.string().optional(),
   levels: z.array(AccountCategoryLevel$inboundSchema).optional(),
 });
-/** @internal */
-export type EnhancedReportAccountCategory$Outbound = {
-  status?: string | undefined;
-  levels?: Array<AccountCategoryLevel$Outbound> | undefined;
-};
 
-/** @internal */
-export const EnhancedReportAccountCategory$outboundSchema: z.ZodType<
-  EnhancedReportAccountCategory$Outbound,
-  z.ZodTypeDef,
-  EnhancedReportAccountCategory
-> = z.object({
-  status: z.string().optional(),
-  levels: z.array(AccountCategoryLevel$outboundSchema).optional(),
-});
-
-export function enhancedReportAccountCategoryToJSON(
-  enhancedReportAccountCategory: EnhancedReportAccountCategory,
-): string {
-  return JSON.stringify(
-    EnhancedReportAccountCategory$outboundSchema.parse(
-      enhancedReportAccountCategory,
-    ),
-  );
-}
 export function enhancedReportAccountCategoryFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedReportAccountCategory, SDKValidationError> {

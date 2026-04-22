@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateBankAccountRequest = {
@@ -29,23 +26,6 @@ export type CreateBankAccountRequest = {
   accountingBankAccount?: shared.AccountingBankAccount | null | undefined;
 };
 
-/** @internal */
-export const CreateBankAccountRequest$inboundSchema: z.ZodType<
-  CreateBankAccountRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  timeoutInMinutes: z.number().int().optional(),
-  allowSyncOnPushComplete: z.boolean().default(true),
-  AccountingBankAccount: z.nullable(shared.AccountingBankAccount$inboundSchema)
-    .optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "AccountingBankAccount": "accountingBankAccount",
-  });
-});
 /** @internal */
 export type CreateBankAccountRequest$Outbound = {
   companyId: string;
@@ -81,14 +61,5 @@ export function createBankAccountRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateBankAccountRequest$outboundSchema.parse(createBankAccountRequest),
-  );
-}
-export function createBankAccountRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateBankAccountRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateBankAccountRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateBankAccountRequest' from JSON`,
   );
 }

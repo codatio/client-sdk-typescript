@@ -9,25 +9,16 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PropertieDataType,
   PropertieDataType$inboundSchema,
-  PropertieDataType$outboundSchema,
 } from "./propertiedatatype.js";
 import {
   PushOperationChange,
   PushOperationChange$inboundSchema,
-  PushOperationChange$Outbound,
-  PushOperationChange$outboundSchema,
 } from "./pushoperationchange.js";
 import {
   PushOperationStatus,
   PushOperationStatus$inboundSchema,
-  PushOperationStatus$outboundSchema,
 } from "./pushoperationstatus.js";
-import {
-  Validation,
-  Validation$inboundSchema,
-  Validation$Outbound,
-  Validation$outboundSchema,
-} from "./validation.js";
+import { Validation, Validation$inboundSchema } from "./validation.js";
 
 export type PushOperation = {
   /**
@@ -142,47 +133,7 @@ export const PushOperation$inboundSchema: z.ZodType<
   validation: Validation$inboundSchema.optional(),
   statusCode: z.number().int(),
 });
-/** @internal */
-export type PushOperation$Outbound = {
-  changes?: Array<PushOperationChange$Outbound> | null | undefined;
-  dataType?: string | undefined;
-  companyId: string;
-  pushOperationKey: string;
-  dataConnectionKey: string;
-  requestedOnUtc: string;
-  completedOnUtc?: string | undefined;
-  timeoutInMinutes?: number | null | undefined;
-  timeoutInSeconds?: number | null | undefined;
-  status: string;
-  errorMessage?: string | null | undefined;
-  validation?: Validation$Outbound | undefined;
-  statusCode: number;
-};
 
-/** @internal */
-export const PushOperation$outboundSchema: z.ZodType<
-  PushOperation$Outbound,
-  z.ZodTypeDef,
-  PushOperation
-> = z.object({
-  changes: z.nullable(z.array(PushOperationChange$outboundSchema)).optional(),
-  dataType: PropertieDataType$outboundSchema.optional(),
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-  dataConnectionKey: z.string(),
-  requestedOnUtc: z.string(),
-  completedOnUtc: z.string().optional(),
-  timeoutInMinutes: z.nullable(z.number().int()).optional(),
-  timeoutInSeconds: z.nullable(z.number().int()).optional(),
-  status: PushOperationStatus$outboundSchema,
-  errorMessage: z.nullable(z.string()).optional(),
-  validation: Validation$outboundSchema.optional(),
-  statusCode: z.number().int(),
-});
-
-export function pushOperationToJSON(pushOperation: PushOperation): string {
-  return JSON.stringify(PushOperation$outboundSchema.parse(pushOperation));
-}
 export function pushOperationFromJSON(
   jsonString: string,
 ): SafeParseResult<PushOperation, SDKValidationError> {

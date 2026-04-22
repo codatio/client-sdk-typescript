@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingAgedCreditorsReportRequest = {
   /**
@@ -27,17 +24,6 @@ export type GetAccountingAgedCreditorsReportRequest = {
   periodLengthDays?: number | undefined;
 };
 
-/** @internal */
-export const GetAccountingAgedCreditorsReportRequest$inboundSchema: z.ZodType<
-  GetAccountingAgedCreditorsReportRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  reportDate: z.string().transform(v => new RFCDate(v)).optional(),
-  numberOfPeriods: z.number().int().optional(),
-  periodLengthDays: z.number().int().optional(),
-});
 /** @internal */
 export type GetAccountingAgedCreditorsReportRequest$Outbound = {
   companyId: string;
@@ -66,20 +52,5 @@ export function getAccountingAgedCreditorsReportRequestToJSON(
     GetAccountingAgedCreditorsReportRequest$outboundSchema.parse(
       getAccountingAgedCreditorsReportRequest,
     ),
-  );
-}
-export function getAccountingAgedCreditorsReportRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  GetAccountingAgedCreditorsReportRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetAccountingAgedCreditorsReportRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'GetAccountingAgedCreditorsReportRequest' from JSON`,
   );
 }

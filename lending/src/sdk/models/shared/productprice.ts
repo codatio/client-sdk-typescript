@@ -36,27 +36,7 @@ export const ProductPrice$inboundSchema: z.ZodType<
   currency: z.string().optional(),
   unitPrice: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type ProductPrice$Outbound = {
-  currency?: string | undefined;
-  unitPrice?: number | undefined;
-};
 
-/** @internal */
-export const ProductPrice$outboundSchema: z.ZodType<
-  ProductPrice$Outbound,
-  z.ZodTypeDef,
-  ProductPrice
-> = z.object({
-  currency: z.string().optional(),
-  unitPrice: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function productPriceToJSON(productPrice: ProductPrice): string {
-  return JSON.stringify(ProductPrice$outboundSchema.parse(productPrice));
-}
 export function productPriceFromJSON(
   jsonString: string,
 ): SafeParseResult<ProductPrice, SDKValidationError> {

@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetBankAccountMappingRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetBankAccountMappingRequest = {
   connectionId: string;
 };
 
-/** @internal */
-export const GetBankAccountMappingRequest$inboundSchema: z.ZodType<
-  GetBankAccountMappingRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-});
 /** @internal */
 export type GetBankAccountMappingRequest$Outbound = {
   companyId: string;
@@ -50,14 +38,5 @@ export function getBankAccountMappingRequestToJSON(
     GetBankAccountMappingRequest$outboundSchema.parse(
       getBankAccountMappingRequest,
     ),
-  );
-}
-export function getBankAccountMappingRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetBankAccountMappingRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetBankAccountMappingRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetBankAccountMappingRequest' from JSON`,
   );
 }

@@ -27,29 +27,7 @@ export const DataIntegrityConnectionId$inboundSchema: z.ZodType<
   source: z.array(z.string()).optional(),
   target: z.array(z.string()).optional(),
 });
-/** @internal */
-export type DataIntegrityConnectionId$Outbound = {
-  source?: Array<string> | undefined;
-  target?: Array<string> | undefined;
-};
 
-/** @internal */
-export const DataIntegrityConnectionId$outboundSchema: z.ZodType<
-  DataIntegrityConnectionId$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityConnectionId
-> = z.object({
-  source: z.array(z.string()).optional(),
-  target: z.array(z.string()).optional(),
-});
-
-export function dataIntegrityConnectionIdToJSON(
-  dataIntegrityConnectionId: DataIntegrityConnectionId,
-): string {
-  return JSON.stringify(
-    DataIntegrityConnectionId$outboundSchema.parse(dataIntegrityConnectionId),
-  );
-}
 export function dataIntegrityConnectionIdFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityConnectionId, SDKValidationError> {

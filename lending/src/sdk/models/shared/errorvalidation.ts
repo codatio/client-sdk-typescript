@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   ErrorValidationItem,
   ErrorValidationItem$inboundSchema,
-  ErrorValidationItem$Outbound,
-  ErrorValidationItem$outboundSchema,
 } from "./errorvalidationitem.js";
 
 /**
@@ -30,27 +28,7 @@ export const ErrorValidation$inboundSchema: z.ZodType<
   errors: z.nullable(z.array(ErrorValidationItem$inboundSchema)).optional(),
   warnings: z.nullable(z.array(ErrorValidationItem$inboundSchema)).optional(),
 });
-/** @internal */
-export type ErrorValidation$Outbound = {
-  errors?: Array<ErrorValidationItem$Outbound> | null | undefined;
-  warnings?: Array<ErrorValidationItem$Outbound> | null | undefined;
-};
 
-/** @internal */
-export const ErrorValidation$outboundSchema: z.ZodType<
-  ErrorValidation$Outbound,
-  z.ZodTypeDef,
-  ErrorValidation
-> = z.object({
-  errors: z.nullable(z.array(ErrorValidationItem$outboundSchema)).optional(),
-  warnings: z.nullable(z.array(ErrorValidationItem$outboundSchema)).optional(),
-});
-
-export function errorValidationToJSON(
-  errorValidation: ErrorValidation,
-): string {
-  return JSON.stringify(ErrorValidation$outboundSchema.parse(errorValidation));
-}
 export function errorValidationFromJSON(
   jsonString: string,
 ): SafeParseResult<ErrorValidation, SDKValidationError> {

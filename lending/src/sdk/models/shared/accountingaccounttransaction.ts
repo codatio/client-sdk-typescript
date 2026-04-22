@@ -11,21 +11,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountTransactionLine,
   AccountTransactionLine$inboundSchema,
-  AccountTransactionLine$Outbound,
-  AccountTransactionLine$outboundSchema,
 } from "./accounttransactionline.js";
 import {
   BankAccountRef,
   BankAccountRef$inboundSchema,
-  BankAccountRef$Outbound,
-  BankAccountRef$outboundSchema,
 } from "./bankaccountref.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 
 /**
  * The status of the account transaction.
@@ -170,10 +161,6 @@ export type AccountingAccountTransaction = {
 export const AccountingAccountTransactionStatus$inboundSchema: z.ZodNativeEnum<
   typeof AccountingAccountTransactionStatus
 > = z.nativeEnum(AccountingAccountTransactionStatus);
-/** @internal */
-export const AccountingAccountTransactionStatus$outboundSchema: z.ZodNativeEnum<
-  typeof AccountingAccountTransactionStatus
-> = AccountingAccountTransactionStatus$inboundSchema;
 
 /** @internal */
 export const AccountingAccountTransaction$inboundSchema: z.ZodType<
@@ -196,59 +183,7 @@ export const AccountingAccountTransaction$inboundSchema: z.ZodType<
   totalAmount: z.number().transform(v => new Decimal$(v)).optional(),
   metadata: Metadata$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingAccountTransaction$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  transactionId?: string | null | undefined;
-  note?: string | null | undefined;
-  bankAccountRef?: BankAccountRef$Outbound | undefined;
-  date?: string | undefined;
-  status?: string | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  lines?: Array<AccountTransactionLine$Outbound> | null | undefined;
-  totalAmount?: number | undefined;
-  metadata?: Metadata$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingAccountTransaction$outboundSchema: z.ZodType<
-  AccountingAccountTransaction$Outbound,
-  z.ZodTypeDef,
-  AccountingAccountTransaction
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  transactionId: z.nullable(z.string()).optional(),
-  note: z.nullable(z.string()).optional(),
-  bankAccountRef: BankAccountRef$outboundSchema.optional(),
-  date: z.string().optional(),
-  status: AccountingAccountTransactionStatus$outboundSchema.optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  lines: z.nullable(z.array(AccountTransactionLine$outboundSchema)).optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  metadata: Metadata$outboundSchema.optional(),
-});
-
-export function accountingAccountTransactionToJSON(
-  accountingAccountTransaction: AccountingAccountTransaction,
-): string {
-  return JSON.stringify(
-    AccountingAccountTransaction$outboundSchema.parse(
-      accountingAccountTransaction,
-    ),
-  );
-}
 export function accountingAccountTransactionFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingAccountTransaction, SDKValidationError> {

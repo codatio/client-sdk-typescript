@@ -8,18 +8,8 @@ import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  ItemRef,
-  ItemRef$inboundSchema,
-  ItemRef$Outbound,
-  ItemRef$outboundSchema,
-} from "./itemref.js";
-import {
-  LoanRef,
-  LoanRef$inboundSchema,
-  LoanRef$Outbound,
-  LoanRef$outboundSchema,
-} from "./loanref.js";
+import { ItemRef, ItemRef$inboundSchema } from "./itemref.js";
+import { LoanRef, LoanRef$inboundSchema } from "./loanref.js";
 
 /**
  * The type of loan transaction.
@@ -78,10 +68,6 @@ export type ReportItems = {
 export const LoanTransactionType$inboundSchema: z.ZodNativeEnum<
   typeof LoanTransactionType
 > = z.nativeEnum(LoanTransactionType);
-/** @internal */
-export const LoanTransactionType$outboundSchema: z.ZodNativeEnum<
-  typeof LoanTransactionType
-> = LoanTransactionType$inboundSchema;
 
 /** @internal */
 export const ReportItems$inboundSchema: z.ZodType<
@@ -96,35 +82,7 @@ export const ReportItems$inboundSchema: z.ZodType<
   loanTransactionType: LoanTransactionType$inboundSchema.optional(),
   lender: z.string().optional(),
 });
-/** @internal */
-export type ReportItems$Outbound = {
-  loanRef?: LoanRef$Outbound | undefined;
-  itemRef?: ItemRef$Outbound | undefined;
-  date?: string | undefined;
-  amount?: number | undefined;
-  loanTransactionType?: string | undefined;
-  lender?: string | undefined;
-};
 
-/** @internal */
-export const ReportItems$outboundSchema: z.ZodType<
-  ReportItems$Outbound,
-  z.ZodTypeDef,
-  ReportItems
-> = z.object({
-  loanRef: LoanRef$outboundSchema.optional(),
-  itemRef: ItemRef$outboundSchema.optional(),
-  date: z.string().optional(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  loanTransactionType: LoanTransactionType$outboundSchema.optional(),
-  lender: z.string().optional(),
-});
-
-export function reportItemsToJSON(reportItems: ReportItems): string {
-  return JSON.stringify(ReportItems$outboundSchema.parse(reportItems));
-}
 export function reportItemsFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportItems, SDKValidationError> {

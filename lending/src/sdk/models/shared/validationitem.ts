@@ -32,27 +32,7 @@ export const ValidationItem$inboundSchema: z.ZodType<
   message: z.nullable(z.string()).optional(),
   validatorName: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type ValidationItem$Outbound = {
-  itemId?: string | null | undefined;
-  message?: string | null | undefined;
-  validatorName?: string | null | undefined;
-};
 
-/** @internal */
-export const ValidationItem$outboundSchema: z.ZodType<
-  ValidationItem$Outbound,
-  z.ZodTypeDef,
-  ValidationItem
-> = z.object({
-  itemId: z.nullable(z.string()).optional(),
-  message: z.nullable(z.string()).optional(),
-  validatorName: z.nullable(z.string()).optional(),
-});
-
-export function validationItemToJSON(validationItem: ValidationItem): string {
-  return JSON.stringify(ValidationItem$outboundSchema.parse(validationItem));
-}
 export function validationItemFromJSON(
   jsonString: string,
 ): SafeParseResult<ValidationItem, SDKValidationError> {

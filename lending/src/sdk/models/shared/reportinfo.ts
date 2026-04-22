@@ -50,33 +50,7 @@ export const ReportInfo$inboundSchema: z.ZodType<
   companyName: z.string().optional(),
   generatedDate: z.string().optional(),
 });
-/** @internal */
-export type ReportInfo$Outbound = {
-  pageNumber?: number | undefined;
-  pageSize?: number | undefined;
-  totalResults?: number | undefined;
-  reportName?: string | undefined;
-  companyName?: string | undefined;
-  generatedDate?: string | undefined;
-};
 
-/** @internal */
-export const ReportInfo$outboundSchema: z.ZodType<
-  ReportInfo$Outbound,
-  z.ZodTypeDef,
-  ReportInfo
-> = z.object({
-  pageNumber: z.number().int().optional(),
-  pageSize: z.number().int().optional(),
-  totalResults: z.number().int().optional(),
-  reportName: z.string().optional(),
-  companyName: z.string().optional(),
-  generatedDate: z.string().optional(),
-});
-
-export function reportInfoToJSON(reportInfo: ReportInfo): string {
-  return JSON.stringify(ReportInfo$outboundSchema.parse(reportInfo));
-}
 export function reportInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<ReportInfo, SDKValidationError> {

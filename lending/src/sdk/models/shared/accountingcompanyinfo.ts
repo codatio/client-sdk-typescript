@@ -9,27 +9,13 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingAddress,
   AccountingAddress$inboundSchema,
-  AccountingAddress$Outbound,
-  AccountingAddress$outboundSchema,
 } from "./accountingaddress.js";
-import {
-  PhoneNumber,
-  PhoneNumber$inboundSchema,
-  PhoneNumber$Outbound,
-  PhoneNumber$outboundSchema,
-} from "./phonenumber.js";
+import { PhoneNumber, PhoneNumber$inboundSchema } from "./phonenumber.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  WebLink,
-  WebLink$inboundSchema,
-  WebLink$Outbound,
-  WebLink$outboundSchema,
-} from "./weblink.js";
+import { WebLink, WebLink$inboundSchema } from "./weblink.js";
 
 /**
  * Company info provides standard details about a linked company such as their address, phone number, and company registration.
@@ -182,53 +168,7 @@ export const AccountingCompanyInfo$inboundSchema: z.ZodType<
   createdDate: z.string().optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingCompanyInfo$Outbound = {
-  companyName?: string | null | undefined;
-  accountingPlatformRef?: string | null | undefined;
-  companyLegalName?: string | null | undefined;
-  addresses?: Array<AccountingAddress$Outbound> | null | undefined;
-  phoneNumbers?: Array<PhoneNumber$Outbound> | null | undefined;
-  webLinks?: Array<WebLink$Outbound> | null | undefined;
-  ledgerLockDate?: string | undefined;
-  registrationNumber?: string | null | undefined;
-  taxNumber?: string | null | undefined;
-  financialYearStartDate?: string | undefined;
-  baseCurrency?: string | null | undefined;
-  sourceUrls?: { [k: string]: string | null } | null | undefined;
-  createdDate?: string | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCompanyInfo$outboundSchema: z.ZodType<
-  AccountingCompanyInfo$Outbound,
-  z.ZodTypeDef,
-  AccountingCompanyInfo
-> = z.object({
-  companyName: z.nullable(z.string()).optional(),
-  accountingPlatformRef: z.nullable(z.string()).optional(),
-  companyLegalName: z.nullable(z.string()).optional(),
-  addresses: z.nullable(z.array(AccountingAddress$outboundSchema)).optional(),
-  phoneNumbers: z.nullable(z.array(PhoneNumber$outboundSchema)).optional(),
-  webLinks: z.nullable(z.array(WebLink$outboundSchema)).optional(),
-  ledgerLockDate: z.string().optional(),
-  registrationNumber: z.nullable(z.string()).optional(),
-  taxNumber: z.nullable(z.string()).optional(),
-  financialYearStartDate: z.string().optional(),
-  baseCurrency: z.nullable(z.string()).optional(),
-  sourceUrls: z.nullable(z.record(z.nullable(z.string()))).optional(),
-  createdDate: z.string().optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingCompanyInfoToJSON(
-  accountingCompanyInfo: AccountingCompanyInfo,
-): string {
-  return JSON.stringify(
-    AccountingCompanyInfo$outboundSchema.parse(accountingCompanyInfo),
-  );
-}
 export function accountingCompanyInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCompanyInfo, SDKValidationError> {

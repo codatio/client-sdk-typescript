@@ -10,8 +10,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   LoanSummaryRecordRef,
   LoanSummaryRecordRef$inboundSchema,
-  LoanSummaryRecordRef$Outbound,
-  LoanSummaryRecordRef$outboundSchema,
 } from "./loansummaryrecordref.js";
 
 export type LoanSummaryReportItem = {
@@ -74,45 +72,7 @@ export const LoanSummaryReportItem$inboundSchema: z.ZodType<
   balance: z.number().transform(v => new Decimal$(v)).optional(),
   lender: z.string().optional(),
 });
-/** @internal */
-export type LoanSummaryReportItem$Outbound = {
-  recordRef?: LoanSummaryRecordRef$Outbound | undefined;
-  description?: string | undefined;
-  startDate?: string | undefined;
-  totalDrawdowns?: number | undefined;
-  totalRepayments?: number | undefined;
-  balance?: number | undefined;
-  lender?: string | undefined;
-};
 
-/** @internal */
-export const LoanSummaryReportItem$outboundSchema: z.ZodType<
-  LoanSummaryReportItem$Outbound,
-  z.ZodTypeDef,
-  LoanSummaryReportItem
-> = z.object({
-  recordRef: LoanSummaryRecordRef$outboundSchema.optional(),
-  description: z.string().optional(),
-  startDate: z.string().optional(),
-  totalDrawdowns: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  totalRepayments: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  balance: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  lender: z.string().optional(),
-});
-
-export function loanSummaryReportItemToJSON(
-  loanSummaryReportItem: LoanSummaryReportItem,
-): string {
-  return JSON.stringify(
-    LoanSummaryReportItem$outboundSchema.parse(loanSummaryReportItem),
-  );
-}
 export function loanSummaryReportItemFromJSON(
   jsonString: string,
 ): SafeParseResult<LoanSummaryReportItem, SDKValidationError> {

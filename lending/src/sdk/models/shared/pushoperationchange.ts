@@ -9,13 +9,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   PushChangeType,
   PushChangeType$inboundSchema,
-  PushChangeType$outboundSchema,
 } from "./pushchangetype.js";
 import {
   PushOperationRef,
   PushOperationRef$inboundSchema,
-  PushOperationRef$Outbound,
-  PushOperationRef$outboundSchema,
 } from "./pushoperationref.js";
 
 export type PushOperationChange = {
@@ -40,31 +37,7 @@ export const PushOperationChange$inboundSchema: z.ZodType<
   recordRef: PushOperationRef$inboundSchema.optional(),
   attachmentId: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type PushOperationChange$Outbound = {
-  type?: string | undefined;
-  recordRef?: PushOperationRef$Outbound | undefined;
-  attachmentId?: string | null | undefined;
-};
 
-/** @internal */
-export const PushOperationChange$outboundSchema: z.ZodType<
-  PushOperationChange$Outbound,
-  z.ZodTypeDef,
-  PushOperationChange
-> = z.object({
-  type: PushChangeType$outboundSchema.optional(),
-  recordRef: PushOperationRef$outboundSchema.optional(),
-  attachmentId: z.nullable(z.string()).optional(),
-});
-
-export function pushOperationChangeToJSON(
-  pushOperationChange: PushOperationChange,
-): string {
-  return JSON.stringify(
-    PushOperationChange$outboundSchema.parse(pushOperationChange),
-  );
-}
 export function pushOperationChangeFromJSON(
   jsonString: string,
 ): SafeParseResult<PushOperationChange, SDKValidationError> {

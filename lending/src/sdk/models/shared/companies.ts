@@ -7,18 +7,8 @@ import { remap as remap$ } from "../../../lib/primitives.js";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Company,
-  Company$inboundSchema,
-  Company$Outbound,
-  Company$outboundSchema,
-} from "./company.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Company, Company$inboundSchema } from "./company.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type Companies = {
   results?: Array<Company> | undefined;
@@ -53,35 +43,7 @@ export const Companies$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type Companies$Outbound = {
-  results?: Array<Company$Outbound> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const Companies$outboundSchema: z.ZodType<
-  Companies$Outbound,
-  z.ZodTypeDef,
-  Companies
-> = z.object({
-  results: z.array(Company$outboundSchema).optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function companiesToJSON(companies: Companies): string {
-  return JSON.stringify(Companies$outboundSchema.parse(companies));
-}
 export function companiesFromJSON(
   jsonString: string,
 ): SafeParseResult<Companies, SDKValidationError> {

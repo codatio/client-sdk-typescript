@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type SetBankStatementUploadConfigurationRequest = {
@@ -23,19 +20,6 @@ export type SetBankStatementUploadConfigurationRequest = {
     | undefined;
 };
 
-/** @internal */
-export const SetBankStatementUploadConfigurationRequest$inboundSchema:
-  z.ZodType<SetBankStatementUploadConfigurationRequest, z.ZodTypeDef, unknown> =
-    z.object({
-      companyId: z.string(),
-      connectionId: z.string(),
-      BankStatementUploadConfiguration: shared
-        .BankStatementUploadConfiguration$inboundSchema.optional(),
-    }).transform((v) => {
-      return remap$(v, {
-        "BankStatementUploadConfiguration": "bankStatementUploadConfiguration",
-      });
-    });
 /** @internal */
 export type SetBankStatementUploadConfigurationRequest$Outbound = {
   companyId: string;
@@ -70,20 +54,5 @@ export function setBankStatementUploadConfigurationRequestToJSON(
     SetBankStatementUploadConfigurationRequest$outboundSchema.parse(
       setBankStatementUploadConfigurationRequest,
     ),
-  );
-}
-export function setBankStatementUploadConfigurationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  SetBankStatementUploadConfigurationRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      SetBankStatementUploadConfigurationRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'SetBankStatementUploadConfigurationRequest' from JSON`,
   );
 }

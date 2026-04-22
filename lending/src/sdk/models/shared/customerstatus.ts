@@ -22,7 +22,3 @@ export type CustomerStatus = ClosedEnum<typeof CustomerStatus>;
 export const CustomerStatus$inboundSchema: z.ZodNativeEnum<
   typeof CustomerStatus
 > = z.nativeEnum(CustomerStatus);
-/** @internal */
-export const CustomerStatus$outboundSchema: z.ZodNativeEnum<
-  typeof CustomerStatus
-> = CustomerStatus$inboundSchema;

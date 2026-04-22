@@ -30,25 +30,7 @@ export const BankAccountRef$inboundSchema: z.ZodType<
   id: z.string().optional(),
   name: z.string().optional(),
 });
-/** @internal */
-export type BankAccountRef$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-};
 
-/** @internal */
-export const BankAccountRef$outboundSchema: z.ZodType<
-  BankAccountRef$Outbound,
-  z.ZodTypeDef,
-  BankAccountRef
-> = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-});
-
-export function bankAccountRefToJSON(bankAccountRef: BankAccountRef): string {
-  return JSON.stringify(BankAccountRef$outboundSchema.parse(bankAccountRef));
-}
 export function bankAccountRefFromJSON(
   jsonString: string,
 ): SafeParseResult<BankAccountRef, SDKValidationError> {

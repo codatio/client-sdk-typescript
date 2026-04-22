@@ -8,35 +8,19 @@ import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
 import {
   AccountsPayableTracking,
   AccountsPayableTracking$inboundSchema,
-  AccountsPayableTracking$Outbound,
-  AccountsPayableTracking$outboundSchema,
 } from "./accountspayabletracking.js";
 import {
   PropertieItemRef,
   PropertieItemRef$inboundSchema,
-  PropertieItemRef$Outbound,
-  PropertieItemRef$outboundSchema,
 } from "./propertieitemref.js";
-import {
-  TaxRateRef,
-  TaxRateRef$inboundSchema,
-  TaxRateRef$Outbound,
-  TaxRateRef$outboundSchema,
-} from "./taxrateref.js";
+import { TaxRateRef, TaxRateRef$inboundSchema } from "./taxrateref.js";
 import {
   TrackingCategoryRef,
   TrackingCategoryRef$inboundSchema,
-  TrackingCategoryRef$Outbound,
-  TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
 
 /**
@@ -156,10 +140,6 @@ export type BillLineItem = {
 export const BillLineItemDataType$inboundSchema: z.ZodNativeEnum<
   typeof BillLineItemDataType
 > = z.nativeEnum(BillLineItemDataType);
-/** @internal */
-export const BillLineItemDataType$outboundSchema: z.ZodNativeEnum<
-  typeof BillLineItemDataType
-> = BillLineItemDataType$inboundSchema;
 
 /** @internal */
 export const RecordLineReference$inboundSchema: z.ZodType<
@@ -171,31 +151,7 @@ export const RecordLineReference$inboundSchema: z.ZodType<
   dataType: BillLineItemDataType$inboundSchema.optional(),
   lineNumber: z.string().optional(),
 });
-/** @internal */
-export type RecordLineReference$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-  lineNumber?: string | undefined;
-};
 
-/** @internal */
-export const RecordLineReference$outboundSchema: z.ZodType<
-  RecordLineReference$Outbound,
-  z.ZodTypeDef,
-  RecordLineReference
-> = z.object({
-  id: z.string().optional(),
-  dataType: BillLineItemDataType$outboundSchema.optional(),
-  lineNumber: z.string().optional(),
-});
-
-export function recordLineReferenceToJSON(
-  recordLineReference: RecordLineReference,
-): string {
-  return JSON.stringify(
-    RecordLineReference$outboundSchema.parse(recordLineReference),
-  );
-}
 export function recordLineReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<RecordLineReference, SDKValidationError> {
@@ -235,81 +191,7 @@ export const BillLineItem$inboundSchema: z.ZodType<
   tracking: AccountsPayableTracking$inboundSchema.optional(),
   isDirectCost: z.boolean().optional(),
 });
-/** @internal */
-export type BillLineItem$Outbound = {
-  lineNumber?: string | null | undefined;
-  description?: string | null | undefined;
-  unitAmount?: number | undefined;
-  quantity?: number | undefined;
-  unitOfMeasurement?: string | null | undefined;
-  discountAmount?: number | null | undefined;
-  subTotal?: number | null | undefined;
-  taxAmount?: number | null | undefined;
-  totalAmount?: number | null | undefined;
-  discountPercentage?: number | null | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  taxRateRef?: TaxRateRef$Outbound | undefined;
-  itemRef?: PropertieItemRef$Outbound | undefined;
-  purchaseOrderLineRef?: RecordLineReference$Outbound | undefined;
-  trackingCategoryRefs?: Array<TrackingCategoryRef$Outbound> | null | undefined;
-  tracking?: AccountsPayableTracking$Outbound | undefined;
-  isDirectCost?: boolean | undefined;
-};
 
-/** @internal */
-export const BillLineItem$outboundSchema: z.ZodType<
-  BillLineItem$Outbound,
-  z.ZodTypeDef,
-  BillLineItem
-> = z.object({
-  lineNumber: z.nullable(z.string()).optional(),
-  description: z.nullable(z.string()).optional(),
-  unitAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  quantity: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  unitOfMeasurement: z.nullable(z.string()).optional(),
-  discountAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  subTotal: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  taxAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  totalAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  discountPercentage: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  accountRef: AccountRef$outboundSchema.optional(),
-  taxRateRef: TaxRateRef$outboundSchema.optional(),
-  itemRef: PropertieItemRef$outboundSchema.optional(),
-  purchaseOrderLineRef: z.lazy(() => RecordLineReference$outboundSchema)
-    .optional(),
-  trackingCategoryRefs: z.nullable(z.array(TrackingCategoryRef$outboundSchema))
-    .optional(),
-  tracking: AccountsPayableTracking$outboundSchema.optional(),
-  isDirectCost: z.boolean().optional(),
-});
-
-export function billLineItemToJSON(billLineItem: BillLineItem): string {
-  return JSON.stringify(BillLineItem$outboundSchema.parse(billLineItem));
-}
 export function billLineItemFromJSON(
   jsonString: string,
 ): SafeParseResult<BillLineItem, SDKValidationError> {

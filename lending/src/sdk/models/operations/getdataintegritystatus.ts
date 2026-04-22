@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type GetDataIntegrityStatusRequest = {
@@ -19,15 +16,6 @@ export type GetDataIntegrityStatusRequest = {
   dataType: shared.DataIntegrityDataType;
 };
 
-/** @internal */
-export const GetDataIntegrityStatusRequest$inboundSchema: z.ZodType<
-  GetDataIntegrityStatusRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  dataType: shared.DataIntegrityDataType$inboundSchema,
-});
 /** @internal */
 export type GetDataIntegrityStatusRequest$Outbound = {
   companyId: string;
@@ -51,14 +39,5 @@ export function getDataIntegrityStatusRequestToJSON(
     GetDataIntegrityStatusRequest$outboundSchema.parse(
       getDataIntegrityStatusRequest,
     ),
-  );
-}
-export function getDataIntegrityStatusRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetDataIntegrityStatusRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetDataIntegrityStatusRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetDataIntegrityStatusRequest' from JSON`,
   );
 }

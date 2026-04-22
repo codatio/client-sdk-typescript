@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetCreateOperationRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetCreateOperationRequest = {
   pushOperationKey: string;
 };
 
-/** @internal */
-export const GetCreateOperationRequest$inboundSchema: z.ZodType<
-  GetCreateOperationRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  pushOperationKey: z.string(),
-});
 /** @internal */
 export type GetCreateOperationRequest$Outbound = {
   companyId: string;
@@ -48,14 +36,5 @@ export function getCreateOperationRequestToJSON(
 ): string {
   return JSON.stringify(
     GetCreateOperationRequest$outboundSchema.parse(getCreateOperationRequest),
-  );
-}
-export function getCreateOperationRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetCreateOperationRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetCreateOperationRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetCreateOperationRequest' from JSON`,
   );
 }

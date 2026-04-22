@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingDirectIncomeAttachmentRequest = {
   /**
@@ -30,16 +27,6 @@ export type GetAccountingDirectIncomeAttachmentRequest = {
   timeoutInMinutes?: number | undefined;
 };
 
-/** @internal */
-export const GetAccountingDirectIncomeAttachmentRequest$inboundSchema:
-  z.ZodType<GetAccountingDirectIncomeAttachmentRequest, z.ZodTypeDef, unknown> =
-    z.object({
-      companyId: z.string(),
-      connectionId: z.string(),
-      directIncomeId: z.string(),
-      attachmentId: z.string(),
-      timeoutInMinutes: z.number().int().optional(),
-    });
 /** @internal */
 export type GetAccountingDirectIncomeAttachmentRequest$Outbound = {
   companyId: string;
@@ -71,20 +58,5 @@ export function getAccountingDirectIncomeAttachmentRequestToJSON(
     GetAccountingDirectIncomeAttachmentRequest$outboundSchema.parse(
       getAccountingDirectIncomeAttachmentRequest,
     ),
-  );
-}
-export function getAccountingDirectIncomeAttachmentRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  GetAccountingDirectIncomeAttachmentRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetAccountingDirectIncomeAttachmentRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'GetAccountingDirectIncomeAttachmentRequest' from JSON`,
   );
 }

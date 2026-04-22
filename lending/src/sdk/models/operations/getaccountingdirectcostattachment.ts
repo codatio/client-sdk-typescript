@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingDirectCostAttachmentRequest = {
   /**
@@ -26,17 +23,6 @@ export type GetAccountingDirectCostAttachmentRequest = {
   attachmentId: string;
 };
 
-/** @internal */
-export const GetAccountingDirectCostAttachmentRequest$inboundSchema: z.ZodType<
-  GetAccountingDirectCostAttachmentRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  directCostId: z.string(),
-  attachmentId: z.string(),
-});
 /** @internal */
 export type GetAccountingDirectCostAttachmentRequest$Outbound = {
   companyId: string;
@@ -65,20 +51,5 @@ export function getAccountingDirectCostAttachmentRequestToJSON(
     GetAccountingDirectCostAttachmentRequest$outboundSchema.parse(
       getAccountingDirectCostAttachmentRequest,
     ),
-  );
-}
-export function getAccountingDirectCostAttachmentRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  GetAccountingDirectCostAttachmentRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      GetAccountingDirectCostAttachmentRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'GetAccountingDirectCostAttachmentRequest' from JSON`,
   );
 }

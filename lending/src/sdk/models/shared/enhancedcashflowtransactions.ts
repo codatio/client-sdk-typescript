@@ -6,24 +6,12 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  DataSource,
-  DataSource$inboundSchema,
-  DataSource$Outbound,
-  DataSource$outboundSchema,
-} from "./datasource.js";
+import { DataSource, DataSource$inboundSchema } from "./datasource.js";
 import {
   EnhancedCashFlowItem,
   EnhancedCashFlowItem$inboundSchema,
-  EnhancedCashFlowItem$Outbound,
-  EnhancedCashFlowItem$outboundSchema,
 } from "./enhancedcashflowitem.js";
-import {
-  ReportInfo,
-  ReportInfo$inboundSchema,
-  ReportInfo$Outbound,
-  ReportInfo$outboundSchema,
-} from "./reportinfo.js";
+import { ReportInfo, ReportInfo$inboundSchema } from "./reportinfo.js";
 
 /**
  * > **Categorization engine**
@@ -53,33 +41,7 @@ export const EnhancedCashFlowTransactions$inboundSchema: z.ZodType<
   dataSources: z.array(DataSource$inboundSchema).optional(),
   reportItems: z.array(EnhancedCashFlowItem$inboundSchema).optional(),
 });
-/** @internal */
-export type EnhancedCashFlowTransactions$Outbound = {
-  reportInfo?: ReportInfo$Outbound | undefined;
-  dataSources?: Array<DataSource$Outbound> | undefined;
-  reportItems?: Array<EnhancedCashFlowItem$Outbound> | undefined;
-};
 
-/** @internal */
-export const EnhancedCashFlowTransactions$outboundSchema: z.ZodType<
-  EnhancedCashFlowTransactions$Outbound,
-  z.ZodTypeDef,
-  EnhancedCashFlowTransactions
-> = z.object({
-  reportInfo: ReportInfo$outboundSchema.optional(),
-  dataSources: z.array(DataSource$outboundSchema).optional(),
-  reportItems: z.array(EnhancedCashFlowItem$outboundSchema).optional(),
-});
-
-export function enhancedCashFlowTransactionsToJSON(
-  enhancedCashFlowTransactions: EnhancedCashFlowTransactions,
-): string {
-  return JSON.stringify(
-    EnhancedCashFlowTransactions$outboundSchema.parse(
-      enhancedCashFlowTransactions,
-    ),
-  );
-}
 export function enhancedCashFlowTransactionsFromJSON(
   jsonString: string,
 ): SafeParseResult<EnhancedCashFlowTransactions, SDKValidationError> {

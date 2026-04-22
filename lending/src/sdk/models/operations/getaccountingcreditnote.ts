@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAccountingCreditNoteRequest = {
   /**
@@ -18,15 +15,6 @@ export type GetAccountingCreditNoteRequest = {
   creditNoteId: string;
 };
 
-/** @internal */
-export const GetAccountingCreditNoteRequest$inboundSchema: z.ZodType<
-  GetAccountingCreditNoteRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  creditNoteId: z.string(),
-});
 /** @internal */
 export type GetAccountingCreditNoteRequest$Outbound = {
   companyId: string;
@@ -50,14 +38,5 @@ export function getAccountingCreditNoteRequestToJSON(
     GetAccountingCreditNoteRequest$outboundSchema.parse(
       getAccountingCreditNoteRequest,
     ),
-  );
-}
-export function getAccountingCreditNoteRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<GetAccountingCreditNoteRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => GetAccountingCreditNoteRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'GetAccountingCreditNoteRequest' from JSON`,
   );
 }

@@ -6,12 +6,7 @@ import * as z from "zod/v3";
 import { safeParse } from "../../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  Accounts,
-  Accounts$inboundSchema,
-  Accounts$Outbound,
-  Accounts$outboundSchema,
-} from "./accounts.js";
+import { Accounts, Accounts$inboundSchema } from "./accounts.js";
 
 export type DataSource = {
   /**
@@ -28,23 +23,7 @@ export const DataSource$inboundSchema: z.ZodType<
 > = z.object({
   accounts: z.array(Accounts$inboundSchema).optional(),
 });
-/** @internal */
-export type DataSource$Outbound = {
-  accounts?: Array<Accounts$Outbound> | undefined;
-};
 
-/** @internal */
-export const DataSource$outboundSchema: z.ZodType<
-  DataSource$Outbound,
-  z.ZodTypeDef,
-  DataSource
-> = z.object({
-  accounts: z.array(Accounts$outboundSchema).optional(),
-});
-
-export function dataSourceToJSON(dataSource: DataSource): string {
-  return JSON.stringify(DataSource$outboundSchema.parse(dataSource));
-}
 export function dataSourceFromJSON(
   jsonString: string,
 ): SafeParseResult<DataSource, SDKValidationError> {

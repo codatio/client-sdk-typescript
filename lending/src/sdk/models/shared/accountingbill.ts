@@ -10,38 +10,15 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
-  AccountingPaymentAllocation$Outbound,
-  AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
-import {
-  BillLineItem,
-  BillLineItem$inboundSchema,
-  BillLineItem$Outbound,
-  BillLineItem$outboundSchema,
-} from "./billlineitem.js";
-import {
-  BillStatus,
-  BillStatus$inboundSchema,
-  BillStatus$outboundSchema,
-} from "./billstatus.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { BillLineItem, BillLineItem$inboundSchema } from "./billlineitem.js";
+import { BillStatus, BillStatus$inboundSchema } from "./billstatus.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
-import {
-  SupplierRef,
-  SupplierRef$inboundSchema,
-  SupplierRef$Outbound,
-  SupplierRef$outboundSchema,
-} from "./supplierref.js";
+import { SupplierRef, SupplierRef$inboundSchema } from "./supplierref.js";
 
 export type PurchaseOrderReference = {
   /**
@@ -205,29 +182,7 @@ export const PurchaseOrderReference$inboundSchema: z.ZodType<
   id: z.string().optional(),
   purchaseOrderNumber: z.nullable(z.string()).optional(),
 });
-/** @internal */
-export type PurchaseOrderReference$Outbound = {
-  id?: string | undefined;
-  purchaseOrderNumber?: string | null | undefined;
-};
 
-/** @internal */
-export const PurchaseOrderReference$outboundSchema: z.ZodType<
-  PurchaseOrderReference$Outbound,
-  z.ZodTypeDef,
-  PurchaseOrderReference
-> = z.object({
-  id: z.string().optional(),
-  purchaseOrderNumber: z.nullable(z.string()).optional(),
-});
-
-export function purchaseOrderReferenceToJSON(
-  purchaseOrderReference: PurchaseOrderReference,
-): string {
-  return JSON.stringify(
-    PurchaseOrderReference$outboundSchema.parse(purchaseOrderReference),
-  );
-}
 export function purchaseOrderReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<PurchaseOrderReference, SDKValidationError> {
@@ -247,27 +202,7 @@ export const WithholdingTax$inboundSchema: z.ZodType<
   name: z.string(),
   amount: z.number().transform(v => new Decimal$(v)),
 });
-/** @internal */
-export type WithholdingTax$Outbound = {
-  name: string;
-  amount: number;
-};
 
-/** @internal */
-export const WithholdingTax$outboundSchema: z.ZodType<
-  WithholdingTax$Outbound,
-  z.ZodTypeDef,
-  WithholdingTax
-> = z.object({
-  name: z.string(),
-  amount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-});
-
-export function withholdingTaxToJSON(withholdingTax: WithholdingTax): string {
-  return JSON.stringify(WithholdingTax$outboundSchema.parse(withholdingTax));
-}
 export function withholdingTaxFromJSON(
   jsonString: string,
 ): SafeParseResult<WithholdingTax, SDKValidationError> {
@@ -313,86 +248,7 @@ export const AccountingBill$inboundSchema: z.ZodType<
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingBill$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  reference?: string | null | undefined;
-  supplierRef?: SupplierRef$Outbound | undefined;
-  purchaseOrderRefs?: Array<PurchaseOrderReference$Outbound> | null | undefined;
-  issueDate: string;
-  dueDate?: string | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  lineItems?: Array<BillLineItem$Outbound> | null | undefined;
-  withholdingTax?: Array<WithholdingTax$Outbound> | null | undefined;
-  status: string;
-  subTotal: number;
-  taxAmount: number;
-  totalAmount: number;
-  amountDue?: number | null | undefined;
-  note?: string | null | undefined;
-  paymentAllocations?:
-    | Array<AccountingPaymentAllocation$Outbound>
-    | null
-    | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingBill$outboundSchema: z.ZodType<
-  AccountingBill$Outbound,
-  z.ZodTypeDef,
-  AccountingBill
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  reference: z.nullable(z.string()).optional(),
-  supplierRef: SupplierRef$outboundSchema.optional(),
-  purchaseOrderRefs: z.nullable(
-    z.array(z.lazy(() => PurchaseOrderReference$outboundSchema)),
-  ).optional(),
-  issueDate: z.string(),
-  dueDate: z.string().optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  lineItems: z.nullable(z.array(BillLineItem$outboundSchema)).optional(),
-  withholdingTax: z.nullable(
-    z.array(z.lazy(() => WithholdingTax$outboundSchema)),
-  ).optional(),
-  status: BillStatus$outboundSchema,
-  subTotal: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  taxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  amountDue: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  note: z.nullable(z.string()).optional(),
-  paymentAllocations: z.nullable(
-    z.array(AccountingPaymentAllocation$outboundSchema),
-  ).optional(),
-  metadata: Metadata$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingBillToJSON(accountingBill: AccountingBill): string {
-  return JSON.stringify(AccountingBill$outboundSchema.parse(accountingBill));
-}
 export function accountingBillFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingBill, SDKValidationError> {

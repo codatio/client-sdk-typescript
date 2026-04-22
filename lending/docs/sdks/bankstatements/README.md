@@ -22,7 +22,7 @@ When you use the [*Upload data*](https://docs.codat.io/lending-api#/operations/u
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="get-bank-statement-upload-configuration" method="get" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
+<!-- UsageSnippet language="typescript" operationID="get-bank-statement-upload-configuration" method="get" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" example="Codat" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -103,7 +103,7 @@ Each data connection can only have one configuration for each company and extern
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="set-bank-statement-upload-configuration" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" -->
+<!-- UsageSnippet language="typescript" operationID="set-bank-statement-upload-configuration" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/configuration" example="Codat" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -271,7 +271,7 @@ Make sure you created configuration for the account using the [*Set upload confi
 
 ### Example Usage
 
-<!-- UsageSnippet language="typescript" operationID="upload-bank-statement-data" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/upload" -->
+<!-- UsageSnippet language="typescript" operationID="upload-bank-statement-data" method="post" path="/companies/{companyId}/connections/{connectionId}/bankStatements/upload/dataset/{datasetId}/upload" example="Malformed query" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

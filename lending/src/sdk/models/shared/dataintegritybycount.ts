@@ -38,41 +38,7 @@ export const DataIntegrityByCount$inboundSchema: z.ZodType<
   matched: z.number().transform(v => new Decimal$(v)).optional(),
   total: z.number().transform(v => new Decimal$(v)).optional(),
 });
-/** @internal */
-export type DataIntegrityByCount$Outbound = {
-  matchPercentage?: number | undefined;
-  unmatched?: number | undefined;
-  matched?: number | undefined;
-  total?: number | undefined;
-};
 
-/** @internal */
-export const DataIntegrityByCount$outboundSchema: z.ZodType<
-  DataIntegrityByCount$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityByCount
-> = z.object({
-  matchPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  unmatched: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  matched: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  total: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-});
-
-export function dataIntegrityByCountToJSON(
-  dataIntegrityByCount: DataIntegrityByCount,
-): string {
-  return JSON.stringify(
-    DataIntegrityByCount$outboundSchema.parse(dataIntegrityByCount),
-  );
-}
 export function dataIntegrityByCountFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityByCount, SDKValidationError> {

@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type ReplaceCompanyRequest = {
@@ -17,19 +14,6 @@ export type ReplaceCompanyRequest = {
   companyRequestBody?: shared.CompanyRequestBody | undefined;
 };
 
-/** @internal */
-export const ReplaceCompanyRequest$inboundSchema: z.ZodType<
-  ReplaceCompanyRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  CompanyRequestBody: shared.CompanyRequestBody$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "CompanyRequestBody": "companyRequestBody",
-  });
-});
 /** @internal */
 export type ReplaceCompanyRequest$Outbound = {
   companyId: string;
@@ -55,14 +39,5 @@ export function replaceCompanyRequestToJSON(
 ): string {
   return JSON.stringify(
     ReplaceCompanyRequest$outboundSchema.parse(replaceCompanyRequest),
-  );
-}
-export function replaceCompanyRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<ReplaceCompanyRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => ReplaceCompanyRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'ReplaceCompanyRequest' from JSON`,
   );
 }

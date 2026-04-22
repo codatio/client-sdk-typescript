@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type DownloadAccountingSupplierAttachmentRequest = {
   /**
@@ -26,18 +23,6 @@ export type DownloadAccountingSupplierAttachmentRequest = {
   attachmentId: string;
 };
 
-/** @internal */
-export const DownloadAccountingSupplierAttachmentRequest$inboundSchema:
-  z.ZodType<
-    DownloadAccountingSupplierAttachmentRequest,
-    z.ZodTypeDef,
-    unknown
-  > = z.object({
-    companyId: z.string(),
-    connectionId: z.string(),
-    supplierId: z.string(),
-    attachmentId: z.string(),
-  });
 /** @internal */
 export type DownloadAccountingSupplierAttachmentRequest$Outbound = {
   companyId: string;
@@ -67,20 +52,5 @@ export function downloadAccountingSupplierAttachmentRequestToJSON(
     DownloadAccountingSupplierAttachmentRequest$outboundSchema.parse(
       downloadAccountingSupplierAttachmentRequest,
     ),
-  );
-}
-export function downloadAccountingSupplierAttachmentRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<
-  DownloadAccountingSupplierAttachmentRequest,
-  SDKValidationError
-> {
-  return safeParse(
-    jsonString,
-    (x) =>
-      DownloadAccountingSupplierAttachmentRequest$inboundSchema.parse(
-        JSON.parse(x),
-      ),
-    `Failed to parse 'DownloadAccountingSupplierAttachmentRequest' from JSON`,
   );
 }

@@ -29,27 +29,7 @@ export const LoanRef$inboundSchema: z.ZodType<LoanRef, z.ZodTypeDef, unknown> =
     dataConnectionId: z.string().optional(),
     type: z.string().optional(),
   });
-/** @internal */
-export type LoanRef$Outbound = {
-  id?: string | undefined;
-  dataConnectionId?: string | undefined;
-  type?: string | undefined;
-};
 
-/** @internal */
-export const LoanRef$outboundSchema: z.ZodType<
-  LoanRef$Outbound,
-  z.ZodTypeDef,
-  LoanRef
-> = z.object({
-  id: z.string().optional(),
-  dataConnectionId: z.string().optional(),
-  type: z.string().optional(),
-});
-
-export function loanRefToJSON(loanRef: LoanRef): string {
-  return JSON.stringify(LoanRef$outboundSchema.parse(loanRef));
-}
 export function loanRefFromJSON(
   jsonString: string,
 ): SafeParseResult<LoanRef, SDKValidationError> {

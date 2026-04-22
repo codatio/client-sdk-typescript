@@ -37,7 +37,3 @@ export type BankTransactionType = ClosedEnum<typeof BankTransactionType>;
 export const BankTransactionType$inboundSchema: z.ZodNativeEnum<
   typeof BankTransactionType
 > = z.nativeEnum(BankTransactionType);
-/** @internal */
-export const BankTransactionType$outboundSchema: z.ZodNativeEnum<
-  typeof BankTransactionType
-> = BankTransactionType$inboundSchema;

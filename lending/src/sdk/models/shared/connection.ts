@@ -10,13 +10,10 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataConnectionError,
   DataConnectionError$inboundSchema,
-  DataConnectionError$Outbound,
-  DataConnectionError$outboundSchema,
 } from "./dataconnectionerror.js";
 import {
   DataConnectionStatus,
   DataConnectionStatus$inboundSchema,
-  DataConnectionStatus$outboundSchema,
 } from "./dataconnectionstatus.js";
 
 /**
@@ -62,7 +59,7 @@ export type Connection = {
   /**
    * A unique four-character ID that identifies the platform of the company's data connection. This ensures continuity if the platform changes its name in the future.
    */
-  integrationKey: string;
+  integrationKey?: string | undefined;
   /**
    * A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
    */
@@ -134,9 +131,6 @@ export type Connection = {
 /** @internal */
 export const SourceType$inboundSchema: z.ZodNativeEnum<typeof SourceType> = z
   .nativeEnum(SourceType);
-/** @internal */
-export const SourceType$outboundSchema: z.ZodNativeEnum<typeof SourceType> =
-  SourceType$inboundSchema;
 
 /** @internal */
 export const Connection$inboundSchema: z.ZodType<
@@ -146,7 +140,7 @@ export const Connection$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   integrationId: z.string(),
-  integrationKey: z.string(),
+  integrationKey: z.string().optional(),
   sourceId: z.string(),
   sourceType: SourceType$inboundSchema,
   platformName: z.string(),
@@ -158,46 +152,7 @@ export const Connection$inboundSchema: z.ZodType<
     .optional(),
   connectionInfo: z.nullable(z.record(z.any())).optional(),
 });
-/** @internal */
-export type Connection$Outbound = {
-  id: string;
-  integrationId: string;
-  integrationKey: string;
-  sourceId: string;
-  sourceType: string;
-  platformName: string;
-  linkUrl: string;
-  status: string;
-  lastSync?: string | undefined;
-  created: string;
-  dataConnectionErrors?: Array<DataConnectionError$Outbound> | null | undefined;
-  connectionInfo?: { [k: string]: any } | null | undefined;
-};
 
-/** @internal */
-export const Connection$outboundSchema: z.ZodType<
-  Connection$Outbound,
-  z.ZodTypeDef,
-  Connection
-> = z.object({
-  id: z.string(),
-  integrationId: z.string(),
-  integrationKey: z.string(),
-  sourceId: z.string(),
-  sourceType: SourceType$outboundSchema,
-  platformName: z.string(),
-  linkUrl: z.string(),
-  status: DataConnectionStatus$outboundSchema,
-  lastSync: z.string().optional(),
-  created: z.string(),
-  dataConnectionErrors: z.nullable(z.array(DataConnectionError$outboundSchema))
-    .optional(),
-  connectionInfo: z.nullable(z.record(z.any())).optional(),
-});
-
-export function connectionToJSON(connection: Connection): string {
-  return JSON.stringify(Connection$outboundSchema.parse(connection));
-}
 export function connectionFromJSON(
   jsonString: string,
 ): SafeParseResult<Connection, SDKValidationError> {

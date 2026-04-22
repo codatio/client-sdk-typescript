@@ -38,33 +38,7 @@ export const AccountBalance$inboundSchema: z.ZodType<
   reserved: z.any().optional(),
   currency: z.string().optional(),
 });
-/** @internal */
-export type AccountBalance$Outbound = {
-  available?: number | undefined;
-  pending?: number | undefined;
-  reserved?: any | undefined;
-  currency?: string | undefined;
-};
 
-/** @internal */
-export const AccountBalance$outboundSchema: z.ZodType<
-  AccountBalance$Outbound,
-  z.ZodTypeDef,
-  AccountBalance
-> = z.object({
-  available: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  pending: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  reserved: z.any().optional(),
-  currency: z.string().optional(),
-});
-
-export function accountBalanceToJSON(accountBalance: AccountBalance): string {
-  return JSON.stringify(AccountBalance$outboundSchema.parse(accountBalance));
-}
 export function accountBalanceFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountBalance, SDKValidationError> {

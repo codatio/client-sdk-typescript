@@ -9,8 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   CommerceAddress,
   CommerceAddress$inboundSchema,
-  CommerceAddress$Outbound,
-  CommerceAddress$outboundSchema,
 } from "./commerceaddress.js";
 
 /**
@@ -46,35 +44,7 @@ export const CommerceLocation$inboundSchema: z.ZodType<
   name: z.string().optional(),
   address: CommerceAddress$inboundSchema.optional(),
 });
-/** @internal */
-export type CommerceLocation$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id: string;
-  name?: string | undefined;
-  address?: CommerceAddress$Outbound | undefined;
-};
 
-/** @internal */
-export const CommerceLocation$outboundSchema: z.ZodType<
-  CommerceLocation$Outbound,
-  z.ZodTypeDef,
-  CommerceLocation
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string(),
-  name: z.string().optional(),
-  address: CommerceAddress$outboundSchema.optional(),
-});
-
-export function commerceLocationToJSON(
-  commerceLocation: CommerceLocation,
-): string {
-  return JSON.stringify(
-    CommerceLocation$outboundSchema.parse(commerceLocation),
-  );
-}
 export function commerceLocationFromJSON(
   jsonString: string,
 ): SafeParseResult<CommerceLocation, SDKValidationError> {

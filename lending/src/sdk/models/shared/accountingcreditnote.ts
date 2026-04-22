@@ -10,43 +10,24 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
-  AccountingCustomerRef$Outbound,
-  AccountingCustomerRef$outboundSchema,
 } from "./accountingcustomerref.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
-  AccountingPaymentAllocation$Outbound,
-  AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
 import {
   CreditNoteLineItem,
   CreditNoteLineItem$inboundSchema,
-  CreditNoteLineItem$Outbound,
-  CreditNoteLineItem$outboundSchema,
 } from "./creditnotelineitem.js";
 import {
   CreditNoteStatus,
   CreditNoteStatus$inboundSchema,
-  CreditNoteStatus$outboundSchema,
 } from "./creditnotestatus.js";
-import {
-  Items,
-  Items$inboundSchema,
-  Items$Outbound,
-  Items$outboundSchema,
-} from "./items.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { Items, Items$inboundSchema } from "./items.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -259,97 +240,7 @@ export const AccountingCreditNote$inboundSchema: z.ZodType<
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingCreditNote$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  creditNoteNumber?: string | null | undefined;
-  customerRef?: AccountingCustomerRef$Outbound | undefined;
-  withholdingTax?: Array<Items$Outbound> | null | undefined;
-  totalAmount: number;
-  totalDiscount: number;
-  subTotal: number;
-  additionalTaxAmount?: number | undefined;
-  additionalTaxPercentage?: number | undefined;
-  totalTaxAmount: number;
-  discountPercentage: number;
-  remainingCredit: number;
-  status: string;
-  issueDate?: string | undefined;
-  allocatedOnDate?: string | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  lineItems?: Array<CreditNoteLineItem$Outbound> | null | undefined;
-  paymentAllocations?:
-    | Array<AccountingPaymentAllocation$Outbound>
-    | null
-    | undefined;
-  note?: string | null | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingCreditNote$outboundSchema: z.ZodType<
-  AccountingCreditNote$Outbound,
-  z.ZodTypeDef,
-  AccountingCreditNote
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  creditNoteNumber: z.nullable(z.string()).optional(),
-  customerRef: AccountingCustomerRef$outboundSchema.optional(),
-  withholdingTax: z.nullable(z.array(Items$outboundSchema)).optional(),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  totalDiscount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  subTotal: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  additionalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(
-    v => typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  additionalTaxPercentage: z.union([z.instanceof(Decimal$), z.number()])
-    .transform(v => typeof v === "number" ? v : v.toNumber()).optional(),
-  totalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  discountPercentage: z.union([z.instanceof(Decimal$), z.number()]).transform(
-    v => typeof v === "number" ? v : v.toNumber()
-  ),
-  remainingCredit: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  status: CreditNoteStatus$outboundSchema,
-  issueDate: z.string().optional(),
-  allocatedOnDate: z.string().optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  lineItems: z.nullable(z.array(CreditNoteLineItem$outboundSchema)).optional(),
-  paymentAllocations: z.nullable(
-    z.array(AccountingPaymentAllocation$outboundSchema),
-  ).optional(),
-  note: z.nullable(z.string()).optional(),
-  metadata: Metadata$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingCreditNoteToJSON(
-  accountingCreditNote: AccountingCreditNote,
-): string {
-  return JSON.stringify(
-    AccountingCreditNote$outboundSchema.parse(accountingCreditNote),
-  );
-}
 export function accountingCreditNoteFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingCreditNote, SDKValidationError> {

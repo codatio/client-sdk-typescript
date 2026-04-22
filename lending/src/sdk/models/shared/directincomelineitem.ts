@@ -7,29 +7,15 @@ import { safeParse } from "../../../lib/schemas.js";
 import { Decimal as Decimal$ } from "../../types/decimal.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-import {
-  AccountRef,
-  AccountRef$inboundSchema,
-  AccountRef$Outbound,
-  AccountRef$outboundSchema,
-} from "./accountref.js";
+import { AccountRef, AccountRef$inboundSchema } from "./accountref.js";
 import {
   PropertieItemRef,
   PropertieItemRef$inboundSchema,
-  PropertieItemRef$Outbound,
-  PropertieItemRef$outboundSchema,
 } from "./propertieitemref.js";
-import {
-  TaxRateRef,
-  TaxRateRef$inboundSchema,
-  TaxRateRef$Outbound,
-  TaxRateRef$outboundSchema,
-} from "./taxrateref.js";
+import { TaxRateRef, TaxRateRef$inboundSchema } from "./taxrateref.js";
 import {
   TrackingCategoryRef,
   TrackingCategoryRef$inboundSchema,
-  TrackingCategoryRef$Outbound,
-  TrackingCategoryRef$outboundSchema,
 } from "./trackingcategoryref.js";
 
 export type DirectIncomeLineItem = {
@@ -127,74 +113,7 @@ export const DirectIncomeLineItem$inboundSchema: z.ZodType<
   trackingCategoryRefs: z.nullable(z.array(TrackingCategoryRef$inboundSchema))
     .optional(),
 });
-/** @internal */
-export type DirectIncomeLineItem$Outbound = {
-  description?: string | null | undefined;
-  unitAmount: number;
-  quantity: number;
-  discountAmount?: number | null | undefined;
-  discountPercentage?: number | null | undefined;
-  subTotal?: number | null | undefined;
-  taxAmount?: number | null | undefined;
-  totalAmount?: number | null | undefined;
-  accountRef?: AccountRef$Outbound | undefined;
-  taxRateRef?: TaxRateRef$Outbound | undefined;
-  itemRef?: PropertieItemRef$Outbound | undefined;
-  trackingCategoryRefs?: Array<TrackingCategoryRef$Outbound> | null | undefined;
-};
 
-/** @internal */
-export const DirectIncomeLineItem$outboundSchema: z.ZodType<
-  DirectIncomeLineItem$Outbound,
-  z.ZodTypeDef,
-  DirectIncomeLineItem
-> = z.object({
-  description: z.nullable(z.string()).optional(),
-  unitAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  quantity: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  discountAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  discountPercentage: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  subTotal: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  taxAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  totalAmount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  accountRef: AccountRef$outboundSchema.optional(),
-  taxRateRef: TaxRateRef$outboundSchema.optional(),
-  itemRef: PropertieItemRef$outboundSchema.optional(),
-  trackingCategoryRefs: z.nullable(z.array(TrackingCategoryRef$outboundSchema))
-    .optional(),
-});
-
-export function directIncomeLineItemToJSON(
-  directIncomeLineItem: DirectIncomeLineItem,
-): string {
-  return JSON.stringify(
-    DirectIncomeLineItem$outboundSchema.parse(directIncomeLineItem),
-  );
-}
 export function directIncomeLineItemFromJSON(
   jsonString: string,
 ): SafeParseResult<DirectIncomeLineItem, SDKValidationError> {

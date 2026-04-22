@@ -10,15 +10,8 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingJournalEntry,
   AccountingJournalEntry$inboundSchema,
-  AccountingJournalEntry$Outbound,
-  AccountingJournalEntry$outboundSchema,
 } from "./accountingjournalentry.js";
-import {
-  Links,
-  Links$inboundSchema,
-  Links$Outbound,
-  Links$outboundSchema,
-} from "./links.js";
+import { Links, Links$inboundSchema } from "./links.js";
 
 export type AccountingJournalEntries = {
   results?: Array<AccountingJournalEntry | null> | undefined;
@@ -53,40 +46,7 @@ export const AccountingJournalEntries$inboundSchema: z.ZodType<
     "_links": "links",
   });
 });
-/** @internal */
-export type AccountingJournalEntries$Outbound = {
-  results?: Array<AccountingJournalEntry$Outbound | null> | undefined;
-  pageNumber: number;
-  pageSize: number;
-  totalResults: number;
-  _links: Links$Outbound;
-};
 
-/** @internal */
-export const AccountingJournalEntries$outboundSchema: z.ZodType<
-  AccountingJournalEntries$Outbound,
-  z.ZodTypeDef,
-  AccountingJournalEntries
-> = z.object({
-  results: z.array(z.nullable(AccountingJournalEntry$outboundSchema))
-    .optional(),
-  pageNumber: z.number().int(),
-  pageSize: z.number().int(),
-  totalResults: z.number().int(),
-  links: Links$outboundSchema,
-}).transform((v) => {
-  return remap$(v, {
-    links: "_links",
-  });
-});
-
-export function accountingJournalEntriesToJSON(
-  accountingJournalEntries: AccountingJournalEntries,
-): string {
-  return JSON.stringify(
-    AccountingJournalEntries$outboundSchema.parse(accountingJournalEntries),
-  );
-}
 export function accountingJournalEntriesFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingJournalEntries, SDKValidationError> {

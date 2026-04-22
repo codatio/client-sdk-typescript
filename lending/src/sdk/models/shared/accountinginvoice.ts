@@ -11,43 +11,21 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   AccountingCustomerRef,
   AccountingCustomerRef$inboundSchema,
-  AccountingCustomerRef$Outbound,
-  AccountingCustomerRef$outboundSchema,
 } from "./accountingcustomerref.js";
 import {
   AccountingPaymentAllocation,
   AccountingPaymentAllocation$inboundSchema,
-  AccountingPaymentAllocation$Outbound,
-  AccountingPaymentAllocation$outboundSchema,
 } from "./accountingpaymentallocation.js";
 import {
   InvoiceLineItem,
   InvoiceLineItem$inboundSchema,
-  InvoiceLineItem$Outbound,
-  InvoiceLineItem$outboundSchema,
 } from "./invoicelineitem.js";
-import {
-  InvoiceStatus,
-  InvoiceStatus$inboundSchema,
-  InvoiceStatus$outboundSchema,
-} from "./invoicestatus.js";
-import {
-  Items,
-  Items$inboundSchema,
-  Items$Outbound,
-  Items$outboundSchema,
-} from "./items.js";
-import {
-  Metadata,
-  Metadata$inboundSchema,
-  Metadata$Outbound,
-  Metadata$outboundSchema,
-} from "./metadata.js";
+import { InvoiceStatus, InvoiceStatus$inboundSchema } from "./invoicestatus.js";
+import { Items, Items$inboundSchema } from "./items.js";
+import { Metadata, Metadata$inboundSchema } from "./metadata.js";
 import {
   SupplementalData,
   SupplementalData$inboundSchema,
-  SupplementalData$Outbound,
-  SupplementalData$outboundSchema,
 } from "./supplementaldata.js";
 
 /**
@@ -307,10 +285,6 @@ export type AccountingInvoice = {
 export const AccountingInvoiceDataType$inboundSchema: z.ZodNativeEnum<
   typeof AccountingInvoiceDataType
 > = z.nativeEnum(AccountingInvoiceDataType);
-/** @internal */
-export const AccountingInvoiceDataType$outboundSchema: z.ZodNativeEnum<
-  typeof AccountingInvoiceDataType
-> = AccountingInvoiceDataType$inboundSchema;
 
 /** @internal */
 export const SalesOrderReference$inboundSchema: z.ZodType<
@@ -321,29 +295,7 @@ export const SalesOrderReference$inboundSchema: z.ZodType<
   id: z.string().optional(),
   dataType: AccountingInvoiceDataType$inboundSchema.optional(),
 });
-/** @internal */
-export type SalesOrderReference$Outbound = {
-  id?: string | undefined;
-  dataType?: string | undefined;
-};
 
-/** @internal */
-export const SalesOrderReference$outboundSchema: z.ZodType<
-  SalesOrderReference$Outbound,
-  z.ZodTypeDef,
-  SalesOrderReference
-> = z.object({
-  id: z.string().optional(),
-  dataType: AccountingInvoiceDataType$outboundSchema.optional(),
-});
-
-export function salesOrderReferenceToJSON(
-  salesOrderReference: SalesOrderReference,
-): string {
-  return JSON.stringify(
-    SalesOrderReference$outboundSchema.parse(salesOrderReference),
-  );
-}
 export function salesOrderReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<SalesOrderReference, SDKValidationError> {
@@ -395,109 +347,7 @@ export const AccountingInvoice$inboundSchema: z.ZodType<
   metadata: Metadata$inboundSchema.optional(),
   supplementalData: SupplementalData$inboundSchema.optional(),
 });
-/** @internal */
-export type AccountingInvoice$Outbound = {
-  modifiedDate?: string | undefined;
-  sourceModifiedDate?: string | undefined;
-  id?: string | undefined;
-  invoiceNumber?: string | null | undefined;
-  customerRef?: AccountingCustomerRef$Outbound | undefined;
-  salesOrderRefs?: Array<SalesOrderReference$Outbound> | null | undefined;
-  issueDate: string;
-  dueDate?: string | undefined;
-  paidOnDate?: string | undefined;
-  currency?: string | undefined;
-  currencyRate?: number | null | undefined;
-  lineItems?: Array<InvoiceLineItem$Outbound> | null | undefined;
-  paymentAllocations?:
-    | Array<AccountingPaymentAllocation$Outbound>
-    | null
-    | undefined;
-  withholdingTax?: Array<Items$Outbound> | null | undefined;
-  totalDiscount?: number | null | undefined;
-  subTotal?: number | null | undefined;
-  additionalTaxAmount?: number | undefined;
-  additionalTaxPercentage?: number | undefined;
-  totalTaxAmount: number;
-  totalAmount: number;
-  amountDue: number;
-  discountPercentage?: number | null | undefined;
-  status: string;
-  note?: string | null | undefined;
-  metadata?: Metadata$Outbound | undefined;
-  supplementalData?: SupplementalData$Outbound | undefined;
-};
 
-/** @internal */
-export const AccountingInvoice$outboundSchema: z.ZodType<
-  AccountingInvoice$Outbound,
-  z.ZodTypeDef,
-  AccountingInvoice
-> = z.object({
-  modifiedDate: z.string().optional(),
-  sourceModifiedDate: z.string().optional(),
-  id: z.string().optional(),
-  invoiceNumber: z.nullable(z.string()).optional(),
-  customerRef: AccountingCustomerRef$outboundSchema.optional(),
-  salesOrderRefs: z.nullable(
-    z.array(z.lazy(() => SalesOrderReference$outboundSchema)),
-  ).optional(),
-  issueDate: z.string(),
-  dueDate: z.string().optional(),
-  paidOnDate: z.string().optional(),
-  currency: z.string().optional(),
-  currencyRate: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  lineItems: z.nullable(z.array(InvoiceLineItem$outboundSchema)).optional(),
-  paymentAllocations: z.nullable(
-    z.array(AccountingPaymentAllocation$outboundSchema),
-  ).optional(),
-  withholdingTax: z.nullable(z.array(Items$outboundSchema)).optional(),
-  totalDiscount: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  subTotal: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  additionalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(
-    v => typeof v === "number" ? v : v.toNumber()
-  ).optional(),
-  additionalTaxPercentage: z.union([z.instanceof(Decimal$), z.number()])
-    .transform(v => typeof v === "number" ? v : v.toNumber()).optional(),
-  totalTaxAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  totalAmount: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  amountDue: z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-    typeof v === "number" ? v : v.toNumber()
-  ),
-  discountPercentage: z.nullable(
-    z.union([z.instanceof(Decimal$), z.number()]).transform(v =>
-      typeof v === "number" ? v : v.toNumber()
-    ),
-  ).optional(),
-  status: InvoiceStatus$outboundSchema,
-  note: z.nullable(z.string()).optional(),
-  metadata: Metadata$outboundSchema.optional(),
-  supplementalData: SupplementalData$outboundSchema.optional(),
-});
-
-export function accountingInvoiceToJSON(
-  accountingInvoice: AccountingInvoice,
-): string {
-  return JSON.stringify(
-    AccountingInvoice$outboundSchema.parse(accountingInvoice),
-  );
-}
 export function accountingInvoiceFromJSON(
   jsonString: string,
 ): SafeParseResult<AccountingInvoice, SDKValidationError> {

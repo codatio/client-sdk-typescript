@@ -16,9 +16,64 @@ The *List transactions* endpoint returns a list of [transactions](https://docs.c
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
     
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="typescript" operationID="list-banking-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions" -->
+<!-- UsageSnippet language="typescript" operationID="list-banking-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions" example="Basiq" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.banking.transactions.list({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { bankingTransactionsList } from "@codat/lending/funcs/bankingTransactionsList.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankingTransactionsList(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
+    orderBy: "-modifiedDate",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingTransactionsList failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="typescript" operationID="list-banking-transactions" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions" example="Plaid" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -102,9 +157,62 @@ The *Get transaction* endpoint returns a single transaction for a given transact
 Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data).
 
 
-### Example Usage
+### Example Usage: Basiq
 
-<!-- UsageSnippet language="typescript" operationID="get-banking-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}" -->
+<!-- UsageSnippet language="typescript" operationID="get-banking-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}" example="Basiq" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.banking.transactions.get({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    transactionId: "<id>",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { bankingTransactionsGet } from "@codat/lending/funcs/bankingTransactionsGet.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await bankingTransactionsGet(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    transactionId: "<id>",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("bankingTransactionsGet failed:", res.error);
+  }
+}
+
+run();
+```
+### Example Usage: Plaid
+
+<!-- UsageSnippet language="typescript" operationID="get-banking-transaction" method="get" path="/companies/{companyId}/connections/{connectionId}/data/banking-transactions/{transactionId}" example="Plaid" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
 

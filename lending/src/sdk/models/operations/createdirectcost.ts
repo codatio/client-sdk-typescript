@@ -3,9 +3,6 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type CreateDirectCostRequest = {
@@ -28,18 +25,6 @@ export type CreateDirectCostRequest = {
   directCostPrototype?: shared.DirectCostPrototype | undefined;
 };
 
-/** @internal */
-export const CreateDirectCostRequest$inboundSchema: z.ZodType<
-  CreateDirectCostRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  connectionId: z.string(),
-  timeoutInMinutes: z.number().int().optional(),
-  allowSyncOnPushComplete: z.boolean().default(true),
-  directCostPrototype: shared.DirectCostPrototype$inboundSchema.optional(),
-});
 /** @internal */
 export type CreateDirectCostRequest$Outbound = {
   companyId: string;
@@ -67,14 +52,5 @@ export function createDirectCostRequestToJSON(
 ): string {
   return JSON.stringify(
     CreateDirectCostRequest$outboundSchema.parse(createDirectCostRequest),
-  );
-}
-export function createDirectCostRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<CreateDirectCostRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => CreateDirectCostRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'CreateDirectCostRequest' from JSON`,
   );
 }

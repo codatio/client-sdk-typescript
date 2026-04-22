@@ -9,7 +9,6 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   IntegrityStatus,
   IntegrityStatus$inboundSchema,
-  IntegrityStatus$outboundSchema,
 } from "./integritystatus.js";
 
 export type DataIntegrityStatusInfo = {
@@ -55,31 +54,7 @@ export const DataIntegrityStatusInfo$inboundSchema: z.ZodType<
   currentStatus: IntegrityStatus$inboundSchema.optional(),
   statusMessage: z.string().optional(),
 });
-/** @internal */
-export type DataIntegrityStatusInfo$Outbound = {
-  lastMatched?: string | undefined;
-  currentStatus?: string | undefined;
-  statusMessage?: string | undefined;
-};
 
-/** @internal */
-export const DataIntegrityStatusInfo$outboundSchema: z.ZodType<
-  DataIntegrityStatusInfo$Outbound,
-  z.ZodTypeDef,
-  DataIntegrityStatusInfo
-> = z.object({
-  lastMatched: z.string().optional(),
-  currentStatus: IntegrityStatus$outboundSchema.optional(),
-  statusMessage: z.string().optional(),
-});
-
-export function dataIntegrityStatusInfoToJSON(
-  dataIntegrityStatusInfo: DataIntegrityStatusInfo,
-): string {
-  return JSON.stringify(
-    DataIntegrityStatusInfo$outboundSchema.parse(dataIntegrityStatusInfo),
-  );
-}
 export function dataIntegrityStatusInfoFromJSON(
   jsonString: string,
 ): SafeParseResult<DataIntegrityStatusInfo, SDKValidationError> {

@@ -3,10 +3,7 @@
  */
 
 import * as z from "zod/v3";
-import { safeParse } from "../../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 /**
  * A key for a Codat data type.
@@ -30,22 +27,10 @@ export type StartUploadSessionRequest = {
 };
 
 /** @internal */
-export const StartUploadSessionRequestDataType$inboundSchema: z.ZodNativeEnum<
-  typeof StartUploadSessionRequestDataType
-> = z.nativeEnum(StartUploadSessionRequestDataType);
-/** @internal */
 export const StartUploadSessionRequestDataType$outboundSchema: z.ZodNativeEnum<
   typeof StartUploadSessionRequestDataType
-> = StartUploadSessionRequestDataType$inboundSchema;
+> = z.nativeEnum(StartUploadSessionRequestDataType);
 
-/** @internal */
-export const StartUploadSessionRequest$inboundSchema: z.ZodType<
-  StartUploadSessionRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  dataType: StartUploadSessionRequestDataType$inboundSchema.optional(),
-});
 /** @internal */
 export type StartUploadSessionRequest$Outbound = {
   dataType?: string | undefined;
@@ -65,14 +50,5 @@ export function startUploadSessionRequestToJSON(
 ): string {
   return JSON.stringify(
     StartUploadSessionRequest$outboundSchema.parse(startUploadSessionRequest),
-  );
-}
-export function startUploadSessionRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<StartUploadSessionRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => StartUploadSessionRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'StartUploadSessionRequest' from JSON`,
   );
 }

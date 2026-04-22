@@ -4,9 +4,6 @@
 
 import * as z from "zod/v3";
 import { remap as remap$ } from "../../../lib/primitives.js";
-import { safeParse } from "../../../lib/schemas.js";
-import { Result as SafeParseResult } from "../../types/fp.js";
-import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import * as shared from "../shared/index.js";
 
 export type UpdateCompanyRequest = {
@@ -17,19 +14,6 @@ export type UpdateCompanyRequest = {
   companyUpdateRequest?: shared.CompanyUpdateRequest | undefined;
 };
 
-/** @internal */
-export const UpdateCompanyRequest$inboundSchema: z.ZodType<
-  UpdateCompanyRequest,
-  z.ZodTypeDef,
-  unknown
-> = z.object({
-  companyId: z.string(),
-  CompanyUpdateRequest: shared.CompanyUpdateRequest$inboundSchema.optional(),
-}).transform((v) => {
-  return remap$(v, {
-    "CompanyUpdateRequest": "companyUpdateRequest",
-  });
-});
 /** @internal */
 export type UpdateCompanyRequest$Outbound = {
   companyId: string;
@@ -55,14 +39,5 @@ export function updateCompanyRequestToJSON(
 ): string {
   return JSON.stringify(
     UpdateCompanyRequest$outboundSchema.parse(updateCompanyRequest),
-  );
-}
-export function updateCompanyRequestFromJSON(
-  jsonString: string,
-): SafeParseResult<UpdateCompanyRequest, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => UpdateCompanyRequest$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'UpdateCompanyRequest' from JSON`,
   );
 }
