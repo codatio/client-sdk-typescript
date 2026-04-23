@@ -1,2 +1,5 @@
 #Ignore PyCharm folder
 .idea/
+
+# Ignore Speakeasy regen change logs
+.speakeasy/logs/changes/
