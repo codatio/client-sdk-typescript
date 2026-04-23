@@ -1,6 +1,6 @@
 {
   "name": "@codat/platform",
-  "version": "6.2.0",
+  "version": "6.2.1",
   "author": "Codat",
   "main": "./index.js",
   "sideEffects": false,

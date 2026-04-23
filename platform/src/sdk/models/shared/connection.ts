@@ -49,7 +49,7 @@ export type Connection = {
   /**
    * A unique four-character ID that identifies the platform of the company's data connection. This ensures continuity if the platform changes its name in the future.
    */
-  integrationKey: string;
+  integrationKey?: string | undefined;
   /**
    * A source-specific ID used to distinguish between different sources originating from the same data connection. In general, a data connection is a single data source. However, for TrueLayer, `sourceId` is associated with a specific bank and has a many-to-one relationship with the `integrationId`.
    */
@@ -126,7 +126,7 @@ export const Connection$inboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   integrationId: z.string(),
-  integrationKey: z.string(),
+  integrationKey: z.string().optional(),
   sourceId: z.string(),
   sourceType: SourceType$inboundSchema,
   platformName: z.string(),
@@ -142,7 +142,7 @@ export const Connection$inboundSchema: z.ZodType<
 export type Connection$Outbound = {
   id: string;
   integrationId: string;
-  integrationKey: string;
+  integrationKey?: string | undefined;
   sourceId: string;
   sourceType: string;
   platformName: string;
@@ -162,7 +162,7 @@ export const Connection$outboundSchema: z.ZodType<
 > = z.object({
   id: z.string(),
   integrationId: z.string(),
-  integrationKey: z.string(),
+  integrationKey: z.string().optional(),
   sourceId: z.string(),
   sourceType: SourceType$outboundSchema,
   platformName: z.string(),
