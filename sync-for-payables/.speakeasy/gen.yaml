@@ -30,7 +30,7 @@ generation:
     skipResponseBodyAssertions: false
   telemetryEnabled: true
 typescript:
-  version: 9.3.2
+  version: 9.4.0
   acceptHeaderEnum: true
   additionalDependencies:
     dependencies: {}
@@ -80,6 +80,7 @@ typescript:
   packageName: '@codat/sync-for-payables'
   preApplyUnionDiscriminators: true
   preserveModelFieldNames: false
+  privateIdentifierPrefix: '#'
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2

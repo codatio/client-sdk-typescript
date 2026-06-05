@@ -151,8 +151,6 @@ export class Bills extends ClientSDK {
    * The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
    *
    * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-   *
-   * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
    */
   async downloadAttachment(
     request: operations.DownloadBillAttachmentRequest,

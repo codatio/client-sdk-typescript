@@ -5,6 +5,7 @@
 import * as z from "zod/v3";
 import { CodatSyncPayablesCore } from "../core.js";
 import { encodeSimple } from "../lib/encodings.js";
+import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
 import { safeParse } from "../lib/schemas.js";
@@ -33,8 +34,6 @@ import { Result } from "../sdk/types/fp.js";
  * The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
  *
  * [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
- *
- * Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
  */
 export function billsDownloadAttachment(
   client: CodatSyncPayablesCore,
@@ -166,7 +165,8 @@ async function $do(
 
   const doResult = await client._do(req, {
     context,
-    errorCodes: ["401", "402", "403", "404", "429", "4XX", "500", "503", "5XX"],
+    isErrorStatusCode: (statusCode: number) =>
+      matchStatusCode({ status: statusCode } as Response, ["4XX", "5XX"]),
     retryConfig: context.retryConfig,
     retryCodes: context.retryCodes,
   });

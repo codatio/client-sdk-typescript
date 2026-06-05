@@ -24,8 +24,6 @@ export * from "./billprototype.js";
 export * from "./bills.js";
 export * from "./billstatus.js";
 export * from "./billtaxrateref.js";
-export * from "./clientratelimitwebhook.js";
-export * from "./clientratelimitwebhookpayload.js";
 export * from "./codatfile.js";
 export * from "./companies.js";
 export * from "./company.js";
