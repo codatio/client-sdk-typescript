@@ -86,9 +86,6 @@ export type DataConnectionError = {
 /** @internal */
 export const ErrorStatus$inboundSchema: z.ZodNativeEnum<typeof ErrorStatus> = z
   .nativeEnum(ErrorStatus);
-/** @internal */
-export const ErrorStatus$outboundSchema: z.ZodNativeEnum<typeof ErrorStatus> =
-  ErrorStatus$inboundSchema;
 
 /** @internal */
 export const DataConnectionError$inboundSchema: z.ZodType<
@@ -103,37 +100,7 @@ export const DataConnectionError$inboundSchema: z.ZodType<
   status: z.nullable(ErrorStatus$inboundSchema).optional(),
   resolvedOnUtc: z.string().optional(),
 });
-/** @internal */
-export type DataConnectionError$Outbound = {
-  statusCode?: string | undefined;
-  statusText?: string | undefined;
-  errorMessage?: string | undefined;
-  erroredOnUtc?: string | undefined;
-  status?: string | null | undefined;
-  resolvedOnUtc?: string | undefined;
-};
 
-/** @internal */
-export const DataConnectionError$outboundSchema: z.ZodType<
-  DataConnectionError$Outbound,
-  z.ZodTypeDef,
-  DataConnectionError
-> = z.object({
-  statusCode: z.string().optional(),
-  statusText: z.string().optional(),
-  errorMessage: z.string().optional(),
-  erroredOnUtc: z.string().optional(),
-  status: z.nullable(ErrorStatus$outboundSchema).optional(),
-  resolvedOnUtc: z.string().optional(),
-});
-
-export function dataConnectionErrorToJSON(
-  dataConnectionError: DataConnectionError,
-): string {
-  return JSON.stringify(
-    DataConnectionError$outboundSchema.parse(dataConnectionError),
-  );
-}
 export function dataConnectionErrorFromJSON(
   jsonString: string,
 ): SafeParseResult<DataConnectionError, SDKValidationError> {

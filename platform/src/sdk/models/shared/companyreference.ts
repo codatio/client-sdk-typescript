@@ -48,27 +48,7 @@ export const CompanyReferenceLinks$inboundSchema: z.ZodType<
 > = z.object({
   portal: z.string().optional(),
 });
-/** @internal */
-export type CompanyReferenceLinks$Outbound = {
-  portal?: string | undefined;
-};
 
-/** @internal */
-export const CompanyReferenceLinks$outboundSchema: z.ZodType<
-  CompanyReferenceLinks$Outbound,
-  z.ZodTypeDef,
-  CompanyReferenceLinks
-> = z.object({
-  portal: z.string().optional(),
-});
-
-export function companyReferenceLinksToJSON(
-  companyReferenceLinks: CompanyReferenceLinks,
-): string {
-  return JSON.stringify(
-    CompanyReferenceLinks$outboundSchema.parse(companyReferenceLinks),
-  );
-}
 export function companyReferenceLinksFromJSON(
   jsonString: string,
 ): SafeParseResult<CompanyReferenceLinks, SDKValidationError> {
@@ -91,35 +71,7 @@ export const CompanyReference$inboundSchema: z.ZodType<
   links: z.lazy(() => CompanyReferenceLinks$inboundSchema).optional(),
   tags: z.record(z.string()).optional(),
 });
-/** @internal */
-export type CompanyReference$Outbound = {
-  id?: string | undefined;
-  name?: string | undefined;
-  description?: string | undefined;
-  links?: CompanyReferenceLinks$Outbound | undefined;
-  tags?: { [k: string]: string } | undefined;
-};
 
-/** @internal */
-export const CompanyReference$outboundSchema: z.ZodType<
-  CompanyReference$Outbound,
-  z.ZodTypeDef,
-  CompanyReference
-> = z.object({
-  id: z.string().optional(),
-  name: z.string().optional(),
-  description: z.string().optional(),
-  links: z.lazy(() => CompanyReferenceLinks$outboundSchema).optional(),
-  tags: z.record(z.string()).optional(),
-});
-
-export function companyReferenceToJSON(
-  companyReference: CompanyReference,
-): string {
-  return JSON.stringify(
-    CompanyReference$outboundSchema.parse(companyReference),
-  );
-}
 export function companyReferenceFromJSON(
   jsonString: string,
 ): SafeParseResult<CompanyReference, SDKValidationError> {

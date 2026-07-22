@@ -9,19 +9,12 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
   DataConnectionError,
   DataConnectionError$inboundSchema,
-  DataConnectionError$Outbound,
-  DataConnectionError$outboundSchema,
 } from "./dataconnectionerror.js";
 import {
   DataConnectionStatus,
   DataConnectionStatus$inboundSchema,
-  DataConnectionStatus$outboundSchema,
 } from "./dataconnectionstatus.js";
-import {
-  SourceType,
-  SourceType$inboundSchema,
-  SourceType$outboundSchema,
-} from "./sourcetype.js";
+import { SourceType, SourceType$inboundSchema } from "./sourcetype.js";
 
 /**
  * A connection represents a [company's](https://docs.codat.io/platform-api#/schemas/Company) connection to a data source and allows you to synchronize data (pull and/or push) with that source.
@@ -138,46 +131,7 @@ export const Connection$inboundSchema: z.ZodType<
     .optional(),
   connectionInfo: z.nullable(z.record(z.any())).optional(),
 });
-/** @internal */
-export type Connection$Outbound = {
-  id: string;
-  integrationId: string;
-  integrationKey?: string | undefined;
-  sourceId: string;
-  sourceType: string;
-  platformName: string;
-  linkUrl: string;
-  status: string;
-  lastSync?: string | undefined;
-  created: string;
-  dataConnectionErrors?: Array<DataConnectionError$Outbound> | null | undefined;
-  connectionInfo?: { [k: string]: any } | null | undefined;
-};
 
-/** @internal */
-export const Connection$outboundSchema: z.ZodType<
-  Connection$Outbound,
-  z.ZodTypeDef,
-  Connection
-> = z.object({
-  id: z.string(),
-  integrationId: z.string(),
-  integrationKey: z.string().optional(),
-  sourceId: z.string(),
-  sourceType: SourceType$outboundSchema,
-  platformName: z.string(),
-  linkUrl: z.string(),
-  status: DataConnectionStatus$outboundSchema,
-  lastSync: z.string().optional(),
-  created: z.string(),
-  dataConnectionErrors: z.nullable(z.array(DataConnectionError$outboundSchema))
-    .optional(),
-  connectionInfo: z.nullable(z.record(z.any())).optional(),
-});
-
-export function connectionToJSON(connection: Connection): string {
-  return JSON.stringify(Connection$outboundSchema.parse(connection));
-}
 export function connectionFromJSON(
   jsonString: string,
 ): SafeParseResult<Connection, SDKValidationError> {

@@ -1,44 +1,44 @@
 lockVersion: 2.0.0
 id: 6a970e30-8d0a-42f0-a8ce-621dfe880a1d
 management:
-  docChecksum: 06ba849c9ac83fe0fe9cc654586af59a
+  docChecksum: 0ea67fb2d3fd958231cc460d8b93f8f6
   docVersion: 3.0.0
-  speakeasyVersion: 1.761.9
-  generationVersion: 2.881.4
-  releaseVersion: 6.2.1
-  configChecksum: f460c0890a9b6f2407df1de9bfe1a247
+  speakeasyVersion: 1.790.3
+  generationVersion: 2.918.4
+  releaseVersion: 6.3.0
+  configChecksum: 293b07adc69469b731886b5ac19c5c3b
   repoURL: https://github.com/codatio/client-sdk-typescript.git
   repoSubDirectory: platform
   installationURL: https://github.com/codatio/client-sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 1e5c2c34-5e88-4101-ad9a-0194c9f33fae
-  pristine_commit_hash: 929ab8f40a3b964e741a74fda14eeb0adc7c0874
-  pristine_tree_hash: 10ea2c757743203d3553b8644bca4898f993f699
+  generation_id: 662adb96-f640-4b7a-bfe0-f287d377b8fd
+  pristine_commit_hash: 4ee5469844d4ea49a6402d3bf51fe6ca8e9bc237
+  pristine_tree_hash: 7163d49ede5ff4eeddc5580a478b53e3b28c64a6
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.26.49
+    core: 3.31.4
     defaultEnabledRetries: 0.1.0
     deprecations: 2.81.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
-    examples: 2.82.5
+    examples: 2.82.6
     globalSecurity: 2.82.16
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.1
     globalServerURLs: 2.83.1
     groups: 2.81.3
     ignores: 2.81.1
+    inputOutputModels: 2.82.1
     methodArguments: 0.1.2
     nameOverrides: 2.81.4
     nullables: 0.1.1
     responseFormat: 0.3.0
-    retries: 2.83.0
+    retries: 2.83.1
     sdkHooks: 0.4.0
     serverEventsSentinels: 0.1.0
-    webhooks: 1.5.1
 trackedFiles:
   .gitattributes:
     id: 24139dae6567
@@ -50,8 +50,8 @@ trackedFiles:
     pristine_git_object: 670ac0a62d7e568c9d44a14f5deafb8442a255d8
   FUNCTIONS.md:
     id: 21b9df02aaeb
-    last_write_checksum: sha1:938315963767d45cd74bf194d14ac0a110dc2965
-    pristine_git_object: 295b579ad6fb1e62cd81821e28650dc18cb7b8f0
+    last_write_checksum: sha1:22826c767271a109f9927929d4d8affdd0f7b0fb
+    pristine_git_object: b43b5af740a879280763e3518ce51fae8a4d3979
   RUNTIMES.md:
     id: 620c490847b6
     last_write_checksum: sha1:e45b854f02c357cbcfdb8c3663000e8339e16505
@@ -268,30 +268,18 @@ trackedFiles:
     id: 3e8c57c4fa11
     last_write_checksum: sha1:03d0512fa97a0626c83f3b04f38867027e4a7d1f
     pristine_git_object: 25a2446de268d7538a63e1d1258d0dac34f6f96a
-  docs/sdk/models/shared/clientratelimitwebhook.md:
-    id: 2ad187176bc8
-    last_write_checksum: sha1:ebd275556ea62a86059000f01bde2066499a2c18
-    pristine_git_object: ef7ee9b1b2052fb4c2740bdb38cf820a60f299b8
-  docs/sdk/models/shared/clientratelimitwebhookpayload.md:
-    id: 455bfe8fe625
-    last_write_checksum: sha1:10d4238db1b064db8a30273ca84e38010c178981
-    pristine_git_object: 7441544a601b2b72878200607f1d76ae32947a1e
   docs/sdk/models/shared/companies.md:
     id: d934c193ecb6
     last_write_checksum: sha1:7ccac58b68a139518f5895fafb03ae49fbc59b66
     pristine_git_object: 013469d05fb95d96331d239a1e8e2384695d5bfc
   docs/sdk/models/shared/company.md:
     id: fb5206b144df
-    last_write_checksum: sha1:f3780b6b057e19d4415c5f6ae3126516b8d3a537
-    pristine_git_object: 02fcbcca268b1a4e3f2801e962e16a71cadebc4c
+    last_write_checksum: sha1:3734bc29034b2fdf2e84b76c6394b19cfce75138
+    pristine_git_object: 00c6056fd2dbc5ebe3418b01ba6027490277a0e1
   docs/sdk/models/shared/companyaccesstoken.md:
     id: 094c5ef713ca
     last_write_checksum: sha1:851d3ebb747dd553e90f64c68c7d0d16214ba791
     pristine_git_object: 411ab1ac5d68d8afa2a24500dcd45f99e7cc5e09
-  docs/sdk/models/shared/companydetails.md:
-    id: 3dc092ebb5e0
-    last_write_checksum: sha1:574542307741cb0dd38c74a82f9a9dafad00ec25
-    pristine_git_object: 68e95c243e87888ddbac4d1d1b48b50ce7ea4f68
   docs/sdk/models/shared/companyreference.md:
     id: eb83cae3df56
     last_write_checksum: sha1:9626066fcdc1ed3ffb8db6f78603017bd75c34f4
@@ -312,10 +300,6 @@ trackedFiles:
     id: cef525a660f4
     last_write_checksum: sha1:441a113bc2bad87a2f8f15f14c20425bc341847c
     pristine_git_object: 24e3e56cfb9477f8b9c5b91befda7b5e10067c69
-  docs/sdk/models/shared/companywebhook.md:
-    id: d93ac665d3ba
-    last_write_checksum: sha1:741d008a03cf95928a315d553e079b6f75e41573
-    pristine_git_object: 0d565c3cbf0efa3788ae64f8ee58d45c0c170f9d
   docs/sdk/models/shared/connection.md:
     id: 1c171381dd82
     last_write_checksum: sha1:a0c116fa2b5c9798d341b1d2633c10ee5a0be549
@@ -332,14 +316,6 @@ trackedFiles:
     id: c39072f6f8dc
     last_write_checksum: sha1:1935700b6a8efdd439462e1b3bb40453b2b5c8a0
     pristine_git_object: e6ab70132c0200f64980a3ae47cf798651145c69
-  docs/sdk/models/shared/connectionwebhook.md:
-    id: bdcd5563b0ad
-    last_write_checksum: sha1:dbdab2081ab2efac1a36e3f62f7242b14402a96c
-    pristine_git_object: 520672a2308fffdcd800ace2ef96078dcfa505c4
-  docs/sdk/models/shared/connectionwebhookpayload.md:
-    id: ed86887e7a96
-    last_write_checksum: sha1:4435a8c9c2e1c0f1ab8873ad9f7a5dfd56284553
-    pristine_git_object: 687c1c7ce8aa04241e53ef91c6613d368e85f81c
   docs/sdk/models/shared/content.md:
     id: 639d69d2341a
     last_write_checksum: sha1:9f01abb46a4f113614db0c4d8887b407bdc7508d
@@ -388,26 +364,10 @@ trackedFiles:
     id: b7f230c48a58
     last_write_checksum: sha1:a20ca632329813508051576666d8d2c9334360e6
     pristine_git_object: 36ab7bf33b29fa315e26530b1b6568741ea776f1
-  docs/sdk/models/shared/datatypereadsummary.md:
-    id: 5cdac300f1b0
-    last_write_checksum: sha1:c3774e2ef3de8bda886948cc87b3f1853e426b30
-    pristine_git_object: 80c8f08770566927d870afb5b6199953d0bc23c1
   docs/sdk/models/shared/datatypes.md:
     id: 673024637a09
     last_write_checksum: sha1:9941d0049e2a35613eb091ef904f370ffe017056
     pristine_git_object: 02ef4d2029c2f9b632266369f2f2430b0f6f4e33
-  docs/sdk/models/shared/datatypewritewebhook.md:
-    id: d180d7dc0fab
-    last_write_checksum: sha1:1f37bc604a5593cfd800185c1c8b68249e23c293
-    pristine_git_object: 917940babe3a09ebae52c005c89981dccb19d9fe
-  docs/sdk/models/shared/datatypewritewebhookpayload.md:
-    id: 52690d53389d
-    last_write_checksum: sha1:246f5c9e148a42c049173dad200397cbdec78920
-    pristine_git_object: e3f3be19fc845cdc1b752414e254e1078e6a8a6f
-  docs/sdk/models/shared/datatypewritewebhookrecord.md:
-    id: fb94a0fc6195
-    last_write_checksum: sha1:d0a4f19d07729ec318341fa2600a8a944afb0681
-    pristine_git_object: 95e308b9e96cc0eb11ae620b864214750444111a
   docs/sdk/models/shared/errormessage.md:
     id: e0c030bde2a1
     last_write_checksum: sha1:1b2a3432758237f5b0b9d363e380f5f7d5b22c6e
@@ -448,14 +408,6 @@ trackedFiles:
     id: de72eaf18510
     last_write_checksum: sha1:dea9aae1f987ab2bc9ca6d0de830f02bea8e5b8e
     pristine_git_object: ae7d91bc8ed2e31ebd38f09fdcfeb3371b93187f
-  docs/sdk/models/shared/issue.md:
-    id: 588b36b37bcf
-    last_write_checksum: sha1:98725cec6e100dc55c037ab3b7173f7c4a8a16bd
-    pristine_git_object: 0e7948ed77b34379a1b4900f707cea98d79063a1
-  docs/sdk/models/shared/issuelinks.md:
-    id: cfc1bca25fbe
-    last_write_checksum: sha1:be03245c93620c042d6e99fda03724d3e9271494
-    pristine_git_object: d648c6caf114a537d94f7cf1aab9ee3fd702d393
   docs/sdk/models/shared/links.md:
     id: fa66a5b5f260
     last_write_checksum: sha1:33d2c450025f12062570c5dcd38bb3f1f904f7a6
@@ -524,14 +476,6 @@ trackedFiles:
     id: 10ddca1b4793
     last_write_checksum: sha1:e5cc51b70173ae084f9153f94c128d126506b125
     pristine_git_object: 976ca04d3b3a142d573fd4490a2a15dcd6380a43
-  docs/sdk/models/shared/readcompletedwebhook.md:
-    id: a91e8b0fc864
-    last_write_checksum: sha1:f80de9771f8a9050c770f572333937d153b18372
-    pristine_git_object: cb71ac729c19a3a2d61965b2d8d55da295ef898d
-  docs/sdk/models/shared/readcompletedwebhookpayload.md:
-    id: 361b1e8834fa
-    last_write_checksum: sha1:aff751dff2b8d9219ff60039b222fcc4c02f3e0d
-    pristine_git_object: fb29e779be729bb81c57dbcc8d3ebdf1eb457b88
   docs/sdk/models/shared/schemadatatype.md:
     id: f1b5bb65132f
     last_write_checksum: sha1:156d97e699ef61cbc015aba9c37f6e57e5f2f4be
@@ -600,14 +544,6 @@ trackedFiles:
     id: ef422dd75135
     last_write_checksum: sha1:b13b969dce035fcd12f4dea2e63c2cd81c0bc6c0
     pristine_git_object: 55769a98692d5fbf9075ac7aff8f2e72f47aa60d
-  docs/sdk/models/shared/writestatus.md:
-    id: d3e63098fe46
-    last_write_checksum: sha1:2fe60dd8faa9ccaeca2bbdbde4e2ede7135b4e18
-    pristine_git_object: df9cbc79764e9223bc4a251ff0aca56bf41d4c2f
-  docs/sdk/models/shared/writetype.md:
-    id: 1c5eac249c35
-    last_write_checksum: sha1:7c0585f0f4000d80981b257a32eb8501d4441d46
-    pristine_git_object: 0a3c6740cf2a913cbd3202417095c29b3db99147
   docs/sdks/companies/README.md:
     id: 67e8a49afa67
     last_write_checksum: sha1:35ad7d67eac9e0640780fed30e99919767d72465
@@ -678,12 +614,12 @@ trackedFiles:
     pristine_git_object: 5dc8c25718e9c3667d8095c7d068cbbcc4f03bf1
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:c0a5343d5c855f069d8af938762419f6cfbdb064
-    pristine_git_object: a06825c1dd042d965b20e8c422817df0a0948fab
+    last_write_checksum: sha1:beffdeda0e18af4c9dcc62ab30009591ae570391
+    pristine_git_object: f2cdc1e2b83dcd26e344b5ae033f62076e223859
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:dd497a0dc1648f13fc46570b8733e5b3e5e6cf61
-    pristine_git_object: 57d35bf9d43a1017669ea1b11175b8b16d20f1d3
+    last_write_checksum: sha1:89406b176f2775e44882c7d2edacd7d18d547a81
+    pristine_git_object: 286fae1708c678a61beefb88153eab07e5199fc5
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:9744ded3fe595398f8cf7c12fd4f17a418f65f2f
@@ -880,10 +816,6 @@ trackedFiles:
     id: 25d74eb1540d
     last_write_checksum: sha1:f9e5ad113350c8f29d09d96a0ac2d684bf4f913f
     pristine_git_object: 9e464a0a75de1ff12bb574a5d8eb4e1bdca5c6b0
-  src/funcs/validateWebhook.ts:
-    id: f3ebc1bebb84
-    last_write_checksum: sha1:a69b4ed9c001056dca4762f9f9208451a685ed76
-    pristine_git_object: 02c1297b448f2c2779574e2372277913f93562f2
   src/funcs/webhooksCreateConsumer.ts:
     id: d756d12323be
     last_write_checksum: sha1:81bc59392d140c215a9c0a30acc09f659fc6c369
@@ -898,16 +830,16 @@ trackedFiles:
     pristine_git_object: acad565e252f1c183be7e127528ca754e8d2d147
   src/hooks/hooks.ts:
     id: a2463fc6f69b
-    last_write_checksum: sha1:9a569ea8f3177ddcdfe6cd903feaf5c2d2c36a9a
-    pristine_git_object: d34c88497fb1cfb22a725e52b4c218f36d0b5c8e
+    last_write_checksum: sha1:646c1538dbffb2552af9d7516de64c339b5e96c2
+    pristine_git_object: fc9b13b25900a363b2123d2bad90f541e1d5d176
   src/hooks/index.ts:
     id: 5f2dab62b520
     last_write_checksum: sha1:1a11c073a6cd792932218e1d4ed36b8567bad8ef
     pristine_git_object: f60ec7acd76141a71d78008c5a362eb0236d8335
   src/hooks/types.ts:
     id: 2a02d86ec24f
-    last_write_checksum: sha1:a2145ca7943102b61791b4b067fb593f221349b3
-    pristine_git_object: 494395f66d0a6de6f6cd8b1dc918557843158c1d
+    last_write_checksum: sha1:da18f72efc4b8bef7912bc70fc6166b4be2f8a95
+    pristine_git_object: 5ffda46a9def49d060911f29656c75d88095bcdd
   src/index.ts:
     id: c5fb850250c7
     last_write_checksum: sha1:35c9cde3ae14b18b3f893a1afe8b6c44f8760f24
@@ -918,56 +850,48 @@ trackedFiles:
     pristine_git_object: 0aebd8b0a4867e35cb3348fc52921c3c0b4725b7
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:143e475811a58b2b47433624e49b4a4d9e6ce150
-    pristine_git_object: abccc40d2aba0ae4bbccfd0f7b3ab431b19a691a
-  src/lib/dlv.ts:
-    id: b1988214835a
-    last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
-    pristine_git_object: e81091f5e536f82739f71379b1fddc2d147c49e2
+    last_write_checksum: sha1:a6fba5358d1ae3bbcb9705640d3ea2fd1b6ea6bc
+    pristine_git_object: 8beee996596e22baf15fd39b09cd049832da4f66
   src/lib/encodings.ts:
     id: 3bd8ead98afd
-    last_write_checksum: sha1:d47614c415b37e092965c34cb668562195701004
-    pristine_git_object: 2791d25bc4f7cf6eec17a65f899851e225fa3deb
+    last_write_checksum: sha1:50d9b187dcfc3cca8d3bbd9fe074f865d715d2b0
+    pristine_git_object: dcab511b4b4d98f1e4b7dd94866e2b41c478b7f0
   src/lib/files.ts:
     id: e5efa54fcb95
     last_write_checksum: sha1:795c14026405d547bfc47012f7ad9666e530fa7f
     pristine_git_object: 6ca6b37d35a12448da176ee2517cc036db12c81c
   src/lib/http.ts:
     id: 63a80782d37e
-    last_write_checksum: sha1:797cbf16d3c7c4d62d3ba0eedb08617524938457
-    pristine_git_object: 13cf1fd7894a89f727b8d2db2ad24313a94f68c7
-  src/lib/is-plain-object.ts:
-    id: b9862591096a
-    last_write_checksum: sha1:df687f25a9590b6fd95d39df41a652ae3fd4e517
-    pristine_git_object: 61070d3d7c7e5e95b1ed7e7ea21869eb0767db77
+    last_write_checksum: sha1:a56435907625a816051aa2131d60909c59f1da27
+    pristine_git_object: 6b7a6cf3e281cae246708b1aca4a27730e08fe61
   src/lib/logger.ts:
     id: 7ee7741a02bf
     last_write_checksum: sha1:0ec9d3a2a34c362746b767e4f9a746c055d57a7b
     pristine_git_object: d181f2937d4128afbe9b0327e0f81d1fa9c877b7
   src/lib/matchers.ts:
     id: d54b2253b719
-    last_write_checksum: sha1:4775ae173392e86f356bb1ffd0d16f3c2d7b0d54
-    pristine_git_object: b096d6f201a8f1b24dea405dc0cb1c75efdf4c97
+    last_write_checksum: sha1:5925cc961da3dbb353edccc6597fd080a9992486
+    pristine_git_object: ffdb0e03aea66f0aff1354755a5f7944f1b04ad8
   src/lib/primitives.ts:
     id: 74859f750b28
-    last_write_checksum: sha1:987869fc54790b9c22e9182099103d6aa7c67016
-    pristine_git_object: d21f1dc49affa4e6d324bdd60811b470fdfa7eb6
+    last_write_checksum: sha1:fe3abb7d6b61596e346873519bcec9b2eaa61467
+    pristine_git_object: 8ce65db0f7c0d6b68f5edc3ebf518121e284e954
   src/lib/retries.ts:
     id: b24a69d15639
-    last_write_checksum: sha1:f3da74dffcbe2756c69393f8600205aa1dc06e68
-    pristine_git_object: e3ce9aba72150fc3c18f3105d39b21aba809377b
+    last_write_checksum: sha1:42c8f6cc4c875be236230a8c760f4f32d8c1ab68
+    pristine_git_object: 21a647e1e9ae64817fcd63b5dd6bb5a51b63d225
   src/lib/schemas.ts:
     id: deb4b531fae1
     last_write_checksum: sha1:b8517a14d3043f488f44e3b10ddd6cabdd22242f
     pristine_git_object: dc2510e330727b01894e4d3954ea92a62c962e5d
   src/lib/sdks.ts:
     id: 8a6d91f1218d
-    last_write_checksum: sha1:fe94d4c4f88fbe0d549e5d0411b2aa9cfdf740eb
-    pristine_git_object: cef4177db76f7c16ed5e1907f58d9cc861e0fd12
+    last_write_checksum: sha1:a2d6c1cb4d9ebc490a53aeb1887156e670fb3d1d
+    pristine_git_object: 6c0727f0e34d4c400f64b3eeddf6de539480d533
   src/lib/security.ts:
     id: 0502afa7922e
-    last_write_checksum: sha1:808e939964cd1393080c8b6428dabf33f746bae5
-    pristine_git_object: 3da8e733b499dfb3c174dab84751a95ebc42324a
+    last_write_checksum: sha1:4aabb40980ce255074e37d88f5afbf3561165bec
+    pristine_git_object: b14be0e03370c19ad94fe8d66620e123a59ffbd9
   src/lib/url.ts:
     id: b0057e24ed76
     last_write_checksum: sha1:3bceadd74bf0b31adf13eb06b7531077c3e07d65
@@ -1212,34 +1136,22 @@ trackedFiles:
     id: 1a42433a17a0
     last_write_checksum: sha1:60b9d50fb4ff59f938f794ff55992ec92a40dc10
     pristine_git_object: 1a8fe7ee8b76eb34824148b67e2d799589cd01ad
-  src/sdk/models/shared/clientratelimitwebhook.ts:
-    id: c691f6d7f890
-    last_write_checksum: sha1:873cdc12f8278470e382ae879c4bb2eb17f7f029
-    pristine_git_object: cdc40c0b87eb15c3725596b713a38dec90aa9083
-  src/sdk/models/shared/clientratelimitwebhookpayload.ts:
-    id: d068d62c8d39
-    last_write_checksum: sha1:e9a21951c06c14ff5a39fd7379cd1c3bafc314d1
-    pristine_git_object: 72605d6242434c3e2be999f0006634d5a193e129
   src/sdk/models/shared/companies.ts:
     id: a4b81f9ba7c8
     last_write_checksum: sha1:81432b885d166aad72ebfcdf5b25eb9c822545b4
     pristine_git_object: 0f308542ebb67c7b1d3262721bbe236d1176ef3c
   src/sdk/models/shared/company.ts:
     id: 8f41ac6a5b4f
-    last_write_checksum: sha1:db581f1815189c40f98da9b60de6d329bd07a873
-    pristine_git_object: e48fca2fb2e59ab159cb06516f76996ed74f595b
+    last_write_checksum: sha1:004de6f1a64d03feff406a133b860136e59fc7af
+    pristine_git_object: d9f6cf298d9aad46eac10b02c2955cdf01c46dc2
   src/sdk/models/shared/companyaccesstoken.ts:
     id: de9d8c6237e5
     last_write_checksum: sha1:8bbef263606dc3c3a1981ba4f21ffc2d9bb74ae6
     pristine_git_object: 456b2749690603ad7beb11af880bbc444140633c
-  src/sdk/models/shared/companydetails.ts:
-    id: 9ecf68722fba
-    last_write_checksum: sha1:4936e5767c2c315a3f7fec2ef05d2c6341d9d337
-    pristine_git_object: bf84c6f436b420bab17f2faa8b5773f191dd499d
   src/sdk/models/shared/companyreference.ts:
     id: f80ee466bdc7
-    last_write_checksum: sha1:a13593197e2c55252dac28abfd5493a76a400e5b
-    pristine_git_object: e40af5e267211b26d0d3b0296484b7450c485126
+    last_write_checksum: sha1:18f872a5210839d73dd540c541ef0b29609d6197
+    pristine_git_object: 403e37ef74b8b1d3bff9075c509287ed96f84752
   src/sdk/models/shared/companyrequestbody.ts:
     id: 9e2dd8b2247d
     last_write_checksum: sha1:a3027f00426e9affb8b7f8d930db63b89c197607
@@ -1252,14 +1164,10 @@ trackedFiles:
     id: 9a4400207ec8
     last_write_checksum: sha1:371f7f83676f4130f9885c506c8184c53e202390
     pristine_git_object: 442b7a78cb3fde01477e7bb5cec5626c06a9a58b
-  src/sdk/models/shared/companywebhook.ts:
-    id: 84c27c4ca6e6
-    last_write_checksum: sha1:f7e6934a9c94099f4685cbe340bddba898600baf
-    pristine_git_object: 08dcc2eeb592e8c7c8dfd56e30f93d6658be6831
   src/sdk/models/shared/connection.ts:
     id: 18ea99cdadfb
-    last_write_checksum: sha1:e4da7791a747d34add6b5844b576e92887f7b2b1
-    pristine_git_object: d0a2d40ab34a0cf002030b3262868565d0440ccb
+    last_write_checksum: sha1:31ca568d8f022fbf138d12a46260ee2bb755b4d9
+    pristine_git_object: 212086d2eaba2bd89ab772f06bdf9440c3227265
   src/sdk/models/shared/connectionmanagementaccesstoken.ts:
     id: 3523a921aaf9
     last_write_checksum: sha1:4e7936ea1723de05717404632eba593a3e1c2c20
@@ -1272,14 +1180,6 @@ trackedFiles:
     id: 221acd1ae99a
     last_write_checksum: sha1:ef2d949a3163430d3095303bf231c18b7dc93c9c
     pristine_git_object: 1278d54c36183c06f6113dd14c25f115be7a6465
-  src/sdk/models/shared/connectionwebhook.ts:
-    id: fea4929e3c54
-    last_write_checksum: sha1:40e294cc6743aeabcb6faddc1fa2a8f93ba31b0b
-    pristine_git_object: e44a554396cd23fbfcec0f3f54235b7a55e0a864
-  src/sdk/models/shared/connectionwebhookpayload.ts:
-    id: eb3ffbfb1804
-    last_write_checksum: sha1:46e08960b22539759c63d2803d9a4ff55ad7d0ee
-    pristine_git_object: 58b5ad4a22c28a833661ddab016b3436987ce5ef
   src/sdk/models/shared/createapikey.ts:
     id: 34ab87e02e3a
     last_write_checksum: sha1:e71549b28f56f6fef30af12bd405a101a50fb183
@@ -1298,8 +1198,8 @@ trackedFiles:
     pristine_git_object: df5741d181d8e817ede8f6252576042c83626902
   src/sdk/models/shared/dataconnectionerror.ts:
     id: c94cddffcec9
-    last_write_checksum: sha1:3b20f4e77cd912194221f095626d86c19330de38
-    pristine_git_object: 90c1570e915435a100436d5686ba256cfab51f25
+    last_write_checksum: sha1:e968b9983e395410ddd93aa9967671e46066eae2
+    pristine_git_object: 1cb816d0f2b87e31e36ad1ece98b6f25bcdb148b
   src/sdk/models/shared/dataconnectionstatus.ts:
     id: 506ff77d012f
     last_write_checksum: sha1:6ab2241aa8830aafaeb937d48e97918a68b9dac7
@@ -1320,22 +1220,6 @@ trackedFiles:
     id: 8cb05182908f
     last_write_checksum: sha1:4c414a6c4e2cc0d3fe24d9ee74bf71ff0ae07dbc
     pristine_git_object: 34f56f1d68cfdc28adc30cef7b5e1339e49ce743
-  src/sdk/models/shared/datatypereadsummary.ts:
-    id: 7c5a43ff74bb
-    last_write_checksum: sha1:8293d150875c1575208a3480bc37ced9406a9dc5
-    pristine_git_object: d7e90ce7fbc7c5421e24123790064d234a9e115d
-  src/sdk/models/shared/datatypewritewebhook.ts:
-    id: f0b58d6a5be4
-    last_write_checksum: sha1:ccc8b7535f7e25acf389e631ac8bab0e27d5bdf8
-    pristine_git_object: e7bb1bc436bb0c5263051c02796b85cf6531fbf9
-  src/sdk/models/shared/datatypewritewebhookpayload.ts:
-    id: d5730ae40ec2
-    last_write_checksum: sha1:6e3154745247baedd7b35f9bf0d28a52665831c3
-    pristine_git_object: 401fdaa3d7f0b9cdbfe88ded0b66d13400a05761
-  src/sdk/models/shared/datatypewritewebhookrecord.ts:
-    id: 678a2d36de3d
-    last_write_checksum: sha1:2d408bc148c0ea510543f586edd97792e21a00ae
-    pristine_git_object: 9170a229da9ad7ead869f5c5a6ce7a9b89d8b5b6
   src/sdk/models/shared/errormessage.ts:
     id: a9e0750a72b9
     last_write_checksum: sha1:c0eb6aab7917336041906e6033a843e7975eae00
@@ -1366,8 +1250,8 @@ trackedFiles:
     pristine_git_object: e850fa584610a3ba9ca28b02fff560379872e118
   src/sdk/models/shared/index.ts:
     id: e97e906e3c14
-    last_write_checksum: sha1:9a38f102ced52fa6fdc2e870fdbeda00acc56302
-    pristine_git_object: e36e825f73a93581803b1f8c7905d3b5f3ea8e26
+    last_write_checksum: sha1:0e21345ae66fec734d87c23c46d9ec2cb38006f0
+    pristine_git_object: 75e6f9b32c5009a5e42c6228676ffef2d7b5e178
   src/sdk/models/shared/integration.ts:
     id: 7dddee0366e4
     last_write_checksum: sha1:5eb645e9bab9d5a567a52b9ef227570a1b119f77
@@ -1376,10 +1260,6 @@ trackedFiles:
     id: 0118f3d420a6
     last_write_checksum: sha1:89f927eccdaf516b5bea0df9c01b08fd27cafcb0
     pristine_git_object: 133f44898c691be5c36629cf925a7cc39d0b38e2
-  src/sdk/models/shared/issue.ts:
-    id: 03d66f3fd292
-    last_write_checksum: sha1:37871dde943c8056008039dcbebcb75e60a6c01a
-    pristine_git_object: 802f59bd6209b0bb1e270518f5fb00b2ab5d3527
   src/sdk/models/shared/links.ts:
     id: 5c9b3efadf74
     last_write_checksum: sha1:453659d4b39a592c99b3b459eb9f44055f4c4195
@@ -1444,14 +1324,6 @@ trackedFiles:
     id: c3bac2e0d020
     last_write_checksum: sha1:233611708647ac824c46a354d05fc0f3b87cdbe3
     pristine_git_object: 3479adce121324a58a8bb938a974762be7f3cae0
-  src/sdk/models/shared/readcompletedwebhook.ts:
-    id: bb5dae662057
-    last_write_checksum: sha1:b420f45f8193aaab305f86a623b9f206229fe1ea
-    pristine_git_object: 027874fb9a13ab5afe1544d6d0e6ca8972094862
-  src/sdk/models/shared/readcompletedwebhookpayload.ts:
-    id: c65ec8710324
-    last_write_checksum: sha1:daa57d2f1566c4312fa587ae06840f60b4ead41e
-    pristine_git_object: 59408a5414dd84e59f06e0b9a36b4d85ea8f811b
   src/sdk/models/shared/schemadatatype.ts:
     id: 2847a75ea971
     last_write_checksum: sha1:0be7e582186ba9ceafb92d67a5b15fe07bf32328
@@ -1462,12 +1334,12 @@ trackedFiles:
     pristine_git_object: 675eaa5827f48cff71e28d1627f8d65a74e10623
   src/sdk/models/shared/sourcetype.ts:
     id: 522d862efe5c
-    last_write_checksum: sha1:56c5b8a222327b6776331951eafb7ead0f1d8ec1
-    pristine_git_object: 4ff7925e44d6013880a8211f7f02ab75ba80082e
+    last_write_checksum: sha1:8ea960bb7133064c0c3128b6cf6369ae381d86a5
+    pristine_git_object: 2dace592bc2910b642f8cbf0a55bc7615b8bf676
   src/sdk/models/shared/status.ts:
     id: 1ab31ee187e8
-    last_write_checksum: sha1:34533ee05804f1ffb0ff75d67eb7555498b9b5e5
-    pristine_git_object: 17744c5740abf3e47c2e43c806c75374563baa46
+    last_write_checksum: sha1:32b3b6aa4030d2fc4688dd986f9872a86a1abe46
+    pristine_git_object: 7b458b0a812628f48c33f789fe66d2fedf4c2e18
   src/sdk/models/shared/supplementaldataconfiguration.ts:
     id: 1f33c24128a4
     last_write_checksum: sha1:1b052f3127437bb1f71d258505ff06229512b101
@@ -1516,14 +1388,6 @@ trackedFiles:
     id: 617bc356300e
     last_write_checksum: sha1:e07cf3b12edbf54511dafa22e1e11d7028edcd4a
     pristine_git_object: 33ccbcc26fc577a26b8919fbffc1cecaf6af61cd
-  src/sdk/models/shared/writestatus.ts:
-    id: e7d1d168ef5b
-    last_write_checksum: sha1:656e34d522241a9d4339c464c51dfd1ee1cf0454
-    pristine_git_object: cc22560ab21e0a498f4e1f57ca5bae1910b8cb12
-  src/sdk/models/shared/writetype.ts:
-    id: aa93730d7cbc
-    last_write_checksum: sha1:14e7d3d9b52b92ff5db9ff59d9ec388a74783474
-    pristine_git_object: 3a434bc59292adea4d7f3df2d38e61bc9cc954ae
   src/sdk/pushdata.ts:
     id: f6018aed8810
     last_write_checksum: sha1:841972fe8e555c6eb913442370a7508bed4c1f78
@@ -1538,8 +1402,8 @@ trackedFiles:
     pristine_git_object: a660ec4b29c1e3cc13c5c891bd3513ed152127a2
   src/sdk/sdk.ts:
     id: 784571af2f69
-    last_write_checksum: sha1:8d02e5b8c1257ec6fc64df49d45321552d047f0f
-    pristine_git_object: a10fea4aafefdc12e94c33a9c3f05f2a5b8a3e65
+    last_write_checksum: sha1:26634ac2601100cb09ca02304826a4e921f8b57f
+    pristine_git_object: a5684ffc07b002aee1c7ccfe82b5eb63debf7129
   src/sdk/settings.ts:
     id: b7e993b8acd3
     last_write_checksum: sha1:3ee45176da127a85c6d49fcf0710d58a67bc48ae
@@ -1550,8 +1414,8 @@ trackedFiles:
     pristine_git_object: 71664963ae2c2be2cb7bdf9a69182b6586dd2af3
   src/sdk/types/async.ts:
     id: 966026768b05
-    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
-    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+    last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
+    pristine_git_object: 1543b95cf7be9b5a871d7395f259dbd65331dc21
   src/sdk/types/blobs.ts:
     id: 1def31341768
     last_write_checksum: sha1:cf45d78916671cb6345a11c97c633c64402bc27c
@@ -1570,8 +1434,8 @@ trackedFiles:
     pristine_git_object: ccbe51eac69dfb0da5131f14fd753c4b47c1d527
   src/sdk/types/index.ts:
     id: 8c869d66c5f3
-    last_write_checksum: sha1:25820e050c332015aaff5b5de2bbec51c3edd3ad
-    pristine_git_object: 8249564b4af12e95d783f3ad39f37f88346b6d09
+    last_write_checksum: sha1:bf43b3dccb960ca9ae9c5ab940da4786255881cd
+    pristine_git_object: abf0b7ab8f196829df8946da40d627a46da68e3c
   src/sdk/types/operations.ts:
     id: c5e9c75d4266
     last_write_checksum: sha1:c49e724cfb1259296381cb57bc0fcdd2eae45865
@@ -1588,10 +1452,6 @@ trackedFiles:
     id: 690d294a1973
     last_write_checksum: sha1:d33ac686528492f4cdc0dbf81ed343b4afe020fe
     pristine_git_object: b7a2a13f3dff50663429df24ae2f55b647ff1084
-  src/sdk/types/webhooks.ts:
-    id: 0f676e5e22a7
-    last_write_checksum: sha1:dbce0cb417bcdcfcae0827fa045ee93ccab1c2c8
-    pristine_git_object: 9510d20c09d8dd689f6e37254030de22e997f3cc
   src/sdk/webhooks.ts:
     id: e879e17d0532
     last_write_checksum: sha1:fde07174ca3b2c7b824da03e507e349ba6eb6034
@@ -1834,7 +1694,7 @@ examples:
         application/json: {"name": "New Name"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "ownerUserIds": ["3f1a2b4c-5d6e-7f80-91a2-b3c4d5e6f708"], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401":
           application/json: {}
         "500":
@@ -1847,7 +1707,7 @@ examples:
         application/json: {"name": "Same name", "description": "Additional documents required"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "ownerUserIds": ["3f1a2b4c-5d6e-7f80-91a2-b3c4d5e6f708"], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401":
           application/json: {}
         "500":
@@ -1871,7 +1731,7 @@ examples:
         application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "ownerUserIds": ["3f1a2b4c-5d6e-7f80-91a2-b3c4d5e6f708"], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401":
           application/json: {}
         "500":
@@ -1885,7 +1745,7 @@ examples:
         application/json: {"tags": {"refrence": "new reference"}}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "ownerUserIds": ["3f1a2b4c-5d6e-7f80-91a2-b3c4d5e6f708"], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401":
           application/json: {}
         "500":
@@ -1898,7 +1758,7 @@ examples:
         application/json: {"name": "New Name"}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "ownerUserIds": ["3f1a2b4c-5d6e-7f80-91a2-b3c4d5e6f708"], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401":
           application/json: {}
         "500":
@@ -1922,7 +1782,7 @@ examples:
         application/json: {"name": "Bank of Dave", "description": "Requested early access to the new financing scheme."}
       responses:
         "200":
-          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
+          application/json: {"id": "0498e921-9b53-4396-a412-4f2f5983b0a2", "name": "string", "redirect": "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739", "lastSync": "2022-01-01T12:00:00.000Z", "created": "2022-01-01T12:00:00.000Z", "createdByUserName": "string", "products": ["spend-insights", "lending"], "tags": {"region": "us", "uid": "f6b0c253-16c7-4da1-a0c5-9c871e9c9d6c"}, "ownerUserIds": ["3f1a2b4c-5d6e-7f80-91a2-b3c4d5e6f708"], "dataConnections": [{"id": "ee2eb431-c0fa-4dc9-93fa-d29781c12bcd", "integrationId": "bf083d72-62c7-493e-aec9-81b4dbba7e2c", "integrationKey": "dfxm", "sourceId": "bdd831ce-eebd-4896-89a7-20e5ee8989ee", "sourceType": "Banking", "platformName": "Basiq", "linkUrl": "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start", "status": "Linked", "lastSync": "2022-10-27T10:22:43.6464237Z", "created": "2022-10-27T09:53:29Z"}]}
         "401":
           application/json: {}
         "500":
@@ -3162,16 +3022,11 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `codatplatform.companies.list()`:  `response.results[].dataConnections[].integrationKey` **Changed**
-  * `codatplatform.companies.create()`:  `response.dataConnections[].integrationKey` **Changed**
-  * `codatplatform.companies.get()`:  `response.dataConnections[].integrationKey` **Changed**
-  * `codatplatform.companies.replace()`:  `response.dataConnections[].integrationKey` **Changed**
-  * `codatplatform.companies.update()`:  `response.dataConnections[].integrationKey` **Changed**
-  * `codatplatform.connections.list()`:  `response.results[].integrationKey` **Changed**
-  * `codatplatform.connections.create()`:  `response.integrationKey` **Changed**
-  * `codatplatform.connections.get()`:  `response.integrationKey` **Changed**
-  * `codatplatform.connections.unlink()`:  `response.integrationKey` **Changed**
-  * `codatplatform.connections.updateAuthorization()`:  `response.integrationKey` **Changed**
+  * `codatplatform.companies.list()`:  `response.results[].ownerUserIds` **Added**
+  * `codatplatform.companies.create()`:  `response.ownerUserIds` **Added**
+  * `codatplatform.companies.get()`:  `response.ownerUserIds` **Added**
+  * `codatplatform.companies.replace()`:  `response.ownerUserIds` **Added**
+  * `codatplatform.companies.update()`:  `response.ownerUserIds` **Added**
 generatedFiles:
   - .gitattributes
   - .npmignore

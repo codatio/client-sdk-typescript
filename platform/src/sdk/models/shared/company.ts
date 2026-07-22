@@ -94,6 +94,10 @@ export type Company = {
    * A collection of user-defined key-value pairs that store custom metadata against the company.
    */
   tags?: { [k: string]: string } | undefined;
+  /**
+   * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+   */
+  ownerUserIds?: Array<string> | undefined;
   referenceParentCompany?: CompanyReference | undefined;
   /**
    * A list of subsidiary companies owned or controlled by this entity. Empty if the company has no children.
@@ -114,6 +118,7 @@ export const Company$inboundSchema: z.ZodType<Company, z.ZodTypeDef, unknown> =
     createdByUserName: z.nullable(z.string()).optional(),
     products: z.array(z.string()).optional(),
     tags: z.record(z.string()).optional(),
+    ownerUserIds: z.array(z.string()).optional(),
     referenceParentCompany: CompanyReference$inboundSchema.optional(),
     referenceSubsidiaryCompanies: z.array(CompanyReference$inboundSchema)
       .optional(),

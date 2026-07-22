@@ -25,6 +25,3 @@ export type SourceType = ClosedEnum<typeof SourceType>;
 /** @internal */
 export const SourceType$inboundSchema: z.ZodNativeEnum<typeof SourceType> = z
   .nativeEnum(SourceType);
-/** @internal */
-export const SourceType$outboundSchema: z.ZodNativeEnum<typeof SourceType> =
-  SourceType$inboundSchema;
