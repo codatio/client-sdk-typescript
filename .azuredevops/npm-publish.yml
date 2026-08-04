@@ -1,0 +1,324 @@
+# Publishes one @codat/* TypeScript SDK package to public npm.
+#
+# This file lives in the SDK repo (codatio/client-sdk-typescript) at
+# .azuredevops/npm-publish.yml, not in this repo: Azure Pipelines CI triggers
+# only fire for the repository the YAML is committed to. The copy here is the
+# source of truth that gets delivered into the SDK repo.
+#
+# It fires when a versioned release PR merges to main, which it recognises by a
+# change to <product>/RELEASES.md. The detect step works out which product that
+# was; a versioned PR only ever touches one, so two at once is an error rather
+# than a guess. A manual run can override the product for testing.
+#
+# Build stage: builds and packs the package at the merged commit and runs the
+# packaging checks that used to run in the GitHub Actions release rehearsal
+# (mirror_release_workflows.py). Publish stage: publishes the tarball under the
+# "next" dist-tag; if the version is already on npm it skips and stays green, so
+# a re-run is harmless. The npm credential lives in the
+# codat-npm-publish-packages service connection and never leaves Azure.
+
+trigger:
+  branches:
+    include: [main]
+  paths:
+    include:
+      - bank-feeds/RELEASES.md
+      - lending/RELEASES.md
+      - platform/RELEASES.md
+      - sync-for-expenses/RELEASES.md
+      - sync-for-payables/RELEASES.md
+
+pr: none
+
+parameters:
+  - name: product
+    displayName: Product to publish ("auto" reads it from the merged commit)
+    type: string
+    default: auto
+    values:
+      - auto
+      - bank-feeds
+      - lending
+      - platform
+      - sync-for-expenses
+      - sync-for-payables
+
+resources:
+  repositories:
+    # Checkout-only: the check scripts (exports_smoke.mjs), products.json and
+    # the feed .npmrc live in the codegen repo. No trigger comes from here.
+    - repository: codegen
+      type: github
+      name: codat-internal/sdk-codegen
+      ref: refs/heads/main
+      endpoint: codat-tech
+
+variables:
+  nodeVersion: "20.x"
+  # Two repos are checked out, so each checkout step pins its own folder
+  # rather than relying on the default multi-repo layout.
+  sdkDir: $(Agent.BuildDirectory)/s/sdk
+  codegenDir: $(Agent.BuildDirectory)/s/codegen
+  publicNpmRegistry: "https://registry.npmjs.org/"
+  npmServiceConnection: "codat-npm-publish-packages"
+  packageArtifact: "npm-package"
+  distTag: "next"
+
+stages:
+  - stage: BuildValidate
+    displayName: "Build & validate"
+    jobs:
+      - job: BuildValidate
+        displayName: "Build, pack and check the package"
+        pool: codat-intg-managed-devops-pool-linux
+        variables:
+          NPM_CONFIG_USERCONFIG: $(Agent.TempDirectory)/.npmrc
+        steps:
+          # Two commits so the detect step can diff the merge against its parent.
+          - checkout: self
+            fetchDepth: 2
+            path: s/sdk
+          - checkout: codegen
+            fetchDepth: 1
+            path: s/codegen
+
+          - task: Bash@3
+            displayName: "Work out which product this release is for"
+            inputs:
+              targetType: inline
+              workingDirectory: $(sdkDir)
+              script: |
+                set -euo pipefail
+                override="${{ parameters.product }}"
+                if [ "$override" != "auto" ]; then
+                  echo "Manual override: publishing $override"
+                  echo "##vso[task.setvariable variable=product]$override"
+                  exit 0
+                fi
+                if ! git rev-parse --verify --quiet HEAD^ >/dev/null; then
+                  echo "##[error]No parent commit to diff against — re-run with the product parameter set"
+                  exit 1
+                fi
+                # No match is a normal outcome here, not a script failure, so
+                # the guidance below gets a chance to print.
+                changed=$(git diff --name-only HEAD^ HEAD \
+                  | grep -E '^(bank-feeds|lending|platform|sync-for-expenses|sync-for-payables)/RELEASES\.md$' \
+                  | cut -d/ -f1 | sort -u || true)
+                count=$(echo "$changed" | grep -c . || true)
+                if [ "$count" -eq 0 ]; then
+                  echo "##[error]No <product>/RELEASES.md changed in $(git rev-parse --short HEAD) — nothing to publish. Re-run with the product parameter if this was intentional."
+                  exit 1
+                fi
+                if [ "$count" -gt 1 ]; then
+                  echo "##[error]More than one product released in one commit: $(echo $changed). Release PRs are one product each — re-run per product with the product parameter."
+                  exit 1
+                fi
+                echo "Releasing $changed"
+                echo "##vso[task.setvariable variable=product]$changed"
+
+          - task: UseNode@1
+            displayName: "Install Node.js"
+            inputs:
+              version: $(nodeVersion)
+
+          # Installs go through Codat's verified feed, not public npm — the feed
+          # mirrors npmjs and everything on it has been through safe-package-feeder.
+          # First run needs the feed owner to approve this pipeline's access.
+          - task: Bash@3
+            displayName: "Point npm at Codat's verified feed"
+            inputs:
+              targetType: inline
+              script: cp "$(codegenDir)/parity/typescript/.npmrc.example" "$(Agent.TempDirectory)/.npmrc"
+
+          - task: npmAuthenticate@0
+            displayName: "Authenticate to the feed"
+            inputs:
+              workingFile: $(Agent.TempDirectory)/.npmrc
+
+          - task: Bash@3
+            displayName: "Check the product folder is there"
+            inputs:
+              targetType: inline
+              workingDirectory: $(sdkDir)
+              script: |
+                set -euo pipefail
+                if [ ! -f "$(product)/package.json" ]; then
+                  echo "##[error]No $(product)/package.json at this commit — is the product folder name right?"
+                  exit 1
+                fi
+
+          - task: Bash@3
+            displayName: "Build and pack"
+            inputs:
+              targetType: inline
+              workingDirectory: $(sdkDir)
+              script: |
+                set -euo pipefail
+                cd "$(product)"
+                if [ -f package-lock.json ]; then npm ci; else npm install; fi
+                npm run build
+                cd ..
+                mkdir -p "$(Build.ArtifactStagingDirectory)/pack-out"
+                npm pack "./$(product)" --pack-destination "$(Build.ArtifactStagingDirectory)/pack-out"
+
+          - task: Bash@3
+            displayName: "Check the tarball carries the stamped version"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
+              script: |
+                set -euo pipefail
+                stamped=$(node -p "require('$(sdkDir)/$(product)/package.json').version")
+                echo "stamped version: $stamped"
+                ls | grep -F -- "-$stamped.tgz" >/dev/null || {
+                  echo "##[error]Tarball does not carry version $stamped"; ls; exit 1; }
+
+          - task: Bash@3
+            displayName: "Tarball tripwire (dist populated, no .npmrc)"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
+              script: |
+                set -euo pipefail
+                tgz=$(ls *.tgz)
+                dist_js=$(tar -tzf "$tgz" | grep -c '^package/dist/.*\.js$' || true)
+                echo "built dist/*.js files in tarball: $dist_js"
+                if [ "$dist_js" -eq 0 ]; then
+                  echo "##[error]Tarball has no built dist/*.js — the package would install empty"
+                  tar -tzf "$tgz" | head -40; exit 1
+                fi
+                if tar -tzf "$tgz" | grep -q '^package/\.npmrc$'; then
+                  echo "##[error]Tarball contains .npmrc — private-feed credentials must never be published"; exit 1
+                fi
+
+          - task: Bash@3
+            displayName: "npm publish dry run"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
+              script: npm publish ./*.tgz --dry-run --registry=$(publicNpmRegistry)
+
+          - task: Bash@3
+            displayName: "Install into a scratch consumer, compile and load"
+            inputs:
+              targetType: inline
+              script: |
+                set -euo pipefail
+                client=$(node -p "
+                  const p = require('$(codegenDir)/products.json').products;
+                  p['$(product)'].typescript.client_class_name")
+                mkdir "$(Agent.TempDirectory)/consumer" && cd "$(Agent.TempDirectory)/consumer"
+                npm init -y >/dev/null
+                npm install "$(Build.ArtifactStagingDirectory)"/pack-out/*.tgz typescript @types/node >/dev/null
+                cat > smoke.ts <<TS
+                import { $client } from "@codat/$(product)";
+                import type * as shared from "@codat/$(product)/sdk/models/shared";
+                const client = new $client({ authHeader: "Basic smoke" });
+                console.log("compile smoke:", typeof client);
+                TS
+                npx tsc smoke.ts --noEmit --module nodenext --moduleResolution nodenext --target es2020 --esModuleInterop --skipLibCheck
+                node -e "const m = require('@codat/$(product)'); const c = new m.$client({ authHeader: 'Basic smoke' }); console.log('runtime smoke OK:', c.constructor.name)"
+
+          - task: Bash@3
+            displayName: "Load every exports subpath (require + import)"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Agent.TempDirectory)/consumer
+              script: |
+                set -euo pipefail
+                # The script resolves the package relative to its own location,
+                # so it must run from inside the consumer's node_modules tree.
+                cp "$(codegenDir)/cutover/exports_smoke.mjs" .
+                node exports_smoke.mjs "@codat/$(product)"
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish the packed tarball"
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/pack-out
+              artifact: $(packageArtifact)
+
+  - stage: Publish
+    displayName: "Publish to public npm"
+    dependsOn: BuildValidate
+    # Only main publishes. A manual run off a branch still gets the build checks.
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: Publish
+        displayName: "npm publish under the pre-release tag"
+        pool: codat-intg-managed-devops-pool-linux
+        steps:
+          - checkout: none
+
+          - task: UseNode@1
+            displayName: "Install Node.js"
+            inputs:
+              version: $(nodeVersion)
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download the packed tarball"
+            inputs:
+              artifact: $(packageArtifact)
+              path: $(Pipeline.Workspace)/pack-out
+
+          - task: Bash@3
+            displayName: "Skip if this version is already on npm"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/pack-out
+              script: |
+                set -euo pipefail
+                tgz=$(ls *.tgz)
+                manifest=$(tar -xzOf "$tgz" package/package.json)
+                # Name and version come from the tarball, so this stage needs no
+                # variable handed across from the build stage.
+                name=$(echo "$manifest" | node -p "JSON.parse(require('fs').readFileSync(0)).name")
+                version=$(echo "$manifest" | node -p "JSON.parse(require('fs').readFileSync(0)).version")
+                echo "tarball: $name@$version"
+                # A 404 means the version is not on npm; any other npm view
+                # failure (network, auth) must fail the run rather than be
+                # read as "safe to publish".
+                set +e
+                output=$(npm view "$name@$version" version --registry=$(publicNpmRegistry) 2>&1)
+                status=$?
+                set -e
+                if [ $status -eq 0 ] && [ "$output" = "$version" ]; then
+                  echo "##vso[task.setvariable variable=alreadyPublished]true"
+                  echo "$name@$version is already on npm — nothing to publish."
+                elif { [ $status -eq 0 ] && [ -z "$output" ]; } || echo "$output" | grep -q "E404\|No match found for version"; then
+                  echo "##vso[task.setvariable variable=alreadyPublished]false"
+                  echo "$name@$version is not on npm yet — publishing under --tag $(distTag)."
+                else
+                  echo "$output"
+                  echo "##[error]Could not determine whether $name@$version is already on npm"
+                  exit 1
+                fi
+
+          - task: Bash@3
+            displayName: "Prepare public npm .npmrc"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/pack-out
+              script: |
+                {
+                  echo "registry=$(publicNpmRegistry)"
+                  echo "always-auth=true"
+                } > .npmrc
+
+          - task: npmAuthenticate@0
+            displayName: "Authenticate to public npm"
+            inputs:
+              workingFile: $(Pipeline.Workspace)/pack-out/.npmrc
+              customEndpoint: $(npmServiceConnection)
+
+          - task: Bash@3
+            displayName: "Publish"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/pack-out
+              script: |
+                set -euo pipefail
+                if [ "$(alreadyPublished)" = "true" ]; then
+                  echo "Version already on npm — skipping publish."
+                  exit 0
+                fi
+                npm publish ./*.tgz --access public --tag $(distTag)

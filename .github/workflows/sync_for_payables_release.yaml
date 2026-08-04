@@ -1,8 +1,9 @@
 # Written by sdk-codegen (cutover/emit_workflow_stubs.py); do not edit by hand.
-# Publishing no longer runs in this repo. The packaging checks, the npm publish
-# and the tag all run centrally in the Azure DevOps npm publish pipeline - no
-# check has been dropped, they just moved. This stub only queues that pipeline,
-# at the url in the ADO_PUBLISH_PIPELINE_URL repo variable.
+# Publishing no longer runs in this repo. The packaging checks, the upload to
+# npm and the tag all run centrally in the Azure DevOps pipeline at
+# .azuredevops/npm-publish.yml - no check has been dropped, they just moved.
+# That pipeline watches this same RELEASES.md push itself, so this stub has
+# nothing to hand on and only says where publishing went.
 name: Release Sync for Payables library
 'on':
   push:
@@ -11,24 +12,11 @@ name: Release Sync for Payables library
     branches:
     - main
   workflow_dispatch: {}
-concurrency: publish-sync-for-payables-typescript
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - name: Queue the central npm publish pipeline
+      - name: Publishing moved to the Azure DevOps pipeline
         run: |
-          if [ -z "${{ secrets.ADO_PUBLISH_TRIGGER_TOKEN }}" ]; then
-            echo "::error::ADO_PUBLISH_TRIGGER_TOKEN secret is not set - needed to queue the Azure DevOps npm publish pipeline"
-            exit 1
-          fi
-          if [ -z "${{ vars.ADO_PUBLISH_PIPELINE_URL }}" ]; then
-            echo "::error::ADO_PUBLISH_PIPELINE_URL repo variable is not set - expected https://dev.azure.com/<org>/<project>/_apis/pipelines/<id>"
-            exit 1
-          fi
-          curl --fail-with-body --silent --show-error -X POST \
-            -u ":${{ secrets.ADO_PUBLISH_TRIGGER_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            "${{ vars.ADO_PUBLISH_PIPELINE_URL }}/runs?api-version=7.1" \
-            -d '{"templateParameters": {"product": "sync-for-payables", "sha": "${{ github.sha }}"}}'
-          echo "npm publish pipeline queued for sync-for-payables @ ${{ github.sha }}"
+          echo "::warning::This workflow no longer publishes anything. sync-for-payables is built, checked and published to npm by .azuredevops/npm-publish.yml, which triggers on this same push to sync-for-payables/RELEASES.md."
+          exit 0
