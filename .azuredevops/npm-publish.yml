@@ -1,9 +1,10 @@
 # Publishes one @codat/* TypeScript SDK package to public npm.
 #
-# This file actually lives in the SDK repo (codatio/client-sdk-typescript) at
-# .azuredevops/npm-publish.yml, not in this repo because Azure Pipelines CI
-# triggers only fire for the repository the YAML is committed to. The copy here
-# is the source of truth that gets delivered into the SDK repo.
+# Written by sdk-codegen (npm_publish_pipeline.yml); do not edit by hand.
+# It runs from codatio/client-sdk-typescript at .azuredevops/npm-publish.yml,
+# because an Azure Pipelines CI trigger only fires for the repository the YAML
+# is committed to. codat-internal/sdk-codegen holds the source of truth and
+# delivers a copy into the SDK repo.
 #
 # It fires when a versioned release PR merges to main, which it recognises by a
 # change to <product>/RELEASES.md. The detect step works out which product that

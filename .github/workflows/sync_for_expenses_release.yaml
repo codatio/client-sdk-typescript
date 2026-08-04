@@ -1,4 +1,4 @@
-# Written by sdk-codegen (cutover/emit_workflow_stubs.py); do not edit by hand.
+# Written by sdk-codegen (emit_workflow_stubs.py); do not edit by hand.
 # Publishing no longer runs in this repo. The packaging checks, the upload to
 # npm and the tag all run centrally in the Azure DevOps pipeline at
 # .azuredevops/npm-publish.yml - no check has been dropped, they just moved.
