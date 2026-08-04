@@ -1,18 +1,17 @@
 # Publishes one @codat/* TypeScript SDK package to public npm.
 #
-# This file lives in the SDK repo (codatio/client-sdk-typescript) at
-# .azuredevops/npm-publish.yml, not in this repo: Azure Pipelines CI triggers
-# only fire for the repository the YAML is committed to. The copy here is the
-# source of truth that gets delivered into the SDK repo.
+# This file actually lives in the SDK repo (codatio/client-sdk-typescript) at
+# .azuredevops/npm-publish.yml, not in this repo because Azure Pipelines CI
+# triggers only fire for the repository the YAML is committed to. The copy here
+# is the source of truth that gets delivered into the SDK repo.
 #
 # It fires when a versioned release PR merges to main, which it recognises by a
 # change to <product>/RELEASES.md. The detect step works out which product that
-# was; a versioned PR only ever touches one, so two at once is an error rather
-# than a guess. A manual run can override the product for testing.
+# was; a versioned PR only ever touches one product at a time, so two at once
+# will error. A manual run can override the product for testing.
 #
-# Build stage: builds and packs the package at the merged commit and runs the
-# packaging checks that used to run in the GitHub Actions release rehearsal
-# (mirror_release_workflows.py). Publish stage: publishes the tarball under the
+# Build stage: builds and packs the package at the merged commit and runs
+# packaging checks. Publish stage: publishes the tarball under the
 # "next" dist-tag; if the version is already on npm it skips and stays green, so
 # a re-run is harmless. The npm credential lives in the
 # codat-npm-publish-packages service connection and never leaves Azure.
@@ -45,8 +44,6 @@ parameters:
 
 resources:
   repositories:
-    # Checkout-only: the check scripts (exports_smoke.mjs), products.json and
-    # the feed .npmrc live in the codegen repo. No trigger comes from here.
     - repository: codegen
       type: github
       name: codat-internal/sdk-codegen
@@ -55,10 +52,9 @@ resources:
 
 variables:
   nodeVersion: "20.x"
-  # Two repos are checked out, so each checkout step pins its own folder
-  # rather than relying on the default multi-repo layout.
-  sdkDir: $(Agent.BuildDirectory)/s/sdk
-  codegenDir: $(Agent.BuildDirectory)/s/codegen
+  # Both checkouts pin their folder, so these paths don't depend on ADO's default naming
+  sdkDir: $(Build.SourcesDirectory)/sdk
+  codegenDir: $(Build.SourcesDirectory)/codegen
   publicNpmRegistry: "https://registry.npmjs.org/"
   npmServiceConnection: "codat-npm-publish-packages"
   packageArtifact: "npm-package"
