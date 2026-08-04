@@ -1,3 +1,8 @@
+# Written by sdk-codegen (cutover/emit_workflow_stubs.py); do not edit by hand.
+# Publishing no longer runs in this repo. The packaging checks, the npm publish
+# and the tag all run centrally in the Azure DevOps npm publish pipeline - no
+# check has been dropped, they just moved. This stub only queues that pipeline,
+# at the url in the ADO_PUBLISH_PIPELINE_URL repo variable.
 name: Release Platform library
 'on':
   push:
@@ -5,11 +10,25 @@ name: Release Platform library
     - platform/RELEASES.md
     branches:
     - main
+  workflow_dispatch: {}
+concurrency: publish-platform-typescript
 jobs:
   publish:
-    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
-    secrets:
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
-      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-      npm_token: ${{ secrets.NPM_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Queue the central npm publish pipeline
+        run: |
+          if [ -z "${{ secrets.ADO_PUBLISH_TRIGGER_TOKEN }}" ]; then
+            echo "::error::ADO_PUBLISH_TRIGGER_TOKEN secret is not set - needed to queue the Azure DevOps npm publish pipeline"
+            exit 1
+          fi
+          if [ -z "${{ vars.ADO_PUBLISH_PIPELINE_URL }}" ]; then
+            echo "::error::ADO_PUBLISH_PIPELINE_URL repo variable is not set - expected https://dev.azure.com/<org>/<project>/_apis/pipelines/<id>"
+            exit 1
+          fi
+          curl --fail-with-body --silent --show-error -X POST \
+            -u ":${{ secrets.ADO_PUBLISH_TRIGGER_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            "${{ vars.ADO_PUBLISH_PIPELINE_URL }}/runs?api-version=7.1" \
+            -d '{"templateParameters": {"product": "platform", "sha": "${{ github.sha }}"}}'
+          echo "npm publish pipeline queued for platform @ ${{ github.sha }}"
