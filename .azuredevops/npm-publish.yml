@@ -12,10 +12,20 @@
 # will error. A manual run can override the product for testing.
 #
 # Build stage: builds and packs the package at the merged commit and runs
-# packaging checks. Publish stage: publishes the tarball under the
-# "next" dist-tag; if the version is already on npm it skips and stays green, so
-# a re-run is harmless. The npm credential lives in the
+# packaging checks. Publish stage: publishes the tarball under the "next"
+# dist-tag, then creates the tag and the GitHub release on the SDK repo; if the
+# version is already on npm it skips both and stays green, so a re-run is
+# harmless. Tagging comes last, so a failed publish leaves no tag
+# (docs/RELEASE-PATH.md). The npm credential lives in the
 # codat-npm-publish-packages service connection and never leaves Azure.
+#
+# The tag needs contents:write on the SDK repo. The publish stage mints a
+# short-lived (~1h) GitHub App installation token from codat-oas-publisher's
+# codatio installation, the same way the oas pipeline does, so no long-lived
+# GitHub credential is stored anywhere. The App credentials come from the
+# OAS variable group the oas pipeline already reads (oas_app_id,
+# oas_app_installation_id, oas_app_private_key — the private key may be stored
+# base64-encoded), so there is one copy of the key to rotate, not two.
 
 trigger:
   branches:
@@ -59,6 +69,8 @@ variables:
   publicNpmRegistry: "https://registry.npmjs.org/"
   npmServiceConnection: "codat-npm-publish-packages"
   packageArtifact: "npm-package"
+  releaseFactsArtifact: "release-facts"
+  sdkRepoSlug: "codatio/client-sdk-typescript"
   distTag: "next"
 
 stages:
@@ -228,6 +240,34 @@ stages:
                 cp "$(codegenDir)/cutover/exports_smoke.mjs" .
                 node exports_smoke.mjs "@codat/$(product)"
 
+          # Read the tag, title and release body out of the merged commit here, while
+          # both checkouts are on disk, and hand them to the publish stage as an
+          # artifact. A commit whose package.json and RELEASES.md disagree on the
+          # version fails the run before anything is published.
+          - task: UsePythonVersion@0
+            displayName: "Install Python"
+            inputs:
+              versionSpec: "3.12"
+
+          - task: Bash@3
+            displayName: "Read the release facts from the merged commit"
+            inputs:
+              targetType: inline
+              workingDirectory: $(codegenDir)
+              script: |
+                set -euo pipefail
+                facts_dir="$(Build.ArtifactStagingDirectory)/release-facts"
+                mkdir -p "$facts_dir"
+                python cutover/release_metadata.py --clone "$(sdkDir)" \
+                  --product "$(product)" --lang ts \
+                  --body-file "$facts_dir/body.md" | tee "$facts_dir/facts.env"
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish the release facts"
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/release-facts
+              artifact: $(releaseFactsArtifact)
+
           - task: PublishPipelineArtifact@1
             displayName: "Publish the packed tarball"
             inputs:
@@ -243,6 +283,8 @@ stages:
       - job: Publish
         displayName: "npm publish under the pre-release tag"
         pool: codat-intg-managed-devops-pool-linux
+        variables:
+          - group: OAS
         steps:
           - checkout: none
 
@@ -256,6 +298,53 @@ stages:
             inputs:
               artifact: $(packageArtifact)
               path: $(Pipeline.Workspace)/pack-out
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download the release facts"
+            inputs:
+              artifact: $(releaseFactsArtifact)
+              path: $(Pipeline.Workspace)/release-facts
+
+          # Mints the short-lived token the tag and release steps use, the same
+          # way the oas pipeline does (tools/mint-github-app-token.sh there).
+          # Running it before the publish means missing App credentials can
+          # never leave a published-but-untagged release behind.
+          - task: Bash@3
+            displayName: "Mint the SDK repo token from the GitHub App"
+            inputs:
+              targetType: inline
+              script: |
+                set -euo pipefail
+                if [ -z "${GITHUB_APP_ID:-}" ] || [ -z "${GITHUB_APP_INSTALLATION_ID:-}" ] || [ -z "${GITHUB_APP_PRIVATE_KEY:-}" ]; then
+                  echo "##[error]GitHub App credentials are not set — authorise the OAS variable group (oas_app_id, oas_app_installation_id, oas_app_private_key)"
+                  exit 1
+                fi
+                b64url() { openssl base64 -A | tr '+/' '-_' | tr -d '='; }
+                # The key may be stored base64-encoded; multi-line secrets are
+                # awkward in Azure DevOps variable groups.
+                if [[ "$GITHUB_APP_PRIVATE_KEY" != *"BEGIN"* ]]; then
+                  GITHUB_APP_PRIVATE_KEY=$(printf '%s' "$GITHUB_APP_PRIVATE_KEY" | openssl base64 -d -A)
+                fi
+                now=$(date +%s)
+                header=$(printf '{"alg":"RS256","typ":"JWT"}' | b64url)
+                # iat 60s in the past for clock drift; exp must be <= 10 minutes.
+                payload=$(printf '{"iat":%d,"exp":%d,"iss":"%s"}' "$((now - 60))" "$((now + 540))" "$GITHUB_APP_ID" | b64url)
+                signature=$(printf '%s.%s' "$header" "$payload" | openssl dgst -sha256 -sign <(printf '%s' "$GITHUB_APP_PRIVATE_KEY") | b64url)
+                response=$(curl --silent --fail-with-body --show-error -X POST \
+                  -H "Authorization: Bearer $header.$payload.$signature" \
+                  -H "Accept: application/vnd.github+json" \
+                  "https://api.github.com/app/installations/$GITHUB_APP_INSTALLATION_ID/access_tokens")
+                token=$(printf '%s' "$response" | node -p "JSON.parse(require('fs').readFileSync(0)).token")
+                if [ -z "$token" ] || [ "$token" = "null" ] || [ "$token" = "undefined" ]; then
+                  echo "##[error]Installation token response did not contain a token"
+                  exit 1
+                fi
+                echo "##vso[task.setvariable variable=github_token;issecret=true]$token"
+                echo "Minted a GitHub App installation token (expires in ~1 hour)."
+            env:
+              GITHUB_APP_ID: $(oas_app_id)
+              GITHUB_APP_INSTALLATION_ID: $(oas_app_installation_id)
+              GITHUB_APP_PRIVATE_KEY: $(oas_app_private_key)
 
           - task: Bash@3
             displayName: "Skip if this version is already on npm"
@@ -319,3 +408,41 @@ stages:
                   exit 0
                 fi
                 npm publish ./*.tgz --access public --tag $(distTag)
+
+          # Last, so a tag only ever exists for a version that really published.
+          # Matches Speakeasy's tag and title shape so changelogs keep working.
+          - task: Bash@3
+            displayName: "Tag the release on the SDK repo"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/release-facts
+              script: |
+                set -euo pipefail
+                if [ "$(alreadyPublished)" = "true" ]; then
+                  echo "Version already on npm — leaving the existing tag alone."
+                  exit 0
+                fi
+                tag=$(sed -n 's/^tag=//p' facts.env)
+                title=$(sed -n 's/^title=//p' facts.env)
+                api="https://api.github.com/repos/$(sdkRepoSlug)"
+                if curl --silent --fail -H "Authorization: Bearer $GITHUB_TOKEN" \
+                     "$api/git/ref/tags/$tag" >/dev/null 2>&1; then
+                  echo "$tag already exists on $(sdkRepoSlug) — leaving it alone."
+                  exit 0
+                fi
+                # Node rather than python: this job installs Node and checks nothing out.
+                TAG="$tag" TITLE="$title" node -e '
+                  const fs = require("fs");
+                  fs.writeFileSync("payload.json", JSON.stringify({
+                    tag_name: process.env.TAG,
+                    target_commitish: "$(Build.SourceVersion)",
+                    name: process.env.TITLE,
+                    body: fs.readFileSync("body.md", "utf8"),
+                  }));'
+                curl --fail-with-body --silent --show-error -X POST \
+                  -H "Accept: application/vnd.github+json" \
+                  -H "Authorization: Bearer $GITHUB_TOKEN" \
+                  "$api/releases" --data @payload.json > /dev/null
+                echo "created $tag and its release on $(sdkRepoSlug)"
+            env:
+              GITHUB_TOKEN: $(github_token)
