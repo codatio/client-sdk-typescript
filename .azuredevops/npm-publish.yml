@@ -164,7 +164,19 @@ stages:
               script: |
                 set -euo pipefail
                 cd "$(product)"
-                if [ -f package-lock.json ]; then npm ci; else npm install; fi
+                # The publish build only compiles and packs, so install the
+                # production dependencies plus the TypeScript compiler and skip
+                # the lint toolchain (eslint, typescript-eslint). Those are
+                # dev-only, and their pinned versions aren't always on the
+                # verified feed, which fails the install for no benefit.
+                if [ -f package-lock.json ]; then
+                  npm ci --omit=dev
+                  tsc_version=$(node -p "require('./package-lock.json').packages['node_modules/typescript'].version")
+                else
+                  npm install --omit=dev
+                  tsc_version=$(node -p "require('./package.json').devDependencies.typescript")
+                fi
+                npm install --no-save --no-package-lock "typescript@$tsc_version"
                 npm run build
                 cd ..
                 mkdir -p "$(Build.ArtifactStagingDirectory)/pack-out"
