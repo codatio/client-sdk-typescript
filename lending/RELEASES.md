@@ -199,3 +199,13 @@ Based on:
 - [typescript v7.6.0] lending
 ### Releases
 - [NPM v7.6.0] https://www.npmjs.com/package/@codat/lending/v/7.6.0 - lending
+
+## 2026-08-13 14:06:39
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+- codat sdk-codegen 4304ef0e0b1ace5a8d581bcf49d0c2e7573b51c4 https://github.com/codat-spikes/sdk-codegen
+### Generated
+- [typescript v7.6.1] lending
+### Releases
+- [NPM v7.6.1] https://www.npmjs.com/package/@codat/lending/v/7.6.1 - lending

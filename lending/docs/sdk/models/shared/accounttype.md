@@ -7,11 +7,11 @@ Type of account
 ```typescript
 import { AccountType } from "@codat/lending/sdk/models/shared";
 
-let value: AccountType = "Asset";
+let value: AccountType = "";
 ```
 
 ## Values
 
 ```typescript
-"Unknown" | "Asset" | "Expense" | "Income" | "Liability" | "Equity"
+
 ```

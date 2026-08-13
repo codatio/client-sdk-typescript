@@ -7,40 +7,12 @@ A Product is an item in the company's inventory, and includes information about 
 
 ```typescript
 import { CommerceProduct } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: CommerceProduct = {
   id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
   name: "Hard Drive",
   description: "1tb Western Digital Hard Drive",
   categorization: "Hardware",
-  variants: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-      name: "Red Coat",
-      sku: "Coat-Red-Lrg",
-      barcode: "564158468416486458646886484",
-      unitOfMeasure: "kg",
-      vatPercentage: new Decimal("12.5"),
-      prices: [
-        {
-          currency: "GBP",
-        },
-      ],
-      inventory: {
-        locations: [
-          {
-            locationRef: {
-              id: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-            },
-          },
-        ],
-      },
-      createdDate: "2022-10-23T00:00:00Z",
-    },
-  ],
 };
 ```
 

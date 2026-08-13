@@ -8,28 +8,18 @@ The enhanced invoices report takes the key elements of the Invoices report verif
 import { EnhancedInvoicesReport } from "@codat/lending/sdk/models/shared";
 
 let value: EnhancedInvoicesReport = {
-  reportInfo: {},
-  reportItems: [
-    {
-      modifiedDate: "2022-10-23T00:00:00Z",
-      sourceModifiedDate: "2022-10-23T00:00:00Z",
-      issueDate: "2022-10-23T00:00:00Z",
-      dueDate: "2022-10-23T00:00:00Z",
-      currency: "GBP",
-      payments: [
-        {
-          date: "2022-10-23T00:00:00Z",
-          currency: "GBP",
-          bankingTransactionRefs: [
-            {
-              date: "2022-10-23T00:00:00Z",
-            },
-          ],
-        },
-      ],
-      paidOnDate: "2022-10-23T00:00:00Z",
+  reportInfo: {
+    Example 1: {
+      value: {
+        pageNumber: 0,
+        pageSize: 0,
+        totalResults: 0,
+        reportName: "string",
+        companyName: "string",
+        generatedDate: "2023-01-26T07:36:40.487Z",
+      },
     },
-  ],
+  },
 };
 ```
 

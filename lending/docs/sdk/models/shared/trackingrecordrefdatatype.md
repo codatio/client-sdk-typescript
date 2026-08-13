@@ -1,17 +1,15 @@
 # TrackingRecordRefDataType
 
-Name of underlying data type.
-
 ## Example Usage
 
 ```typescript
 import { TrackingRecordRefDataType } from "@codat/lending/sdk/models/shared";
 
-let value: TrackingRecordRefDataType = "trackingCategories";
+let value: TrackingRecordRefDataType = "";
 ```
 
 ## Values
 
 ```typescript
-"customers" | "suppliers" | "trackingCategories"
+
 ```

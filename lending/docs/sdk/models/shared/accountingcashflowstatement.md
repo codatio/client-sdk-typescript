@@ -18,9 +18,82 @@ A cash flow statement is a financial report that records all cash that is receiv
 import { AccountingCashFlowStatement } from "@codat/lending/sdk/models/shared";
 
 let value: AccountingCashFlowStatement = {
-  reports: [],
-  reportBasis: "Cash",
-  reportInput: "Unknown",
+  reports: [
+    {
+      fromDate: "2022-10-23T00:00:00Z",
+      toDate: "2022-10-23T00:00:00Z",
+      cashReceipts: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      cashPayments: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ],
+  reportBasis: "string",
+  reportInput: "string",
   currency: "GBP",
   mostRecentAvailableMonth: "2022-10-23T00:00:00Z",
   earliestAvailableMonth: "2022-10-23T00:00:00Z",

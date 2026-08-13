@@ -564,7 +564,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 <!-- UsageSnippet language="typescript" operationID="create-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/accounts" example="Malformed query" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -581,7 +580,7 @@ async function run() {
       fullyQualifiedCategory: "Asset.Current",
       fullyQualifiedName: "Cash On Hand",
       currency: "GBP",
-      currentBalance: new Decimal("0"),
+      currentBalance: 0,
       type: "Asset",
       status: "Active",
     },
@@ -600,7 +599,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackAccountsCreate } from "@codat/lending/funcs/loanWritebackAccountsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -619,7 +617,7 @@ async function run() {
       fullyQualifiedCategory: "Asset.Current",
       fullyQualifiedName: "Cash On Hand",
       currency: "GBP",
-      currentBalance: new Decimal("0"),
+      currentBalance: 0,
       type: "Asset",
       status: "Active",
     },

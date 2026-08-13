@@ -5,18 +5,7 @@
 ```typescript
 import { EnhancedCashFlowItem } from "@codat/lending/sdk/models/shared";
 
-let value: EnhancedCashFlowItem = {
-  transactions: [
-    {
-      date: "2022-10-23T00:00:00Z",
-      currency: "GBP",
-      transactionCategory: {},
-      sourceRef: {},
-      accountRef: {},
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
-  ],
-};
+let value: EnhancedCashFlowItem = {};
 ```
 
 ## Fields

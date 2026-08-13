@@ -7,9 +7,7 @@ Links journal entries to the relevant journal in accounting integrations that us
 ```typescript
 import { JournalRef } from "@codat/lending/sdk/models/shared";
 
-let value: JournalRef = {
-  id: "<id>",
-};
+let value: JournalRef = {};
 ```
 
 ## Fields

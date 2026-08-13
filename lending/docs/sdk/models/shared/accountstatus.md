@@ -7,7 +7,7 @@ Status of the account
 ```typescript
 import { AccountStatus } from "@codat/lending/sdk/models/shared";
 
-let value: AccountStatus = "Active";
+let value: AccountStatus = "Unknown";
 ```
 
 ## Values

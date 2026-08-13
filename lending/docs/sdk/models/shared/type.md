@@ -1,17 +1,15 @@
 # Type
 
-The type of phone number
-
 ## Example Usage
 
 ```typescript
 import { Type } from "@codat/lending/sdk/models/shared";
 
-let value: Type = "Primary";
+let value: Type = "";
 ```
 
 ## Values
 
 ```typescript
-"Primary" | "Landline" | "Mobile" | "Fax" | "Unknown"
+
 ```

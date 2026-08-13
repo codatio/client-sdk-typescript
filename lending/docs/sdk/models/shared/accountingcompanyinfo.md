@@ -23,6 +23,7 @@ let value: AccountingCompanyInfo = {
       city: "London",
       region: "",
       country: "United Kingdom",
+      postalcode: "WC1X 8WB",
     },
     {
       type: "Unknown",
@@ -52,8 +53,7 @@ let value: AccountingCompanyInfo = {
   financialYearStartDate: "2019-04-01T00:00:00Z",
   baseCurrency: "USD",
   sourceUrls: {
-    "url1":
-      "https://go.xero.com/organisationlogin/default.aspx?shortcode=!rxs0Q",
+    "url1": "https://go.xero.com/organisationlogin/default.aspx?shortcode=!rxs0Q",
     "url2": "https://reporting.xero.com/!rxs0Q",
   },
   createdDate: "2020-02-03T16:42:02Z",

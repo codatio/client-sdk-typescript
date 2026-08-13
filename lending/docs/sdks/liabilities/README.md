@@ -33,7 +33,6 @@ const codatLending = new CodatLending({
 async function run() {
   await codatLending.liabilities.generateLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "commerce",
   });
 
 
@@ -59,7 +58,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await liabilitiesGenerateLoanTransactions(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "commerce",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -115,7 +113,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.liabilities.listLoanTransactions({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "commerce",
   });
 
   console.log(result);
@@ -141,7 +138,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await liabilitiesListLoanTransactions(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "commerce",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -197,7 +193,6 @@ const codatLending = new CodatLending({
 async function run() {
   await codatLending.liabilities.generateLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "accounting",
   });
 
 
@@ -223,7 +218,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await liabilitiesGenerateLoanSummary(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "accounting",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -279,7 +273,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.liabilities.getLoanSummary({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "accounting",
   });
 
   console.log(result);
@@ -305,7 +298,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await liabilitiesGetLoanSummary(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    sourceType: "accounting",
   });
   if (res.ok) {
     const { value: result } = res;

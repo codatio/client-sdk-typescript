@@ -5,11 +5,11 @@
 ```typescript
 import { DataIntegrityDataType } from "@codat/lending/sdk/models/shared";
 
-let value: DataIntegrityDataType = "banking-accounts";
+let value: DataIntegrityDataType = "";
 ```
 
 ## Values
 
 ```typescript
-"banking-accounts" | "banking-transactions" | "bankAccounts" | "accountTransactions"
+
 ```

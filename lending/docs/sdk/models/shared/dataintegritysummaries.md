@@ -5,15 +5,7 @@
 ```typescript
 import { DataIntegritySummaries } from "@codat/lending/sdk/models/shared";
 
-let value: DataIntegritySummaries = {
-  summaries: [
-    {
-      byAmount: {
-        currency: "GBP",
-      },
-    },
-  ],
-};
+let value: DataIntegritySummaries = {};
 ```
 
 ## Fields

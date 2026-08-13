@@ -1,6 +1,4 @@
-# ~~AccountingCreateBankAccountTransactions~~
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+# AccountingCreateBankAccountTransactions
 
 ## Example Usage
 
@@ -9,11 +7,6 @@ import { AccountingCreateBankAccountTransactions } from "@codat/lending/sdk/mode
 
 let value: AccountingCreateBankAccountTransactions = {
   accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
-  transactions: [
-    {
-      date: "2022-10-23T00:00:00Z",
-    },
-  ],
 };
 ```
 

@@ -5,9 +5,7 @@
 ```typescript
 import { AccountingCustomerRef } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingCustomerRef = {
-  id: "<id>",
-};
+let value: AccountingCustomerRef = {};
 ```
 
 ## Fields

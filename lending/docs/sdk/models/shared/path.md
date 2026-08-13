@@ -5,11 +5,11 @@
 ```typescript
 import { Path } from "@codat/lending/sdk/models/shared";
 
-let value: Path = "auth/get";
+let value: Path = "";
 ```
 
 ## Values
 
 ```typescript
-"auth/get"
+
 ```
