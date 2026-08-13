@@ -1,7 +1,5 @@
 # ErrorMessage
 
-The request made is not valid.
-
 ## Example Usage
 
 ```typescript

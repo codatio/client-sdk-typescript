@@ -7,7 +7,7 @@ The option type.
 ```typescript
 import { PushOptionType } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: PushOptionType = "DateTime";
+let value: PushOptionType = "Array";
 ```
 
 ## Values

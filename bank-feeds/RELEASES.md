@@ -797,3 +797,13 @@ Based on:
 - [typescript v8.2.1] bank-feeds
 ### Releases
 - [NPM v8.2.1] https://www.npmjs.com/package/@codat/bank-feeds/v/8.2.1 - bank-feeds
+
+## 2026-08-13 14:07:02
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- codat sdk-codegen 4304ef0e0b1ace5a8d581bcf49d0c2e7573b51c4 https://github.com/codat-spikes/sdk-codegen
+### Generated
+- [typescript v8.2.2] bank-feeds
+### Releases
+- [NPM v8.2.2] https://www.npmjs.com/package/@codat/bank-feeds/v/8.2.2 - bank-feeds

@@ -3,21 +3,14 @@
 
 ## Supported Types
 
-### `shared.SourceAccountV2Prototype[]`
+### `shared.Array<SourceAccountPrototype>`
 
 ```typescript
-const value: shared.SourceAccountV2Prototype[] = [];
+const value: shared.Array<SourceAccountPrototype> = {};
 ```
 
-### `shared.SourceAccountPrototype[]`
+### `shared.Array<SourceAccountV2Prototype>`
 
 ```typescript
-const value: shared.SourceAccountPrototype[] = [
-  {
-    id: "<id>",
-    currency: "GBP",
-    modifiedDate: "2022-10-23T00:00:00Z",
-  },
-];
+const value: shared.Array<SourceAccountV2Prototype> = {};
 ```
-

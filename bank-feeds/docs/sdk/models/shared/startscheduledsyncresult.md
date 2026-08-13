@@ -8,7 +8,7 @@ Represents the result of an ad-hoc sync request.
 import { StartScheduledSyncResult } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: StartScheduledSyncResult = {
-  syncId: "d1441ebb-900c-458f-906f-e691e76f9408",
+  syncId: "string",
 };
 ```
 
