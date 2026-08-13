@@ -202,17 +202,27 @@ stages:
                   echo "##[error]Tarball does not carry version $stamped"; ls; exit 1; }
 
           - task: Bash@3
-            displayName: "Tarball tripwire (dist populated, no .npmrc)"
+            displayName: "Tarball tripwire (built JS present, no .npmrc)"
             inputs:
               targetType: inline
               workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
               script: |
                 set -euo pipefail
                 tgz=$(ls *.tgz)
-                dist_js=$(tar -tzf "$tgz" | grep -c '^package/dist/.*\.js$' || true)
-                echo "built dist/*.js files in tarball: $dist_js"
-                if [ "$dist_js" -eq 0 ]; then
-                  echo "##[error]Tarball has no built dist/*.js — the package would install empty"
+                # The SDK compiles in place (tsconfig outDir "."), so the built JS
+                # mirrors src at the package root (sdk/, funcs/, ...), not under
+                # dist/. Confirm the package's declared entry point is present and
+                # the package carries built .js, or it would install empty.
+                entry=$(tar -xzOf "$tgz" package/package.json \
+                  | node -p "(JSON.parse(require('fs').readFileSync(0)).main || 'index.js').replace(/^\.\//, '')")
+                built_js=$(tar -tzf "$tgz" | grep -Ec '^package/.+\.js$' || true)
+                echo "built .js files in tarball: $built_js (entry: $entry)"
+                if ! tar -tzf "$tgz" | grep -qx "package/$entry"; then
+                  echo "##[error]Tarball is missing its entry point package/$entry — did the build run?"
+                  tar -tzf "$tgz" | head -40; exit 1
+                fi
+                if [ "$built_js" -eq 0 ]; then
+                  echo "##[error]Tarball has no built .js — the package would install empty"
                   tar -tzf "$tgz" | head -40; exit 1
                 fi
                 if tar -tzf "$tgz" | grep -q '^package/\.npmrc$'; then
