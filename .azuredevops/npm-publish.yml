@@ -212,20 +212,23 @@ stages:
                 # The SDK compiles in place (tsconfig outDir "."), so the built JS
                 # mirrors src at the package root (sdk/, funcs/, ...), not under
                 # dist/. Confirm the package's declared entry point is present and
-                # the package carries built .js, or it would install empty.
+                # the package carries built .js, or it would install empty. List
+                # the tarball once and match with here-strings, so an early-exiting
+                # grep or head never SIGPIPEs tar under pipefail.
+                listing=$(tar -tzf "$tgz")
                 entry=$(tar -xzOf "$tgz" package/package.json \
                   | node -p "(JSON.parse(require('fs').readFileSync(0)).main || 'index.js').replace(/^\.\//, '')")
-                built_js=$(tar -tzf "$tgz" | grep -Ec '^package/.+\.js$' || true)
+                built_js=$(grep -Ec '^package/.+\.js$' <<<"$listing" || true)
                 echo "built .js files in tarball: $built_js (entry: $entry)"
-                if ! tar -tzf "$tgz" | grep -qx "package/$entry"; then
+                if ! grep -qx "package/$entry" <<<"$listing"; then
                   echo "##[error]Tarball is missing its entry point package/$entry — did the build run?"
-                  tar -tzf "$tgz" | head -40; exit 1
+                  head -40 <<<"$listing"; exit 1
                 fi
                 if [ "$built_js" -eq 0 ]; then
                   echo "##[error]Tarball has no built .js — the package would install empty"
-                  tar -tzf "$tgz" | head -40; exit 1
+                  head -40 <<<"$listing"; exit 1
                 fi
-                if tar -tzf "$tgz" | grep -q '^package/\.npmrc$'; then
+                if grep -q '^package/\.npmrc$' <<<"$listing"; then
                   echo "##[error]Tarball contains .npmrc — private-feed credentials must never be published"; exit 1
                 fi
 
