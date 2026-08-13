@@ -250,7 +250,11 @@ stages:
                   p['$(product)'].typescript.client_class_name")
                 mkdir "$(Agent.TempDirectory)/consumer" && cd "$(Agent.TempDirectory)/consumer"
                 npm init -y >/dev/null
-                npm install "$(Build.ArtifactStagingDirectory)"/pack-out/*.tgz typescript @types/node >/dev/null
+                # Pin the compiler to the SDK's version. An unpinned typescript
+                # pulls the feed's latest, which is the native TypeScript 7 whose
+                # tsc loads a platform binary package the feed does not carry.
+                tsc_version=$(node -p "require('$(sdkDir)/$(product)/package.json').devDependencies.typescript")
+                npm install "$(Build.ArtifactStagingDirectory)"/pack-out/*.tgz "typescript@$tsc_version" @types/node >/dev/null
                 cat > smoke.ts <<TS
                 import { $client } from "@codat/$(product)";
                 import type * as shared from "@codat/$(product)/sdk/models/shared";
