@@ -17,6 +17,5 @@ async function run() {
 }
 
 run();
-
 ```
 <!-- End SDK Example Usage [usage] -->
