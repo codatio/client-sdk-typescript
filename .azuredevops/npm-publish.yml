@@ -163,12 +163,16 @@ stages:
               workingDirectory: $(sdkDir)
               script: |
                 set -euo pipefail
+                # The publish build only compiles and packs, so it needs the
+                # production dependencies plus the TypeScript compiler, not the
+                # SDK's lint toolchain (eslint, typescript-eslint). That toolchain
+                # is dev-only and its pinned versions aren't all on the verified
+                # feed. `npm install` inside this package resolves the dev tree
+                # from package.json even with --omit=dev, so install the compiler
+                # in a separate directory that has no package.json, then build
+                # with it on PATH. `npm ci --omit=dev` for the prod deps is fine:
+                # it installs from the lockfile and never touches the dev tree.
                 cd "$(product)"
-                # The publish build only compiles and packs, so install the
-                # production dependencies plus the TypeScript compiler and skip
-                # the lint toolchain (eslint, typescript-eslint). Those are
-                # dev-only, and their pinned versions aren't always on the
-                # verified feed, which fails the install for no benefit.
                 if [ -f package-lock.json ]; then
                   npm ci --omit=dev
                   tsc_version=$(node -p "require('./package-lock.json').packages['node_modules/typescript'].version")
@@ -176,10 +180,12 @@ stages:
                   npm install --omit=dev
                   tsc_version=$(node -p "require('./package.json').devDependencies.typescript")
                 fi
-                # --omit=dev so adding the compiler does not drag in the dev tree
-                npm install --no-save --no-package-lock --omit=dev "typescript@$tsc_version"
-                npm run build
                 cd ..
+                compiler_home="$(Agent.TempDirectory)/tsc"
+                mkdir -p "$compiler_home"
+                ( cd "$compiler_home" && npm install --no-save "typescript@$tsc_version" )
+                export PATH="$compiler_home/node_modules/.bin:$PATH"
+                ( cd "$(product)" && npm run build )
                 mkdir -p "$(Build.ArtifactStagingDirectory)/pack-out"
                 npm pack "./$(product)" --pack-destination "$(Build.ArtifactStagingDirectory)/pack-out"
 
