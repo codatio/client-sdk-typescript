@@ -5,16 +5,14 @@
 ```typescript
 import { Items } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: Items = {
-  type: "Billing",
-};
+let value: Items = {};
 ```
 
 ## Fields
 
 | Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `type`                                                                              | [shared.AccountingAddressType](../../../sdk/models/shared/accountingaddresstype.md) | :heavy_check_mark:                                                                  | The type of the address                                                             |
+| `type`                                                                              | [shared.AccountingAddressType](../../../sdk/models/shared/accountingaddresstype.md) | :heavy_check_mark:                                                                  | N/A                                                                                 |
 | `line1`                                                                             | *string*                                                                            | :heavy_minus_sign:                                                                  | Line 1 of the customer address.                                                     |
 | `line2`                                                                             | *string*                                                                            | :heavy_minus_sign:                                                                  | Line 2 of the customer address.                                                     |
 | `city`                                                                              | *string*                                                                            | :heavy_minus_sign:                                                                  | City of the customer address.                                                       |

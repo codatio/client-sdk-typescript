@@ -7,7 +7,7 @@ The current status of the dataset.
 ```typescript
 import { Status } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: Status = "Validating";
+let value: Status = "Initial";
 ```
 
 ## Values

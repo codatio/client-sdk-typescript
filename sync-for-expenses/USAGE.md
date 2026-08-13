@@ -7,16 +7,25 @@ const codatSyncExpenses = new CodatSyncExpenses({
 });
 
 async function run() {
-  const result = await codatSyncExpenses.companies.list({
-    query: "id=e3334455-1aed-4e71-ab43-6bccf12092ee",
-    orderBy: "-modifiedDate",
-    tags: "region=uk && team=invoice-finance",
+  const result = await codatSyncExpenses.accounts.create({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    accountPrototype: {
+      nominalCode: "610",
+      name: "Accounts Receivable",
+      description: "Invoices the business has issued but has not yet collected payment on.",
+      fullyQualifiedCategory: "Asset.Current",
+      fullyQualifiedName: "Cash On Hand",
+      currency: "GBP",
+      currentBalance: 0,
+      type: "Asset",
+      status: "Active",
+    },
   });
 
   console.log(result);
 }
 
 run();
-
 ```
 <!-- End SDK Example Usage [usage] -->

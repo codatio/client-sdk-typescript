@@ -9,11 +9,11 @@ For Debit accounts, positive balances are assets, and positive transactions **in
 ```typescript
 import { BankAccountType } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: BankAccountType = "Unknown";
+let value: BankAccountType = "";
 ```
 
 ## Values
 
 ```typescript
-"Unknown" | "Credit" | "Debit"
+
 ```

@@ -7,7 +7,7 @@ import { PhoneNumberItems } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: PhoneNumberItems = {
   number: "+44 25691 154789",
-  type: "Primary",
+  type: "string",
 };
 ```
 

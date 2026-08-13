@@ -1,6 +1,6 @@
 # AccountReference
 
-Reference of the account you are transferring money from.
+Data types that reference an account, for example bill and invoice line items, use an accountRef that includes the ID and name of the linked account.
 
 ## Example Usage
 
@@ -8,7 +8,7 @@ Reference of the account you are transferring money from.
 import { AccountReference } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: AccountReference = {
-  id: "<id>",
+  id: "string",
 };
 ```
 

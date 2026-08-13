@@ -34,7 +34,6 @@ The *Create expense* endpoint creates an [expense transaction](https://docs.coda
 <!-- UsageSnippet language="typescript" operationID="create-expense-transaction" method="post" path="/companies/{companyId}/sync/expenses/expense-transactions" example="Example 1" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -43,45 +42,7 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.expenses.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "a44135b0-6882-489a-83fe-a0c57a4afb19",
-        type: "Payment",
-        issueDate: "2024-05-21T00:00:00+00:00",
-        currency: "GBP",
-        currencyRate: new Decimal("1"),
-        contactRef: {
-          id: "430",
-        },
-        bankAccountRef: {
-          id: "97",
-        },
-        merchantName: "Amazon UK",
-        lines: [
-          {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
-            taxRateRef: {
-              id: "23_Bills",
-            },
-            accountRef: {
-              id: "35",
-            },
-            trackingRefs: [
-              {
-                id: "DEPARTMENT_3",
-              },
-              {},
-            ],
-            invoiceTo: {
-              id: "504",
-              type: "customer",
-            },
-          },
-        ],
-        notes: "amazon purchase",
-      },
-    ],
+    requestBody: [],
   });
 
   console.log(result);
@@ -97,7 +58,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { expensesCreate } from "@codat/sync-for-expenses/funcs/expensesCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -108,45 +68,7 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await expensesCreate(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "a44135b0-6882-489a-83fe-a0c57a4afb19",
-        type: "Payment",
-        issueDate: "2024-05-21T00:00:00+00:00",
-        currency: "GBP",
-        currencyRate: new Decimal("1"),
-        contactRef: {
-          id: "430",
-        },
-        bankAccountRef: {
-          id: "97",
-        },
-        merchantName: "Amazon UK",
-        lines: [
-          {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
-            taxRateRef: {
-              id: "23_Bills",
-            },
-            accountRef: {
-              id: "35",
-            },
-            trackingRefs: [
-              {
-                id: "DEPARTMENT_3",
-              },
-              {},
-            ],
-            invoiceTo: {
-              id: "504",
-              type: "customer",
-            },
-          },
-        ],
-        notes: "amazon purchase",
-      },
-    ],
+    requestBody: [],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -163,7 +85,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-expense-transaction" method="post" path="/companies/{companyId}/sync/expenses/expense-transactions" example="Malformed query" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -172,45 +93,7 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.expenses.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "a44135b0-6882-489a-83fe-a0c57a4afb19",
-        type: "Payment",
-        issueDate: "2024-05-21T00:00:00+00:00",
-        currency: "GBP",
-        currencyRate: new Decimal("1"),
-        contactRef: {
-          id: "430",
-        },
-        bankAccountRef: {
-          id: "97",
-        },
-        merchantName: "Amazon UK",
-        lines: [
-          {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
-            taxRateRef: {
-              id: "23_Bills",
-            },
-            accountRef: {
-              id: "35",
-            },
-            trackingRefs: [
-              {
-                id: "DEPARTMENT_3",
-              },
-              {},
-            ],
-            invoiceTo: {
-              id: "504",
-              type: "customer",
-            },
-          },
-        ],
-        notes: "amazon purchase",
-      },
-    ],
+    requestBody: [],
   });
 
   console.log(result);
@@ -226,7 +109,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { expensesCreate } from "@codat/sync-for-expenses/funcs/expensesCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -237,45 +119,7 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await expensesCreate(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "a44135b0-6882-489a-83fe-a0c57a4afb19",
-        type: "Payment",
-        issueDate: "2024-05-21T00:00:00+00:00",
-        currency: "GBP",
-        currencyRate: new Decimal("1"),
-        contactRef: {
-          id: "430",
-        },
-        bankAccountRef: {
-          id: "97",
-        },
-        merchantName: "Amazon UK",
-        lines: [
-          {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
-            taxRateRef: {
-              id: "23_Bills",
-            },
-            accountRef: {
-              id: "35",
-            },
-            trackingRefs: [
-              {
-                id: "DEPARTMENT_3",
-              },
-              {},
-            ],
-            invoiceTo: {
-              id: "504",
-              type: "customer",
-            },
-          },
-        ],
-        notes: "amazon purchase",
-      },
-    ],
+    requestBody: [],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -292,7 +136,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-expense-transaction" method="post" path="/companies/{companyId}/sync/expenses/expense-transactions" example="Payment" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -307,9 +150,10 @@ async function run() {
         type: "Payment",
         issueDate: "2024-05-21T00:00:00+00:00",
         currency: "GBP",
-        currencyRate: new Decimal("1"),
+        currencyRate: 1,
         contactRef: {
           id: "430",
+          type: "Supplier",
         },
         bankAccountRef: {
           id: "97",
@@ -317,8 +161,8 @@ async function run() {
         merchantName: "Amazon UK",
         lines: [
           {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
+            netAmount: 100,
+            taxAmount: 20,
             taxRateRef: {
               id: "23_Bills",
             },
@@ -328,6 +172,7 @@ async function run() {
             trackingRefs: [
               {
                 id: "DEPARTMENT_5",
+                dataType: "trackingCategories",
               },
             ],
             invoiceTo: {
@@ -354,7 +199,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { expensesCreate } from "@codat/sync-for-expenses/funcs/expensesCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -371,9 +215,10 @@ async function run() {
         type: "Payment",
         issueDate: "2024-05-21T00:00:00+00:00",
         currency: "GBP",
-        currencyRate: new Decimal("1"),
+        currencyRate: 1,
         contactRef: {
           id: "430",
+          type: "Supplier",
         },
         bankAccountRef: {
           id: "97",
@@ -381,8 +226,8 @@ async function run() {
         merchantName: "Amazon UK",
         lines: [
           {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
+            netAmount: 100,
+            taxAmount: 20,
             taxRateRef: {
               id: "23_Bills",
             },
@@ -392,6 +237,7 @@ async function run() {
             trackingRefs: [
               {
                 id: "DEPARTMENT_5",
+                dataType: "trackingCategories",
               },
             ],
             invoiceTo: {
@@ -419,7 +265,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-expense-transaction" method="post" path="/companies/{companyId}/sync/expenses/expense-transactions" example="Refund" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -436,6 +281,7 @@ async function run() {
         currency: "GBP",
         contactRef: {
           id: "430",
+          type: "Supplier",
         },
         bankAccountRef: {
           id: "97",
@@ -443,8 +289,8 @@ async function run() {
         merchantName: "Amazon UK",
         lines: [
           {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
+            netAmount: 100,
+            taxAmount: 20,
             taxRateRef: {
               id: "23_Bills",
             },
@@ -476,7 +322,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { expensesCreate } from "@codat/sync-for-expenses/funcs/expensesCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -495,6 +340,7 @@ async function run() {
         currency: "GBP",
         contactRef: {
           id: "430",
+          type: "Supplier",
         },
         bankAccountRef: {
           id: "97",
@@ -502,8 +348,8 @@ async function run() {
         merchantName: "Amazon UK",
         lines: [
           {
-            netAmount: new Decimal("100"),
-            taxAmount: new Decimal("20"),
+            netAmount: 100,
+            taxAmount: 20,
             taxRateRef: {
               id: "23_Bills",
             },
@@ -582,7 +428,6 @@ The following integrations are supported for the [Payment](https://docs.codat.io
 <!-- UsageSnippet language="typescript" operationID="update-expense-transaction" method="put" path="/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}" example="Malformed query" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -598,6 +443,7 @@ async function run() {
       currency: "GBP",
       contactRef: {
         id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+        type: "Supplier",
       },
       bankAccountRef: {
         id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
@@ -605,17 +451,27 @@ async function run() {
       merchantName: "Amazon UK",
       lines: [
         {
-          netAmount: new Decimal("100"),
-          taxAmount: new Decimal("20"),
+          netAmount: 100,
+          taxAmount: 20,
           taxRateRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
           accountRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
-          itemRef: null,
-          trackingRefs: null,
-          invoiceTo: null,
+          itemRef: {
+            id: "80000002-1675158984",
+          },
+          trackingRefs: [
+            {
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              dataType: "trackingCategories",
+            },
+          ],
+          invoiceTo: {
+            id: "80000002-1674552702",
+            type: "customer",
+          },
         },
       ],
       notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
@@ -635,7 +491,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { expensesUpdate } from "@codat/sync-for-expenses/funcs/expensesUpdate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -653,6 +508,7 @@ async function run() {
       currency: "GBP",
       contactRef: {
         id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
+        type: "Supplier",
       },
       bankAccountRef: {
         id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
@@ -660,17 +516,27 @@ async function run() {
       merchantName: "Amazon UK",
       lines: [
         {
-          netAmount: new Decimal("100"),
-          taxAmount: new Decimal("20"),
+          netAmount: 100,
+          taxAmount: 20,
           taxRateRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
           accountRef: {
             id: "40e3e57c-2322-4898-966c-ca41adfd23fd",
           },
-          itemRef: null,
-          trackingRefs: null,
-          invoiceTo: null,
+          itemRef: {
+            id: "80000002-1675158984",
+          },
+          trackingRefs: [
+            {
+              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
+              dataType: "trackingCategories",
+            },
+          ],
+          invoiceTo: {
+            id: "80000002-1674552702",
+            type: "customer",
+          },
         },
       ],
       notes: "APPLE.COM/BILL - 09001077498 - Card Ending: 4590",
@@ -691,7 +557,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="update-expense-transaction" method="put" path="/companies/{companyId}/sync/expenses/expense-transactions/{transactionId}" example="Payment" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -705,9 +570,10 @@ async function run() {
       type: "Payment",
       issueDate: "2024-05-21T00:00:00+00:00",
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       contactRef: {
         id: "430",
+        type: "Supplier",
       },
       bankAccountRef: {
         id: "97",
@@ -715,8 +581,8 @@ async function run() {
       merchantName: "Amazon UK",
       lines: [
         {
-          netAmount: new Decimal("100"),
-          taxAmount: new Decimal("20"),
+          netAmount: 100,
+          taxAmount: 20,
           taxRateRef: {
             id: "23_Bills",
           },
@@ -726,6 +592,7 @@ async function run() {
           trackingRefs: [
             {
               id: "DEPARTMENT_5",
+              dataType: "trackingCategories",
             },
           ],
           invoiceTo: {
@@ -751,7 +618,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { expensesUpdate } from "@codat/sync-for-expenses/funcs/expensesUpdate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -767,9 +633,10 @@ async function run() {
       type: "Payment",
       issueDate: "2024-05-21T00:00:00+00:00",
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       contactRef: {
         id: "430",
+        type: "Supplier",
       },
       bankAccountRef: {
         id: "97",
@@ -777,8 +644,8 @@ async function run() {
       merchantName: "Amazon UK",
       lines: [
         {
-          netAmount: new Decimal("100"),
-          taxAmount: new Decimal("20"),
+          netAmount: 100,
+          taxAmount: 20,
           taxRateRef: {
             id: "23_Bills",
           },
@@ -788,6 +655,7 @@ async function run() {
           trackingRefs: [
             {
               id: "DEPARTMENT_5",
+              dataType: "trackingCategories",
             },
           ],
           invoiceTo: {

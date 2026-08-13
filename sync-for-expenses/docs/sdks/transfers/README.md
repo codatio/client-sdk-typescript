@@ -33,7 +33,6 @@ The `from.amount` and `to.amount` fields are in the native currency of the accou
 <!-- UsageSnippet language="typescript" operationID="create-transfer-transaction" method="put" path="/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}" example="Create transfer" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -50,13 +49,13 @@ async function run() {
         accountRef: {
           id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
         },
-        amount: new Decimal("100"),
+        amount: 100,
       },
       to: {
         accountRef: {
           id: "777dfb37-5506-3dc0-6g86-8d34z4cc78ea",
         },
-        amount: new Decimal("100"),
+        amount: 100,
       },
     },
   });
@@ -74,7 +73,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { transfersCreate } from "@codat/sync-for-expenses/funcs/transfersCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -93,13 +91,13 @@ async function run() {
         accountRef: {
           id: "787dfb37-5707-4dc0-8a86-8d74e4cc78ea",
         },
-        amount: new Decimal("100"),
+        amount: 100,
       },
       to: {
         accountRef: {
           id: "777dfb37-5506-3dc0-6g86-8d34z4cc78ea",
         },
-        amount: new Decimal("100"),
+        amount: 100,
       },
     },
   });
@@ -118,7 +116,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-transfer-transaction" method="put" path="/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}" example="Example 1" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -131,18 +128,6 @@ async function run() {
     transferTransactionRequest: {
       description: "Transfer from bank account Y to bank account Z",
       date: "2022-10-23T00:00:00Z",
-      from: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("7329.18"),
-      },
-      to: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("522.15"),
-      },
     },
   });
 
@@ -159,7 +144,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { transfersCreate } from "@codat/sync-for-expenses/funcs/transfersCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -174,18 +158,6 @@ async function run() {
     transferTransactionRequest: {
       description: "Transfer from bank account Y to bank account Z",
       date: "2022-10-23T00:00:00Z",
-      from: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("7329.18"),
-      },
-      to: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("522.15"),
-      },
     },
   });
   if (res.ok) {
@@ -203,7 +175,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-transfer-transaction" method="put" path="/companies/{companyId}/sync/expenses/transfer-transactions/{transactionId}" example="Malformed query" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -216,18 +187,6 @@ async function run() {
     transferTransactionRequest: {
       description: "Transfer from bank account Y to bank account Z",
       date: "2022-10-23T00:00:00Z",
-      from: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("7329.18"),
-      },
-      to: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("522.15"),
-      },
     },
   });
 
@@ -244,7 +203,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { transfersCreate } from "@codat/sync-for-expenses/funcs/transfersCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -259,18 +217,6 @@ async function run() {
     transferTransactionRequest: {
       description: "Transfer from bank account Y to bank account Z",
       date: "2022-10-23T00:00:00Z",
-      from: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("7329.18"),
-      },
-      to: {
-        accountRef: {
-          id: "<id>",
-        },
-        amount: new Decimal("522.15"),
-      },
     },
   });
   if (res.ok) {
