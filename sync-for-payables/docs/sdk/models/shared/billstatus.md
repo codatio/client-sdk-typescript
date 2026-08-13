@@ -7,7 +7,7 @@ Current state of the bill. If creating a bill the status must be `Open`.
 ```typescript
 import { BillStatus } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: BillStatus = "Open";
+let value: BillStatus = "Unknown";
 ```
 
 ## Values
