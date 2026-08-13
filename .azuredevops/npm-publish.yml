@@ -176,7 +176,8 @@ stages:
                   npm install --omit=dev
                   tsc_version=$(node -p "require('./package.json').devDependencies.typescript")
                 fi
-                npm install --no-save --no-package-lock "typescript@$tsc_version"
+                # --omit=dev so adding the compiler does not drag in the dev tree
+                npm install --no-save --no-package-lock --omit=dev "typescript@$tsc_version"
                 npm run build
                 cd ..
                 mkdir -p "$(Build.ArtifactStagingDirectory)/pack-out"
