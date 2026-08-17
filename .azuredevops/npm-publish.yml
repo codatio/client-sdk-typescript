@@ -1,0 +1,484 @@
+# Publishes one @codat/* TypeScript SDK package to public npm.
+#
+# Written by sdk-codegen (npm_publish_pipeline.yml); do not edit by hand.
+# It runs from codatio/client-sdk-typescript at .azuredevops/npm-publish.yml,
+# because an Azure Pipelines CI trigger only fires for the repository the YAML
+# is committed to. codat-internal/sdk-codegen holds the source of truth and
+# delivers a copy into the SDK repo.
+#
+# It fires when a versioned release PR merges to main, which it recognises by a
+# change to <product>/RELEASES.md. The detect step works out which product that
+# was; a versioned PR only ever touches one product at a time, so two at once
+# will error. A manual run can override the product for testing.
+#
+# Build stage: builds and packs the package at the merged commit and runs
+# packaging checks. Publish stage: publishes the tarball under the "next"
+# dist-tag, then creates the tag and the GitHub release on the SDK repo; if the
+# version is already on npm it skips both and stays green, so a re-run is
+# harmless. Tagging comes last, so a failed publish leaves no tag
+# (docs/RELEASE-PATH.md). The npm credential lives in the
+# codat-npm-publish-packages service connection and never leaves Azure.
+#
+# The tag needs contents:write on the SDK repo. The publish stage mints a
+# short-lived (~1h) GitHub App installation token from codat-oas-publisher's
+# codatio installation, the same way the oas pipeline does, so no long-lived
+# GitHub credential is stored anywhere. The App credentials come from the
+# OAS variable group the oas pipeline already reads (oas_app_id,
+# oas_app_installation_id, oas_app_private_key — the private key may be stored
+# base64-encoded), so there is one copy of the key to rotate, not two.
+
+trigger:
+  branches:
+    include: [main]
+  paths:
+    include:
+      - bank-feeds/RELEASES.md
+      - lending/RELEASES.md
+      - platform/RELEASES.md
+      - sync-for-expenses/RELEASES.md
+      - sync-for-payables/RELEASES.md
+
+pr: none
+
+parameters:
+  - name: product
+    displayName: Product to publish ("auto" reads it from the merged commit)
+    type: string
+    default: auto
+    values:
+      - auto
+      - bank-feeds
+      - lending
+      - platform
+      - sync-for-expenses
+      - sync-for-payables
+
+resources:
+  repositories:
+    - repository: codegen
+      type: github
+      name: codat-internal/sdk-codegen
+      ref: refs/heads/main
+      endpoint: codat-tech
+
+variables:
+  nodeVersion: "24.x"
+  # Both checkouts pin their folder, so these paths don't depend on ADO's default naming
+  sdkDir: $(Build.SourcesDirectory)/sdk
+  codegenDir: $(Build.SourcesDirectory)/codegen
+  publicNpmRegistry: "https://registry.npmjs.org/"
+  npmServiceConnection: "codat-npm-publish-packages"
+  packageArtifact: "npm-package"
+  releaseFactsArtifact: "release-facts"
+  sdkRepoSlug: "codatio/client-sdk-typescript"
+  distTag: "next"
+
+stages:
+  - stage: BuildValidate
+    displayName: "Build & validate"
+    jobs:
+      - job: BuildValidate
+        displayName: "Build, pack and check the package"
+        pool: codat-intg-managed-devops-pool-linux
+        variables:
+          NPM_CONFIG_USERCONFIG: $(Agent.TempDirectory)/.npmrc
+        steps:
+          # Two commits so the detect step can diff the merge against its parent.
+          - checkout: self
+            fetchDepth: 2
+            path: s/sdk
+          - checkout: codegen
+            fetchDepth: 1
+            path: s/codegen
+
+          - task: Bash@3
+            displayName: "Work out which product this release is for"
+            inputs:
+              targetType: inline
+              workingDirectory: $(sdkDir)
+              script: |
+                set -euo pipefail
+                override="${{ parameters.product }}"
+                if [ "$override" != "auto" ]; then
+                  echo "Manual override: publishing $override"
+                  echo "##vso[task.setvariable variable=product]$override"
+                  exit 0
+                fi
+                if ! git rev-parse --verify --quiet HEAD^ >/dev/null; then
+                  echo "##[error]No parent commit to diff against — re-run with the product parameter set"
+                  exit 1
+                fi
+                # No match is a normal outcome here, not a script failure, so
+                # the guidance below gets a chance to print.
+                changed=$(git diff --name-only HEAD^ HEAD \
+                  | grep -E '^(bank-feeds|lending|platform|sync-for-expenses|sync-for-payables)/RELEASES\.md$' \
+                  | cut -d/ -f1 | sort -u || true)
+                count=$(echo "$changed" | grep -c . || true)
+                if [ "$count" -eq 0 ]; then
+                  echo "##[error]No <product>/RELEASES.md changed in $(git rev-parse --short HEAD) — nothing to publish. Re-run with the product parameter if this was intentional."
+                  exit 1
+                fi
+                if [ "$count" -gt 1 ]; then
+                  echo "##[error]More than one product released in one commit: $(echo $changed). Release PRs are one product each — re-run per product with the product parameter."
+                  exit 1
+                fi
+                echo "Releasing $changed"
+                echo "##vso[task.setvariable variable=product]$changed"
+
+          - task: UseNode@1
+            displayName: "Install Node.js"
+            inputs:
+              version: $(nodeVersion)
+
+          # Installs go through Codat's verified feed, not public npm — the feed
+          # mirrors npmjs and everything on it has been through safe-package-feeder.
+          # First run needs the feed owner to approve this pipeline's access.
+          - task: Bash@3
+            displayName: "Point npm at Codat's verified feed"
+            inputs:
+              targetType: inline
+              script: cp "$(codegenDir)/parity/typescript/.npmrc.example" "$(Agent.TempDirectory)/.npmrc"
+
+          - task: npmAuthenticate@0
+            displayName: "Authenticate to the feed"
+            inputs:
+              workingFile: $(Agent.TempDirectory)/.npmrc
+
+          - task: Bash@3
+            displayName: "Check the product folder is there"
+            inputs:
+              targetType: inline
+              workingDirectory: $(sdkDir)
+              script: |
+                set -euo pipefail
+                if [ ! -f "$(product)/package.json" ]; then
+                  echo "##[error]No $(product)/package.json at this commit — is the product folder name right?"
+                  exit 1
+                fi
+
+          - task: Bash@3
+            displayName: "Build and pack"
+            inputs:
+              targetType: inline
+              workingDirectory: $(sdkDir)
+              script: |
+                set -euo pipefail
+                # The publish build only compiles and packs, so it needs the
+                # production dependencies plus the TypeScript compiler, not the
+                # SDK's lint toolchain (eslint, typescript-eslint). That toolchain
+                # is dev-only and its pinned versions aren't all on the verified
+                # feed. `npm install` inside this package resolves the dev tree
+                # from package.json even with --omit=dev, so install the compiler
+                # in a separate directory that has no package.json, then build
+                # with it on PATH. `npm ci --omit=dev` for the prod deps is fine:
+                # it installs from the lockfile and never touches the dev tree.
+                cd "$(product)"
+                if [ -f package-lock.json ]; then
+                  npm ci --omit=dev
+                  tsc_version=$(node -p "require('./package-lock.json').packages['node_modules/typescript'].version")
+                else
+                  npm install --omit=dev
+                  tsc_version=$(node -p "require('./package.json').devDependencies.typescript")
+                fi
+                cd ..
+                compiler_home="$(Agent.TempDirectory)/tsc"
+                mkdir -p "$compiler_home"
+                ( cd "$compiler_home" && npm install --no-save "typescript@$tsc_version" )
+                export PATH="$compiler_home/node_modules/.bin:$PATH"
+                ( cd "$(product)" && npm run build )
+                mkdir -p "$(Build.ArtifactStagingDirectory)/pack-out"
+                npm pack "./$(product)" --pack-destination "$(Build.ArtifactStagingDirectory)/pack-out"
+
+          - task: Bash@3
+            displayName: "Check the tarball carries the stamped version"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
+              script: |
+                set -euo pipefail
+                stamped=$(node -p "require('$(sdkDir)/$(product)/package.json').version")
+                echo "stamped version: $stamped"
+                ls | grep -F -- "-$stamped.tgz" >/dev/null || {
+                  echo "##[error]Tarball does not carry version $stamped"; ls; exit 1; }
+
+          - task: Bash@3
+            displayName: "Tarball tripwire (built JS present, no .npmrc)"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
+              script: |
+                set -euo pipefail
+                tgz=$(ls *.tgz)
+                # The SDK compiles in place (tsconfig outDir "."), so the built JS
+                # mirrors src at the package root (sdk/, funcs/, ...), not under
+                # dist/. Confirm the package's declared entry point is present and
+                # the package carries built .js, or it would install empty. List
+                # the tarball once and match with here-strings, so an early-exiting
+                # grep or head never SIGPIPEs tar under pipefail.
+                listing=$(tar -tzf "$tgz")
+                entry=$(tar -xzOf "$tgz" package/package.json \
+                  | node -p "(JSON.parse(require('fs').readFileSync(0)).main || 'index.js').replace(/^\.\//, '')")
+                built_js=$(grep -Ec '^package/.+\.js$' <<<"$listing" || true)
+                echo "built .js files in tarball: $built_js (entry: $entry)"
+                if ! grep -qx "package/$entry" <<<"$listing"; then
+                  echo "##[error]Tarball is missing its entry point package/$entry — did the build run?"
+                  head -40 <<<"$listing"; exit 1
+                fi
+                if [ "$built_js" -eq 0 ]; then
+                  echo "##[error]Tarball has no built .js — the package would install empty"
+                  head -40 <<<"$listing"; exit 1
+                fi
+                if grep -q '^package/\.npmrc$' <<<"$listing"; then
+                  echo "##[error]Tarball contains .npmrc — private-feed credentials must never be published"; exit 1
+                fi
+
+          - task: Bash@3
+            displayName: "npm publish dry run"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Build.ArtifactStagingDirectory)/pack-out
+              script: npm publish ./*.tgz --dry-run --registry=$(publicNpmRegistry)
+
+          - task: Bash@3
+            displayName: "Install into a scratch consumer, compile and load"
+            inputs:
+              targetType: inline
+              script: |
+                set -euo pipefail
+                client=$(node -p "
+                  const p = require('$(codegenDir)/products.json').products;
+                  p['$(product)'].typescript.client_class_name")
+                mkdir "$(Agent.TempDirectory)/consumer" && cd "$(Agent.TempDirectory)/consumer"
+                npm init -y >/dev/null
+                # Pin the compiler to the SDK's version. An unpinned typescript
+                # pulls the feed's latest, which is the native TypeScript 7 whose
+                # tsc loads a platform binary package the feed does not carry.
+                tsc_version=$(node -p "require('$(sdkDir)/$(product)/package.json').devDependencies.typescript")
+                npm install "$(Build.ArtifactStagingDirectory)"/pack-out/*.tgz "typescript@$tsc_version" @types/node >/dev/null
+                cat > smoke.ts <<TS
+                import { $client } from "@codat/$(product)";
+                import type * as shared from "@codat/$(product)/sdk/models/shared";
+                const client = new $client({ authHeader: "Basic smoke" });
+                console.log("compile smoke:", typeof client);
+                TS
+                npx tsc smoke.ts --noEmit --module nodenext --moduleResolution nodenext --target es2020 --esModuleInterop --skipLibCheck
+                node -e "const m = require('@codat/$(product)'); const c = new m.$client({ authHeader: 'Basic smoke' }); console.log('runtime smoke OK:', c.constructor.name)"
+
+          - task: Bash@3
+            displayName: "Load every exports subpath (require + import)"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Agent.TempDirectory)/consumer
+              script: |
+                set -euo pipefail
+                # The script resolves the package relative to its own location,
+                # so it must run from inside the consumer's node_modules tree.
+                cp "$(codegenDir)/cutover/exports_smoke.mjs" .
+                node exports_smoke.mjs "@codat/$(product)"
+
+          # Read the tag, title and release body out of the merged commit here, while
+          # both checkouts are on disk, and hand them to the publish stage as an
+          # artifact. A commit whose package.json and RELEASES.md disagree on the
+          # version fails the run before anything is published.
+          - task: UsePythonVersion@0
+            displayName: "Install Python"
+            inputs:
+              versionSpec: "3.12"
+
+          - task: Bash@3
+            displayName: "Read the release facts from the merged commit"
+            inputs:
+              targetType: inline
+              workingDirectory: $(codegenDir)
+              script: |
+                set -euo pipefail
+                facts_dir="$(Build.ArtifactStagingDirectory)/release-facts"
+                mkdir -p "$facts_dir"
+                python cutover/release_metadata.py --clone "$(sdkDir)" \
+                  --product "$(product)" --lang ts \
+                  --body-file "$facts_dir/body.md" | tee "$facts_dir/facts.env"
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish the release facts"
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/release-facts
+              artifact: $(releaseFactsArtifact)
+
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish the packed tarball"
+            inputs:
+              targetPath: $(Build.ArtifactStagingDirectory)/pack-out
+              artifact: $(packageArtifact)
+
+  - stage: Publish
+    displayName: "Publish to public npm"
+    dependsOn: BuildValidate
+    # Only main publishes. A manual run off a branch still gets the build checks.
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - job: Publish
+        displayName: "npm publish under the pre-release tag"
+        pool: codat-intg-managed-devops-pool-linux
+        variables:
+          - group: OAS
+        steps:
+          - checkout: none
+
+          - task: UseNode@1
+            displayName: "Install Node.js"
+            inputs:
+              version: $(nodeVersion)
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download the packed tarball"
+            inputs:
+              artifact: $(packageArtifact)
+              path: $(Pipeline.Workspace)/pack-out
+
+          - task: DownloadPipelineArtifact@2
+            displayName: "Download the release facts"
+            inputs:
+              artifact: $(releaseFactsArtifact)
+              path: $(Pipeline.Workspace)/release-facts
+
+          # Mints the short-lived token the tag and release steps use, the same
+          # way the oas pipeline does (tools/mint-github-app-token.sh there).
+          # Running it before the publish means missing App credentials can
+          # never leave a published-but-untagged release behind.
+          - task: Bash@3
+            displayName: "Mint the SDK repo token from the GitHub App"
+            inputs:
+              targetType: inline
+              script: |
+                set -euo pipefail
+                if [ -z "${GITHUB_APP_ID:-}" ] || [ -z "${GITHUB_APP_INSTALLATION_ID:-}" ] || [ -z "${GITHUB_APP_PRIVATE_KEY:-}" ]; then
+                  echo "##[error]GitHub App credentials are not set — authorise the OAS variable group (oas_app_id, oas_app_installation_id, oas_app_private_key)"
+                  exit 1
+                fi
+                b64url() { openssl base64 -A | tr '+/' '-_' | tr -d '='; }
+                # The key may be stored base64-encoded; multi-line secrets are
+                # awkward in Azure DevOps variable groups.
+                if [[ "$GITHUB_APP_PRIVATE_KEY" != *"BEGIN"* ]]; then
+                  GITHUB_APP_PRIVATE_KEY=$(printf '%s' "$GITHUB_APP_PRIVATE_KEY" | openssl base64 -d -A)
+                fi
+                now=$(date +%s)
+                header=$(printf '{"alg":"RS256","typ":"JWT"}' | b64url)
+                # iat 60s in the past for clock drift; exp must be <= 10 minutes.
+                payload=$(printf '{"iat":%d,"exp":%d,"iss":"%s"}' "$((now - 60))" "$((now + 540))" "$GITHUB_APP_ID" | b64url)
+                signature=$(printf '%s.%s' "$header" "$payload" | openssl dgst -sha256 -sign <(printf '%s' "$GITHUB_APP_PRIVATE_KEY") | b64url)
+                response=$(curl --silent --fail-with-body --show-error -X POST \
+                  -H "Authorization: Bearer $header.$payload.$signature" \
+                  -H "Accept: application/vnd.github+json" \
+                  "https://api.github.com/app/installations/$GITHUB_APP_INSTALLATION_ID/access_tokens")
+                token=$(printf '%s' "$response" | node -p "JSON.parse(require('fs').readFileSync(0)).token")
+                if [ -z "$token" ] || [ "$token" = "null" ] || [ "$token" = "undefined" ]; then
+                  echo "##[error]Installation token response did not contain a token"
+                  exit 1
+                fi
+                echo "##vso[task.setvariable variable=github_token;issecret=true]$token"
+                echo "Minted a GitHub App installation token (expires in ~1 hour)."
+            env:
+              GITHUB_APP_ID: $(oas_app_id)
+              GITHUB_APP_INSTALLATION_ID: $(oas_app_installation_id)
+              GITHUB_APP_PRIVATE_KEY: $(oas_app_private_key)
+
+          - task: Bash@3
+            displayName: "Skip if this version is already on npm"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/pack-out
+              script: |
+                set -euo pipefail
+                tgz=$(ls *.tgz)
+                manifest=$(tar -xzOf "$tgz" package/package.json)
+                # Name and version come from the tarball, so this stage needs no
+                # variable handed across from the build stage.
+                name=$(echo "$manifest" | node -p "JSON.parse(require('fs').readFileSync(0)).name")
+                version=$(echo "$manifest" | node -p "JSON.parse(require('fs').readFileSync(0)).version")
+                echo "tarball: $name@$version"
+                # A 404 means the version is not on npm; any other npm view
+                # failure (network, auth) must fail the run rather than be
+                # read as "safe to publish".
+                set +e
+                output=$(npm view "$name@$version" version --registry=$(publicNpmRegistry) 2>&1)
+                status=$?
+                set -e
+                if [ $status -eq 0 ] && [ "$output" = "$version" ]; then
+                  echo "##vso[task.setvariable variable=alreadyPublished]true"
+                  echo "$name@$version is already on npm — nothing to publish."
+                elif { [ $status -eq 0 ] && [ -z "$output" ]; } || echo "$output" | grep -q "E404\|No match found for version"; then
+                  echo "##vso[task.setvariable variable=alreadyPublished]false"
+                  echo "$name@$version is not on npm yet — publishing under --tag $(distTag)."
+                else
+                  echo "$output"
+                  echo "##[error]Could not determine whether $name@$version is already on npm"
+                  exit 1
+                fi
+
+          - task: Bash@3
+            displayName: "Prepare public npm .npmrc"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/pack-out
+              script: |
+                {
+                  echo "registry=$(publicNpmRegistry)"
+                  echo "always-auth=true"
+                } > .npmrc
+
+          - task: npmAuthenticate@0
+            displayName: "Authenticate to public npm"
+            inputs:
+              workingFile: $(Pipeline.Workspace)/pack-out/.npmrc
+              customEndpoint: $(npmServiceConnection)
+
+          - task: Bash@3
+            displayName: "Publish"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/pack-out
+              script: |
+                set -euo pipefail
+                if [ "$(alreadyPublished)" = "true" ]; then
+                  echo "Version already on npm — skipping publish."
+                  exit 0
+                fi
+                npm publish ./*.tgz --access public --tag $(distTag)
+
+          # Last, so a tag only ever exists for a version that really published.
+          # Matches Speakeasy's tag and title shape so changelogs keep working.
+          - task: Bash@3
+            displayName: "Tag the release on the SDK repo"
+            inputs:
+              targetType: inline
+              workingDirectory: $(Pipeline.Workspace)/release-facts
+              script: |
+                set -euo pipefail
+                if [ "$(alreadyPublished)" = "true" ]; then
+                  echo "Version already on npm — leaving the existing tag alone."
+                  exit 0
+                fi
+                tag=$(sed -n 's/^tag=//p' facts.env)
+                title=$(sed -n 's/^title=//p' facts.env)
+                api="https://api.github.com/repos/$(sdkRepoSlug)"
+                if curl --silent --fail -H "Authorization: Bearer $GITHUB_TOKEN" \
+                     "$api/git/ref/tags/$tag" >/dev/null 2>&1; then
+                  echo "$tag already exists on $(sdkRepoSlug) — leaving it alone."
+                  exit 0
+                fi
+                # Node rather than python: this job installs Node and checks nothing out.
+                TAG="$tag" TITLE="$title" node -e '
+                  const fs = require("fs");
+                  fs.writeFileSync("payload.json", JSON.stringify({
+                    tag_name: process.env.TAG,
+                    target_commitish: "$(Build.SourceVersion)",
+                    name: process.env.TITLE,
+                    body: fs.readFileSync("body.md", "utf8"),
+                  }));'
+                curl --fail-with-body --silent --show-error -X POST \
+                  -H "Accept: application/vnd.github+json" \
+                  -H "Authorization: Bearer $GITHUB_TOKEN" \
+                  "$api/releases" --data @payload.json > /dev/null
+                echo "created $tag and its release on $(sdkRepoSlug)"
+            env:
+              GITHUB_TOKEN: $(github_token)

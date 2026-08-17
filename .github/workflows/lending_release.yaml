@@ -1,3 +1,9 @@
+# Written by sdk-codegen (emit_workflow_stubs.py); do not edit by hand.
+# Publishing no longer runs in this repo. The packaging checks, the upload to
+# npm and the tag all run centrally in the Azure DevOps pipeline at
+# .azuredevops/npm-publish.yml - no check has been dropped, they just moved.
+# That pipeline watches this same RELEASES.md push itself, so this stub has
+# nothing to hand on and only says where publishing went.
 name: Release Lending library
 'on':
   push:
@@ -5,11 +11,12 @@ name: Release Lending library
     - lending/RELEASES.md
     branches:
     - main
+  workflow_dispatch: {}
 jobs:
   publish:
-    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
-    secrets:
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
-      slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-      npm_token: ${{ secrets.NPM_TOKEN }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publishing moved to the Azure DevOps pipeline
+        run: |
+          echo "::warning::This workflow no longer publishes anything. lending is built, checked and published to npm by .azuredevops/npm-publish.yml, which triggers on this same push to lending/RELEASES.md."
+          exit 0
