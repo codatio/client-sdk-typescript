@@ -62,7 +62,7 @@ resources:
       endpoint: codat-tech
 
 variables:
-  nodeVersion: "20.x"
+  nodeVersion: "24.x"
   # Both checkouts pin their folder, so these paths don't depend on ADO's default naming
   sdkDir: $(Build.SourcesDirectory)/sdk
   codegenDir: $(Build.SourcesDirectory)/codegen
