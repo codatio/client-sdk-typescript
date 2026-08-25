@@ -814,3 +814,5 @@ Based on:
 **Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/sync-for-expenses/sdk/models/shared/accountmappinginfo.js`, no longer works - import from `@codat/sync-for-expenses/sdk/models/shared` or the package root instead.
 
 The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `AccountMappingInfoFromJSON`, `AccountMappingInfoToJSON` and `instanceOfAccountMappingInfo`.
+
+`SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.
