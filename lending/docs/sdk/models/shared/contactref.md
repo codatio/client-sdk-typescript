@@ -5,9 +5,7 @@
 ```typescript
 import { ContactRef } from "@codat/lending/sdk/models/shared";
 
-let value: ContactRef = {
-  id: "<id>",
-};
+let value: ContactRef = {};
 ```
 
 ## Fields

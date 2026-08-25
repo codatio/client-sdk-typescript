@@ -7,7 +7,7 @@ Current state of the bill credit note
 ```typescript
 import { BillCreditNoteStatus } from "@codat/lending/sdk/models/shared";
 
-let value: BillCreditNoteStatus = "Paid";
+let value: BillCreditNoteStatus = "Unknown";
 ```
 
 ## Values

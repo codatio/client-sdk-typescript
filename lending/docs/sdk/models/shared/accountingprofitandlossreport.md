@@ -25,20 +25,189 @@ Our [Enhanced Financials](https://docs.codat.io/lending/features/financial-state
 
 ```typescript
 import { AccountingProfitAndLossReport } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingProfitAndLossReport = {
   reports: [
     {
       fromDate: "2022-10-23T00:00:00Z",
       toDate: "2022-10-23T00:00:00Z",
-      grossProfit: new Decimal("3835.5"),
-      netOperatingProfit: new Decimal("2637.95"),
-      netOtherIncome: new Decimal("5247.66"),
-      netProfit: new Decimal("7952.54"),
+      income: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      costOfSales: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      grossProfit: 0,
+      expenses: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      netOperatingProfit: 0,
+      otherExpenses: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      otherIncome: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      netOtherIncome: 0,
+      netProfit: 0,
     },
   ],
-  reportBasis: "Unknown",
+  reportBasis: "string",
   mostRecentAvailableMonth: "2022-10-23T00:00:00Z",
   earliestAvailableMonth: "2022-10-23T00:00:00Z",
 };

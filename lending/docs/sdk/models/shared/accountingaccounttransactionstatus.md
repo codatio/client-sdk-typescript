@@ -1,17 +1,15 @@
 # AccountingAccountTransactionStatus
 
-The status of the account transaction.
-
 ## Example Usage
 
 ```typescript
 import { AccountingAccountTransactionStatus } from "@codat/lending/sdk/models/shared";
 
-let value: AccountingAccountTransactionStatus = "Reconciled";
+let value: AccountingAccountTransactionStatus = "";
 ```
 
 ## Values
 
 ```typescript
-"Unknown" | "Unreconciled" | "Reconciled" | "Void"
+
 ```

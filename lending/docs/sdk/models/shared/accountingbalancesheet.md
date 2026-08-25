@@ -21,14 +21,115 @@ Our [Enhanced Financials](https://docs.codat.io/lending/features/financial-state
 
 ```typescript
 import { AccountingBalanceSheet } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingBalanceSheet = {
   currency: "GBP",
   reports: [
     {
       date: "2022-10-23T00:00:00Z",
-      netAssets: new Decimal("5605.44"),
+      assets: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      liabilities: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      netAssets: 0,
+      equity: {
+        accountId: "string",
+        name: "string",
+        value: 0,
+        items: [
+          {
+            accountId: "string",
+            name: "string",
+            value: 0,
+            items: [
+              {
+                accountId: "string",
+                name: "string",
+                value: 0,
+                items: [
+                  {
+                    accountId: "string",
+                    name: "string",
+                    value: 0,
+                    items: [
+                      {
+                        accountId: "string",
+                        name: "string",
+                        value: 0,
+                        items: [],
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
     },
   ],
   mostRecentAvailableMonth: "2022-10-23T00:00:00Z",

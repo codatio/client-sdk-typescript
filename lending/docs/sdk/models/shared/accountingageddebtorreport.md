@@ -37,7 +37,6 @@ The report will be grouped per supplier and depending on the periods requested. 
 
 ```typescript
 import { AccountingAgedDebtorReport } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingAgedDebtorReport = {
   generated: "2022-10-23T00:00:00Z",
@@ -53,11 +52,11 @@ let value: AccountingAgedDebtorReport = {
             {
               fromDate: "2022-10-01T00:00:00Z",
               toDate: "2022-10-31T00:00:00Z",
-              amount: new Decimal("1547.5"),
+              amount: 1547.5,
               details: [
                 {
                   name: "Invoices",
-                  amount: new Decimal("1547.5"),
+                  amount: 1547.5,
                 },
               ],
             },

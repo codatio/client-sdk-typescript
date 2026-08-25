@@ -660,7 +660,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-transfer" method="post" path="/companies/{companyId}/connections/{connectionId}/push/transfers" example="QuickBooks Desktop" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -682,14 +681,14 @@ async function run() {
           id: "80000028-1671794219",
           dataType: "bankAccounts",
         },
-        amount: new Decimal("12"),
+        amount: 12,
       },
       to: {
         accountRef: {
           id: "80000004-1671793811",
           dataType: "bankAccounts",
         },
-        amount: new Decimal("12"),
+        amount: 12,
       },
       status: "Unknown",
       trackingCategoryRefs: [
@@ -717,7 +716,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackTransfersCreate } from "@codat/lending/funcs/loanWritebackTransfersCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -741,14 +739,14 @@ async function run() {
           id: "80000028-1671794219",
           dataType: "bankAccounts",
         },
-        amount: new Decimal("12"),
+        amount: 12,
       },
       to: {
         accountRef: {
           id: "80000004-1671793811",
           dataType: "bankAccounts",
         },
-        amount: new Decimal("12"),
+        amount: 12,
       },
       status: "Unknown",
       trackingCategoryRefs: [

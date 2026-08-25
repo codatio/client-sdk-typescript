@@ -16,19 +16,7 @@ let value: AccountingCustomer = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   defaultCurrency: "GBP",
-  contacts: [
-    {
-      phone: [
-        {
-          number: "+44 25691 154789",
-          type: "Landline",
-        },
-      ],
-      status: "Unknown",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
-  ],
-  status: "Archived",
+  status: "string",
 };
 ```
 

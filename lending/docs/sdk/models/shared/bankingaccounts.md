@@ -6,26 +6,18 @@
 import { BankingAccounts } from "@codat/lending/sdk/models/shared";
 
 let value: BankingAccounts = {
-  pageNumber: 1,
-  pageSize: 10,
-  totalResults: 1,
-  links: {
-    self: {
-      href: "/companies/{id}/data/{dataType}",
-    },
-    current: {
-      href: "/companies/{id}/data/{dataType}?page=1&pageSize=10",
-    },
-  },
+  pageNumber: 0,
+  pageSize: 0,
+  totalResults: 0,
 };
 ```
 
 ## Fields
 
-| Field                                                                                             | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `results`                                                                                         | [shared.BankingAccount](../../../sdk/models/shared/bankingaccount.md)[]                           | :heavy_minus_sign:                                                                                | N/A                                                                                               |                                                                                                   |
-| `pageNumber`                                                                                      | *number*                                                                                          | :heavy_check_mark:                                                                                | Current page number.                                                                              |                                                                                                   |
-| `pageSize`                                                                                        | *number*                                                                                          | :heavy_check_mark:                                                                                | Number of items to return in results array.                                                       |                                                                                                   |
-| `totalResults`                                                                                    | *number*                                                                                          | :heavy_check_mark:                                                                                | Total number of items.                                                                            |                                                                                                   |
-| `links`                                                                                           | [shared.Links](../../../sdk/models/shared/links.md)                                               | :heavy_check_mark:                                                                                | N/A                                                                                               | {<br/>"self": {<br/>"href": "/companies"<br/>},<br/>"current": {<br/>"href": "/companies?page=1\u0026pageSize=10"<br/>}<br/>} |
+| Field                                                                   | Type                                                                    | Required                                                                | Description                                                             |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `pageNumber`                                                            | *number*                                                                | :heavy_check_mark:                                                      | Current page number.                                                    |
+| `pageSize`                                                              | *number*                                                                | :heavy_check_mark:                                                      | Number of items to return in results array.                             |
+| `totalResults`                                                          | *number*                                                                | :heavy_check_mark:                                                      | Total number of items.                                                  |
+| `links`                                                                 | [shared.Links](../../../sdk/models/shared/links.md)                     | :heavy_check_mark:                                                      | N/A                                                                     |
+| `results`                                                               | [shared.BankingAccount](../../../sdk/models/shared/bankingaccount.md)[] | :heavy_minus_sign:                                                      | N/A                                                                     |

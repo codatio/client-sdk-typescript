@@ -5,11 +5,11 @@
 ```typescript
 import { PeriodUnit } from "@codat/lending/sdk/models/shared";
 
-let value: PeriodUnit = "Year";
+let value: PeriodUnit = "";
 ```
 
 ## Values
 
 ```typescript
-"Day" | "Week" | "Month" | "Year"
+
 ```

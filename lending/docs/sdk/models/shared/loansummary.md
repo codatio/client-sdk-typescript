@@ -4,7 +4,6 @@
 
 ```typescript
 import { LoanSummary } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: LoanSummary = {
   reportInfo: {
@@ -22,9 +21,10 @@ let value: LoanSummary = {
       },
       description: "string",
       startDate: "2021-01-01",
-      totalRepayments: new Decimal("83481.72"),
-      balance: new Decimal("42513.18"),
+      totalRepayments: 83481.72,
+      balance: 42513.18,
       lender: "Barclays Bank",
+      totalInvestments: 100000,
     },
   ],
 };

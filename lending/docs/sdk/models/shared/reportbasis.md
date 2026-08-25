@@ -1,13 +1,13 @@
 # ReportBasis
 
-The basis of a report.
+Accounting method used when aggregating the report data. In this case, `Cash`.
 
 ## Example Usage
 
 ```typescript
 import { ReportBasis } from "@codat/lending/sdk/models/shared";
 
-let value: ReportBasis = "Cash";
+let value: ReportBasis = "Unknown";
 ```
 
 ## Values

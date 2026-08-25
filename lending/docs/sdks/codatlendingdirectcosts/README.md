@@ -616,7 +616,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 <!-- UsageSnippet language="typescript" operationID="create-direct-cost" method="post" path="/companies/{companyId}/connections/{connectionId}/push/directCosts" example="FreeAgent" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -631,9 +630,9 @@ async function run() {
       currency: "GBP",
       lineItems: [
         {
-          unitAmount: new Decimal("15"),
-          quantity: new Decimal("1"),
-          subTotal: new Decimal("15"),
+          unitAmount: 15,
+          quantity: 1,
+          subTotal: 15,
           accountRef: {
             id: "288",
           },
@@ -649,9 +648,9 @@ async function run() {
           allocation: {},
         },
       ],
-      subTotal: new Decimal("15"),
-      taxAmount: new Decimal("0"),
-      totalAmount: new Decimal("15"),
+      subTotal: 15,
+      taxAmount: 0,
+      totalAmount: 15,
     },
   });
 
@@ -668,7 +667,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackDirectCostsCreate } from "@codat/lending/funcs/loanWritebackDirectCostsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -685,9 +683,9 @@ async function run() {
       currency: "GBP",
       lineItems: [
         {
-          unitAmount: new Decimal("15"),
-          quantity: new Decimal("1"),
-          subTotal: new Decimal("15"),
+          unitAmount: 15,
+          quantity: 1,
+          subTotal: 15,
           accountRef: {
             id: "288",
           },
@@ -703,9 +701,9 @@ async function run() {
           allocation: {},
         },
       ],
-      subTotal: new Decimal("15"),
-      taxAmount: new Decimal("0"),
-      totalAmount: new Decimal("15"),
+      subTotal: 15,
+      taxAmount: 0,
+      totalAmount: 15,
     },
   });
   if (res.ok) {
@@ -723,7 +721,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-direct-cost" method="post" path="/companies/{companyId}/connections/{connectionId}/push/directCosts" example="Malformed query" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -736,11 +733,23 @@ async function run() {
     directCostPrototype: {
       issueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: [],
+      lineItems: [
+        {
+          tracking: {
+            recordRefs: [
+              {
+                dataType: "trackingCategories",
+              },
+            ],
+            invoiceTo: {
+              dataType: "journalEntry",
+            },
+          },
+        },
+      ],
       paymentAllocations: [
         {
           payment: {
-            accountRef: {},
             currency: "GBP",
             paidOnDate: "2022-10-23T00:00:00Z",
           },
@@ -750,9 +759,6 @@ async function run() {
           },
         },
       ],
-      subTotal: new Decimal("3566.34"),
-      taxAmount: new Decimal("7664.68"),
-      totalAmount: new Decimal("208.93"),
     },
   });
 
@@ -769,7 +775,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackDirectCostsCreate } from "@codat/lending/funcs/loanWritebackDirectCostsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -784,11 +789,23 @@ async function run() {
     directCostPrototype: {
       issueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: [],
+      lineItems: [
+        {
+          tracking: {
+            recordRefs: [
+              {
+                dataType: "trackingCategories",
+              },
+            ],
+            invoiceTo: {
+              dataType: "journalEntry",
+            },
+          },
+        },
+      ],
       paymentAllocations: [
         {
           payment: {
-            accountRef: {},
             currency: "GBP",
             paidOnDate: "2022-10-23T00:00:00Z",
           },
@@ -798,9 +815,6 @@ async function run() {
           },
         },
       ],
-      subTotal: new Decimal("3566.34"),
-      taxAmount: new Decimal("7664.68"),
-      totalAmount: new Decimal("208.93"),
     },
   });
   if (res.ok) {
@@ -818,7 +832,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-direct-cost" method="post" path="/companies/{companyId}/connections/{connectionId}/push/directCosts" example="QuickBooks Desktop" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -840,13 +853,13 @@ async function run() {
       lineItems: [
         {
           description: "test description line 1",
-          unitAmount: new Decimal("7"),
-          quantity: new Decimal("1"),
-          discountAmount: new Decimal("0"),
-          discountPercentage: new Decimal("0"),
-          subTotal: new Decimal("99"),
-          taxAmount: new Decimal("360"),
-          totalAmount: new Decimal("70"),
+          unitAmount: 7,
+          quantity: 1,
+          discountAmount: 0,
+          discountPercentage: 0,
+          subTotal: 99,
+          taxAmount: 360,
+          totalAmount: 70,
           accountRef: {
             id: "8000000D-1671793811",
             name: "Purchases - Hardware for Resale",
@@ -873,18 +886,18 @@ async function run() {
               name: "Bank Account 1",
             },
             paidOnDate: "2023-01-28T10:19:52.223Z",
-            totalAmount: new Decimal("54"),
+            totalAmount: 54,
           },
           allocation: {
-            currencyRate: new Decimal("0"),
+            currencyRate: 0,
             allocatedOnDate: "2023-01-29T10:19:52.223Z",
-            totalAmount: new Decimal("88"),
+            totalAmount: 88,
           },
         },
       ],
-      subTotal: new Decimal("362"),
-      taxAmount: new Decimal("4"),
-      totalAmount: new Decimal("366"),
+      subTotal: 362,
+      taxAmount: 4,
+      totalAmount: 366,
     },
   });
 
@@ -901,7 +914,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackDirectCostsCreate } from "@codat/lending/funcs/loanWritebackDirectCostsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -925,13 +937,13 @@ async function run() {
       lineItems: [
         {
           description: "test description line 1",
-          unitAmount: new Decimal("7"),
-          quantity: new Decimal("1"),
-          discountAmount: new Decimal("0"),
-          discountPercentage: new Decimal("0"),
-          subTotal: new Decimal("99"),
-          taxAmount: new Decimal("360"),
-          totalAmount: new Decimal("70"),
+          unitAmount: 7,
+          quantity: 1,
+          discountAmount: 0,
+          discountPercentage: 0,
+          subTotal: 99,
+          taxAmount: 360,
+          totalAmount: 70,
           accountRef: {
             id: "8000000D-1671793811",
             name: "Purchases - Hardware for Resale",
@@ -958,18 +970,18 @@ async function run() {
               name: "Bank Account 1",
             },
             paidOnDate: "2023-01-28T10:19:52.223Z",
-            totalAmount: new Decimal("54"),
+            totalAmount: 54,
           },
           allocation: {
-            currencyRate: new Decimal("0"),
+            currencyRate: 0,
             allocatedOnDate: "2023-01-29T10:19:52.223Z",
-            totalAmount: new Decimal("88"),
+            totalAmount: 88,
           },
         },
       ],
-      subTotal: new Decimal("362"),
-      taxAmount: new Decimal("4"),
-      totalAmount: new Decimal("366"),
+      subTotal: 362,
+      taxAmount: 4,
+      totalAmount: 366,
     },
   });
   if (res.ok) {
@@ -987,7 +999,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-direct-cost" method="post" path="/companies/{companyId}/connections/{connectionId}/push/directCosts" example="Sage Intacct" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1002,14 +1013,14 @@ async function run() {
       note: "Test 1",
       issueDate: "2023-03-31T00:00:00",
       currency: "USD",
-      currencyRate: new Decimal("0.5"),
+      currencyRate: 0.5,
       lineItems: [
         {
-          unitAmount: new Decimal("9.99"),
-          quantity: new Decimal("1"),
-          subTotal: new Decimal("9.99"),
-          taxAmount: new Decimal("2"),
-          totalAmount: new Decimal("11.99"),
+          unitAmount: 9.99,
+          quantity: 1,
+          subTotal: 9.99,
+          taxAmount: 2,
+          totalAmount: 11.99,
           accountRef: {
             id: "195",
           },
@@ -1027,18 +1038,18 @@ async function run() {
             },
             currency: "USD",
             paidOnDate: "2023-03-31T00:00:00",
-            totalAmount: new Decimal("11.99"),
+            totalAmount: 11.99,
           },
           allocation: {
             currency: "USD",
             allocatedOnDate: "2023-03-31T00:00:00",
-            totalAmount: new Decimal("11.99"),
+            totalAmount: 11.99,
           },
         },
       ],
-      subTotal: new Decimal("9.99"),
-      taxAmount: new Decimal("2"),
-      totalAmount: new Decimal("11.99"),
+      subTotal: 9.99,
+      taxAmount: 2,
+      totalAmount: 11.99,
     },
   });
 
@@ -1055,7 +1066,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackDirectCostsCreate } from "@codat/lending/funcs/loanWritebackDirectCostsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1072,14 +1082,14 @@ async function run() {
       note: "Test 1",
       issueDate: "2023-03-31T00:00:00",
       currency: "USD",
-      currencyRate: new Decimal("0.5"),
+      currencyRate: 0.5,
       lineItems: [
         {
-          unitAmount: new Decimal("9.99"),
-          quantity: new Decimal("1"),
-          subTotal: new Decimal("9.99"),
-          taxAmount: new Decimal("2"),
-          totalAmount: new Decimal("11.99"),
+          unitAmount: 9.99,
+          quantity: 1,
+          subTotal: 9.99,
+          taxAmount: 2,
+          totalAmount: 11.99,
           accountRef: {
             id: "195",
           },
@@ -1097,18 +1107,18 @@ async function run() {
             },
             currency: "USD",
             paidOnDate: "2023-03-31T00:00:00",
-            totalAmount: new Decimal("11.99"),
+            totalAmount: 11.99,
           },
           allocation: {
             currency: "USD",
             allocatedOnDate: "2023-03-31T00:00:00",
-            totalAmount: new Decimal("11.99"),
+            totalAmount: 11.99,
           },
         },
       ],
-      subTotal: new Decimal("9.99"),
-      taxAmount: new Decimal("2"),
-      totalAmount: new Decimal("11.99"),
+      subTotal: 9.99,
+      taxAmount: 2,
+      totalAmount: 11.99,
     },
   });
   if (res.ok) {
@@ -1126,7 +1136,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-direct-cost" method="post" path="/companies/{companyId}/connections/{connectionId}/push/directCosts" example="Xero" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1147,11 +1156,11 @@ async function run() {
       lineItems: [
         {
           description: "negative direct cost",
-          unitAmount: new Decimal("35"),
-          quantity: new Decimal("-1"),
-          subTotal: new Decimal("-35"),
-          taxAmount: new Decimal("-7"),
-          totalAmount: new Decimal("-42"),
+          unitAmount: 35,
+          quantity: -1,
+          subTotal: -35,
+          taxAmount: -7,
+          totalAmount: -42,
           taxRateRef: {
             id: "INPUT2",
           },
@@ -1169,13 +1178,13 @@ async function run() {
             currency: "GBP",
           },
           allocation: {
-            totalAmount: new Decimal("-42"),
+            totalAmount: -42,
           },
         },
       ],
-      subTotal: new Decimal("-35"),
-      taxAmount: new Decimal("-7"),
-      totalAmount: new Decimal("-42"),
+      subTotal: -35,
+      taxAmount: -7,
+      totalAmount: -42,
     },
   });
 
@@ -1192,7 +1201,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackDirectCostsCreate } from "@codat/lending/funcs/loanWritebackDirectCostsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1215,11 +1223,11 @@ async function run() {
       lineItems: [
         {
           description: "negative direct cost",
-          unitAmount: new Decimal("35"),
-          quantity: new Decimal("-1"),
-          subTotal: new Decimal("-35"),
-          taxAmount: new Decimal("-7"),
-          totalAmount: new Decimal("-42"),
+          unitAmount: 35,
+          quantity: -1,
+          subTotal: -35,
+          taxAmount: -7,
+          totalAmount: -42,
           taxRateRef: {
             id: "INPUT2",
           },
@@ -1237,13 +1245,13 @@ async function run() {
             currency: "GBP",
           },
           allocation: {
-            totalAmount: new Decimal("-42"),
+            totalAmount: -42,
           },
         },
       ],
-      subTotal: new Decimal("-35"),
-      taxAmount: new Decimal("-7"),
-      totalAmount: new Decimal("-42"),
+      subTotal: -35,
+      taxAmount: -7,
+      totalAmount: -42,
     },
   });
   if (res.ok) {

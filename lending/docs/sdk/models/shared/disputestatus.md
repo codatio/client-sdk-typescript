@@ -7,7 +7,7 @@ Current status of the dispute
 ```typescript
 import { DisputeStatus } from "@codat/lending/sdk/models/shared";
 
-let value: DisputeStatus = "EvidenceRequired";
+let value: DisputeStatus = "Won";
 ```
 
 ## Values

@@ -43,7 +43,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.excelReports.generate({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedFinancials",
   });
 
   console.log(result);
@@ -69,7 +68,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await excelReportsGenerate(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedFinancials",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -124,7 +122,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.excelReports.getStatus({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedCashFlow",
   });
 
   console.log(result);
@@ -150,7 +147,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await excelReportsGetStatus(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedCashFlow",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -205,7 +201,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.excelReports.download({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedCashFlow",
   });
 
   console.log(result);
@@ -231,7 +226,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await excelReportsDownload(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "enhancedCashFlow",
   });
   if (res.ok) {
     const { value: result } = res;

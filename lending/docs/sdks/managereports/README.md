@@ -7,6 +7,7 @@ Generate and review generated reports for a company.
 ### Available Operations
 
 * [generateReport](#generatereport) - Generate report
+* [getReportStatus](#getreportstatus) - Get report status
 * [listReports](#listreports) - List reports
 
 ## generateReport
@@ -28,7 +29,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.manageReports.generateReport({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "categorizedBankStatement",
   });
 
   console.log(result);
@@ -54,7 +54,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await manageReportsGenerateReport(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportType: "categorizedBankStatement",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -87,6 +86,87 @@ run();
 | errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
 | errors.ErrorMessage               | 500, 503                          | application/json                  |
 | errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
+
+## getReportStatus
+
+Use the *Get report status* endpoint to return the metadata about report generation, such as its current status, date of request, and date of generation.
+
+You can either provide the ID of a report or use `latest` as the ID value to get the most recent generated *reportName* report for the company.
+
+
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="get-report-status" method="get" path="/companies/{companyId}/reports/{reportType}/{reportId}/status" example="Report" -->
+```typescript
+import { CodatLending } from "@codat/lending";
+
+const codatLending = new CodatLending({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const result = await codatLending.manageReports.getReportStatus({
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    maxAge: "2022-10-23T00:00:00Z",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { CodatLendingCore } from "@codat/lending/core.js";
+import { manageReportsGetReportStatus } from "@codat/lending/funcs/manageReportsGetReportStatus.js";
+
+// Use `CodatLendingCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const codatLending = new CodatLendingCore({
+  authHeader: "Basic BASE_64_ENCODED(API_KEY)",
+});
+
+async function run() {
+  const res = await manageReportsGetReportStatus(codatLending, {
+    companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
+    maxAge: "2022-10-23T00:00:00Z",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("manageReportsGetReportStatus failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | GetReportStatusRequest                                                                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[shared.ReportOperation](../../sdk/models/shared/reportoperation.md)\>**
+
+### Errors
+
+| Error Type                   | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
+| errors.ErrorMessage          | 500, 503                     | application/json             |
+| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
 
 ## listReports
 

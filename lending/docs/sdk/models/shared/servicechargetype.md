@@ -7,7 +7,7 @@ The type of the service charge.
 ```typescript
 import { ServiceChargeType } from "@codat/lending/sdk/models/shared";
 
-let value: ServiceChargeType = "Overpayment";
+let value: ServiceChargeType = "Generic";
 ```
 
 ## Values

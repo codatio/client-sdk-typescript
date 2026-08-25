@@ -7,7 +7,7 @@ import { PhoneNumber } from "@codat/lending/sdk/models/shared";
 
 let value: PhoneNumber = {
   number: "+44 25691 154789",
-  type: "Mobile",
+  type: "string",
 };
 ```
 
