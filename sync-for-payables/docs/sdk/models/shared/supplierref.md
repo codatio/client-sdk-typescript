@@ -7,9 +7,7 @@ Reference to the supplier the record relates to.
 ```typescript
 import { SupplierRef } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: SupplierRef = {
-  id: "<id>",
-};
+let value: SupplierRef = {};
 ```
 
 ## Fields

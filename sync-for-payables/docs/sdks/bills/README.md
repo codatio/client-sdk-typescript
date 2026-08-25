@@ -468,7 +468,6 @@ The *Create bill* endpoint creates a new [bill](https://docs.codat.io/sync-for-p
 <!-- UsageSnippet language="typescript" operationID="create-bill" method="post" path="/companies/{companyId}/connections/{connectionId}/payables/bills" example="Create bill" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 const codatSyncPayables = new CodatSyncPayables({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -487,43 +486,43 @@ async function run() {
       issueDate: "2023-04-23T00:00:00",
       dueDate: "2023-04-23T00:00:00",
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       lineItems: [
         {
           description: "Half day training - Microsoft Office",
-          unitAmount: new Decimal("1800"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("360"),
+          unitAmount: 1800,
+          quantity: 1,
+          taxAmount: 360,
           accountRef: {
             id: "46f9461e-788b-4906-8b74-d1ea17f6dc10",
           },
-          totalAmount: new Decimal("2160"),
+          totalAmount: 2160,
           taxRateRef: {
             id: "INPUT2",
           },
         },
         {
           description: "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.",
-          unitAmount: new Decimal("4000"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("800"),
+          unitAmount: 4000,
+          quantity: 1,
+          taxAmount: 800,
           accountRef: {
             id: "f96c9458-d724-47bf-8f74-a9d5726465ce",
           },
-          totalAmount: new Decimal("4800"),
+          totalAmount: 4800,
           taxRateRef: {
             id: "INPUT2",
           },
         },
         {
           description: "Stationery charges",
-          unitAmount: new Decimal("32"),
-          quantity: new Decimal("8"),
-          taxAmount: new Decimal("51.2"),
+          unitAmount: 32,
+          quantity: 8,
+          taxAmount: 51.2,
           accountRef: {
             id: "cba6527d-f102-4538-b421-e483233e9d5a",
           },
-          totalAmount: new Decimal("307.2"),
+          totalAmount: 307.2,
           taxRateRef: {
             id: "INPUT2",
           },
@@ -552,7 +551,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
 import { billsCreate } from "@codat/sync-for-payables/funcs/billsCreate.js";
-import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 // Use `CodatSyncPayablesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -573,43 +571,43 @@ async function run() {
       issueDate: "2023-04-23T00:00:00",
       dueDate: "2023-04-23T00:00:00",
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       lineItems: [
         {
           description: "Half day training - Microsoft Office",
-          unitAmount: new Decimal("1800"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("360"),
+          unitAmount: 1800,
+          quantity: 1,
+          taxAmount: 360,
           accountRef: {
             id: "46f9461e-788b-4906-8b74-d1ea17f6dc10",
           },
-          totalAmount: new Decimal("2160"),
+          totalAmount: 2160,
           taxRateRef: {
             id: "INPUT2",
           },
         },
         {
           description: "Desktop/network support via email & phone.Per month fixed fee for minimum 20 hours/month.",
-          unitAmount: new Decimal("4000"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("800"),
+          unitAmount: 4000,
+          quantity: 1,
+          taxAmount: 800,
           accountRef: {
             id: "f96c9458-d724-47bf-8f74-a9d5726465ce",
           },
-          totalAmount: new Decimal("4800"),
+          totalAmount: 4800,
           taxRateRef: {
             id: "INPUT2",
           },
         },
         {
           description: "Stationery charges",
-          unitAmount: new Decimal("32"),
-          quantity: new Decimal("8"),
-          taxAmount: new Decimal("51.2"),
+          unitAmount: 32,
+          quantity: 8,
+          taxAmount: 51.2,
           accountRef: {
             id: "cba6527d-f102-4538-b421-e483233e9d5a",
           },
-          totalAmount: new Decimal("307.2"),
+          totalAmount: 307.2,
           taxRateRef: {
             id: "INPUT2",
           },
@@ -649,13 +647,9 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: null,
       status: "Open",
     },
   });
@@ -685,13 +679,9 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: null,
       status: "Open",
     },
   });
@@ -720,13 +710,9 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: null,
       status: "Open",
     },
   });
@@ -756,13 +742,9 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: null,
       status: "Open",
     },
   });
@@ -832,22 +814,9 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: [
-        {
-          trackingRefs: [
-            {
-              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-              dataType: "trackingCategories",
-            },
-          ],
-        },
-      ],
       status: "Open",
     },
   });
@@ -878,22 +847,9 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: [
-        {
-          trackingRefs: [
-            {
-              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-              dataType: "trackingCategories",
-            },
-          ],
-        },
-      ],
       status: "Open",
     },
   });
@@ -912,7 +868,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="update-bill" method="put" path="/companies/{companyId}/connections/{connectionId}/payables/bills/{billId}" example="Update bill" -->
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
-import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 const codatSyncPayables = new CodatSyncPayables({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -931,30 +886,30 @@ async function run() {
       issueDate: "2023-04-23T00:00:00",
       dueDate: "2023-05-23T00:00:00",
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       lineItems: [
         {
           description: "Updated line item - Microsoft Office training",
-          unitAmount: new Decimal("2000"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("400"),
+          unitAmount: 2000,
+          quantity: 1,
+          taxAmount: 400,
           accountRef: {
             id: "46f9461e-788b-4906-8b74-d1ea17f6dc10",
           },
-          totalAmount: new Decimal("2400"),
+          totalAmount: 2400,
           taxRateRef: {
             id: "INPUT2",
           },
         },
         {
           description: "Desktop/network support via email & phone - updated rate",
-          unitAmount: new Decimal("4500"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("900"),
+          unitAmount: 4500,
+          quantity: 1,
+          taxAmount: 900,
           accountRef: {
             id: "f96c9458-d724-47bf-8f74-a9d5726465ce",
           },
-          totalAmount: new Decimal("5400"),
+          totalAmount: 5400,
           taxRateRef: {
             id: "INPUT2",
           },
@@ -983,7 +938,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncPayablesCore } from "@codat/sync-for-payables/core.js";
 import { billsUpdate } from "@codat/sync-for-payables/funcs/billsUpdate.js";
-import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 // Use `CodatSyncPayablesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1004,30 +958,30 @@ async function run() {
       issueDate: "2023-04-23T00:00:00",
       dueDate: "2023-05-23T00:00:00",
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       lineItems: [
         {
           description: "Updated line item - Microsoft Office training",
-          unitAmount: new Decimal("2000"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("400"),
+          unitAmount: 2000,
+          quantity: 1,
+          taxAmount: 400,
           accountRef: {
             id: "46f9461e-788b-4906-8b74-d1ea17f6dc10",
           },
-          totalAmount: new Decimal("2400"),
+          totalAmount: 2400,
           taxRateRef: {
             id: "INPUT2",
           },
         },
         {
           description: "Desktop/network support via email & phone - updated rate",
-          unitAmount: new Decimal("4500"),
-          quantity: new Decimal("1"),
-          taxAmount: new Decimal("900"),
+          unitAmount: 4500,
+          quantity: 1,
+          taxAmount: 900,
           accountRef: {
             id: "f96c9458-d724-47bf-8f74-a9d5726465ce",
           },
-          totalAmount: new Decimal("5400"),
+          totalAmount: 5400,
           taxRateRef: {
             id: "INPUT2",
           },
@@ -1068,22 +1022,9 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: [
-        {
-          trackingRefs: [
-            {
-              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-              dataType: "trackingCategories",
-            },
-          ],
-        },
-      ],
       status: "Open",
     },
   });
@@ -1114,22 +1055,9 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     billPrototype: {
-      supplierRef: {
-        id: "<id>",
-      },
       issueDate: "2022-10-23T00:00:00Z",
       dueDate: "2022-10-23T00:00:00Z",
       currency: "GBP",
-      lineItems: [
-        {
-          trackingRefs: [
-            {
-              id: "e9a1b63d-9ff0-40e7-8038-016354b987e6",
-              dataType: "trackingCategories",
-            },
-          ],
-        },
-      ],
       status: "Open",
     },
   });
@@ -1332,8 +1260,6 @@ run();
 The *Download bill attachment* endpoint downloads a specific attachment for a given `billId` and `attachmentId`.
 
 [Bills](https://docs.codat.io/sync-for-payables-api#/schemas/Bill) are invoices that represent the SMB's financial obligations to their supplier for a purchase of goods or services.
-
-Check out our [coverage explorer](https://knowledge.codat.io/supported-features/accounting?view=tab-by-data-type&dataType=bills) for integrations that support downloading a bill attachment.
 
 
 ### Example Usage

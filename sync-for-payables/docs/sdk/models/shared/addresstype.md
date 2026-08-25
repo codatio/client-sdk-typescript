@@ -7,7 +7,7 @@ The type of the address
 ```typescript
 import { AddressType } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: AddressType = "Billing";
+let value: AddressType = "Unknown";
 ```
 
 ## Values

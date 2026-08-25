@@ -5,12 +5,12 @@
 ```typescript
 import { CodatFile } from "@codat/sync-for-payables/sdk/models/shared";
 
-// No examples available for this model
+let value: CodatFile = {};
 ```
 
 ## Fields
 
-| Field                        | Type                         | Required                     | Description                  |
-| ---------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
-| `fileName`                   | *string*                     | :heavy_check_mark:           | N/A                          |
-| `content`                    | *ReadableStream<Uint8Array>* | :heavy_check_mark:           | N/A                          |
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `content`                                                      | *ReadableStream<Uint8Array> | Blob | ArrayBuffer | Uint8Array* | :heavy_check_mark:                                             | N/A                                                            |
+| `fileName`                                                     | *string*                                                       | :heavy_check_mark:                                             | N/A                                                            |

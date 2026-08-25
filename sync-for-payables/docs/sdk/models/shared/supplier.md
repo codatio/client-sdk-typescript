@@ -9,7 +9,6 @@ Suppliers' data links to accounts payable [bills](https://docs.codat.io/sync-for
 
 ```typescript
 import { Supplier } from "@codat/sync-for-payables/sdk/models/shared";
-import { Decimal } from "@codat/sync-for-payables/sdk/types";
 
 let value: Supplier = {
   id: "sup-10933920",
@@ -29,7 +28,7 @@ let value: Supplier = {
     },
   ],
   status: "Active",
-  balance: new Decimal("0"),
+  balance: 0,
   defaultCurrency: "GBP",
   sourceModifiedDate: "2026-03-18T10:30:00Z",
 };
@@ -46,6 +45,6 @@ let value: Supplier = {
 | `phone`                                                                                            | *string*                                                                                           | :heavy_minus_sign:                                                                                 | Phone number that the supplier may be contacted on.                                                | **Example 1:** +44 25691 154789<br/>**Example 2:** (877) 492-8687<br/>**Example 3:** 01224 658 999 |
 | `addresses`                                                                                        | [shared.Address](../../../sdk/models/shared/address.md)[]                                          | :heavy_minus_sign:                                                                                 | An array of Addresses.                                                                             |                                                                                                    |
 | `status`                                                                                           | [shared.SupplierStatus](../../../sdk/models/shared/supplierstatus.md)                              | :heavy_minus_sign:                                                                                 | Status of the supplier.                                                                            |                                                                                                    |
-| `balance`                                                                                          | *Decimal*                                                                                          | :heavy_minus_sign:                                                                                 | Amount outstanding against the supplier.                                                           |                                                                                                    |
+| `balance`                                                                                          | *Decimal | number*                                                                                 | :heavy_minus_sign:                                                                                 | Amount outstanding against the supplier.                                                           |                                                                                                    |
 | `defaultCurrency`                                                                                  | *string*                                                                                           | :heavy_minus_sign:                                                                                 | Default currency the supplier's transactional data is recorded in.                                 |                                                                                                    |
 | `sourceModifiedDate`                                                                               | *string*                                                                                           | :heavy_minus_sign:                                                                                 | N/A                                                                                                | **Example 1:** 2022-10-23T00:00:00Z<br/>**Example 2:** 2022-10-23                                  |

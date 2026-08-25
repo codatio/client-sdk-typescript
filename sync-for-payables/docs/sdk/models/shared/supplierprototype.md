@@ -6,9 +6,9 @@
 import { SupplierPrototype } from "@codat/sync-for-payables/sdk/models/shared";
 
 let value: SupplierPrototype = {
-  supplierName: "<value>",
+  supplierName: "string",
   phone: "+44 25691 154789",
-  status: "Active",
+  status: "string",
 };
 ```
 
@@ -22,5 +22,5 @@ let value: SupplierPrototype = {
 | `phone`                                                                                            | *string*                                                                                           | :heavy_minus_sign:                                                                                 | Phone number that the supplier may be contacted on.                                                | **Example 1:** +44 25691 154789<br/>**Example 2:** (877) 492-8687<br/>**Example 3:** 01224 658 999 |
 | `addresses`                                                                                        | [shared.Address](../../../sdk/models/shared/address.md)[]                                          | :heavy_minus_sign:                                                                                 | An array of Addresses.                                                                             |                                                                                                    |
 | `status`                                                                                           | [shared.SupplierStatus](../../../sdk/models/shared/supplierstatus.md)                              | :heavy_check_mark:                                                                                 | Status of the supplier.                                                                            |                                                                                                    |
-| `balance`                                                                                          | *Decimal*                                                                                          | :heavy_minus_sign:                                                                                 | Amount outstanding against the supplier.                                                           |                                                                                                    |
+| `balance`                                                                                          | *Decimal | number*                                                                                 | :heavy_minus_sign:                                                                                 | Amount outstanding against the supplier.                                                           |                                                                                                    |
 | `defaultCurrency`                                                                                  | *string*                                                                                           | :heavy_minus_sign:                                                                                 | Default currency the supplier's transactional data is recorded in.                                 |                                                                                                    |

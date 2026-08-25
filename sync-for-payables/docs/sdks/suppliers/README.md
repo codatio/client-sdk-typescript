@@ -414,9 +414,7 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplierPrototype: {
-      supplierName: "<value>",
       phone: "+44 25691 154789",
-      status: "Unknown",
     },
   });
 
@@ -445,9 +443,7 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplierPrototype: {
-      supplierName: "<value>",
       phone: "+44 25691 154789",
-      status: "Unknown",
     },
   });
   if (res.ok) {
@@ -612,9 +608,7 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     supplierPrototype: {
-      supplierName: "<value>",
       phone: "+44 25691 154789",
-      status: "Active",
     },
   });
 
@@ -644,9 +638,7 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     supplierPrototype: {
-      supplierName: "<value>",
       phone: "+44 25691 154789",
-      status: "Active",
     },
   });
   if (res.ok) {
@@ -766,9 +758,7 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     supplierPrototype: {
-      supplierName: "<value>",
       phone: "+44 25691 154789",
-      status: "Active",
     },
   });
 
@@ -798,9 +788,7 @@ async function run() {
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     supplierId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
     supplierPrototype: {
-      supplierName: "<value>",
       phone: "+44 25691 154789",
-      status: "Active",
     },
   });
   if (res.ok) {

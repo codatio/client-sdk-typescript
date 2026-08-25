@@ -119,3 +119,13 @@ Based on:
 - [typescript v9.3.2] sync-for-payables
 ### Releases
 - [NPM v9.3.2] https://www.npmjs.com/package/@codat/sync-for-payables/v/9.3.2 - sync-for-payables
+
+## 2026-08-25 08:42:02
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+- codat sdk-codegen 3a25ff845e20563b384e461ca6e593d0aaefac77 https://github.com/codat-spikes/sdk-codegen
+### Generated
+- [typescript v9.3.3] sync-for-payables
+### Releases
+- [NPM v9.3.3] https://www.npmjs.com/package/@codat/sync-for-payables/v/9.3.3 - sync-for-payables
