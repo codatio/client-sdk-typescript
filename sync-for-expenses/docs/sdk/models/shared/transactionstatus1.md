@@ -1,17 +1,15 @@
 # TransactionStatus1
 
-Status of transaction.
-
 ## Example Usage
 
 ```typescript
 import { TransactionStatus1 } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: TransactionStatus1 = "PushError";
+let value: TransactionStatus1 = "";
 ```
 
 ## Values
 
 ```typescript
-"Unknown" | "PushError" | "Completed" | "Failed" | "Pending"
+
 ```

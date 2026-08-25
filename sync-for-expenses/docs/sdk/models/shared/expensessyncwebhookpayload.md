@@ -5,13 +5,7 @@
 ```typescript
 import { ExpensesSyncWebhookPayload } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: ExpensesSyncWebhookPayload = {
-  referenceCompany: {
-    id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    name: "Codat Ltd.",
-    description: "Requested early access to the new financing scheme.",
-  },
-};
+let value: ExpensesSyncWebhookPayload = {};
 ```
 
 ## Fields

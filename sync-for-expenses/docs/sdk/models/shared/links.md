@@ -5,14 +5,7 @@
 ```typescript
 import { Links } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: Links = {
-  self: {
-    href: "/companies",
-  },
-  current: {
-    href: "/companies?page=1&pageSize=10",
-  },
-};
+let value: Links = {};
 ```
 
 ## Fields

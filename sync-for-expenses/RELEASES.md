@@ -799,3 +799,13 @@ Based on:
 - [typescript v7.1.1] sync-for-expenses
 ### Releases
 - [NPM v7.1.1] https://www.npmjs.com/package/@codat/sync-for-expenses/v/7.1.1 - sync-for-expenses
+
+## 2026-08-25 08:41:11
+### Changes
+Based on:
+- OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
+- codat sdk-codegen 3a25ff845e20563b384e461ca6e593d0aaefac77 https://github.com/codat-spikes/sdk-codegen
+### Generated
+- [typescript v7.1.2] sync-for-expenses
+### Releases
+- [NPM v7.1.2] https://www.npmjs.com/package/@codat/sync-for-expenses/v/7.1.2 - sync-for-expenses

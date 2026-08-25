@@ -105,7 +105,6 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.pushOperations.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "660e8684-c0fb-4468-9e2a-b2e3b115d747",
   });
 
   console.log(result);
@@ -131,7 +130,6 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await pushOperationsGet(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "660e8684-c0fb-4468-9e2a-b2e3b115d747",
   });
   if (res.ok) {
     const { value: result } = res;

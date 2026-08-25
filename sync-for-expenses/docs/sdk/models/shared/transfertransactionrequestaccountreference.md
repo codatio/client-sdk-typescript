@@ -1,15 +1,11 @@
 # TransferTransactionRequestAccountReference
 
-Reference of the account you are transferring money to.
-
 ## Example Usage
 
 ```typescript
 import { TransferTransactionRequestAccountReference } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: TransferTransactionRequestAccountReference = {
-  id: "<id>",
-};
+let value: TransferTransactionRequestAccountReference = {};
 ```
 
 ## Fields

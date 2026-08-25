@@ -25,6 +25,7 @@ let value: Supplier = {
       city: "Bakersfield",
       region: "California",
       country: "USA",
+      postalcode: "93308",
     },
   ],
   registrationNumber: "string",
@@ -37,12 +38,12 @@ let value: Supplier = {
   supplementalData: {
     content: {
       "property1": {
-        "property1": "<value>",
-        "property2": "<value>",
+        "property1": "None",
+        "property2": "None",
       },
       "property2": {
-        "property1": "<value>",
-        "property2": "<value>",
+        "property1": "None",
+        "property2": "None",
       },
     },
   },

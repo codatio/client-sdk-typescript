@@ -25,7 +25,6 @@ Adjustments represent write-offs and transaction alterations, such as foreign ex
 <!-- UsageSnippet language="typescript" operationID="create-adjustment-transaction" method="post" path="/companies/{companyId}/sync/expenses/adjustment-transactions" example="Create adjustment" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -39,11 +38,11 @@ async function run() {
         id: "3357b3df-5f2e-465d-b9ba-226519dbb8f1",
         date: "2024-05-21T00:00:00+00:00",
         currency: "USD",
-        currencyRate: new Decimal("1"),
+        currencyRate: 1,
         reference: "test reference",
         lines: [
           {
-            amount: new Decimal("50"),
+            amount: 50,
             accountRef: {
               id: "80000018-1671793811",
             },
@@ -51,6 +50,7 @@ async function run() {
             trackingRefs: [
               {
                 id: "80000003-1674553958",
+                dataType: "trackingCategories",
               },
             ],
             invoiceTo: {
@@ -59,7 +59,7 @@ async function run() {
             },
           },
           {
-            amount: new Decimal("-50"),
+            amount: -50,
             accountRef: {
               id: "80000028-1671794219",
             },
@@ -67,6 +67,7 @@ async function run() {
             trackingRefs: [
               {
                 id: "80000003-1674553958",
+                dataType: "trackingCategories",
               },
             ],
           },
@@ -88,7 +89,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { adjustmentsCreate } from "@codat/sync-for-expenses/funcs/adjustmentsCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -104,11 +104,11 @@ async function run() {
         id: "3357b3df-5f2e-465d-b9ba-226519dbb8f1",
         date: "2024-05-21T00:00:00+00:00",
         currency: "USD",
-        currencyRate: new Decimal("1"),
+        currencyRate: 1,
         reference: "test reference",
         lines: [
           {
-            amount: new Decimal("50"),
+            amount: 50,
             accountRef: {
               id: "80000018-1671793811",
             },
@@ -116,6 +116,7 @@ async function run() {
             trackingRefs: [
               {
                 id: "80000003-1674553958",
+                dataType: "trackingCategories",
               },
             ],
             invoiceTo: {
@@ -124,7 +125,7 @@ async function run() {
             },
           },
           {
-            amount: new Decimal("-50"),
+            amount: -50,
             accountRef: {
               id: "80000028-1671794219",
             },
@@ -132,6 +133,7 @@ async function run() {
             trackingRefs: [
               {
                 id: "80000003-1674553958",
+                dataType: "trackingCategories",
               },
             ],
           },
@@ -162,14 +164,7 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.adjustments.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "6a13b8cf-d482-4389-9f93-08d52faa3dc0",
-        date: "2022-10-23T00:00:00Z",
-        currency: "Lilangeni",
-        lines: [],
-      },
-    ],
+    requestBody: [],
   });
 
   console.log(result);
@@ -195,14 +190,7 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await adjustmentsCreate(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "6a13b8cf-d482-4389-9f93-08d52faa3dc0",
-        date: "2022-10-23T00:00:00Z",
-        currency: "Lilangeni",
-        lines: [],
-      },
-    ],
+    requestBody: [],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -227,14 +215,7 @@ const codatSyncExpenses = new CodatSyncExpenses({
 async function run() {
   const result = await codatSyncExpenses.adjustments.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "6a13b8cf-d482-4389-9f93-08d52faa3dc0",
-        date: "2022-10-23T00:00:00Z",
-        currency: "Lilangeni",
-        lines: [],
-      },
-    ],
+    requestBody: [],
   });
 
   console.log(result);
@@ -260,14 +241,7 @@ const codatSyncExpenses = new CodatSyncExpensesCore({
 async function run() {
   const res = await adjustmentsCreate(codatSyncExpenses, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    requestBody: [
-      {
-        id: "6a13b8cf-d482-4389-9f93-08d52faa3dc0",
-        date: "2022-10-23T00:00:00Z",
-        currency: "Lilangeni",
-        lines: [],
-      },
-    ],
+    requestBody: [],
   });
   if (res.ok) {
     const { value: result } = res;

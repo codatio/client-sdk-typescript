@@ -9,8 +9,12 @@ let value: CompanyConfiguration = {
   bankAccount: {
     id: "32",
   },
-  supplier: {},
-  customer: {},
+  supplier: {
+    id: "string",
+  },
+  customer: {
+    id: "string",
+  },
 };
 ```
 

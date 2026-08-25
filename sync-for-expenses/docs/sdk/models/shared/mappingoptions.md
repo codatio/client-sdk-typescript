@@ -7,30 +7,6 @@ import { MappingOptions } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: MappingOptions = {
   expenseProvider: "Partner Expense",
-  accounts: [
-    {
-      id: "127f3b99-8dc2-4b7e-854c-91ef9bd2757b",
-      nominalCode: "300",
-      name: "Purchases",
-      currency: "GBP",
-      accountType: "Expense",
-      fullyQualifiedCategory: "Expense.DirectCosts",
-      validTransactionTypes: [
-        "Payment",
-      ],
-      validFor: [
-        "expense-transactions.Payment",
-      ],
-    },
-  ],
-  trackingCategories: [
-    {
-      id: "DEPARTMENT_2",
-      name: "New York",
-      parentId: "DEPARTMENTS",
-    },
-  ],
-  taxRates: null,
 };
 ```
 

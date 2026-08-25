@@ -7,7 +7,7 @@ Available data types
 ```typescript
 import { DataType } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: DataType = "invoices";
+let value: DataType = "accountTransactions";
 ```
 
 ## Values

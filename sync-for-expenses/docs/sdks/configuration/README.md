@@ -105,8 +105,6 @@ async function run() {
       bankAccount: {
         id: "32",
       },
-      supplier: {},
-      customer: {},
     },
   });
 
@@ -137,8 +135,6 @@ async function run() {
       bankAccount: {
         id: "32",
       },
-      supplier: {},
-      customer: {},
     },
   });
   if (res.ok) {
