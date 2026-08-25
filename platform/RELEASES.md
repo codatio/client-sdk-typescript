@@ -250,3 +250,5 @@ Based on:
 **Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/platform/sdk/models/shared/apikeydetails.js`, no longer works - import from `@codat/platform/sdk/models/shared` or the package root instead.
 
 The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `ApiKeyDetailsFromJSON`, `ApiKeyDetailsToJSON` and `instanceOfApiKeyDetails`.
+
+`SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.
