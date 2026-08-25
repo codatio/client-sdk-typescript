@@ -206,9 +206,9 @@ Based on:
 - OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
 - Codat SDK Codegen
 ### Generated
-- [typescript v7.6.1] lending
+- [typescript v8.0.0] lending
 ### Releases
-- [NPM v7.6.1] https://www.npmjs.com/package/@codat/lending/v/7.6.1 - lending
+- [NPM v8.0.0] https://www.npmjs.com/package/@codat/lending/v/8.0.0 - lending
 
 ### Notes
 **Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/lending/sdk/models/shared/accountbalance.js`, no longer works - import from `@codat/lending/sdk/models/shared` or the package root instead.
