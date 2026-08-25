@@ -804,9 +804,9 @@ Based on:
 - OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
 - Codat SDK Codegen
 ### Generated
-- [typescript v8.2.2] bank-feeds
+- [typescript v9.0.0] bank-feeds
 ### Releases
-- [NPM v8.2.2] https://www.npmjs.com/package/@codat/bank-feeds/v/8.2.2 - bank-feeds
+- [NPM v9.0.0] https://www.npmjs.com/package/@codat/bank-feeds/v/9.0.0 - bank-feeds
 
 ### Notes
 **Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/bank-feeds/sdk/models/shared/accountinfo.js`, no longer works - import from `@codat/bank-feeds/sdk/models/shared` or the package root instead.
