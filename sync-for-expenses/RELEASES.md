@@ -806,9 +806,9 @@ Based on:
 - OpenAPI Doc prealpha https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Expenses.yaml
 - Codat SDK Codegen
 ### Generated
-- [typescript v7.1.2] sync-for-expenses
+- [typescript v8.0.0] sync-for-expenses
 ### Releases
-- [NPM v7.1.2] https://www.npmjs.com/package/@codat/sync-for-expenses/v/7.1.2 - sync-for-expenses
+- [NPM v8.0.0] https://www.npmjs.com/package/@codat/sync-for-expenses/v/8.0.0 - sync-for-expenses
 
 ### Notes
 **Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/sync-for-expenses/sdk/models/shared/accountmappinginfo.js`, no longer works - import from `@codat/sync-for-expenses/sdk/models/shared` or the package root instead.
