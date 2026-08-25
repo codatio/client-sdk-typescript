@@ -242,9 +242,9 @@ Based on:
 - OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
 - Codat SDK Codegen
 ### Generated
-- [typescript v6.2.2] platform
+- [typescript v7.0.0] platform
 ### Releases
-- [NPM v6.2.2] https://www.npmjs.com/package/@codat/platform/v/6.2.2 - platform
+- [NPM v7.0.0] https://www.npmjs.com/package/@codat/platform/v/7.0.0 - platform
 
 ### Notes
 **Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/platform/sdk/models/shared/apikeydetails.js`, no longer works - import from `@codat/platform/sdk/models/shared` or the package root instead.
