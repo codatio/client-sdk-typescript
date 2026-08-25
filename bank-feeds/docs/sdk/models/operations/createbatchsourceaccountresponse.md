@@ -1,17 +1,15 @@
-# CreateBatchSourceAccountResponse
+# 
 
-
-## Supported Types
-
-### `operations.ResponseBody[]`
+## Example Usage
 
 ```typescript
-const value: operations.ResponseBody[] = [];
+import {  } from "@codat/bank-feeds/sdk/models/operations";
+
+let value:  = "";
 ```
 
-### `operations.CreateBatchSourceAccountResponseBody[]`
+## Values
 
 ```typescript
-const value: operations.CreateBatchSourceAccountResponseBody[] = [];
-```
 
+```

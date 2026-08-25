@@ -36,13 +36,7 @@ async function run() {
   const result = await codatBankFeeds.sourceAccounts.createBatch({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: [
-      {
-        id: "<id>",
-        currency: "GBP",
-        modifiedDate: "2022-10-23T00:00:00Z",
-      },
-    ],
+    requestBody: [],
   });
 
   console.log(result);
@@ -69,13 +63,7 @@ async function run() {
   const res = await sourceAccountsCreateBatch(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: [
-      {
-        id: "<id>",
-        currency: "GBP",
-        modifiedDate: "2022-10-23T00:00:00Z",
-      },
-    ],
+    requestBody: [],
   });
   if (res.ok) {
     const { value: result } = res;
@@ -103,11 +91,11 @@ run();
 
 ### Errors
 
-| Error Type                   | Status Code                  | Content Type                 |
-| ---------------------------- | ---------------------------- | ---------------------------- |
-| errors.ErrorMessage          | 400, 401, 402, 403, 404, 429 | application/json             |
-| errors.ErrorMessage          | 500, 503                     | application/json             |
-| errors.SDKError              | 4XX, 5XX                     | \*/\*                        |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| errors.ErrorMessage               | 400, 401, 402, 403, 404, 409, 429 | application/json                  |
+| errors.ErrorMessage               | 500, 503                          | application/json                  |
+| errors.SDKError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## create
 
@@ -130,11 +118,6 @@ async function run() {
   const result = await codatBankFeeds.sourceAccounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
 
   console.log(result);
@@ -161,11 +144,6 @@ async function run() {
   const res = await sourceAccountsCreate(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -182,7 +160,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 1" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -192,16 +169,6 @@ async function run() {
   const result = await codatBankFeeds.sourceAccounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "acc-002",
-      accountName: "account-081",
-      accountType: "Credit",
-      accountNumber: "12345670",
-      sortCode: "123456",
-      currency: "GBP",
-      balance: new Decimal("99.99"),
-      modifiedDate: "2023-01-09T14:14:14.1057478Z",
-    },
   });
 
   console.log(result);
@@ -217,7 +184,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { sourceAccountsCreate } from "@codat/bank-feeds/funcs/sourceAccountsCreate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -229,16 +195,6 @@ async function run() {
   const res = await sourceAccountsCreate(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "acc-002",
-      accountName: "account-081",
-      accountType: "Credit",
-      accountNumber: "12345670",
-      sortCode: "123456",
-      currency: "GBP",
-      balance: new Decimal("99.99"),
-      modifiedDate: "2023-01-09T14:14:14.1057478Z",
-    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -264,11 +220,6 @@ async function run() {
   const result = await codatBankFeeds.sourceAccounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
 
   console.log(result);
@@ -295,11 +246,6 @@ async function run() {
   const res = await sourceAccountsCreate(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -431,7 +377,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="update-source-account" method="patch" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/{accountId}" example="Malformed query" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -449,7 +394,7 @@ async function run() {
       accountNumber: "12345670",
       sortCode: "123456",
       currency: "GBP",
-      balance: new Decimal("99.99"),
+      balance: 99.99,
       modifiedDate: "2023-01-09T14:14:14.1057478Z",
       status: "pending",
     },
@@ -468,7 +413,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { sourceAccountsUpdate } from "@codat/bank-feeds/funcs/sourceAccountsUpdate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -488,7 +432,7 @@ async function run() {
       accountNumber: "12345670",
       sortCode: "123456",
       currency: "GBP",
-      balance: new Decimal("99.99"),
+      balance: 99.99,
       modifiedDate: "2023-01-09T14:14:14.1057478Z",
       status: "pending",
     },
@@ -622,7 +566,6 @@ The old credentials will still be valid until the revoke credentials endpoint is
 <!-- UsageSnippet language="typescript" operationID="generate-credentials" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts/credentials" example="Unauthorized" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { openAsBlob } from "node:fs";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -632,7 +575,6 @@ async function run() {
   const result = await codatBankFeeds.sourceAccounts.generateCredentials({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: await openAsBlob("example.file"),
   });
 
   console.log(result);
@@ -648,7 +590,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { sourceAccountsGenerateCredentials } from "@codat/bank-feeds/funcs/sourceAccountsGenerateCredentials.js";
-import { openAsBlob } from "node:fs";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -660,7 +601,6 @@ async function run() {
   const res = await sourceAccountsGenerateCredentials(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: await openAsBlob("example.file"),
   });
   if (res.ok) {
     const { value: result } = res;

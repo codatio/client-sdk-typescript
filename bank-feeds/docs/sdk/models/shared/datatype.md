@@ -7,7 +7,7 @@ Available data types
 ```typescript
 import { DataType } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: DataType = "invoices";
+let value: DataType = "accountTransactions";
 ```
 
 ## Values

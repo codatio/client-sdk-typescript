@@ -9,10 +9,6 @@ import { SourceAccountBatchErrorResponse } from "@codat/bank-feeds/sdk/models/sh
 
 let value: SourceAccountBatchErrorResponse = {
   sourceAccountId: "12345",
-  result: {
-    statusCode: "409",
-    error: "A bank account already exists with the same Id",
-  },
 };
 ```
 

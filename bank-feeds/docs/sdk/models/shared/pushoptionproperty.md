@@ -6,11 +6,10 @@
 import { PushOptionProperty } from "@codat/bank-feeds/sdk/models/shared";
 
 let value: PushOptionProperty = {
-  type: "Array",
-  displayName: "Fannie10",
-  description:
-    "sonar very sympathetically notwithstanding alarmed modulo grizzled",
-  required: true,
+  type: "string",
+  displayName: "string",
+  description: "string",
+  required: false,
 };
 ```
 
