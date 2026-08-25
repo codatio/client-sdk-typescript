@@ -1,7 +1,5 @@
 # ConnectionManagementAllowedOrigins
 
-Success
-
 ## Example Usage
 
 ```typescript

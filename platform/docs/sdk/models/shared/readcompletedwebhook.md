@@ -8,36 +8,6 @@ import { ReadCompletedWebhook } from "@codat/platform/sdk/models/shared";
 let value: ReadCompletedWebhook = {
   id: "743ec94a-8aa4-44bb-8bd4-e1855ee0e74b",
   generatedDate: "2022-10-23T00:00:00Z",
-  payload: {
-    referenceCompany: {
-      id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-      name: "Codat Ltd.",
-      description: "Requested early access to the new financing scheme.",
-    },
-    modifiedFromDate: "2022-10-23T00:00:00Z",
-    dataTypes: [
-      {
-        connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-        dataType: "invoices",
-        recordsModified: false,
-        issues: [
-          {
-            type: "warning.validation",
-            message:
-              "Something doesn't look right about these accounts from Xero. You can see more information in the logs.",
-            links: {
-              logs:
-                "https://api.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/sync/{datasetId}/validation",
-              portal:
-                "https://app.codat.io/companies/0498e921-9b53-4396-a412-4f2f5983b0a2/pull-history",
-              readMore:
-                "https://docs.codat.io/using-the-api/get-data-troubleshooting#warning.validation",
-            },
-          },
-        ],
-      },
-    ],
-  },
 };
 ```
 

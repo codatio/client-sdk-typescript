@@ -7,7 +7,7 @@ Type of write request.
 ```typescript
 import { WriteType } from "@codat/platform/sdk/models/shared";
 
-let value: WriteType = "UploadAttachment";
+let value: WriteType = "Create";
 ```
 
 ## Values

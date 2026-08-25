@@ -5,11 +5,7 @@
 ```typescript
 import { CustomDataTypeRecord } from "@codat/platform/sdk/models/shared";
 
-let value: CustomDataTypeRecord = {
-  modifiedDate: {
-    modifiedDate: "2022-10-23T00:00:00Z",
-  },
-};
+let value: CustomDataTypeRecord = {};
 ```
 
 ## Fields

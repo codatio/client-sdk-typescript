@@ -23,8 +23,7 @@ let value: Connection = {
   sourceId: "bdd831ce-eebd-4896-89a7-20e5ee8989ee",
   sourceType: "Banking",
   platformName: "Basiq",
-  linkUrl:
-    "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start",
+  linkUrl: "https://link-api.codat.io/companies/86bd88cb-44ab-4dfb-b32f-87b19b14287f/connections/ee2eb431-c0fa-4dc9-93fa-d29781c12bcd/start",
   status: "Linked",
   lastSync: "2022-10-27T10:22:43.6464237Z",
   created: "2022-10-27T09:53:29Z",

@@ -1,17 +1,17 @@
 # DataType
 
-Data types that support supplemental data
+Available data types
 
 ## Example Usage
 
 ```typescript
 import { DataType } from "@codat/platform/sdk/models/operations";
 
-let value: DataType = "invoices";
+let value: DataType = "accountTransactions";
 ```
 
 ## Values
 
 ```typescript
-"chartOfAccounts" | "bills" | "company" | "creditNotes" | "customers" | "invoices" | "items" | "journalEntries" | "suppliers" | "taxRates" | "commerce-companyInfo" | "commerce-customers" | "commerce-disputes" | "commerce-locations" | "commerce-orders" | "commerce-payments" | "commerce-paymentMethods" | "commerce-products" | "commerce-productCategories" | "commerce-taxComponents" | "commerce-transactions"
+"accountTransactions" | "balanceSheet" | "bankAccounts" | "bankTransactions" | "billCreditNotes" | "billPayments" | "bills" | "cashFlowStatement" | "chartOfAccounts" | "company" | "creditNotes" | "customers" | "directCosts" | "directIncomes" | "invoices" | "itemReceipts" | "items" | "journalEntries" | "journals" | "paymentMethods" | "payments" | "profitAndLoss" | "purchaseOrders" | "salesOrders" | "suppliers" | "taxRates" | "trackingCategories" | "transfers" | "banking-accountBalances" | "banking-accounts" | "banking-transactionCategories" | "banking-transactions" | "commerce-companyInfo" | "commerce-customers" | "commerce-disputes" | "commerce-locations" | "commerce-orders" | "commerce-paymentMethods" | "commerce-payments" | "commerce-productCategories" | "commerce-products" | "commerce-taxComponents" | "commerce-transactions"
 ```

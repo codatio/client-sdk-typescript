@@ -30,7 +30,6 @@ const codatPlatform = new CodatPlatform({
 async function run() {
   const result = await codatPlatform.readData.getValidationResults({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    datasetId: "0812af6e-436a-491f-9056-db91cb961ad3",
   });
 
   console.log(result);
@@ -56,7 +55,6 @@ const codatPlatform = new CodatPlatformCore({
 async function run() {
   const res = await readDataGetValidationResults(codatPlatform, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    datasetId: "0812af6e-436a-491f-9056-db91cb961ad3",
   });
   if (res.ok) {
     const { value: result } = res;

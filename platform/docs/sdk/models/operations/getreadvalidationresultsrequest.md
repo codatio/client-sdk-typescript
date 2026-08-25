@@ -7,7 +7,6 @@ import { GetReadValidationResultsRequest } from "@codat/platform/sdk/models/oper
 
 let value: GetReadValidationResultsRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  datasetId: "1de8e25b-3163-4226-821d-24f258b2878d",
 };
 ```
 

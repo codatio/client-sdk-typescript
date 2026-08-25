@@ -7,7 +7,6 @@ import { GetPushOperationRequest } from "@codat/platform/sdk/models/operations";
 
 let value: GetPushOperationRequest = {
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "14a4a880-31a4-4db5-88cb-40c00b392985",
 };
 ```
 
