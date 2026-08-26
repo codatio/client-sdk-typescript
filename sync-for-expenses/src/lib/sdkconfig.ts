@@ -142,9 +142,9 @@ export const ServerList = ["https://api.codat.io"] as const;
 export const SDK_METADATA = {
     language: "typescript",
     genVersion: "codat-sdk-codegen-poc-0.1.0",
-    sdkVersion: "prealpha",
+    sdkVersion: "8.0.0",
     openapiDocVersion: "prealpha",
-    userAgent: "codat-sdk/typescript prealpha codat-sdk-codegen-poc-0.1.0 prealpha @codat/sync-for-expenses",
+    userAgent: "codat-sdk/typescript 8.0.0 codat-sdk-codegen-poc-0.1.0 prealpha @codat/sync-for-expenses",
 } as const;
 
 export function resolveServerURL(options: SDKOptions = {}): string {
