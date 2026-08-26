@@ -4,7 +4,6 @@
 
 ```typescript
 import { CreateBankTransactions } from "@codat/bank-feeds/sdk/models/shared";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 let value: CreateBankTransactions = {
   accountId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
@@ -12,13 +11,13 @@ let value: CreateBankTransactions = {
     {
       id: "716422529",
       date: "2023-08-22T10:21:00",
-      description:
-        "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
+      description: "Debit for Payment Id sdp-1-57379a43-c4b8-49f5-bd7c-699189ee7a60",
       counterparty: "ACME INC",
       reference: "reference for transaction",
       reconciled: false,
-      amount: new Decimal("999.99"),
-      balance: new Decimal("-999.99"),
+      amount: 999.99,
+      balance: -999.99,
+      transactionType: "string",
     },
   ],
 };

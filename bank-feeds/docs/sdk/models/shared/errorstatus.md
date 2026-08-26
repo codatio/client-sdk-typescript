@@ -7,11 +7,11 @@ The current status of a transient error. Null statuses indicate that the error i
 ```typescript
 import { ErrorStatus } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: ErrorStatus = "Resolved";
+let value: ErrorStatus = "";
 ```
 
 ## Values
 
 ```typescript
-"Active" | "Resolved"
+
 ```

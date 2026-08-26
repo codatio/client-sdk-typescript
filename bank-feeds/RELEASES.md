@@ -797,3 +797,20 @@ Based on:
 - [typescript v8.2.1] bank-feeds
 ### Releases
 - [NPM v8.2.1] https://www.npmjs.com/package/@codat/bank-feeds/v/8.2.1 - bank-feeds
+
+## 2026-08-25
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- Codat SDK Codegen
+### Generated
+- [typescript v9.0.0] bank-feeds
+### Releases
+- [NPM v9.0.0] https://www.npmjs.com/package/@codat/bank-feeds/v/9.0.0 - bank-feeds
+
+### Notes
+**Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/bank-feeds/sdk/models/shared/accountinfo.js`, no longer works - import from `@codat/bank-feeds/sdk/models/shared` or the package root instead.
+
+The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `AccountInfoFromJSON`, `AccountInfoToJSON` and `instanceOfAccountInfo`.
+
+`SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.

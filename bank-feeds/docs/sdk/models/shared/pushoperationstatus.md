@@ -7,7 +7,7 @@ The current status of the push operation.
 ```typescript
 import { PushOperationStatus } from "@codat/bank-feeds/sdk/models/shared";
 
-let value: PushOperationStatus = "Failed";
+let value: PushOperationStatus = "Pending";
 ```
 
 ## Values

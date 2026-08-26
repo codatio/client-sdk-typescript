@@ -27,7 +27,6 @@ Alternatively, you can view the [Get create bank transaction model](https://docs
 <!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="FreeAgent" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -45,21 +44,21 @@ async function run() {
           id: "716422529",
           date: "2023-08-22T10:21:00",
           description: "Repayment of Credit Card",
-          amount: new Decimal("100"),
+          amount: 100,
           transactionType: "Credit",
         },
         {
           id: "716422530",
           date: "2023-08-22T10:22:00",
           description: "Amazon Purchase",
-          amount: new Decimal("-100"),
+          amount: -100,
           transactionType: "Debit",
         },
         {
           id: "716422531",
           date: "2023-08-22T10:23:00",
           description: "Office Supplies",
-          amount: new Decimal("-60"),
+          amount: -60,
           transactionType: "Debit",
         },
       ],
@@ -79,7 +78,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -99,21 +97,21 @@ async function run() {
           id: "716422529",
           date: "2023-08-22T10:21:00",
           description: "Repayment of Credit Card",
-          amount: new Decimal("100"),
+          amount: 100,
           transactionType: "Credit",
         },
         {
           id: "716422530",
           date: "2023-08-22T10:22:00",
           description: "Amazon Purchase",
-          amount: new Decimal("-100"),
+          amount: -100,
           transactionType: "Debit",
         },
         {
           id: "716422531",
           date: "2023-08-22T10:23:00",
           description: "Office Supplies",
-          amount: new Decimal("-60"),
+          amount: -60,
           transactionType: "Debit",
         },
       ],
@@ -195,7 +193,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="QuickBooks Online Bank Feeds" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -213,24 +210,24 @@ async function run() {
           id: "716422529",
           date: "2023-08-22T10:21:00",
           description: "Repayment of Credit Card",
-          amount: new Decimal("100"),
-          balance: new Decimal("100"),
+          amount: 100,
+          balance: 100,
           transactionType: "Credit",
         },
         {
           id: "716422530",
           date: "2023-08-22T10:22:00",
           description: "Amazon Purchase",
-          amount: new Decimal("-100"),
-          balance: new Decimal("0"),
+          amount: -100,
+          balance: 0,
           transactionType: "Debit",
         },
         {
           id: "716422531",
           date: "2023-08-22T10:23:00",
           description: "Office Supplies",
-          amount: new Decimal("-60"),
-          balance: new Decimal("-60"),
+          amount: -60,
+          balance: -60,
           transactionType: "Debit",
         },
       ],
@@ -250,7 +247,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -270,24 +266,24 @@ async function run() {
           id: "716422529",
           date: "2023-08-22T10:21:00",
           description: "Repayment of Credit Card",
-          amount: new Decimal("100"),
-          balance: new Decimal("100"),
+          amount: 100,
+          balance: 100,
           transactionType: "Credit",
         },
         {
           id: "716422530",
           date: "2023-08-22T10:22:00",
           description: "Amazon Purchase",
-          amount: new Decimal("-100"),
-          balance: new Decimal("0"),
+          amount: -100,
+          balance: 0,
           transactionType: "Debit",
         },
         {
           id: "716422531",
           date: "2023-08-22T10:23:00",
           description: "Office Supplies",
-          amount: new Decimal("-60"),
-          balance: new Decimal("-60"),
+          amount: -60,
+          balance: -60,
           transactionType: "Debit",
         },
       ],
@@ -308,7 +304,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Sage" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -328,8 +323,8 @@ async function run() {
           description: "Repayment of Credit Card",
           counterparty: "Bank of Example",
           reference: "Ref-12345",
-          amount: new Decimal("100"),
-          balance: new Decimal("100"),
+          amount: 100,
+          balance: 100,
           transactionType: "Credit",
         },
         {
@@ -338,8 +333,8 @@ async function run() {
           description: "Amazon Purchase",
           counterparty: "Amazon",
           reference: "Ref-12346",
-          amount: new Decimal("-100"),
-          balance: new Decimal("0"),
+          amount: -100,
+          balance: 0,
           transactionType: "Debit",
         },
         {
@@ -348,8 +343,8 @@ async function run() {
           description: "Office Supplies",
           counterparty: "Office Mart",
           reference: "Ref-12347",
-          amount: new Decimal("-60"),
-          balance: new Decimal("-60"),
+          amount: -60,
+          balance: -60,
           transactionType: "Debit",
         },
       ],
@@ -369,7 +364,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -391,8 +385,8 @@ async function run() {
           description: "Repayment of Credit Card",
           counterparty: "Bank of Example",
           reference: "Ref-12345",
-          amount: new Decimal("100"),
-          balance: new Decimal("100"),
+          amount: 100,
+          balance: 100,
           transactionType: "Credit",
         },
         {
@@ -401,8 +395,8 @@ async function run() {
           description: "Amazon Purchase",
           counterparty: "Amazon",
           reference: "Ref-12346",
-          amount: new Decimal("-100"),
-          balance: new Decimal("0"),
+          amount: -100,
+          balance: 0,
           transactionType: "Debit",
         },
         {
@@ -411,8 +405,8 @@ async function run() {
           description: "Office Supplies",
           counterparty: "Office Mart",
           reference: "Ref-12347",
-          amount: new Decimal("-60"),
-          balance: new Decimal("-60"),
+          amount: -60,
+          balance: -60,
           transactionType: "Debit",
         },
       ],
@@ -433,7 +427,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-bank-transactions" method="post" path="/companies/{companyId}/connections/{connectionId}/push/bankAccounts/{accountId}/bankTransactions" example="Xero" -->
 ```typescript
 import { CodatBankFeeds } from "@codat/bank-feeds";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 const codatBankFeeds = new CodatBankFeeds({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -454,8 +447,8 @@ async function run() {
           counterparty: "Bank of Example",
           reference: "Ref-12345",
           reconciled: true,
-          amount: new Decimal("100"),
-          balance: new Decimal("100"),
+          amount: 100,
+          balance: 100,
           transactionType: "Credit",
         },
         {
@@ -465,8 +458,8 @@ async function run() {
           counterparty: "Amazon",
           reference: "Ref-12346",
           reconciled: false,
-          amount: new Decimal("-100"),
-          balance: new Decimal("0"),
+          amount: -100,
+          balance: 0,
           transactionType: "Debit",
         },
         {
@@ -476,8 +469,8 @@ async function run() {
           counterparty: "Office Mart",
           reference: "Ref-12347",
           reconciled: false,
-          amount: new Decimal("-60"),
-          balance: new Decimal("-60"),
+          amount: -60,
+          balance: -60,
           transactionType: "Debit",
         },
       ],
@@ -497,7 +490,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatBankFeedsCore } from "@codat/bank-feeds/core.js";
 import { transactionsCreate } from "@codat/bank-feeds/funcs/transactionsCreate.js";
-import { Decimal } from "@codat/bank-feeds/sdk/types";
 
 // Use `CodatBankFeedsCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -520,8 +512,8 @@ async function run() {
           counterparty: "Bank of Example",
           reference: "Ref-12345",
           reconciled: true,
-          amount: new Decimal("100"),
-          balance: new Decimal("100"),
+          amount: 100,
+          balance: 100,
           transactionType: "Credit",
         },
         {
@@ -531,8 +523,8 @@ async function run() {
           counterparty: "Amazon",
           reference: "Ref-12346",
           reconciled: false,
-          amount: new Decimal("-100"),
-          balance: new Decimal("0"),
+          amount: -100,
+          balance: 0,
           transactionType: "Debit",
         },
         {
@@ -542,8 +534,8 @@ async function run() {
           counterparty: "Office Mart",
           reference: "Ref-12347",
           reconciled: false,
-          amount: new Decimal("-60"),
-          balance: new Decimal("-60"),
+          amount: -60,
+          balance: -60,
           transactionType: "Debit",
         },
       ],
@@ -687,7 +679,6 @@ const codatBankFeeds = new CodatBankFeeds({
 async function run() {
   const result = await codatBankFeeds.transactions.getCreateOperation({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
 
   console.log(result);
@@ -713,7 +704,6 @@ const codatBankFeeds = new CodatBankFeedsCore({
 async function run() {
   const res = await transactionsGetCreateOperation(codatBankFeeds, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
   if (res.ok) {
     const { value: result } = res;
