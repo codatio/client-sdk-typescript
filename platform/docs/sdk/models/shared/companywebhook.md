@@ -9,27 +9,6 @@ let value: CompanyWebhook = {
   id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
   eventType: "company.created",
   generatedDate: "2022-10-23T00:00:00Z",
-  payload: {
-    id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    name: "Codat Ltd.",
-    description: "Requested early access to the new financing scheme.",
-    redirect:
-      "https://link.codat.io/company/27628208-459c-46a2-a705-5641ce25f739",
-    lastSync: "2022-10-23T00:00:00Z",
-    created: "2022-10-23T00:00:00Z",
-    referenceParentCompany: {
-      id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-      name: "Codat Ltd.",
-      description: "Requested early access to the new financing scheme.",
-    },
-    referenceSubsidiaryCompanies: [
-      {
-        id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-        name: "Codat Ltd.",
-        description: "Requested early access to the new financing scheme.",
-      },
-    ],
-  },
 };
 ```
 

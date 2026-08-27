@@ -235,3 +235,20 @@ Based on:
 - [typescript v6.2.1] platform
 ### Releases
 - [NPM v6.2.1] https://www.npmjs.com/package/@codat/platform/v/6.2.1 - platform
+
+## 2026-08-25
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+- Codat SDK Codegen
+### Generated
+- [typescript v7.0.0] platform
+### Releases
+- [NPM v7.0.0] https://www.npmjs.com/package/@codat/platform/v/7.0.0 - platform
+
+### Notes
+**Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/platform/sdk/models/shared/apikeydetails.js`, no longer works - import from `@codat/platform/sdk/models/shared` or the package root instead.
+
+The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `ApiKeyDetailsFromJSON`, `ApiKeyDetailsToJSON` and `instanceOfApiKeyDetails`.
+
+`SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.

@@ -9,16 +9,6 @@ let value: DataTypeWriteWebhook = {
   id: "ba29118f-5406-4e59-b05c-ba307ca38d01",
   eventType: "bills.write.successful",
   generatedDate: "2022-10-23T00:00:00Z",
-  payload: {
-    referenceCompany: {
-      id: "8a210b68-6988-11ed-a1eb-0242ac120002",
-      name: "Codat Ltd.",
-      description: "Requested early access to the new financing scheme.",
-    },
-    connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestedOnDate: "2022-10-23T00:00:00Z",
-    completedOnDate: "2022-10-23T00:00:00Z",
-  },
 };
 ```
 

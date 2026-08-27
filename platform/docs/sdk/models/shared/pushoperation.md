@@ -6,15 +6,14 @@
 import { PushOperation } from "@codat/platform/sdk/models/shared";
 
 let value: PushOperation = {
-  changes: null,
   dataType: "invoices",
   companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-  pushOperationKey: "9c39f707-db6c-421b-b270-d82fde811810",
+  pushOperationKey: "string",
   dataConnectionKey: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
   requestedOnUtc: "2022-10-23T00:00:00Z",
   completedOnUtc: "2022-10-23T00:00:00Z",
-  status: "Failed",
-  statusCode: 143409,
+  status: "string",
+  statusCode: 0,
 };
 ```
 

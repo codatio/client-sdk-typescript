@@ -1,7 +1,5 @@
 # ErrorMessage
 
-Too many requests were made in a given amount of time. Wait a short period and then try again.
-
 ## Example Usage
 
 ```typescript
