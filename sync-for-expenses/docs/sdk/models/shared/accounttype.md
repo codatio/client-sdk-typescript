@@ -7,7 +7,7 @@ Type of account
 ```typescript
 import { AccountType } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: AccountType = "Asset";
+let value: AccountType = "Unknown";
 ```
 
 ## Values

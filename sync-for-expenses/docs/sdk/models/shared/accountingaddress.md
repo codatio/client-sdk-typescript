@@ -6,7 +6,7 @@
 import { AccountingAddress } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: AccountingAddress = {
-  type: "Unknown",
+  type: "string",
 };
 ```
 

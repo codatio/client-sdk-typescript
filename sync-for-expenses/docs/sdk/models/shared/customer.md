@@ -16,14 +16,7 @@ let value: Customer = {
   modifiedDate: "2022-10-23T00:00:00Z",
   sourceModifiedDate: "2022-10-23T00:00:00Z",
   defaultCurrency: "GBP",
-  contacts: [
-    {
-      phone: null,
-      status: "Archived",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
-  ],
-  status: "Archived",
+  status: "string",
 };
 ```
 

@@ -12,12 +12,6 @@ let value: AccountMappingInfo = {
   currency: "GBP",
   accountType: "Expense",
   fullyQualifiedCategory: "Expense.DirectCosts",
-  validTransactionTypes: [
-    "Payment",
-  ],
-  validFor: [
-    "expense-transactions.Payment",
-  ],
 };
 ```
 

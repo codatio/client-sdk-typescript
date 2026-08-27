@@ -6,7 +6,7 @@
 import { PushFieldValidation } from "@codat/sync-for-expenses/sdk/models/shared";
 
 let value: PushFieldValidation = {
-  details: "<value>",
+  details: "string",
 };
 ```
 

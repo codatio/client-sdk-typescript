@@ -1975,12 +1975,14 @@ async function run() {
       defaultCurrency: "GBP",
       contacts: [
         {
-          phone: null,
-          status: "Unknown",
+          phone: [
+            {
+              number: "+44 25691 154789",
+            },
+          ],
           modifiedDate: "2022-10-23T00:00:00Z",
         },
       ],
-      status: "Unknown",
     },
   });
 
@@ -2014,12 +2016,14 @@ async function run() {
       defaultCurrency: "GBP",
       contacts: [
         {
-          phone: null,
-          status: "Unknown",
+          phone: [
+            {
+              number: "+44 25691 154789",
+            },
+          ],
           modifiedDate: "2022-10-23T00:00:00Z",
         },
       ],
-      status: "Unknown",
     },
   });
   if (res.ok) {
@@ -2088,14 +2092,11 @@ async function run() {
           phone: [
             {
               number: "+44 25691 154789",
-              type: "Primary",
             },
           ],
-          status: "Unknown",
           modifiedDate: "2022-10-23T00:00:00Z",
         },
       ],
-      status: "Active",
     },
   });
 
@@ -2133,14 +2134,11 @@ async function run() {
           phone: [
             {
               number: "+44 25691 154789",
-              type: "Primary",
             },
           ],
-          status: "Unknown",
           modifiedDate: "2022-10-23T00:00:00Z",
         },
       ],
-      status: "Active",
     },
   });
   if (res.ok) {

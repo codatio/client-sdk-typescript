@@ -7,7 +7,7 @@ Status of the transaction.
 ```typescript
 import { TransactionStatus } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: TransactionStatus = "Completed";
+let value: TransactionStatus = "Unknown";
 ```
 
 ## Values

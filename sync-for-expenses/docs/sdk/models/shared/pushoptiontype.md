@@ -7,7 +7,7 @@ The option type.
 ```typescript
 import { PushOptionType } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: PushOptionType = "DateTime";
+let value: PushOptionType = "Array";
 ```
 
 ## Values

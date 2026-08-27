@@ -7,7 +7,7 @@ Status of the bank account.
 ```typescript
 import { BankAccountStatus } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: BankAccountStatus = "Active";
+let value: BankAccountStatus = "Unknown";
 ```
 
 ## Values

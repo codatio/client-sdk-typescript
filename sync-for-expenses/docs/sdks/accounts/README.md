@@ -24,7 +24,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 <!-- UsageSnippet language="typescript" operationID="create-account" method="post" path="/companies/{companyId}/connections/{connectionId}/push/accounts" example="Malformed query" -->
 ```typescript
 import { CodatSyncExpenses } from "@codat/sync-for-expenses";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 const codatSyncExpenses = new CodatSyncExpenses({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -41,7 +40,7 @@ async function run() {
       fullyQualifiedCategory: "Asset.Current",
       fullyQualifiedName: "Cash On Hand",
       currency: "GBP",
-      currentBalance: new Decimal("0"),
+      currentBalance: 0,
       type: "Asset",
       status: "Active",
     },
@@ -60,7 +59,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatSyncExpensesCore } from "@codat/sync-for-expenses/core.js";
 import { accountsCreate } from "@codat/sync-for-expenses/funcs/accountsCreate.js";
-import { Decimal } from "@codat/sync-for-expenses/sdk/types";
 
 // Use `CodatSyncExpensesCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -79,7 +77,7 @@ async function run() {
       fullyQualifiedCategory: "Asset.Current",
       fullyQualifiedName: "Cash On Hand",
       currency: "GBP",
-      currentBalance: new Decimal("0"),
+      currentBalance: 0,
       type: "Asset",
       status: "Active",
     },

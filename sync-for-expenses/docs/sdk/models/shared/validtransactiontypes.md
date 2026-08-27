@@ -5,11 +5,11 @@
 ```typescript
 import { ValidTransactionTypes } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: ValidTransactionTypes = "Payment";
+let value: ValidTransactionTypes = "";
 ```
 
 ## Values
 
 ```typescript
-"Payment" | "Refund" | "Reward" | "Chargeback"
+
 ```
