@@ -329,6 +329,17 @@ stages:
             inputs:
               version: $(nodeVersion)
 
+          # DownloadPipelineArtifact does not empty its target directory, and
+          # Pipeline.Workspace survives between runs on a reused agent, so a
+          # previous release's tarball can still be sitting in pack-out.
+          - task: Bash@3
+            displayName: "Clear the download folders from any earlier run"
+            inputs:
+              targetType: inline
+              script: |
+                set -euo pipefail
+                rm -rf "$(Pipeline.Workspace)/pack-out" "$(Pipeline.Workspace)/release-facts"
+
           - task: DownloadPipelineArtifact@2
             displayName: "Download the packed tarball"
             inputs:
@@ -389,7 +400,15 @@ stages:
               workingDirectory: $(Pipeline.Workspace)/pack-out
               script: |
                 set -euo pipefail
-                tgz=$(ls *.tgz)
+                shopt -s nullglob
+                tarballs=(*.tgz)
+                if [ "${#tarballs[@]}" -ne 1 ]; then
+                  echo "##[error]Expected exactly one .tgz in pack-out, found ${#tarballs[@]}: ${tarballs[*]:-none}"
+                  ls -la
+                  exit 1
+                fi
+                tgz="${tarballs[0]}"
+                echo "##vso[task.setvariable variable=tarball]$tgz"
                 manifest=$(tar -xzOf "$tgz" package/package.json)
                 # Name and version come from the tarball, so this stage needs no
                 # variable handed across from the build stage.
@@ -443,7 +462,7 @@ stages:
                   echo "Version already on npm — skipping publish."
                   exit 0
                 fi
-                npm publish ./*.tgz --access public --tag $(distTag)
+                npm publish "./$(tarball)" --access public --tag $(distTag)
 
           # Last, so a tag only ever exists for a version that really published.
           # Matches Speakeasy's tag and title shape so changelogs keep working.
