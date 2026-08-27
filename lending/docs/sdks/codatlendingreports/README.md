@@ -93,7 +93,6 @@ Returns aged debtors report for company that shows the total outstanding balance
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Clear Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -102,7 +101,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -120,7 +119,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -131,7 +129,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -150,7 +148,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Dynamics 365 Business Central" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -159,7 +156,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -177,7 +174,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -188,7 +184,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -207,7 +203,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="FreshBooks" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -216,7 +211,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -234,7 +229,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -245,7 +239,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -264,7 +258,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="KashFlow" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -273,7 +266,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -291,7 +284,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -302,7 +294,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -321,7 +313,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="MYOB AccountRight and Essentials" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -330,7 +321,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -348,7 +339,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -359,7 +349,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -378,7 +368,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Oracle NetSuite" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -387,7 +376,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -405,7 +394,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -416,7 +404,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -435,7 +423,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="QuickBooks Desktop" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -444,7 +431,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -462,7 +449,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -473,7 +459,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -492,7 +478,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="QuickBooks Online" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -501,7 +486,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -519,7 +504,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -530,7 +514,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -549,7 +533,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Sage 200cloud" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -558,7 +541,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -576,7 +559,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -587,7 +569,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -606,7 +588,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Sage 50 (UK)" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -615,7 +596,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -633,7 +614,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -644,7 +624,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -663,7 +643,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Sage Business Cloud Accounting" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -672,7 +651,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -690,7 +669,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -701,7 +679,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -720,7 +698,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Sage Intacct" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -729,7 +706,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -747,7 +724,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -758,7 +734,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -777,7 +753,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Xero" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -786,7 +761,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -804,7 +779,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -815,7 +789,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -834,7 +808,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-debtors-report" method="get" path="/companies/{companyId}/reports/agedDebtor" example="Zoho Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -843,7 +816,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedDebtors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -861,7 +834,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedDebtors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedDebtors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -872,7 +844,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedDebtors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -992,7 +964,6 @@ Returns aged creditors report for company that shows the total balance owed by a
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Clear Books" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1001,7 +972,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1019,7 +990,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1030,7 +1000,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1049,7 +1019,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Dynamics 365 Business Central" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1058,7 +1027,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1076,7 +1045,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1087,7 +1055,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1106,7 +1074,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Exact (Netherlands)" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1115,7 +1082,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1133,7 +1100,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1144,7 +1110,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1163,7 +1129,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Exact (UK)" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1172,7 +1137,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1190,7 +1155,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1201,7 +1165,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1220,7 +1184,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="FreeAgent" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1229,7 +1192,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1247,7 +1210,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1258,7 +1220,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1277,7 +1239,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="MYOB AccountRight and Essentials" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1286,7 +1247,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1304,7 +1265,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1315,7 +1275,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1334,7 +1294,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Oracle NetSuite" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1343,7 +1302,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1361,7 +1320,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1372,7 +1330,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1391,7 +1349,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="QuickBooks Desktop" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1400,7 +1357,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1418,7 +1375,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1429,7 +1385,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1448,7 +1404,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="QuickBooks Online" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1457,7 +1412,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1475,7 +1430,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1486,7 +1440,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1505,7 +1459,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Sage 200cloud" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1514,7 +1467,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1532,7 +1485,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1543,7 +1495,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1562,7 +1514,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Sage 50 (UK)" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1571,7 +1522,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1589,7 +1540,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1600,7 +1550,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1619,7 +1569,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Sage Business Cloud Accounting" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1628,7 +1577,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1646,7 +1595,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1657,7 +1605,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1676,7 +1624,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Sage Intacct" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1685,7 +1632,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1703,7 +1650,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1714,7 +1660,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1733,7 +1679,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="get-accounting-aged-creditors-report" method="get" path="/companies/{companyId}/reports/agedCreditor" example="Xero" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1742,7 +1687,7 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.accountsReceivable.reports.getAgedCreditors({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });
@@ -1760,7 +1705,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { accountsReceivableReportsGetAgedCreditors } from "@codat/lending/funcs/accountsReceivableReportsGetAgedCreditors.js";
-import { RFCDate } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1771,7 +1715,7 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await accountsReceivableReportsGetAgedCreditors(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    reportDate: new RFCDate("2022-12-31"),
+    reportDate: "2022-12-31",
     numberOfPeriods: 12,
     periodLengthDays: 30,
   });

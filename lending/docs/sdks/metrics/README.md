@@ -48,9 +48,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 44877,
-    numberOfPeriods: 459595,
-    periodUnit: "Year",
   });
 
   console.log(result);
@@ -78,9 +75,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 44877,
-    numberOfPeriods: 459595,
-    periodUnit: "Year",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -161,9 +155,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 555812,
-    numberOfPeriods: 292320,
-    periodUnit: "Day",
   });
 
   console.log(result);
@@ -191,9 +182,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 555812,
-    numberOfPeriods: 292320,
-    periodUnit: "Day",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -266,9 +254,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 402759,
-    numberOfPeriods: 976344,
-    periodUnit: "Day",
   });
 
   console.log(result);
@@ -296,9 +281,6 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     reportDate: "29-09-2020",
-    periodLength: 402759,
-    numberOfPeriods: 976344,
-    periodUnit: "Day",
   });
   if (res.ok) {
     const { value: result } = res;

@@ -8,7 +8,7 @@ Reference to the item the line is linked to.
 import { ItemReference } from "@codat/lending/sdk/models/shared";
 
 let value: ItemReference = {
-  id: "<id>",
+  id: "string",
 };
 ```
 

@@ -199,3 +199,20 @@ Based on:
 - [typescript v7.6.0] lending
 ### Releases
 - [NPM v7.6.0] https://www.npmjs.com/package/@codat/lending/v/7.6.0 - lending
+
+## 2026-08-25
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Lending.yaml
+- Codat SDK Codegen
+### Generated
+- [typescript v8.0.0] lending
+### Releases
+- [NPM v8.0.0] https://www.npmjs.com/package/@codat/lending/v/8.0.0 - lending
+
+### Notes
+**Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/lending/sdk/models/shared/accountbalance.js`, no longer works - import from `@codat/lending/sdk/models/shared` or the package root instead.
+
+The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `AccountBalanceFromJSON`, `AccountBalanceToJSON` and `instanceOfAccountBalance`.
+
+`SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.

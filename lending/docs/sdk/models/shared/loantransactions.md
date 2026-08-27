@@ -4,7 +4,6 @@
 
 ```typescript
 import { LoanTransactions } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: LoanTransactions = {
   reportInfo: {
@@ -28,8 +27,9 @@ let value: LoanTransactions = {
         type: "journalEntry",
       },
       date: "2020-08-02",
-      amount: new Decimal("-455"),
+      amount: -455,
       lender: "Barclays Bank",
+      transactionType: "Repayment",
     },
   ],
 };

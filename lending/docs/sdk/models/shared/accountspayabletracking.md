@@ -10,11 +10,12 @@ import { AccountsPayableTracking } from "@codat/lending/sdk/models/shared";
 let value: AccountsPayableTracking = {
   categoryRefs: [
     {
-      id: "<id>",
+      id: "string",
+      name: "string",
     },
   ],
-  isBilledTo: "Project",
-  isRebilledTo: "Customer",
+  isBilledTo: "string",
+  isRebilledTo: "string",
 };
 ```
 

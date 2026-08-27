@@ -14,4 +14,4 @@ let value: ReportComponentMeasure = {};
 | --------------------------- | --------------------------- | --------------------------- | --------------------------- |
 | `index`                     | *number*                    | :heavy_minus_sign:          | The measure's index.        |
 | `measureDisplayName`        | *string*                    | :heavy_minus_sign:          | The measure's display name. |
-| `value`                     | *Decimal*                   | :heavy_minus_sign:          | The measure's value.        |
+| `value`                     | *Decimal | number*          | :heavy_minus_sign:          | The measure's value.        |

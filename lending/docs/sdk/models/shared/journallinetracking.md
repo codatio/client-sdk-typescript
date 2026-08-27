@@ -7,13 +7,7 @@ List of record refs associated with the tracking information for the line (eg to
 ```typescript
 import { JournalLineTracking } from "@codat/lending/sdk/models/shared";
 
-let value: JournalLineTracking = {
-  recordRefs: [
-    {
-      dataType: "trackingCategories",
-    },
-  ],
-};
+let value: JournalLineTracking = {};
 ```
 
 ## Fields

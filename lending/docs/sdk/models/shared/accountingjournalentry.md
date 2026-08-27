@@ -25,7 +25,6 @@ In Codat a journal entry contains details of:
 
 ```typescript
 import { AccountingJournalEntry } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: AccountingJournalEntry = {
   modifiedDate: "2022-10-23T00:00:00Z",
@@ -33,22 +32,6 @@ let value: AccountingJournalEntry = {
   postedOn: "2022-10-23T00:00:00Z",
   createdOn: "2022-10-23T00:00:00Z",
   updatedOn: "2022-10-23T00:00:00Z",
-  journalLines: [
-    {
-      netAmount: new Decimal("8534.44"),
-      accountRef: {},
-      tracking: {
-        recordRefs: [
-          {
-            dataType: "trackingCategories",
-          },
-        ],
-      },
-    },
-  ],
-  recordRef: {
-    dataType: "transfers",
-  },
 };
 ```
 

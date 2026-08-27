@@ -9,17 +9,7 @@ Responses are paged, so you should provide `page` and `pageSize` query parameter
 ```typescript
 import { BankingAccount } from "@codat/lending/sdk/models/shared";
 
-let value: BankingAccount = {
-  id: "<id>",
-  name: "<value>",
-  type: "Unknown",
-  balance: {},
-  identifiers: {
-    type: "Card",
-  },
-  currency: "Sri Lanka Rupee",
-  institution: {},
-};
+let value: BankingAccount = {};
 ```
 
 ## Fields

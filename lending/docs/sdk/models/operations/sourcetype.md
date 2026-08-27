@@ -1,17 +1,15 @@
 # SourceType
 
-Data source type.
-
 ## Example Usage
 
 ```typescript
 import { SourceType } from "@codat/lending/sdk/models/operations";
 
-let value: SourceType = "banking";
+let value: SourceType = "";
 ```
 
 ## Values
 
 ```typescript
-"banking" | "commerce" | "accounting"
+
 ```

@@ -8,12 +8,14 @@ Categories, and a project and customer, against which the item is tracked.
 import { AccountsReceivableTracking } from "@codat/lending/sdk/models/shared";
 
 let value: AccountsReceivableTracking = {
-  categoryRefs: [],
-  isBilledTo: "Unknown",
-  isRebilledTo: "Project",
-  recordRef: {
-    dataType: "journalEntry",
-  },
+  categoryRefs: [
+    {
+      id: "string",
+      name: "string",
+    },
+  ],
+  isBilledTo: "string",
+  isRebilledTo: "string",
 };
 ```
 

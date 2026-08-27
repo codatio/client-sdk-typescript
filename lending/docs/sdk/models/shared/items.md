@@ -4,11 +4,10 @@
 
 ```typescript
 import { Items } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: Items = {
-  name: "<value>",
-  amount: new Decimal("6638.92"),
+  name: "string",
+  amount: 0,
 };
 ```
 
@@ -17,4 +16,4 @@ let value: Items = {
 | Field                          | Type                           | Required                       | Description                    |
 | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------ |
 | `name`                         | *string*                       | :heavy_check_mark:             | Name assigned to withheld tax. |
-| `amount`                       | *Decimal*                      | :heavy_check_mark:             | Amount of tax withheld.        |
+| `amount`                       | *Decimal | number*             | :heavy_check_mark:             | Amount of tax withheld.        |

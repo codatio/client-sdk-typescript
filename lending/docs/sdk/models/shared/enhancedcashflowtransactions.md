@@ -10,7 +10,6 @@ The Enhanced Cash Flow Transactions endpoint provides a fully categorized list o
 
 ```typescript
 import { EnhancedCashFlowTransactions } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: EnhancedCashFlowTransactions = {
   reportInfo: {
@@ -33,7 +32,19 @@ let value: EnhancedCashFlowTransactions = {
           accountName: "Business Current Account",
           accountType: "Debit",
           currency: "USD",
-          currentBalance: new Decimal("1000"),
+          currentBalance: 1000,
+          id: "4f78a6b0-e9bb-40f2-82fd-f3a2daa1fd0a",
+          identifiers: [
+            {
+              type: "Debit",
+              subType: "Current",
+              number: 12345678,
+              bankCode: 123456,
+              iban: "US123456789",
+              bic: "US123456789",
+              maskedAccountNumber: 1234,
+            },
+          ],
         },
         {
           sourceRef: {
@@ -44,7 +55,19 @@ let value: EnhancedCashFlowTransactions = {
           accountName: "Business Saving Account",
           accountType: "Debit",
           currency: "USD",
-          currentBalance: new Decimal("5321"),
+          currentBalance: 5321,
+          id: "12345678-1234-1234-1234-123456789012",
+          identifiers: [
+            {
+              type: "Debit",
+              subType: "Saving",
+              number: 87654321,
+              bankCode: 654321,
+              iban: "US987654321",
+              bic: "US987654321",
+              maskedAccountNumber: 4321,
+            },
+          ],
         },
       ],
     },
@@ -61,14 +84,14 @@ let value: EnhancedCashFlowTransactions = {
           id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
           date: "2023-01-25",
           description: "Payment to supplier",
-          amount: new Decimal("100"),
+          amount: 100,
           currency: "USD",
           transactionCategory: {
-            confidence: new Decimal("92.7"),
+            confidence: 92.7,
             confidences: [
-              new Decimal("92.7"),
-              new Decimal("95"),
-              new Decimal("96"),
+              92.7,
+              95,
+              96,
             ],
             levels: [
               "Asset",
@@ -95,9 +118,9 @@ let value: EnhancedCashFlowTransactions = {
           id: "3fa85f64-5717-4562-b3fc-2c963f66afa6",
           date: "2023-01-25",
           description: "Payment to supplier",
-          amount: new Decimal("100"),
+          amount: 100,
           currency: "USD",
-          transactionCategory: {},
+          transactionCategory: "None",
           platformName: "Plaid",
           counterpartyNames: [],
           accountRef: {
@@ -105,6 +128,15 @@ let value: EnhancedCashFlowTransactions = {
             name: "Business Saving Account",
           },
           modifiedDate: "2023-01-25T22:36:05.125Z",
+          confidence: 92.7,
+          levels: [
+            "Expense",
+            "Operating",
+          ],
+          confidences: [
+            92.7,
+            95,
+          ],
         },
       ],
     },

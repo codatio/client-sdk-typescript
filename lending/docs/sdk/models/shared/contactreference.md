@@ -6,7 +6,7 @@
 import { ContactReference } from "@codat/lending/sdk/models/shared";
 
 let value: ContactReference = {
-  id: "<id>",
+  id: "string",
 };
 ```
 

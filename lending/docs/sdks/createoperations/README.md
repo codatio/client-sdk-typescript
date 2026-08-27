@@ -24,7 +24,6 @@ const codatLending = new CodatLending({
 async function run() {
   const result = await codatLending.loanWriteback.createOperations.get({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
 
   console.log(result);
@@ -50,7 +49,6 @@ const codatLending = new CodatLendingCore({
 async function run() {
   const res = await loanWritebackCreateOperationsGet(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
-    pushOperationKey: "23a26d56-6e3d-4414-865c-4fa7ebbb43e3",
   });
   if (res.ok) {
     const { value: result } = res;

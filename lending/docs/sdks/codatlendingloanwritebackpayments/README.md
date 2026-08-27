@@ -717,7 +717,6 @@ Required data may vary by integration. To see what data to post, first call [Get
 <!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Malformed query" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -730,7 +729,6 @@ async function run() {
     accountingPayment: {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      accountRef: {},
       paymentMethodRef: {
         id: "EILBDVJVNUAGVKRQ",
         name: "AliPay",
@@ -739,7 +737,6 @@ async function run() {
       date: "2022-10-23T00:00:00Z",
       lines: [
         {
-          amount: new Decimal("9098.82"),
           allocatedOnDate: "2022-10-23T00:00:00Z",
         },
       ],
@@ -759,7 +756,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -774,7 +770,6 @@ async function run() {
     accountingPayment: {
       modifiedDate: "2022-10-23T00:00:00Z",
       sourceModifiedDate: "2022-10-23T00:00:00Z",
-      accountRef: {},
       paymentMethodRef: {
         id: "EILBDVJVNUAGVKRQ",
         name: "AliPay",
@@ -783,7 +778,6 @@ async function run() {
       date: "2022-10-23T00:00:00Z",
       lines: [
         {
-          amount: new Decimal("9098.82"),
           allocatedOnDate: "2022-10-23T00:00:00Z",
         },
       ],
@@ -804,7 +798,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="QuickBooks Desktop" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -827,20 +820,20 @@ async function run() {
         id: "string",
         name: "string",
       },
-      totalAmount: new Decimal("28"),
+      totalAmount: 28,
       currency: "USD",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       date: "2023-02-10T11:47:04.792Z",
       note: "note 14/02 1147",
       lines: [
         {
-          amount: new Decimal("28"),
+          amount: 28,
           links: [
             {
               type: "Invoice",
               id: "181-1676374586",
-              amount: new Decimal("-28"),
-              currencyRate: new Decimal("1"),
+              amount: -28,
+              currencyRate: 1,
             },
           ],
           allocatedOnDate: "2023-02-11T11:47:04.792Z",
@@ -863,7 +856,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -888,20 +880,20 @@ async function run() {
         id: "string",
         name: "string",
       },
-      totalAmount: new Decimal("28"),
+      totalAmount: 28,
       currency: "USD",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       date: "2023-02-10T11:47:04.792Z",
       note: "note 14/02 1147",
       lines: [
         {
-          amount: new Decimal("28"),
+          amount: 28,
           links: [
             {
               type: "Invoice",
               id: "181-1676374586",
-              amount: new Decimal("-28"),
-              currencyRate: new Decimal("1"),
+              amount: -28,
+              currencyRate: 1,
             },
           ],
           allocatedOnDate: "2023-02-11T11:47:04.792Z",
@@ -925,7 +917,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Sage 50 (UK)" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -946,20 +937,20 @@ async function run() {
       paymentMethodRef: {
         id: "4405",
       },
-      totalAmount: new Decimal("4"),
+      totalAmount: 4,
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       date: "2023-03-17T11:47:04.792Z",
       note: "note 07/03 14.31",
       lines: [
         {
-          amount: new Decimal("4"),
+          amount: 4,
           links: [
             {
               type: "Invoice",
               id: "INV-31",
-              amount: new Decimal("-4"),
-              currencyRate: new Decimal("1"),
+              amount: -4,
+              currencyRate: 1,
             },
           ],
           allocatedOnDate: "2023-02-11T11:47:04.792Z",
@@ -982,7 +973,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1005,20 +995,20 @@ async function run() {
       paymentMethodRef: {
         id: "4405",
       },
-      totalAmount: new Decimal("4"),
+      totalAmount: 4,
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       date: "2023-03-17T11:47:04.792Z",
       note: "note 07/03 14.31",
       lines: [
         {
-          amount: new Decimal("4"),
+          amount: 4,
           links: [
             {
               type: "Invoice",
               id: "INV-31",
-              amount: new Decimal("-4"),
-              currencyRate: new Decimal("1"),
+              amount: -4,
+              currencyRate: 1,
             },
           ],
           allocatedOnDate: "2023-02-11T11:47:04.792Z",
@@ -1042,7 +1032,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Sage Business Cloud Accounting" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1061,20 +1050,20 @@ async function run() {
         id: "9a25937b267a11e797950a57719b2edb",
         name: "Current",
       },
-      totalAmount: new Decimal("0.17"),
+      totalAmount: 0.17,
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       date: "2023-03-20T11:47:04.792Z",
       note: "Need to send products asap.",
       lines: [
         {
-          amount: new Decimal("0.17"),
+          amount: 0.17,
           links: [
             {
               type: "Invoice",
               id: "bb85db9226d7450fb99eb83e7fb37505",
-              amount: new Decimal("-0.17"),
-              currencyRate: new Decimal("1"),
+              amount: -0.17,
+              currencyRate: 1,
             },
           ],
           allocatedOnDate: "2023-02-11T11:47:04.792Z",
@@ -1097,7 +1086,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1118,20 +1106,20 @@ async function run() {
         id: "9a25937b267a11e797950a57719b2edb",
         name: "Current",
       },
-      totalAmount: new Decimal("0.17"),
+      totalAmount: 0.17,
       currency: "GBP",
-      currencyRate: new Decimal("1"),
+      currencyRate: 1,
       date: "2023-03-20T11:47:04.792Z",
       note: "Need to send products asap.",
       lines: [
         {
-          amount: new Decimal("0.17"),
+          amount: 0.17,
           links: [
             {
               type: "Invoice",
               id: "bb85db9226d7450fb99eb83e7fb37505",
-              amount: new Decimal("-0.17"),
-              currencyRate: new Decimal("1"),
+              amount: -0.17,
+              currencyRate: 1,
             },
           ],
           allocatedOnDate: "2023-02-11T11:47:04.792Z",
@@ -1155,7 +1143,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-payment" method="post" path="/companies/{companyId}/connections/{connectionId}/push/payments" example="Sage Intacct" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -1172,21 +1159,21 @@ async function run() {
       accountRef: {
         id: "81",
       },
-      totalAmount: new Decimal("0"),
+      totalAmount: 0,
       date: "2022-03-12T00:00:00",
       lines: [
         {
-          amount: new Decimal("0"),
+          amount: 0,
           links: [
             {
               type: "Invoice",
               id: "246",
-              amount: new Decimal("-1.1"),
+              amount: -1.1,
             },
             {
               type: "CreditNote",
               id: "280",
-              amount: new Decimal("1.1"),
+              amount: 1.1,
             },
           ],
         },
@@ -1207,7 +1194,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackPaymentsCreate } from "@codat/lending/funcs/loanWritebackPaymentsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -1226,21 +1212,21 @@ async function run() {
       accountRef: {
         id: "81",
       },
-      totalAmount: new Decimal("0"),
+      totalAmount: 0,
       date: "2022-03-12T00:00:00",
       lines: [
         {
-          amount: new Decimal("0"),
+          amount: 0,
           links: [
             {
               type: "Invoice",
               id: "246",
-              amount: new Decimal("-1.1"),
+              amount: -1.1,
             },
             {
               type: "CreditNote",
               id: "280",
-              amount: new Decimal("1.1"),
+              amount: 1.1,
             },
           ],
         },

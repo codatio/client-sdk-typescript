@@ -4,7 +4,6 @@
 
 ```typescript
 import { DataIntegrityStatus } from "@codat/lending/sdk/models/shared";
-import { Decimal } from "@codat/lending/sdk/types";
 
 let value: DataIntegrityStatus = {
   type: "string",
@@ -24,8 +23,8 @@ let value: DataIntegrityStatus = {
     ],
   },
   amounts: {
-    min: new Decimal("130"),
-    max: new Decimal("2450"),
+    min: 130,
+    max: 2450,
     currency: "GBP",
   },
   dates: {

@@ -1,20 +1,16 @@
 # PropertieItemRef
 
-Reference to the item the line is linked to.
-
 ## Example Usage
 
 ```typescript
 import { PropertieItemRef } from "@codat/lending/sdk/models/shared";
 
-let value: PropertieItemRef = {
-  id: "<id>",
-};
+let value: PropertieItemRef = {};
 ```
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `id`                                                       | *string*                                                   | :heavy_check_mark:                                         | Unique identifier for the item in the accounting software. |
-| `name`                                                     | *string*                                                   | :heavy_minus_sign:                                         | Name of the item in the accounting software.               |
+| Field              | Type               | Required           | Description        |
+| ------------------ | ------------------ | ------------------ | ------------------ |
+| `id`               | *string*           | :heavy_check_mark: | N/A                |
+| `name`             | *string*           | :heavy_minus_sign: | N/A                |

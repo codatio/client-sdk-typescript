@@ -8,17 +8,6 @@ import { AgedDebtor } from "@codat/lending/sdk/models/shared";
 let value: AgedDebtor = {
   customerId: "f594cefb-7750-4c3a-bab2-b5322026dee9",
   customerName: "John Doe",
-  agedCurrencyOutstanding: [
-    {
-      currency: "GBP",
-      agedOutstandingAmounts: [
-        {
-          fromDate: "2022-10-23T00:00:00Z",
-          toDate: "2022-10-23T00:00:00Z",
-        },
-      ],
-    },
-  ],
 };
 ```
 

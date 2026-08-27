@@ -1,17 +1,15 @@
 # ReportOperationStatus
 
-The status of the report generation.
-
 ## Example Usage
 
 ```typescript
 import { ReportOperationStatus } from "@codat/lending/sdk/models/shared";
 
-let value: ReportOperationStatus = "Complete";
+let value: ReportOperationStatus = "";
 ```
 
 ## Values
 
 ```typescript
-"InProgress" | "Complete" | "Error"
+
 ```

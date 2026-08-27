@@ -29,11 +29,6 @@ async function run() {
   const result = await codatLending.loanWriteback.sourceAccounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
 
   console.log(result);
@@ -60,11 +55,6 @@ async function run() {
   const res = await loanWritebackSourceAccountsCreate(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -81,7 +71,6 @@ run();
 <!-- UsageSnippet language="typescript" operationID="create-source-account" method="post" path="/companies/{companyId}/connections/{connectionId}/connectionInfo/bankFeedAccounts" example="Version 1" -->
 ```typescript
 import { CodatLending } from "@codat/lending";
-import { Decimal } from "@codat/lending/sdk/types";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -91,16 +80,6 @@ async function run() {
   const result = await codatLending.loanWriteback.sourceAccounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "acc-002",
-      accountName: "account-081",
-      accountType: "Credit",
-      accountNumber: "12345670",
-      sortCode: "123456",
-      currency: "GBP",
-      balance: new Decimal("99.99"),
-      modifiedDate: "2023-01-09T14:14:14.1057478Z",
-    },
   });
 
   console.log(result);
@@ -116,7 +95,6 @@ The standalone function version of this method:
 ```typescript
 import { CodatLendingCore } from "@codat/lending/core.js";
 import { loanWritebackSourceAccountsCreate } from "@codat/lending/funcs/loanWritebackSourceAccountsCreate.js";
-import { Decimal } from "@codat/lending/sdk/types";
 
 // Use `CodatLendingCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
@@ -128,16 +106,6 @@ async function run() {
   const res = await loanWritebackSourceAccountsCreate(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "acc-002",
-      accountName: "account-081",
-      accountType: "Credit",
-      accountNumber: "12345670",
-      sortCode: "123456",
-      currency: "GBP",
-      balance: new Decimal("99.99"),
-      modifiedDate: "2023-01-09T14:14:14.1057478Z",
-    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -163,11 +131,6 @@ async function run() {
   const result = await codatLending.loanWriteback.sourceAccounts.create({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
 
   console.log(result);
@@ -194,11 +157,6 @@ async function run() {
   const res = await loanWritebackSourceAccountsCreate(codatLending, {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
-    requestBody: {
-      id: "<id>",
-      currency: "GBP",
-      modifiedDate: "2022-10-23T00:00:00Z",
-    },
   });
   if (res.ok) {
     const { value: result } = res;
