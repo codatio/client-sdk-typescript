@@ -119,3 +119,20 @@ Based on:
 - [typescript v9.3.2] sync-for-payables
 ### Releases
 - [NPM v9.3.2] https://www.npmjs.com/package/@codat/sync-for-payables/v/9.3.2 - sync-for-payables
+
+## 2026-08-25
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+- Codat SDK Codegen
+### Generated
+- [typescript v10.0.0] sync-for-payables
+### Releases
+- [NPM v10.0.0] https://www.npmjs.com/package/@codat/sync-for-payables/v/10.0.0 - sync-for-payables
+
+### Notes
+**Breaking:** only the paths listed in `exports` in `package.json` resolve now. Importing a file by its path inside the package, for example `@codat/sync-for-payables/sdk/models/shared/accountmappingoption.js`, no longer works - import from `@codat/sync-for-payables/sdk/models/shared` or the package root instead.
+
+The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `AccountMappingOptionFromJSON`, `AccountMappingOptionToJSON` and `instanceOfAccountMappingOption`.
+
+`SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.

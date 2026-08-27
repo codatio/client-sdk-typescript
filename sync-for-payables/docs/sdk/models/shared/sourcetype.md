@@ -7,11 +7,11 @@ The type of platform of the connection.
 ```typescript
 import { SourceType } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: SourceType = "Accounting";
+let value: SourceType = "";
 ```
 
 ## Values
 
 ```typescript
-"Accounting" | "Banking" | "BankFeed" | "Commerce" | "Expense" | "Other" | "Unknown"
+
 ```
