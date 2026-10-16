@@ -1,22 +1,15 @@
 # Platform
 
-<!-- Start Codat Library Description -->
 Manage the building blocks of Codat, including companies, connections, and more.
-<!-- End Codat Library Description -->
 
-<!-- Start Summary [summary] -->
 ## Summary
 
-Platform API: Platform API
-
-An API for the common components of all of Codat's products.
+Platform API: An API for the common components of all of Codat's products.
 
 These end points cover creating and managing your companies, data connections, and integrations.
 
-[Read about the building blocks of Codat...](https://docs.codat.io/core-concepts/companies) | [See our OpenAPI spec](https://github.com/codatio/oas) 
+[Explore solution](https://docs.codat.io/core-concepts/companies) | [See OpenAPI spec](https://github.com/codatio/oas)
 
----
-<!-- Start Codat Tags Table -->
 ## Endpoints
 
 | Endpoints | Description |
@@ -31,31 +24,24 @@ These end points cover creating and managing your companies, data connections, a
 | Push data | Initiate and monitor Create, Update, and Delete operations. |
 | Supplemental data | Configure and pull additional data you can include in Codat's standard data types. |
 | Custom data type | Configure and pull additional data types that are not included in Codat's standardized data model. |
-<!-- End Codat Tags Table -->
-<!-- End Summary [summary] -->
 
-<!-- Start Table of Contents [toc] -->
 ## Table of Contents
-<!-- $toc-max-depth=2 -->
-* [Platform](#platform)
-  * [Endpoints](#endpoints)
-  * [SDK Installation](#sdk-installation)
-  * [Example Usage](#example-usage)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Standalone functions](#standalone-functions)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Authentication](#authentication)
-  * [Requirements](#requirements)
-  * [Debugging](#debugging)
-  * [Support](#support)
 
-<!-- End Table of Contents [toc] -->
+* [Summary](#summary)
+* [Endpoints](#endpoints)
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+* [Support](#support)
 
-<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
@@ -83,10 +69,11 @@ bun add @codat/platform
 ```bash
 yarn add @codat/platform
 ```
-<!-- End SDK Installation [installation] -->
 
-## Example Usage
-<!-- Start SDK Example Usage [usage] -->
+## Requirements
+
+For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+
 ## SDK Example Usage
 
 ### Example
@@ -109,11 +96,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 <details open>
@@ -205,13 +189,10 @@ run();
 * [listConsumers](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
 * [createConsumer](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 * [deleteConsumer](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
+* [rotateZapierKey](docs/sdks/webhooks/README.md#rotatezapierkey) - Rotate Zapier key
 
 </details>
-<!-- End Available Resources and Operations [operations] -->
 
-
-
-<!-- Start Standalone functions [standalone-funcs] -->
 ## Standalone functions
 
 All the methods listed above are available as standalone functions. These
@@ -238,12 +219,15 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`companiesReplace`](docs/sdks/companies/README.md#replace) - Replace company
 - [`companiesSetCompanySyncSettings`](docs/sdks/companies/README.md#setcompanysyncsettings) - Set company sync settings
 - [`companiesUpdate`](docs/sdks/companies/README.md#update) - Update company
+- ~~[`connectionManagementGet`](docs/sdks/connectionmanagement/README.md#get)~~ - Get access token (old) :warning: **Deprecated** Use [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) instead.
 - [`connectionsCreate`](docs/sdks/connections/README.md#create) - Create connection
 - [`connectionsDelete`](docs/sdks/connections/README.md#delete) - Delete connection
 - [`connectionsGet`](docs/sdks/connections/README.md#get) - Get connection
 - [`connectionsList`](docs/sdks/connections/README.md#list) - List connections
 - [`connectionsUnlink`](docs/sdks/connections/README.md#unlink) - Unlink connection
 - [`connectionsUpdateAuthorization`](docs/sdks/connections/README.md#updateauthorization) - Update authorization
+- ~~[`corsGet`](docs/sdks/cors/README.md#get)~~ - Get CORS settings (old) :warning: **Deprecated** Use [`settingsGet`](docs/sdks/settings/README.md#get) instead.
+- ~~[`corsSet`](docs/sdks/cors/README.md#set)~~ - Set CORS settings (old) :warning: **Deprecated** Use [`settingsSet`](docs/sdks/settings/README.md#set) instead.
 - [`customDataTypeConfigure`](docs/sdks/customdatatype/README.md#configure) - Configure custom data type
 - [`customDataTypeGetConfiguration`](docs/sdks/customdatatype/README.md#getconfiguration) - Get custom data configuration
 - [`customDataTypeList`](docs/sdks/customdatatype/README.md#list) - List custom data type records
@@ -274,17 +258,13 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`webhooksCreateConsumer`](docs/sdks/webhooks/README.md#createconsumer) - Create webhook consumer
 - [`webhooksDeleteConsumer`](docs/sdks/webhooks/README.md#deleteconsumer) - Delete webhook consumer
 - [`webhooksListConsumers`](docs/sdks/webhooks/README.md#listconsumers) - List webhook consumers
-- ~~[`connectionManagementGet`](docs/sdks/connectionmanagement/README.md#get)~~ - Get access token (old) :warning: **Deprecated** Use [`companiesGetAccessToken`](docs/sdks/companies/README.md#getaccesstoken) instead.
-- ~~[`corsGet`](docs/sdks/cors/README.md#get)~~ - Get CORS settings (old) :warning: **Deprecated** Use [`settingsGet`](docs/sdks/settings/README.md#get) instead.
-- ~~[`corsSet`](docs/sdks/cors/README.md#set)~~ - Set CORS settings (old) :warning: **Deprecated** Use [`settingsSet`](docs/sdks/settings/README.md#set) instead.
+- [`webhooksRotateZapierKey`](docs/sdks/webhooks/README.md#rotatezapierkey) - Rotate Zapier key
 
 </details>
-<!-- End Standalone functions [standalone-funcs] -->
 
-<!-- Start Retries [retries] -->
 ## Retries
 
-Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+Every operation in this SDK retries failed requests with a default backoff strategy. By default it retries connection errors and responses with status 408, 429 or 5XX, starting at 500 ms and backing off by a factor of 1.5 up to 60 s between attempts, for at most an hour. You can override the retry strategy for a single call, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
@@ -316,10 +296,9 @@ async function run() {
 }
 
 run();
-
 ```
 
-If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+If you'd like to override the default retry strategy for all operations, you can provide a retryConfig at SDK initialization:
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
@@ -348,11 +327,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Retries [retries] -->
 
-<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 [`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts) is the base class for all HTTP error responses. It has the following properties:
@@ -405,33 +381,24 @@ async function run() {
 }
 
 run();
-
 ```
 
 ### Error Classes
 **Primary errors:**
 * [`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts): The base class for HTTP error responses.
-  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): Your `query` parameter was not correctly formed.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): A Codat API error response. Its structured fields are on `error.data$`.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (1)</summary>
 
 <br />
 
-**Network errors:**
-* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
-* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
-* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
-* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
-* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
-
-
 **Inherit from [`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts)**:
-* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+* [`SDKError`](./src/sdk/models/errors/sdkerror.ts): The fallback error class if no more specific error class is matched.
 
 </details>
-<!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection [server] -->
+Network failures and timeouts are thrown as `FetchError`, with the original error, such as a `TypeError` or a `TimeoutError`, on `error.cause`. Input that does not match the expected model is thrown as `SDKValidationError`. Neither extends [`CodatPlatformError`](./src/sdk/models/errors/codatplatformerror.ts).
+
 ## Server Selection
 
 ### Override Server URL Per-Client
@@ -456,11 +423,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Server Selection [server] -->
 
-<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
 The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
@@ -511,9 +475,7 @@ httpClient.addHook("requestError", (error, request) => {
 
 const sdk = new CodatPlatform({ httpClient: httpClient });
 ```
-<!-- End Custom HTTP Client [http-client] -->
 
-<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -543,37 +505,22 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Authentication [security] -->
 
-<!-- Start Requirements [requirements] -->
-## Requirements
-
-For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
-<!-- End Requirements [requirements] -->
-
-<!-- Start Debugging [debug] -->
 ## Debugging
 
-You can setup your SDK to emit debug logs for SDK requests and responses.
+You can set up your SDK to log the method and URL of each request and the status of each response.
 
 You can pass a logger that matches `console`'s interface as an SDK option.
-
-> [!WARNING]
-> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
 import { CodatPlatform } from "@codat/platform";
 
 const sdk = new CodatPlatform({ debugLogger: console });
 ```
-<!-- End Debugging [debug] -->
 
-<!-- Start Codat Support Notes -->
 ## Support
 
-If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
+If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance.
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).
 We're here to help ensure a smooth experience for you.
-<!-- End Codat Support Notes -->

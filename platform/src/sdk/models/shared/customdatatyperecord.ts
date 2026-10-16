@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { Content } from '../_speakeasy_hoisted';
+import type { Content } from '../_internal_hoisted';
 import { mapValues } from '../../../runtime';
 import type { ModifiedDate } from './modifieddate';
 import {

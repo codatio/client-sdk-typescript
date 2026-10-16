@@ -150,7 +150,7 @@ export class BaseAPI {
             rememberRequest(response, url, init);
             return response;
         }
-        throw await buildSpeakeasyError(url, init, response, context.errorStatuses);
+        throw await buildSdkError(url, init, response, context.errorStatuses);
     }
 
     private async createFetchParams(context: RequestOpts, options?: RequestOptions) {
@@ -289,12 +289,12 @@ function isBlob(value: any): value is Blob {
 
 /* Bytes in a JSON body go on the wire base64-encoded, as a JSON string. JSON.stringify on its own
  * turns a Uint8Array into an object keyed by index ({"0":123,"1":125}), which is neither what the
- * API reads nor what Speakeasy sends, so identical caller code would send different bytes. */
+ * API reads nor what earlier SDK versions sent, so identical caller code would send different bytes. */
 function replaceBytesWithBase64(_key: string, value: unknown): unknown {
     return value instanceof Uint8Array ? bytesToBase64(value) : value;
 }
 
-/* A byte at a time: spreading the whole array into String.fromCodePoint, as Speakeasy does, throws
+/* A byte at a time: spreading the whole array into String.fromCodePoint throws
  * RangeError once the payload is a few hundred KB. The encoded output is the same. */
 function bytesToBase64(bytes: Uint8Array): string {
     let binary = '';
@@ -334,7 +334,7 @@ export class ResponseError extends Error {
     }
 }
 
-async function buildSpeakeasyError(url: string, init: RequestInit, response: Response, errorStatuses?: number[]): Promise<Error> {
+async function buildSdkError(url: string, init: RequestInit, response: Response, errorStatuses?: number[]): Promise<Error> {
     const httpResponse = response ?? new Response(null, { status: 500 });
     const body = response ? await response.clone().text() : "";
     const httpMeta = { response: httpResponse, request: new Request(url, { method: init.method }), body };

@@ -252,3 +252,13 @@ Based on:
 The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `ApiKeyDetailsFromJSON`, `ApiKeyDetailsToJSON` and `instanceOfApiKeyDetails`.
 
 `SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.
+
+## 2026-10-16 14:58:11
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Platform.yaml
+- codat sdk-codegen 421ee46357004185edfc4f70f3699963e19d21ce
+### Generated
+- [typescript v8.0.0] platform
+### Releases
+- [NPM v8.0.0] https://www.npmjs.com/package/@codat/platform/v/8.0.0 - platform

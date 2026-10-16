@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { DatasetStatus } from '../_speakeasy_enums';
+import type { DatasetStatus } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Information about a queued, in progress or completed pull operation.
