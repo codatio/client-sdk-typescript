@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { BankAccountsBankAccountType } from './_speakeasy_enums';
+import type { BankAccountsBankAccountType } from './_internal_enums';
 import { mapValues } from '../../runtime';
 import { Decimal, toDecimal, fromDecimal } from '../../runtime';
 import type { SupplementalData } from './shared/supplementaldata';

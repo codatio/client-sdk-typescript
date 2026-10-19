@@ -81,8 +81,8 @@ export * from './shared/targetaccountoption';
 export * from './UpdateConnection';
 export * from './shared/validation';
 export * from './shared/validationitem';
-export * from './_speakeasy_enums';
-export * from './_speakeasy_hoisted';
+export * from './_internal_enums';
+export * from './_internal_hoisted';
 export type { Security } from '../../lib/sdkconfig';
 
 export type { ListCompaniesRequest } from './operations/listcompanies';

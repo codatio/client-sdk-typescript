@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { SourceType } from '../_speakeasy_enums';
+import type { SourceType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 import type { DataConnectionStatus } from './dataconnectionstatus';
 import {

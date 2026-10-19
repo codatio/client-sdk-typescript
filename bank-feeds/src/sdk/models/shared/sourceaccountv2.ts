@@ -12,8 +12,8 @@
  * Do not edit the class manually.
  */
 
-import type { SourceAccountV2AccountType } from '../_speakeasy_enums';
-import type { Status } from '../_speakeasy_enums';
+import type { SourceAccountV2AccountType } from '../_internal_enums';
+import type { Status } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 import { Decimal, toDecimal, fromDecimal } from '../../../runtime';
 import type { AccountInfo } from './accountinfo';
