@@ -12,9 +12,9 @@
  * Do not edit the class manually.
  */
 
-import type { ValidFor } from '../_speakeasy_enums';
-import type { ValidTransactionTypes } from '../_speakeasy_enums';
-import type { AccountMappingInfoAccountType } from '../_speakeasy_enums';
+import type { ValidFor } from '../_internal_enums';
+import type { ValidTransactionTypes } from '../_internal_enums';
+import type { AccountMappingInfoAccountType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

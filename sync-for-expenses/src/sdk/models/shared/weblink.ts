@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { CompanyInformationType } from '../_speakeasy_enums';
+import type { CompanyInformationType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Weblink associated with the company.

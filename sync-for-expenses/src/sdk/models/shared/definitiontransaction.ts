@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { TransactionStatus1 } from '../_speakeasy_enums';
+import type { TransactionStatus1 } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

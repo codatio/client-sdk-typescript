@@ -12,8 +12,8 @@
  * Do not edit the class manually.
  */
 
-import type { CompanyInformationPhoneNumbersType } from '../_speakeasy_enums';
-import type { ItemsType } from '../_speakeasy_enums';
+import type { CompanyInformationPhoneNumbersType } from '../_internal_enums';
+import type { ItemsType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

@@ -13,7 +13,7 @@
  */
 
 import type { UpdateCustomerResponseAccountingCustomer } from './customer';
-import type { PropertieDataType } from '../_speakeasy_enums';
+import type { PropertieDataType } from '../_internal_enums';
 import type { Company } from './company';
 import type { Customers } from './customers';
 import type { Items } from './items';
