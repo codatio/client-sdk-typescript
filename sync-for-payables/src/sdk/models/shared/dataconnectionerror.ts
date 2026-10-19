@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { ErrorStatus } from '../_speakeasy_enums';
+import type { ErrorStatus } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

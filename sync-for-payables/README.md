@@ -1,10 +1,57 @@
-﻿# Sync for Payables
+# Sync for Payables
 
-<!-- Start Codat Library Description -->
 Streamline your customers' accounts payable workflow.
-<!-- End Codat Library Description -->
 
-<!-- Start SDK Installation [installation] -->
+## Summary
+
+Bill pay (synchronous solution): The API reference for the synchronous Bill Pay solution.
+
+The synchronous Bill Pay solution is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
+
+[Explore solution](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
+
+## Supported Integrations
+
+| Integration       | Supported |
+|-------------------|-----------|
+| FreeAgent         | Yes       |
+| QuickBooks Online | Yes       |
+| Oracle NetSuite   | Yes       |
+| Sage Intacct      | Yes       |
+| Xero              | Yes       |
+| Zoho Books        | Yes       |
+
+## Endpoints
+
+| Endpoints | Description |
+| :- |:- |
+| Companies | Create and manage your SMB users' companies. |
+| Connections | Create new and manage existing data connections for a company. |
+| Company information | View company profile from the source platform. |
+| Bills | Get, create, and update Bills. |
+| Bill payments | Get, create, and update Bill payments. |
+| Suppliers | Get, create, and update Suppliers. |
+| Bank accounts | Create a bank account for a given company's connection. |
+
+## Table of Contents
+
+* [Summary](#summary)
+* [Supported Integrations](#supported-integrations)
+* [Endpoints](#endpoints)
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [File uploads](#file-uploads)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+* [Support](#support)
+
 ## SDK Installation
 
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
@@ -32,10 +79,11 @@ bun add @codat/sync-for-payables
 ```bash
 yarn add @codat/sync-for-payables
 ```
-<!-- End SDK Installation [installation] -->
 
-## Example Usage
-<!-- Start SDK Example Usage [usage] -->
+## Requirements
+
+For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+
 ## SDK Example Usage
 
 ### Example
@@ -58,11 +106,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 <details open>
@@ -115,74 +160,7 @@ run();
 * [update](docs/sdks/suppliers/README.md#update) - Update supplier
 
 </details>
-<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Summary [summary] -->
-## Summary
-
-Bill pay (synchronous solution): The API reference for the synchronous Bill Pay solution. 
-
-The synchronous Bill Pay solution is an API and a set of supporting tools designed to integrate a bill pay flow into your app as quickly as possible. It's ideal for facilitating essential bill payment processes within your SMB's accounting software.
-
-[Explore solution](https://docs.codat.io/payables/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
-
----
-## Supported Integrations
-
-| Integration                   | Supported |
-|-------------------------------|-----------|
-| FreeAgent                     | Yes       |
-| QuickBooks Online             | Yes       |
-| Oracle NetSuite               | Yes       |
-| Sage Intacct                  | Yes       |
-| Xero                          | Yes       |
-| Zoho Books                    | Yes       |
-
----
-<!-- Start Codat Tags Table -->
-## Endpoints
-
-| Endpoints | Description |
-| :- |:- |
-| Companies | Create and manage your SMB users' companies. |
-| Connections | Create new and manage existing data connections for a company. |
-| Company information | View company profile from the source platform. |
-| Bills | Get, create, and update Bills. |
-| Bill payments | Get, create, and update Bill payments. |
-| Suppliers | Get, create, and update Suppliers. |
-| Bank accounts | Create a bank account for a given company's connection. |
-<!-- End Codat Tags Table -->
-<!-- End Summary [summary] -->
-
-<!-- Start Table of Contents [toc] -->
-## Table of Contents
-<!-- $toc-max-depth=2 -->
-  * [SDK Installation](#sdk-installation)
-  * [Example Usage](#example-usage)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Supported Integrations](#supported-integrations)
-  * [Endpoints](#endpoints)
-  * [Requirements](#requirements)
-  * [Standalone functions](#standalone-functions)
-  * [File uploads](#file-uploads)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Authentication](#authentication)
-  * [Debugging](#debugging)
-  * [Support](#support)
-
-<!-- End Table of Contents [toc] -->
-
-<!-- Start Requirements [requirements] -->
-## Requirements
-
-For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
-<!-- End Requirements [requirements] -->
-
-<!-- Start Standalone functions [standalone-funcs] -->
 ## Standalone functions
 
 All the methods listed above are available as standalone functions. These
@@ -224,24 +202,22 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`suppliersUpdate`](docs/sdks/suppliers/README.md#update) - Update supplier
 
 </details>
-<!-- End Standalone functions [standalone-funcs] -->
 
-<!-- Start File uploads [file-upload] -->
 ## File uploads
 
-Certain SDK methods accept files as part of a multi-part request. It is possible and typically recommended to upload files as a stream rather than reading the entire contents into memory. This avoids excessive memory consumption and potentially crashing with out-of-memory errors when working with very large files. The following example demonstrates how to attach a file stream to a request.
+Certain SDK methods accept files as part of a multi-part request. Pass the file's contents as a `Blob` (including a `File`), an `ArrayBuffer` or a `Uint8Array`. A raw `ReadableStream` is not supported. The following example demonstrates how to attach a file to a request.
 
 > [!TIP]
 >
-> Depending on your JavaScript runtime, there are convenient utilities that return a handle to a file without reading the entire contents into memory:
+> Depending on your JavaScript runtime, there are convenient utilities that return a `Blob` handle to a file without reading the entire contents into memory up front:
 >
 > - **Node.js v20+:** Since v20, Node.js comes with a native `openAsBlob` function in [`node:fs`](https://nodejs.org/docs/latest-v20.x/api/fs.html#fsopenasblobpath-options).
-> - **Bun:** The native [`Bun.file`](https://bun.sh/docs/api/file-io#reading-files-bun-file) function produces a file handle that can be used for streaming file uploads.
+> - **Bun:** The native [`Bun.file`](https://bun.sh/docs/api/file-io#reading-files-bun-file) function returns a `Blob` for a file.
 > - **Browsers:** All supported browsers return an instance to a [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) when reading the value from an `<input type="file">` element.
-> - **Node.js v18:** A file stream can be created using the `fileFrom` helper from [`fetch-blob/from.js`](https://www.npmjs.com/package/fetch-blob).
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
+import { openAsBlob } from "node:fs";
 
 const codatSyncPayables = new CodatSyncPayables({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -252,20 +228,23 @@ async function run() {
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
     billId: "13d946f0-c5d5-42bc-b092-97ece17923ab",
+    attachmentUpload: {
+      file: {
+        fileName: "example.file",
+        content: await openAsBlob("example.file"),
+      },
+    },
   });
 
   console.log(result);
 }
 
 run();
-
 ```
-<!-- End File uploads [file-upload] -->
 
-<!-- Start Retries [retries] -->
 ## Retries
 
-Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+Every operation in this SDK retries failed requests with a default backoff strategy. By default it retries connection errors and responses with status 408, 429 or 5XX, starting at 500 ms and backing off by a factor of 1.5 up to 60 s between attempts, for at most an hour. You can override the retry strategy for a single call, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
@@ -297,10 +276,9 @@ async function run() {
 }
 
 run();
-
 ```
 
-If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+If you'd like to override the default retry strategy for all operations, you can provide a retryConfig at SDK initialization:
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
@@ -329,11 +307,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Retries [retries] -->
 
-<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts) is the base class for all HTTP error responses. It has the following properties:
@@ -386,33 +361,24 @@ async function run() {
 }
 
 run();
-
 ```
 
 ### Error Classes
 **Primary errors:**
 * [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts): The base class for HTTP error responses.
-  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): Your `query` parameter was not correctly formed.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): A Codat API error response. Its structured fields are on `error.data$`.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (1)</summary>
 
 <br />
 
-**Network errors:**
-* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
-* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
-* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
-* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
-* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
-
-
 **Inherit from [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts)**:
-* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+* [`SDKError`](./src/sdk/models/errors/sdkerror.ts): The fallback error class if no more specific error class is matched.
 
 </details>
-<!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection [server] -->
+Network failures and timeouts are thrown as `FetchError`, with the original error, such as a `TypeError` or a `TimeoutError`, on `error.cause`. Input that does not match the expected model is thrown as `SDKValidationError`. Neither extends [`CodatSyncPayablesError`](./src/sdk/models/errors/codatsyncpayableserror.ts).
+
 ## Server Selection
 
 ### Override Server URL Per-Client
@@ -437,11 +403,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Server Selection [server] -->
 
-<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
 The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
@@ -492,9 +455,7 @@ httpClient.addHook("requestError", (error, request) => {
 
 const sdk = new CodatSyncPayables({ httpClient: httpClient });
 ```
-<!-- End Custom HTTP Client [http-client] -->
 
-<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -524,31 +485,22 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Authentication [security] -->
 
-<!-- Start Debugging [debug] -->
 ## Debugging
 
-You can setup your SDK to emit debug logs for SDK requests and responses.
+You can set up your SDK to log the method and URL of each request and the status of each response.
 
 You can pass a logger that matches `console`'s interface as an SDK option.
-
-> [!WARNING]
-> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
 import { CodatSyncPayables } from "@codat/sync-for-payables";
 
 const sdk = new CodatSyncPayables({ debugLogger: console });
 ```
-<!-- End Debugging [debug] -->
 
-<!-- Start Codat Support Notes -->
 ## Support
 
-If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
+If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance.
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).
 We're here to help ensure a smooth experience for you.
-<!-- End Codat Support Notes -->
