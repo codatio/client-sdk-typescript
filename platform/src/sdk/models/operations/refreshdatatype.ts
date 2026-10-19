@@ -1,6 +1,6 @@
 /* tslint:disable */
 
-import type { SchemaDataType } from '../_speakeasy_enums';
+import type { SchemaDataType } from '../_internal_enums';
 import type { DataType } from '../DataType';
 /* eslint-disable */
 

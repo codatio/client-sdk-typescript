@@ -118,6 +118,12 @@ export interface CompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -160,6 +166,7 @@ export function CompanyDetailsFromJSONTyped(json: any, ignoreDiscriminator: bool
         ...(json['createdByUserName'] !== undefined ? { 'createdByUserName': json['createdByUserName'] } : {}),
         ...(json['products'] !== undefined ? { 'products': json['products'] == null ? undefined : json['products'] } : {}),
         ...(json['tags'] !== undefined ? { 'tags': json['tags'] == null ? undefined : json['tags'] } : {}),
+        ...(json['ownerUserIds'] !== undefined ? { 'ownerUserIds': json['ownerUserIds'] == null ? undefined : json['ownerUserIds'] } : {}),
         ...(json['referenceParentCompany'] !== undefined ? { 'referenceParentCompany': json['referenceParentCompany'] == null ? undefined : CompanyReferenceFromJSON(json['referenceParentCompany']) } : {}),
         ...(json['referenceSubsidiaryCompanies'] !== undefined ? { 'referenceSubsidiaryCompanies': json['referenceSubsidiaryCompanies'] == null ? undefined : ((json['referenceSubsidiaryCompanies'] as Array<any>).map(CompanyReferenceFromJSON)) } : {}),
     };
@@ -185,6 +192,7 @@ export function CompanyDetailsToJSONTyped(value?: CompanyDetails | null, ignoreD
         'createdByUserName': value['createdByUserName'],
         'products': value['products'],
         'tags': value['tags'],
+        'ownerUserIds': value['ownerUserIds'],
         'referenceParentCompany': CompanyReferenceToJSON(value['referenceParentCompany']),
         'referenceSubsidiaryCompanies': value['referenceSubsidiaryCompanies'] == null ? undefined : ((value['referenceSubsidiaryCompanies'] as Array<any>).map(CompanyReferenceToJSON)),
     };
@@ -282,6 +290,12 @@ export interface CompaniesCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
@@ -388,6 +402,12 @@ export interface CompaniesListResponseCompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -492,6 +512,12 @@ export interface CompanyCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
@@ -598,6 +624,12 @@ export interface CompanyCreateResponseCompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -702,6 +734,12 @@ export interface CompanyGetResponseCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
@@ -808,6 +846,12 @@ export interface CompanyReplaceResponseCompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -912,6 +956,12 @@ export interface CompanyUpdateResponseCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
@@ -1018,6 +1068,12 @@ export interface CompanyWebhookCompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -1122,6 +1178,12 @@ export interface CreateCompanyResponseCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
@@ -1228,6 +1290,12 @@ export interface GetCompanyResponseCompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -1332,6 +1400,12 @@ export interface ListCompaniesResponseCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
@@ -1438,6 +1512,12 @@ export interface ReplaceCompanyResponseCompanyDetails {
      */
     tags?: { [key: string]: string; };
     /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
+    /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}
      * @memberof CompanyDetails
@@ -1542,6 +1622,12 @@ export interface UpdateCompanyResponseCompanyDetails {
      * @memberof CompanyDetails
      */
     tags?: { [key: string]: string; };
+    /**
+     * The IDs of the users assigned as owners of the company in the Codat Portal. Empty if the company has no owners assigned. Owners are managed in the Codat Portal and can't be set via the API.
+     * @type {Array<string>}
+     * @memberof CompanyDetails
+     */
+    ownerUserIds?: Array<string>;
     /**
      * The parent entity or controlling organization of this company. Null if the company has no parent.
      * @type {CompanyReference}

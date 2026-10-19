@@ -44,4 +44,4 @@ export * from './updatecompany';
 export * from './updateconnectionauthorization';
 export * from './updateprofilesyncsettings';
 export { DataType } from '../DataType';
-export { PathParamDataType } from '../_speakeasy_enums';
+export { PathParamDataType } from '../_internal_enums';

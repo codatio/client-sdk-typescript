@@ -13,7 +13,7 @@
  */
 
 import type { Status } from './status';
-import type { DataTypes } from '../_speakeasy_enums';
+import type { DataTypes } from '../_internal_enums';
 import type { Company } from './company';
 import { mapValues } from '../../../runtime';
 /**
