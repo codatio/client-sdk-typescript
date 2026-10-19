@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { DataTypes } from './_speakeasy_enums';
+import type { DataTypes } from './_internal_enums';
 import type { Bills } from './shared/bills';
 import type { Company } from './shared/company';
 import type { Suppliers } from './shared/suppliers';

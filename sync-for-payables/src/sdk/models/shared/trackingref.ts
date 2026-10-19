@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { DataType } from '../_speakeasy_enums';
+import type { DataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

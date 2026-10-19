@@ -7,7 +7,9 @@ Reference to the bank account / credit card which you are using to pay the bill.
 ```typescript
 import { BillPaymentAccountRef } from "@codat/sync-for-payables/sdk/models/shared";
 
-let value: BillPaymentAccountRef = {};
+let value: BillPaymentAccountRef = {
+  id: "string",
+};
 ```
 
 ## Fields

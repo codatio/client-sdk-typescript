@@ -4,10 +4,7 @@
 /bin
 /.eslintcache
 .DS_Store
-**/.speakeasy/temp/
-**/.speakeasy/logs/
 .DS_Store
-/.speakeasy/reports
 .env
 .env.local
 .env.*.local

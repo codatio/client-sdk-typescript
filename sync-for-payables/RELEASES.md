@@ -136,3 +136,13 @@ Based on:
 The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `AccountMappingOptionFromJSON`, `AccountMappingOptionToJSON` and `instanceOfAccountMappingOption`.
 
 `SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.
+
+## 2026-10-19 13:56:43
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Sync-Payables.yaml
+- codat sdk-codegen 7673baa1d48819dacf73940319858f8a84ab5a0a
+### Generated
+- [typescript v11.0.0] sync-for-payables
+### Releases
+- [NPM v11.0.0] https://www.npmjs.com/package/@codat/sync-for-payables/v/11.0.0 - sync-for-payables
