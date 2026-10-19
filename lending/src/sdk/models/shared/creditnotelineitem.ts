@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { PropertieItemRef } from '../_speakeasy_hoisted';
+import type { PropertieItemRef } from '../_internal_hoisted';
 import { mapValues } from '../../../runtime';
 import { Decimal, toDecimal, fromDecimal } from '../../../runtime';
 import type { ItemReference } from './itemreference';

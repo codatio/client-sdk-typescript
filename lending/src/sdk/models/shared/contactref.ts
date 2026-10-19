@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { ContactRefDataType } from '../_speakeasy_enums';
+import type { ContactRefDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { StartUploadSessionRequestDataType } from '../_speakeasy_enums';
+import type { StartUploadSessionRequestDataType } from '../_internal_enums';
 import type { Accounts } from './accounts';
 import { mapValues } from '../../../runtime';
 /**

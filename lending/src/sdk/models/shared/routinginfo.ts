@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { RoutingInfoType } from '../_speakeasy_enums';
+import type { RoutingInfoType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Routing information for the bank. This does not include account number.

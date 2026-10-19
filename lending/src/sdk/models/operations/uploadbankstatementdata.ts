@@ -1,6 +1,6 @@
 /* tslint:disable */
 
-import type { Path } from '../_speakeasy_enums';
+import type { Path } from '../_internal_enums';
 import type { UploadBankStatementDataRequestBody } from './uploadbankstatementdatarequestbody';
 /* eslint-disable */
 

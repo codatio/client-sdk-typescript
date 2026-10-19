@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { AccountingInvoiceDataType } from '../_speakeasy_enums';
+import type { AccountingInvoiceDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

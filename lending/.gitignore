@@ -1,7 +1,5 @@
 /examples/node_modules
 .DS_Store
-**/.speakeasy/temp/
-**/.speakeasy/logs/
 .DS_Store
 .env
 .env.local
@@ -10,7 +8,6 @@
 /bin
 /.eslintcache
 /react-query
-/.speakeasy/reports
 /models
 /sdk/models/errors
 /sdk/types

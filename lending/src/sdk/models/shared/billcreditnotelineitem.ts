@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { Zero } from '../_speakeasy_hoisted';
+import type { Zero } from '../_internal_hoisted';
 import { mapValues } from '../../../runtime';
 import { Decimal, toDecimal, fromDecimal } from '../../../runtime';
 import type { AccountsPayableTracking } from './accountspayabletracking';

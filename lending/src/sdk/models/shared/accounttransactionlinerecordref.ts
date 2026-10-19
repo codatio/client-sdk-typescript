@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { AccountTransactionLineRecordRefDataType } from '../_speakeasy_enums';
+import type { AccountTransactionLineRecordRefDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Links an account transaction line to the underlying record that created it.

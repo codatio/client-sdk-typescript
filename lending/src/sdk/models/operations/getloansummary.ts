@@ -1,6 +1,6 @@
 /* tslint:disable */
 
-import type { GetLoanSummaryQueryParamSourceType } from '../_speakeasy_enums';
+import type { GetLoanSummaryQueryParamSourceType } from '../_internal_enums';
 /* eslint-disable */
 
 export interface GetLoanSummaryRequest {

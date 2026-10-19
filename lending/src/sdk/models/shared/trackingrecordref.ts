@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { TrackingRecordRefDataType } from '../_speakeasy_enums';
+import type { TrackingRecordRefDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Links to the customer or tracking category.

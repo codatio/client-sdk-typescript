@@ -49,7 +49,7 @@ export interface ListCommerceProductCategoriesRequest {
 export class ProductCategories extends runtime.BaseAPI {
 
     /**
-     * The *Get product* endpoint returns a single product for a given productId.  [Product categories](https://docs.codat.io/lending-api#/schemas/ProductCategory) are used to classify a group of products together, either by type (e.g. \"Furniture\"), or sometimes by tax profile.  Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data). 
+     * The *Get product category* endpoint returns a single product category for a given productId.  [Product categories](https://docs.codat.io/lending-api#/schemas/ProductCategory) are used to classify a group of products together, either by type (e.g. \"Furniture\"), or sometimes by tax profile.  Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data). 
      * Get product category
      */
     private async getCommerceProductCategoryRaw(requestParameters: GetCommerceProductCategoryRequest, options?: runtime.RequestOptions): Promise<runtime.ApiResponse<CommerceProductCategory>> {
@@ -96,7 +96,7 @@ export class ProductCategories extends runtime.BaseAPI {
     }
 
     /**
-     * The *Get product* endpoint returns a single product for a given productId.  [Product categories](https://docs.codat.io/lending-api#/schemas/ProductCategory) are used to classify a group of products together, either by type (e.g. \"Furniture\"), or sometimes by tax profile.  Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data). 
+     * The *Get product category* endpoint returns a single product category for a given productId.  [Product categories](https://docs.codat.io/lending-api#/schemas/ProductCategory) are used to classify a group of products together, either by type (e.g. \"Furniture\"), or sometimes by tax profile.  Before using this endpoint, you must have [retrieved data for the company](https://docs.codat.io/lending-api#/operations/refresh-company-data). 
      * Get product category
      */
     async get(requestParameters: GetCommerceProductCategoryRequest, options?: runtime.RequestOptions): Promise<CommerceProductCategory> {

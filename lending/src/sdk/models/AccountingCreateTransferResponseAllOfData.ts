@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { AccountingTransferStatus } from './_speakeasy_enums';
+import type { AccountingTransferStatus } from './_internal_enums';
 import { mapValues } from '../../runtime';
 import type { TrackingCategoryRef } from './shared/trackingcategoryref';
 import {

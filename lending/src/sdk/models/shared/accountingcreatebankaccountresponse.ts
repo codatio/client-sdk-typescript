@@ -13,7 +13,7 @@
  */
 
 import type { AccountingCreateBankAccountResponseAccountingBankAccount } from './accountingbankaccount';
-import type { PropertieDataType } from '../_speakeasy_enums';
+import type { PropertieDataType } from '../_internal_enums';
 import type { BalanceSheet } from './balancesheet';
 import type { BankingAccountBalances } from './bankingaccountbalances';
 import type { BankingAccounts } from './bankingaccounts';

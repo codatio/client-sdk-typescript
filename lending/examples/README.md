@@ -21,11 +21,5 @@ This directory contains example scripts demonstrating how to use the @codat/lend
 To run an example file from the examples directory:
 
 ```bash
-npm run build && npx tsx example.ts
+npm run build && npx tsx companiesList.example.ts
 ```
-
-## Creating new examples
-
-Duplicate an existing example file, they won't be overwritten by the generation process.
-
-

@@ -95,7 +95,7 @@ run();
 
 ## get
 
-The *Get product* endpoint returns a single product for a given productId.
+The *Get product category* endpoint returns a single product category for a given productId.
 
 [Product categories](https://docs.codat.io/lending-api#/schemas/ProductCategory) are used to classify a group of products together, either by type (e.g. "Furniture"), or sometimes by tax profile.
 

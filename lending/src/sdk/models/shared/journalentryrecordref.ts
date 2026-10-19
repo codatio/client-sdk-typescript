@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { JournalEntryRecordRefDataType } from '../_speakeasy_enums';
+import type { JournalEntryRecordRefDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Links a journal entry to the underlying record that created it.

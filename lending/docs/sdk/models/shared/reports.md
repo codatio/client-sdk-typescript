@@ -5,7 +5,11 @@
 ```typescript
 import { Reports } from "@codat/lending/sdk/models/shared";
 
-let value: Reports = {};
+let value: Reports = {
+  pageNumber: 0,
+  pageSize: 0,
+  totalResults: 0,
+};
 ```
 
 ## Fields
