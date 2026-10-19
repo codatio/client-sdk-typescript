@@ -1,6 +1,6 @@
 /* tslint:disable */
 
-import type { PeriodUnit } from '../_speakeasy_enums';
+import type { PeriodUnit } from '../_internal_enums';
 /* eslint-disable */
 
 export interface GetCommerceRefundsReportRequest {

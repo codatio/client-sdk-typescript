@@ -1,6 +1,6 @@
 /* tslint:disable */
 
-import type { DataIntegrityDataType } from '../_speakeasy_enums';
+import type { DataIntegrityDataType } from '../_internal_enums';
 /* eslint-disable */
 
 export interface ListDataIntegrityDetailsRequest {

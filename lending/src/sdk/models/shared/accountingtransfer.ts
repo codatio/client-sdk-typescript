@@ -12,8 +12,8 @@
  * Do not edit the class manually.
  */
 
-import type { AccountingCreateTransferResponseStatus } from '../_speakeasy_enums';
-import type { AccountingTransferStatus } from '../_speakeasy_enums';
+import type { AccountingCreateTransferResponseStatus } from '../_internal_enums';
+import type { AccountingTransferStatus } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 import type { TrackingCategoryRef } from './trackingcategoryref';
 import {

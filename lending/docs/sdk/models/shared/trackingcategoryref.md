@@ -7,7 +7,9 @@ References a category against which the item is tracked.
 ```typescript
 import { TrackingCategoryRef } from "@codat/lending/sdk/models/shared";
 
-let value: TrackingCategoryRef = {};
+let value: TrackingCategoryRef = {
+  id: "string",
+};
 ```
 
 ## Fields

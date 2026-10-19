@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:parent": "cd .. && npm i && npm run build && cd -",
+    "build:parent": "npm --prefix .. install && npm --prefix .. run build",
     "build:examples": "npm i",
     "build": "npm run build:parent && npm run build:examples"
   },

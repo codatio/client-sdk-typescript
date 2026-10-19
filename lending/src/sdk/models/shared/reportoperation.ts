@@ -12,8 +12,8 @@
  * Do not edit the class manually.
  */
 
-import type { ReportOperationStatus } from '../_speakeasy_enums';
-import type { ReportOperationType } from '../_speakeasy_enums';
+import type { ReportOperationStatus } from '../_internal_enums';
+import type { ReportOperationType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Information about report generation.

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { AccountingAccountTransactionStatus } from '../_speakeasy_enums';
+import type { AccountingAccountTransactionStatus } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 import { Decimal, toDecimal, fromDecimal } from '../../../runtime';
 import type { Metadata } from './metadata';

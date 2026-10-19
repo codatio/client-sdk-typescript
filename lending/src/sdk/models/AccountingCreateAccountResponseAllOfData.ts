@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { AccountType } from './_speakeasy_enums';
+import type { AccountType } from './_internal_enums';
 import { mapValues } from '../../runtime';
 import { Decimal, toDecimal, fromDecimal } from '../../runtime';
 import type { AccountStatus } from './shared/accountstatus';

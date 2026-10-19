@@ -1,10 +1,7 @@
 # Lending
 
-<!-- Start Codat Library Description -->
 Lending helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from the operating systems they are already using. You can use that data for automating decisioning and surfacing new insights on the customer, all via one API.
-<!-- End Codat Library Description -->
 
-<!-- Start Summary [summary] -->
 ## Summary
 
 Lending: Our Lending solution helps you make smarter credit decisions on small businesses by enabling you to pull your customers' latest data from accounting, banking, and commerce software they are already using. It also includes features to help providers verify the accuracy of data and process it more efficiently.
@@ -13,7 +10,6 @@ The Lending solution is built on top of the latest accounting, commerce, and ban
 
 [Explore solution](https://docs.codat.io/lending/overview) | [See OpenAPI spec](https://github.com/codatio/oas)
 
-<!-- Start Codat Tags Table -->
 ## Endpoints
 
 | Endpoints | Description |
@@ -33,32 +29,25 @@ The Lending solution is built on top of the latest accounting, commerce, and ban
 | Manage data | Control how data is retrieved from an integration. |
 | File upload | Endpoints to manage uploaded files. |
 | Loan writeback | Implement the [loan writeback](https://docs.codat.io/lending/guides/loan-writeback/introduction) procedure in your lending process to maintain an accurate position of a loan during the entire lending cycle. |
-<!-- End Codat Tags Table -->
-<!-- End Summary [summary] -->
 
-<!-- Start Table of Contents [toc] -->
 ## Table of Contents
-<!-- $toc-max-depth=2 -->
-* [Lending](#lending)
-  * [Endpoints](#endpoints)
-  * [SDK Installation](#sdk-installation)
-  * [Example Usage](#example-usage)
-  * [Requirements](#requirements)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Standalone functions](#standalone-functions)
-  * [File uploads](#file-uploads)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Authentication](#authentication)
-  * [Debugging](#debugging)
-  * [Support](#support)
 
-<!-- End Table of Contents [toc] -->
+* [Summary](#summary)
+* [Endpoints](#endpoints)
+* [SDK Installation](#sdk-installation)
+* [Requirements](#requirements)
+* [SDK Example Usage](#sdk-example-usage)
+* [Available Resources and Operations](#available-resources-and-operations)
+* [Standalone functions](#standalone-functions)
+* [File uploads](#file-uploads)
+* [Retries](#retries)
+* [Error Handling](#error-handling)
+* [Server Selection](#server-selection)
+* [Custom HTTP Client](#custom-http-client)
+* [Authentication](#authentication)
+* [Debugging](#debugging)
+* [Support](#support)
 
-<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
@@ -86,16 +75,11 @@ bun add @codat/lending
 ```bash
 yarn add @codat/lending
 ```
-<!-- End SDK Installation [installation] -->
 
-## Example Usage
-<!-- Start Requirements [requirements] -->
 ## Requirements
 
 For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
-<!-- End Requirements [requirements] -->
 
-<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
 ### Example
@@ -118,11 +102,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End SDK Example Usage [usage] -->
 
-<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
 <details open>
@@ -206,14 +187,6 @@ run();
 * [isAgedCreditorsAvailable](docs/sdks/codatlendingreports/README.md#isagedcreditorsavailable) - Aged creditors report available
 * [getAgedCreditors](docs/sdks/codatlendingreports/README.md#getagedcreditors) - Aged creditors report
 
-### [BankStatements](docs/sdks/bankstatements/README.md)
-
-* [getUploadConfiguration](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
-* [setUploadConfiguration](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
-* [startUploadSession](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
-* [uploadBankStatementData](docs/sdks/bankstatements/README.md#uploadbankstatementdata) - Upload data
-* [endUploadSession](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
-
 ### [Banking.AccountBalances](docs/sdks/accountbalances/README.md)
 
 * [list](docs/sdks/accountbalances/README.md#list) - List account balances
@@ -236,6 +209,17 @@ run();
 
 * [list](docs/sdks/codatlendingtransactions/README.md#list) - List transactions
 * [get](docs/sdks/codatlendingtransactions/README.md#get) - Get bank transaction
+
+### [BankStatements](docs/sdks/bankstatements/README.md)
+
+* [getUploadConfiguration](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
+* [setUploadConfiguration](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
+* [startUploadSession](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
+* [uploadBankStatementData](docs/sdks/bankstatements/README.md#uploadbankstatementdata) - Upload data
+* [endUploadSession](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
+* [getCategorizedBankStatementTransactions](docs/sdks/bankstatements/README.md#getcategorizedbankstatementtransactions) - Get categorized bank statement transactions
+* [listCategorizedBankStatementAccounts](docs/sdks/bankstatements/README.md#listcategorizedbankstatementaccounts) - List categorized bank statement accounts
+* [downloadCategorizedBankStatementExcel](docs/sdks/bankstatements/README.md#downloadcategorizedbankstatementexcel) - Download categorized bank statement Excel
 
 ### [Companies](docs/sdks/companies/README.md)
 
@@ -296,6 +280,11 @@ run();
 * [getCategorizedAccounts](docs/sdks/profitandloss/README.md#getcategorizedaccounts) - Get categorized profit and loss statement
 * [get](docs/sdks/profitandloss/README.md#get) - Get profit and loss
 
+### [FinancialSummary](docs/sdks/financialsummary/README.md)
+
+* [downloadCreditModelExcel](docs/sdks/financialsummary/README.md#downloadcreditmodelexcel) - Download credit model Excel
+* [getFinancialSummary](docs/sdks/financialsummary/README.md#getfinancialsummary) - Get financial summary insights
+
 ### [Liabilities](docs/sdks/liabilities/README.md)
 
 * [generateLoanTransactions](docs/sdks/liabilities/README.md#generateloantransactions) - Generate loan transactions report
@@ -349,11 +338,6 @@ run();
 * [getCreateModel](docs/sdks/codatlendingtransfers/README.md#getcreatemodel) - Get create transfer model
 * [create](docs/sdks/codatlendingtransfers/README.md#create) - Create transfer
 
-### [ManageReports](docs/sdks/managereports/README.md)
-
-* [generateReport](docs/sdks/managereports/README.md#generatereport) - Generate report
-* [listReports](docs/sdks/managereports/README.md#listreports) - List reports
-
 ### [ManageData](docs/sdks/managedata/README.md)
 
 * [getStatus](docs/sdks/managedata/README.md#getstatus) - Get data status
@@ -367,6 +351,12 @@ run();
 
 * [allDataTypes](docs/sdks/refresh/README.md#alldatatypes) - Refresh all data
 * [dataType](docs/sdks/refresh/README.md#datatype) - Refresh data type
+
+### [ManageReports](docs/sdks/managereports/README.md)
+
+* [generateReport](docs/sdks/managereports/README.md#generatereport) - Generate report
+* [getReportStatus](docs/sdks/managereports/README.md#getreportstatus) - Get report status
+* [listReports](docs/sdks/managereports/README.md#listreports) - List reports
 
 ### [Sales.Customers](docs/sdks/codatlendingcustomers/README.md)
 
@@ -453,11 +443,7 @@ run();
 * [get](docs/sdks/transfers/README.md#get) - Get transfer
 
 </details>
-<!-- End Available Resources and Operations [operations] -->
 
-
-
-<!-- Start Standalone functions [standalone-funcs] -->
 ## Standalone functions
 
 All the methods listed above are available as standalone functions. These
@@ -514,6 +500,14 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`accountsReceivableReportsGetAgedDebtors`](docs/sdks/codatlendingreports/README.md#getageddebtors) - Aged debtors report
 - [`accountsReceivableReportsIsAgedCreditorsAvailable`](docs/sdks/codatlendingreports/README.md#isagedcreditorsavailable) - Aged creditors report available
 - [`accountsReceivableReportsIsAgedDebtorsAvailable`](docs/sdks/codatlendingreports/README.md#isageddebtorsavailable) - Aged debtors report available
+- [`bankStatementsDownloadCategorizedBankStatementExcel`](docs/sdks/bankstatements/README.md#downloadcategorizedbankstatementexcel) - Download categorized bank statement Excel
+- [`bankStatementsEndUploadSession`](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
+- [`bankStatementsGetCategorizedBankStatementTransactions`](docs/sdks/bankstatements/README.md#getcategorizedbankstatementtransactions) - Get categorized bank statement transactions
+- [`bankStatementsGetUploadConfiguration`](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
+- [`bankStatementsListCategorizedBankStatementAccounts`](docs/sdks/bankstatements/README.md#listcategorizedbankstatementaccounts) - List categorized bank statement accounts
+- [`bankStatementsSetUploadConfiguration`](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
+- [`bankStatementsStartUploadSession`](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
+- [`bankStatementsUploadBankStatementData`](docs/sdks/bankstatements/README.md#uploadbankstatementdata) - Upload data
 - [`bankingAccountBalancesList`](docs/sdks/accountbalances/README.md#list) - List account balances
 - [`bankingAccountsGet`](docs/sdks/codatlendingbankingaccounts/README.md#get) - Get account
 - [`bankingAccountsList`](docs/sdks/codatlendingbankingaccounts/README.md#list) - List accounts
@@ -522,11 +516,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`bankingTransactionCategoriesList`](docs/sdks/transactioncategories/README.md#list) - List transaction categories
 - [`bankingTransactionsGet`](docs/sdks/codatlendingtransactions/README.md#get) - Get bank transaction
 - [`bankingTransactionsList`](docs/sdks/codatlendingtransactions/README.md#list) - List transactions
-- [`bankStatementsEndUploadSession`](docs/sdks/bankstatements/README.md#enduploadsession) - End upload session
-- [`bankStatementsGetUploadConfiguration`](docs/sdks/bankstatements/README.md#getuploadconfiguration) - Get upload configuration
-- [`bankStatementsSetUploadConfiguration`](docs/sdks/bankstatements/README.md#setuploadconfiguration) - Set upload configuration
-- [`bankStatementsStartUploadSession`](docs/sdks/bankstatements/README.md#startuploadsession) - Start upload session
-- [`bankStatementsUploadBankStatementData`](docs/sdks/bankstatements/README.md#uploadbankstatementdata) - Upload data
 - [`companiesCreate`](docs/sdks/companies/README.md#create) - Create company
 - [`companiesDelete`](docs/sdks/companies/README.md#delete) - Delete a company
 - [`companiesGet`](docs/sdks/companies/README.md#get) - Get company
@@ -556,6 +545,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`financialStatementsCashFlowGet`](docs/sdks/cashflow/README.md#get) - Get cash flow statement
 - [`financialStatementsProfitAndLossGet`](docs/sdks/profitandloss/README.md#get) - Get profit and loss
 - [`financialStatementsProfitAndLossGetCategorizedAccounts`](docs/sdks/profitandloss/README.md#getcategorizedaccounts) - Get categorized profit and loss statement
+- [`financialSummaryDownloadCreditModelExcel`](docs/sdks/financialsummary/README.md#downloadcreditmodelexcel) - Download credit model Excel
+- [`financialSummaryGetFinancialSummary`](docs/sdks/financialsummary/README.md#getfinancialsummary) - Get financial summary insights
 - [`liabilitiesGenerateLoanSummary`](docs/sdks/liabilities/README.md#generateloansummary) - Generate loan summaries report
 - [`liabilitiesGenerateLoanTransactions`](docs/sdks/liabilities/README.md#generateloantransactions) - Generate loan transactions report
 - [`liabilitiesGetLoanSummary`](docs/sdks/liabilities/README.md#getloansummary) - Get loan summaries
@@ -585,6 +576,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`manageDataRefreshAllDataTypes`](docs/sdks/refresh/README.md#alldatatypes) - Refresh all data
 - [`manageDataRefreshDataType`](docs/sdks/refresh/README.md#datatype) - Refresh data type
 - [`manageReportsGenerateReport`](docs/sdks/managereports/README.md#generatereport) - Generate report
+- [`manageReportsGetReportStatus`](docs/sdks/managereports/README.md#getreportstatus) - Get report status
 - [`manageReportsListReports`](docs/sdks/managereports/README.md#listreports) - List reports
 - [`salesCustomersGet`](docs/sdks/codatlendingcustomers/README.md#get) - Get customer
 - [`salesCustomersList`](docs/sdks/codatlendingcustomers/README.md#list) - List customers
@@ -624,24 +616,22 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`transactionsTransfersList`](docs/sdks/transfers/README.md#list) - List transfers
 
 </details>
-<!-- End Standalone functions [standalone-funcs] -->
 
-<!-- Start File uploads [file-upload] -->
 ## File uploads
 
-Certain SDK methods accept files as part of a multi-part request. It is possible and typically recommended to upload files as a stream rather than reading the entire contents into memory. This avoids excessive memory consumption and potentially crashing with out-of-memory errors when working with very large files. The following example demonstrates how to attach a file stream to a request.
+Certain SDK methods accept files as part of a multi-part request. Pass the file's contents as a `Blob` (including a `File`), an `ArrayBuffer` or a `Uint8Array`. A raw `ReadableStream` is not supported. The following example demonstrates how to attach a file to a request.
 
 > [!TIP]
 >
-> Depending on your JavaScript runtime, there are convenient utilities that return a handle to a file without reading the entire contents into memory:
+> Depending on your JavaScript runtime, there are convenient utilities that return a `Blob` handle to a file without reading the entire contents into memory up front:
 >
 > - **Node.js v20+:** Since v20, Node.js comes with a native `openAsBlob` function in [`node:fs`](https://nodejs.org/docs/latest-v20.x/api/fs.html#fsopenasblobpath-options).
-> - **Bun:** The native [`Bun.file`](https://bun.sh/docs/api/file-io#reading-files-bun-file) function produces a file handle that can be used for streaming file uploads.
+> - **Bun:** The native [`Bun.file`](https://bun.sh/docs/api/file-io#reading-files-bun-file) function returns a `Blob` for a file.
 > - **Browsers:** All supported browsers return an instance to a [`File`](https://developer.mozilla.org/en-US/docs/Web/API/File) when reading the value from an `<input type="file">` element.
-> - **Node.js v18:** A file stream can be created using the `fileFrom` helper from [`fetch-blob/from.js`](https://www.npmjs.com/package/fetch-blob).
 
 ```typescript
 import { CodatLending } from "@codat/lending";
+import { openAsBlob } from "node:fs";
 
 const codatLending = new CodatLending({
   authHeader: "Basic BASE_64_ENCODED(API_KEY)",
@@ -651,18 +641,21 @@ async function run() {
   await codatLending.fileUpload.upload({
     companyId: "8a210b68-6988-11ed-a1eb-0242ac120002",
     connectionId: "2e9d2c44-f675-40ba-8049-353bfcb5e171",
+    fileUpload: {
+      file: {
+        fileName: "example.file",
+        content: await openAsBlob("example.file"),
+      },
+    },
   });
 }
 
 run();
-
 ```
-<!-- End File uploads [file-upload] -->
 
-<!-- Start Retries [retries] -->
 ## Retries
 
-Some of the endpoints in this SDK support retries.  If you use the SDK without any configuration, it will fall back to the default retry strategy provided by the API.  However, the default retry strategy can be overridden on a per-operation basis, or across the entire SDK.
+Every operation in this SDK retries failed requests with a default backoff strategy. By default it retries connection errors and responses with status 408, 429 or 5XX, starting at 500 ms and backing off by a factor of 1.5 up to 60 s between attempts, for at most an hour. You can override the retry strategy for a single call, or across the entire SDK.
 
 To change the default retry strategy for a single API call, simply provide a retryConfig object to the call:
 ```typescript
@@ -694,10 +687,9 @@ async function run() {
 }
 
 run();
-
 ```
 
-If you'd like to override the default retry strategy for all operations that support retries, you can provide a retryConfig at SDK initialization:
+If you'd like to override the default retry strategy for all operations, you can provide a retryConfig at SDK initialization:
 ```typescript
 import { CodatLending } from "@codat/lending";
 
@@ -726,11 +718,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Retries [retries] -->
 
-<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 [`CodatLendingError`](./src/sdk/models/errors/codatlendingerror.ts) is the base class for all HTTP error responses. It has the following properties:
@@ -783,33 +772,24 @@ async function run() {
 }
 
 run();
-
 ```
 
 ### Error Classes
 **Primary errors:**
 * [`CodatLendingError`](./src/sdk/models/errors/codatlendingerror.ts): The base class for HTTP error responses.
-  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): Your `query` parameter was not correctly formed.
+  * [`ErrorMessage`](./src/sdk/models/errors/errormessage.ts): A Codat API error response. Its structured fields are on `error.data$`.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (1)</summary>
 
 <br />
 
-**Network errors:**
-* [`ConnectionError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
-* [`RequestTimeoutError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
-* [`RequestAbortedError`](./src/sdk/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
-* [`InvalidRequestError`](./src/sdk/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
-* [`UnexpectedClientError`](./src/sdk/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
-
-
 **Inherit from [`CodatLendingError`](./src/sdk/models/errors/codatlendingerror.ts)**:
-* [`ResponseValidationError`](./src/sdk/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+* [`SDKError`](./src/sdk/models/errors/sdkerror.ts): The fallback error class if no more specific error class is matched.
 
 </details>
-<!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection [server] -->
+Network failures and timeouts are thrown as `FetchError`, with the original error, such as a `TypeError` or a `TimeoutError`, on `error.cause`. Input that does not match the expected model is thrown as `SDKValidationError`. Neither extends [`CodatLendingError`](./src/sdk/models/errors/codatlendingerror.ts).
+
 ## Server Selection
 
 ### Override Server URL Per-Client
@@ -834,11 +814,8 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Server Selection [server] -->
 
-<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
 The TypeScript SDK makes API calls using an `HTTPClient` that wraps the native
@@ -889,9 +866,7 @@ httpClient.addHook("requestError", (error, request) => {
 
 const sdk = new CodatLending({ httpClient: httpClient });
 ```
-<!-- End Custom HTTP Client [http-client] -->
 
-<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -921,31 +896,22 @@ async function run() {
 }
 
 run();
-
 ```
-<!-- End Authentication [security] -->
 
-<!-- Start Debugging [debug] -->
 ## Debugging
 
-You can setup your SDK to emit debug logs for SDK requests and responses.
+You can set up your SDK to log the method and URL of each request and the status of each response.
 
 You can pass a logger that matches `console`'s interface as an SDK option.
-
-> [!WARNING]
-> Beware that debug logging will reveal secrets, like API tokens in headers, in log messages printed to a console or files. It's recommended to use this feature only during local development and not in production.
 
 ```typescript
 import { CodatLending } from "@codat/lending";
 
 const sdk = new CodatLending({ debugLogger: console });
 ```
-<!-- End Debugging [debug] -->
 
-<!-- Start Codat Support Notes -->
 ## Support
 
-If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance. 
+If you encounter any challenges while utilizing our SDKs, please don't hesitate to reach out for assistance.
 You can raise any issues by contacting your dedicated Codat representative or reaching out to our [support team](mailto:support@codat.io).
 We're here to help ensure a smooth experience for you.
-<!-- End Codat Support Notes -->

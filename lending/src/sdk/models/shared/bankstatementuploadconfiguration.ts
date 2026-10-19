@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { Source } from '../_speakeasy_enums';
+import type { Source } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Configuration settings for uploading banking data to Codat

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { JournalLineDataType } from '../_speakeasy_enums';
+import type { JournalLineDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * 

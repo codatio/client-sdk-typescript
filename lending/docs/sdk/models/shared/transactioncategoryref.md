@@ -7,7 +7,9 @@ An object of bank transaction category reference data.
 ```typescript
 import { TransactionCategoryRef } from "@codat/lending/sdk/models/shared";
 
-let value: TransactionCategoryRef = {};
+let value: TransactionCategoryRef = {
+  id: "string",
+};
 ```
 
 ## Fields

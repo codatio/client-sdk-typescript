@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { BillLineItemDataType } from '../_speakeasy_enums';
+import type { BillLineItemDataType } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * Links the current record line to the underlying record line that created it. 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { CommercePaymentMethodStatus } from '../_speakeasy_enums';
+import type { CommercePaymentMethodStatus } from '../_internal_enums';
 import { mapValues } from '../../../runtime';
 /**
  * A Payment Method represents the payment method(s) used to make payments.
