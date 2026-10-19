@@ -15,7 +15,7 @@
 
 import * as runtime from '../runtime';
 import type * as shared from '../sdk/models/index';
-import type * as operations from '../sdk/models/_speakeasy_operations';
+import type * as operations from '../sdk/models/_internal_operations';
 import type {
   BankAccountCredentials,
   CreateBatchSourceAccount201ResponseInner,

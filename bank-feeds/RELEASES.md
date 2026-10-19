@@ -814,3 +814,13 @@ Based on:
 The zod validation schemas (`*$inboundSchema` / `*$outboundSchema`) are gone and zod is no longer a dependency. Each model now exports `AccountInfoFromJSON`, `AccountInfoToJSON` and `instanceOfAccountInfo`.
 
 `SDKError.message` now holds the message on its own. The status code, the content type and the response body are still on the error, as `statusCode`, `contentType` and `body`.
+
+## 2026-10-19 10:51:31
+### Changes
+Based on:
+- OpenAPI Doc 3.0.0 https://raw.githubusercontent.com/codatio/oas/main/yaml/Codat-Bank-Feeds.yaml
+- codat sdk-codegen 7673baa1d48819dacf73940319858f8a84ab5a0a
+### Generated
+- [typescript v10.0.0] bank-feeds
+### Releases
+- [NPM v10.0.0] https://www.npmjs.com/package/@codat/bank-feeds/v/10.0.0 - bank-feeds
