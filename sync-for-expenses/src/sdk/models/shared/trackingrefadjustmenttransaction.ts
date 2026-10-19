@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { TrackingRefAdjustmentTransactionDataType } from '../_speakeasy_enums';
+import type { TrackingRefAdjustmentTransactionDataType } from '../_internal_enums';
 import type { Customers } from './customers';
 import type { Suppliers } from './suppliers';
 import { mapValues } from '../../../runtime';

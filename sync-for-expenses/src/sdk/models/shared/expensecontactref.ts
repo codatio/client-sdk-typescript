@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { ExpenseContactRefType } from '../_speakeasy_enums';
+import type { ExpenseContactRefType } from '../_internal_enums';
 import type { Supplier } from './supplier';
 import { mapValues } from '../../../runtime';
 /**

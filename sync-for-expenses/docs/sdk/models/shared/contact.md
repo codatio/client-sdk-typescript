@@ -5,7 +5,9 @@
 ```typescript
 import { Contact } from "@codat/sync-for-expenses/sdk/models/shared";
 
-let value: Contact = {};
+let value: Contact = {
+  status: "string",
+};
 ```
 
 ## Fields
@@ -16,5 +18,5 @@ let value: Contact = {};
 | `email`                                                                     | *string*                                                                    | :heavy_minus_sign:                                                          | Email of a contact for a customer.                                          |
 | `phone`                                                                     | [shared.PhoneNumberItems](../../../sdk/models/shared/phonenumberitems.md)[] | :heavy_minus_sign:                                                          | An array of Phone numbers.                                                  |
 | `address`                                                                   | [shared.Items](../../../sdk/models/shared/items.md)                         | :heavy_minus_sign:                                                          | An object of Address information.                                           |
-| `status`                                                                    | [shared.CustomerStatus](../../../sdk/models/shared/customerstatus.md)       | :heavy_check_mark:                                                          | N/A                                                                         |
+| `status`                                                                    | [shared.CustomerStatus](../../../sdk/models/shared/customerstatus.md)       | :heavy_check_mark:                                                          | Status of customer.                                                         |
 | `modifiedDate`                                                              | *string*                                                                    | :heavy_minus_sign:                                                          | Date of the transfer transaction as recorded in the accounting software.    |

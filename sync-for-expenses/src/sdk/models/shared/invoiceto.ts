@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import type { InvoiceToType } from '../_speakeasy_enums';
+import type { InvoiceToType } from '../_internal_enums';
 import type { Customer } from './customer';
 import { mapValues } from '../../../runtime';
 /**
